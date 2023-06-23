@@ -50,8 +50,11 @@ int VoxelManager::load()
 
     for (int y = 0;y < gw;y++) {
         for (int x = 0;x < gl;x++) {
-            if(img.getPixel(x,y).a != 0) {
+            sf::Color px = img.getPixel(x,y); // Short variable name, we are gonna use this A LOT
+            if(px.a != 0) {
                 grid[x][y].value = 1;
+                if(px.r == 34 && px.g == 196 && px.b == 34) grid[x][y].value = 2;       // <-- Green explosibe thing
+                else if(px.r == 204 && px.g == 223 && px.b == 223 ) grid[x][y].value = 3;
             } else {
                 grid[x][y].value = 0;
             }
@@ -127,19 +130,23 @@ for (int y = 0;y < gw;y++) {
             x1++;
             y1++;
 
-            // TODO Texture
+            
+            sf::Sprite r;
+            r.setTexture(world_tx);
+            r.setPosition(x, y);
+            r.setTextureRect(sf::IntRect(x,y,(float)x1 - (float)x, (float)y1 - (float)y));
             if(indexX < rects.size()) {
-                rects.at(indexX).setTexture(world_tx);
-                rects.at(indexX).setPosition(x, y);
-                rects.at(indexX).setTextureRect(sf::IntRect(x,y,(float)x1 - (float)x, (float)y1 - (float)y));
-            } else {
-                sf::Sprite r;
-                r.setTexture(world_tx);
-                r.setPosition(x, y);
-                r.setTextureRect(sf::IntRect(x,y,(float)x1 - (float)x, (float)y1 - (float)y));
-                rects.push_back(r);
-            }
+                rects.at(indexX) = r;
+            } else rects.push_back(r);
+
             indexX++;
+        }
+    }
+    // Iterate the vector in reverse order
+    for (int i = rects.size() - 1; i >= 0; i--) {
+        if (i > indexX) {
+            // Remove the object at index i
+            rects.erase(rects.begin() + i * sizeof(sf::RectangleShape));
         }
     }
 }
@@ -151,8 +158,37 @@ void VoxelManager::hole(const sf::Vector2i &p, uint32_t intensity)
     for (int y = 0;y < gw;y++) {
         for (int x = 0;x < gl;x++) {
             if(grid[x][y].value == 0) continue;
-            if(sqrt(pow(p.x - x, 2) + ((p.y - y)*(p.y - y))) - math::randFloat()*10 < intensity) {
+            if(sqrt(pow(p.x - x, 2) + ((p.y - y)*(p.y - y))) < intensity) {
+                switch (grid[x][y].value)
+                {
+                case 2:
+                    // Recursive... I dont care
+                    grid[x][y].value = 0;
+                    hole_not_recursive(sf::Vector2i(x,y), 55);
+                    break;
+                case 3:
+                    // Recursive... I dont care
+                    grid[x][y].value = 0;
+                    hole_not_recursive(sf::Vector2i(x,y), 2);
+                default:
+                    break;
+                }
+                
                 grid[x][y].value = 0;
+                
+            }
+        }
+    }
+    merge();
+}
+
+void VoxelManager::hole_not_recursive(const sf::Vector2i &p, uint32_t intensity)
+{
+    for (int y = 0;y < gw;y++) {
+        for (int x = 0;x < gl;x++) {
+            if(grid[x][y].value == 0) continue;
+            if(sqrt(pow(p.x - x, 2) + ((p.y - y)*(p.y - y))) < intensity) {
+                grid[x][y].value = 0; 
             }
         }
     }

@@ -73,12 +73,15 @@ private:
 
 	static void thread_task(VoxelManager& vx_manager, std::list<sf::Vector2i> &pos) {
 		while(true) {
+			bool needtomerge = false;
 			for(auto &p : pos) {
 				vx_manager.hole(p,35);
+				needtomerge = true;
 			}
-			
-			pos.clear();
-			vx_manager.merge();
+			if(needtomerge) {
+				vx_manager.merge();
+				pos.clear();
+			}
 		}
 	}
 };
