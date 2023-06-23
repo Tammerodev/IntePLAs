@@ -4,7 +4,7 @@ void JumpState::enter() {
 }
 
 void JumpState::update(sf::Vector2f&pos,float&yacc,float dt) {
-    yacc = -0.5 * dt;
+    yacc = -5;
     PlayerState::currentState = idleState;
 }
 

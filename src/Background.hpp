@@ -10,11 +10,11 @@ public:
 		background.setPosition(0,0);
 
 		// load only the vertex shader
-		if(bg_shader.loadFromMemory(shader_vert, sf::Shader::Vertex)) res = 0;
+		if(!bg_shader.loadFromMemory(shader_vert, sf::Shader::Vertex)) res = 0;
 		// load only the fragment shader
-		if(bg_shader.loadFromMemory(shader_frag, sf::Shader::Fragment)) res = 0;
+		if(!bg_shader.loadFromMemory(shader_frag, sf::Shader::Fragment)) res = 0;
 		// load both shaders
-		if(bg_shader.loadFromMemory(shader_vert, shader_frag)) res = 0;
+		if(!bg_shader.loadFromMemory(shader_vert, shader_frag)) res = 0;
 		return res;
     }
 
@@ -26,7 +26,7 @@ public:
         bg_shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
         bg_shader.setUniform("resolution", sf::Vector2f(1,1));
     }
-    
+
 private:
     sf::RectangleShape background;
 	sf::Shader bg_shader;
@@ -39,13 +39,20 @@ private:
 		uniform vec2 resolution;
 
 		void main () {
-			vec2 pos = gl_FragCoord.xy;
-			vec4 color;
-			color.a = 1.0;
+            float br = +sin(time) / 2.0;
 
+			vec2 pos = gl_FragCoord.xy;
+
+			vec4 color;
+
+			color.a = 1.0;
 			color.b = 0.5;
-			
 			color.r = pos.y / 1000.0;
+
+            color.r += br;
+            color.g += br;
+            color.b += br;
+
 			gl_FragColor =  color;
 		}
 			

@@ -5,14 +5,16 @@ void GameState::update() {
     if(slowmo) delta_T = 0.1f;
     deltaClock.restart();
 
-    bg.load();
+    bg.update();
+
+    player.update(delta_T);
+    
+    player.setGrounded(false);
     
     auto res = vx_manager.checkCollisionsWith(player.getBottomHitbox()); // Ground
     auto res2 = vx_manager.checkCollisionsWithInv(player.getTopHitbox());   // Top
     auto res3 = vx_manager.checkCollisionsWithLeft(player.getLeftHitbox());     // Left
     auto res4 = vx_manager.checkCollisionsWithRight(player.getRightHitbox());   // Right
-
-    player.setGrounded(false);
 
     if(res3.first) { // Left collision
         player.move_x(res3.second);
@@ -70,8 +72,6 @@ void GameState::draw(sf::RenderTarget &window)
 
     view.setCenter(player.get_voxel_pos().x, player.get_voxel_pos().y);
     window.setView(view);
-
-    player.update(delta_T);
     player.draw(window);
 
     gun.render(window);

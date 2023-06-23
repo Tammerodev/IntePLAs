@@ -14,10 +14,11 @@ int Player::load() {
 void Player::update(float dt) {
     PlayerState::currentState->update(pos,y_acceleration,dt);
     PlayerState::currentState->input(grounded);
-    y_acceleration += gravity * dt;
-
+    if(!grounded) {
+        y_acceleration += gravity * dt;
+        pos.y += y_acceleration;
+    }
     spr.setPosition(pos.x, pos.y);
-    pos.y += y_acceleration ;
 
     update_hitboxtop();
     update_hitboxbottom();
