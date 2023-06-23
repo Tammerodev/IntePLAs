@@ -5,9 +5,7 @@ void GameState::update() {
     if(slowmo) delta_T = 0.1f;
     deltaClock.restart();
 
-    bg_shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
-    bg_shader.setUniform("resolution", sf::Vector2f(1,1));
-
+    bg.load();
     
     auto res = vx_manager.checkCollisionsWith(player.getBottomHitbox()); // Ground
     auto res2 = vx_manager.checkCollisionsWithInv(player.getTopHitbox());   // Top
@@ -68,10 +66,10 @@ void GameState::draw(sf::RenderTarget &window)
     gun.update(vx_manager, sf::Vector2f(window.mapPixelToCoords(sf::Mouse::getPosition())), player.get_voxel_pos(), delta_T);
     window.clear();
 
+    bg.render(window);
+
     view.setCenter(player.get_voxel_pos().x, player.get_voxel_pos().y);
     window.setView(view);
-
-    window.draw(background, &bg_shader);
 
     player.update(delta_T);
     player.draw(window);

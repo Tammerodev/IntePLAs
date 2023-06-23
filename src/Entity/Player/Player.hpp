@@ -10,7 +10,7 @@
 class Player {
 public:
 
-void load();
+int load();
 void update(float);
 void draw(sf::RenderTarget&);
 const sf::FloatRect &getTopHitbox() {

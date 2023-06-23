@@ -6,10 +6,10 @@ PlayerState* PlayerState::jumpState = new JumpState();
 
 PlayerState* PlayerState::currentState = PlayerState::idleState;
 
-void Player::load() {
-    if(!tx.loadFromFile("/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/res/img/Player/Player.png")) {perror("Could not load player texture");};
+int Player::load() {
+    if(!tx.loadFromFile("/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/res/img/Player/Player.png")) return 0;
     spr.setTexture(tx);
-
+    return 1;
 }
 void Player::update(float dt) {
     PlayerState::currentState->update(pos,y_acceleration,dt);
