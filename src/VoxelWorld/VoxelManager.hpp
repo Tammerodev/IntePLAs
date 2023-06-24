@@ -25,8 +25,8 @@ public:
     void render(sf::RenderTarget&, sf::View&);
     void update();
     void merge();
-    void hole(const sf::Vector2i &pos, uint32_t intensity);
-    void hole_not_recursive(const sf::Vector2i &pos, uint32_t intensity);
+    void hole(const sf::Vector2i &pos, const uint32_t &intensity);
+    void hole_not_recursive(const sf::Vector2i &pos, const uint32_t &intensity);
 
     void showDebug();
     void hideDebug();

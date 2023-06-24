@@ -95,6 +95,7 @@ void VoxelManager::update()
 
 void VoxelManager::merge()
 {
+
 long long indexX = 0;
 for (int y = 0;y < gw;y++) {
     for (int x = 0;x < gl;x++) {
@@ -129,8 +130,7 @@ for (int y = 0;y < gw;y++) {
             }
             x1++;
             y1++;
-
-            
+                        
             sf::Sprite r;
             r.setTexture(world_tx);
             r.setPosition(x, y);
@@ -142,34 +142,29 @@ for (int y = 0;y < gw;y++) {
             indexX++;
         }
     }
-    // Iterate the vector in reverse order
-    for (int i = rects.size() - 1; i >= 0; i--) {
-        if (i > indexX) {
-            // Remove the object at index i
-            rects.erase(rects.begin() + i * sizeof(sf::RectangleShape));
-        }
-    }
 }
 update();
+rects.erase(rects.begin() + indexX, rects.end());
 }
 
-void VoxelManager::hole(const sf::Vector2i &p, uint32_t intensity)
+void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity)
 {
-    for (int y = 0;y < gw;y++) {
-        for (int x = 0;x < gl;x++) {
+    for (int y = p.y - intensity;y < p.y + intensity;y++) {
+        for (int x = p.x - intensity;x < p.x + intensity;x++) {
             if(grid[x][y].value == 0) continue;
-            if(sqrt(pow(p.x - x, 2) + ((p.y - y)*(p.y - y))) < intensity) {
+            else if(math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y))) < intensity) {
                 switch (grid[x][y].value)
                 {
                 case 2:
                     // Recursive... I dont care
                     grid[x][y].value = 0;
-                    hole_not_recursive(sf::Vector2i(x,y), 55);
+                    hole_not_recursive(p, 55);
                     break;
                 case 3:
                     // Recursive... I dont care
                     grid[x][y].value = 0;
-                    hole_not_recursive(sf::Vector2i(x,y), 2);
+                    hole_not_recursive(p, 6);
+                    return;
                 default:
                     break;
                 }
@@ -182,12 +177,12 @@ void VoxelManager::hole(const sf::Vector2i &p, uint32_t intensity)
     merge();
 }
 
-void VoxelManager::hole_not_recursive(const sf::Vector2i &p, uint32_t intensity)
+void VoxelManager::hole_not_recursive(const sf::Vector2i &p, const uint32_t& intensity)
 {
-    for (int y = 0;y < gw;y++) {
-        for (int x = 0;x < gl;x++) {
+    for (int y = p.y - intensity;y < p.y + intensity;y++) {
+            for (int x = p.x - intensity;x < p.x + intensity;x++) {
             if(grid[x][y].value == 0) continue;
-            if(sqrt(pow(p.x - x, 2) + ((p.y - y)*(p.y - y))) < intensity) {
+            if(math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y))) < intensity) {
                 grid[x][y].value = 0; 
             }
         }
