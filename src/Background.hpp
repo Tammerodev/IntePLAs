@@ -24,7 +24,6 @@ public:
 
     void update() {
         bg_shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
-        bg_shader.setUniform("resolution", sf::Vector2f(1,1));
     }
 
 private:

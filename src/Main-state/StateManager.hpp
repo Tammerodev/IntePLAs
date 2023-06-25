@@ -48,6 +48,4 @@ public:
 private:
     sf::RenderWindow window;
     sf::Event wevent;
-    sf::RenderTexture renderTexture;
-    sf::Sprite renderSprite;
 };

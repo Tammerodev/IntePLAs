@@ -30,6 +30,9 @@ public:
 
     void showDebug();
     void hideDebug();
+
+    std::vector <sf::Vector2f> explosion_points;
+
 private:
 
     sf::Shader shader;
@@ -53,6 +56,7 @@ private:
 
         void main()
         {
+            
             // lookup the pixel in the texture
             vec4 pixel = vec4(0.0, 1.0, 0.0, 1.0);
 

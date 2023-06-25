@@ -5,7 +5,15 @@ void GameState::update() {
     if(slowmo) delta_T = 0.1f;
     deltaClock.restart();
 
+    shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
+
     bg.update();
+
+    if(vx_manager.explosion_points.size() > 0) {
+        effOverlay.effect_explosion(vx_manager.explosion_points.at(vx_manager.explosion_points.size() - 1));
+        vx_manager.explosion_points.pop_back();
+    }
+    effOverlay.update(view.getCenter());
 
     player.update(delta_T);
     
@@ -65,16 +73,23 @@ void GameState::input(sf::Event &ev) {
 
 void GameState::draw(sf::RenderTarget &window)
 {
-    gun.update(vx_manager, sf::Vector2f(window.mapPixelToCoords(sf::Mouse::getPosition())), player.get_voxel_pos(), delta_T);
-    window.clear();
+    gun.update(vx_manager, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), player.get_voxel_pos(), delta_T);
+    renderTexture.clear();
 
-    bg.render(window);
+    bg.render(renderTexture);
+ 
+    effOverlay.render(renderTexture);
 
+    renderTexture.setView(view);
     view.setCenter(player.get_voxel_pos().x, player.get_voxel_pos().y);
-    window.setView(view);
-    player.draw(window);
+    player.draw(renderTexture);
 
-    gun.render(window);
+    gun.render(renderTexture);
 
-    vx_manager.render(window, view);
+    vx_manager.render(renderTexture, view);
+
+    renderTexture.display();
+
+    renderSprite.setTexture(renderTexture.getTexture());
+    window.draw(renderSprite , &shader);
 }
