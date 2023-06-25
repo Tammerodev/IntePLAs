@@ -78,7 +78,6 @@ void GameState::draw(sf::RenderTarget &window)
 
     bg.render(renderTexture);
  
-    effOverlay.render(renderTexture);
 
     renderTexture.setView(view);
     view.setCenter(player.get_voxel_pos().x, player.get_voxel_pos().y);
@@ -87,6 +86,8 @@ void GameState::draw(sf::RenderTarget &window)
     gun.render(renderTexture);
 
     vx_manager.render(renderTexture, view);
+
+    effOverlay.render(renderTexture);
 
     renderTexture.display();
 

@@ -5,9 +5,14 @@ class EffectOverlay {
 public:
     int load() {
         int res = 1;
-
-		background.setSize(sf::Vector2f(100000,100000));
+        
+        tx.loadFromFile("res/img/Background.png");
+        if(!tx.create(1000,1000)) std::cout << "Eroor";
 		background.setPosition(0,0);
+
+               
+        background.setTexture(tx);
+        background.setTextureRect(sf::IntRect(0,0,1000,1000));
 
 		// load only the vertex shader
 		if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex)) res = 0;
@@ -24,17 +29,21 @@ public:
 
     void update(const sf::Vector2f &view_pos) {
         shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
-        shader.setUniform("view_poss",view_pos);
+        shader.setUniform("worldpos",background.getPosition());
+
     }
 
     void effect_explosion(const sf::Vector2f&p) {
-        shader.setUniform("explosion",p);
+        shader.setUniform("explosion",sf::Vector2f(p));
+        shader_time.restart();
+        background.setPosition(p.x - background.getGlobalBounds().width/2, p.y - background.getGlobalBounds().height/2);
     }
 
     //Todo : Fix shader
 
 private:
-    sf::RectangleShape background;
+    sf::Sprite background;
+    sf::Texture tx;
 	sf::Shader shader;
 
 	sf::Clock shader_time;
@@ -42,21 +51,32 @@ private:
     R"( 
 		uniform float time;
         uniform vec2 explosion;
-        uniform vec2 view_poss;
+        uniform vec2 worldpos;
 
-		void main () {
-			vec2 pos = gl_FragCoord;
 
-			vec4 color;
+        float easeOutQuint(const float x) {
+            return 1.0 - pow(1.0 - x, 5.0);
+        }
 
-			color.a = 0.5;
-			
-            if(distance(pos, vec2(10,10)) < 500.0) {
-                color.r = 1.0;
-            }
 
-			gl_FragColor = color;
-		}
+        void main( void ) {
+
+            vec2 position = gl_TexCoord[0].xy  + worldpos / 1000;
+            
+            vec4 color;
+            vec2 exp_pos = explosion / 1000.0;
+            
+            float dist = distance(position,exp_pos);
+
+            float intens = easeOutQuint(time * 5.0) / 10.0;
+
+            color.a = 1.0 - dist / intens;
+            
+            color.r = 1.0 - dist / intens;
+
+            gl_FragColor = color;
+
+        }
 			
     )";
 
@@ -68,7 +88,7 @@ private:
             gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
 
             // transform the texture coordinates
-            //gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+            gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
 
             // forward the vertex color
             gl_FrontColor = gl_Color;
