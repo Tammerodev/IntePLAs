@@ -7,8 +7,11 @@
 #include "math.hpp"
 #include "Voxel.hpp"
 
+#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/ExplosionInfo.hpp"
+
 constexpr int gl = 2048; 
 constexpr int gw = 2048;
+
 
 class VoxelManager {
 public:
@@ -25,13 +28,9 @@ public:
     void render(sf::RenderTarget&, sf::View&);
     void update();
     void merge();
-    void hole(const sf::Vector2i &pos, const uint32_t &intensity);
-    void hole_not_recursive(const sf::Vector2i &pos, const uint32_t &intensity);
+    void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool rec = true);
 
-    void showDebug();
-    void hideDebug();
-
-    std::vector <sf::Vector2f> explosion_points;
+    std::vector <ExplosionInfo> explosion_points;
 
 private:
 

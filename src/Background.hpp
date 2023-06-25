@@ -38,7 +38,7 @@ private:
 		uniform vec2 resolution;
 
 		void main () {
-            float br = +sin(time) / 2.0;
+            float br = +sin(time) / 20.0;
 
 			vec2 pos = gl_FragCoord.xy;
 

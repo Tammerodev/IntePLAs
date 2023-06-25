@@ -50,13 +50,9 @@ void GameState::input(sf::Event &ev) {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) slowmo = true; // Slow-mo
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) slowmo = false; // Slow-mo
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::H)) 
-        vx_manager.hideDebug();
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Y)) 
-        vx_manager.showDebug();
     if(ev.type == sf::Event::KeyReleased) {
         if(ev.key.code == sf::Keyboard::Z) {
-            vx_manager.hole(sf::Vector2i((int)player.get_voxel_pos().x, (int)player.get_voxel_pos().y),1005);
+            vx_manager.hole(sf::Vector2i((int)player.get_voxel_pos().x, (int)player.get_voxel_pos().y),205);
         }
         else if(ev.key.code == sf::Keyboard::X) {
             vx_manager.hole(sf::Vector2i((int)player.get_voxel_pos().x, (int)player.get_voxel_pos().y),55u);

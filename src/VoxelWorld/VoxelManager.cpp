@@ -54,7 +54,8 @@ int VoxelManager::load()
             if(px.a != 0) {
                 grid[x][y].value = 1;
                 if(px.r == 34 && px.g == 196 && px.b == 34) grid[x][y].value = 2;       // <-- Green explosibe thing
-                else if(px.r == 204 && px.g == 223 && px.b == 223 ) grid[x][y].value = 3;
+                else if(px.r == 204 && px.g == 223 && px.b == 223 ) grid[x][y].value = 3;   // White explosive
+                else if(px.r == 101 && px.g == 101 && px.b == 101 ) { grid[x][y].value = 4; grid[x][y].strenght = 5; }
             } else {
                 grid[x][y].value = 0;
             }
@@ -147,65 +148,47 @@ update();
 rects.erase(rects.begin() + indexX, rects.end());
 }
 
-void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity)
+void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool recursive)
 {
-    explosion_points.emplace_back(p);
+    ExplosionInfo info;
+    info.position = sf::Vector2f(p);
+    info.strength = intensity;
+    explosion_points.push_back(info);
 
-    for (int y = p.y - intensity;y < p.y + intensity;y++) {
-        for (int x = p.x - intensity;x < p.x + intensity;x++) {
+    int yexcept = p.y - intensity;
+    int xexcept = p.x - intensity;
+
+    if(yexcept < 0) yexcept = 0;
+    if(xexcept < 0) xexcept = 0;
+
+
+    for (int y = yexcept;y < p.y + intensity;y++) {
+        if(p.y > gl) break;
+
+        for (int x = xexcept;x < p.x + intensity;x++) {
+            if(x > gw) break;
             if(grid[x][y].value == 0) continue;
-            else if(math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y))) < intensity) {
-                switch (grid[x][y].value)
-                {
-                case 2:
-                    // Recursive... I dont care
-                    grid[x][y].value = 0;
-                    hole_not_recursive(p, 250);
-                    printf("a");
-                    return;
-                case 3:
-                    // Recursive... I dont care
-                    grid[x][y].value = 0;
-                    hole_not_recursive(p, 6);
-                    return;
-                default:
-                    break;
+            if(math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y))) < intensity) {
+                if(recursive) {
+                    switch (grid[x][y].value) {
+                        case 2:
+                            // Recursive... I dont care
+                            grid[x][y].value = 0;
+                            hole(p, 250, false);
+                            printf("a");
+                            return;
+                        case 3:
+                            // Recursive... I dont care
+                            grid[x][y].value = 0;
+                            hole(p, 6, false);
+                            return;
+                        default:
+                            break;
+                    }
                 }
-                
                 grid[x][y].value = 0;
-                
             }
         }
     }
     merge();
-}
-
-void VoxelManager::hole_not_recursive(const sf::Vector2i &p, const uint32_t& intensity)
-{
-    explosion_points.emplace_back(p);
-    for (int y = p.y - intensity;y < p.y + intensity;y++) {
-        for (int x = p.x - intensity;x < p.x + intensity;x++) {
-            if(grid[x][y].value == 0) continue;
-            else if(math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y))) < intensity) {
-                grid[x][y].value = 0; 
-            }
-        }
-    }
-    merge();
-}
-
-void VoxelManager::showDebug()
-{
-    debug = true;
-    for(auto &r : rects) {
-        // TODO
-    }
-}
-
-void VoxelManager::hideDebug()
-{
-    debug = false;
-    for(auto &r : rects) {
-        // TODO
-    }
 }

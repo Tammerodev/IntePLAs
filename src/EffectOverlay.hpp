@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/ExplosionInfo.hpp"
 
 class EffectOverlay {
 public:
@@ -7,7 +8,7 @@ public:
         int res = 1;
         
         tx.loadFromFile("res/img/Background.png");
-        if(!tx.create(1000,1000)) std::cout << "Eroor";
+        if(!tx.create(1000,1000)) res = -1;;
 		background.setPosition(0,0);
 
                
@@ -33,10 +34,12 @@ public:
 
     }
 
-    void effect_explosion(const sf::Vector2f&p) {
-        shader.setUniform("explosion",sf::Vector2f(p));
+    void effect_explosion(const ExplosionInfo& exInfo) {
+        shader.setUniform("explosion", sf::Vector2f(exInfo.position));
+        shader.setUniform("str_", exInfo.strength);
+
         shader_time.restart();
-        background.setPosition(p.x - background.getGlobalBounds().width/2, p.y - background.getGlobalBounds().height/2);
+        background.setPosition(exInfo.position.x - background.getGlobalBounds().width/2, exInfo.position.y - background.getGlobalBounds().height/2);
     }
 
     //Todo : Fix shader
@@ -52,7 +55,7 @@ private:
 		uniform float time;
         uniform vec2 explosion;
         uniform vec2 worldpos;
-
+        uniform float str_;
 
         float easeOutQuint(const float x) {
             return 1.0 - pow(1.0 - x, 5.0);
@@ -63,16 +66,18 @@ private:
 
             vec2 position = gl_TexCoord[0].xy  + worldpos / 1000;
             
-            vec4 color;
             vec2 exp_pos = explosion / 1000.0;
             
             float dist = distance(position,exp_pos);
 
-            float intens = easeOutQuint(time * 5.0) / 10.0;
-
+            float intens = easeOutQuint(time * 5.0) * (str_ / 500.0);
+	
+            vec4 color;
             color.a = 1.0 - dist / intens;
             
             color.r = 1.0 - dist / intens;
+            color.b = tan(time) * dist;
+
 
             gl_FragColor = color;
 

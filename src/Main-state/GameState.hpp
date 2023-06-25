@@ -21,7 +21,7 @@ public:
         renderTexture.create(800,800);
 		
 		view.setSize(800,800);
-		view.zoom(1.0);
+		view.zoom(0.5);
 		viewUI.setSize(800,800);
 		viewUI.zoom(0.5);
 
