@@ -8,6 +8,10 @@ namespace math {
         std::uniform_real_distribution<float> dis(0.f,1.f);
         return dis(gen);
     }
+    inline void floodFill(int x, int y, int targetColor, int replacementColor)
+        {
+            // TODO implement
+        }
     inline unsigned short isqrt(unsigned long a) {
         unsigned long rem = 0;
         int root = 0;

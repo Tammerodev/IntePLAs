@@ -12,18 +12,25 @@
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Entity/Player/IObjects/Gun.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Background.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/EffectOverlay.hpp"
-
+#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Camera.hpp"
 
 class GameState : public MainState {
 public:
 	virtual bool load() {
 		// TODO : adjustable rendertx size
-        renderTexture.create(800,800);
+		const uint16_t window_height = 1200;
+		const uint16_t window_width = 1200;
+        renderTexture.create(window_width, window_height);
 		
-		view.setSize(800,800);
-		view.zoom(0.5);
-		viewUI.setSize(800,800);
-		viewUI.zoom(0.5);
+		game_camera.setSize(sf::Vector2u(window_width, window_height));
+		ui_camera.setSize(sf::Vector2u(window_width, window_height));
+
+		game_camera.setZoom(0.5f);
+		ui_camera.setZoom(1.0f);
+
+		game_camera.setLeapSpeed(1.f);
+		game_camera.setCameraMode(CameraMode::Leap);
+
 
 		if(!vx_manager.load())
 			perror("VoxelManager failed to load");
@@ -71,8 +78,8 @@ private:
 	Background bg;
 	EffectOverlay effOverlay;
 
-	sf::View view;
-	sf::View viewUI;
+	Camera game_camera;
+	Camera ui_camera;
 
 	sf::RenderTexture renderTexture;
 	sf::Sprite renderSprite;

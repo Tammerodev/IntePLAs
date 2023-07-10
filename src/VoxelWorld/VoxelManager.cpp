@@ -24,7 +24,7 @@ std::pair<bool,float> VoxelManager::checkCollisionsWithLeft(const sf::FloatRect 
 {
     for(auto &r : rects) {
         if(collider.intersects(r.getGlobalBounds())) {
-            return {true,r.getGlobalBounds().left + r.getGlobalBounds().width - collider.left};
+            return {true, collider.left + collider.width - r.getGlobalBounds().left};
         }   
     }
     return {false,0.f};
@@ -42,25 +42,36 @@ std::pair<bool,float> VoxelManager::checkCollisionsWithRight(const sf::FloatRect
 
 int VoxelManager::load()
 {
+    prndd("Started loading map");
     const std::string path = "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/res/world/forest.png";
     sf::Image img;
     if(!img.loadFromFile(path)) {
         perror("Could not load voxel map");
     }
+    update();
 
-    for (int y = 0;y < gw;y++) {
-        for (int x = 0;x < gl;x++) {
+    prndd("Updated map");
+
+    prndd("Starting to process map");
+
+    for (int y = 0;y < world_sy;y++) {
+        for (int x = 0;x < world_sx;x++) {
             sf::Color px = img.getPixel(x,y); // Short variable name, we are gonna use this A LOT
             if(px.a != 0) {
-                grid[x][y].value = 1;
-                if(px.r == 34 && px.g == 196 && px.b == 34) grid[x][y].value = 2;       // <-- Green explosibe thing
-                else if(px.r == 204 && px.g == 223 && px.b == 223 ) grid[x][y].value = 3;   // White explosive
-                else if(px.r == 101 && px.g == 101 && px.b == 101 ) { grid[x][y].value = 4; grid[x][y].strenght = 5; }
+                getVoxelAt(x,y).value = 1;
+                     if(px.r == 34 && px.g == 196 && px.b == 34) getVoxelAt(x,y).value = 2;       // <-- Green explosibe thing
+                else if(px.r == 204 && px.g == 223 && px.b == 223 ) getVoxelAt(x,y).value = 3;   // White explosive
+                else if(px.r == 17 && px.g == 17 && px.b == 17 ) { getVoxelAt(x,y).value = 4; getVoxelAt(x,y).strenght = 5; }  // Stronk
+                else if(px.r == 36 && px.g == 135 && px.b == 240) getVoxelAt(x,y).value = 5;       // <-- Nuclear bomb 36,135,240
+
+
             } else {
-                grid[x][y].value = 0;
+                getVoxelAt(x,y).value = 0;
             }
         }
     }
+
+    prndd("Processing complete");
 
     world_tx.loadFromFile(path);
     world_spr.setTexture(world_tx);
@@ -73,48 +84,58 @@ int VoxelManager::load()
     // load both shaders
     (shader.loadFromMemory(shader_vert, shader_frag));
 
+    prndd("Shaders loaded");
+
+    prndd("Starting meshing...");
     merge();
 
     return true;
 }
 
-void VoxelManager::render(sf::RenderTarget &target, sf::View &view)
+void VoxelManager::render(sf::RenderTarget &target)
 {
     for(auto &r : rects)  {
         target.draw(r);
     }
 }
 
-void VoxelManager::update()
+void VoxelManager::resetUsedFlag()
 {
-    for (int y = 0;y < gw;y++) {
-        for (int x = 0;x < gl;x++) {
-            grid[x][y].used = false;
+    for (int y = 0;y < world_sy;y++) {
+        for (int x = 0;x < world_sx;x++) {
+            getVoxelAt(x,y).used = false;
         }
     }
 }
 
+void VoxelManager::update()
+{
+    world_sx = gx * chunks_x;
+    world_sy = gy * chunks_y;
+}
+
 void VoxelManager::merge()
 {
+update();
 
 long long indexX = 0;
-for (int y = 0;y < gw;y++) {
-    for (int x = 0;x < gl;x++) {
-        if (grid[x][y].value != 0 && !grid[x][y].used) {
+for (int y = 0;y < world_sy;y++) {
+    for (int x = 0;x < world_sx;x++) {
+        if (getVoxelAt(x,y).value != 0 && !getVoxelAt(x,y).used) {
             int x1 = x;
             int y1 = y;
 
-            if (grid[x1][y1].value != 0 && !grid[x1][y1].used) {
+            if (getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used) {
                 x1++;
             }
             x1--;
             int xc = x;
 
-            while (grid[x1][y1].value != 0 && !grid[x1][y1].used) {
+            while (getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used) {
                 for (int xx = x;
                     xx <= x1;
                     xx++) {
-                    if (grid[x1][y1].value == 0) goto out;
+                    if (getVoxelAt(x1,y1).value == 0) goto out;
                 }
                 y1++;
             }
@@ -126,7 +147,7 @@ for (int y = 0;y < gw;y++) {
                 for (int x2 = x;
                     x2 <= x1;
                     x2++) {
-                    grid[x2][y2].used = true;
+                    getVoxelAt(x2,y2).used = true;
                 }
             }
             x1++;
@@ -144,7 +165,7 @@ for (int y = 0;y < gw;y++) {
         }
     }
 }
-update();
+resetUsedFlag();
 rects.erase(rects.begin() + indexX, rects.end());
 }
 
@@ -163,30 +184,39 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool r
 
 
     for (int y = yexcept;y < p.y + intensity;y++) {
-        if(p.y > gl) break;
+        if(p.y > world_sy) break;
 
         for (int x = xexcept;x < p.x + intensity;x++) {
-            if(x > gw) break;
-            if(grid[x][y].value == 0) continue;
+            if(x >world_sx) break;
+            if(getVoxelAt(x,y).value == 0) continue;
             if(math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y))) < intensity) {
                 if(recursive) {
-                    switch (grid[x][y].value) {
+                    switch (getVoxelAt(x,y).value) {
                         case 2:
                             // Recursive... I dont care
-                            grid[x][y].value = 0;
-                            hole(p, 250, false);
-                            printf("a");
+                            getVoxelAt(x,y).value = 0;
+                            hole(p, 250, true);
                             return;
                         case 3:
                             // Recursive... I dont care
-                            grid[x][y].value = 0;
+                            getVoxelAt(x,y).value = 0;
                             hole(p, 6, false);
                             return;
+                        case 4: 
+                            getVoxelAt(x,y).strenght--;
+                            if(getVoxelAt(x,y).strenght <= 0) getVoxelAt(x,y).value = 0;
+                        break;
+                        case 5:
+                            // Recursive... I dont care
+                            getVoxelAt(x,y).value = 0;
+                            hole(p, 500, true);
+                            return;
                         default:
+                            getVoxelAt(x,y).value = 0;
                             break;
                     }
                 }
-                grid[x][y].value = 0;
+
             }
         }
     }

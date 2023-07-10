@@ -53,7 +53,7 @@ public:
 		bullets.remove_if([&](const std::unique_ptr<ExplosiveBullet>& bullet) {
 			if (vx_manager.checkCollisionsWith(bullet->getHitbox()).first) {
 				positions.push_back(sf::Vector2i(bullet->pos.x, bullet->pos.y));
-				SFX::amplified_explosion.play();
+				SFX::strong_explosion.play();
 				return true; // Remove the bullet
 			}
 			return false; // Keep the bullet

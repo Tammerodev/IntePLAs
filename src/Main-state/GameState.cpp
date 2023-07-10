@@ -1,4 +1,5 @@
 #include "GameState.hpp"
+#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/common.hpp"
 
 void GameState::update() {
     delta_T = deltaClock.getElapsedTime().asMilliseconds();
@@ -7,15 +8,16 @@ void GameState::update() {
 
     shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
 
-    bg.update();
-
     if(vx_manager.explosion_points.size() > 0) {
         effOverlay.effect_explosion(vx_manager.explosion_points.at(vx_manager.explosion_points.size() - 1));
         vx_manager.explosion_points.pop_back();
     }
-    effOverlay.update(view.getCenter());
 
-    player.update(delta_T);
+    bg.update();
+    effOverlay.update(game_camera.getCenterPosition());
+    game_camera.update(delta_T);
+    player.update(delta_T);    
+    gun.update(vx_manager, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), player.get_voxel_pos(), delta_T);
     
     player.setGrounded(false);
     
@@ -47,20 +49,21 @@ void GameState::update() {
 }
 
 void GameState::input(sf::Event &ev) {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) slowmo = true; // Slow-mo
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) slowmo = false; // Slow-mo
 
-    if(ev.type == sf::Event::KeyReleased) {
-        if(ev.key.code == sf::Keyboard::Z) {
-            vx_manager.hole(sf::Vector2i((int)player.get_voxel_pos().x, (int)player.get_voxel_pos().y),205);
-        }
-        else if(ev.key.code == sf::Keyboard::X) {
-            vx_manager.hole(sf::Vector2i((int)player.get_voxel_pos().x, (int)player.get_voxel_pos().y),55u);
-        }
-        else if(ev.key.code == sf::Keyboard::E) {
+    // Toggle slow motion (set delta time to 0.1)
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::F)) slowmo = true; // Slow-mo
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)) slowmo = false; // Slow-mo
+
+    if(ev.type == sf::Event::MouseButtonPressed) {
+        if(ev.mouseButton.button == sf::Mouse::Button::Left) {
+            SFX::rocket_launcher_fire.play();
             gun.spawn_bullet(player.get_voxel_pos());
+            
         }
-        else if(ev.key.code == sf::Keyboard::Escape) {
+    }
+    if(ev.type == sf::Event::KeyReleased) {
+        // Exit to menu state
+        if(ev.key.code == sf::Keyboard::Escape) {
             GameState::currentState = GameState::menuState;
             menuState->load();
         }
@@ -69,24 +72,28 @@ void GameState::input(sf::Event &ev) {
 
 void GameState::draw(sf::RenderTarget &window)
 {
-    gun.update(vx_manager, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), player.get_voxel_pos(), delta_T);
+    // Clear renderTexture
     renderTexture.clear();
 
+    // Update camera
+    game_camera.setViewTo(renderTexture);
+    game_camera.setTarget(player.get_voxel_pos());
+
+    // Render background
     bg.render(renderTexture);
- 
 
-    renderTexture.setView(view);
-    view.setCenter(player.get_voxel_pos().x, player.get_voxel_pos().y);
+    // Render player and gun
     player.draw(renderTexture);
-
     gun.render(renderTexture);
 
-    vx_manager.render(renderTexture, view);
+    // Render the world
+    vx_manager.render(renderTexture);
 
+    // For effects like explosions
     effOverlay.render(renderTexture);
-
+    
+    // Display, draw and set shader
     renderTexture.display();
-
     renderSprite.setTexture(renderTexture.getTexture());
     window.draw(renderSprite , &shader);
 }
