@@ -7,14 +7,16 @@
 
 class Gun {
 public:
-	Gun(VoxelManager &vx_manager) {
-		bullet_tx.loadFromFile("res/img/Tool/bullet.png");
-		gun_tx.loadFromFile("res/img/Tool/rocket_launcher.png");
+	Gun(VoxelManager &vx_manager,const std::string&bullet_tx_path, const std::string&gun_tx_path, uint64_t strenth) {
+		bullet_tx.loadFromFile(bullet_tx_path);
+		gun_tx.loadFromFile(gun_tx_path);
 		gun_spr.setTexture(gun_tx);
+
+		explosion_stength = strenth;
 
 		gun_spr.setOrigin(gun_spr.getGlobalBounds().width / 2,gun_spr.getGlobalBounds().height / 2);
 
-		explosion_thread = std::thread(thread_task,std::ref(vx_manager), std::ref(positions));
+		explosion_thread = std::thread(thread_task,std::ref(vx_manager), std::ref(positions), explosion_stength);
 
 	}
 
@@ -73,16 +75,18 @@ private:
 
 	sf::Sprite gun_spr;
 	sf::Texture gun_tx;
+	float bullet_speed = 1.0f;
+	uint64_t explosion_stength = 35;
 	
 	sf::Texture bullet_tx;
 
-	static void thread_task(VoxelManager& vx_manager, std::list<sf::Vector2i> &pos) {
+	static void thread_task(VoxelManager& vx_manager, std::list<sf::Vector2i> &pos, uint64_t strength) {
 		while(true) {
 			bool use = false;
 			sf::Clock timer;
 			for(auto &p : pos) {
 				vx_manager.lock();
-				vx_manager.hole(p,35);
+				vx_manager.hole(p,strength);
 				use = true;
 			}
 			if(use) {
