@@ -70,7 +70,7 @@ private:
             
             float dist = distance(position,exp_pos);
 
-            float intens = easeOutQuint(time * 5.0) * (str_ / 500.0);
+            float intens = easeOutQuint(time * 5.0) * str_ / 100.0;
 	
             vec4 color;
             color.a = 1.0 - dist / intens;

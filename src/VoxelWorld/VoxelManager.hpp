@@ -18,10 +18,8 @@ public:
     const int gx = 128; 
     const int gy = 128;
 
-
     int chunks_x = 16;
     int chunks_y = 16;
-
 
     VoxelManager() : grid(chunks_y* 2, std::vector<My2DArray>(chunks_x * 2)) {
         prndd("Populating array");
@@ -29,8 +27,7 @@ public:
         {
             for (int x = 0; x < chunks_x; ++x)
             {
-                grid[y][x] = My2DArray();
-                prndd("Added 2D array to vector");
+                grid[x][y] = My2DArray();
             }
         }
     }
@@ -42,16 +39,38 @@ public:
     int load();
 
     Voxel &getVoxelAt (const uint64_t x, const uint64_t y) {
-        return grid.at(y/gy).at(x/gx).arr[(x / gx)*16 - (x % gx)][(y / gy) - (y % gy)];
+        return grid.at(x/gx).at(y/gy).arr[x%gx][y%gy];
     }
 
     void render(sf::RenderTarget&);
     void resetUsedFlag();
     void update();
-    void merge();
+    void merge(bool useChunks = false);
     void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool rec = true);
 
+    void build_circle(const sf::Vector2i &p, const uint32_t &intensity) {
+        int yexcept = p.y - intensity;
+        int xexcept = p.x - intensity;
+
+        if(yexcept < 0) yexcept = 0;
+        if(xexcept < 0) xexcept = 0;
+
+        for (int y = yexcept;y < p.y + intensity;y++) {
+            if(p.y > world_sy) break;
+
+            for (int x = xexcept;x < p.x + intensity;x++) {
+                if(x >world_sx) break;
+                if(math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y))) < intensity) {
+                    getVoxelAt(x,y).value = 1;
+                    img.setPixel(x,y,sf::Color(255,255,255,255));
+                }
+            }
+        }
+        merge();
+    }
+
     std::vector <ExplosionInfo> explosion_points;
+    std::vector<sf::Vector2i> updateChunks;
 
 private:
 
@@ -68,7 +87,6 @@ private:
     std::vector<std::vector<My2DArray>> grid;
 
     bool debug = false;
-    int indexX = 0;
     int y = 0;
     int x = 0;
 
@@ -77,7 +95,7 @@ private:
 
 
     sf::Texture world_tx;
-    sf::Sprite world_spr;
+    sf::Image img;
 
     const char * shader_frag = 
     R"( 

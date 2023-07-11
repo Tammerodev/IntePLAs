@@ -13,7 +13,7 @@
 MainState* MainState::menuState = new MenuState();
 MainState* MainState::gameState = new GameState();
 MainState* MainState::settingsState = new SettingsState();
-MainState* MainState::currentState = MainState::menuState;
+MainState* MainState::currentState = MainState::gameState;
 
 class StateManager {
 public:
@@ -25,12 +25,14 @@ public:
             window.create(sf::VideoMode(height,width), title);
         }
         window.setFramerateLimit(fps_limit);
+        window.setVisible(false);
     }
     void init() {
 
     }
     void gameLoop(){
         MainState::currentState->load();
+        window.setVisible(true);
         while(window.isOpen()) {
             MainState::currentState->update();
 

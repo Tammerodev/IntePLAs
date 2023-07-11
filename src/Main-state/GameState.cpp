@@ -7,6 +7,8 @@ void GameState::update() {
     deltaClock.restart();
 
     shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
+    shader.setUniform("resolution",sf::Vector2(1.0f,1.0f));
+
 
     if(vx_manager.explosion_points.size() > 0) {
         effOverlay.effect_explosion(vx_manager.explosion_points.at(vx_manager.explosion_points.size() - 1));
@@ -14,11 +16,13 @@ void GameState::update() {
     }
 
     bg.update();
+    BGMusic::update();
     effOverlay.update(game_camera.getCenterPosition());
     game_camera.update(delta_T);
     player.update(delta_T);    
     gun.update(vx_manager, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), player.get_voxel_pos(), delta_T);
-    
+    vx_manager.update();
+
     player.setGrounded(false);
     
     auto res = vx_manager.checkCollisionsWith(player.getBottomHitbox()); // Ground
@@ -60,9 +64,12 @@ void GameState::input(sf::Event &ev) {
             gun.spawn_bullet(player.get_voxel_pos());
             
         }
+        if(ev.mouseButton.button == sf::Mouse::Button::Right) {
+            vx_manager.build_circle(sf::Vector2i(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())),20);
+        }
+
     }
     if(ev.type == sf::Event::KeyReleased) {
-        // Exit to menu state
         if(ev.key.code == sf::Keyboard::Escape) {
             GameState::currentState = GameState::menuState;
             menuState->load();

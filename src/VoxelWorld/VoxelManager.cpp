@@ -43,26 +43,31 @@ std::pair<bool,float> VoxelManager::checkCollisionsWithRight(const sf::FloatRect
 int VoxelManager::load()
 {
     prndd("Started loading map");
+
+    
     const std::string path = "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/res/world/forest.png";
-    sf::Image img;
     if(!img.loadFromFile(path)) {
         perror("Could not load voxel map");
     }
-    update();
 
     prndd("Updated map");
 
     prndd("Starting to process map");
 
+    world_sx = gx * chunks_x;
+    world_sy = gy * chunks_y;
+
     for (int y = 0;y < world_sy;y++) {
         for (int x = 0;x < world_sx;x++) {
-            sf::Color px = img.getPixel(x,y); // Short variable name, we are gonna use this A LOT
+            const sf::Color px = img.getPixel(x,y); // Short variable name, we are gonna use this A LOT
             if(px.a != 0) {
                 getVoxelAt(x,y).value = 1;
                      if(px.r == 34 && px.g == 196 && px.b == 34) getVoxelAt(x,y).value = 2;       // <-- Green explosibe thing
                 else if(px.r == 204 && px.g == 223 && px.b == 223 ) getVoxelAt(x,y).value = 3;   // White explosive
                 else if(px.r == 17 && px.g == 17 && px.b == 17 ) { getVoxelAt(x,y).value = 4; getVoxelAt(x,y).strenght = 5; }  // Stronk
                 else if(px.r == 36 && px.g == 135 && px.b == 240) getVoxelAt(x,y).value = 5;       // <-- Nuclear bomb 36,135,240
+                else if(px.r == 90 && px.g == 110 && px.b == 255) {getVoxelAt(x,y).value = 6; getVoxelAt(x,y).isFalling = true;}       // <-- Nuclear bomb 36,135,240
+
 
 
             } else {
@@ -71,12 +76,11 @@ int VoxelManager::load()
         }
     }
 
+    prndd("Loading map texture");
+    world_tx.loadFromFile("res/world/forest.png");
+
     prndd("Processing complete");
-
-    world_tx.loadFromFile(path);
-    world_spr.setTexture(world_tx);
-    world_spr.setPosition(0,0);
-
+    
     // load only the vertex shader
     (shader.loadFromMemory(shader_vert, sf::Shader::Vertex));
     // load only the fragment shader
@@ -112,61 +116,51 @@ void VoxelManager::update()
 {
     world_sx = gx * chunks_x;
     world_sy = gy * chunks_y;
+    world_tx.update(img);
 }
 
-void VoxelManager::merge()
+void VoxelManager::merge(bool useChunks)
 {
-update();
 
 long long indexX = 0;
+
+sf::Sprite r;
+r.setTexture(world_tx);
 for (int y = 0;y < world_sy;y++) {
-    for (int x = 0;x < world_sx;x++) {
-        if (getVoxelAt(x,y).value != 0 && !getVoxelAt(x,y).used) {
-            int x1 = x;
-            int y1 = y;
+for (int x = 0;x < world_sx;x++) {
+    if (getVoxelAt(x,y).value != 0 && !getVoxelAt(x,y).used) {
+        int x1 = x;
+        int y1 = y;
+        int xc = x;
 
-            if (getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used) {
-                x1++;
-            }
-            x1--;
-            int xc = x;
-
-            while (getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used) {
-                for (int xx = x;
-                    xx <= x1;
-                    xx++) {
-                    if (getVoxelAt(x1,y1).value == 0) goto out;
-                }
-                y1++;
-            }
-            out:
-
-            y1--;
-
-            for (int y2 = y;y2 <= y1;y2++) {
-                for (int x2 = x;
-                    x2 <= x1;
-                    x2++) {
-                    getVoxelAt(x2,y2).used = true;
-                }
-            }
-            x1++;
+        while (getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used) {
             y1++;
-                        
-            sf::Sprite r;
-            r.setTexture(world_tx);
-            r.setPosition(x, y);
-            r.setTextureRect(sf::IntRect(x,y,(float)x1 - (float)x, (float)y1 - (float)y));
-            if(indexX < rects.size()) {
-                rects.at(indexX) = r;
-            } else rects.push_back(r);
-
-            indexX++;
         }
+
+        for (int y2 = y;y2 <= y1;y2++) {
+            for (int x2 = x;
+                x2 <= x1;
+                x2++) {
+                getVoxelAt(x2,y2).used = true;
+            }
+        }
+        x1++;
+        y1++;
+                
+        r.setPosition(x, y);
+        r.setTextureRect(sf::IntRect(x,y,x1 -x,y1 -y));
+        if(indexX < rects.size()) {
+            rects.at(indexX) = r;
+        } else rects.push_back(r);
+
+        indexX++;
     }
 }
+}
+
 resetUsedFlag();
 rects.erase(rects.begin() + indexX, rects.end());
+
 }
 
 void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool recursive)
@@ -200,9 +194,10 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool r
                         case 3:
                             // Recursive... I dont care
                             getVoxelAt(x,y).value = 0;
-                            hole(p, 6, false);
+                            hole(p, 6, true);
                             return;
                         case 4: 
+                            // Recursive... I dont care
                             getVoxelAt(x,y).strenght--;
                             if(getVoxelAt(x,y).strenght <= 0) getVoxelAt(x,y).value = 0;
                         break;

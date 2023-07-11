@@ -13,6 +13,7 @@
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Background.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/EffectOverlay.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Camera.hpp"
+#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Sound/BackgroundMusic.hpp"
 
 class GameState : public MainState {
 public:
@@ -42,11 +43,8 @@ public:
 			perror("Player failed to load");
 		if(!SFX::load())
 			perror("Failed to load sound effect");
-			
-		music.openFromFile("/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/res/music/Calm.wav");
-		music.play();
-
-		thread1 = std::thread(displayDebugInfo, std::ref(delta_T));
+		if(!BGMusic::load())
+			perror("Failed to load background music");
 
 		// load only the vertex shader
 		if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex));
@@ -64,14 +62,6 @@ public:
 private:
 
 	bool slowmo = false;
-	static void displayDebugInfo(float &delta_T) {
-		while (true)
-		{
-			std::this_thread::sleep_for(std::chrono::seconds(1));
-			std::cout << "Time : " << time(0) << '\n';
-			std::cout << "DT :" << delta_T << '\n';
-		}
-	}
 
 	Player player;
 	Gun gun = Gun(vx_manager);
@@ -83,8 +73,6 @@ private:
 
 	sf::RenderTexture renderTexture;
 	sf::Sprite renderSprite;
-
-	sf::Music music;
 
 	VoxelManager vx_manager {};
 

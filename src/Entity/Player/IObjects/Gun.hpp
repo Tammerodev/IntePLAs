@@ -3,6 +3,7 @@
 #include <list>
 #include "ExplosiveBullet.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/VoxelWorld/VoxelManager.hpp"
+#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/common.hpp"
 
 class Gun {
 public:
@@ -74,11 +75,16 @@ private:
 	static void thread_task(VoxelManager& vx_manager, std::list<sf::Vector2i> &pos) {
 		while(true) {
 			bool use = false;
+			sf::Clock timer;
 			for(auto &p : pos) {
 				vx_manager.hole(p,35);
 				use = true;
 			}
-			if(use) pos.clear();
+			if(use) {
+				prndd("Thread explosion took (in ms):");
+				prndd(std::to_string(timer.restart().asMilliseconds()));
+				pos.clear();
+			}
 		}
 	}
 };

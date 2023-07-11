@@ -6,3 +6,4 @@ Block action reference
 -204,223,223 -- "Explosion - exstrenght 2 slow" --3
 -17,17,17-- "Stone - strenght  5            --4
 -36,135,240 -- "Explosion - exstrenght 200 slow"  --5
+-90,110,255 -- "Water"                              --6
