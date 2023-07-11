@@ -176,7 +176,6 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool r
     if(yexcept < 0) yexcept = 0;
     if(xexcept < 0) xexcept = 0;
 
-
     for (int y = yexcept;y < p.y + intensity;y++) {
         if(p.y > world_sy) break;
 

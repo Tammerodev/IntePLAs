@@ -69,10 +69,24 @@ public:
         merge();
     }
 
+    void lock() {
+        thread_lock = true;
+    }
+
+    void release() {
+        thread_lock = false;
+    }
+
+    bool locked() {
+        return thread_lock;
+    }
+
     std::vector <ExplosionInfo> explosion_points;
     std::vector<sf::Vector2i> updateChunks;
 
 private:
+
+    bool thread_lock = false;
 
     sf::Shader shader;
 

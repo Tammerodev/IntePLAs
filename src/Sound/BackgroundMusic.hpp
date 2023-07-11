@@ -8,8 +8,12 @@ namespace BGMusic {
     } current_song;
     static std::vector<sf::Music*> song_list;
 
+    static Song getRandomSong() {
+      return (Song)(rand()%3);
+    }
+
     static int load() {
-        current_song = Song::SANDFALL;
+        current_song = getRandomSong();
         for(int i=0;i<4;i++) {
           song_list.push_back(new sf::Music());
           prndd("Added object music to vector");

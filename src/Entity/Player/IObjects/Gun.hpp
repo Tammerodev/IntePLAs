@@ -52,11 +52,15 @@ public:
 
 		// Check for collisions
 		bullets.remove_if([&](const std::unique_ptr<ExplosiveBullet>& bullet) {
+			const long MAX_DISTANCE_FROM_MOUSE = 10000;
+			
 			if (vx_manager.checkCollisionsWith(bullet->getHitbox()).first) {
 				positions.push_back(sf::Vector2i(bullet->pos.x, bullet->pos.y));
 				SFX::strong_explosion.play();
 				return true; // Remove the bullet
 			}
+			if(abs(bullet->pos.x - mousePos.x) > MAX_DISTANCE_FROM_MOUSE ||
+			 abs(bullet->pos.y - mousePos.y) > MAX_DISTANCE_FROM_MOUSE) return true;
 			return false; // Keep the bullet
 		});
     }
@@ -77,12 +81,12 @@ private:
 			bool use = false;
 			sf::Clock timer;
 			for(auto &p : pos) {
+				vx_manager.lock();
 				vx_manager.hole(p,35);
 				use = true;
 			}
 			if(use) {
-				prndd("Thread explosion took (in ms):");
-				prndd(std::to_string(timer.restart().asMilliseconds()));
+				vx_manager.release();
 				pos.clear();
 			}
 		}

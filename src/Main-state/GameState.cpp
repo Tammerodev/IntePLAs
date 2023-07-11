@@ -65,7 +65,9 @@ void GameState::input(sf::Event &ev) {
             
         }
         if(ev.mouseButton.button == sf::Mouse::Button::Right) {
-            vx_manager.build_circle(sf::Vector2i(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())),20);
+            if(!vx_manager.locked()) {
+                vx_manager.build_circle(sf::Vector2i(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())),20);
+            }
         }
 
     }
