@@ -21,6 +21,7 @@ void GameState::update() {
     game_camera.update(delta_T);
     player.update(delta_T);    
     gun.update(vx_manager, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), player.get_voxel_pos(), delta_T);
+    placer.update(vx_manager, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), player.get_voxel_pos(), delta_T);
     vx_manager.update();
 
     player.setGrounded(false);
@@ -60,18 +61,28 @@ void GameState::input(sf::Event &ev) {
 
     if(ev.type == sf::Event::MouseButtonPressed) {
         if(ev.mouseButton.button == sf::Mouse::Button::Left) {
+            if(inv::currTool != inv::RocketLauncher) return;
             SFX::rocket_launcher_fire.play();
-            gun.spawn_bullet(player.get_voxel_pos());
-            
+            gun.spawn_bullet(player.get_voxel_pos());    
         }
         if(ev.mouseButton.button == sf::Mouse::Button::Right) {
-            if(!vx_manager.locked()) {
-                vx_manager.build_circle(sf::Vector2i(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())),20);
-            }
+            if(inv::currTool == inv::DebugPlacer)
+            placer.use(sf::Vector2i(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())));
         }
 
     }
     if(ev.type == sf::Event::KeyReleased) {
+        if(ev.key.code == sf::Keyboard::Q) {
+        switch (inv::currTool) {
+        case inv::DebugPlacer:
+            inv::currTool = inv::RocketLauncher;
+            break;
+        case inv::RocketLauncher:
+            inv::currTool = inv::DebugPlacer;
+            break;
+        }  
+
+        }
         if(ev.key.code == sf::Keyboard::Escape) {
             GameState::currentState = GameState::menuState;
             menuState->load();
@@ -93,7 +104,16 @@ void GameState::draw(sf::RenderTarget &window)
 
     // Render player and gun
     player.draw(renderTexture);
-    gun.render(renderTexture);
+
+    switch (inv::currTool)
+    {
+    case inv::DebugPlacer:
+        placer.render(renderTexture);
+        break;
+    case inv::RocketLauncher:
+        gun.render(renderTexture);
+        break;
+    }   
 
     // Render the world
     vx_manager.render(renderTexture);

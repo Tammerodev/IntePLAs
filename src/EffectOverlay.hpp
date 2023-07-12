@@ -52,6 +52,7 @@ private:
 	sf::Clock shader_time;
 	const char * shader_frag = 
     R"( 
+        uniform sampler2D texture;
 		uniform float time;
         uniform vec2 explosion;
         uniform vec2 worldpos;
@@ -63,7 +64,6 @@ private:
 
 
         void main( void ) {
-
             vec2 position = gl_TexCoord[0].xy  + worldpos / 1000;
             
             vec2 exp_pos = explosion / 1000.0;
@@ -77,10 +77,8 @@ private:
             
             color.r = 1.0 - dist / intens;
             color.b = tan(time) * dist;
-
-
+            
             gl_FragColor = color;
-
         }
 			
     )";

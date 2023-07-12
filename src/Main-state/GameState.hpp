@@ -10,10 +10,12 @@
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/VoxelWorld/VoxelManager.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/VoxelWorld/math.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Entity/Player/IObjects/RocketLauncher.hpp"
+#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Entity/Player/IObjects/DebugPlacer.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Background.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/EffectOverlay.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Camera.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Sound/BackgroundMusic.hpp"
+#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/GUI/Inventory.hpp"
 
 class GameState : public MainState {
 public:
@@ -25,6 +27,8 @@ public:
 		
 		game_camera.setSize(sf::Vector2u(window_width, window_height));
 		ui_camera.setSize(sf::Vector2u(window_width, window_height));
+		
+		inv::currTool = inv::RocketLauncher;
 
 		game_camera.setZoom(0.5f);
 		ui_camera.setZoom(1.0f);
@@ -65,6 +69,7 @@ private:
 
 	Player player;
 	RocketLauncher gun = RocketLauncher(vx_manager);
+	DebugPlacer placer = DebugPlacer(vx_manager);
 	Background bg;
 	EffectOverlay effOverlay;
 
