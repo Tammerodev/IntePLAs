@@ -2,6 +2,14 @@
 
 std::pair<bool,float> VoxelManager::checkCollisionsWith(const sf::FloatRect &collider)
 {
+    if(locked()) {
+        for(auto &r : rects_copy) {
+            if(collider.intersects(r.getGlobalBounds())) {
+                    return {true,r.getGlobalBounds().top - collider.top};
+            }   
+        }
+        return {false,0.f};
+    }
     for(auto &r : rects) {
         if(collider.intersects(r.getGlobalBounds())) {
                 return {true,r.getGlobalBounds().top - collider.top};
@@ -12,6 +20,14 @@ std::pair<bool,float> VoxelManager::checkCollisionsWith(const sf::FloatRect &col
 
 std::pair<bool,float> VoxelManager::checkCollisionsWithInv(const sf::FloatRect &collider)
 {
+    if(locked()) {
+        for(auto &r : rects_copy) {
+            if(collider.intersects(r.getGlobalBounds())) {
+                return {true,(r.getGlobalBounds().top + r.getGlobalBounds().height)- collider.top};
+            }   
+        }
+        return {false,0.f};
+    }
     for(auto &r : rects) {
         if(collider.intersects(r.getGlobalBounds())) {
             return {true,(r.getGlobalBounds().top + r.getGlobalBounds().height)- collider.top};
@@ -22,6 +38,14 @@ std::pair<bool,float> VoxelManager::checkCollisionsWithInv(const sf::FloatRect &
 
 std::pair<bool,float> VoxelManager::checkCollisionsWithLeft(const sf::FloatRect &collider)
 {
+    if(locked()) {
+        for(auto &r : rects_copy) {
+            if(collider.intersects(r.getGlobalBounds())) {
+                return {true, collider.left + collider.width - r.getGlobalBounds().left};
+            }   
+        }
+        return {false,0.f};
+    }
     for(auto &r : rects) {
         if(collider.intersects(r.getGlobalBounds())) {
             return {true, collider.left + collider.width - r.getGlobalBounds().left};
@@ -32,6 +56,14 @@ std::pair<bool,float> VoxelManager::checkCollisionsWithLeft(const sf::FloatRect 
 
 std::pair<bool,float> VoxelManager::checkCollisionsWithRight(const sf::FloatRect &collider)
 {
+    if(locked()) {
+        for(auto &r : rects_copy) {
+            if(collider.intersects(r.getGlobalBounds())) {
+                return {true,-(collider.left + collider.width - r.getGlobalBounds().left)};
+            }   
+        }
+        return {false,0.f};
+    }
     for(auto &r : rects) {
         if(collider.intersects(r.getGlobalBounds())) {
             return {true,-(collider.left + collider.width - r.getGlobalBounds().left)};
@@ -62,13 +94,7 @@ int VoxelManager::load()
             const sf::Color px = img.getPixel(x,y); // Short variable name, we are gonna use this A LOT
             if(px.a != 0) {
                 getVoxelAt(x,y).value = 1;
-                     if(px.r == 34 && px.g == 196 && px.b == 34) getVoxelAt(x,y).value = 2;       // <-- Green explosibe thing
-                else if(px.r == 204 && px.g == 223 && px.b == 223 ) getVoxelAt(x,y).value = 3;   // White explosive
-                else if(px.r == 17 && px.g == 17 && px.b == 17 ) { getVoxelAt(x,y).value = 4; getVoxelAt(x,y).strenght = 5; }  // Stronk
-                else if(px.r == 36 && px.g == 135 && px.b == 240) getVoxelAt(x,y).value = 5;       // <-- Nuclear bomb 36,135,240
-                else if(px.r == 90 && px.g == 110 && px.b == 255) {getVoxelAt(x,y).value = 6; getVoxelAt(x,y).isFalling = true;}       // <-- Nuclear bomb 36,135,240
-
-
+                getValueFromCol(px, sf::Vector2i(x,y));
 
             } else {
                 getVoxelAt(x,y).value = 0;
@@ -98,6 +124,12 @@ int VoxelManager::load()
 
 void VoxelManager::render(sf::RenderTarget &target)
 {
+    if(locked()) {
+        for(auto &r : rects_copy)  {
+            target.draw(r);
+        }
+        return;
+    }
     for(auto &r : rects)  {
         target.draw(r);
     }
@@ -126,6 +158,8 @@ long long indexX = 0;
 
 sf::Sprite r;
 r.setTexture(world_tx);
+if(locked()) {
+
 for (int y = 0;y < world_sy;y++) {
 for (int x = 0;x < world_sx;x++) {
     if (getVoxelAt(x,y).value != 0 && !getVoxelAt(x,y).used) {
@@ -160,6 +194,44 @@ for (int x = 0;x < world_sx;x++) {
 
 resetUsedFlag();
 rects.erase(rects.begin() + indexX, rects.end());
+return;
+}
+for (int y = 0;y < world_sy;y++) {
+for (int x = 0;x < world_sx;x++) {
+    if (getVoxelAt(x,y).value != 0 && !getVoxelAt(x,y).used) {
+        int x1 = x;
+        int y1 = y;
+        int xc = x;
+
+        while (getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used) {
+            y1++;
+        }
+
+        for (int y2 = y;y2 <= y1;y2++) {
+            for (int x2 = x;
+                x2 <= x1;
+                x2++) {
+                getVoxelAt(x2,y2).used = true;
+            }
+        }
+        x1++;
+        y1++;
+                
+        r.setPosition(x, y);
+        r.setTextureRect(sf::IntRect(x,y,x1 -x,y1 -y));
+        if(indexX < rects_copy.size()) {
+            rects_copy.at(indexX) = r;
+        } else rects_copy.push_back(r);
+
+        indexX++;
+    }
+}
+}
+
+resetUsedFlag();
+rects_copy.erase(rects_copy.begin() + indexX, rects_copy.end());
+
+rects = rects_copy;
 
 }
 
@@ -212,6 +284,23 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool r
                 }
 
             }
+        }
+    }
+    merge();
+}
+
+void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg)
+{
+    for (int y = p.y;  y < p.y + cimg.getSize().y;  y++) {
+        if(p.y > world_sy) break;
+        for (int x = p.x;  x < p.x + cimg.getSize().x;  x++) {
+            if(x >world_sx) break;
+            if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
+                getVoxelAt(x,y).value = 1;
+                img.setPixel(x,y,cimg.getPixel(x-p.x,y-p.y));
+                getValueFromCol(img.getPixel(x,y), sf::Vector2i(x,y));
+            }
+
         }
     }
     merge();

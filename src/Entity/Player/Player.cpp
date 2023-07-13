@@ -12,11 +12,11 @@ int Player::load() {
     return 1;
 }
 void Player::update(float dt) {
-    PlayerState::currentState->update(pos,y_acceleration,dt);
+    PlayerState::currentState->update(pos,acc.y,dt);
     PlayerState::currentState->input(grounded);
     if(!grounded) {
-        y_acceleration += gravity * dt;
-        pos.y += y_acceleration;
+        acc.y += gravity;
+        pos += acc;
     }
     spr.setPosition(pos.x, pos.y);
 

@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <thread>
-#define DEBUG 1
+#define DEBUG 0
 
 #if DEBUG
     #define prndd(x) std::cout << ">" << x <<  "   time : "<<time(0) << '\n'; std::this_thread::sleep_for(std::chrono::milliseconds(50))

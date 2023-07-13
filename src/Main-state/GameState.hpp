@@ -9,8 +9,6 @@
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Entity/Player/Player.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/VoxelWorld/VoxelManager.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/VoxelWorld/math.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Entity/Player/IObjects/RocketLauncher.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Entity/Player/IObjects/DebugPlacer.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Background.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/EffectOverlay.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Camera.hpp"
@@ -28,8 +26,9 @@ public:
 		game_camera.setSize(sf::Vector2u(window_width, window_height));
 		ui_camera.setSize(sf::Vector2u(window_width, window_height));
 		
-		inv::currTool = inv::RocketLauncher;
+		inv.load(vx_manager);
 
+		thread1 = std::thread(thread_fps, std::ref(fps));
 		game_camera.setZoom(0.5f);
 		ui_camera.setZoom(1.0f);
 
@@ -65,11 +64,18 @@ public:
 	virtual void draw(sf::RenderTarget&window);
 private:
 
+    static void thread_fps(float &fp) {
+		
+	}
+
 	bool slowmo = false;
+	sf::Clock clock;
+
+	float lastTime = 0;
+	float fps = 1;
 
 	Player player;
-	RocketLauncher gun = RocketLauncher(vx_manager);
-	DebugPlacer placer = DebugPlacer(vx_manager);
+	Inventory inv;
 	Background bg;
 	EffectOverlay effOverlay;
 

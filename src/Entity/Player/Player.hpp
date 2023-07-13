@@ -35,7 +35,7 @@ void move_x(float val){
 }
 
 void ground() {
-    y_acceleration = 0;
+    acc.y = 0.f;
 }
 
 
@@ -86,7 +86,7 @@ sf::Texture tx;
 
 sf::IntRect texture_rect;
 
-sf::Vector2f pos;
+sf::Vector2f pos = sf::Vector2f(500,500);
 sf::Vector2i prev_voxel_aligned_pos;
 
 sf::Sprite sprite;
@@ -95,7 +95,6 @@ sf::FloatRect hitbox_bottom;
 sf::FloatRect hitbox_right;
 sf::FloatRect hitbox_left;
 
-
-float gravity = 0.01f;
-float y_acceleration = 0;
+float gravity = 0.07f;
+sf::Vector2f acc = sf::Vector2f(0.f,0.f);
 };

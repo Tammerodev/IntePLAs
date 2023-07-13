@@ -2,10 +2,11 @@
 #include <memory>
 #include <list>
 #include "ExplosiveBullet.hpp"
+#include "Item.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/VoxelWorld/VoxelManager.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/common.hpp"
 
-class Gun {
+class Gun : public Item {
 public:
 	Gun(VoxelManager &vx_manager,const std::string&bullet_tx_path, const std::string&gun_tx_path, uint64_t strenth) {
 		bullet_tx.loadFromFile(bullet_tx_path);
@@ -25,7 +26,7 @@ public:
             explosion_thread.join();
 		}
 	}
-    void spawn_bullet(sf::Vector2f playerpos) {
+    void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse) {
 		auto ex = std::make_unique<ExplosiveBullet>(bullet_tx);
 		ex->setPosition(playerpos);
 		ex->setRotation(rotationAngle);
@@ -40,7 +41,15 @@ public:
 		target.draw(gun_spr);
     }
 
-    void update(VoxelManager &vx_manager, sf::Vector2f mousePos, sf::Vector2f pos, const float &dt) {
+    void setPosition(const sf::Vector2f&p) {
+		gun_spr.setPosition(p);
+	}
+
+	sf::Sprite &getSprite() {
+		return gun_spr;
+	}
+
+    void update(VoxelManager &vx_manager, const sf::Vector2f& mousePos, const sf::Vector2f& pos, const float dt) {
 		// Set position and rotation
 		rotationAngle = atan2f(mousePos.y - gun_spr.getPosition().y, mousePos.x - gun_spr.getPosition().x) * 180 / math::PI;
 
@@ -58,6 +67,7 @@ public:
 			
 			if (vx_manager.checkCollisionsWith(bullet->getHitbox()).first) {
 				positions.push_back(sf::Vector2i(bullet->pos.x, bullet->pos.y));
+				vx_manager.copy();
 				SFX::strong_explosion.play();
 				return true; // Remove the bullet
 			}

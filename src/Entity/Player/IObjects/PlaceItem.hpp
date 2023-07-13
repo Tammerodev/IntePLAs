@@ -1,20 +1,21 @@
 #pragma once
 #include <memory>
 #include <list>
-#include "ExplosiveBullet.hpp"
+#include "Item.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/VoxelWorld/VoxelManager.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/common.hpp"
 
-class PlaceItem {
+class PlaceItem : public Item {
     public:
-    PlaceItem(VoxelManager &vx_manager,const std::string&tx_path, const std::string&copyimg) {
+    PlaceItem(VoxelManager &vx_manager,const std::string&tx_path, const std::string&copyimg) : vx_man(vx_manager) {
+
 		copy_.loadFromFile(copyimg);
 		gun_tx.loadFromFile(tx_path);
 		gun_spr.setTexture(gun_tx);
 
 		gun_spr.setOrigin(gun_spr.getGlobalBounds().width / 2,gun_spr.getGlobalBounds().height / 2);
 
-		pl_thread = std::thread(place_task,std::ref(vx_manager), std::ref(positions));
+		pl_thread = std::thread(place_task,std::ref(vx_manager), std::ref(positions), std::ref(copy_));
 
 	}
 
@@ -28,13 +29,22 @@ class PlaceItem {
 		target.draw(gun_spr);
     }
 
-    void update(VoxelManager &vx_manager, sf::Vector2f mousePos, sf::Vector2f pos, const float &dt) {
+	void setPosition(const sf::Vector2f&p) {
+		gun_spr.setPosition(p);
+	}
+
+	sf::Sprite &getSprite() {
+		return gun_spr;
+	}
+
+    void update(VoxelManager &vx_manager, const sf::Vector2f &pos, const sf::Vector2f& mospos, const float dt) {
 		// Set position and rotation
-		gun_spr.setPosition(pos.x + 9, pos.y + 13);
+		gun_spr.setPosition(pos.x, pos.y);
     }
 
-	void use(sf::Vector2i pos) {
-		positions.push_back(sf::Vector2i(pos));
+	void use(const sf::Vector2f& player,const sf::Vector2f& mouse) {
+		vx_man.copy();
+		positions.push_back(sf::Vector2i(mouse));
 	}
 private:
 	std::thread pl_thread;
@@ -44,14 +54,14 @@ private:
 	sf::Texture gun_tx;
 	
 	sf::Image copy_;
-
-	static void place_task(VoxelManager& vx_manager, std::list<sf::Vector2i> &pos) {
+	VoxelManager& vx_man;
+	static void place_task(VoxelManager& vx_manager, std::list<sf::Vector2i> &pos, sf::Image &ifmg) {
 		while(true) {
 			bool use = false;
 			sf::Clock timer;
 			for(auto &p : pos) {
 				vx_manager.lock();
-				vx_manager.build_circle(p,10);
+				vx_manager.build_image(p,ifmg);
 				use = true;
 			}
 			if(use) {
