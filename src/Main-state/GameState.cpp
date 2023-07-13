@@ -32,28 +32,27 @@ void GameState::update() {
     auto res2 = vx_manager.checkCollisionsWithInv(player.getTopHitbox());   // Top
     auto res3 = vx_manager.checkCollisionsWithLeft(player.getLeftHitbox());     // Left
     auto res4 = vx_manager.checkCollisionsWithRight(player.getRightHitbox());   // Right
+
     if(res3.first) { // Left collision
         player.move_x(res3.second);
         player.update_hitboxbottom();
         player.update_hitboxtop();
     }
-    else if(res4.first) {    // Right collision
+    if(res4.first) {    // Right collision
         player.move_x(res4.second);
         player.update_hitboxbottom();
         player.update_hitboxtop();
     }
-
     if(res.first) {     // Colliding with ground
         player.ground();
         player.setGrounded(true);
         player.move_y(res.second - 12.f);
-        return;
     }
+
     if(res2.first) {    // Head collision
         player.ground();
         player.move_y(res2.second);
     }
-
 }
 
 void GameState::input(sf::Event &ev) {
