@@ -29,9 +29,14 @@ namespace BGMusic {
         prndd("Loading complete");
 
         song_list[current_song]->play();
+        song_list[current_song]->setVolume(10);
 
         return 1;
 
+    }
+
+    static void stop() {
+      song_list[current_song]->stop();
     }
     static void update() {
       

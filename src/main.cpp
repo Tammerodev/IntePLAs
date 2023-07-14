@@ -5,7 +5,7 @@
 
 
 #include <iostream>
-#include "Main-state/StateManager.hpp"
+#include "StateManager.hpp"
 #include <memory>
 
 int main() {

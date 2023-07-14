@@ -3,12 +3,13 @@
 #include <list>
 #include "ExplosiveBullet.hpp"
 #include "Item.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/VoxelWorld/VoxelManager.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/common.hpp"
+#include "VoxelManager.hpp"
+#include "common.hpp"
+#include "Sound/SoundFX.hpp"
 
 class Gun : public Item {
 public:
-	Gun(VoxelManager &vx_manager,const std::string&bullet_tx_path, const std::string&gun_tx_path, uint64_t strenth) {
+	Gun(VoxelManager &vx_manager,const std::string&bullet_tx_path, const std::string&gun_tx_path, uint64_t strenth, bool f, int t, bool spin = false) : spn(spin) {
 		bullet_tx.loadFromFile(bullet_tx_path);
 		gun_tx.loadFromFile(gun_tx_path);
 		gun_spr.setTexture(gun_tx);
@@ -17,7 +18,7 @@ public:
 
 		gun_spr.setOrigin(gun_spr.getGlobalBounds().width / 2,gun_spr.getGlobalBounds().height / 2);
 
-		explosion_thread = std::thread(thread_task,std::ref(vx_manager), std::ref(positions), explosion_stength);
+		explosion_thread = std::thread(thread_task,std::ref(vx_manager), std::ref(positions), explosion_stength, f, t);
 
 	}
 
@@ -58,6 +59,9 @@ public:
 
 		// Update bullets
 		for(const auto& bullet : bullets) {
+			if(spn) {
+				bullet->setRotation(bullet->pos.x + bullet->pos.y);
+			}
 			bullet->update(dt);
 		}
 
@@ -68,7 +72,6 @@ public:
 			if (vx_manager.checkCollisionsWith(bullet->getHitbox()).first) {
 				positions.push_back(sf::Vector2i(bullet->pos.x, bullet->pos.y));
 				vx_manager.copy();
-				SFX::strong_explosion.play();
 				return true; // Remove the bullet
 			}
 			if(abs(bullet->pos.x - mousePos.x) > MAX_DISTANCE_FROM_MOUSE ||
@@ -77,6 +80,7 @@ public:
 		});
     }
 private:
+	bool spn = false;
 	float rotationAngle;
 
 	std::thread explosion_thread;
@@ -90,13 +94,14 @@ private:
 	
 	sf::Texture bullet_tx;
 
-	static void thread_task(VoxelManager& vx_manager, std::list<sf::Vector2i> &pos, uint64_t strength) {
+	static void thread_task(VoxelManager& vx_manager, std::list<sf::Vector2i> &pos, uint64_t strength, bool force, int temp) {
 		while(true) {
 			bool use = false;
 			sf::Clock timer;
 			for(auto &p : pos) {
+				if(force) SFX::strong_explosion.play(); else SFX::fire.play();
 				vx_manager.lock();
-				vx_manager.hole(p,strength);
+				vx_manager.hole(p,strength, force, temp);
 				use = true;
 			}
 			if(use) {

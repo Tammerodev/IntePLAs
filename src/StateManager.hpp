@@ -13,7 +13,7 @@
 MainState* MainState::menuState = new MenuState();
 MainState* MainState::gameState = new GameState();
 MainState* MainState::settingsState = new SettingsState();
-MainState* MainState::currentState = MainState::gameState;
+MainState* MainState::currentState = MainState::menuState;
 
 class StateManager {
 public:
@@ -31,7 +31,7 @@ public:
 
     }
     void gameLoop(){
-        MainState::currentState->load();
+        MainState::currentState->load("");
         window.setVisible(true);
         while(window.isOpen()) {
             MainState::currentState->update();
@@ -46,6 +46,8 @@ public:
             MainState::currentState->draw(window);
             window.display();
         }
+
+        MainState::currentState->statexit();
     }
 private:
     sf::RenderWindow window;

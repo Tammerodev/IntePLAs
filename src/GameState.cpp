@@ -1,5 +1,5 @@
 #include "GameState.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/common.hpp"
+#include "common.hpp"
 
 void GameState::update() {
     delta_T = deltaClock.getElapsedTime().asMilliseconds();
@@ -47,6 +47,7 @@ void GameState::update() {
         player.ground();
         player.setGrounded(true);
         player.move_y(res.second - 12.f);
+        return;
     }
 
     if(res2.first) {    // Head collision
@@ -70,10 +71,18 @@ void GameState::input(sf::Event &ev) {
     }
     if(ev.type == sf::Event::KeyReleased) {
         if(ev.key.code == sf::Keyboard::Escape) {
+            statexit();
             GameState::currentState = GameState::menuState;
-            menuState->load();
+            menuState->load("");
         }
     }
+}
+
+void GameState::statexit()
+{
+    thread1.native_handle();
+    BGMusic::stop();
+    vx_manager.save();
 }
 
 void GameState::draw(sf::RenderTarget &window)

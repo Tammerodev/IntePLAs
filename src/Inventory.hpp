@@ -1,14 +1,17 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Entity/Player/IObjects/RocketLauncher.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Entity/Player/IObjects/DebugPlacer.hpp"
+#include "RocketLauncher.hpp"
+#include "DebugPlacer.hpp"
+#include "HeatGun.hpp"
+
 
 class Inventory {
 public:
     void load(VoxelManager&vx) {
         inventory.push_back(std::make_shared<RocketLauncher>(vx));
         inventory.push_back(std::make_shared<DebugPlacer>(vx));
+        inventory.push_back(std::make_shared<HeatGun>(vx));
     } 
 
     void switchItem() {

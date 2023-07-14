@@ -9,6 +9,8 @@
 
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/ExplosionInfo.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/common.hpp"
+#include "Elements.hpp"
+#include <list>
 
 
 
@@ -36,50 +38,39 @@ public:
     std::pair<bool,float> checkCollisionsWithRight(const sf::FloatRect &collider);
     std::pair<bool,float> checkCollisionsWithLeft(const sf::FloatRect &collider);
 
-    int load();
+    int load(std::string);
 
     Voxel &getVoxelAt (const uint64_t x, const uint64_t y) {
         return grid.at(x/gx).at(y/gy).arr[x%gx][y%gy];
     }
 
+    void clearVoxelAt(const uint64_t x, const uint64_t y) {
+        getVoxelAt(x,y).value = 0; 
+        img.setPixel(x,y,sf::Color(0,0,0,0));
+    }
+
+    void damageVoxelAt(const uint64_t x, const uint64_t y) {
+        getVoxelAt(x,y).strenght--;
+        if(getVoxelAt(x,y).strenght <= 0) clearVoxelAt(x,y);
+    }
+
+    void heatVoxelAt(const uint64_t x, const uint64_t y, const float temp);
+
+
+
     void render(sf::RenderTarget&);
     void resetUsedFlag();
     void update();
     void merge(bool useChunks = false);
-    void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool rec = true);
+    void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const uint32_t heat);
 
-    void getValueFromCol(const sf::Color &px, sf::Vector2i pos) {
-        int x = pos.x;
-        int y = pos.y;
+    const Voxel getValueFromCol(const sf::Color &px, sf::Vector2i p);
 
-                        if(px.r == 34 && px.g == 196 && px.b == 34) getVoxelAt(x,y).value = 2;       // <-- Green explosibe thing
-        else if(px.r == 204 && px.g == 223 && px.b == 223 ) getVoxelAt(x,y).value = 3;   // White explosive
-        else if(px.r == 17 && px.g == 17 && px.b == 17 ) { getVoxelAt(x,y).value = 4; getVoxelAt(x,y).strenght = 5; }  // Stronk
-        else if(px.r == 36 && px.g == 135 && px.b == 240) getVoxelAt(x,y).value = 5;       // <-- Nuclear bomb 36,135,240
-        else if(px.r == 90 && px.g == 110 && px.b == 255) {getVoxelAt(x,y).value = 6; getVoxelAt(x,y).isFalling = true;}       // <-- Nuclear bomb 36,135,240
+    void save() {
+        img.saveToFile("res/saves/" + std::to_string(time(0)) + ".png");
     }
 
     void build_image(const sf::Vector2i&, const sf::Image&);
-    void build_circle(const sf::Vector2i &p, const uint32_t &intensity) {
-        int yexcept = p.y - intensity;
-        int xexcept = p.x - intensity;
-
-        if(yexcept < 0) yexcept = 0;
-        if(xexcept < 0) xexcept = 0;
-
-        for (int y = yexcept;y < p.y + intensity;y++) {
-            if(p.y > world_sy) break;
-
-            for (int x = xexcept;x < p.x + intensity;x++) {
-                if(x >world_sx) break;
-                if(math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y))) < intensity) {
-                    getVoxelAt(x,y).value = 1;
-                    img.setPixel(x,y,sf::Color(255,255,255,255));
-                }
-            }
-        }
-        merge();
-    }
 
     void copy() {
         rects_copy = rects;
@@ -101,6 +92,10 @@ public:
     std::vector<sf::Vector2i> updateChunks;
 
 private:
+
+    std::list<sf::Vector2i> voxelsInNeedOfUpdate;
+    std::list<sf::Vector2i> recativeVoxels;
+
 
     bool thread_lock = false;
 

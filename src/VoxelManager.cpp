@@ -72,12 +72,12 @@ std::pair<bool,float> VoxelManager::checkCollisionsWithRight(const sf::FloatRect
     return {false,0.f};
 }
 
-int VoxelManager::load()
+int VoxelManager::load(std::string file)
 {
     prndd("Started loading map");
 
     
-    const std::string path = "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/res/world/forest.png";
+    const std::string path = file;
     if(!img.loadFromFile(path)) {
         perror("Could not load voxel map");
     }
@@ -92,18 +92,12 @@ int VoxelManager::load()
     for (int y = 0;y < world_sy;y++) {
         for (int x = 0;x < world_sx;x++) {
             const sf::Color px = img.getPixel(x,y); // Short variable name, we are gonna use this A LOT
-            if(px.a != 0) {
-                getVoxelAt(x,y).value = 1;
-                getValueFromCol(px, sf::Vector2i(x,y));
-
-            } else {
-                getVoxelAt(x,y).value = 0;
-            }
+            getVoxelAt(x,y) = getValueFromCol(px, sf::Vector2i(x,y));
         }
     }
 
     prndd("Loading map texture");
-    world_tx.loadFromFile("res/world/forest.png");
+    world_tx.loadFromFile(path);
 
     prndd("Processing complete");
     
@@ -120,6 +114,29 @@ int VoxelManager::load()
     merge();
 
     return true;
+}
+
+void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, const float temp)
+{
+
+    Voxel &vox = getVoxelAt(x,y);
+
+    vox.temp += temp;
+    if(vox.temp >= vox.maxTemp) {
+        int val = vox.value;
+        damageVoxelAt(x,y);
+        if(val == 3) 
+            hole(sf::Vector2i(x,y),100,true,2000);
+    }
+
+    if(vox.temp <= 0) vox.temp = 0;
+
+    sf::Color currPixel = img.getPixel(x,y);
+
+    uint64_t valR = vox.temp * 1; 
+    if(valR >= 255) valR = 255;
+    currPixel.r = valR;
+    img.setPixel(x,y,currPixel);
 }
 
 void VoxelManager::render(sf::RenderTarget &target)
@@ -149,6 +166,16 @@ void VoxelManager::update()
     world_sx = gx * chunks_x;
     world_sy = gy * chunks_y;
     world_tx.update(img);
+
+    auto i = voxelsInNeedOfUpdate.begin();
+    while (i != voxelsInNeedOfUpdate.end())
+    {
+        bool del = false;
+        sf::Vector2i p = (*i);
+        heatVoxelAt(p.x, p.y, -getVoxelAt(p.x,p.y).ambientDissipation);
+        if(getVoxelAt(p.x,p.y).temp <= 0 || getVoxelAt(p.x,p.y).value == 0) {i = voxelsInNeedOfUpdate.erase(i); }
+        else { ++i; }
+    }
 }
 
 void VoxelManager::merge(bool useChunks)
@@ -235,12 +262,14 @@ rects = rects_copy;
 
 }
 
-void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool recursive)
+void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool force, const uint32_t heat)
 {
-    ExplosionInfo info;
-    info.position = sf::Vector2f(p);
-    info.strength = intensity;
-    explosion_points.push_back(info);
+    if(force) {
+        ExplosionInfo info;
+        info.position = sf::Vector2f(p);
+        info.strength = intensity;
+        explosion_points.push_back(info);
+    }
 
     int yexcept = p.y - intensity;
     int xexcept = p.x - intensity;
@@ -254,39 +283,63 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool r
         for (int x = xexcept;x < p.x + intensity;x++) {
             if(x >world_sx) break;
             if(getVoxelAt(x,y).value == 0) continue;
-            if(math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y))) < intensity) {
-                if(recursive) {
-                    switch (getVoxelAt(x,y).value) {
-                        case 2:
-                            // Recursive... I dont care
-                            getVoxelAt(x,y).value = 0;
-                            hole(p, 250, true);
-                            return;
-                        case 3:
-                            // Recursive... I dont care
-                            getVoxelAt(x,y).value = 0;
-                            hole(p, 6, true);
-                            return;
-                        case 4: 
-                            // Recursive... I dont care
-                            getVoxelAt(x,y).strenght--;
-                            if(getVoxelAt(x,y).strenght <= 0) getVoxelAt(x,y).value = 0;
-                        break;
-                        case 5:
-                            // Recursive... I dont care
-                            getVoxelAt(x,y).value = 0;
-                            hole(p, 500, true);
-                            return;
-                        default:
-                            getVoxelAt(x,y).value = 0;
-                            break;
-                    }
-                }
-
+            const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
+            if(distance < intensity) {
+                voxelsInNeedOfUpdate.push_back(sf::Vector2i(x,y));
+                if(force) damageVoxelAt(x,y);
+                heatVoxelAt(x,y, (intensity - distance)*heat);
             }
         }
     }
     merge();
+}
+
+const Voxel VoxelManager::getValueFromCol(const sf::Color &px, sf::Vector2i p)
+{
+    Voxel vox = Voxel();
+    vox.value = px.a != 0;
+
+    if(px == elm::Carbon) {
+        vox.value = 2;
+        vox.maxTemp = 3550;
+        vox.strenght = 8;
+    } else if(px == elm::Lithium) {
+        vox.value = 3;
+        vox.maxTemp = 180.5;
+        vox.strenght = 2;
+    } else if(px == elm::Magnesium) {
+        vox.value = 4;
+        vox.maxTemp = 650;
+        vox.strenght = 10;
+        recativeVoxels.push_back(sf::Vector2i(p));
+    } else if(px == elm::Sodium) {
+        vox.value = 5;
+        vox.maxTemp = 97.8;
+        vox.strenght = 1;
+    } else if(px == elm::Aluminium) {
+        vox.value = 6;
+        vox.maxTemp = 660;
+        vox.strenght = 5;
+    } else if(px == elm::Silicon) {
+        vox.value = 7;
+        vox.maxTemp = 1410;
+        vox.strenght = 6;
+    } else if(px == elm::Copper) {
+        vox.value = 8;
+        vox.maxTemp = 1085;
+        vox.strenght = 10;
+    } else if(px == elm::Titanium) {
+        vox.value = 9;
+        vox.maxTemp = 1668;
+        vox.strenght = 100;
+    }
+    else if(px == elm::Lead) {
+        vox.value = 10;
+        vox.maxTemp = 327;
+        vox.strenght = 3;
+    }
+
+    return vox;
 }
 
 void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg)
@@ -296,9 +349,8 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg)
         for (int x = p.x;  x < p.x + cimg.getSize().x;  x++) {
             if(x >world_sx) break;
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
-                getVoxelAt(x,y).value = 1;
                 img.setPixel(x,y,cimg.getPixel(x-p.x,y-p.y));
-                getValueFromCol(img.getPixel(x,y), sf::Vector2i(x,y));
+                getVoxelAt(x,y) = getValueFromCol(img.getPixel(x,y), sf::Vector2i(x,y));
             }
 
         }

@@ -54,7 +54,10 @@
         "thread": "cpp",
         "condition_variable": "cpp",
         "shared_mutex": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "codecvt": "cpp",
+        "iomanip": "cpp",
+        "sstream": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

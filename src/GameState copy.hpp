@@ -7,17 +7,21 @@
 #include "State.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Sound/SoundFX.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Entity/Player/Player.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/VoxelWorld/VoxelManager.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/VoxelWorld/math.hpp"
+#include "VoxelManager.hpp"
+#include "math.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Background.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/EffectOverlay.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Camera.hpp"
 #include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Sound/BackgroundMusic.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/GUI/Inventory.hpp"
+#include "Inventory.hpp"
 
 class GameState : public MainState {
 public:
-	virtual bool load() {
+	bool load(const std::string s) {
+		thread1 = std::thread(thread_fps, std::ref(fps));
+
+		if(SFX::rocket_launcher_fire_buffer.getDuration() != sf::Time::Zero) return true;
+
 		// TODO : adjustable rendertx size
 		const uint16_t window_height = 1200;
 		const uint16_t window_width = 1200;
@@ -27,8 +31,6 @@ public:
 		ui_camera.setSize(sf::Vector2u(window_width, window_height));
 		
 		inv.load(vx_manager);
-
-		thread1 = std::thread(thread_fps, std::ref(fps));
 		game_camera.setZoom(0.5f);
 		ui_camera.setZoom(1.0f);
 
@@ -58,10 +60,11 @@ public:
 
 		return true;
 	}
-    virtual void update();
-	virtual void input(sf::Event &ev);
+    void update();
+	void input(sf::Event &ev);
+	void statexit();
 
-	virtual void draw(sf::RenderTarget&window);
+	void draw(sf::RenderTarget&window);
 private:
 
     static void thread_fps(float &fp) {
