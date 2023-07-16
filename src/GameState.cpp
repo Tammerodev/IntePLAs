@@ -25,34 +25,31 @@ void GameState::update() {
         
     inv.getCurrentItem()->update(vx_manager, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition()))), player.get_voxel_pos(), delta_T);
 
+    auto res = vx_manager.getOvelapWithRect(player.getBottomHitbox()); // Ground
+    auto res2 = vx_manager.getOvelapWithRect(player.getTopHitbox()); // Ground
+    auto res4 = vx_manager.getOvelapWithRect(player.getRightHitbox()); // Ground
+    auto res3 = vx_manager.getOvelapWithRect(player.getLeftHitbox()); // Ground
 
-    player.setGrounded(false);
-    
-    auto res = vx_manager.checkCollisionsWith(player.getBottomHitbox()); // Ground
-    auto res2 = vx_manager.checkCollisionsWithInv(player.getTopHitbox());   // Top
-    auto res3 = vx_manager.checkCollisionsWithLeft(player.getLeftHitbox());     // Left
-    auto res4 = vx_manager.checkCollisionsWithRight(player.getRightHitbox());   // Right
 
     if(res3.first) { // Left collision
-        player.move_x(res3.second);
+        player.move_x(-res3.second.width);
         player.update_hitboxbottom();
         player.update_hitboxtop();
     }
     if(res4.first) {    // Right collision
-        player.move_x(res4.second);
+        player.move_x(-res4.second.width);
         player.update_hitboxbottom();
-        player.update_hitboxtop();
+       player.update_hitboxtop();
     }
     if(res.first) {     // Colliding with ground
         player.ground();
-        player.setGrounded(true);
-        player.move_y(res.second - 12.f);
+        player.move_y(-res.second.height);
         return;
     }
 
     if(res2.first) {    // Head collision
         player.ground();
-        player.move_y(res2.second);
+        player.move_y(res2.second.height);
     }
 }
 
@@ -80,7 +77,6 @@ void GameState::input(sf::Event &ev) {
 
 void GameState::statexit()
 {
-    thread1.native_handle();
     BGMusic::stop();
     vx_manager.save();
 }
@@ -100,7 +96,7 @@ void GameState::draw(sf::RenderTarget &window)
     player.draw(renderTexture);
 
     // Render the world
-    vx_manager.render(renderTexture);
+    vx_manager.render(renderTexture, game_camera.getCenterPosition());
 
     // For effects like explosions
     effOverlay.render(renderTexture);

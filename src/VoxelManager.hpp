@@ -7,9 +7,10 @@
 #include "math.hpp"
 #include "Voxel.hpp"
 
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/ExplosionInfo.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/common.hpp"
+#include "ExplosionInfo.hpp"
+#include "common.hpp"
 #include "Elements.hpp"
+#include "Chunk.hpp"
 #include <list>
 
 
@@ -17,31 +18,22 @@
 class VoxelManager {
 public:
 
-    const int gx = 128; 
-    const int gy = 128;
-
-    int chunks_x = 16;
-    int chunks_y = 16;
-
-    VoxelManager() : grid(chunks_y + 1, std::vector<My2DArray>(chunks_x + 1)) {
+    VoxelManager() : grid(chunks_y + 1, std::vector<Chunk>(chunks_x + 1)) {
         prndd("Populating array");
         for (int y = 0; y < chunks_y; ++y)
         {
             for (int x = 0; x < chunks_x; ++x)
             {
-                grid[x][y] = My2DArray();
+                grid[x][y] = Chunk();
             }
         }
     }
-    std::pair<bool,float> checkCollisionsWith(const sf::FloatRect &collider);
-    std::pair<bool,float> checkCollisionsWithInv(const sf::FloatRect &collider);
-    std::pair<bool,float> checkCollisionsWithRight(const sf::FloatRect &collider);
-    std::pair<bool,float> checkCollisionsWithLeft(const sf::FloatRect &collider);
+    std::pair<bool, sf::FloatRect> getOvelapWithRect(const sf::FloatRect &collider);
 
     int load(std::string);
 
     Voxel &getVoxelAt (const uint64_t x, const uint64_t y) {
-        return grid.at(x/gx).at(y/gy).arr[x%gx][y%gy];
+        return grid.at(x/Chunk::sizeX).at(y/Chunk::sizeY).requestAccess()[x%Chunk::sizeX][y%Chunk::sizeY];
     }
 
     void clearVoxelAt(const uint64_t x, const uint64_t y) {
@@ -50,19 +42,26 @@ public:
     }
 
     void damageVoxelAt(const uint64_t x, const uint64_t y) {
-        getVoxelAt(x,y).strenght--;
+        long &strenght = getVoxelAt(x,y).strenght;
+        --strenght;
         if(getVoxelAt(x,y).strenght <= 0) clearVoxelAt(x,y);
     }
 
-    void heatVoxelAt(const uint64_t x, const uint64_t y, const float temp);
-
-
-
-    void render(sf::RenderTarget&);
+    void heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp);
+    void render(sf::RenderTarget&, const sf::Vector2f &center);
     void resetUsedFlag();
     void update();
-    void merge(bool useChunks = false);
-    void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const uint32_t heat);
+    void merge();
+    void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const int64_t heat);
+
+    void mergeChunkBounds(const ChunkBounds &bounds) {
+        for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
+        for(uint32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
+                mergeChunks.push_back(sf::Vector2i(x, y));
+            }
+        }
+        merge();
+    }
 
     const Voxel getValueFromCol(const sf::Color &px, sf::Vector2i p);
 
@@ -72,22 +71,6 @@ public:
 
     void build_image(const sf::Vector2i&, const sf::Image&);
 
-    void copy() {
-        rects_copy = rects;
-    }
-
-    void lock() {
-        thread_lock = true;
-    }
-
-    void release() {
-        thread_lock = false;
-    }
-
-    bool locked() {
-        return thread_lock;
-    }
-
     std::vector <ExplosionInfo> explosion_points;
     std::vector<sf::Vector2i> updateChunks;
 
@@ -95,23 +78,10 @@ private:
 
     std::list<sf::Vector2i> voxelsInNeedOfUpdate;
     std::list<sf::Vector2i> recativeVoxels;
+    std::list<sf::Vector2i> mergeChunks;
 
-
-    bool thread_lock = false;
-
-    sf::Shader shader;
-
-    std::thread explode;
-    std::vector <sf::Sprite> rects;
-    std::vector <sf::Sprite> rects_copy;
-
-
-    struct My2DArray {
-        Voxel arr[128][128];
-    };
-
-
-    std::vector<std::vector<My2DArray>> grid;
+    sf::Shader shader; 
+    std::vector<std::vector<Chunk>> grid;
 
     bool debug = false;
 

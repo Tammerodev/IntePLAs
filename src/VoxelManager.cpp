@@ -1,76 +1,39 @@
 #include "VoxelManager.hpp"
 
-std::pair<bool,float> VoxelManager::checkCollisionsWith(const sf::FloatRect &collider)
+std::pair<bool, sf::FloatRect> VoxelManager::getOvelapWithRect(const sf::FloatRect &collider)
 {
-    if(locked()) {
-        for(auto &r : rects_copy) {
-            if(collider.intersects(r.getGlobalBounds())) {
-                    return {true,r.getGlobalBounds().top - collider.top};
-            }   
-        }
-        return {false,0.f};
-    }
-    for(auto &r : rects) {
+    int x = collider.left / Chunk::sizeX;
+    int y = collider.top / Chunk::sizeY;
+    int tox = 1;
+    int toy = 1;
+    while(x < 1) x++;
+    while(y < 1) y++;
+    while(x + tox >= chunks_x) tox--;
+    while(y + toy >= chunks_y) tox--;
+
+    for(int i = -1; i < toy; i++) {
+    for(int j = -1; j < tox; j++) {
+    for(auto &r : grid[x + j][y + i].rects) {
         if(collider.intersects(r.getGlobalBounds())) {
-                return {true,r.getGlobalBounds().top - collider.top};
+            sf::FloatRect rect1 = r.getGlobalBounds();
+            sf::FloatRect rect2 = collider;
+
+            float left = std::max(rect1.left, rect2.left);
+            float top = std::max(rect1.top, rect2.top);
+            float right = std::min(rect1.left + rect1.width, rect2.left + rect2.width);
+            float bottom = std::min(rect1.top + rect1.height, rect2.top + rect2.height);
+
+            float width = right - left;
+            float height = bottom - top;
+
+            return {true, sf::FloatRect(left, top, width, height)};
         }   
     }
-    return {false,0.f};
+    }
+    }
+    return {false, sf::FloatRect()};
 }
 
-std::pair<bool,float> VoxelManager::checkCollisionsWithInv(const sf::FloatRect &collider)
-{
-    if(locked()) {
-        for(auto &r : rects_copy) {
-            if(collider.intersects(r.getGlobalBounds())) {
-                return {true,(r.getGlobalBounds().top + r.getGlobalBounds().height)- collider.top};
-            }   
-        }
-        return {false,0.f};
-    }
-    for(auto &r : rects) {
-        if(collider.intersects(r.getGlobalBounds())) {
-            return {true,(r.getGlobalBounds().top + r.getGlobalBounds().height)- collider.top};
-        }   
-    }
-    return {false,0.f};
-}
-
-std::pair<bool,float> VoxelManager::checkCollisionsWithLeft(const sf::FloatRect &collider)
-{
-    if(locked()) {
-        for(auto &r : rects_copy) {
-            if(collider.intersects(r.getGlobalBounds())) {
-                return {true, collider.left + collider.width - r.getGlobalBounds().left};
-            }   
-        }
-        return {false,0.f};
-    }
-    for(auto &r : rects) {
-        if(collider.intersects(r.getGlobalBounds())) {
-            return {true, collider.left + collider.width - r.getGlobalBounds().left};
-        }   
-    }
-    return {false,0.f};
-}
-
-std::pair<bool,float> VoxelManager::checkCollisionsWithRight(const sf::FloatRect &collider)
-{
-    if(locked()) {
-        for(auto &r : rects_copy) {
-            if(collider.intersects(r.getGlobalBounds())) {
-                return {true,-(collider.left + collider.width - r.getGlobalBounds().left)};
-            }   
-        }
-        return {false,0.f};
-    }
-    for(auto &r : rects) {
-        if(collider.intersects(r.getGlobalBounds())) {
-            return {true,-(collider.left + collider.width - r.getGlobalBounds().left)};
-        }   
-    }
-    return {false,0.f};
-}
 
 int VoxelManager::load(std::string file)
 {
@@ -86,12 +49,15 @@ int VoxelManager::load(std::string file)
 
     prndd("Starting to process map");
 
-    world_sx = gx * chunks_x;
-    world_sy = gy * chunks_y;
+    world_sx = Chunk::sizeX * chunks_x;
+    world_sy = Chunk::sizeY * chunks_y;
 
     for (int y = 0;y < world_sy;y++) {
         for (int x = 0;x < world_sx;x++) {
-            const sf::Color px = img.getPixel(x,y); // Short variable name, we are gonna use this A LOT
+            if(x >= img.getSize().x) continue;
+            if(y >= img.getSize().y) continue;
+
+            const sf::Color px = img.getPixel(x,y);
             getVoxelAt(x,y) = getValueFromCol(px, sf::Vector2i(x,y));
         }
     }
@@ -111,12 +77,17 @@ int VoxelManager::load(std::string file)
     prndd("Shaders loaded");
 
     prndd("Starting meshing...");
-    merge();
 
+    mergeChunkBounds(ChunkBounds(0, 0, chunks_y, chunks_y));
+
+
+    grid[5][5].unload();
+    
+    
     return true;
 }
 
-void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, const float temp)
+void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
 {
 
     Voxel &vox = getVoxelAt(x,y);
@@ -139,17 +110,20 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, const float t
     img.setPixel(x,y,currPixel);
 }
 
-void VoxelManager::render(sf::RenderTarget &target)
+void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 {
-    if(locked()) {
-        for(auto &r : rects_copy)  {
-            target.draw(r);
+    ChunkBounds draw_bounds((center.x / Chunk::sizeX) - 8, (center.y / Chunk::sizeY) - 8, 
+                            (center.x / Chunk::sizeX) + 8, (center.y / Chunk::sizeY) + 8);
+    ChunkArea draw_area = draw_bounds.getArea();
+
+    for(uint32_t y = draw_area.startY; y < draw_area.endY; y++) {
+        for(uint32_t x = draw_area.startX; x < draw_area.endX; x++) {
+            for(auto &r : grid[x][y].rects)  {
+                target.draw(r);
+            }
         }
-        return;
     }
-    for(auto &r : rects)  {
-        target.draw(r);
-    }
+
 }
 
 void VoxelManager::resetUsedFlag()
@@ -163,10 +137,8 @@ void VoxelManager::resetUsedFlag()
 
 void VoxelManager::update()
 {
-    world_sx = gx * chunks_x;
-    world_sy = gy * chunks_y;
-    world_tx.update(img);
-
+    world_sx = Chunk::sizeX * chunks_x;
+    world_sy = Chunk::sizeY * chunks_y;
     auto i = voxelsInNeedOfUpdate.begin();
     while (i != voxelsInNeedOfUpdate.end())
     {
@@ -175,94 +147,59 @@ void VoxelManager::update()
         heatVoxelAt(p.x, p.y, -getVoxelAt(p.x,p.y).ambientDissipation);
         if(getVoxelAt(p.x,p.y).temp <= 0 || getVoxelAt(p.x,p.y).value == 0) {i = voxelsInNeedOfUpdate.erase(i); }
         else { ++i; }
+
     }
+
+    world_tx.update(img);
 }
 
-void VoxelManager::merge(bool useChunks)
+void VoxelManager::merge()
 {
+world_tx.update(img);
+for(auto c : mergeChunks) {
+    grid[c.x][c.y].rects.clear();
+    sf::Sprite r;
+    r.setTexture(world_tx);
+    for (int y = c.y * Chunk::sizeY; y < (c.y * Chunk::sizeY) + Chunk::sizeY;y++) {
+    for (int x = c.x * Chunk::sizeX; x < (c.x * Chunk::sizeX) + Chunk::sizeX;x++) {
 
-long long indexX = 0;
+        if (getVoxelAt(x,y).value != 0 && !getVoxelAt(x,y).used) {
+            int x1 = x;
+            int y1 = y;
 
-sf::Sprite r;
-r.setTexture(world_tx);
-if(locked()) {
-
-for (int y = 0;y < world_sy;y++) {
-for (int x = 0;x < world_sx;x++) {
-    if (getVoxelAt(x,y).value != 0 && !getVoxelAt(x,y).used) {
-        int x1 = x;
-        int y1 = y;
-        int xc = x;
-
-        while (getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used) {
-            y1++;
-        }
-
-        for (int y2 = y;y2 <= y1;y2++) {
-            for (int x2 = x;
-                x2 <= x1;
-                x2++) {
-                getVoxelAt(x2,y2).used = true;
+            while (getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used && y1 < (c.y * Chunk::sizeY) + Chunk::sizeY) {
+                y1++;
             }
-        }
-        x1++;
-        y1++;
-                
-        r.setPosition(x, y);
-        r.setTextureRect(sf::IntRect(x,y,x1 -x,y1 -y));
-        if(indexX < rects.size()) {
-            rects.at(indexX) = r;
-        } else rects.push_back(r);
 
-        indexX++;
+
+            for (int y2 = y;y2 <= y1;y2++) {
+                for (int x2 = x;
+                    x2 <= x1;
+                    x2++) {
+                    getVoxelAt(x2,y2).used = true;
+                }
+            }
+            x1++;
+            y1++;
+                    
+            r.setPosition(x, y);
+            r.setTextureRect(sf::IntRect(x,y,x1 -x,y1 -y));
+            grid[c.x][c.y].rects.push_back(r);
+        }
+    }
     }
 }
-}
-
-resetUsedFlag();
-rects.erase(rects.begin() + indexX, rects.end());
-return;
-}
-for (int y = 0;y < world_sy;y++) {
-for (int x = 0;x < world_sx;x++) {
-    if (getVoxelAt(x,y).value != 0 && !getVoxelAt(x,y).used) {
-        int x1 = x;
-        int y1 = y;
-        int xc = x;
-
-        while (getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used) {
-            y1++;
+for(auto c : mergeChunks) {
+    for (int y = c.y * Chunk::sizeY; y < (c.y * Chunk::sizeY) + Chunk::sizeY;y++) {
+        for (int x = c.x * Chunk::sizeX; x < (c.x * Chunk::sizeX) + Chunk::sizeX;x++) {
+            getVoxelAt(x,y).used = false;
         }
-
-        for (int y2 = y;y2 <= y1;y2++) {
-            for (int x2 = x;
-                x2 <= x1;
-                x2++) {
-                getVoxelAt(x2,y2).used = true;
-            }
-        }
-        x1++;
-        y1++;
-                
-        r.setPosition(x, y);
-        r.setTextureRect(sf::IntRect(x,y,x1 -x,y1 -y));
-        if(indexX < rects_copy.size()) {
-            rects_copy.at(indexX) = r;
-        } else rects_copy.push_back(r);
-
-        indexX++;
     }
 }
+mergeChunks.clear();
 }
 
-resetUsedFlag();
-rects_copy.erase(rects_copy.begin() + indexX, rects_copy.end());
-
-rects = rects_copy;
-
-}
-
-void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool force, const uint32_t heat)
+void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool force, const int64_t heat)
 {
     if(force) {
         ExplosionInfo info;
@@ -281,7 +218,7 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
         if(p.y > world_sy) break;
 
         for (int x = xexcept;x < p.x + intensity;x++) {
-            if(x >world_sx) break;
+            if(x > world_sx) break;
             if(getVoxelAt(x,y).value == 0) continue;
             const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
             if(distance < intensity) {
@@ -291,7 +228,9 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
             }
         }
     }
-    merge();
+
+    mergeChunkBounds(ChunkBounds((p.x / Chunk::sizeX) - 2, (p.y / Chunk::sizeX) - 2,
+                                 (p.x / Chunk::sizeY) + 2, (p.y / Chunk::sizeY) + 2));
 }
 
 const Voxel VoxelManager::getValueFromCol(const sf::Color &px, sf::Vector2i p)
@@ -311,7 +250,6 @@ const Voxel VoxelManager::getValueFromCol(const sf::Color &px, sf::Vector2i p)
         vox.value = 4;
         vox.maxTemp = 650;
         vox.strenght = 10;
-        recativeVoxels.push_back(sf::Vector2i(p));
     } else if(px == elm::Sodium) {
         vox.value = 5;
         vox.maxTemp = 97.8;
@@ -347,13 +285,13 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg)
     for (int y = p.y;  y < p.y + cimg.getSize().y;  y++) {
         if(p.y > world_sy) break;
         for (int x = p.x;  x < p.x + cimg.getSize().x;  x++) {
-            if(x >world_sx) break;
+            if(x > world_sx) break;
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
-                img.setPixel(x,y,cimg.getPixel(x-p.x,y-p.y));
+                img.setPixel(x,y,cimg.getPixel(x-p.x, y-p.y));
                 getVoxelAt(x,y) = getValueFromCol(img.getPixel(x,y), sf::Vector2i(x,y));
             }
-
         }
     }
-    merge();
+    mergeChunkBounds(ChunkBounds((p.x / Chunk::sizeX) - 2, (p.y / Chunk::sizeY) - 2,
+                                 (p.x / Chunk::sizeX) + 2, (p.y / Chunk::sizeY) + 2));
 }

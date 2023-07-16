@@ -36,14 +36,15 @@ void move_x(float val){
 
 void ground() {
     acc.y = 0.f;
+    grounded = true;
 }
 
 
 void update_hitboxtop() {
     hitbox_top.height = 12;
-    hitbox_top.width = 18;
-    hitbox_top.top = pos.y;
-    hitbox_top.left = pos.x;
+    hitbox_top.width = 12;
+    hitbox_top.top = pos.y - 4;
+    hitbox_top.left = pos.x + 3;
 }
 
 void update_hitboxbottom() {
@@ -56,14 +57,14 @@ void update_hitboxbottom() {
 void update_hitboxleft() {
     hitbox_left.height = 2;
     hitbox_left.width = 4;
-    hitbox_left.top = pos.y + 16;
+    hitbox_left.top = pos.y + 8;
     hitbox_left.left = pos.x - 2;
 }
 
 void update_hitboxright() {
     hitbox_right.height = 2;
     hitbox_right.width = 4;
-    hitbox_right.top = pos.y + 16;
+    hitbox_right.top = pos.y + 8;
     hitbox_right.left = pos.x + 20;
 }
 
@@ -71,9 +72,6 @@ sf::Vector2f get_voxel_pos() {
     return pos;
 }
 
-void setGrounded(bool newVal) {
-    grounded = newVal;
-}
 
 private:
 
@@ -85,9 +83,9 @@ sf::Texture tx;
 sf::IntRect texture_rect;
 
 sf::Vector2f pos = sf::Vector2f(500,0);
-sf::Vector2i prev_voxel_aligned_pos;
 
 sf::Sprite sprite;
+
 sf::FloatRect hitbox_top;
 sf::FloatRect hitbox_bottom;
 sf::FloatRect hitbox_right;

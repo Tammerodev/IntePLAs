@@ -9,7 +9,7 @@ class Voxel {
     bool isFalling = false;
     float maxTemp = 1000.f;
     float temp = .0f;
-    float ambientDissipation = 0.1;
+    int64_t ambientDissipation = 1;
     
     private:
 };

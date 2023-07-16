@@ -24,6 +24,8 @@ void Player::update(float dt) {
     update_hitboxbottom();
     update_hitboxleft();
     update_hitboxright();
+
+    grounded = false;
 }
 
 void Player::draw(sf::RenderTarget & window) {

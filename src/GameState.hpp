@@ -5,20 +5,19 @@
 #include <iostream>
 
 #include "State.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Sound/SoundFX.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Entity/Player/Player.hpp"
+#include "SoundFX.hpp"
+#include "Entity/Player/Player.hpp"
 #include "VoxelManager.hpp"
 #include "math.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Background.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/EffectOverlay.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Camera.hpp"
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/Sound/BackgroundMusic.hpp"
+#include "Background.hpp"
+#include "EffectOverlay.hpp"
+#include "Camera.hpp"
+#include "BackgroundMusic.hpp"
 #include "Inventory.hpp"
 
 class GameState : public MainState {
 public:
 	bool load(const std::string s) {
-		thread1 = std::thread(thread_fps, std::ref(fps));
 
 		if(SFX::rocket_launcher_fire_buffer.getDuration() != sf::Time::Zero) return true;
 
@@ -66,11 +65,6 @@ public:
 
 	void draw(sf::RenderTarget&window);
 private:
-
-    static void thread_fps(float &fp) {
-		
-	}
-
 	bool slowmo = false;
 	sf::Clock clock;
 
@@ -92,9 +86,6 @@ private:
 
 	float delta_T = 0.f;
 	sf::Clock deltaClock;
-
-
-	std::thread thread1{};
 
 	sf::Shader shader;
 

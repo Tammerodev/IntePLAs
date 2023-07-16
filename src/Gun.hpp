@@ -5,11 +5,11 @@
 #include "Item.hpp"
 #include "VoxelManager.hpp"
 #include "common.hpp"
-#include "Sound/SoundFX.hpp"
+#include "SoundFX.hpp"
 
 class Gun : public Item {
 public:
-	Gun(VoxelManager &vx_manager,const std::string&bullet_tx_path, const std::string&gun_tx_path, uint64_t strenth, bool f, int t, bool spin = false) : spn(spin) {
+	Gun(VoxelManager &vx_manager,const std::string&bullet_tx_path, const std::string&gun_tx_path, uint64_t strenth, bool f, int t, bool spin = false) : temp(t), spn(spin) {
 		bullet_tx.loadFromFile(bullet_tx_path);
 		gun_tx.loadFromFile(gun_tx_path);
 		gun_spr.setTexture(gun_tx);
@@ -18,15 +18,8 @@ public:
 
 		gun_spr.setOrigin(gun_spr.getGlobalBounds().width / 2,gun_spr.getGlobalBounds().height / 2);
 
-		explosion_thread = std::thread(thread_task,std::ref(vx_manager), std::ref(positions), explosion_stength, f, t);
-
 	}
 
-	virtual ~Gun() {
-        if (explosion_thread.joinable()) {
-            explosion_thread.join();
-		}
-	}
     void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse) {
 		auto ex = std::make_unique<ExplosiveBullet>(bullet_tx);
 		ex->setPosition(playerpos);
@@ -69,9 +62,8 @@ public:
 		bullets.remove_if([&](const std::unique_ptr<ExplosiveBullet>& bullet) {
 			const long MAX_DISTANCE_FROM_MOUSE = 10000;
 			
-			if (vx_manager.checkCollisionsWith(bullet->getHitbox()).first) {
-				positions.push_back(sf::Vector2i(bullet->pos.x, bullet->pos.y));
-				vx_manager.copy();
+			if (vx_manager.getOvelapWithRect(bullet->getHitbox()).first) {
+				vx_manager.hole(sf::Vector2i(bullet->pos), explosion_stength, true, temp);
 				return true; // Remove the bullet
 			}
 			if(abs(bullet->pos.x - mousePos.x) > MAX_DISTANCE_FROM_MOUSE ||
@@ -82,32 +74,12 @@ public:
 private:
 	bool spn = false;
 	float rotationAngle;
-
-	std::thread explosion_thread;
-	std::list<sf::Vector2i> positions;
 	std::list<std::unique_ptr<ExplosiveBullet>> bullets;
 
 	sf::Sprite gun_spr;
 	sf::Texture gun_tx;
 	float bullet_speed = 1.0f;
 	uint64_t explosion_stength = 35;
-	
+	uint64_t temp = 100;
 	sf::Texture bullet_tx;
-
-	static void thread_task(VoxelManager& vx_manager, std::list<sf::Vector2i> &pos, uint64_t strength, bool force, int temp) {
-		while(true) {
-			bool use = false;
-			sf::Clock timer;
-			for(auto &p : pos) {
-				if(force) SFX::strong_explosion.play(); else SFX::fire.play();
-				vx_manager.lock();
-				vx_manager.hole(p,strength, force, temp);
-				use = true;
-			}
-			if(use) {
-				vx_manager.release();
-				pos.clear();
-			}
-		}
-	}
 };
