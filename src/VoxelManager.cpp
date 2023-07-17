@@ -119,8 +119,8 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
 
 void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 {
-    ChunkBounds draw_bounds((center.x / Chunk::sizeX) - 8, (center.y / Chunk::sizeY) - 8, 
-                            (center.x / Chunk::sizeX) + 8, (center.y / Chunk::sizeY) + 8);
+    ChunkBounds draw_bounds((center.x / Chunk::sizeX) - 4, (center.y / Chunk::sizeY) - 4, 
+                            (center.x / Chunk::sizeX) + 4, (center.y / Chunk::sizeY) + 4);
     ChunkArea draw_area = draw_bounds.getArea();
 
     for(uint32_t y = draw_area.startY; y < draw_area.endY; y++) {
@@ -296,8 +296,8 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg)
         for (int x = p.x;  x < p.x + cimg.getSize().x;  x++) {
             if(x > world_sx) break;
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
-                img.setPixel(x,y,cimg.getPixel(x-p.x, y-p.y));
-                getVoxelAt(x,y) = getValueFromCol(img.getPixel(x,y), sf::Vector2i(x,y));
+                setImagePixelAt(x,y,cimg.getPixel(x-p.x, y-p.y));
+                getVoxelAt(x,y) = getValueFromCol(getImagePixelAt(x,y), sf::Vector2i(x,y));
             }
         }
     }
