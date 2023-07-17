@@ -30,16 +30,11 @@ void GameState::update() {
     auto res4 = vx_manager.getOvelapWithRect(player.getRightHitbox()); // Ground
     auto res3 = vx_manager.getOvelapWithRect(player.getLeftHitbox()); // Ground
 
-
-    if(res3.first) { // Left collision
-        player.move_x(-res3.second.width);
-        player.update_hitboxbottom();
-        player.update_hitboxtop();
-    }
     if(res4.first) {    // Right collision
-        player.move_x(-res4.second.width);
-        player.update_hitboxbottom();
-       player.update_hitboxtop();
+        player.move_x(-(res4.second.width + 2));
+    }
+    if(res3.first) {    // Right collision
+        player.move_x((res3.second.width + 2));
     }
     if(res.first) {     // Colliding with ground
         player.ground();
@@ -48,7 +43,6 @@ void GameState::update() {
     }
 
     if(res2.first) {    // Head collision
-        player.ground();
         player.move_y(res2.second.height);
     }
 }

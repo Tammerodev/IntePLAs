@@ -69,6 +69,14 @@ public:
         img.saveToFile("res/saves/" + std::to_string(time(0)) + ".png");
     }
 
+    sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
+        return grid.at(x/Chunk::sizeX).at(y/Chunk::sizeY).requestImageAccess().getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
+    }
+
+    void setImagePixelAt(const uint64_t x, const uint64_t y, const sf::Color& color) {
+        grid.at(x/Chunk::sizeX).at(y/Chunk::sizeY).requestImageAccess().setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
+    }
+
     void build_image(const sf::Vector2i&, const sf::Image&);
 
     std::vector <ExplosionInfo> explosion_points;

@@ -49,21 +49,21 @@ void update_hitboxtop() {
 
 void update_hitboxbottom() {
     hitbox_bottom.height = 12;
-    hitbox_bottom.width = 18;
+    hitbox_bottom.width = 8;
     hitbox_bottom.top = pos.y + 12;
-    hitbox_bottom.left = pos.x;
+    hitbox_bottom.left = pos.x + 4;
 }
 
 void update_hitboxleft() {
     hitbox_left.height = 2;
-    hitbox_left.width = 4;
+    hitbox_left.width = 10;
     hitbox_left.top = pos.y + 8;
     hitbox_left.left = pos.x - 2;
 }
 
 void update_hitboxright() {
-    hitbox_right.height = 2;
-    hitbox_right.width = 4;
+    hitbox_right.height = 8;
+    hitbox_right.width = 10;
     hitbox_right.top = pos.y + 8;
     hitbox_right.left = pos.x + 20;
 }

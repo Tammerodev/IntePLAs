@@ -19,14 +19,29 @@ struct Chunk {
         else throw "Chunk not loaded yet";
     }
 
-    void load() {
+    sf::Image &requestImageAccess() {
+        if(loaded) return image;
+        else throw "Chunk not loaded yet";
+    }
+
+    void load(sf::Image &img, sf::Vector2i pos) {
         // Fill the array 
+        image.create(sizeX,sizeY);
+        image.copy(img, 0, 0, sf::IntRect(sf::Vector2i(pos.x * sizeX, pos.y * sizeY), sf::Vector2i(sizeX, sizeY)));
+        tx.loadFromImage(image);
+    }
+
+    void update() {
+        tx.update(image);
     }
 
     void unload() {
         // Remove the array from memory
         arr = {};
     }
+
+    sf::Image image;
+    sf::Texture tx;
 };
 
 struct ChunkArea {

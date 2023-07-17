@@ -83,7 +83,14 @@ int VoxelManager::load(std::string file)
 
     grid[5][5].unload();
     
-    
+    ChunkBounds bounds = ChunkBounds(0, 0, chunks_y, chunks_y);
+
+    for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
+        for(uint32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
+            grid[x][y].load(img, sf::Vector2i(x,y));
+        }
+    }
+
     return true;
 }
 
@@ -102,12 +109,12 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
 
     if(vox.temp <= 0) vox.temp = 0;
 
-    sf::Color currPixel = img.getPixel(x,y);
+    sf::Color currPixel = getImagePixelAt(x,y);
 
     uint64_t valR = vox.temp * 1; 
     if(valR >= 255) valR = 255;
     currPixel.r = valR;
-    img.setPixel(x,y,currPixel);
+    setImagePixelAt(x,y,currPixel);
 }
 
 void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
@@ -118,6 +125,7 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
     for(uint32_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(uint32_t x = draw_area.startX; x < draw_area.endX; x++) {
+            grid[x][y].update();
             for(auto &r : grid[x][y].rects)  {
                 target.draw(r);
             }
@@ -159,7 +167,7 @@ world_tx.update(img);
 for(auto c : mergeChunks) {
     grid[c.x][c.y].rects.clear();
     sf::Sprite r;
-    r.setTexture(world_tx);
+    r.setTexture(grid[c.x][c.y].tx);
     for (int y = c.y * Chunk::sizeY; y < (c.y * Chunk::sizeY) + Chunk::sizeY;y++) {
     for (int x = c.x * Chunk::sizeX; x < (c.x * Chunk::sizeX) + Chunk::sizeX;x++) {
 
@@ -183,7 +191,8 @@ for(auto c : mergeChunks) {
             y1++;
                     
             r.setPosition(x, y);
-            r.setTextureRect(sf::IntRect(x,y,x1 -x,y1 -y));
+            r.setTextureRect(sf::IntRect(x - (c.x * Chunk::sizeX),y - (c.y * Chunk::sizeY),  x1 - x,  y1 -y));
+            
             grid[c.x][c.y].rects.push_back(r);
         }
     }
