@@ -39,11 +39,11 @@ public:
 
     void clearVoxelAt(const uint64_t x, const uint64_t y) {
         getVoxelAt(x,y).value = 0; 
-        img.setPixel(x,y,sf::Color(0,0,0,0));
+        setImagePixelAt(x,y,sf::Color(0,0,0,0));
     }
 
     void damageVoxelAt(const uint64_t x, const uint64_t y) {
-        long &strenght = getVoxelAt(x,y).strenght;
+        uint8_t &strenght = getVoxelAt(x,y).strenght;
         --strenght;
         if(getVoxelAt(x,y).strenght <= 0) clearVoxelAt(x,y);
     }
@@ -55,7 +55,7 @@ public:
     void merge();
     void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const int64_t heat);
 
-    void generate();
+    void generate(sf::Image &img);
 
     void mergeChunkBounds(const ChunkBounds &bounds) {
         for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
@@ -69,7 +69,8 @@ public:
     const Voxel getValueFromCol(const sf::Color &px, sf::Vector2i p);
 
     void save() {
-        img.saveToFile("res/saves/" + std::to_string(time(0)) + ".png");
+        // TODO : make it save from the chunk images
+        //img.saveToFile("res/saves/" + std::to_string(time(0)) + ".png");
     }
 
     sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
@@ -88,7 +89,6 @@ public:
 private:
 
     std::list<sf::Vector2i> voxelsInNeedOfUpdate;
-    std::list<sf::Vector2i> recativeVoxels;
     std::list<sf::Vector2i> mergeChunks;
 
     sf::Shader shader; 
@@ -98,9 +98,6 @@ private:
 
     uint64_t world_sx;
     uint64_t world_sy;
-
-    sf::Image img;
-    sf::Sprite world_spr;
 
     const char * shader_frag = 
     R"( 

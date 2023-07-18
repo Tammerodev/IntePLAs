@@ -4,12 +4,12 @@ class Voxel {
     public:
     
     unsigned char value = 0;
-    long strenght = 1;
+    unsigned char strenght = 1;
     bool used = false;
     bool isFalling = false;
-    float maxTemp = 1000.f;
-    float temp = .0f;
-    int64_t ambientDissipation = 1;
+    unsigned short maxTemp = 1000.f;
+    short temp = .0f;
+    char ambientDissipation = 1;
     
     private:
 };

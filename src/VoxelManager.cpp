@@ -54,6 +54,8 @@ std::pair<bool, sf::FloatRect> VoxelManager::getOvelapWithRectY(const sf::FloatR
 
 int VoxelManager::load(std::string file, bool proced)
 {
+
+    sf::Image img;
     prndd("Started loading map");
 
     
@@ -72,7 +74,7 @@ int VoxelManager::load(std::string file, bool proced)
     prndd(world_sx);
 
     if(proced) {
-        generate();
+        generate(img);
     }
 
     for (int y = 0;y < world_sy;y++) {
@@ -194,7 +196,6 @@ for(auto c : mergeChunks) {
                 y1++;
             }
 
-
             for (int y2 = y;y2 <= y1;y2++) {
                 for (int x2 = x;
                     x2 <= x1;
@@ -220,8 +221,6 @@ for(auto c : mergeChunks) {
     }
 }
 mergeChunks.clear();
-
-prndd(sizeof(grid));
 }
 
 void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool force, const int64_t heat)
@@ -258,9 +257,30 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
                                  (p.x / Chunk::sizeY) + 2, (p.y / Chunk::sizeY) + 2));
 }
 
-void VoxelManager::generate()
+void VoxelManager::generate(sf::Image &img)
 {
     std::vector<float> hmap1D;
+
+    /*
+74,74,74 Carbon       2
+119,120,115 Lithium   3
+186,186,166 Magnesium 4
+119,142,125 Sodium    5
+209,213,216 Aluminium 6
+117,121,139 Silicon   7
+186,140,106 Copper    8
+142,129,149 Titanium  9
+104,102,107 Lead      10*/
+
+    std::array<sf::Color, 5> colr {
+        sf::Color(50, 168, 82),
+        elm::Carbon,
+        elm::Aluminium,
+        elm::Lead,
+        elm::Sodium,
+    };
+
+
 
     for(int x = 0; x < img.getSize().x; x++ ) {
         const float fx = x / 400.0;
@@ -270,7 +290,14 @@ void VoxelManager::generate()
     int ind = 0;
     for(auto h : hmap1D) {
         for(int i = img.getSize().y; i >= 2048 - h; i--) {
-            img.setPixel(ind, i, sf::Color(255, 0, 0, 255));
+            int offset = (rand() % 100 + 100);
+            int colorIndex = std::clamp(((i - (int)h) - offset) / 200,0,4);
+            sf::Color col = colr.at(colorIndex);
+            col.r += math::randIntInRange(-10, 10);
+            col.g += math::randIntInRange(-10, 10);
+            col.b += math::randIntInRange(-10, 10);
+
+            img.setPixel(ind, i, col);
         }
         ind++;
     }
