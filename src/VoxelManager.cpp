@@ -2,21 +2,18 @@
 
 std::pair<bool, sf::FloatRect> VoxelManager::getOvelapWithRect(const sf::FloatRect &collider)
 {
-    int x = collider.left / Chunk::sizeX;
-    int y = collider.top / Chunk::sizeY;
-    int tox = 1;
-    int toy = 1;
-    while(x < 1) x++;
-    while(y < 1) y++;
-    while(x + tox >= chunks_x) tox--;
-    while(y + toy >= chunks_y) tox--;
+    ChunkBounds bounds = ChunkBounds(
+    collider.left / Chunk::sizeX - 3,
+    collider.top / Chunk::sizeY - 3,
+    collider.left / Chunk::sizeX + 3,
+    collider.top / Chunk::sizeY + 3);
 
-    for(int i = -1; i < toy; i++) {
-    for(int j = -1; j < tox; j++) {
-    for(auto &r : grid[x + j][y + i].rects) {
+    for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
+    for(uint32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
+    for(auto &r : grid[x][y].rects) {
         if(collider.intersects(r.getGlobalBounds())) {
-            sf::FloatRect rect1 = r.getGlobalBounds();
-            sf::FloatRect rect2 = collider;
+            sf::FloatRect rect2 = r.getGlobalBounds();
+            sf::FloatRect rect1 = collider;
 
             float left = std::max(rect1.left, rect2.left);
             float top = std::max(rect1.top, rect2.top);
@@ -34,8 +31,28 @@ std::pair<bool, sf::FloatRect> VoxelManager::getOvelapWithRect(const sf::FloatRe
     return {false, sf::FloatRect()};
 }
 
+std::pair<bool, sf::FloatRect> VoxelManager::getOvelapWithRectY(const sf::FloatRect &collider)
+{
+    ChunkBounds bounds = ChunkBounds(
+        collider.left / Chunk::sizeX - 3,
+        collider.top / Chunk::sizeY - 3,
+        collider.left / Chunk::sizeX + 3,
+        collider.top / Chunk::sizeY + 3);
 
-int VoxelManager::load(std::string file)
+    for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
+    for(uint32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
+    for(auto &r : grid[x][y].rects) {
+        if(collider.intersects(r.getGlobalBounds())) {
+            return {true, sf::FloatRect(0,0,0,collider.height + (collider.top) - r.getGlobalBounds().top)};
+        }   
+    }
+    }
+    }
+    return {false, sf::FloatRect()};
+}
+
+
+int VoxelManager::load(std::string file, bool proced)
 {
     prndd("Started loading map");
 
@@ -52,6 +69,12 @@ int VoxelManager::load(std::string file)
     world_sx = Chunk::sizeX * chunks_x;
     world_sy = Chunk::sizeY * chunks_y;
 
+    prndd(world_sx);
+
+    if(proced) {
+        generate();
+    }
+
     for (int y = 0;y < world_sy;y++) {
         for (int x = 0;x < world_sx;x++) {
             if(x >= img.getSize().x) continue;
@@ -61,9 +84,6 @@ int VoxelManager::load(std::string file)
             getVoxelAt(x,y) = getValueFromCol(px, sf::Vector2i(x,y));
         }
     }
-
-    prndd("Loading map texture");
-    world_tx.loadFromFile(path);
 
     prndd("Processing complete");
     
@@ -77,19 +97,16 @@ int VoxelManager::load(std::string file)
     prndd("Shaders loaded");
 
     prndd("Starting meshing...");
-
-    mergeChunkBounds(ChunkBounds(0, 0, chunks_y, chunks_y));
-
-
-    grid[5][5].unload();
     
     ChunkBounds bounds = ChunkBounds(0, 0, chunks_y, chunks_y);
 
     for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
         for(uint32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
-            grid[x][y].load(img, sf::Vector2i(x,y));
+            grid[x][y].create(img, sf::Vector2i(x,y));
         }
     }
+
+    mergeChunkBounds(bounds);
 
     return true;
 }
@@ -119,8 +136,8 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
 
 void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 {
-    ChunkBounds draw_bounds((center.x / Chunk::sizeX) - 4, (center.y / Chunk::sizeY) - 4, 
-                            (center.x / Chunk::sizeX) + 4, (center.y / Chunk::sizeY) + 4);
+    ChunkBounds draw_bounds((center.x / Chunk::sizeX) - 8, (center.y / Chunk::sizeY) - 8, 
+                            (center.x / Chunk::sizeX) + 8, (center.y / Chunk::sizeY) + 8);
     ChunkArea draw_area = draw_bounds.getArea();
 
     for(uint32_t y = draw_area.startY; y < draw_area.endY; y++) {
@@ -131,7 +148,6 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
             }
         }
     }
-
 }
 
 void VoxelManager::resetUsedFlag()
@@ -158,12 +174,11 @@ void VoxelManager::update()
 
     }
 
-    world_tx.update(img);
 }
 
 void VoxelManager::merge()
 {
-world_tx.update(img);
+
 for(auto c : mergeChunks) {
     grid[c.x][c.y].rects.clear();
     sf::Sprite r;
@@ -192,7 +207,6 @@ for(auto c : mergeChunks) {
                     
             r.setPosition(x, y);
             r.setTextureRect(sf::IntRect(x - (c.x * Chunk::sizeX),y - (c.y * Chunk::sizeY),  x1 - x,  y1 -y));
-            
             grid[c.x][c.y].rects.push_back(r);
         }
     }
@@ -206,6 +220,8 @@ for(auto c : mergeChunks) {
     }
 }
 mergeChunks.clear();
+
+prndd(sizeof(grid));
 }
 
 void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool force, const int64_t heat)
@@ -240,6 +256,24 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
 
     mergeChunkBounds(ChunkBounds((p.x / Chunk::sizeX) - 2, (p.y / Chunk::sizeX) - 2,
                                  (p.x / Chunk::sizeY) + 2, (p.y / Chunk::sizeY) + 2));
+}
+
+void VoxelManager::generate()
+{
+    std::vector<float> hmap1D;
+
+    for(int x = 0; x < img.getSize().x; x++ ) {
+        const float fx = x / 400.0;
+        hmap1D.push_back(abs(1000+((sin(2*fx) + sin(3.14159 * fx)) * 50.0)));
+    }
+
+    int ind = 0;
+    for(auto h : hmap1D) {
+        for(int i = img.getSize().y; i >= 2048 - h; i--) {
+            img.setPixel(ind, i, sf::Color(255, 0, 0, 255));
+        }
+        ind++;
+    }
 }
 
 const Voxel VoxelManager::getValueFromCol(const sf::Color &px, sf::Vector2i p)

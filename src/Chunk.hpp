@@ -15,8 +15,7 @@ struct Chunk {
     bool loaded = true;
 
     std::array<std::array<Voxel, 64>, 64>& requestAccess() {
-        if(loaded) return arr;
-        else throw "Chunk not loaded yet";
+        return arr;
     }
 
     sf::Image &requestImageAccess() {
@@ -24,11 +23,15 @@ struct Chunk {
         else throw "Chunk not loaded yet";
     }
 
-    void load(sf::Image &img, sf::Vector2i pos) {
+    void create(sf::Image &img, sf::Vector2i pos) {
         // Fill the array 
         image.create(sizeX,sizeY);
         image.copy(img, 0, 0, sf::IntRect(sf::Vector2i(pos.x * sizeX, pos.y * sizeY), sf::Vector2i(sizeX, sizeY)));
         tx.loadFromImage(image);
+    }
+
+    bool load() {
+        return !loaded;
     }
 
     void update() {
@@ -37,7 +40,10 @@ struct Chunk {
 
     void unload() {
         // Remove the array from memory
-        arr = {};
+        if(!arr.empty()) {
+            rects.clear();
+            loaded = false;
+        }
     }
 
     sf::Image image;

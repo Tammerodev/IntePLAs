@@ -25,7 +25,7 @@ void GameState::update() {
         
     inv.getCurrentItem()->update(vx_manager, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition()))), player.get_voxel_pos(), delta_T);
 
-    auto res = vx_manager.getOvelapWithRect(player.getBottomHitbox()); // Ground
+    auto res = vx_manager.getOvelapWithRectY(player.getBottomHitbox()); // Ground
     auto res2 = vx_manager.getOvelapWithRect(player.getTopHitbox()); // Ground
     auto res4 = vx_manager.getOvelapWithRect(player.getRightHitbox()); // Ground
     auto res3 = vx_manager.getOvelapWithRect(player.getLeftHitbox()); // Ground

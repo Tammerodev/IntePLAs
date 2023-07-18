@@ -37,7 +37,7 @@ public:
 		game_camera.setCameraMode(CameraMode::Leap);
 
 
-		if(!vx_manager.load(s))
+		if(!vx_manager.load(s,true))
 			perror("VoxelManager failed to load");
 		if(!bg.load()) 
 			perror("Background failed to load");

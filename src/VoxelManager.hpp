@@ -29,8 +29,9 @@ public:
         }
     }
     std::pair<bool, sf::FloatRect> getOvelapWithRect(const sf::FloatRect &collider);
+    std::pair<bool, sf::FloatRect> getOvelapWithRectY(const sf::FloatRect &collider);
 
-    int load(std::string);
+    int load(std::string, bool);
 
     Voxel &getVoxelAt (const uint64_t x, const uint64_t y) {
         return grid.at(x/Chunk::sizeX).at(y/Chunk::sizeY).requestAccess()[x%Chunk::sizeX][y%Chunk::sizeY];
@@ -53,6 +54,8 @@ public:
     void update();
     void merge();
     void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const int64_t heat);
+
+    void generate();
 
     void mergeChunkBounds(const ChunkBounds &bounds) {
         for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
@@ -96,8 +99,6 @@ private:
     uint64_t world_sx;
     uint64_t world_sy;
 
-
-    sf::Texture world_tx;
     sf::Image img;
     sf::Sprite world_spr;
 
