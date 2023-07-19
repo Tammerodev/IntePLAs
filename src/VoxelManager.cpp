@@ -108,6 +108,9 @@ int VoxelManager::load(std::string file, bool proced)
         }
     }
 
+
+    generateVegetation();
+
     mergeChunkBounds(bounds);
 
     return true;
@@ -272,32 +275,68 @@ void VoxelManager::generate(sf::Image &img)
 142,129,149 Titanium  9
 104,102,107 Lead      10*/
 
-    std::array<sf::Color, 5> colr {
+    std::array<sf::Color, 6> colr {
         sf::Color(50, 168, 82),
         elm::Carbon,
-        elm::Aluminium,
+        elm::Carbon,
         elm::Lead,
-        elm::Sodium,
+        elm::Titanium,
+        elm::Lithium
     };
 
 
 
-    for(int x = 0; x < img.getSize().x; x++ ) {
+    for(int x = 0; x < world_sx; x++ ) {
         const float fx = x / 400.0;
         hmap1D.push_back(abs(1000+((sin(2*fx) + sin(3.14159 * fx)) * 50.0)));
     }
 
     int ind = 0;
     for(auto h : hmap1D) {
-        for(int i = img.getSize().y; i >= 2048 - h; i--) {
+        for(int i = world_sy; i >= 2048 - h; i--) {
             int offset = (rand() % 100 + 100);
-            int colorIndex = std::clamp(((i - (int)h) - offset) / 200,0,4);
+            int colorIndex = std::clamp(((i - (int)h) - offset) / 200,0, (int)colr.size() - 1);
             sf::Color col = colr.at(colorIndex);
             col.r += math::randIntInRange(-10, 10);
             col.g += math::randIntInRange(-10, 10);
             col.b += math::randIntInRange(-10, 10);
 
             img.setPixel(ind, i, col);
+        }
+        ind++;
+    }
+}
+
+void VoxelManager::generateVegetation()
+{
+    std::vector<float> hmap1D;
+
+    for(int x = 0; x < world_sx; x++ ) {
+        const float fx = x / 400.0;
+        hmap1D.push_back(abs(1000+((sin(2*fx) + sin(3.14159 * fx)) * 50.0)));
+    }
+
+    sf::Image grass;
+    grass.loadFromFile("res/img/Assets/Proc.png");
+
+    sf::IntRect sourceRect(100 * math::randIntInRange(0,4), 0, 10, 10);  // Define the portion to extract (x, y, width, height)
+    // Create a new image with the same dimensions as the portion to extract
+    sf::Image extractedImage;
+    extractedImage.create(sourceRect.width, sourceRect.height);
+
+    // Copy the pixels from the original image to the extracted image
+    for (int y = 0; y < sourceRect.height; ++y) {
+        for (int x = 0; x < sourceRect.width; ++x) {
+            sf::Color pixel = grass.getPixel(sourceRect.left + x, sourceRect.top + y);
+            extractedImage.setPixel(x, y, pixel);
+        }
+    }
+
+    int ind = 0;
+    for(auto h : hmap1D) {
+        sf::Vector2i point(ind, (2048 - h) - math::randIntInRange(0,5));
+        if(math::randIntInRange(0,100) > 80) {
+            build_image(point, extractedImage);
         }
         ind++;
     }
@@ -353,15 +392,16 @@ const Voxel VoxelManager::getValueFromCol(const sf::Color &px, sf::Vector2i p)
 void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg)
 {
     for (int y = p.y;  y < p.y + cimg.getSize().y;  y++) {
-        if(p.y > world_sy) break;
+        if(y >= world_sy) break;
         for (int x = p.x;  x < p.x + cimg.getSize().x;  x++) {
-            if(x > world_sx) break;
+            if(x >= world_sx) break;
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
                 setImagePixelAt(x,y,cimg.getPixel(x-p.x, y-p.y));
                 getVoxelAt(x,y) = getValueFromCol(getImagePixelAt(x,y), sf::Vector2i(x,y));
             }
         }
     }
+
     mergeChunkBounds(ChunkBounds((p.x / Chunk::sizeX) - 2, (p.y / Chunk::sizeY) - 2,
                                  (p.x / Chunk::sizeX) + 2, (p.y / Chunk::sizeY) + 2));
 }

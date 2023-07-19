@@ -13,8 +13,6 @@
 #include "Chunk.hpp"
 #include <list>
 
-
-
 class VoxelManager {
 public:
 
@@ -56,6 +54,8 @@ public:
     void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const int64_t heat);
 
     void generate(sf::Image &img);
+    void generateVegetation();
+
 
     void mergeChunkBounds(const ChunkBounds &bounds) {
         for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
