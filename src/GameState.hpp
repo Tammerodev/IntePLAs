@@ -22,8 +22,8 @@ public:
 		if(SFX::rocket_launcher_fire_buffer.getDuration() != sf::Time::Zero) return true;
 
 		// TODO : adjustable rendertx size
-		const uint16_t window_height = 1200;
-		const uint16_t window_width = 1200;
+		const uint16_t window_height = sf::VideoMode::getDesktopMode().height;
+		const uint16_t window_width = sf::VideoMode::getDesktopMode().width;
         renderTexture.create(window_width, window_height);
 		
 		game_camera.setSize(sf::Vector2u(window_width, window_height));

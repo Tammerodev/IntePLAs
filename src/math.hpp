@@ -10,10 +10,7 @@ namespace math {
     }
     
     inline int randIntInRange(int min, int max) {
-        static std::mt19937 gen(rd()); // seed the generator
-        std::uniform_int_distribution<> distr(min, max); // define the range
-
-        return distr(gen);
+        return min + ( std::rand() % ( max - min + 1 ) );
     }
 
     inline void floodFill(int x, int y, int targetColor, int replacementColor)

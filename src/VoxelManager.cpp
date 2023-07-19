@@ -316,26 +316,25 @@ void VoxelManager::generateVegetation()
         hmap1D.push_back(abs(1000+((sin(2*fx) + sin(3.14159 * fx)) * 50.0)));
     }
 
-    sf::Image grass;
-    grass.loadFromFile("res/img/Assets/Proc.png");
-
-    sf::IntRect sourceRect(100 * math::randIntInRange(0,4), 0, 10, 10);  // Define the portion to extract (x, y, width, height)
-    // Create a new image with the same dimensions as the portion to extract
-    sf::Image extractedImage;
-    extractedImage.create(sourceRect.width, sourceRect.height);
-
-    // Copy the pixels from the original image to the extracted image
-    for (int y = 0; y < sourceRect.height; ++y) {
-        for (int x = 0; x < sourceRect.width; ++x) {
-            sf::Color pixel = grass.getPixel(sourceRect.left + x, sourceRect.top + y);
-            extractedImage.setPixel(x, y, pixel);
-        }
-    }
+    sf::Image vege;
+    vege.loadFromFile("res/img/Assets/Proc.png");
 
     int ind = 0;
     for(auto h : hmap1D) {
-        sf::Vector2i point(ind, (2048 - h) - math::randIntInRange(0,5));
-        if(math::randIntInRange(0,100) > 80) {
+        if(math::randIntInRange(0,100) > 50) {
+            sf::IntRect sourceRect(10 * math::randIntInRange(0,10), 0, 10, 10);
+
+            sf::Image extractedImage;
+            extractedImage.create(sourceRect.width, sourceRect.height);
+            
+            for (int y = 0; y < sourceRect.height; ++y) {
+                for (int x = 0; x < sourceRect.width; ++x) {   
+                    sf::Color pixel = vege.getPixel(sourceRect.left + x, sourceRect.top + y);
+                    extractedImage.setPixel(x, y, pixel);
+                }
+            }
+
+            sf::Vector2i point(ind, (2048 - h) - math::randIntInRange(0,6));
             build_image(point, extractedImage);
         }
         ind++;
