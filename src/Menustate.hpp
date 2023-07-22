@@ -6,13 +6,13 @@
 class MenuState : public MainState {
 public:
 	bool load(const std::string) {
-		logoTx.loadFromFile("/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/res/img/title/logo.png");
+		logoTx.loadFromFile("res/img/title/logo.png");
 		logo.setTexture(logoTx);
 		logo.setPosition(0,0);
 		logo.setScale(5,5);
 
 
-		playbtn_tx.loadFromFile("/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/res/img/title/playbtn.png");
+		playbtn_tx.loadFromFile("res/img/title/playbtn.png");
 
 		font.loadFromFile("res/Fonts/VT323.ttf");
 		int index = 0;
@@ -24,16 +24,22 @@ public:
 			++index;
 		}
 
+		tx.loadFromFile("res/world/forest.png");
+		background.setTexture(tx);
+		background.move(0, 500);
+
 		return true;
 	}
     void update() {
+		background.move(0, -0.1f);
 	}
 	void input(sf::Event &e) {
 		if(e.type == sf::Event::Closed) exit(0);
 	}
 	void draw(sf::RenderTarget& window) {
-		window.clear(sf::Color::Magenta);
+		window.clear(sf::Color(20, 22, 33));
 		logo.setTexture(logoTx);
+		window.draw(background);
 		window.draw(logo);
 
 		for(auto &i : clickables) {
@@ -56,6 +62,8 @@ public:
 	}
 	void statexit() {};
 private:
+	sf::Texture tx;
+	sf::Sprite background;
 	std::vector<Button*> clickables;
 	sf::Font font;
 

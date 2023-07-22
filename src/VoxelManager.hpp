@@ -92,6 +92,7 @@ private:
     std::list<sf::Vector2i> mergeChunks;
 
     sf::Shader shader; 
+    std::vector<float> hmap1D;
     std::vector<std::vector<Chunk>> grid;
 
     bool debug = false;

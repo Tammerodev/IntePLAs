@@ -21,7 +21,7 @@ public:
 
 		if(SFX::rocket_launcher_fire_buffer.getDuration() != sf::Time::Zero) return true;
 
-		// TODO : adjustable rendertx size
+		//  : adjustable rendertx size
 		const uint16_t window_height = sf::VideoMode::getDesktopMode().height;
 		const uint16_t window_width = sf::VideoMode::getDesktopMode().width;
         renderTexture.create(window_width, window_height);

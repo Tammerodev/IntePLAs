@@ -262,19 +262,6 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
 
 void VoxelManager::generate(sf::Image &img)
 {
-    std::vector<float> hmap1D;
-
-    /*
-74,74,74 Carbon       2
-119,120,115 Lithium   3
-186,186,166 Magnesium 4
-119,142,125 Sodium    5
-209,213,216 Aluminium 6
-117,121,139 Silicon   7
-186,140,106 Copper    8
-142,129,149 Titanium  9
-104,102,107 Lead      10*/
-
     std::array<sf::Color, 6> colr {
         sf::Color(50, 168, 82),
         elm::Carbon,
@@ -284,11 +271,11 @@ void VoxelManager::generate(sf::Image &img)
         elm::Lithium
     };
 
-
+    const float val = math::randFloat() * 3;
 
     for(int x = 0; x < world_sx; x++ ) {
         const float fx = x / 400.0;
-        hmap1D.push_back(abs(1000+((sin(2*fx) + sin(3.14159 * fx)) * 50.0)));
+        hmap1D.push_back(abs(1000+((sin(2*fx) + sin(val * fx)) * 50.0)));
     }
 
     int ind = 0;
@@ -297,9 +284,9 @@ void VoxelManager::generate(sf::Image &img)
             int offset = (rand() % 100 + 100);
             int colorIndex = std::clamp(((i - (int)h) - offset) / 200,0, (int)colr.size() - 1);
             sf::Color col = colr.at(colorIndex);
-            col.r += math::randIntInRange(-10, 10);
-            col.g += math::randIntInRange(-10, 10);
-            col.b += math::randIntInRange(-10, 10);
+            col.r += math::randIntInRange(0, 0);
+            col.g += math::randIntInRange(0, 0);
+            col.b += math::randIntInRange(0, 1);
 
             img.setPixel(ind, i, col);
         }
@@ -309,12 +296,6 @@ void VoxelManager::generate(sf::Image &img)
 
 void VoxelManager::generateVegetation()
 {
-    std::vector<float> hmap1D;
-
-    for(int x = 0; x < world_sx; x++ ) {
-        const float fx = x / 400.0;
-        hmap1D.push_back(abs(1000+((sin(2*fx) + sin(3.14159 * fx)) * 50.0)));
-    }
 
     sf::Image vege;
     vege.loadFromFile("res/img/Assets/Proc.png");

@@ -6,7 +6,11 @@ class ParallaxLayer {
 
     ParallaxLayer(const std::string& path, float amountOfParallax = 0.f) : parallax(amountOfParallax) {
 		tx.loadFromFile(path);
-        spr.setTexture(tx);
+        for(int i = 0; i < 3; i++) {
+            sf::Sprite sprite = sf::Sprite();
+            sprite.setTexture(tx);
+            spr.push_back(std::pair(sprite, 0.f));
+        }
     }
 
     void update(sf::Vector2f pos) {
@@ -15,12 +19,24 @@ class ParallaxLayer {
         const float temp = position.x * (1 - parallax);
         const float distance = position.x * parallax;
 
-        spr.setPosition (0.f + distance, spr.getPosition().y);
+        int i = 0;
+        for(auto &sprite : spr) {
+            float offset = (i - 2) * tx.getSize().x;
+            if (sprite.first.getPosition().x > tx.getSize().x) {
+                sprite.first.move(-(float)tx.getSize().x * 2, 0);
+            }     
+
+            sprite.first.setPosition(((0.f + distance) - offset) + sprite.second, sprite.first.getPosition().y);
+
+            i++;
+        }
     }
 
     void render(sf::RenderTarget& target) {
-        spr.setTexture(tx);
-        target.draw(spr);
+        for(auto &sprite : spr) {
+            sprite.first.setTexture(tx);
+            target.draw(sprite.first);
+        }
     }
 
     private:
@@ -28,6 +44,6 @@ class ParallaxLayer {
 
 
     float parallax = 0.f;    
-    sf::Sprite spr;
+    std::vector<std::pair<sf::Sprite, float>> spr;
     sf::Texture tx;
 };
