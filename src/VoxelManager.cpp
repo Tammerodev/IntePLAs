@@ -246,7 +246,8 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
 
         for (int x = xexcept;x < p.x + intensity;x++) {
             if(x > world_sx) break;
-            if(getVoxelAt(x,y).value == 0) continue;
+            Voxel &voxel = getVoxelAt(x,y);
+            if(voxel.value == 0) continue;
             const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
             if(distance < intensity) {
                 voxelsInNeedOfUpdate.push_back(sf::Vector2i(x,y));
@@ -258,6 +259,7 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
 
     mergeChunkBounds(ChunkBounds((p.x / Chunk::sizeX) - 2, (p.y / Chunk::sizeX) - 2,
                                  (p.x / Chunk::sizeY) + 2, (p.y / Chunk::sizeY) + 2));
+
 }
 
 void VoxelManager::generate(sf::Image &img)

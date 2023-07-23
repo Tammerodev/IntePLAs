@@ -12,8 +12,8 @@ public:
     void load() {
         for(int i = 0; i < barChart.size(); i++) {
             barChart.at(i) = sf::RectangleShape();
-            barChart.at(i).setFillColor(sf::Color::Red);
-            barChart.at(i).setPosition(-100, i * barDistance);
+            barChart.at(i).setFillColor(sf::Color(201, 58, 77, 150));
+            barChart.at(i).setPosition(-300, i * barDistance);
             barChart.at(i).setSize(sf::Vector2f(10, barHeight));
         }
     }
@@ -24,17 +24,19 @@ public:
         }
     }
 
-    void update() {
-        if(modified) {
-            barChart.at(0).setSize(sf::Vector2f(10 + materials.carbon, barHeight));
-            barChart.at(1).setSize(sf::Vector2f(10 + materials.lithium, barHeight));
-            barChart.at(2).setSize(sf::Vector2f(10 + materials.magnesium, barHeight));
-            // TODO extend
-            modified = false;
+    void update(VoxelManager &vx_manager) {
+        barChart.at(0).setSize(sf::Vector2f(10 + materials.carbon, barHeight));
+        barChart.at(1).setSize(sf::Vector2f(10 + materials.lithium, barHeight));
+        barChart.at(2).setSize(sf::Vector2f(10 + materials.magnesium, barHeight));
+        for(auto &bar : barChart) {
+            bar.setSize(sf::Vector2f(bar.getSize().x / 10, bar.getSize().y));
         }
+        MaterialPack& received_mat = vx_manager.getReceivedMaterials();
+        addPack(received_mat);
+        received_mat = MaterialPack();
     }
 private:
-    MaterialPack  materials;
+    MaterialPack materials;
 
     const float barHeight = 10;
     const float barDistance = 15;

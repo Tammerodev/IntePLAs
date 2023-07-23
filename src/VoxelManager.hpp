@@ -4,6 +4,8 @@
 #include <iostream>
 #include <math.h>
 #include <thread>
+#include <optional>
+
 #include "math.hpp"
 #include "Voxel.hpp"
 
@@ -11,6 +13,7 @@
 #include "common.hpp"
 #include "Elements.hpp"
 #include "Chunk.hpp"
+#include "MaterialPack.hpp"
 #include <list>
 
 class VoxelManager {
@@ -43,7 +46,10 @@ public:
     void damageVoxelAt(const uint64_t x, const uint64_t y) {
         uint8_t &strenght = getVoxelAt(x,y).strenght;
         --strenght;
-        if(getVoxelAt(x,y).strenght <= 0) clearVoxelAt(x,y);
+        if(getVoxelAt(x,y).strenght <= 0) { 
+            if(getVoxelAt(x, y).value == 2) materialpack.carbon += 1;
+            clearVoxelAt(x,y);
+        }
     }
 
     void heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp);
@@ -81,12 +87,18 @@ public:
         grid.at(x/Chunk::sizeX).at(y/Chunk::sizeY).requestImageAccess().setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
     }
 
+    MaterialPack &getReceivedMaterials() {
+        return materialpack;
+    }
+
     void build_image(const sf::Vector2i&, const sf::Image&);
 
     std::vector <ExplosionInfo> explosion_points;
     std::vector<sf::Vector2i> updateChunks;
 
 private:
+
+    MaterialPack materialpack;
 
     std::list<sf::Vector2i> voxelsInNeedOfUpdate;
     std::list<sf::Vector2i> mergeChunks;
