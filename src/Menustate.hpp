@@ -17,21 +17,32 @@ public:
 		font.loadFromFile("res/Fonts/VT323.ttf");
 		int index = 0;
 		for (const auto & entry : std::filesystem::directory_iterator(path)) {
-			Button* b = new Button(playbtn_tx, sf::Vector2f(150, 100 + index * 50), sf::Vector2f(2,2), sf::IntRect(0,0,64,24), font);
+			Button* b = new Button(playbtn_tx, sf::Vector2f(150, 200 + index * 50), sf::Vector2f(2,2), sf::IntRect(0,0,64,24), font);
 			b->setString(entry.path());
+			sf::Texture tex;
+			tex.loadFromFile(entry.path());
+			tx.push_back(tex);
 			b->move(-150,0);
         	clickables.push_back(b);
 			++index;
 		}
+		index = 0;
+		for(auto &tex : tx) {
+			sf::Sprite bg;
 
-		tx.loadFromFile("res/world/forest.png");
-		background.setTexture(tx);
-		background.move(0, 500);
+			bg.setTexture(tex);
+			bg.setPosition(0, index * tex.getSize().y);
+			
+			background.push_back(bg);
+			index++;
+		}
 
 		return true;
 	}
     void update() {
-		background.move(0, -0.1f);
+		for(auto & bg : background) {
+			bg.move(0, -1.f);
+		}
 	}
 	void input(sf::Event &e) {
 		if(e.type == sf::Event::Closed) exit(0);
@@ -39,7 +50,9 @@ public:
 	void draw(sf::RenderTarget& window) {
 		window.clear(sf::Color(20, 22, 33));
 		logo.setTexture(logoTx);
-		window.draw(background);
+		for(auto & bg : background) {
+			window.draw(bg);
+		}
 		window.draw(logo);
 
 		for(auto &i : clickables) {
@@ -62,8 +75,8 @@ public:
 	}
 	void statexit() {};
 private:
-	sf::Texture tx;
-	sf::Sprite background;
+	std::vector<sf::Texture> tx;
+	std::vector<sf::Sprite> background;
 	std::vector<Button*> clickables;
 	sf::Font font;
 

@@ -268,7 +268,7 @@ void VoxelManager::generate(sf::Image &img)
         elm::Carbon,
         elm::Lead,
         elm::Titanium,
-        elm::Lithium
+        elm::Aluminium
     };
 
     const float val = math::randFloat() * 3;
