@@ -13,7 +13,7 @@
 #include "EffectOverlay.hpp"
 #include "Camera.hpp"
 #include "BackgroundMusic.hpp"
-#include "Inventory.hpp"
+#include "PlayerUI.hpp"
 
 class GameState : public MainState {
 public:
@@ -30,6 +30,7 @@ public:
 		ui_camera.setSize(sf::Vector2u(window_width, window_height));
 		
 		inv.load(vx_manager);
+		matUI.load();
 		game_camera.setZoom(0.5f);
 		ui_camera.setZoom(1.0f);
 
@@ -73,6 +74,7 @@ private:
 
 	Player player;
 	Inventory inv;
+	MaterialsUI matUI;
 	Background bg;
 	EffectOverlay effOverlay;
 

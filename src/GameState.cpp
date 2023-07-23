@@ -20,6 +20,7 @@ void GameState::update() {
     effOverlay.update(game_camera.getCenterPosition());
     game_camera.update(delta_T);
     player.update(delta_T);    
+    matUI.update();
 
     vx_manager.update();
         
@@ -79,7 +80,7 @@ void GameState::draw(sf::RenderTarget &window)
 {
     // Clear renderTexture
     renderTexture.clear();
-    // Render to game camera
+
     game_camera.setViewTo(renderTexture);
     game_camera.setTarget(player.get_voxel_pos());
 
@@ -96,6 +97,10 @@ void GameState::draw(sf::RenderTarget &window)
     effOverlay.render(renderTexture);
     // Render current item
     inv.render(renderTexture);
+
+
+    ui_camera.setViewTo(renderTexture);
+    matUI.render(renderTexture);
     
     // Display, draw and set shader
     renderTexture.display();

@@ -15,7 +15,6 @@ public:
 		gun_spr.setTexture(gun_tx);
 
 		explosion_stength = strenth;
-
 		gun_spr.setOrigin(gun_spr.getGlobalBounds().width / 2,gun_spr.getGlobalBounds().height / 2);
 
 	}
