@@ -5,6 +5,7 @@
 #include "DebugPlacer.hpp"
 #include "HeatGun.hpp"
 #include "MaterialPack.hpp"
+#include "Panel.hpp"
 
 
 class MaterialsUI {
@@ -31,6 +32,7 @@ public:
         for(auto &bar : barChart) {
             bar.setSize(sf::Vector2f(bar.getSize().x / 10, bar.getSize().y));
         }
+
         MaterialPack& received_mat = vx_manager.getReceivedMaterials();
         addPack(received_mat);
         received_mat = MaterialPack();
@@ -68,8 +70,13 @@ public:
         inventory.push_back(std::make_shared<RocketLauncher>(vx));
         inventory.push_back(std::make_shared<DebugPlacer>(vx));
         inventory.push_back(std::make_shared<HeatGun>(vx));
+
+        inventory.push_back(std::make_shared<PlaceItem>(vx,"res/img/Tool/fire.png", "res/img/Player/Player.png"));
     } 
 
+    void addItem(VoxelManager&vx, Item* newItem) {
+        inventory.push_back(std::make_shared<DebugPlacer>(vx));
+    }
     void switchItem() {
         currentItemIndex++;
         if(currentItemIndex >= inventory.size()) {

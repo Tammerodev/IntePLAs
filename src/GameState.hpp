@@ -102,6 +102,10 @@ private:
 		{
 			// lookup the pixel in the texture
 			vec4 pixel = texture2D(texture, gl_TexCoord[0].xy);
+			const float saturation = 1.0;
+			vec3 tex_color = pixel.rgb;  
+
+			pixel.rgb = mix(vec3(dot(tex_color.rgb, vec3(0.299, 0.587, 0.114))), tex_color.rgb, saturation);
 
 			// multiply it by the color
 			gl_FragColor = gl_Color * pixel;

@@ -1,16 +1,19 @@
 #pragma once
 #include "State.hpp"
 #include "Button.hpp"
+#include "Panel.hpp"
 #include <filesystem>
+#include <SFML/Audio.hpp>
 
 class MenuState : public MainState {
 public:
 	bool load(const std::string) {
-		logoTx.loadFromFile("res/img/title/logo.png");
-		logo.setTexture(logoTx);
+		logo = Panel("res/img/title/logo.png");
 		logo.setPosition(0,0);
 		logo.setScale(5,5);
 
+		music.openFromFile("res/music/Bream.wav");
+		music.play();
 
 		playbtn_tx.loadFromFile("res/img/title/playbtn.png");
 
@@ -49,7 +52,9 @@ public:
 	}
 	void draw(sf::RenderTarget& window) {
 		window.clear(sf::Color(20, 22, 33));
-		logo.setTexture(logoTx);
+
+		logo.applyTexture();
+
 		for(auto & bg : background) {
 			window.draw(bg);
 		}
@@ -73,16 +78,19 @@ public:
 			}
 		}
 	}
-	void statexit() {};
+	void statexit() {
+		music.stop();
+	}
 private:
+
 	std::vector<sf::Texture> tx;
 	std::vector<sf::Sprite> background;
 	std::vector<Button*> clickables;
 	sf::Font font;
 
 	std::string path = "res/saves/";
-	sf::Texture logoTx;
-	sf::Sprite logo;
+	Panel logo;
+	sf::Music music;
 
 	sf::Texture playbtn_tx;
 };

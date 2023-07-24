@@ -16,12 +16,13 @@ struct Chunk {
 
     std::array<std::array<Voxel, 64>, 64>& requestAccess() {
         if(loaded) return arr;
-        else load();
+        else return load();
     }
 
     sf::Image &requestImageAccess() {
         if(loaded) return image;
         else load();
+        return image;
     }
 
     void create(sf::Image &img, sf::Vector2i pos) {
@@ -31,9 +32,9 @@ struct Chunk {
         tx.loadFromImage(image);
     }
 
-    bool load() {
+    std::array<std::array<Voxel, 64>, 64>& load() {
         loaded = true;
-        return true;
+        return arr;
     }
 
     void update() {

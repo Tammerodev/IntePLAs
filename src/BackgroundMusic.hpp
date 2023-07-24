@@ -4,7 +4,7 @@
 
 namespace BGMusic {
     static enum Song {
-      ONKES, KINESE, CALM, SANDFALL, BLASS
+      ONKES, KINESE, CALM, SANDFALL, BLASS,
     } current_song;
     static std::vector<sf::Music*> song_list;
 

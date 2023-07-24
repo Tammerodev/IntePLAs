@@ -63,21 +63,44 @@ private:
         }
 
 
+        float random(float seed) {
+            return fract(sin(seed) * 43758.5453);
+        }
+
         void main( void ) {
-            vec2 position = gl_TexCoord[0].xy  + worldpos / 1000;
+            vec2 position = gl_TexCoord[0].xy + worldpos / 1000;
+
+            const float pixelate = 300.0;
             
             vec2 exp_pos = explosion / 1000.0;
-            
-            float dist = distance(position,exp_pos);
 
-            float intens = easeOutQuint(time * 5.0) * str_ / 100.0;
+            position.x = floor(position.x * pixelate);
+            position.x /= pixelate;
+
+            position.y = floor(position.y * pixelate);
+            position.y /= pixelate;
+            
+            float dist = floor(
+                distance(position,exp_pos) * pixelate
+                );
+            dist /= pixelate;
+
+            float intens = easeOutQuint(time / 5.0) * str_ / 500.0;
 	
             vec4 color;
-            color.a = 1.0 - dist / intens;
             
             color.r = 1.0 - dist / intens;
             color.b = tan(time) * dist;
-            
+
+            color.r = floor(color.r*pixelate);
+            color.r /= pixelate;
+            color.g = floor(color.g*pixelate);
+            color.g /= pixelate;
+            color.b = floor(color.b*pixelate);
+            color.b /= pixelate;
+
+            color.a = color.r;
+
             gl_FragColor = color;
         }
 			

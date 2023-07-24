@@ -10,7 +10,6 @@ class ParallaxLayer {
             sf::Sprite sprite = sf::Sprite();
             sprite.setTexture(tx);
             spr.push_back(std::pair(sprite, 0.f));
-            
         }
     }
 
@@ -22,9 +21,9 @@ class ParallaxLayer {
 
         int i = 0;
         for(auto &sprite : spr) {
-            float offset = (i - 2) * tx.getSize().x;
-            if (sprite.first.getPosition().x - pos.x < -tx.getSize().x) {
-
+            float offset = (i - 1) * tx.getSize().x;
+            if ((sprite.first.getPosition().x - pos.x) > tx.getSize().x) {
+                sprite.second += 10;
             }     
 
             sprite.first.setPosition(((0.f + distance) - offset) + sprite.second, sprite.first.getPosition().y);
