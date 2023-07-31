@@ -56,8 +56,6 @@ int VoxelManager::load(std::string file, bool proced)
 {
 
     sf::Image img;
-    prndd("Started loading map");
-
     
     const std::string path = file;
     if(!img.loadFromFile(path)) {

@@ -7,7 +7,7 @@
 #include "State.hpp"
 #include "SoundFX.hpp"
 #include "Entity/Player/Player.hpp"
-#include "VoxelManager.hpp"
+#include "World.hpp"
 #include "math.hpp"
 #include "Background.hpp"
 #include "EffectOverlay.hpp"
@@ -29,7 +29,7 @@ public:
 		game_camera.setSize(sf::Vector2u(window_width, window_height));
 		ui_camera.setSize(sf::Vector2u(window_width, window_height));
 		
-		inv.load(vx_manager);
+		inv.load(world.main_world);
 		matUI.load();
 		game_camera.setZoom(0.5f);
 		ui_camera.setZoom(1.0f);
@@ -38,7 +38,7 @@ public:
 		game_camera.setCameraMode(CameraMode::Leap);
 
 
-		if(!vx_manager.load(s,true))
+		if(!world.init(s))
 			perror("VoxelManager failed to load");
 		if(!bg.load()) 
 			perror("Background failed to load");
@@ -78,13 +78,14 @@ private:
 	Background bg;
 	EffectOverlay effOverlay;
 
+	World world;
+
 	Camera game_camera;
 	Camera ui_camera;
 
 	sf::RenderTexture renderTexture;
 	sf::Sprite renderSprite;
 
-	VoxelManager vx_manager {};
 
 	float delta_T = 0.f;
 	sf::Clock deltaClock;

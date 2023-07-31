@@ -29,6 +29,7 @@ public:
         	clickables.push_back(b);
 			++index;
 		}
+
 		index = 0;
 		for(auto &tex : tx) {
 			sf::Sprite bg;
@@ -86,6 +87,8 @@ private:
 	std::vector<sf::Texture> tx;
 	std::vector<sf::Sprite> background;
 	std::vector<Button*> clickables;
+	Button new_world_button;
+
 	sf::Font font;
 
 	std::string path = "res/saves/";

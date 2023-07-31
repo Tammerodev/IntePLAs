@@ -10,9 +10,9 @@ void GameState::update() {
     shader.setUniform("resolution",sf::Vector2(1.0f,1.0f));
 
 
-    if(vx_manager.explosion_points.size() > 0) {
-        effOverlay.effect_explosion(vx_manager.explosion_points.at(vx_manager.explosion_points.size() - 1));
-        vx_manager.explosion_points.pop_back();
+    if(world.main_world.explosion_points.size() > 0) {
+        effOverlay.effect_explosion(world.main_world.explosion_points.at(world.main_world.explosion_points.size() - 1));
+        world.main_world.explosion_points.pop_back();
     }
 
     bg.update(game_camera.getCenterPosition());
@@ -20,32 +20,13 @@ void GameState::update() {
     effOverlay.update(game_camera.getCenterPosition());
     game_camera.update(delta_T);
     player.update(delta_T);    
-    matUI.update(vx_manager);
+    matUI.update(world.main_world);
 
-    vx_manager.update();
+    world.update();
         
-    inv.getCurrentItem()->update(vx_manager, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition()))), player.get_voxel_pos(), delta_T);
+    inv.getCurrentItem()->update(world.main_world, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition()))), player.get_voxel_pos(), delta_T);
 
-    auto res = vx_manager.getOvelapWithRectY(player.getBottomHitbox()); // Ground
-    auto res2 = vx_manager.getOvelapWithRect(player.getTopHitbox()); // Ground
-    auto res4 = vx_manager.getOvelapWithRect(player.getRightHitbox()); // Ground
-    auto res3 = vx_manager.getOvelapWithRect(player.getLeftHitbox()); // Ground
-
-    if(res4.first) {    // Right collision
-        player.move_x(-(res4.second.width + 2));
-    }
-    if(res3.first) {    // Right collision
-        player.move_x((res3.second.width + 2));
-    }
-    if(res.first) {     // Colliding with ground
-        player.ground();
-        player.move_y(-res.second.height);
-        return;
-    }
-
-    if(res2.first) {    // Head collision
-        player.move_y(res2.second.height);
-    }
+    world.handleCollisionsWithPlayer(player);
 }
 
 void GameState::input(sf::Event &ev) {
@@ -73,7 +54,7 @@ void GameState::input(sf::Event &ev) {
 void GameState::statexit()
 {
     BGMusic::stop();
-    vx_manager.save();
+    world.save();
 }
 
 void GameState::draw(sf::RenderTarget &window)
@@ -91,7 +72,7 @@ void GameState::draw(sf::RenderTarget &window)
     player.draw(renderTexture);
 
     // Render the world
-    vx_manager.render(renderTexture, game_camera.getCenterPosition());
+    world.render(renderTexture, game_camera.getCenterPosition());
 
     // For effects like explosions
     effOverlay.render(renderTexture);
