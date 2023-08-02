@@ -14,6 +14,7 @@
 #include "Camera.hpp"
 #include "BackgroundMusic.hpp"
 #include "PlayerUI.hpp"
+#include "Entity/Player/Controls.hpp"
 
 class GameState : public MainState {
 public:

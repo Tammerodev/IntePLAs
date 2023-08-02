@@ -29,7 +29,7 @@ struct Chunk {
         // Fill the array 
         image.create(sizeX,sizeY);
         image.copy(img, 0, 0, sf::IntRect(sf::Vector2i(pos.x * sizeX, pos.y * sizeY), sf::Vector2i(sizeX, sizeY)));
-        tx.loadFromImage(image);
+        tx.create(image.getSize().x, image.getSize().y);
     }
 
     std::array<std::array<Voxel, 64>, 64>& load() {

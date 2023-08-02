@@ -14,9 +14,9 @@ void IdleState::draw(sf::RenderTarget &window, sf::Sprite &sprite){
 }
 
 void IdleState::input(bool grounded) {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+    if(Controls::moveLeft() || Controls::moveRight()) {
         PlayerState::currentState = walkState;
-    } if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+    } if(Controls::jump()) {
         if(!grounded) return;
         PlayerState::currentState = jumpState;
         PlayerState::currentState->enter();

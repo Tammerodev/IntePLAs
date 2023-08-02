@@ -4,6 +4,7 @@
 #include "Item.hpp"
 #include "VoxelManager.hpp"
 #include "common.hpp"
+#include "World.hpp"
 
 class PlaceItem : public Item {
     public:

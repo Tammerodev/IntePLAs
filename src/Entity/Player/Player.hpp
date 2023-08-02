@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Controls.hpp"
 #include <SFML/Graphics.hpp>
 #include "PlayerState.hpp"
 #include "IdleState.hpp"

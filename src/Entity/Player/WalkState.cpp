@@ -6,10 +6,10 @@ void WalkState::enter() {
 
 void WalkState::update(sf::Vector2f&pos,float&,float dt) {
     last_pos = pos;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+    if(Controls::moveLeft()) {
         pos.x-=speed*dt;
         return;
-    } else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+    } else if(Controls::moveRight()) {
         pos.x+=speed*dt;
         return;
     }
@@ -29,7 +29,7 @@ void WalkState::draw(sf::RenderTarget &window, sf::Sprite &sprite){
 }
 
 void WalkState::input(bool grounded) {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && grounded) {
+    if(Controls::jump() && grounded) {
         PlayerState::currentState = jumpState;
         PlayerState::currentState->enter();
     }

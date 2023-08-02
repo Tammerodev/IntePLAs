@@ -9,6 +9,10 @@ void GameState::update() {
     shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
     shader.setUniform("resolution",sf::Vector2(1.0f,1.0f));
 
+    if(Controls::switchItem()) {
+        inv.switchItem();
+    }
+
 
     if(world.main_world.explosion_points.size() > 0) {
         effOverlay.effect_explosion(world.main_world.explosion_points.at(world.main_world.explosion_points.size() - 1));
@@ -41,13 +45,10 @@ void GameState::input(sf::Event &ev) {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::F)) slowmo = true; // Slow-mo
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)) slowmo = false; // Slow-mo
 
-    if(ev.type == sf::Event::MouseButtonPressed) {
-        if(ev.mouseButton.button == sf::Mouse::Button::Left) {
-            inv.use(player.get_voxel_pos(), sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), world);    
-        } else if(ev.mouseButton.button == sf::Mouse::Button::Middle) {
-            inv.switchItem();
-        }
+    if(Controls::useItem(ev)) {
+        inv.use(player.get_voxel_pos(), sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), world);    
     }
+
     if(ev.type == sf::Event::KeyReleased) {
         if(ev.key.code == sf::Keyboard::Escape) {
             statexit();

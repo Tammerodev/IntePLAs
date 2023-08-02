@@ -10,7 +10,6 @@ namespace SFX {
     static sf::Sound rocket_launcher_fire;
     static sf::Sound fire;
 
-
     
     static int load() {
         int res = 1;

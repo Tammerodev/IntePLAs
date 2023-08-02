@@ -1,5 +1,6 @@
 #pragma once
 #include "PlayerState.hpp"
+#include "Controls.hpp"
 
 class JumpState : public PlayerState {
 public:

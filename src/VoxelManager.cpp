@@ -56,23 +56,17 @@ int VoxelManager::load(std::string file, bool proced)
 {
 
     sf::Image img;
-    
-    const std::string path = file;
-    if(!img.loadFromFile(path)) {
-        perror("Could not load voxel map");
-    }
-
-    prndd("Updated map");
-
-    prndd("Starting to process map");
 
     world_sx = Chunk::sizeX * chunks_x;
     world_sy = Chunk::sizeY * chunks_y;
 
-    prndd(world_sx);
-
     if(proced) {
+        img.create(8192, 16384, sf::Color(0,0,0,0));
         generate(img);
+    } else {   
+        if(!img.loadFromFile(file)) {
+            return 0;
+        }
     }
 
     for (int y = 0;y < world_sy;y++) {
@@ -84,8 +78,6 @@ int VoxelManager::load(std::string file, bool proced)
             getVoxelAt(x,y) = getValueFromCol(px, sf::Vector2i(x,y));
         }
     }
-
-    prndd("Processing complete");
     
     // load only the vertex shader
     (shader.loadFromMemory(shader_vert, sf::Shader::Vertex));
@@ -93,10 +85,6 @@ int VoxelManager::load(std::string file, bool proced)
     (shader.loadFromMemory(shader_frag, sf::Shader::Fragment));
     // load both shaders
     (shader.loadFromMemory(shader_vert, shader_frag));
-
-    prndd("Shaders loaded");
-
-    prndd("Starting meshing...");
     
     ChunkBounds bounds = ChunkBounds(0, 0, chunks_y, chunks_y);
 
@@ -106,12 +94,9 @@ int VoxelManager::load(std::string file, bool proced)
         }
     }
 
-
-    generateVegetation();
-
     mergeChunkBounds(bounds);
 
-    return true;
+    return 1;
 }
 
 void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
@@ -123,7 +108,7 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
     if(vox.temp >= vox.maxTemp) {
         int val = vox.value;
         damageVoxelAt(x,y);
-        if(val == 3) 
+        if(val == elm::ValLithium) 
             hole(sf::Vector2i(x,y),100,true,2000);
     }
 
@@ -172,6 +157,7 @@ void VoxelManager::update()
         bool del = false;
         sf::Vector2i p = (*i);
         heatVoxelAt(p.x, p.y, -getVoxelAt(p.x,p.y).ambientDissipation);
+
         if(getVoxelAt(p.x,p.y).temp <= 0 || getVoxelAt(p.x,p.y).value == 0) {i = voxelsInNeedOfUpdate.erase(i); }
         else { ++i; }
 
@@ -303,7 +289,21 @@ void VoxelManager::generateVegetation()
     int ind = 0;
     for(auto h : hmap1D) {
         if(math::randIntInRange(0,100) > 50) {
-            sf::IntRect sourceRect(10 * math::randIntInRange(0,10), 0, 10, 10);
+            enum VegeType {
+                Grass, Tree
+            } vegType;
+            
+            sf::IntRect sourceRect; 
+
+            if(math::randIntInRange(0, 1-50) < 1) {
+                // Tree
+                sourceRect = sf::IntRect(0, 20, 70, 94);
+                vegType = Tree;
+            } else {
+                // Grass
+                sourceRect = sf::IntRect(10 * math::randIntInRange(0,10), 0, 10, 10);
+                vegType = Grass;
+            }
 
             sf::Image extractedImage;
             extractedImage.create(sourceRect.width, sourceRect.height);
@@ -314,8 +314,13 @@ void VoxelManager::generateVegetation()
                     extractedImage.setPixel(x, y, pixel);
                 }
             }
+            sf::Vector2i point;
 
-            sf::Vector2i point(ind, (2048 - h) - math::randIntInRange(0,6));
+            if(vegType == Grass)
+                point = sf::Vector2i(ind, (2048 - h) - math::randIntInRange(0,6));
+            else if(vegType == Tree)
+                point = sf::Vector2i(ind, (2048 - h) - sourceRect.height);
+
             build_image(point, extractedImage, nullptr);
         }
         ind++;
