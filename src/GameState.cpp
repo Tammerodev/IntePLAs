@@ -14,6 +14,12 @@ void GameState::update() {
         effOverlay.effect_explosion(world.main_world.explosion_points.at(world.main_world.explosion_points.size() - 1));
         world.main_world.explosion_points.pop_back();
     }
+    for(auto &wrl: world.add_worlds) {
+        if(wrl.explosion_points.size() > 0) {
+            effOverlay.effect_explosion(wrl.explosion_points.at(wrl.explosion_points.size() - 1));
+            wrl.explosion_points.pop_back();
+        }
+    }
 
     bg.update(game_camera.getCenterPosition());
     BGMusic::update();
@@ -24,7 +30,7 @@ void GameState::update() {
 
     world.update();
         
-    inv.getCurrentItem()->update(world.main_world, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition()))), player.get_voxel_pos(), delta_T);
+    inv.getCurrentItem()->update(world, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition()))), player.get_voxel_pos(), delta_T);
 
     world.handleCollisionsWithPlayer(player);
 }
@@ -37,7 +43,7 @@ void GameState::input(sf::Event &ev) {
 
     if(ev.type == sf::Event::MouseButtonPressed) {
         if(ev.mouseButton.button == sf::Mouse::Button::Left) {
-            inv.use(player.get_voxel_pos(), sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())));    
+            inv.use(player.get_voxel_pos(), sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), world);    
         } else if(ev.mouseButton.button == sf::Mouse::Button::Middle) {
             inv.switchItem();
         }

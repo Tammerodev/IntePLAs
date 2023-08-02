@@ -10,17 +10,22 @@ public:
         
         if(!main_world.load(path, path == "res/saves/Create new world.png")) res = false;
 
-        sf::Image image;
-        image.loadFromFile("res/img/Tool/Heatgun.png");
-
-        add_world.load("res/img/Tool/Heatgun.png", false);
-
         return res;
     }
 
     void update() {
         main_world.update();
-        add_world.update();
+        for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
+            world->update();
+            std::pair<bool, sf::FloatRect> collision_rect = main_world.getOvelapWithRect(world->getCollider());
+            if(collision_rect.first) {
+                world->getPhysicsComponent().velocity = sf::Vector2f(0.0f, 0.0f);
+                world->getPhysicsComponent().transform_position.y -= collision_rect.second.height;
+
+                world->destroyPart(main_world, collision_rect.second);
+            }
+        }
+
     }
 
     void handleCollisionsWithPlayer(Player& player) {
@@ -52,11 +57,13 @@ public:
 
     void render(sf::RenderTarget& target, const sf::Vector2f& view_center) {
         main_world.render(target, view_center);
-        add_world.render(target, view_center);
+        for(auto &world : add_worlds) {
+            world.render(target, view_center);
+        }
     }
 
 	VoxelManager main_world {};
-    VoxelGroup add_world {};
+    std::vector<VoxelGroup> add_worlds {};
 private:
 
 };

@@ -14,8 +14,12 @@
 #include "Elements.hpp"
 #include "MaterialPack.hpp"
 #include "PhysicsComponent.hpp"
+#include "Collider.hpp"
 #include <list>
 #include <memory>
+
+// We cant include voxelmanager, becouse that would create an infinite preprocessor loop
+class VoxelManager;
 
 class VoxelGroup {
 public:
@@ -26,10 +30,19 @@ public:
     std::pair<bool, sf::FloatRect> getOvelapWithRect(const sf::FloatRect &collider);
     std::pair<bool, sf::FloatRect> getOvelapWithRectY(const sf::FloatRect &collider);
 
-    int load(std::string, bool);
+    int load(const sf::Image &copy_img);
 
     Voxel &getVoxelAt (const uint64_t x, const uint64_t y) {
         return grid[y][x];
+    }
+
+    PhysicsComponent &getPhysicsComponent() {
+        return physicsComponent;
+    }
+
+    sf::FloatRect getCollider() {
+        if(destroyed) return sf::FloatRect(-1000,-1000,0,0);
+        return spr.getGlobalBounds();
     }
 
     void clearVoxelAt(const uint64_t x, const uint64_t y) {
@@ -54,11 +67,6 @@ public:
 
     const Voxel getValueFromCol(const sf::Color &px, sf::Vector2i p);
 
-    void save() {
-        // TODO : make it save from the chunk images
-        //img.saveToFile("res/saves/" + std::to_string(time(0)) + ".png");
-    }
-
     sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
         return img.getPixel(x,y);
     }
@@ -67,56 +75,43 @@ public:
         img.setPixel(x,y,color);
     }
 
+    template<class T>
+
+    void destroyPart(T& main_world, sf::FloatRect destroyArea) {
+        if(destroyed) return;
+        for (int y = 0; y < world_sy;y++) {
+            for (int x = 0; x < world_sx;x++) {
+                if(getVoxelAt(x,y).value == elm::ValLithium) {
+                    main_world.hole(
+                        sf::Vector2i(physicsComponent.transform_position + sf::Vector2f(x,y)), 100, true, 100);
+                }
+                damageVoxelAt(x,y);
+            }
+        }
+        destroy();
+    }
+
+    void destroy() {
+        grid.clear();
+        rects.clear();
+        destroyed = true;
+    }
+
     std::vector <ExplosionInfo> explosion_points;
     std::vector<sf::Vector2i> updateChunks;
-
+    sf::Image img;
 private:
+
+    bool destroyed = false;
 
     PhysicsComponent physicsComponent;
 
-    std::list<sf::Vector2i> voxelsInNeedOfUpdate;
-    std::list<sf::Vector2i> mergeChunks;
-
-    sf::Shader shader; 
     std::vector<std::vector<Voxel>> grid;
-    std::vector<sf::FloatRect> rects;
-    sf::Image img;
+    std::vector<Collider> rects;
     sf::Texture tex;
     sf::Sprite spr;
 
-    bool debug = false;
-
     uint64_t world_sx;
     uint64_t world_sy;
-
-    const char * shader_frag = 
-    R"( 
-        uniform sampler2D texture;
-
-        void main()
-        {
-            
-            // lookup the pixel in the texture
-            vec4 pixel = vec4(0.0, 1.0, 0.0, 1.0);
-
-            // multiply it by the color
-            gl_FragColor = pixel;
-        }
-    )";
-
-    const char * shader_vert = 
-    R"( 
-        void main()
-        {
-            // transform the vertex position
-            gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
-
-            // transform the texture coordinates
-            gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
-
-            // forward the vertex color
-            gl_FrontColor = gl_Color;
-        }
-    )";
 
 };

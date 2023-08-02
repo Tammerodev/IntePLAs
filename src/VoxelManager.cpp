@@ -139,8 +139,8 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
 
 void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 {
-    ChunkBounds draw_bounds((center.x / Chunk::sizeX) - 8, (center.y / Chunk::sizeY) - 8, 
-                            (center.x / Chunk::sizeX) + 8, (center.y / Chunk::sizeY) + 8);
+    ChunkBounds draw_bounds((center.x / Chunk::sizeX) - 13, (center.y / Chunk::sizeY) - 13, 
+                            (center.x / Chunk::sizeX) + 13, (center.y / Chunk::sizeY) + 13);
     ChunkArea draw_area = draw_bounds.getArea();
 
     for(uint32_t y = draw_area.startY; y < draw_area.endY; y++) {
@@ -316,7 +316,7 @@ void VoxelManager::generateVegetation()
             }
 
             sf::Vector2i point(ind, (2048 - h) - math::randIntInRange(0,6));
-            build_image(point, extractedImage);
+            build_image(point, extractedImage, nullptr);
         }
         ind++;
     }
@@ -369,8 +369,20 @@ const Voxel VoxelManager::getValueFromCol(const sf::Color &px, sf::Vector2i p)
     return vox;
 }
 
-void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg)
+void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std::vector<VoxelGroup>* grp, float angle, float mag)
 {
+    if(grp != nullptr) {
+        VoxelGroup object = VoxelGroup();
+        object.load(cimg);
+        object.getPhysicsComponent().transform_position = sf::Vector2f(p);
+
+        float angleRadians = angle * static_cast<float>(M_PI) / 180.0f;
+        object.getPhysicsComponent().velocity.x = mag * cos(angleRadians);
+        object.getPhysicsComponent().velocity.y = mag * sin(angleRadians);
+
+        grp->push_back(object);
+        return;
+    }
     for (int y = p.y;  y < p.y + cimg.getSize().y;  y++) {
         if(y >= world_sy) break;
         for (int x = p.x;  x < p.x + cimg.getSize().x;  x++) {

@@ -11,4 +11,15 @@ namespace elm {
     const sf::Color Copper {186,140,106};
     const sf::Color Titanium {142,129,149};
     const sf::Color Lead {104,102,107};
+
+    const uint8_t ValCarbon = 2;
+    const uint8_t ValLithium = 3;
+    const uint8_t ValMagnesium = 4;
+    const uint8_t ValSodium = 5;
+    const uint8_t ValAluminium = 6;
+    const uint8_t ValSilicon = 7;
+    const uint8_t ValCopper = 8;
+    const uint8_t ValTitanium = 9;
+    const uint8_t ValLead = 10;
+    
 }

@@ -37,6 +37,7 @@ public:
     void effect_explosion(const ExplosionInfo& exInfo) {
         shader.setUniform("explosion", sf::Vector2f(exInfo.position));
         shader.setUniform("str_", exInfo.strength);
+        SFX::strong_explosion.play();
 
         shader_time.restart();
         background.setPosition(exInfo.position.x - background.getGlobalBounds().width/2, exInfo.position.y - background.getGlobalBounds().height/2);
@@ -70,7 +71,7 @@ private:
         void main( void ) {
             vec2 position = gl_TexCoord[0].xy + worldpos / 1000;
 
-            const float pixelate = 300.0;
+            const float pixelate = 200.0;
             
             vec2 exp_pos = explosion / 1000.0;
 
@@ -85,12 +86,12 @@ private:
                 );
             dist /= pixelate;
 
-            float intens = easeOutQuint(time / 5.0) * str_ / 500.0;
+            float intens = easeOutQuint(time * 5.0) * str_ / 500.0;
 	
             vec4 color;
             
             color.r = 1.0 - dist / intens;
-            color.b = tan(time) * dist;
+            color.b = intens - 1.0 * dist;
 
             color.r = floor(color.r*pixelate);
             color.r /= pixelate;

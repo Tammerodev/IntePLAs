@@ -14,6 +14,7 @@
 #include "Elements.hpp"
 #include "Chunk.hpp"
 #include "MaterialPack.hpp"
+#include "VoxelGroup.hpp"
 #include <list>
 
 class VoxelManager {
@@ -47,7 +48,17 @@ public:
         uint8_t &strenght = getVoxelAt(x,y).strenght;
         --strenght;
         if(getVoxelAt(x,y).strenght <= 0) { 
-            if(getVoxelAt(x, y).value == 2) materialpack.carbon += 1;
+            // I know this is terrible
+            if(getVoxelAt(x, y).value == elm::ValCarbon) materialpack.carbon += 1;
+            else if(getVoxelAt(x, y).value == elm::ValLithium) materialpack.lithium += 1;
+            else if(getVoxelAt(x, y).value == elm::ValMagnesium) materialpack.magnesium += 1;
+            else if(getVoxelAt(x, y).value == elm::ValSodium) materialpack.sodium += 1;
+            else if(getVoxelAt(x, y).value == elm::ValAluminium) materialpack.aluminium += 1;
+            else if(getVoxelAt(x, y).value == elm::ValSilicon) materialpack.silicon += 1;
+            else if(getVoxelAt(x, y).value == elm::ValCopper) materialpack.copper += 1;
+            else if(getVoxelAt(x, y).value == elm::ValTitanium) materialpack.titanium += 1;
+            else if(getVoxelAt(x, y).value == elm::ValLead) materialpack.lead += 1;
+
             clearVoxelAt(x,y);
         }
     }
@@ -91,7 +102,7 @@ public:
         return materialpack;
     }
 
-    void build_image(const sf::Vector2i&, const sf::Image&);
+    void build_image(const sf::Vector2i&, const sf::Image&, std::vector<VoxelGroup>*, float angle = 0.f, float mag = 0.f);
 
     std::vector <ExplosionInfo> explosion_points;
     std::vector<sf::Vector2i> updateChunks;

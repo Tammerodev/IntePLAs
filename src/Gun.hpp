@@ -6,6 +6,7 @@
 #include "VoxelManager.hpp"
 #include "common.hpp"
 #include "SoundFX.hpp"
+#include "World.hpp"
 
 class Gun : public Item {
 public:
@@ -19,12 +20,13 @@ public:
 
 	}
 
-    void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse) {
+    void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse, World &world) {
 		auto ex = std::make_unique<ExplosiveBullet>(bullet_tx);
 		ex->setPosition(playerpos);
 		ex->setRotation(rotationAngle);
 		ex->setVelocity(sf::Vector2f(cos(gun_spr.getRotation() * 3.1415926f / 180.f),sin(gun_spr.getRotation() * 3.1415926f / 180.f)));
 		bullets.push_back(std::move(ex));
+		SFX::rocket_launcher_fire.play();
     }
 
     void render(sf::RenderTarget &target) {
@@ -42,7 +44,7 @@ public:
 		return gun_spr;
 	}
 
-    void update(VoxelManager &vx_manager, const sf::Vector2f& mousePos, const sf::Vector2f& pos, const float dt) {
+    void update(World &world, const sf::Vector2f& mousePos, const sf::Vector2f& pos, const float dt) {
 		// Set position and rotation
 		rotationAngle = atan2f(mousePos.y - gun_spr.getPosition().y, mousePos.x - gun_spr.getPosition().x) * 180 / math::PI;
 
@@ -61,14 +63,23 @@ public:
 		bullets.remove_if([&](const std::unique_ptr<ExplosiveBullet>& bullet) {
 			const long MAX_DISTANCE_FROM_MOUSE = 10000;
 			
-			if (vx_manager.getOvelapWithRect(bullet->getHitbox()).first) {
-				vx_manager.hole(sf::Vector2i(bullet->pos), explosion_stength, true, temp);
+			if (world.main_world.getOvelapWithRect(bullet->getHitbox()).first) {
+				world.main_world.hole(sf::Vector2i(bullet->pos), explosion_stength, true, temp);
 				return true; // Remove the bullet
+			}
+
+			for(auto &wr : world.add_worlds) {
+				if(wr.getCollider().intersects(bullet->getHitbox())) {
+					wr.hole(sf::Vector2i(bullet->pos), explosion_stength, true, temp);
+					return true;
+				}
 			}
 			if(abs(bullet->pos.x - mousePos.x) > MAX_DISTANCE_FROM_MOUSE ||
 			 abs(bullet->pos.y - mousePos.y) > MAX_DISTANCE_FROM_MOUSE) return true;
 			return false; // Keep the bullet
 		});
+
+
     }
 private:
 	bool spn = false;

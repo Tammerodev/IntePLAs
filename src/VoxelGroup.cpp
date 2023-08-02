@@ -32,19 +32,14 @@ std::pair<bool, sf::FloatRect> VoxelGroup::getOvelapWithRectY(const sf::FloatRec
 }
 
 
-int VoxelGroup::load(std::string file, bool proced)
+int VoxelGroup::load(const sf::Image &copy_img)
 {
-
-    const std::string path = file;
-    if(!img.loadFromFile(path)) {
-        perror("Could not load voxel map");
-    }
-    tex.loadFromFile(path);
+    img = copy_img;
 
     world_sx = img.getSize().x;
     world_sy = img.getSize().y;
 
-    prndd(world_sx);
+    tex.create(world_sx,world_sy);
 
     for(int i=0; i<img.getSize().y; i++)
     {
@@ -62,15 +57,6 @@ int VoxelGroup::load(std::string file, bool proced)
             getVoxelAt(x,y) = getValueFromCol(px, sf::Vector2i(x,y));
         }
     }
-
-    prndd("Processing complete");
-    
-    // load only the vertex shader
-    (shader.loadFromMemory(shader_vert, sf::Shader::Vertex));
-    // load only the fragment shader
-    (shader.loadFromMemory(shader_frag, sf::Shader::Fragment));
-    // load both shaders
-    (shader.loadFromMemory(shader_vert, shader_frag));
 
     return true;
 }
@@ -100,6 +86,8 @@ void VoxelGroup::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
 
 void VoxelGroup::render(sf::RenderTarget &target, const sf::Vector2f &center)
 {
+    if(destroyed) return;
+
     target.draw(spr);
 }
 
@@ -114,15 +102,22 @@ void VoxelGroup::resetUsedFlag()
 
 void VoxelGroup::update()
 {
+    if(destroyed) return;
+
     tex.update(img);
     spr.setTexture(tex);
 
+    physicsComponent.transform_origin = sf::Vector2f(tex.getSize().x / 2, tex.getSize().y / 2);
+
     spr.setPosition(physicsComponent.transform_position);
     spr.setRotation(physicsComponent.transform_rotation);
+    spr.setOrigin(physicsComponent.transform_origin);
     physicsComponent.update();
 
     world_sx = img.getSize().x;
     world_sy = img.getSize().y;
+
+    merge();
 }
 
 void VoxelGroup::merge()
@@ -132,9 +127,28 @@ rects.clear();
 for (int y = 0; y < img.getSize().y;y++) {
     for (int x = 0; x < img.getSize().x;x++) {
         if (getVoxelAt(x,y).value != 0) {
-            sf::FloatRect r;   
-            r.left = x;
-            r.top = y;
+            Collider r;   
+
+            // We have to rotate the voxel position around physicscomponent.transform origin
+
+            sf::Vector2f p = physicsComponent.transform_position + sf::Vector2f(x,y);
+
+            float sine = sin(math::degreesToRadians(physicsComponent.transform_rotation));
+            float cosine = cos(math::degreesToRadians(physicsComponent.transform_rotation));
+
+            // Translate back to origin ( We dont have to do this becouse voxel index x and y are already at origin)
+            float xx = x - physicsComponent.transform_origin.x;
+            float yy = y - physicsComponent.transform_origin.y;
+
+
+            r.left = xx * cosine - yy * sine;
+            r.top = xx * sine + yy * cosine;
+
+            // Translate to world position
+            r.left += physicsComponent.transform_position.x;
+            r.top += physicsComponent.transform_position.y;
+
+
             r.height = 1;
             r.width = 1;
             rects.push_back(r);
@@ -143,31 +157,27 @@ for (int y = 0; y < img.getSize().y;y++) {
 }
 }
 
-void VoxelGroup::hole(const sf::Vector2i &p, const uint32_t& intensity, bool force, const int64_t heat)
+void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool force, const int64_t heat)
 {
     if(force) {
         ExplosionInfo info;
-        info.position = sf::Vector2f(p);
+        info.position = sf::Vector2f(pos);
         info.strength = intensity;
         explosion_points.push_back(info);
     }
 
-    int yexcept = p.y - intensity;
-    int xexcept = p.x - intensity;
+    sf::Vector2i p = pos - sf::Vector2i(physicsComponent.transform_position);
+    if(p.x <= 0) p.x = 0;
+    if(p.y <= 0) p.y = 0;
+    if(p.x >= world_sx) p.x = world_sx;
+    if(p.y >= world_sy) p.y = world_sy;
 
-    if(yexcept < 0) yexcept = 0;
-    if(xexcept < 0) xexcept = 0;
 
-    for (int y = yexcept;y < p.y + intensity;y++) {
-        if(p.y > world_sy) break;
-
-        for (int x = xexcept;x < p.x + intensity;x++) {
-            if(x > world_sx) break;
+    for (int y = 0;y < world_sy;y++) {
+        for (int x = 0;x < world_sx;x++) {
             Voxel &voxel = getVoxelAt(x,y);
-            if(voxel.value == 0) continue;
-            const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
+            const float distance = std::sqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
             if(distance < intensity) {
-                voxelsInNeedOfUpdate.push_back(sf::Vector2i(x,y));
                 if(force) damageVoxelAt(x,y);
                 heatVoxelAt(x,y, (intensity - distance)*heat);
             }

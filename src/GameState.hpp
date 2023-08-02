@@ -31,7 +31,7 @@ public:
 		
 		inv.load(world.main_world);
 		matUI.load();
-		game_camera.setZoom(0.5f);
+		game_camera.setZoom(0.99f);
 		ui_camera.setZoom(1.0f);
 
 		game_camera.setLeapSpeed(1.f);

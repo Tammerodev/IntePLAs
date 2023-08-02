@@ -4,6 +4,7 @@
 #include "Item.hpp"
 #include "VoxelManager.hpp"
 #include "common.hpp"
+#include "World.hpp"
 
 class ItemCreateItem : public Item {
     public:
@@ -26,13 +27,13 @@ class ItemCreateItem : public Item {
 		return gun_spr;
 	}
 
-    void update(VoxelManager &vx_manager, const sf::Vector2f &pos, const sf::Vector2f& mospos, const float dt) {
+    void update(World &vx_manager, const sf::Vector2f &pos, const sf::Vector2f& mospos, const float dt) {
 		// Set position and rotation
 		gun_spr.setPosition(pos.x, pos.y);
     }
 
 	void use(const sf::Vector2f& player,const sf::Vector2f& mouse) {
-		vx_man.build_image(sf::Vector2i(mouse), createdImage);
+		vx_man.build_image(sf::Vector2i(mouse), createdImage, nullptr);
 	}
 private:
     sf::Image createdImage;
