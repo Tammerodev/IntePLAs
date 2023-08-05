@@ -24,7 +24,7 @@ namespace Controls {
         Keyboard, Joystick
     } ctrl;
 
-    static ControllerType currentController = ControllerType::Joystick;
+    static ControllerType currentController = ControllerType::Keyboard;
     
     static void searchForDevices() {
         // TODO
@@ -62,9 +62,9 @@ namespace Controls {
         return false;
     }
 
-    static bool switchItem() {
+    static bool switchItem(sf::Event &event) {
         if(currentController == ControllerType::Keyboard) 
-            return sf::Mouse::isButtonPressed(mousebind_switchitem);
+            return event.type == sf::Event::MouseButtonPressed && sf::Mouse::isButtonPressed(mousebind_switchitem);
         else if(currentController == ControllerType::Joystick)
             return sf::Joystick::isButtonPressed(0, joystick_bind_switchitem);
         return false;

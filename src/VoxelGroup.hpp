@@ -83,7 +83,7 @@ public:
             for (int x = 0; x < world_sx;x++) {
                 if(getVoxelAt(x,y).value == elm::ValLithium) {
                     main_world.hole(
-                        sf::Vector2i(physicsComponent.transform_position + sf::Vector2f(x,y)), 100, true, 100);
+                        sf::Vector2i(physicsComponent.transform_position + sf::Vector2f(x,y)), 1000, true, 100);
                 }
                 damageVoxelAt(x,y);
             }

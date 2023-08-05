@@ -31,7 +31,7 @@ class PlaceItem : public Item {
 
     void update(World &world, const sf::Vector2f &pos, const sf::Vector2f& mspos, const float dt) {
 		sf::Vector2f mospos = mspos;
-		math::limitDistance(sf::Vector2f(500,500), mospos, 0.1f);
+		math::limitDistance(sf::Vector2f(500,500), mospos, 5.0f);
 
 		// Set position and rotation
 		gun_spr.setPosition(pos.x, pos.y + sin(pos.x));
@@ -54,7 +54,7 @@ class PlaceItem : public Item {
 	void use(const sf::Vector2f& player,const sf::Vector2f& mouse, World&world) {
 		if(!allowedToplace) return;
 		if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-			vx_man.build_image(sf::Vector2i(mouse), copy_, &world.add_worlds, gun_spr.getRotation(), 1.0f);
+			vx_man.build_image(sf::Vector2i(mouse), copy_, &world.add_worlds, gun_spr.getRotation(), 10.0f);
 		} else {
 			vx_man.build_image(sf::Vector2i(mouse), copy_, nullptr);
 		}

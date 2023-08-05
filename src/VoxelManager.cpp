@@ -270,9 +270,9 @@ void VoxelManager::generate(sf::Image &img)
             int offset = (rand() % 100 + 100);
             int colorIndex = std::clamp(((i - (int)h) - offset) / 200,0, (int)colr.size() - 1);
             sf::Color col = colr.at(colorIndex);
-            col.r += math::randIntInRange(0, 0);
-            col.g += math::randIntInRange(0, 0);
-            col.b += math::randIntInRange(0, 1);
+            //col.r += math::randIntInRange(0, 0);
+            //col.g += math::randIntInRange(0, 0);
+            //col.b += math::randIntInRange(0, 1);
 
             img.setPixel(ind, i, col);
         }
@@ -335,7 +335,7 @@ const Voxel VoxelManager::getValueFromCol(const sf::Color &px, sf::Vector2i p)
     if(px == elm::Carbon) {
         vox.value = 2;
         vox.maxTemp = 3550;
-        vox.strenght = 8;
+        vox.strenght = 254; // TODO change to 8
     } else if(px == elm::Lithium) {
         vox.value = 3;
         vox.maxTemp = 180.5;
