@@ -30,7 +30,7 @@ void GameState::update() {
 
     world.update();
         
-    inv.getCurrentItem()->update(world, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition()))), player.get_voxel_pos(), delta_T);
+    inv.getCurrentItem()->update(world, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition()))), player.getPhysicsComponent().transform_position, delta_T);
 
     world.handleCollisionsWithPlayer(player);
 }
@@ -42,7 +42,7 @@ void GameState::input(sf::Event &ev) {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)) slowmo = false; // Slow-mo
 
     if(Controls::useItem(ev)) {
-        inv.use(player.get_voxel_pos(), sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), world);    
+        inv.use(player.getPhysicsComponent().transform_position, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), world);    
     }
     if(Controls::switchItem(ev)) {
         inv.switchItem();
@@ -69,7 +69,7 @@ void GameState::draw(sf::RenderTarget &window)
     renderTexture.clear();
 
     game_camera.setViewTo(renderTexture);
-    game_camera.setTarget(player.get_voxel_pos());
+    game_camera.setTarget(player.getPhysicsComponent().transform_position);
 
     // Render background
     bg.render(renderTexture);

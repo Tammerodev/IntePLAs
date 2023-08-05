@@ -1,6 +1,6 @@
 #pragma once 
 #include "VoxelManager.hpp"
-#include "Entity/Player/Player.hpp"
+#include "Player.hpp"
 #include "VoxelGroup.hpp"
 
 class World {
@@ -36,19 +36,19 @@ public:
         auto res3 = main_world.getOvelapWithRect(player.getLeftHitbox()); // Ground
 
         if(res4.first) {    // Right collision
-            player.move_x(-(res4.second.width + 2));
+            player.getPhysicsComponent().transform_position.x -= res4.second.width + 2;
         }
         if(res3.first) {    // Right collision
-            player.move_x((res3.second.width + 2));
+            player.getPhysicsComponent().transform_position.x += res3.second.width + 2;
         }
         if(res.first) {     // Colliding with ground
             player.ground();
-            player.move_y(-res.second.height);
+            player.getPhysicsComponent().transform_position.y -= res.second.height;
             return;
         }
 
         if(res2.first) {    // Head collision
-            player.move_y(res2.second.height);
+            player.getPhysicsComponent().transform_position.y += res2.second.height;
         }
     }
 

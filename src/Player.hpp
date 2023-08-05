@@ -1,11 +1,12 @@
 #pragma once
 
-#include "Controls.hpp"
+#include "Entity/Player/Controls.hpp"
 #include <SFML/Graphics.hpp>
-#include "PlayerState.hpp"
-#include "IdleState.hpp"
-#include "WalkState.hpp"
-#include "JumpState.hpp"
+#include "Entity/Player/PlayerState.hpp"
+#include "Entity/Player/IdleState.hpp"
+#include "Entity/Player/WalkState.hpp"
+#include "Entity/Player/JumpState.hpp"
+#include "PhysicsComponent.hpp"
 #include <iostream>
 
 class Player {
@@ -14,6 +15,7 @@ public:
 int load();
 void update(float);
 void draw(sf::RenderTarget&);
+
 const sf::FloatRect &getTopHitbox() {
     return hitbox_top;
 }
@@ -27,16 +29,12 @@ const sf::FloatRect &getRightHitbox() {
     return hitbox_right;
 }
 
-void move_y(float val){
-    pos.y += val;
-}
-
-void move_x(float val){
-    pos.x += val;
+PhysicsComponent &getPhysicsComponent() {
+    return physComp;
 }
 
 void ground() {
-    acc.y = 0.f;
+    physComp.velocity.y = 0.f;
     grounded = true;
 }
 
@@ -44,33 +42,29 @@ void ground() {
 void update_hitboxtop() {
     hitbox_top.height = 12;
     hitbox_top.width = 12;
-    hitbox_top.top = pos.y - 4;
-    hitbox_top.left = pos.x + 3;
+    hitbox_top.top = physComp.transform_position.y - 4;
+    hitbox_top.left = physComp.transform_position.x + 3;
 }
 
 void update_hitboxbottom() {
     hitbox_bottom.height = 12;
     hitbox_bottom.width = 8;
-    hitbox_bottom.top = pos.y + 12;
-    hitbox_bottom.left = pos.x + 4;
+    hitbox_bottom.top = physComp.transform_position.y + 12;
+    hitbox_bottom.left = physComp.transform_position.x + 4;
 }
 
 void update_hitboxleft() {
     hitbox_left.height = 2;
     hitbox_left.width = 10;
-    hitbox_left.top = pos.y + 8;
-    hitbox_left.left = pos.x - 2;
+    hitbox_left.top = physComp.transform_position.y + 8;
+    hitbox_left.left = physComp.transform_position.x - 2;
 }
 
 void update_hitboxright() {
     hitbox_right.height = 8;
     hitbox_right.width = 10;
-    hitbox_right.top = pos.y + 8;
-    hitbox_right.left = pos.x + 20;
-}
-
-sf::Vector2f get_voxel_pos() {
-    return pos;
+    hitbox_right.top = physComp.transform_position.y + 8;
+    hitbox_right.left = physComp.transform_position.x + 20;
 }
 
 
@@ -83,8 +77,6 @@ sf::Texture tx;
 
 sf::IntRect texture_rect;
 
-sf::Vector2f pos = sf::Vector2f(500,0);
-
 sf::Sprite sprite;
 
 sf::FloatRect hitbox_top;
@@ -92,6 +84,6 @@ sf::FloatRect hitbox_bottom;
 sf::FloatRect hitbox_right;
 sf::FloatRect hitbox_left;
 
-float gravity = 0.07f;
-sf::Vector2f acc = sf::Vector2f(0.f,0.f);
+
+PhysicsComponent physComp;
 };

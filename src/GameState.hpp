@@ -6,7 +6,7 @@
 
 #include "State.hpp"
 #include "SoundFX.hpp"
-#include "Entity/Player/Player.hpp"
+#include "Player.hpp"
 #include "World.hpp"
 #include "math.hpp"
 #include "Background.hpp"
