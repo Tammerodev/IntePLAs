@@ -67,7 +67,7 @@ void VoxelGroup::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
     Voxel &vox = getVoxelAt(x,y);
 
     vox.temp += temp;
-    if(vox.temp >= vox.maxTemp) {
+    if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
         int val = vox.value;
         damageVoxelAt(x,y);
         if(val == 3) 
@@ -193,40 +193,31 @@ const Voxel VoxelGroup::getValueFromCol(const sf::Color &px, sf::Vector2i p)
 
     if(px == elm::Carbon) {
         vox.value = 2;
-        vox.maxTemp = 3550;
-        vox.strenght = 8;
+        vox.strenght = 254; // TODO change to 8
     } else if(px == elm::Lithium) {
         vox.value = 3;
-        vox.maxTemp = 180.5;
         vox.strenght = 2;
     } else if(px == elm::Magnesium) {
         vox.value = 4;
-        vox.maxTemp = 650;
         vox.strenght = 10;
     } else if(px == elm::Sodium) {
         vox.value = 5;
-        vox.maxTemp = 97.8;
         vox.strenght = 1;
     } else if(px == elm::Aluminium) {
         vox.value = 6;
-        vox.maxTemp = 660;
         vox.strenght = 5;
     } else if(px == elm::Silicon) {
         vox.value = 7;
-        vox.maxTemp = 1410;
         vox.strenght = 6;
     } else if(px == elm::Copper) {
         vox.value = 8;
-        vox.maxTemp = 1085;
         vox.strenght = 10;
     } else if(px == elm::Titanium) {
         vox.value = 9;
-        vox.maxTemp = 1668;
         vox.strenght = 100;
     }
     else if(px == elm::Lead) {
         vox.value = 10;
-        vox.maxTemp = 327;
         vox.strenght = 3;
     }
 

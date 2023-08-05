@@ -4,7 +4,7 @@
 #define DEBUG 1
 
 #if DEBUG
-    #define prndd(x) std::cout << ">" << x <<  "   time : "<<time(0) << '\n'
+    #define prndd(x) std::cout << ">" << x <<  "   time : "<<time(0) << std::endl;
     #define prnerr(x, y) std::cout << x << y << '\n'
 #else
     #define prndd(x)

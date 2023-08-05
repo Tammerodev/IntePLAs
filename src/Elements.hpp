@@ -21,5 +21,41 @@ namespace elm {
     const uint8_t ValCopper = 8;
     const uint8_t ValTitanium = 9;
     const uint8_t ValLead = 10;
-    
+
+    const unsigned short defaultMaxTemp = 1000;
+    const unsigned short carbonMaxTemp = 3550;
+    const unsigned short lithiumMaxTemp = 180;
+    const unsigned short magnesiumMaxTemp = 650;
+    const unsigned short sodiumMaxTemp = 98;
+    const unsigned short aluminiumMaxTemp = 660;
+    const unsigned short siliconMaxTemp = 1410;
+    const unsigned short copperMaxTemp = 1085;
+    const unsigned short titaniumMaxTemp = 1668;
+    const unsigned short leadMaxTemp = 327;
+
+    static const unsigned short getMaxTempFromType(const uint8_t type) {
+        switch (type)
+        {
+        case 2:
+            return carbonMaxTemp;
+        case 3:
+            return lithiumMaxTemp;
+        case 4:
+            return magnesiumMaxTemp;
+        case 5:
+            return sodiumMaxTemp;
+        case 6:
+            return aluminiumMaxTemp;
+        case 7:
+            return siliconMaxTemp;
+        case 8:
+            return copperMaxTemp;
+        case 9:
+            return titaniumMaxTemp;
+        case 10:
+            return leadMaxTemp;
+        default:
+            return defaultMaxTemp;
+        }
+    }
 }

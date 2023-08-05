@@ -7,12 +7,13 @@ static int chunks_y = 64;
 
 struct Chunk {
     std::vector <sf::Sprite> rects;
-    std::array<std::array<Voxel, 64>, 64> arr;
 
     static const int sizeX = 64; 
     static const int sizeY = 64;
 
+    std::array<std::array<Voxel, 64>, 64> arr;
     bool loaded = true;
+    
 
     std::array<std::array<Voxel, 64>, 64>& requestAccess() {
         if(loaded) return arr;

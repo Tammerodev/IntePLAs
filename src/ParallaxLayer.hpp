@@ -21,9 +21,10 @@ class ParallaxLayer {
 
         int i = 0;
         for(auto &sprite : spr) {
-            float offset = (i - 1) * tx.getSize().x;
+            float offset = (i - 2) * tx.getSize().x;
             if ((sprite.first.getPosition().x - pos.x) > tx.getSize().x) {
-                sprite.second += 10;
+                //prndd("o");
+                //sprite.second += tx.getSize().x * 3;
             }     
 
             sprite.first.setPosition(((0.f + distance) - offset) + sprite.second, sprite.first.getPosition().y);

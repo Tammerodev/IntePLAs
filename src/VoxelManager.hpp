@@ -22,9 +22,9 @@ public:
 
     VoxelManager() : grid(chunks_y + 1, std::vector<Chunk>(chunks_x + 1)) {
         prndd("Populating array");
-        for (int y = 0; y < chunks_y; ++y)
+        for (int y = 0; y < chunks_y; y++)
         {
-            for (int x = 0; x < chunks_x; ++x)
+            for (int x = 0; x < chunks_x; x++)
             {
                 grid[x][y] = Chunk();
             }
