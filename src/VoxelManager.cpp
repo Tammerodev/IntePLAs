@@ -54,6 +54,7 @@ std::pair<bool, sf::FloatRect> VoxelManager::getOvelapWithRectY(const sf::FloatR
 
 int VoxelManager::load(std::string file, bool proced)
 {
+    bool res = true;
 
     sf::Image img;
 
@@ -62,11 +63,9 @@ int VoxelManager::load(std::string file, bool proced)
 
     if(proced) {
         img.create(8192, 16384, sf::Color(0,0,0,0));
-        generate(img);
+        if(!generate(img)) res = false;
     } else {   
-        if(!img.loadFromFile(file)) {
-            return 0;
-        }
+        if(!img.loadFromFile(file)) res = false;
     }
 
     for (int y = 0;y < world_sy;y++) {
@@ -80,11 +79,11 @@ int VoxelManager::load(std::string file, bool proced)
     }
     
     // load only the vertex shader
-    (shader.loadFromMemory(shader_vert, sf::Shader::Vertex));
+    if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex)) res = false;
     // load only the fragment shader
-    (shader.loadFromMemory(shader_frag, sf::Shader::Fragment));
+    if(!shader.loadFromMemory(shader_frag, sf::Shader::Fragment)) res = false;
     // load both shaders
-    (shader.loadFromMemory(shader_vert, shader_frag));
+    if(!shader.loadFromMemory(shader_vert, shader_frag)) res = false;
     
     ChunkBounds bounds = ChunkBounds(0, 0, chunks_x, chunks_y);
 
@@ -96,7 +95,7 @@ int VoxelManager::load(std::string file, bool proced)
 
     mergeChunkBounds(bounds);
 
-    return 1;
+    return res;
 }
 
 void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
@@ -156,12 +155,15 @@ void VoxelManager::update()
     {
         bool del = false;
         sf::Vector2i p = (*i);
-        heatVoxelAt(p.x, p.y, -getVoxelAt(p.x,p.y).ambientDissipation);
+        heatVoxelAt(p.x, p.y, -elm::getAmbientDissipationFromType(getVoxelAt(p.x,p.y).value));
 
         if(getVoxelAt(p.x,p.y).temp <= 0 || getVoxelAt(p.x,p.y).value == 0) {i = voxelsInNeedOfUpdate.erase(i); }
         else { ++i; }
 
     }
+
+
+    merge();
 
 }
 
@@ -246,7 +248,7 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
 
 }
 
-void VoxelManager::generate(sf::Image &img)
+bool VoxelManager::generate(sf::Image &img)
 {
     std::array<sf::Color, 6> colr {
         sf::Color(50, 168, 82),
@@ -278,13 +280,13 @@ void VoxelManager::generate(sf::Image &img)
         }
         ind++;
     }
+    return true;
 }
 
-void VoxelManager::generateVegetation()
+bool VoxelManager::generateVegetation()
 {
-
     sf::Image vege;
-    vege.loadFromFile("res/img/Assets/Proc.png");
+    if(!vege.loadFromFile("res/img/Proc.png")) return false;
 
     int ind = 0;
     for(auto h : hmap1D) {
@@ -325,6 +327,7 @@ void VoxelManager::generateVegetation()
         }
         ind++;
     }
+    return true;
 }
 
 const Voxel VoxelManager::getValueFromCol(const sf::Color &px, sf::Vector2i p)

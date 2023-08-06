@@ -8,14 +8,15 @@
 class MenuState : public MainState {
 public:
 	bool load(const std::string) {
-		logo = Panel("res/img/title/logo.png");
+		const std::string uipath = "res/img/UI/";
+		logo = Panel(uipath + "logo.png");
 		logo.setPosition(0,0);
 		logo.setScale(5,5);
 
 		music.openFromFile("res/music/Bream.wav");
 		music.play();
 
-		playbtn_tx.loadFromFile("res/img/title/playbtn.png");
+		playbtn_tx.loadFromFile(uipath + "playbtn.png");
 
 		font.loadFromFile("res/Fonts/VT323.ttf");
 		int index = 0;

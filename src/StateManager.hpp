@@ -8,8 +8,6 @@
 #include "GameState.hpp"
 #include "SettingsState.hpp"
 
-
-
 MainState* MainState::menuState = new MenuState();
 MainState* MainState::gameState = new GameState();
 MainState* MainState::settingsState = new SettingsState();

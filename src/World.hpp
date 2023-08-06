@@ -9,7 +9,7 @@ public:
         bool res = true;
         
         if(!main_world.load(path, path == "res/saves/Create new world.png")) res = false;
-        main_world.generateVegetation();
+        if(!main_world.generateVegetation()) res = false;
         
         return res;
     }

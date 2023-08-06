@@ -70,6 +70,7 @@ void VoxelGroup::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
     if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
         int val = vox.value;
         damageVoxelAt(x,y);
+        
         if(val == 3) 
             hole(sf::Vector2i(x,y),10000,true,2000);
     }
@@ -193,7 +194,7 @@ const Voxel VoxelGroup::getValueFromCol(const sf::Color &px, sf::Vector2i p)
 
     if(px == elm::Carbon) {
         vox.value = 2;
-        vox.strenght = 254; // TODO change to 8
+        vox.strenght = 8;
     } else if(px == elm::Lithium) {
         vox.value = 3;
         vox.strenght = 2;

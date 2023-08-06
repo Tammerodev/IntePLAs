@@ -33,6 +33,17 @@ namespace elm {
     const unsigned short titaniumMaxTemp = 1668;
     const unsigned short leadMaxTemp = 327;
 
+    const unsigned short defaultAmbientDissipation = 1;
+    const unsigned short carbonAmbientDissipation = 1;
+    const unsigned short lithiumAmbientDissipation = 1;
+    const unsigned short magnesiumAmbientDissipation = -1;
+    const unsigned short sodiumAmbientDissipation = 1;
+    const unsigned short aluminiumAmbientDissipation = 1;
+    const unsigned short siliconAmbientDissipation = 1;
+    const unsigned short copperAmbientDissipation = 1;
+    const unsigned short titaniumAmbientDissipation = 1;
+    const unsigned short leadAmbientDissipation = 1;
+
     static const unsigned short getMaxTempFromType(const uint8_t type) {
         switch (type)
         {
@@ -56,6 +67,32 @@ namespace elm {
             return leadMaxTemp;
         default:
             return defaultMaxTemp;
+        }
+    }
+
+    static const unsigned short getAmbientDissipationFromType(const uint8_t type) {
+        switch (type)
+        {
+        case 2:
+            return carbonAmbientDissipation;
+        case 3:
+            return lithiumAmbientDissipation;
+        case 4:
+            return magnesiumAmbientDissipation;
+        case 5:
+            return sodiumAmbientDissipation;
+        case 6:
+            return aluminiumAmbientDissipation;
+        case 7:
+            return siliconAmbientDissipation;
+        case 8:
+            return copperAmbientDissipation;
+        case 9:
+            return titaniumAmbientDissipation;
+        case 10:
+            return leadAmbientDissipation;
+        default:
+            return defaultAmbientDissipation;
         }
     }
 }

@@ -70,8 +70,8 @@ public:
     void merge();
     void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const int64_t heat);
 
-    void generate(sf::Image &img);
-    void generateVegetation();
+    bool generate(sf::Image &img);
+    bool generateVegetation();
 
 
     void mergeChunkBounds(const ChunkBounds &bounds) {

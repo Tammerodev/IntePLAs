@@ -6,9 +6,8 @@ class EffectOverlay {
 public:
     int load() {
         int res = 1;
-        
-        tx.loadFromFile("res/img/Background.png");
-        if(!tx.create(1000,1000)) res = -1;;
+    
+        if(!tx.create(1000,1000)) res = 0;
 		background.setPosition(0,0);
 
                

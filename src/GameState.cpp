@@ -1,7 +1,53 @@
 #include "GameState.hpp"
 #include "common.hpp"
 
-void GameState::update() {
+bool GameState::load(const std::string s){
+
+    if(SFX::rocket_launcher_fire_buffer.getDuration() != sf::Time::Zero) return true;
+
+    //  : adjustable rendertx size
+    const uint16_t window_height = sf::VideoMode::getDesktopMode().height;
+    const uint16_t window_width = sf::VideoMode::getDesktopMode().width;
+    renderTexture.create(window_width, window_height);
+    
+    game_camera.setSize(sf::Vector2u(window_width, window_height));
+    ui_camera.setSize(sf::Vector2u(window_width, window_height));
+    
+    inv.load(world.main_world);
+    matUI.load();
+    game_camera.setZoom(0.99f);
+    ui_camera.setZoom(1.0f);
+
+    game_camera.setLeapSpeed(1.f);
+    game_camera.setCameraMode(CameraMode::Leap);
+
+
+    if(!world.init(s))
+        perror("VoxelManager failed to load world");
+    if(!bg.load()) 
+        perror("Background failed to load");
+    if(!effOverlay.load()) 
+        perror("Effect Overlay failed to load");
+    if(!player.load()) 
+        perror("Player failed to load");
+    if(!SFX::load())
+        perror("Failed to load sound effect");
+    if(!BGMusic::load())
+        perror("Failed to load background music");
+    if(!uiStateManager.load())
+        perror("Failed to load user interface");
+    // load only the vertex shader
+    if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex));
+    // load only the fragment shader
+    if(!shader.loadFromMemory(shader_frag, sf::Shader::Fragment));
+    // load both shaders
+    if(!shader.loadFromMemory(shader_vert, shader_frag));
+
+    return true;
+}
+
+void GameState::update()
+{
     delta_T = deltaClock.getElapsedTime().asMilliseconds();
     if(slowmo) delta_T = 0.2f;
     deltaClock.restart();
@@ -27,6 +73,7 @@ void GameState::update() {
     game_camera.update(delta_T);
     player.update(delta_T);    
     matUI.update(world.main_world);
+    uiStateManager.update();
 
     world.update();
         
@@ -55,6 +102,8 @@ void GameState::input(sf::Event &ev) {
             menuState->load("");
         }
     }
+
+    uiStateManager.input(ev);
 }
 
 void GameState::statexit()
@@ -85,9 +134,10 @@ void GameState::draw(sf::RenderTarget &window)
     // Render current item
     inv.render(renderTexture);
 
-
-    ui_camera.setViewTo(renderTexture);
-    matUI.render(renderTexture);
+        // UI Render
+        ui_camera.setViewTo(renderTexture);
+        matUI.render(renderTexture);
+        uiStateManager.render(renderTexture);
 
     game_camera.setViewTo(renderTexture);
     

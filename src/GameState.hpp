@@ -1,4 +1,7 @@
 #pragma once
+
+#include "UIStateManager.hpp"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <thread>
@@ -18,49 +21,7 @@
 
 class GameState : public MainState {
 public:
-	bool load(const std::string s) {
-
-		if(SFX::rocket_launcher_fire_buffer.getDuration() != sf::Time::Zero) return true;
-
-		//  : adjustable rendertx size
-		const uint16_t window_height = sf::VideoMode::getDesktopMode().height;
-		const uint16_t window_width = sf::VideoMode::getDesktopMode().width;
-        renderTexture.create(window_width, window_height);
-		
-		game_camera.setSize(sf::Vector2u(window_width, window_height));
-		ui_camera.setSize(sf::Vector2u(window_width, window_height));
-		
-		inv.load(world.main_world);
-		matUI.load();
-		game_camera.setZoom(0.99f);
-		ui_camera.setZoom(1.0f);
-
-		game_camera.setLeapSpeed(1.f);
-		game_camera.setCameraMode(CameraMode::Leap);
-
-
-		if(!world.init(s))
-			perror("VoxelManager failed to load");
-		if(!bg.load()) 
-			perror("Background failed to load");
-		if(!effOverlay.load()) 
-			perror("Effect Overlay failed to load");
-		if(!player.load()) 
-			perror("Player failed to load");
-		if(!SFX::load())
-			perror("Failed to load sound effect");
-		if(!BGMusic::load())
-			perror("Failed to load background music");
-
-		// load only the vertex shader
-		if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex));
-		// load only the fragment shader
-		if(!shader.loadFromMemory(shader_frag, sf::Shader::Fragment));
-		// load both shaders
-		if(!shader.loadFromMemory(shader_vert, shader_frag));
-
-		return true;
-	}
+	bool load(const std::string s);
     void update();
 	void input(sf::Event &ev);
 	void statexit();
@@ -78,6 +39,7 @@ private:
 	MaterialsUI matUI;
 	Background bg;
 	EffectOverlay effOverlay;
+	UIStateManager uiStateManager;
 
 	World world;
 
