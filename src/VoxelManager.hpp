@@ -26,7 +26,7 @@ public:
         {
             for (int x = 0; x < chunks_x; x++)
             {
-                grid[x][y] = Chunk();
+                grid[y][x] = Chunk();
             }
         }
     }
@@ -70,7 +70,7 @@ public:
     void merge();
     void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const int64_t heat);
 
-    bool generate(sf::Image &img);
+    bool generate();
     bool generateVegetation();
 
 

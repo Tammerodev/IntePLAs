@@ -2,8 +2,8 @@
 #include "Voxel.hpp"
 #include <SFML/Graphics.hpp>
 
-static int chunks_x = 64;
-static int chunks_y = 64;
+static int chunks_x = 128;
+static int chunks_y = 128;
 
 struct Chunk {
     std::vector <sf::Sprite> rects;

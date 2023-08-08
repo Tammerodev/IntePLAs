@@ -61,18 +61,13 @@ int VoxelManager::load(std::string file, bool proced)
     world_sx = Chunk::sizeX * chunks_x;
     world_sy = Chunk::sizeY * chunks_y;
 
-    if(proced) {
-        img.create(8192, 16384, sf::Color(0,0,0,0));
-        if(!generate(img)) res = false;
-    } else {   
-        if(!img.loadFromFile(file)) res = false;
-    }
+    img.create(world_sx, world_sy, sf::Color(0,0,0,0));
+
+    prndd("WORLD X"); prndd(world_sx);
+    prndd("WORLD Y"); prndd(world_sy);
 
     for (int y = 0;y < world_sy;y++) {
         for (int x = 0;x < world_sx;x++) {
-            if(x >= img.getSize().x) continue;
-            if(y >= img.getSize().y) continue;
-
             const sf::Color px = img.getPixel(x,y);
             getVoxelAt(x,y) = getValueFromCol(px, sf::Vector2i(x,y));
         }
@@ -150,6 +145,7 @@ void VoxelManager::update()
 {
     world_sx = Chunk::sizeX * chunks_x;
     world_sy = Chunk::sizeY * chunks_y;
+
     auto i = voxelsInNeedOfUpdate.begin();
     while (i != voxelsInNeedOfUpdate.end())
     {
@@ -248,7 +244,7 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
 
 }
 
-bool VoxelManager::generate(sf::Image &img)
+bool VoxelManager::generate()
 {
     std::array<sf::Color, 6> colr {
         sf::Color(50, 168, 82),
@@ -261,25 +257,28 @@ bool VoxelManager::generate(sf::Image &img)
 
     const float val = math::randFloat() * 3;
 
-    for(int x = 0; x < world_sx; x++ ) {
+    for(int x = 0; x <= world_sx - 10; x++ ) {
         const float fx = x / 400.0;
         hmap1D.push_back(abs(1000+((sin(2*fx) + sin(val * fx)) * 50.0)));
     }
-
+    
     int ind = 0;
     for(auto h : hmap1D) {
-        for(int i = world_sy; i >= 2048 - h; i--) {
-            int offset = (rand() % 100 + 100);
-            int colorIndex = std::clamp(((i - (int)h) - offset) / 200,0, (int)colr.size() - 1);
-            sf::Color col = colr.at(colorIndex);
-            //col.r += math::randIntInRange(0, 0);
-            //col.g += math::randIntInRange(0, 0);
-            //col.b += math::randIntInRange(0, 1);
-
-            img.setPixel(ind, i, col);
+        for(int i = world_sy - 1; i >= 2048 + h; i--) {
+           // int offset = (rand() % 100 + 100);
+           // int colorIndex = std::clamp(((i - (int)h) - offset) / 200, 0, (int)colr.size() - 1);
+           // sf::Color col = colr.at(colorIndex);
+            setImagePixelAt(ind, i, sf::Color::Red);
+            getVoxelAt(ind, i) = getValueFromCol( sf::Color::Red, sf::Vector2i(ind, i));
         }
         ind++;
     }
+
+    ChunkBounds bounds(0,0, chunks_x, chunks_y);
+    
+
+    mergeChunkBounds(bounds);
+
     return true;
 }
 

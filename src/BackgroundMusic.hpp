@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Audio.hpp>
-#include "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src/common.hpp"
+#include "common.hpp"
 
 namespace BGMusic {
     static enum Song {
@@ -31,7 +31,7 @@ namespace BGMusic {
         prndd("Loading complete");
 
         song_list[current_song]->play();
-        song_list[current_song]->setVolume(10);
+        song_list[current_song]->setVolume(0);
 
         return 1;
 
@@ -45,7 +45,7 @@ namespace BGMusic {
         current_song = getRandomSong();
 
         song_list[current_song]->play();
-        song_list[current_song]->setVolume(10);
+        song_list[current_song]->setVolume(0);
       }
     }
 

@@ -7,11 +7,15 @@ public:
     Panel() {}
     Panel(const std::string& path) {
         if(!tx.loadFromFile(path)) prnerr("Could not load file at ", path);
-        else setTexture(tx);
+        setTexture(tx);
     }
 
     void applyTexture() {
         setTexture(tx);
+    }
+
+    sf::Texture &getTextureRef() {
+        return tx;
     }
 
 private:
