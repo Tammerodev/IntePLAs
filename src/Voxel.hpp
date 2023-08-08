@@ -1,4 +1,8 @@
 #pragma once
+#include <SFML/Graphics/Color.hpp>
+#include <SFML/Graphics/Vertex.hpp>
+#include "Elements.hpp"
+
 
 class Voxel {
     public:
@@ -11,3 +15,6 @@ class Voxel {
     
     private:
 };
+
+
+const Voxel getValueFromCol(const sf::Color &px, sf::Vector2i p);

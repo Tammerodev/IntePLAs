@@ -10,7 +10,8 @@ public:
         
         if(!main_world.load(path, path == "res/saves/Create new world.png")) res = false;
         if(!main_world.generate()) res = false;
-        //if(!main_world.generateVegetation()) res = false;
+        if(!main_world.generateVegetation()) res = false;
+        main_world.initVoxelMap();
         return res;
     }
 

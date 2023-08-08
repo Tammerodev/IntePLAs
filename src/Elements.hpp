@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics/Color.hpp>
+#include <cstdint>
 
 namespace elm {
     const sf::Color Carbon {74,74,74};

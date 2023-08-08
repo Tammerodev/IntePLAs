@@ -15,6 +15,7 @@
 #include "Chunk.hpp"
 #include "MaterialPack.hpp"
 #include "VoxelGroup.hpp"
+#include "ProceduralGeneration.hpp"
 #include <list>
 
 class VoxelManager {
@@ -35,8 +36,13 @@ public:
 
     int load(std::string, bool);
 
-    Voxel &getVoxelAt (const uint64_t x, const uint64_t y) {
-        return grid.at(x/Chunk::sizeX).at(y/Chunk::sizeY).requestAccess()[x%Chunk::sizeX][y%Chunk::sizeY];
+    void initVoxelMap() {
+        for (int y = 0;y < world_sy;y++) {
+            for (int x = 0;x < world_sx;x++) {
+                const sf::Color px = getImagePixelAt(x,y);
+                getVoxelAt(x,y) = getValueFromCol(px, sf::Vector2i(x,y));
+            }
+        }
     }
 
     void clearVoxelAt(const uint64_t x, const uint64_t y) {
@@ -83,14 +89,16 @@ public:
         merge();
     }
 
-    const Voxel getValueFromCol(const sf::Color &px, sf::Vector2i p);
-
     void save() {
         // TODO : make it save from the chunk images
         //img.saveToFile("res/saves/" + std::to_string(time(0)) + ".png");
     }
 
-    sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
+    Voxel &getVoxelAt (const uint64_t x, const uint64_t y) {
+        return grid.at(x/Chunk::sizeX).at(y/Chunk::sizeY).requestAccess()[x%Chunk::sizeX][y%Chunk::sizeY];
+    }
+    
+    const sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
         return grid.at(x/Chunk::sizeX).at(y/Chunk::sizeY).requestImageAccess().getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
     }
 
@@ -108,6 +116,8 @@ public:
     std::vector<sf::Vector2i> updateChunks;
 
 private:
+
+    ProcGenerate procGen;
 
     MaterialPack materialpack;
 
