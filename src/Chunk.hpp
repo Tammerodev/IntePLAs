@@ -62,7 +62,7 @@ public:
     }
 
     Chunk &getChunkAt(int64_t x, int64_t y) {
-        
+
         if(x < 0) {
            return gridNeg[abs(x)][y];         
         }
@@ -93,10 +93,10 @@ public:
     void set(int64_t sX, int64_t sY, int64_t eX, int64_t eY) {
 
         if(sX < -chunks_negx) sX = -chunks_negx;
-        if(sY < -chunks_negy) sY = -chunks_negy;
+        if(sY < 0) sY = 0;
 
         if(eX < -chunks_negx) eX = -chunks_negx;
-        if(eY < -chunks_negy) eY = -chunks_negy;
+        if(eY < 0) eY = 0;
 
         if(sX >= chunks_x) sX = chunks_x;
         if(sY >= chunks_y) sY = chunks_y;

@@ -69,7 +69,7 @@ int VoxelManager::load(std::string file, bool proced)
     // load both shaders
     if(!shader.loadFromMemory(shader_vert, shader_frag)) res = false;
     
-    ChunkBounds bounds = ChunkBounds(-chunks_negx, -0, chunks_x, chunks_y);
+    ChunkBounds bounds = ChunkBounds(-chunks_negx, 0, chunks_x, chunks_y);
 
     prndd(bounds.getArea().startX);
     prndd(bounds.getArea().startY);
@@ -86,7 +86,7 @@ int VoxelManager::load(std::string file, bool proced)
     prndd("lush");
 
 
-    //mergeChunkBounds(bounds);
+    mergeChunkBounds(ChunkBounds(-1, 0, chunks_x, chunks_y));
 
     return res;
 }
@@ -120,18 +120,23 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
                             (center.x / Chunk::sizeX) + 13, (center.y / Chunk::sizeY) + 13);
     ChunkArea draw_area = draw_bounds.getArea();
 
-    draw_area.startX = 0;
+    //draw_area.startX = 0;
     draw_area.startY = 0;
 
+
+    long long drawcalls = 0;
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
             chIndexer.getChunkAt(x, y).update();
             for(auto &r : chIndexer.getChunkAt(x, y).rects)  {
                 target.draw(r);
+                ++drawcalls;
             }
         }
     }
+
+    prndd(drawcalls);
 }
 
 void VoxelManager::resetUsedFlag()
@@ -160,20 +165,19 @@ void VoxelManager::update()
 
     }
 
-
-    merge();
-
 }
 
 void VoxelManager::merge()
 {
 
 for(auto c : mergeChunks) {
+
     chIndexer.getChunkAt(c.x, c.y).rects.clear();
+
     sf::Sprite r;
     r.setTexture(chIndexer.getChunkAt(c.x, c.y).tx);
-    for (int y = c.y * Chunk::sizeY; y < (c.y * Chunk::sizeY) + Chunk::sizeY;y++) {
-    for (int x = c.x * Chunk::sizeX; x < (c.x * Chunk::sizeX) + Chunk::sizeX;x++) {
+    for (int y = c.y * Chunk::sizeY; y < (c.y * Chunk::sizeY) + Chunk::sizeY; y++) {
+    for (int x = c.x * Chunk::sizeX; x < (c.x * Chunk::sizeX) + Chunk::sizeX; x++) {
 
         if (getVoxelAt(x,y).value != 0 && !getVoxelAt(x,y).used) {
             int x1 = x;
@@ -182,31 +186,44 @@ for(auto c : mergeChunks) {
             while (getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used && y1 < (c.y * Chunk::sizeY) + Chunk::sizeY) {
                 y1++;
             }
+            
 
-            for (int y2 = y;y2 <= y1;y2++) {
-                for (int x2 = x;
-                    x2 <= x1;
-                    x2++) {
-                    getVoxelAt(x2,y2).used = true;
+            // The problem 
+            // |
+            // \/
+            for (int y2 = y; y2 <= y1; y2++) {
+                for (int x2 = x; x2 <= x1; x2++) {
+                    getVoxelAt(x,y2).used = true;
                 }
             }
+            
             x1++;
             y1++;
                     
             r.setPosition(x, y);
+            r.setColor(sf::Color(rand()%255,rand()%255,rand()%255));
             r.setTextureRect(sf::IntRect(x - (c.x * Chunk::sizeX),y - (c.y * Chunk::sizeY),  x1 - x,  y1 -y));
             chIndexer.getChunkAt(c.x, c.y).rects.push_back(r);
         }
     }
     }
 }
+
+
 for(auto c : mergeChunks) {
-    for (int y = c.y * Chunk::sizeY; y < (c.y * Chunk::sizeY) + Chunk::sizeY;y++) {
-        for (int x = c.x * Chunk::sizeX; x < (c.x * Chunk::sizeX) + Chunk::sizeX;x++) {
-            getVoxelAt(x,y).used = false;
+    for (int y = c.y * Chunk::sizeY; y < (c.y * Chunk::sizeY) + Chunk::sizeY; y++) {
+        for (int x = c.x * Chunk::sizeX; x < (c.x * Chunk::sizeX) + Chunk::sizeX; x++) {
+            if(x < -world_snegx + 1) x = -world_snegx + 1;
+            if(y < 0) y = 0;
+            if(x > world_sx) x = world_sx - 1;
+            if(y > world_sy) y = world_sy - 1;
+
+
+            getVoxelAt(x, y).used = false;
         }
     }
 }
+
 mergeChunks.clear();
 }
 

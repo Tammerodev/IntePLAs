@@ -1,4 +1,20 @@
-Block action reference
+
+# Hey. I just want to tell you that this project consist of unsafe code. This is just bad code.
+Everything is unsafe, you can get this to segfault whenever you want or dont. 
+
+This may/will crash your computer, override GPU memory, or anything possible.
+
+This works on my computer. 
+
+PS. Dont use open source xorg gpu drivers, they have some weird problems with this one ;)
+
+
+
+
+
+
+
+# Block/Voxel action reference
 
 -(R,G,B) -- "use" -- voxel code
 

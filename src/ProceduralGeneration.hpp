@@ -10,7 +10,7 @@
 
 class ProcGenerate {
 public:
-    bool generate(ChunkIndexer& grid,int64_t world_sx, int64_t world_sy) {
+    bool generate(ChunkIndexer& grid, int64_t world_sx, int64_t world_sy) {
         std::array<sf::Color, 6> colr {
             sf::Color(50, 168, 82),
             elm::Carbon,

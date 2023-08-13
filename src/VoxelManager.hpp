@@ -74,11 +74,14 @@ public:
 
 
     void mergeChunkBounds(const ChunkBounds &bounds) {
-        for(int32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
-        for(int32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
+        for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
+        for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
                 mergeChunks.push_back(sf::Vector2i(x, y));
             }
         }
+
+        prndd("Now merge...");
+
         merge();
     }
 
@@ -87,8 +90,8 @@ public:
         //img.saveToFile("res/saves/" + std::to_string(time(0)) + ".png");
     }
 
-    Voxel &getVoxelAt (const uint64_t x, const uint64_t y) {
-        return chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).requestAccess()[x%Chunk::sizeX][y%Chunk::sizeY];
+    Voxel &getVoxelAt (const int64_t x, const int64_t y) {
+        return chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).requestAccess()[abs(x%Chunk::sizeX)][abs(y%Chunk::sizeY)];
     }
     
     const sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
@@ -117,7 +120,7 @@ private:
     ChunkIndexer chIndexer;
 
     std::list<sf::Vector2i> voxelsInNeedOfUpdate;
-    std::list<sf::Vector2i> mergeChunks;
+    std::vector<sf::Vector2i> mergeChunks;
 
     sf::Shader shader; 
     std::vector<float> hmap1D;
