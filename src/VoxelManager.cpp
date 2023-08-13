@@ -10,7 +10,7 @@ std::pair<bool, sf::FloatRect> VoxelManager::getOvelapWithRect(const sf::FloatRe
 
     for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
     for(uint32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
-    for(auto &r : grid[x][y].rects) {
+    for(auto &r : chIndexer.getChunkAt(x, y).rects) {
         if(collider.intersects(r.getGlobalBounds())) {
             sf::FloatRect rect2 = r.getGlobalBounds();
             sf::FloatRect rect1 = collider;
@@ -41,7 +41,7 @@ std::pair<bool, sf::FloatRect> VoxelManager::getOvelapWithRectY(const sf::FloatR
 
     for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
     for(uint32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
-    for(auto &r : grid[x][y].rects) {
+    for(auto &r : chIndexer.getChunkAt(x, y).rects) {
         if(collider.intersects(r.getGlobalBounds())) {
             return {true, sf::FloatRect(0,0,0,collider.height + (collider.top) - r.getGlobalBounds().top)};
         }   
@@ -56,16 +56,12 @@ int VoxelManager::load(std::string file, bool proced)
 {
     bool res = true;
 
-    sf::Image img;
-
     world_sx = Chunk::sizeX * chunks_x;
     world_sy = Chunk::sizeY * chunks_y;
 
-    img.create(world_sx, world_sy, sf::Color(0,0,0,0));
+    world_snegx = Chunk::sizeX * chunks_negx;
+    world_snegy = Chunk::sizeY * chunks_negy; 
 
-    prndd("WORLD X"); prndd(world_sx);
-    prndd("WORLD Y"); prndd(world_sy);
-    
     // load only the vertex shader
     if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex)) res = false;
     // load only the fragment shader
@@ -73,15 +69,24 @@ int VoxelManager::load(std::string file, bool proced)
     // load both shaders
     if(!shader.loadFromMemory(shader_vert, shader_frag)) res = false;
     
-    ChunkBounds bounds = ChunkBounds(0, 0, chunks_x, chunks_y);
+    ChunkBounds bounds = ChunkBounds(-chunks_negx, -0, chunks_x, chunks_y);
 
-    for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
-        for(uint32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
-            grid[x][y].create(img, sf::Vector2i(x,y));
+    prndd(bounds.getArea().startX);
+    prndd(bounds.getArea().startY);
+    prndd(bounds.getArea().endX);
+    prndd(bounds.getArea().endY);
+
+
+    for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
+        for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
+            chIndexer.getChunkAt(x, y).create();
         }
     }
+    prndd("fine");
+    prndd("lush");
 
-    mergeChunkBounds(bounds);
+
+    //mergeChunkBounds(bounds);
 
     return res;
 }
@@ -115,10 +120,14 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
                             (center.x / Chunk::sizeX) + 13, (center.y / Chunk::sizeY) + 13);
     ChunkArea draw_area = draw_bounds.getArea();
 
-    for(uint32_t y = draw_area.startY; y < draw_area.endY; y++) {
-        for(uint32_t x = draw_area.startX; x < draw_area.endX; x++) {
-            grid[x][y].update();
-            for(auto &r : grid[x][y].rects)  {
+    draw_area.startX = 0;
+    draw_area.startY = 0;
+
+
+    for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
+        for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
+            chIndexer.getChunkAt(x, y).update();
+            for(auto &r : chIndexer.getChunkAt(x, y).rects)  {
                 target.draw(r);
             }
         }
@@ -160,9 +169,9 @@ void VoxelManager::merge()
 {
 
 for(auto c : mergeChunks) {
-    grid[c.x][c.y].rects.clear();
+    chIndexer.getChunkAt(c.x, c.y).rects.clear();
     sf::Sprite r;
-    r.setTexture(grid[c.x][c.y].tx);
+    r.setTexture(chIndexer.getChunkAt(c.x, c.y).tx);
     for (int y = c.y * Chunk::sizeY; y < (c.y * Chunk::sizeY) + Chunk::sizeY;y++) {
     for (int x = c.x * Chunk::sizeX; x < (c.x * Chunk::sizeX) + Chunk::sizeX;x++) {
 
@@ -186,7 +195,7 @@ for(auto c : mergeChunks) {
                     
             r.setPosition(x, y);
             r.setTextureRect(sf::IntRect(x - (c.x * Chunk::sizeX),y - (c.y * Chunk::sizeY),  x1 - x,  y1 -y));
-            grid[c.x][c.y].rects.push_back(r);
+            chIndexer.getChunkAt(c.x, c.y).rects.push_back(r);
         }
     }
     }
@@ -239,7 +248,7 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
 
 bool VoxelManager::generate()
 {
-    procGen.generate(grid, world_sx, world_sy);
+    procGen.generate(chIndexer, world_sx, world_sy);
     
     ChunkBounds bounds(0,0, chunks_x, chunks_y);
     mergeChunkBounds(bounds);
@@ -249,48 +258,7 @@ bool VoxelManager::generate()
 
 bool VoxelManager::generateVegetation()
 {
-    sf::Image vege;
-    if(!vege.loadFromFile("res/img/Proc.png")) return false;
-
-    int ind = 0;
-    for(auto h : hmap1D) {
-        if(math::randIntInRange(0,100) > 50) {
-            enum VegeType {
-                Grass, Tree
-            } vegType;
-            
-            sf::IntRect sourceRect; 
-
-            if(math::randIntInRange(0, 1-50) < 1) {
-                // Tree
-                sourceRect = sf::IntRect(0, 20, 70, 94);
-                vegType = Tree;
-            } else {
-                // Grass
-                sourceRect = sf::IntRect(10 * math::randIntInRange(0,10), 0, 10, 10);
-                vegType = Grass;
-            }
-
-            sf::Image extractedImage;
-            extractedImage.create(sourceRect.width, sourceRect.height);
-            
-            for (int y = 0; y < sourceRect.height; ++y) {
-                for (int x = 0; x < sourceRect.width; ++x) {   
-                    sf::Color pixel = vege.getPixel(sourceRect.left + x, sourceRect.top + y);
-                    extractedImage.setPixel(x, y, pixel);
-                }
-            }
-            sf::Vector2i point;
-
-            if(vegType == Grass)
-                point = sf::Vector2i(ind, (2048 - h) - math::randIntInRange(0,6));
-            else if(vegType == Tree)
-                point = sf::Vector2i(ind, (2048 - h) - sourceRect.height);
-
-            build_image(point, extractedImage, nullptr);
-        }
-        ind++;
-    }
+    // TODO implement 
     return true;
 }
 

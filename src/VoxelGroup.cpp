@@ -71,8 +71,8 @@ void VoxelGroup::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
         int val = vox.value;
         damageVoxelAt(x,y);
         
-        if(val == 3) 
-            hole(sf::Vector2i(x,y),10000,true,2000);
+        if(val == elm::ValLithium) 
+            hole(sf::Vector2i(x,y),elm::lithiumExplosion,true,2000);
     }
 
     if(vox.temp <= 0) vox.temp = 0;

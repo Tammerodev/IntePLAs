@@ -45,6 +45,8 @@ namespace elm {
     const unsigned short titaniumAmbientDissipation = 1;
     const unsigned short leadAmbientDissipation = 1;
 
+    const unsigned short lithiumExplosion = 100;
+
     static const unsigned short getMaxTempFromType(const uint8_t type) {
         switch (type)
         {

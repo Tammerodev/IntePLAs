@@ -1,4 +1,5 @@
 #pragma once
+
 #include <list>
 #include <array>
 #include <SFML/Graphics/Color.hpp>
@@ -9,7 +10,7 @@
 
 class ProcGenerate {
 public:
-    bool generate(std::vector<std::vector<Chunk>>& voxels,int64_t world_sx, int64_t world_sy) {
+    bool generate(ChunkIndexer& grid,int64_t world_sx, int64_t world_sy) {
         std::array<sf::Color, 6> colr {
             sf::Color(50, 168, 82),
             elm::Carbon,
@@ -33,15 +34,17 @@ public:
                 int colorIndex = std::clamp(((i - (int)h) - offset) / 200, 0, (int)colr.size() - 1);
                 sf::Color col = colr.at(colorIndex);
 
-                voxels.at(ind/Chunk::sizeX).at(i/Chunk::sizeY).requestImageAccess().setPixel(ind%Chunk::sizeX, i%Chunk::sizeY, col);
+                grid.getChunkAt(ind/Chunk::sizeX, i/Chunk::sizeY).requestImageAccess().setPixel(ind%Chunk::sizeX, i%Chunk::sizeY, col);
 
-                voxels.at(ind/Chunk::sizeX).at(i/Chunk::sizeY).requestAccess()[ind%Chunk::sizeX][i%Chunk::sizeY] = 
+                grid.getChunkAt(ind/Chunk::sizeX, i/Chunk::sizeY).requestAccess()[ind%Chunk::sizeX][i%Chunk::sizeY] = 
                     getValueFromCol(col, sf::Vector2i(ind, i));
             }
             ind++;
         }
         return true;
     }
+
+    
 private:
     std::list<float> heightMap1D;
     bool generationDone;

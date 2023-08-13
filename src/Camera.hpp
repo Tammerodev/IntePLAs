@@ -20,7 +20,7 @@ public:
         this->target = target;
     }
 
-    void setZoom(const float zoom) {
+    void zoom(const float zoom) {
         view.zoom(zoom);
     }
 
@@ -54,7 +54,19 @@ public:
     void setLeapSpeed(const float leap_speed) {
         this->leap_speed = leap_speed;
     }
+
+    void setZoomLimited(bool lim) {
+        limitZoom = lim;
+    }
+
 private:
+
+    float currZoom = 1.00f;
+    float zoomMax = 0.95;
+    float zoomMin = 1.05;
+    bool limitZoom = false;
+
+
     sf::View view;
     CameraMode mode;
     sf::Vector2f target {100,100};

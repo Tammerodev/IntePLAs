@@ -6,7 +6,7 @@ class ParallaxLayer {
 
     ParallaxLayer(const std::string& path, float amountOfParallax = 0.f) : parallax(amountOfParallax) {
 		tx.loadFromFile(path);
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < 5; i++) {
             sf::Sprite sprite = sf::Sprite();
             sprite.setTexture(tx);
             spr.push_back(std::pair(sprite, 0.f));
@@ -21,12 +21,13 @@ class ParallaxLayer {
 
         int i = 0;
         for(auto &sprite : spr) {
-            float offset = (i - 2) * tx.getSize().x;
-            if ((sprite.first.getPosition().x - pos.x) > tx.getSize().x) {
-                //prndd("o");
-                //sprite.second += tx.getSize().x * 3;
+            float offset = (i - 0) * tx.getSize().x;
+            if ((pos.x - sprite.second) + tx.getSize().x > tx.getSize().x) {
+                sprite.second += tx.getSize().x;
             }     
-
+            else if ((pos.x - sprite.second) + tx.getSize().x < -tx.getSize().x) {
+                sprite.second -= tx.getSize().x;
+            }     
             sprite.first.setPosition(((0.f + distance) - offset) + sprite.second, sprite.first.getPosition().y);
 
             i++;

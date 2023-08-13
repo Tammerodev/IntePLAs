@@ -14,6 +14,7 @@ public:
 		logo.setScale(5,5);
 
 		music.openFromFile("res/music/Bream.wav");
+		music.setVolume(0);
 		music.play();
 
 		playbtn_tx.loadFromFile(uipath + "playbtn.png");

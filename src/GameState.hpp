@@ -28,6 +28,7 @@ public:
 
 	void draw(sf::RenderTarget&window);
 private:
+
 	bool slowmo = false;
 	sf::Clock clock;
 

@@ -7,11 +7,13 @@
 class Voxel {
     public:
     
-    unsigned char value = 0;
+    // Bitfield (4 bits, 16 combinations)
+    unsigned char value : 4 = 0;
+
     unsigned char strenght = 1;
     bool used = false;
     bool isFalling = false;
-    short temp = .0f;
+    short temp = .0;
     
     private:
 };

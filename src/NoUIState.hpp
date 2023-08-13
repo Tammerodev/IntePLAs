@@ -12,7 +12,7 @@ public:
         return true;
     }
 
-    void update() {
+    void update(const sf::Vector2f&) {
 
     }
 

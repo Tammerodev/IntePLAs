@@ -8,10 +8,13 @@ namespace Controls {
     static sf::Keyboard::Key keybind_right = sf::Keyboard::D;
     static sf::Keyboard::Key keybind_left = sf::Keyboard::A;
     static sf::Keyboard::Key keybind_jump = sf::Keyboard::Space;
+
+    static sf::Keyboard::Key keybind_zoomin = sf::Keyboard::Up;
+    static sf::Keyboard::Key keybind_zoomout = sf::Keyboard::Down;
+
+
     static sf::Mouse::Button mousebind_useitem = sf::Mouse::Left;
     static sf::Mouse::Button mousebind_switchitem = sf::Mouse::Middle;
-
-
 
     static uint16_t joystick_bind_jump = 0;
     static uint16_t joystick_bind_switchitem = 1;
@@ -68,5 +71,32 @@ namespace Controls {
         else if(currentController == ControllerType::Joystick)
             return sf::Joystick::isButtonPressed(0, joystick_bind_switchitem);
         return false;
+    }
+
+    static bool zoomin() {
+        if(currentController == ControllerType::Keyboard) 
+            return sf::Keyboard::isKeyPressed(keybind_zoomin);
+        else if(currentController == ControllerType::Joystick)
+            return sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::PovY) <= -1;
+        return false;
+    }
+
+    static bool zoomout() {
+        if(currentController == ControllerType::Keyboard) 
+            return sf::Keyboard::isKeyPressed(keybind_zoomout);
+        else if(currentController == ControllerType::Joystick)
+            return sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::PovY) >= 1;
+        return false;
+    }
+
+
+    static sf::Vector2f cursorPos;
+
+    static const sf::Vector2f &getCursorPosition() {
+        return cursorPos;
+    }
+
+    static void setCursorPosition(const sf::Vector2f& newPos) {
+        cursorPos = newPos;
     }
 }

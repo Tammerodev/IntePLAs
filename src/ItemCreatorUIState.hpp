@@ -7,31 +7,28 @@ class ItemCreator : public UIState {
 public:
 
     ItemCreator() {
-        panel = Panel("res/img/UI/Blueprint.png");
-        tex.loadFromFile("res/img/UI/Blueprint.png");
-        cancelButton = Button(tex, sf::Vector2f(213, 28), sf::Vector2f(1.0f, 1.0f), sf::IntRect(213, 28, 11, 11));
+        edit_img.create(16,16,sf::Color::Red);
+        edit_tex.create(16,16);
     }
 
     bool load() {
         return true;
     }
 
-    void update() {
-        
+    void update(const sf::Vector2f &mousepos) {
+        edit_tex.update(edit_img);
+        edit_spr.setTexture(edit_tex);
+        edit_spr.setPosition(100,100);
+        edit_spr.setScale(10.f, 10.f);
+
     }
 
     void input(sf::Event &e) {
-        if(cancelButton.getState(sf::Vector2f(e.mouseMove.x, e.mouseMove.y)) == Button::ButtonState::Click) {
-            UIState::currentState = UIState::nostate;
-            UIState::currentState->load();
-        }
+
     }
 
     void draw(sf::RenderTarget& target) {
-        panel.applyTexture();
-        target.draw(panel);
-        cancelButton.setTexture(tex);
-        target.draw(cancelButton);
+        target.draw(edit_spr);
     }
 
     void statexit() {
@@ -40,8 +37,8 @@ public:
 
 private:
 
-    Panel panel;
-    sf::Texture tex;
-    Button cancelButton;
+    sf::Image edit_img;
+    sf::Texture edit_tex;
+    sf::Sprite edit_spr;
 
 };

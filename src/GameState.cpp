@@ -15,12 +15,12 @@ bool GameState::load(const std::string s){
     
     inv.load(world.main_world);
     matUI.load();
-    game_camera.setZoom(0.99f);
-    ui_camera.setZoom(1.0f);
+    game_camera.zoom(0.99f);
+    ui_camera.zoom(1.0f);
 
     game_camera.setLeapSpeed(1.f);
     game_camera.setCameraMode(CameraMode::Leap);
-
+    game_camera.setZoomLimited(true);
 
     if(!world.init(s))
         perror("VoxelManager failed to load world");
@@ -48,6 +48,8 @@ bool GameState::load(const std::string s){
 
 void GameState::update()
 {
+    const sf::Vector2f mousepos = sf::Vector2f(renderTexture.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition())));
+
     delta_T = deltaClock.getElapsedTime().asMilliseconds();
     if(slowmo) delta_T = 0.2f;
     deltaClock.restart();
@@ -67,17 +69,19 @@ void GameState::update()
         }
     }
 
+    
+
     bg.update(game_camera.getCenterPosition());
     BGMusic::update();
     effOverlay.update(game_camera.getCenterPosition());
     game_camera.update(delta_T);
     player.update(delta_T);    
     matUI.update(world.main_world);
-    uiStateManager.update();
+    uiStateManager.update(mousepos);
 
     world.update();
         
-    inv.getCurrentItem()->update(world, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition()))), player.getPhysicsComponent().transform_position, delta_T);
+    inv.getCurrentItem()->update(world, mousepos, player.getPhysicsComponent().transform_position, delta_T);
 
     world.handleCollisionsWithPlayer(player);
 }
@@ -95,13 +99,24 @@ void GameState::input(sf::Event &ev) {
         inv.switchItem();
     }
 
+
     if(ev.type == sf::Event::KeyReleased) {
+        if(ev.key.code == sf::Keyboard::G) {
+            inv.addItem(world.main_world, std::make_shared<ItemCreateItem>(world.main_world));
+            prndd("Added item");
+        }
+
         if(ev.key.code == sf::Keyboard::Escape) {
             statexit();
             GameState::currentState = GameState::menuState;
             menuState->load("");
         }
     }
+
+    if(Controls::zoomin())
+        game_camera.zoom(0.99);
+    if(Controls::zoomout())
+        game_camera.zoom(1.01);
 
     uiStateManager.input(ev);
 }

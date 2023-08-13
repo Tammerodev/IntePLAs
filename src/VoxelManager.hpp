@@ -21,15 +21,8 @@
 class VoxelManager {
 public:
 
-    VoxelManager() : grid(chunks_y + 1, std::vector<Chunk>(chunks_x + 1)) {
-        prndd("Populating array");
-        for (int y = 0; y < chunks_y; y++)
-        {
-            for (int x = 0; x < chunks_x; x++)
-            {
-                grid[y][x] = Chunk();
-            }
-        }
+    VoxelManager() : chIndexer() {
+
     }
     std::pair<bool, sf::FloatRect> getOvelapWithRect(const sf::FloatRect &collider);
     std::pair<bool, sf::FloatRect> getOvelapWithRectY(const sf::FloatRect &collider);
@@ -81,8 +74,8 @@ public:
 
 
     void mergeChunkBounds(const ChunkBounds &bounds) {
-        for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
-        for(uint32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
+        for(int32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
+        for(int32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
                 mergeChunks.push_back(sf::Vector2i(x, y));
             }
         }
@@ -95,15 +88,15 @@ public:
     }
 
     Voxel &getVoxelAt (const uint64_t x, const uint64_t y) {
-        return grid.at(x/Chunk::sizeX).at(y/Chunk::sizeY).requestAccess()[x%Chunk::sizeX][y%Chunk::sizeY];
+        return chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).requestAccess()[x%Chunk::sizeX][y%Chunk::sizeY];
     }
     
     const sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
-        return grid.at(x/Chunk::sizeX).at(y/Chunk::sizeY).requestImageAccess().getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
+        return chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).requestImageAccess().getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
     }
 
     void setImagePixelAt(const uint64_t x, const uint64_t y, const sf::Color& color) {
-        grid.at(x/Chunk::sizeX).at(y/Chunk::sizeY).requestImageAccess().setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
+        chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).requestImageAccess().setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
     }
 
     MaterialPack &getReceivedMaterials() {
@@ -121,17 +114,21 @@ private:
 
     MaterialPack materialpack;
 
+    ChunkIndexer chIndexer;
+
     std::list<sf::Vector2i> voxelsInNeedOfUpdate;
     std::list<sf::Vector2i> mergeChunks;
 
     sf::Shader shader; 
     std::vector<float> hmap1D;
-    std::vector<std::vector<Chunk>> grid;
 
     bool debug = false;
 
-    uint64_t world_sx;
-    uint64_t world_sy;
+    int64_t world_sx;
+    int64_t world_sy;
+
+    int64_t world_snegx;
+    int64_t world_snegy;
 
     const char * shader_frag = 
     R"( 

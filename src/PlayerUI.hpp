@@ -7,7 +7,7 @@
 #include "MaterialPack.hpp"
 #include "Panel.hpp"
 #include "MaterialsUI.hpp"
-
+#include "ItemCreateItem.hpp"
 
 class Inventory {
 public:
@@ -19,8 +19,8 @@ public:
         inventory.push_back(std::make_shared<PlaceItem>(vx,"res/img/Tool/fire.png", "res/img/Player/Player.png"));
     } 
 
-    void addItem(VoxelManager&vx, Item* newItem) {
-        inventory.push_back(std::make_shared<DebugPlacer>(vx));
+    void addItem(VoxelManager&vx, std::shared_ptr<Item> newItem) {
+        inventory.push_back(newItem);
     }
     void switchItem() {
         currentItemIndex++;
