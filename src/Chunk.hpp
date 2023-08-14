@@ -2,11 +2,11 @@
 #include "Voxel.hpp"
 #include <SFML/Graphics.hpp>
 
-static int chunks_x = 64;
-static int chunks_y = 64;
+static const int chunks_x = 512;
+static const int chunks_y = 128;
 
-static int chunks_negx = 64;
-static int chunks_negy = 64;
+static const int chunks_negx = 0;
+static const int chunks_negy = 0;
 
 
 struct Chunk {
@@ -16,16 +16,12 @@ struct Chunk {
     static const int sizeY = 64;
 
     std::array<std::array<Voxel, 64>, 64> arr;
-    bool loaded = true;
     
     std::array<std::array<Voxel, 64>, 64>& requestAccess() {
-        if(loaded) return arr;
-        else return load();
+        return arr;
     }
 
     sf::Image &requestImageAccess() {
-        if(loaded) return image;
-        else load();
         return image;
     }
 
@@ -34,21 +30,8 @@ struct Chunk {
         tx.create(sizeX, sizeY);
     }
 
-    std::array<std::array<Voxel, 64>, 64>& load() {
-        loaded = true;
-        return arr;
-    }
-
     void update() {
         tx.update(image);
-    }
-
-    void unload() {
-        // Remove the array from memory
-        if(!arr.empty()) {
-            rects.clear();
-            loaded = false;
-        }
     }
 
     sf::Image image;
@@ -57,20 +40,20 @@ struct Chunk {
 
 class ChunkIndexer {
 public:
-    ChunkIndexer() : gridPos(chunks_y + 1, std::vector<Chunk>(chunks_x + 1)), 
-                    gridNeg(chunks_negy + 1, std::vector<Chunk>(chunks_negx + 1))  {
+    ChunkIndexer() {
+
     }
 
     Chunk &getChunkAt(int64_t x, int64_t y) {
 
-        if(x < 0) {
-           return gridNeg[abs(x)][y];         
+        if(x >= 0) {
+           return gridPos.at(abs(y)).at(x);         
         }
-        return gridPos[abs(x)][y];
+        return gridNeg.at(abs(y)).at(x);
     }
 private:
-    std::vector<std::vector<Chunk>> gridPos;
-    std::vector<std::vector<Chunk>> gridNeg;
+    std::array<std::array<Chunk, chunks_x + 1>, chunks_y + 1> gridPos;
+    std::array<std::array<Chunk, chunks_negx + 1>, chunks_negy + 1> gridNeg;
 };
 
 struct ChunkArea {

@@ -5,6 +5,7 @@
 #include <math.h>
 #include <thread>
 #include <optional>
+#include <future>
 
 #include "math.hpp"
 #include "Voxel.hpp"
@@ -79,8 +80,6 @@ public:
                 mergeChunks.push_back(sf::Vector2i(x, y));
             }
         }
-
-        prndd("Now merge...");
 
         merge();
     }

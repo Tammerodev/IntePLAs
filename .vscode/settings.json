@@ -58,7 +58,9 @@
         "codecvt": "cpp",
         "iomanip": "cpp",
         "sstream": "cpp",
-        "optional": "cpp"
+        "optional": "cpp",
+        "future": "cpp",
+        "mutex": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

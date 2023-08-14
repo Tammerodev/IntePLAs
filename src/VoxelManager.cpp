@@ -76,17 +76,20 @@ int VoxelManager::load(std::string file, bool proced)
     prndd(bounds.getArea().endX);
     prndd(bounds.getArea().endY);
 
+    sf::Clock timer;
 
     for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
         for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
             chIndexer.getChunkAt(x, y).create();
         }
     }
-    prndd("fine");
-    prndd("lush");
+    loginf("Multithreading not used : ", " Single threaded", "");
 
+    loginf("Creating map took : ", timer.getElapsedTime().asSeconds(), ".");
 
-    mergeChunkBounds(ChunkBounds(-1, 0, chunks_x, chunks_y));
+    initVoxelMap();
+
+    mergeChunkBounds(bounds);
 
     return res;
 }
@@ -120,23 +123,16 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
                             (center.x / Chunk::sizeX) + 13, (center.y / Chunk::sizeY) + 13);
     ChunkArea draw_area = draw_bounds.getArea();
 
-    //draw_area.startX = 0;
     draw_area.startY = 0;
-
-
-    long long drawcalls = 0;
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
             chIndexer.getChunkAt(x, y).update();
             for(auto &r : chIndexer.getChunkAt(x, y).rects)  {
                 target.draw(r);
-                ++drawcalls;
             }
         }
     }
-
-    prndd(drawcalls);
 }
 
 void VoxelManager::resetUsedFlag()
@@ -188,7 +184,7 @@ for(auto c : mergeChunks) {
             }
             
 
-            // The problem 
+            // The problem that took 4 hours of my life
             // |
             // \/
             for (int y2 = y; y2 <= y1; y2++) {
@@ -201,7 +197,6 @@ for(auto c : mergeChunks) {
             y1++;
                     
             r.setPosition(x, y);
-            r.setColor(sf::Color(rand()%255,rand()%255,rand()%255));
             r.setTextureRect(sf::IntRect(x - (c.x * Chunk::sizeX),y - (c.y * Chunk::sizeY),  x1 - x,  y1 -y));
             chIndexer.getChunkAt(c.x, c.y).rects.push_back(r);
         }

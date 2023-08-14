@@ -13,7 +13,8 @@ class Voxel {
     unsigned char strenght = 1;
     bool used = false;
     bool isFalling = false;
-    short temp = .0;
+    // Bitfield (11 bits, 1023 combinations)
+    unsigned short temp : 11 = 0;
     
     private:
 };
