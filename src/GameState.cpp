@@ -17,6 +17,7 @@ bool GameState::load(const std::string s){
     matUI.load();
     game_camera.zoom(0.99f);
     ui_camera.zoom(1.0f);
+    ui_camera.setCenterPosition(sf::Vector2f(0.f, 0.f));
 
     game_camera.setLeapSpeed(1.f);
     game_camera.setCameraMode(CameraMode::Leap);
@@ -48,7 +49,7 @@ bool GameState::load(const std::string s){
 
 void GameState::update()
 {
-    const sf::Vector2f mousepos = sf::Vector2f(renderTexture.mapPixelToCoords(sf::Vector2i(sf::Mouse::getPosition())));
+    const sf::Vector2f mousepos = sf::Vector2f(sf::Mouse::getPosition());
 
     delta_T = deltaClock.getElapsedTime().asMilliseconds();
     if(slowmo) delta_T = 0.2f;
@@ -77,6 +78,8 @@ void GameState::update()
     game_camera.update(delta_T);
     player.update(delta_T);    
     matUI.update(world.main_world);
+
+
     uiStateManager.update(mousepos);
 
     world.update();

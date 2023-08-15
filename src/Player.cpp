@@ -30,4 +30,10 @@ void Player::update(float dt) {
 
 void Player::draw(sf::RenderTarget & window) {
     PlayerState::currentState->draw(window, spr);
+
+    hitbox_top.debugdraw(window);
+    hitbox_bottom.debugdraw(window);
+    hitbox_left.debugdraw(window);
+    hitbox_right.debugdraw(window);
+
 }

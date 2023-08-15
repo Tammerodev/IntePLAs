@@ -2,6 +2,13 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <TGUI/TGUI.hpp>
+#include <TGUI/Backend/SFML-Graphics.hpp>
+#include <TGUI/Core.hpp>
+#include <TGUI/Backend/SFML-Graphics.hpp>
+#include <TGUI/Widgets/Button.hpp>
+#include <TGUI/Widgets/CheckBox.hpp>
+
 #include "State.hpp"
 
 #include "Menustate.hpp"
@@ -21,6 +28,8 @@ public:
         window.setFramerateLimit(fps_limit);
         window.setVerticalSyncEnabled(true);
         window.setVisible(false);
+
+        game_GUI.setWindow(window);
     }
     void init() {
 
@@ -32,6 +41,9 @@ public:
             MainState::currentState->update();
 
             while(window.pollEvent(wevent)) {
+
+                game_GUI.handleEvent(wevent);
+
                 if(wevent.type == sf::Event::Closed) {
                     window.close();
                 }
@@ -39,12 +51,16 @@ public:
             }
             
             MainState::currentState->draw(window);
+
+            game_GUI.draw();
+            
             window.display();
         }
 
         MainState::currentState->statexit();
     }
 private:
+    tgui::Gui game_GUI;
     sf::RenderWindow window;
     sf::Event wevent;
 };

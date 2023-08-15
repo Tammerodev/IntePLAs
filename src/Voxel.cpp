@@ -1,9 +1,9 @@
 #include "Voxel.hpp"
 
-const Voxel getValueFromCol(const sf::Color &px, sf::Vector2i p)
-{
+const Voxel getValueFromCol(const sf::Color &px, sf::Vector2i p) {
     Voxel vox = Voxel();
     vox.value = px.a != 0;
+    if(vox.value == 0) return vox;
 
     if(px == elm::Carbon) {
         vox.value = 2;

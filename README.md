@@ -1,3 +1,8 @@
+Libraries : 
+SFML
+TGUI
+
+
 
 # Hey. I just want to tell you that this project consist of unsafe code. This is just bad code.
 Everything is unsafe, you can get this to segfault whenever you want or dont. 

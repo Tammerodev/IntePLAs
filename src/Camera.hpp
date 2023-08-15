@@ -68,7 +68,7 @@ private:
 
 
     sf::View view;
-    CameraMode mode;
+    CameraMode mode = CameraMode::Static;
     sf::Vector2f target {100,100};
     float leap_speed = 1.0f;
 };
