@@ -19,14 +19,20 @@
 #include "PlayerUI.hpp"
 #include "Entity/Player/Controls.hpp"
 
+#include <TGUI/TGUI.hpp>
+#include <TGUI/Backend/SFML-Graphics.hpp>
+#include <TGUI/Core.hpp>
+#include <TGUI/Widgets/Button.hpp>
+#include <TGUI/Widgets/CheckBox.hpp>
+
 class GameState : public MainState {
 public:
-	bool load(const std::string s);
+	bool load(const std::string s, tgui::BackendGui& gui);
     void update();
 	void input(sf::Event &ev);
 	void statexit();
 
-	void draw(sf::RenderTarget&window);
+	void draw(sf::RenderTarget&window, tgui::BackendGui&);
 private:
 
 	bool slowmo = false;

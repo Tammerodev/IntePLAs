@@ -5,9 +5,24 @@
 #include <filesystem>
 #include <SFML/Audio.hpp>
 
+#include <TGUI/TGUI.hpp>
+#include <TGUI/Backend/SFML-Graphics.hpp>
+#include <TGUI/Core.hpp>
+#include <TGUI/Widgets/Button.hpp>
+#include <TGUI/Widgets/CheckBox.hpp>
+
+
 class MenuState : public MainState {
 public:
-	bool load(const std::string) {
+
+ 	static void buttonCallBack(const tgui::String path, tgui::BackendGui& gui) {
+		MainState::currentState = MainState::gameState;
+		MainState::currentState->load(path.toStdString(), gui); 
+
+		gui.removeAllWidgets();
+	}
+
+	bool load(const std::string, tgui::BackendGui& gui) {
 		const std::string uipath = "res/img/UI/";
 		logo = Panel(uipath + "logo.png");
 		logo.setPosition(0,0);
@@ -20,27 +35,37 @@ public:
 		playbtn_tx.loadFromFile(uipath + "playbtn.png");
 
 		font.loadFromFile("res/Fonts/VT323.ttf");
-		int index = 0;
-		for (const auto & entry : std::filesystem::directory_iterator(path)) {
-			Button* b = new Button(playbtn_tx, sf::Vector2f(150, 200 + index * 50), sf::Vector2f(2,2), sf::IntRect(0,0,64,24), font);
-			b->setString(entry.path());
-			sf::Texture tex;
-			tex.loadFromFile(entry.path());
-			tx.push_back(tex);
-			b->move(-150,0);
-        	clickables.push_back(b);
-			++index;
-		}
 
-		index = 0;
-		for(auto &tex : tx) {
-			sf::Sprite bg;
+		try {
 
-			bg.setTexture(tex);
-			bg.setPosition(0, index * tex.getSize().y);
-			
-			background.push_back(bg);
-			index++;
+			tgui::Theme theme = tgui::Theme("res/themes/nanogui.style");
+
+			int index = 0;
+			for (const auto & entry : std::filesystem::directory_iterator(path)) {
+				std::string parsed_path = entry.path().string();
+				// Remove the res/saves/ substring
+				parsed_path.erase(0, 10);
+				// Remove the .png file extension
+				parsed_path.erase(parsed_path.size() - 4, parsed_path.size());
+
+				auto button = tgui::Button::create(parsed_path);
+
+				// Configure button
+				button->setPosition(tgui::Layout2d(50, 200 + index * (16 * 4 + 8)));
+				button->setSize(tgui::Layout2d(48 * 4,16 * 4));
+				button->setRenderer(theme.getRenderer("Button"));
+
+				button->onPress(buttonCallBack, button->getText(), std::ref(gui));
+
+				gui.add(button);
+
+				
+
+				++index;
+
+			}
+		} catch(std::exception& ex) {
+			prnerr("TGUI failed with : ", ex.what());
 		}
 
 		return true;
@@ -53,7 +78,8 @@ public:
 	void input(sf::Event &e) {
 		if(e.type == sf::Event::Closed) exit(0);
 	}
-	void draw(sf::RenderTarget& window) {
+	void draw(sf::RenderTarget& window, tgui::BackendGui& gui) {
+
 		window.clear(sf::Color(20, 22, 33));
 
 		logo.applyTexture();
@@ -72,7 +98,7 @@ public:
 			if(i->getState(pos) == Button::ButtonState::Click) { 
 				statexit();
 				MainState::currentState = MainState::gameState;
-				MainState::currentState->load(i->getText()); 
+				MainState::currentState->load(i->getText(), gui); 
 			}
 			if(i->getState(pos) == Button::ButtonState::Hover) { 
 				i->setTextureRect(sf::IntRect(0,24,64,24));

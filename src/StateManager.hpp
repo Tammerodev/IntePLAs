@@ -5,7 +5,6 @@
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 #include <TGUI/Core.hpp>
-#include <TGUI/Backend/SFML-Graphics.hpp>
 #include <TGUI/Widgets/Button.hpp>
 #include <TGUI/Widgets/CheckBox.hpp>
 
@@ -29,20 +28,20 @@ public:
         window.setVerticalSyncEnabled(true);
         window.setVisible(false);
 
-        game_GUI.setWindow(window);
+        gui.setWindow(window);
     }
     void init() {
 
     }
     void gameLoop(){
-        MainState::currentState->load("");
+        MainState::currentState->load("", gui);
         window.setVisible(true);
         while(window.isOpen()) {
             MainState::currentState->update();
 
             while(window.pollEvent(wevent)) {
 
-                game_GUI.handleEvent(wevent);
+                gui.handleEvent(wevent);
 
                 if(wevent.type == sf::Event::Closed) {
                     window.close();
@@ -50,17 +49,17 @@ public:
                 MainState::currentState->input(wevent);
             }
             
-            MainState::currentState->draw(window);
+            MainState::currentState->draw(window, gui);
 
-            game_GUI.draw();
-            
+            gui.draw();
+
             window.display();
         }
 
         MainState::currentState->statexit();
     }
 private:
-    tgui::Gui game_GUI;
+    tgui::Gui gui;
     sf::RenderWindow window;
     sf::Event wevent;
 };

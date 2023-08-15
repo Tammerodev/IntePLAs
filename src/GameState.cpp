@@ -1,7 +1,7 @@
 #include "GameState.hpp"
 #include "common.hpp"
 
-bool GameState::load(const std::string s){
+bool GameState::load(const std::string s, tgui::BackendGui& gui){
 
     if(SFX::rocket_launcher_fire_buffer.getDuration() != sf::Time::Zero) return true;
 
@@ -112,7 +112,7 @@ void GameState::input(sf::Event &ev) {
         if(ev.key.code == sf::Keyboard::Escape) {
             statexit();
             GameState::currentState = GameState::menuState;
-            menuState->load("");
+            //menuState->load("");
         }
     }
 
@@ -130,7 +130,7 @@ void GameState::statexit()
     world.save();
 }
 
-void GameState::draw(sf::RenderTarget &window)
+void GameState::draw(sf::RenderTarget &window, tgui::BackendGui& gui)
 {
     // Clear renderTexture
     renderTexture.clear();
