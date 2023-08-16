@@ -35,7 +35,7 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
         perror("Failed to load sound effect");
     if(!BGMusic::load())
         perror("Failed to load background music");
-    if(!uiStateManager.load())
+    if(!uiStateManager.load(gui))
         perror("Failed to load user interface");
     // load only the vertex shader
     if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex));
@@ -49,11 +49,7 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
 
 void GameState::update()
 {
-    const sf::Vector2f mousepos = sf::Vector2f(sf::Mouse::getPosition());
-
-    delta_T = deltaClock.getElapsedTime().asMilliseconds();
-    if(slowmo) delta_T = 0.2f;
-    deltaClock.restart();
+    delta_T = deltaClock.restart().asMilliseconds();
 
     shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
     shader.setUniform("resolution",sf::Vector2(1.0f,1.0f));
@@ -84,7 +80,7 @@ void GameState::update()
 
     world.update();
         
-    inv.getCurrentItem()->update(world, mousepos, player.getPhysicsComponent().transform_position, delta_T);
+    inv.getCurrentItem()->update(world, world_mousepos, player.getPhysicsComponent().transform_position, delta_T);
 
     world.handleCollisionsWithPlayer(player);
 }
@@ -96,7 +92,7 @@ void GameState::input(sf::Event &ev) {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)) slowmo = false; // Slow-mo
 
     if(Controls::useItem(ev)) {
-        inv.use(player.getPhysicsComponent().transform_position, sf::Vector2f(renderTexture.mapPixelToCoords(sf::Mouse::getPosition())), world);    
+        inv.use(player.getPhysicsComponent().transform_position, world_mousepos, world);    
     }
     if(Controls::switchItem(ev)) {
         inv.switchItem();
@@ -116,6 +112,12 @@ void GameState::input(sf::Event &ev) {
         }
     }
 
+    if(ev.type == sf::Event::MouseMoved) {
+        mousepos.x = ev.mouseMove.x;
+        mousepos.y = ev.mouseMove.y;
+    }
+
+
     if(Controls::zoomin())
         game_camera.zoom(0.99);
     if(Controls::zoomout())
@@ -131,11 +133,16 @@ void GameState::statexit()
 }
 
 void GameState::draw(sf::RenderTarget &window, tgui::BackendGui& gui)
-{
+{    
+
+            
+    world_mousepos = game_camera.getCenterPosition() - sf::Vector2f(window.getSize() / 2u) + mousepos;
+
     // Clear renderTexture
     renderTexture.clear();
 
     game_camera.setViewTo(renderTexture);
+
     game_camera.setTarget(player.getPhysicsComponent().transform_position);
 
     // Render background
@@ -153,18 +160,13 @@ void GameState::draw(sf::RenderTarget &window, tgui::BackendGui& gui)
     inv.render(renderTexture);
 
         // UI Render
-        ui_camera.setViewTo(renderTexture);
+        renderTexture.setView(window.getDefaultView());
         matUI.render(renderTexture);
-        uiStateManager.render(renderTexture);
-
-    game_camera.setViewTo(renderTexture);
+        uiStateManager.render(renderTexture, gui);
     
     // Display, draw and set shader
+    
     renderTexture.display();
     renderSprite.setTexture(renderTexture.getTexture());
     window.draw(renderSprite , &shader);
-
-    float currentTime = clock.restart().asMilliseconds();
-    float fps = 1.f / (currentTime - lastTime);
-    lastTime = currentTime;
 }

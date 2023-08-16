@@ -60,7 +60,10 @@
         "sstream": "cpp",
         "optional": "cpp",
         "future": "cpp",
-        "mutex": "cpp"
+        "mutex": "cpp",
+        "any": "cpp",
+        "variant": "cpp",
+        "bitset": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

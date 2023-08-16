@@ -24,6 +24,10 @@ public:
         view.zoom(zoom);
     }
 
+    sf::View &getView() {
+        return view;
+    }
+
     void update(const float dt) {
         if(mode == CameraMode::Leap) {
             sf::Vector2f movement = target - view.getCenter();

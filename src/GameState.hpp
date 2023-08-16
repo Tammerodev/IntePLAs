@@ -38,6 +38,9 @@ private:
 	bool slowmo = false;
 	sf::Clock clock;
 
+ 	sf::Vector2f mousepos;
+	sf::Vector2f world_mousepos;
+
 	float lastTime = 0;
 	float fps = 1;
 

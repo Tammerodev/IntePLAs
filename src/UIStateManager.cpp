@@ -5,16 +5,16 @@ UIState* UIState::nostate = new NoUIState();
 
 UIState *UIState::currentState = UIState::itemcreator;
 
-bool UIStateManager::load() {
-    return UIState::currentState->load();
+bool UIStateManager::load(tgui::BackendGui& gui) {
+    return UIState::currentState->load(gui);
 }
 
 void UIStateManager::update(const sf::Vector2f&pos) {
     UIState::currentState->update(pos);
 }
 
-void UIStateManager::render(sf::RenderTarget &target) {
-    UIState::currentState->draw(target);
+void UIStateManager::render(sf::RenderTarget &target, tgui::BackendGui& gui) {
+    UIState::currentState->draw(target, gui);
 }
 
 void UIStateManager::input(sf::Event &e) {

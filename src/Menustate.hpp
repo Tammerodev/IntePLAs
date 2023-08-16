@@ -16,10 +16,10 @@ class MenuState : public MainState {
 public:
 
  	static void buttonCallBack(const tgui::String path, tgui::BackendGui& gui) {
+		gui.removeAllWidgets();
+
 		MainState::currentState = MainState::gameState;
 		MainState::currentState->load(path.toStdString(), gui); 
-
-		gui.removeAllWidgets();
 	}
 
 	bool load(const std::string, tgui::BackendGui& gui) {
@@ -54,6 +54,7 @@ public:
 				button->setPosition(tgui::Layout2d(50, 200 + index * (16 * 4 + 8)));
 				button->setSize(tgui::Layout2d(48 * 4,16 * 4));
 				button->setRenderer(theme.getRenderer("Button"));
+				button->setWidgetName("Playbutton" + parsed_path);
 
 				button->onPress(buttonCallBack, button->getText(), std::ref(gui));
 

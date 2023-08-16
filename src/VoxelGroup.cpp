@@ -103,7 +103,8 @@ void VoxelGroup::resetUsedFlag()
 
 void VoxelGroup::update()
 {
-    if(destroyed) return;
+        if(getDestroyed()) return;
+    
 
     tex.update(img);
     spr.setTexture(tex);
@@ -123,6 +124,8 @@ void VoxelGroup::update()
 
 void VoxelGroup::merge()
 {
+if(getDestroyed()) return;
+
 rects.clear();
 
 for (int y = 0; y < img.getSize().y;y++) {
@@ -160,6 +163,8 @@ for (int y = 0; y < img.getSize().y;y++) {
 
 void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool force, const int64_t heat)
 {
+    if(getDestroyed()) return;
+
     if(force) {
         ExplosionInfo info;
         info.position = sf::Vector2f(pos);

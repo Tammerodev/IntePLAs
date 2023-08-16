@@ -1,6 +1,12 @@
 #pragma once
 #include "UIState.hpp"
 
+#include <TGUI/TGUI.hpp>
+#include <TGUI/Backend/SFML-Graphics.hpp>
+#include <TGUI/Core.hpp>
+#include <TGUI/Widgets/Button.hpp>
+#include <TGUI/Widgets/CheckBox.hpp>
+
 class NoUIState : public UIState {
 public:
 
@@ -8,7 +14,7 @@ public:
 
     }
 
-    bool load() {
+    bool load(tgui::BackendGui& gui) {
         return true;
     }
 
@@ -20,7 +26,7 @@ public:
 
     }
 
-    void draw(sf::RenderTarget& target) {
+    void draw(sf::RenderTarget& target, tgui::BackendGui& gui) {
 
     }
 

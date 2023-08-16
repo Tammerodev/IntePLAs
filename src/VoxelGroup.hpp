@@ -15,13 +15,16 @@
 #include "MaterialPack.hpp"
 #include "PhysicsComponent.hpp"
 #include "Collider.hpp"
+#include "Dispawner.hpp"
+
+
 #include <list>
 #include <memory>
 
 // We cant include voxelmanager, becouse that would create an infinite preprocessor loop
 class VoxelManager;
 
-class VoxelGroup {
+class VoxelGroup : public DispawnableVoxelObject {
 public:
 
     VoxelGroup() {
@@ -78,7 +81,8 @@ public:
     template<class T>
 
     void destroyPart(T& main_world, sf::FloatRect destroyArea) {
-        if(destroyed) return;
+        if(getDestroyed()) return;
+        
         for (int y = 0; y < world_sy;y++) {
             for (int x = 0; x < world_sx;x++) {
                 if(getVoxelAt(x,y).value == elm::ValLithium) {
@@ -91,10 +95,8 @@ public:
         destroy();
     }
 
-    void destroy() {
-        grid.clear();
-        rects.clear();
-        destroyed = true;
+    void dispawn() {
+        destroy();
     }
 
     std::vector <ExplosionInfo> explosion_points;
@@ -102,7 +104,11 @@ public:
     sf::Image img;
 private:
 
-    bool destroyed = false;
+    void destroy() {
+        grid.clear();
+        rects.clear();
+        setDestroyed(true);
+    }
 
     PhysicsComponent physicsComponent;
 

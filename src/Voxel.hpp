@@ -14,7 +14,7 @@ class Voxel {
     bool used = false;
     bool isFalling = false;
     // Bitfield (11 bits, 1023 combinations)
-    unsigned short temp : 11 = 0;
+    unsigned short temp = 0;
     
     private:
 };
