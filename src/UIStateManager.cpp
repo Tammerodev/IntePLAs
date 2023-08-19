@@ -3,7 +3,7 @@
 UIState* UIState::itemcreator = new ItemCreator();
 UIState* UIState::nostate = new NoUIState();
 
-UIState *UIState::currentState = UIState::itemcreator;
+UIState *UIState::currentState = UIState::nostate;
 
 bool UIStateManager::load(tgui::BackendGui& gui, Inventory &inv, VoxelManager &vx) {
     return UIState::currentState->load(gui, inv, vx);

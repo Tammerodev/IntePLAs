@@ -45,21 +45,32 @@ class PlaceItem : public Item {
 	}
 
     void update(World &world, const sf::Vector2f &pos, const sf::Vector2f& mspos, const float dt) {
-		sf::Vector2f mospos = mspos;
-		math::limitDistance(sf::Vector2f(500,500), mospos, 5.0f);
+		mospos = sf::Vector2i(pos);
+		mospos /= 16;
+		mospos *= 16;
 
 		// Set position and rotation
-		gun_spr.setPosition(pos.x, pos.y + sin(pos.x));
+		gun_spr.setPosition(mospos.x + gun_spr.getGlobalBounds().width / 2, mospos.y + gun_spr.getGlobalBounds().height / 2);
 		gun_spr.setColor(sf::Color(255,255,255,200));
 		allowedToplace = true;
 
-		if(world.main_world.getOvelapWithRect(gun_spr.getGlobalBounds()).first) {
+		sf::FloatRect coll_rect_up_fl = gun_spr.getGlobalBounds();
+		coll_rect_up_fl.top -= 16;
+
+		sf::FloatRect coll_rect_down_fl = gun_spr.getGlobalBounds();
+		coll_rect_down_fl.top += 16;
+
+		std::pair<bool, sf::FloatRect> coll_rect_up = world.main_world.getOvelapWithRect(coll_rect_up_fl);
+		std::pair<bool, sf::FloatRect> coll_rect_mid = world.main_world.getOvelapWithRect(gun_spr.getGlobalBounds());
+		std::pair<bool, sf::FloatRect> coll_rect_down = world.main_world.getOvelapWithRect(coll_rect_down_fl);
+		if(coll_rect_up.first && coll_rect_mid.first && coll_rect_down.first) {
 			gun_spr.setColor(sf::Color(255,25,25,255));
 			allowedToplace = false;
 		}
 
 		if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
 			gun_spr.rotate(-1);
+			gun_spr.setPosition(pos.x, pos.y);	
 		}
 		else {
 			gun_spr.setRotation(0);
@@ -69,12 +80,15 @@ class PlaceItem : public Item {
 	void use(const sf::Vector2f& player,const sf::Vector2f& mouse, World&world) {
 		if(!allowedToplace) return;
 		if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-			vx_man.build_image(sf::Vector2i(mouse), copy_, &world.add_worlds, gun_spr.getRotation(), 1.0f);
+			vx_man.build_image(sf::Vector2i(mouse), copy_, &world.add_worlds, gun_spr.getRotation(), 3.0f);
 		} else {
-			vx_man.build_image(sf::Vector2i(mouse), copy_, nullptr);
+			vx_man.build_image(sf::Vector2i(mospos), copy_, nullptr);
 		}
 	}
 private:
+
+	sf::Vector2i mospos;
+
 
 	bool allowedToplace = true;
 	bool launchLoaded = false;

@@ -16,6 +16,21 @@ public:
     }
 
     bool load(tgui::BackendGui& gui, Inventory& inv, VoxelManager& vx) {
+        try{
+			tgui::Theme theme = tgui::Theme("res/themes/nanogui.style");
+
+			auto itemcreatorButton = tgui::Button::create("Blueprint creator");
+            itemcreatorButton->setRenderer(theme.getRenderer("Button"));
+            itemcreatorButton->onClick(exitbuttonCallback, std::ref(gui), std::ref(inv), std::ref(vx));
+            itemcreatorButton->setPosition(10,10);
+
+            gui.add(itemcreatorButton);
+            
+
+        } catch(std::exception &ex) {
+            prnerr("Error at ItemCreator UI state. Could not load gui", ex.what());
+            return false;
+        }
         return true;
     }
 
@@ -37,4 +52,11 @@ public:
 
 private:
 
+
+    static void exitbuttonCallback(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
+        gui.removeAllWidgets();
+
+        UIState::currentState = UIState::itemcreator;
+        UIState::currentState->load(gui, inv, vx);
+    }
 };

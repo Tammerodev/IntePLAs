@@ -19,7 +19,7 @@ class ItemCreator : public UIState {
 public:
 
     ItemCreator() {
-        editImg.create(sizeX, sizeY, sf::Color(153, 150, 181,255));
+        editImg.create(sizeX, sizeY, sf::Color(0, 0, 0, 0));
         editTex.create(sizeX, sizeY);
 
         for(int y = 0; y < sizeY; y++) {
@@ -64,15 +64,16 @@ public:
             button_save->setPosition(tgui::Layout2d(200,270));
 
             auto label_sx = tgui::Label::create("x" + std::to_string(sizeX)); 
-            label_sx->setPosition(tgui::Layout2d(200, 300));
+            label_sx->setPosition(tgui::Layout2d(200, 350));
             label_sx->setRenderer(theme.getRenderer("Label"));
 
             auto label_sy = tgui::Label::create("y" + std::to_string(sizeY)); 
-            label_sy->setPosition(tgui::Layout2d(200, 400));
+            label_sy->setPosition(tgui::Layout2d(200, 450));
             label_sy->setRenderer(theme.getRenderer("Label"));
 
             std::vector<tgui::Button::Ptr> element_buttons;
-            element_buttons.push_back(tgui::Button::create("C"));
+            element_buttons.push_back(tgui::Button::create("  "));
+            element_buttons.push_back(tgui::Button::create("C "));
             element_buttons.push_back(tgui::Button::create("Li"));
             element_buttons.push_back(tgui::Button::create("Mg"));
             element_buttons.push_back(tgui::Button::create("Na"));
@@ -148,7 +149,7 @@ public:
     }
 
     void draw(sf::RenderTarget& target, tgui::BackendGui& gui) {        
-        canvasSFML->clear();
+        canvasSFML->clear(sf::Color(0, 0, 0, 0));
         canvasSFML->draw(editSpr);
         canvasSFML->draw(preview);
 
@@ -177,7 +178,7 @@ private:
 
     bool isDrawing = true;
 
-    sf::Color selectedColor;
+    sf::Color selectedColor = elm::Carbon;
 
     sf::Vector2f position;
     sf::Vector2f relativeMousePosition;
@@ -216,7 +217,8 @@ private:
     }
 
     static void element_buttonCallback(const tgui::String& name, sf::Color &selColor) {
-        if(name == "C") selColor = elm::Carbon;
+        if(name == "  ") selColor = sf::Color(0, 0, 0, 0);
+        else if(name == "C ") selColor = elm::Carbon;
         else if(name == "Li") selColor = elm::Lithium;
         else if(name == "Mg") selColor = elm::Magnesium;
         else if(name == "Na") selColor = elm::Sodium;
