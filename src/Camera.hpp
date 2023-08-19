@@ -22,6 +22,11 @@ public:
 
     void zoom(const float zoom) {
         view.zoom(zoom);
+        currZoom = zoom;
+    }
+
+    const float getZoom() {
+        return currZoom;
     }
 
     sf::View &getView() {

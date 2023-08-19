@@ -14,7 +14,7 @@
 class UIStateManager {
 public:
 
-    bool load(tgui::BackendGui& gui);
+    bool load(tgui::BackendGui& gui, Inventory &inv, VoxelManager &vx);
 
     void update(const sf::Vector2f&);
 

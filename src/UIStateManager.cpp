@@ -5,8 +5,8 @@ UIState* UIState::nostate = new NoUIState();
 
 UIState *UIState::currentState = UIState::itemcreator;
 
-bool UIStateManager::load(tgui::BackendGui& gui) {
-    return UIState::currentState->load(gui);
+bool UIStateManager::load(tgui::BackendGui& gui, Inventory &inv, VoxelManager &vx) {
+    return UIState::currentState->load(gui, inv, vx);
 }
 
 void UIStateManager::update(const sf::Vector2f&pos) {

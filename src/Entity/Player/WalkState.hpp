@@ -9,7 +9,7 @@ public:
     virtual void draw(sf::RenderTarget&,sf::Sprite&);
     virtual void input(bool);
 private:
-    float speed = 1.0f;
+    float speed = 0.25f;
     sf::Vector2i voxelpos;
     sf::Clock timer;
 

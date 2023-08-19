@@ -32,14 +32,18 @@ public:
 	void input(sf::Event &ev);
 	void statexit();
 
-	void draw(sf::RenderTarget&window, tgui::BackendGui&);
+	void draw(sf::RenderWindow& window, tgui::BackendGui&);
 private:
+
+	bool GUIfocusedOnObject = false;
 
 	bool slowmo = false;
 	sf::Clock clock;
 
  	sf::Vector2f mousepos;
 	sf::Vector2f world_mousepos;
+	sf::Vector2f window_mousepos;
+
 
 	float lastTime = 0;
 	float fps = 1;

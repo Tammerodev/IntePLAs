@@ -79,7 +79,7 @@ public:
 	void input(sf::Event &e) {
 		if(e.type == sf::Event::Closed) exit(0);
 	}
-	void draw(sf::RenderTarget& window, tgui::BackendGui& gui) {
+	void draw(sf::RenderWindow& window, tgui::BackendGui& gui) {
 
 		window.clear(sf::Color(20, 22, 33));
 

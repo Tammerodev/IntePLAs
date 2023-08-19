@@ -1,4 +1,5 @@
 #pragma once
+#include "World.hpp"
 #include <iostream>
 #include <vector>
 #include "RocketLauncher.hpp"
@@ -15,8 +16,6 @@ public:
         inventory.push_back(std::make_shared<RocketLauncher>(vx));
         inventory.push_back(std::make_shared<DebugPlacer>(vx));
         inventory.push_back(std::make_shared<HeatGun>(vx));
-
-        inventory.push_back(std::make_shared<PlaceItem>(vx,"res/img/Tool/fire.png", "res/img/Player/Player.png"));
     } 
 
     void addItem(VoxelManager&vx, std::shared_ptr<Item> newItem) {
@@ -38,8 +37,21 @@ public:
         inventory[currentItemIndex]->render(targ);
     }
     void renderUI(sf::RenderTarget& targ) {
-        
-        
+        sf::RectangleShape seperator;
+        seperator.setSize(sf::Vector2f(32, 32));
+        seperator.setFillColor(sf::Color(0,0,0,0));
+        seperator.setOutlineThickness(-1);
+        int index = 0;
+
+        for(auto &item : inventory) {
+            if(index == currentItemIndex) seperator.setOutlineColor(sf::Color::Black);
+            else seperator.setOutlineColor(sf::Color::White);
+            const sf::Vector2f position = sf::Vector2f(300 + index * 32, 550);
+            seperator.setPosition(position - sf::Vector2f(32 / 2, 32 / 2));
+            item->inventory_render(targ, position);
+            targ.draw(seperator);
+            ++index;
+        }
     }
 
     std::shared_ptr<Item> getCurrentItem() {

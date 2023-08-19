@@ -63,7 +63,11 @@
         "mutex": "cpp",
         "any": "cpp",
         "variant": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "cstring": "cpp",
+        "unordered_set": "cpp",
+        "regex": "cpp",
+        "typeindex": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

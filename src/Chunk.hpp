@@ -2,7 +2,7 @@
 #include "Voxel.hpp"
 #include <SFML/Graphics.hpp>
 
-static const int chunks_x = 2;
+static const int chunks_x = 128;
 static const int chunks_y = 128;
 
 static const int chunks_negx = 0;

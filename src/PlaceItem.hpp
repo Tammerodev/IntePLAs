@@ -21,6 +21,21 @@ class PlaceItem : public Item {
 		target.draw(gun_spr);
     }
 
+	void inventory_render(sf::RenderTarget&r, const sf::Vector2f &pos) {
+		const sf::Vector2f original_position = gun_spr.getPosition();
+		const float original_rotation = gun_spr.getRotation();
+
+		gun_spr.setPosition(pos);
+		gun_spr.setRotation(90);
+
+		r.draw(gun_spr);
+
+		gun_spr.setPosition(original_position);
+		gun_spr.setRotation(original_rotation);
+
+	}
+
+
 	void setPosition(const sf::Vector2f&p) {
 		gun_spr.setPosition(p);
 	}
@@ -54,7 +69,7 @@ class PlaceItem : public Item {
 	void use(const sf::Vector2f& player,const sf::Vector2f& mouse, World&world) {
 		if(!allowedToplace) return;
 		if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-			vx_man.build_image(sf::Vector2i(mouse), copy_, &world.add_worlds, gun_spr.getRotation(), 10.0f);
+			vx_man.build_image(sf::Vector2i(mouse), copy_, &world.add_worlds, gun_spr.getRotation(), 1.0f);
 		} else {
 			vx_man.build_image(sf::Vector2i(mouse), copy_, nullptr);
 		}

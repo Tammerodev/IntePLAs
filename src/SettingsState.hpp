@@ -8,7 +8,7 @@ public:
 	}
     void update() {printf("update settings state\n");}
 	void input(sf::Event &) {}
-	void draw(sf::RenderTarget&, tgui::BackendGui&) {}
+	void draw(sf::RenderWindow&, tgui::BackendGui&) {}
 	void statexit() {};
 private:
 };

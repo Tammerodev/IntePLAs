@@ -36,6 +36,20 @@ public:
 		target.draw(gun_spr);
     }
 
+	void inventory_render(sf::RenderTarget&r, const sf::Vector2f &pos) {
+		const sf::Vector2f original_position = gun_spr.getPosition();
+		const float original_rotation = gun_spr.getRotation();
+
+		gun_spr.setPosition(pos);
+		gun_spr.setRotation(90);
+
+		r.draw(gun_spr);
+
+		gun_spr.setPosition(original_position);
+		gun_spr.setRotation(original_rotation);
+
+	}
+
     void setPosition(const sf::Vector2f&p) {
 		gun_spr.setPosition(p);
 	}

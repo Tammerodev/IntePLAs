@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "PlayerUI.hpp"
 
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
@@ -10,7 +11,7 @@
 
 class UIState {
 public:
-	virtual bool load(tgui::BackendGui& gui) = 0;
+	virtual bool load(tgui::BackendGui& gui, Inventory& inv, VoxelManager& vx) = 0;
 	virtual void update(const sf::Vector2f&) = 0;
 	virtual void input(sf::Event &) = 0;
 	virtual void draw(sf::RenderTarget&, tgui::BackendGui& gui) = 0;

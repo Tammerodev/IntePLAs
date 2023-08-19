@@ -1,5 +1,6 @@
 #pragma once
 #include "UIState.hpp"
+#include "PlayerUI.hpp"
 
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
@@ -14,7 +15,7 @@ public:
 
     }
 
-    bool load(tgui::BackendGui& gui) {
+    bool load(tgui::BackendGui& gui, Inventory& inv, VoxelManager& vx) {
         return true;
     }
 

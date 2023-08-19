@@ -35,7 +35,7 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
         perror("Failed to load sound effect");
     if(!BGMusic::load())
         perror("Failed to load background music");
-    if(!uiStateManager.load(gui))
+    if(!uiStateManager.load(gui, inv, world.main_world))
         perror("Failed to load user interface");
     // load only the vertex shader
     if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex));
@@ -76,6 +76,7 @@ void GameState::update()
     matUI.update(world.main_world);
 
 
+
     uiStateManager.update(mousepos);
 
     world.update();
@@ -91,20 +92,24 @@ void GameState::input(sf::Event &ev) {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::F)) slowmo = true; // Slow-mo
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)) slowmo = false; // Slow-mo
 
-    if(Controls::useItem(ev)) {
-        inv.use(player.getPhysicsComponent().transform_position, world_mousepos, world);    
-    }
-    if(Controls::switchItem(ev)) {
-        inv.switchItem();
+    uiStateManager.input(ev);
+
+    if(ev.type == sf::Event::MouseMoved) {
+        mousepos.x = ev.mouseMove.x;
+        mousepos.y = ev.mouseMove.y;
     }
 
+    if(!GUIfocusedOnObject) {
+
+        if(Controls::useItem(ev)) {
+            inv.use(player.getPhysicsComponent().transform_position, world_mousepos, world);    
+        }
+        if(Controls::switchItem(ev)) {
+            inv.switchItem();
+        }
+    }
 
     if(ev.type == sf::Event::KeyReleased) {
-        if(ev.key.code == sf::Keyboard::G) {
-            inv.addItem(world.main_world, std::make_shared<ItemCreateItem>(world.main_world));
-            prndd("Added item");
-        }
-
         if(ev.key.code == sf::Keyboard::Escape) {
             statexit();
             GameState::currentState = GameState::menuState;
@@ -112,18 +117,11 @@ void GameState::input(sf::Event &ev) {
         }
     }
 
-    if(ev.type == sf::Event::MouseMoved) {
-        mousepos.x = ev.mouseMove.x;
-        mousepos.y = ev.mouseMove.y;
-    }
-
 
     if(Controls::zoomin())
         game_camera.zoom(0.99);
     if(Controls::zoomout())
         game_camera.zoom(1.01);
-
-    uiStateManager.input(ev);
 }
 
 void GameState::statexit()
@@ -132,16 +130,15 @@ void GameState::statexit()
     world.save();
 }
 
-void GameState::draw(sf::RenderTarget &window, tgui::BackendGui& gui)
+void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui)
 {    
-
-            
-    world_mousepos = game_camera.getCenterPosition() - sf::Vector2f(window.getSize() / 2u) + mousepos;
-
+    GUIfocusedOnObject = gui.getFocusedChild() != nullptr;
     // Clear renderTexture
     renderTexture.clear();
 
     game_camera.setViewTo(renderTexture);
+
+    world_mousepos = renderTexture.mapPixelToCoords(sf::Vector2i(mousepos));
 
     game_camera.setTarget(player.getPhysicsComponent().transform_position);
 
@@ -159,10 +156,12 @@ void GameState::draw(sf::RenderTarget &window, tgui::BackendGui& gui)
     // Render current item
     inv.render(renderTexture);
 
-        // UI Render
-        renderTexture.setView(window.getDefaultView());
-        matUI.render(renderTexture);
-        uiStateManager.render(renderTexture, gui);
+    // UI Render
+    renderTexture.setView(window.getDefaultView());
+
+    matUI.render(renderTexture);
+    uiStateManager.render(renderTexture, gui);
+    inv.renderUI(renderTexture);
     
     // Display, draw and set shader
     

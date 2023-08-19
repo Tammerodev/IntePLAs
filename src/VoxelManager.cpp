@@ -289,10 +289,14 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
         grp->push_back(object);
         return;
     }
+
     for (int y = p.y;  y < p.y + cimg.getSize().y;  y++) {
         if(y >= world_sy) break;
+        if(y < 0) break;
         for (int x = p.x;  x < p.x + cimg.getSize().x;  x++) {
             if(x >= world_sx) break;
+            if(x < 0) break;
+
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
                 setImagePixelAt(x,y,cimg.getPixel(x-p.x, y-p.y));
                 getVoxelAt(x,y) = getValueFromCol(getImagePixelAt(x,y), sf::Vector2i(x,y));

@@ -62,8 +62,13 @@ Label {
 	TextColor = rgba(255, 255, 255, 215);
 }
 
+Opanel {
+	BackgroundColor = #2e6492;
+}
+
 Panel {
-	BackgroundColor = #2e2e2f;
+	BackgroundColor = #2e6492;
+	
 }
 
 ProgressBar {
