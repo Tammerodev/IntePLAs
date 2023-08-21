@@ -19,7 +19,7 @@ namespace Controls {
     static uint16_t joystick_bind_jump = 0;
     static uint16_t joystick_bind_switchitem = 1;
 
-
+    
 
     static float joystick_treshold = 50; 
 
@@ -27,10 +27,39 @@ namespace Controls {
         Keyboard, Joystick
     } ctrl;
 
-    static ControllerType currentController = ControllerType::Keyboard;
+    inline ControllerType currentController = ControllerType::Keyboard;
+    inline sf::Vector2f windowCursorPos = sf::Vector2f(0, 0);
+    inline sf::Vector2f worldCursorPos = sf::Vector2f(0, 0);
+
     
     static void searchForDevices() {
-        // TODO
+        if(sf::Joystick::isConnected(0))
+            currentController = ControllerType::Joystick;
+        else 
+            currentController = ControllerType::Keyboard;
+    }
+
+    static void setWindowMouseposition(sf::Event& ev) {
+        if(currentController == ControllerType::Keyboard) {
+            if(ev.type == sf::Event::MouseMoved) {
+                windowCursorPos.x = ev.mouseMove.x;
+                windowCursorPos.y = ev.mouseMove.y;
+            }
+        }
+    }
+
+    static void registerGamePadClick(sf::RenderWindow &window) {
+        if(currentController == ControllerType::Joystick) {
+        }
+    }
+
+    static void setWorldMouseposition(sf::RenderTarget &target) {
+        if(currentController == ControllerType::Joystick) {
+            windowCursorPos.x += sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::U) / 10.0;
+            windowCursorPos.y += sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::V) / 10.0;
+        }
+        
+        worldCursorPos = target.mapPixelToCoords(sf::Vector2i(windowCursorPos));
     }
 
     static bool moveRight() {

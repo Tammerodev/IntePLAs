@@ -18,6 +18,7 @@
 #include "BackgroundMusic.hpp"
 #include "PlayerUI.hpp"
 #include "Entity/Player/Controls.hpp"
+#include "Cursor.hpp"
 
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
@@ -40,10 +41,6 @@ private:
 	bool slowmo = false;
 	sf::Clock clock;
 
- 	sf::Vector2f mousepos;
-	sf::Vector2f world_mousepos;
-	sf::Vector2f window_mousepos;
-
 
 	float lastTime = 0;
 	float fps = 1;
@@ -54,6 +51,8 @@ private:
 	Background bg;
 	EffectOverlay effOverlay;
 	UIStateManager uiStateManager;
+
+	Cursor cursor;
 
 	World world;
 

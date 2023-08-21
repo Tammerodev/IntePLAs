@@ -11,7 +11,7 @@
 int main() {
     std::unique_ptr<StateManager> stateManager = std::make_unique<StateManager>();
     srand(time(0));
-    stateManager->createWindow(1080,1920,"IntePLAs",false, 75);
+    stateManager->createWindow(1080,1920,"IntePLAs",false, 0);
     stateManager->init();
     stateManager->gameLoop();
     return 0;

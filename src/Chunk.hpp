@@ -16,10 +16,6 @@ struct Chunk {
     static const int sizeY = 64;
 
     std::array<std::array<Voxel, 64>, 64> arr;
-    
-    std::array<std::array<Voxel, 64>, 64>& requestAccess() {
-        return arr;
-    }
 
     sf::Image &requestImageAccess() {
         return image;

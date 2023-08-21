@@ -58,6 +58,8 @@ int VoxelGroup::load(const sf::Image &copy_img)
         }
     }
 
+    physicsComponent.transform_origin = sf::Vector2f(tex.getSize().x / 2, tex.getSize().y / 2);
+
     return true;
 }
 
@@ -103,13 +105,10 @@ void VoxelGroup::resetUsedFlag()
 
 void VoxelGroup::update()
 {
-        if(getDestroyed()) return;
+    if(getDestroyed()) return;
     
-
     tex.update(img);
     spr.setTexture(tex);
-
-    physicsComponent.transform_origin = sf::Vector2f(tex.getSize().x / 2, tex.getSize().y / 2);
 
     spr.setPosition(physicsComponent.transform_position);
     spr.setRotation(physicsComponent.transform_rotation);

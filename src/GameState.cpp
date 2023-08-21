@@ -23,6 +23,8 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
     game_camera.setCameraMode(CameraMode::Leap);
     game_camera.setZoomLimited(true);
 
+    Controls::searchForDevices();
+
     if(!world.init(s))
         perror("VoxelManager failed to load world");
     if(!bg.load()) 
@@ -37,6 +39,9 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
         perror("Failed to load background music");
     if(!uiStateManager.load(gui, inv, world.main_world))
         perror("Failed to load user interface");
+    if(!cursor.load()) 
+        perror("Failed to load cursor");
+
     // load only the vertex shader
     if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex));
     // load only the fragment shader
@@ -50,10 +55,10 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
 void GameState::update()
 {
     delta_T = deltaClock.restart().asMilliseconds();
+    prndd(delta_T);
 
     shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
     shader.setUniform("resolution",sf::Vector2(1.0f,1.0f));
-
 
     if(world.main_world.explosion_points.size() > 0) {
         effOverlay.effect_explosion(world.main_world.explosion_points.at(world.main_world.explosion_points.size() - 1));
@@ -66,6 +71,7 @@ void GameState::update()
         }
     }
 
+    cursor.setPosition(Controls::worldCursorPos);
     
 
     bg.update(game_camera.getCenterPosition());
@@ -75,13 +81,11 @@ void GameState::update()
     player.update(delta_T);    
     matUI.update(world.main_world);
 
-
-
-    uiStateManager.update(mousepos);
+    uiStateManager.update(Controls::windowCursorPos);
 
     world.update();
-        
-    inv.getCurrentItem()->update(world, world_mousepos, player.getPhysicsComponent().transform_position, delta_T);
+    
+    inv.getCurrentItem()->update(world, Controls::worldCursorPos, player.getPhysicsComponent().transform_position, delta_T);
 
     world.handleCollisionsWithPlayer(player);
 }
@@ -94,15 +98,13 @@ void GameState::input(sf::Event &ev) {
 
     uiStateManager.input(ev);
 
-    if(ev.type == sf::Event::MouseMoved) {
-        mousepos.x = ev.mouseMove.x;
-        mousepos.y = ev.mouseMove.y;
-    }
+    Controls::setWindowMouseposition(ev);
+
 
     if(!GUIfocusedOnObject) {
 
         if(Controls::useItem(ev)) {
-            inv.use(player.getPhysicsComponent().transform_position, world_mousepos, world);    
+            inv.use(player.getPhysicsComponent().transform_position, Controls::worldCursorPos, world);    
         }
         if(Controls::switchItem(ev)) {
             inv.switchItem();
@@ -138,23 +140,17 @@ void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui)
 
     game_camera.setViewTo(renderTexture);
 
-    world_mousepos = renderTexture.mapPixelToCoords(sf::Vector2i(mousepos));
+    Controls::setWorldMouseposition(renderTexture);
 
     game_camera.setTarget(player.getPhysicsComponent().transform_position);
 
-    // Render background
     bg.render(renderTexture);
-
-    // Render player and gun
     player.draw(renderTexture);
-
-    // Render the world
     world.render(renderTexture, game_camera.getCenterPosition());
-
-    // For effects like explosions
     effOverlay.render(renderTexture);
-    // Render current item
     inv.render(renderTexture);
+
+    renderTexture.draw(cursor);
 
     // UI Render
     renderTexture.setView(window.getDefaultView());

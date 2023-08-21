@@ -19,6 +19,14 @@ class PlaceItem : public Item {
 
     void render(sf::RenderTarget &target) {
 		target.draw(gun_spr);
+
+		sf::Vector2i testPosition = sf::Vector2i(gun_spr.getPosition());
+
+		sf::RectangleShape rect;
+		rect.setPosition(sf::Vector2f(testPosition));
+		rect.setSize(sf::Vector2f(3,3));
+		rect.setFillColor(sf::Color::Red);
+		target.draw(rect);
     }
 
 	void inventory_render(sf::RenderTarget&r, const sf::Vector2f &pos) {
@@ -51,22 +59,14 @@ class PlaceItem : public Item {
 
 		// Set position and rotation
 		gun_spr.setPosition(mospos.x + gun_spr.getGlobalBounds().width / 2, mospos.y + gun_spr.getGlobalBounds().height / 2);
-		gun_spr.setColor(sf::Color(255,255,255,200));
-		allowedToplace = true;
 
-		sf::FloatRect coll_rect_up_fl = gun_spr.getGlobalBounds();
-		coll_rect_up_fl.top -= 16;
+		sf::Vector2i testPosition = sf::Vector2i(gun_spr.getPosition());
+		allowedToplace = !vx_man.getPixelCollision(testPosition);
 
-		sf::FloatRect coll_rect_down_fl = gun_spr.getGlobalBounds();
-		coll_rect_down_fl.top += 16;
-
-		std::pair<bool, sf::FloatRect> coll_rect_up = world.main_world.getOvelapWithRect(coll_rect_up_fl);
-		std::pair<bool, sf::FloatRect> coll_rect_mid = world.main_world.getOvelapWithRect(gun_spr.getGlobalBounds());
-		std::pair<bool, sf::FloatRect> coll_rect_down = world.main_world.getOvelapWithRect(coll_rect_down_fl);
-		if(coll_rect_up.first && coll_rect_mid.first && coll_rect_down.first) {
+		if(allowedToplace)
+			gun_spr.setColor(sf::Color(255,255,255,200));
+		else
 			gun_spr.setColor(sf::Color(255,25,25,255));
-			allowedToplace = false;
-		}
 
 		if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
 			gun_spr.rotate(-1);

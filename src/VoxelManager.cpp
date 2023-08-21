@@ -51,6 +51,11 @@ std::pair<bool, sf::FloatRect> VoxelManager::getOvelapWithRectY(const sf::FloatR
     return {false, sf::FloatRect()};
 }
 
+bool VoxelManager::getPixelCollision(sf::Vector2i pos) {
+    boundVector(pos);
+    return getImagePixelAt(pos.x, pos.y).a != 0;
+}
+
 
 int VoxelManager::load(std::string file, bool proced)
 {
@@ -70,11 +75,6 @@ int VoxelManager::load(std::string file, bool proced)
     if(!shader.loadFromMemory(shader_vert, shader_frag)) res = false;
     
     ChunkBounds bounds = ChunkBounds(-chunks_negx, 0, chunks_x, chunks_y);
-
-    prndd(bounds.getArea().startX);
-    prndd(bounds.getArea().startY);
-    prndd(bounds.getArea().endX);
-    prndd(bounds.getArea().endY);
 
     sf::Clock timer;
 
@@ -128,8 +128,8 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
             chIndexer.getChunkAt(x, y).update();
-            for(auto &r : chIndexer.getChunkAt(x, y).rects)  {
-                target.draw(r);
+            for(const auto &r : chIndexer.getChunkAt(x, y).rects)  {
+               target.draw(r);
             }
         }
     }
@@ -183,10 +183,6 @@ for(auto c : mergeChunks) {
                 y1++;
             }
             
-
-            // The problem that took 4 hours of my life
-            // |
-            // \/
             for (int y2 = y; y2 <= y1; y2++) {
                 for (int x2 = x; x2 <= x1; x2++) {
                     getVoxelAt(x,y2).used = true;

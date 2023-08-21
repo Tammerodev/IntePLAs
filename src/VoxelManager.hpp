@@ -27,8 +27,16 @@ public:
     }
     std::pair<bool, sf::FloatRect> getOvelapWithRect(const sf::FloatRect &collider);
     std::pair<bool, sf::FloatRect> getOvelapWithRectY(const sf::FloatRect &collider);
+    bool getPixelCollision(sf::Vector2i pos);
 
     int load(std::string, bool);
+
+    void boundVector(sf::Vector2i &v) {
+        if(v.y < 0) v.y = 0;
+        if(v.x < -chunks_negx) v.x = 0;
+        if(v.y > world_sy - 1) v.y = world_sy - 1;
+        if(v.x > world_sx - 1) v.x = world_sx - 1;
+    }
 
     void initVoxelMap() {
         for (int y = 0;y < world_sy;y++) {
@@ -90,15 +98,15 @@ public:
     }
 
     Voxel &getVoxelAt (const int64_t x, const int64_t y) {
-        return chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).requestAccess()[abs(x%Chunk::sizeX)][abs(y%Chunk::sizeY)];
+        return chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).arr[abs(x%Chunk::sizeX)][abs(y%Chunk::sizeY)];
     }
     
     const sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
-        return chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).requestImageAccess().getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
+        return chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
     }
 
     void setImagePixelAt(const uint64_t x, const uint64_t y, const sf::Color& color) {
-        chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).requestImageAccess().setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
+        chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
     }
 
     MaterialPack &getReceivedMaterials() {
@@ -111,6 +119,9 @@ public:
     std::vector<sf::Vector2i> updateChunks;
 
 private:
+
+    sf::Text text;
+    sf::Font font;
 
     ProcGenerate procGen;
 

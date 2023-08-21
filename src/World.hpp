@@ -21,7 +21,7 @@ public:
         main_world.update();
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
             world->update();
-            std::pair<bool, sf::FloatRect> collision_rect = main_world.getOvelapWithRect(world->getCollider());
+            const std::pair<bool, sf::FloatRect> collision_rect = main_world.getOvelapWithRect(world->getCollider());
             if(collision_rect.first) {
                 world->getPhysicsComponent().velocity = sf::Vector2f(0.0f, 0.0f);
                 world->getPhysicsComponent().transform_position.y -= collision_rect.second.height;
