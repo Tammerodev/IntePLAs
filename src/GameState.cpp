@@ -55,8 +55,8 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
 void GameState::update()
 {
     delta_T = deltaClock.restart().asMilliseconds();
-    prndd(delta_T);
 
+    
     shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
     shader.setUniform("resolution",sf::Vector2(1.0f,1.0f));
 

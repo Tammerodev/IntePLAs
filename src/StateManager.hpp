@@ -36,10 +36,22 @@ public:
 
     }
     void gameLoop(){
+
         MainState::currentState->load("", gui);
         window.setVisible(true);
+
         while(window.isOpen()) {
             MainState::currentState->update();
+
+            sf::Event testevent = MainState::currentState->event_sig();
+
+            if(testevent.type == sf::Event::Closed) {
+                prndd("Closed");
+                window.close();
+            }
+            MainState::currentState->input(testevent);
+
+            gui.handleEvent(testevent);
 
             while(window.pollEvent(wevent)) {
 

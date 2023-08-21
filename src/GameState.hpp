@@ -33,6 +33,32 @@ public:
 	void input(sf::Event &ev);
 	void statexit();
 
+	float timer = 0.f;
+
+	const sf::Event event_sig() {
+		sf::Event tEvent;
+		if(Controls::useUI()) {
+			timer+= 1.1f;
+			sf::Event::MouseButtonEvent press;
+			press.button = sf::Mouse::Button::Left;
+			press.x = Controls::windowCursorPos.x;
+			press.y = Controls::windowCursorPos.y;
+			if(timer < 10.f)
+				tEvent.type = sf::Event::MouseButtonPressed;
+			else {
+				tEvent.type = sf::Event::MouseButtonReleased;
+				timer = 0.f;
+			}
+			tEvent.mouseButton = press;
+		} 
+		else {
+			tEvent.type = sf::Event::SensorChanged;
+		}
+
+
+		return tEvent;
+	}
+
 	void draw(sf::RenderWindow& window, tgui::BackendGui&);
 private:
 

@@ -12,6 +12,14 @@ public:
 	virtual void input(sf::Event &) = 0;
 	virtual void draw(sf::RenderWindow&, tgui::BackendGui&) = 0;
 	virtual void statexit() = 0;
+
+	virtual const sf::Event event_sig() {
+		sf::Event mouseButtonEvent {};
+		mouseButtonEvent.type = sf::Event::SensorChanged;
+
+		return mouseButtonEvent;
+	}
+
 	static MainState* currentState;
 	static MainState *menuState, *settingsState, *gameState;
 private:

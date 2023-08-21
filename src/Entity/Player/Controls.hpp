@@ -94,6 +94,15 @@ namespace Controls {
         return false;
     }
 
+    static bool useUI() {
+        if(currentController == ControllerType::Keyboard) 
+            return sf::Mouse::isButtonPressed(sf::Mouse::Button(mousebind_useitem));
+        else if(currentController == ControllerType::Joystick)
+            return sf::Joystick::isButtonPressed(0, joystick_bind_jump);
+        return false;
+    }
+
+
     static bool switchItem(sf::Event &event) {
         if(currentController == ControllerType::Keyboard) 
             return event.type == sf::Event::MouseButtonPressed && sf::Mouse::isButtonPressed(mousebind_switchitem);
