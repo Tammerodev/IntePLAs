@@ -39,7 +39,7 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
         perror("Failed to load background music");
     if(!uiStateManager.load(gui, inv, world.main_world))
         perror("Failed to load user interface");
-    if(!cursor.load()) 
+    if(!cursor.load(gui)) 
         perror("Failed to load cursor");
 
     // load only the vertex shader
@@ -70,8 +70,6 @@ void GameState::update()
             wrl.explosion_points.pop_back();
         }
     }
-
-    cursor.setPosition(Controls::worldCursorPos);
     
 
     bg.update(game_camera.getCenterPosition());
@@ -150,14 +148,14 @@ void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui)
     effOverlay.render(renderTexture);
     inv.render(renderTexture);
 
-    renderTexture.draw(cursor);
-
     // UI Render
     renderTexture.setView(window.getDefaultView());
 
     matUI.render(renderTexture);
     uiStateManager.render(renderTexture, gui);
     inv.renderUI(renderTexture);
+
+    cursor.draw(renderTexture);
     
     // Display, draw and set shader
     

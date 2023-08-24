@@ -21,7 +21,7 @@ public:
 	}
 
     void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse, World &world) {
-		auto ex = std::make_unique<ExplosiveBullet>(bullet_tx);
+		auto ex = std::make_unique<ExplosiveBullet>(bullet_tx, playerpos);
 		ex->setPosition(playerpos);
 		ex->setRotation(rotationAngle);
 		ex->setVelocity(sf::Vector2f(cos(gun_spr.getRotation() * 3.1415926f / 180.f),sin(gun_spr.getRotation() * 3.1415926f / 180.f)));

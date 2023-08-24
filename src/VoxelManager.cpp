@@ -153,10 +153,9 @@ void VoxelManager::update()
     while (i != voxelsInNeedOfUpdate.end())
     {
         bool del = false;
-        sf::Vector2i p = (*i);
-        heatVoxelAt(p.x, p.y, -elm::getAmbientDissipationFromType(getVoxelAt(p.x,p.y).value));
+        heatVoxelAt(i->x, i->y, -elm::getAmbientDissipationFromType(getVoxelAt(i->x, i->y).value));
 
-        if(getVoxelAt(p.x,p.y).temp <= 0 || getVoxelAt(p.x,p.y).value == 0) {i = voxelsInNeedOfUpdate.erase(i); }
+        if(getVoxelAt(i->x, i->y).temp <= 0 || getVoxelAt(i->x, i->y).value == 0) {i = voxelsInNeedOfUpdate.erase(i); }
         else { ++i; }
 
     }
@@ -166,11 +165,11 @@ void VoxelManager::update()
 void VoxelManager::merge()
 {
 
-for(auto c : mergeChunks) {
+sf::Sprite r;
 
+for(auto c : mergeChunks) {
     chIndexer.getChunkAt(c.x, c.y).rects.clear();
 
-    sf::Sprite r;
     r.setTexture(chIndexer.getChunkAt(c.x, c.y).tx);
     for (int y = c.y * Chunk::sizeY; y < (c.y * Chunk::sizeY) + Chunk::sizeY; y++) {
     for (int x = c.x * Chunk::sizeX; x < (c.x * Chunk::sizeX) + Chunk::sizeX; x++) {
@@ -194,7 +193,7 @@ for(auto c : mergeChunks) {
                     
             r.setPosition(x, y);
             r.setTextureRect(sf::IntRect(x - (c.x * Chunk::sizeX),y - (c.y * Chunk::sizeY),  x1 - x,  y1 -y));
-            chIndexer.getChunkAt(c.x, c.y).rects.push_back(r);
+            chIndexer.getChunkAt(c.x, c.y).rects.emplace_back(r);
         }
     }
     }

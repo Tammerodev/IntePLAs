@@ -6,6 +6,7 @@
 #include "math.hpp"
 #include "Elements.hpp"
 #include "PlayerUI.hpp"
+#include "WidgetManager.hpp"
 
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
@@ -139,7 +140,7 @@ public:
 
         preview.setPosition(snapped_pixpos.x * scaling, snapped_pixpos.y * scaling);
 
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && isDrawing) {
+        if(Controls::useUI() && isDrawing) {
             editImg.setPixel(snapped_pixpos.x, snapped_pixpos.y, selectedColor);
         }
     }
@@ -197,9 +198,8 @@ private:
     uint16_t sizeY = 16;
     float scaling = 20.0f;
 
-
     static void exitbuttonCallback(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
-        gui.removeAllWidgets();
+        removeWidgets(gui);
 
         UIState::currentState = UIState::nostate;
         UIState::currentState->load(gui, inv, vx);

@@ -16,6 +16,7 @@ class MenuState : public MainState {
 public:
 
  	static void buttonCallBack(const tgui::String path, tgui::BackendGui& gui) {
+		MainState::currentState->statexit();
 		gui.removeAllWidgets();
 
 		MainState::currentState = MainState::gameState;
@@ -28,11 +29,9 @@ public:
 		logo.setPosition(0,0);
 		logo.setScale(5,5);
 
-		music.openFromFile("res/music/Bream.wav");
-		music.setVolume(0);
+		music.openFromFile("res/music/Recs.wav");
+		music.setVolume(100);
 		music.play();
-
-		playbtn_tx.loadFromFile(uipath + "playbtn.png");
 
 		font.loadFromFile("res/Fonts/VT323.ttf");
 
@@ -77,10 +76,9 @@ public:
 		}
 	}
 	void input(sf::Event &e) {
-		if(e.type == sf::Event::Closed) exit(0);
+
 	}
 	void draw(sf::RenderWindow& window, tgui::BackendGui& gui) {
-
 		window.clear(sf::Color(20, 22, 33));
 
 		logo.applyTexture();
@@ -88,25 +86,8 @@ public:
 		for(auto & bg : background) {
 			window.draw(bg);
 		}
+
 		window.draw(logo);
-
-		for(auto &i : clickables) {
-			window.draw(*i);
-			i->drawText(window);
-
-			const sf::Vector2f pos = sf::Vector2f(window.mapCoordsToPixel(sf::Vector2f(sf::Mouse::getPosition())));
-
-			if(i->getState(pos) == Button::ButtonState::Click) { 
-				statexit();
-				MainState::currentState = MainState::gameState;
-				MainState::currentState->load(i->getText(), gui); 
-			}
-			if(i->getState(pos) == Button::ButtonState::Hover) { 
-				i->setTextureRect(sf::IntRect(0,24,64,24));
-			} else {
-				i->setTextureRect(sf::IntRect(0,0,64,24));
-			}
-		}
 	}
 	void statexit() {
 		music.stop();

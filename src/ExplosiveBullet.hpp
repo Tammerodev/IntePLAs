@@ -3,7 +3,8 @@
 
 class ExplosiveBullet {
 public:
-    ExplosiveBullet(const sf::Texture &bullet_tx) {
+    ExplosiveBullet(const sf::Texture &bullet_tx, const sf::Vector2f &pos) {
+        setPosition(pos);
         spr.setTexture(bullet_tx);
     }
 
