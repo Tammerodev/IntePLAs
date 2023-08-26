@@ -46,10 +46,8 @@ public:
             sf::Event testevent = MainState::currentState->event_sig();
 
             if(testevent.type == sf::Event::Closed) {
-                prndd("Closed");
                 window.close();
             }
-            MainState::currentState->input(testevent);
 
             gui.handleEvent(testevent);
 

@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "SoundFX.hpp"
 #include "ExplosionInfo.hpp"
 
 class EffectOverlay {
@@ -7,118 +8,87 @@ public:
     int load() {
         int res = 1;
     
-        if(!tx.create(1000,1000)) res = 0;
+        if(!tx.create(2000,2000)) res = 0;
 		background.setPosition(0,0);
 
                
         background.setTexture(tx);
-        background.setTextureRect(sf::IntRect(0,0,1000,1000));
+        background.setTextureRect(sf::IntRect(0,0,2000,2000));
 
-		// load only the vertex shader
-		if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex)) res = 0;
-		// load only the fragment shader
-		if(!shader.loadFromMemory(shader_frag, sf::Shader::Fragment)) res = 0;
-		// load both shaders
-		if(!shader.loadFromMemory(shader_vert, shader_frag)) res = 0;
+		if(!explosion_shader.loadFromFile("res/shaders/default_vertex.glsl", "res/shaders/explosion_fragment.glsl")) res = 0;
+
+        if(!blur_shader.loadFromFile("res/shaders/default_vertex.glsl", "res/shaders/blur_fragment.glsl")) res = 0;
+
+        if(!treshold_shader.loadFromFile("res/shaders/default_vertex.glsl", "res/shaders/treshold_fragment.glsl")) res = 0;
+
+
+        renderTex.create(2000,2000);
+        renderTex2.create(2000,2000);
+
 		return res;
     }
 
     void render(sf::RenderTarget &targ) {
-        targ.draw(background, &shader);
+        renderTex.clear(sf::Color::Transparent);
+        renderTex2.clear(sf::Color::Transparent);
+        renderTex.draw(background, &explosion_shader);
+
+        renderSpr.setTexture(renderTex.getTexture());
+
+        renderTex2.draw(renderSpr, &treshold_shader);
+
+        renderSpr2.setTexture(renderTex2.getTexture());
+        
+        renderSpr.setPosition(renderSpr2.getPosition());
+
+        targ.draw(renderSpr);
+
+        targ.draw(renderSpr2, &blur_shader);
+
+        renderSpr.setPosition(0,0);
+
     }
 
     void update(const sf::Vector2f &view_pos) {
-        shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
-        shader.setUniform("worldpos",background.getPosition());
+        explosion_shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
+        explosion_shader.setUniform("worldpos",background.getPosition());
 
     }
 
     void effect_explosion(const ExplosionInfo& exInfo) {
-        shader.setUniform("explosion", sf::Vector2f(exInfo.position));
-        shader.setUniform("str_", exInfo.strength);
+        explosion_shader.setUniform("explosion", sf::Vector2f(renderSpr.getGlobalBounds().width/2, renderSpr.getGlobalBounds().height/2));
+        explosion_shader.setUniform("str_", exInfo.strength);
         SFX::strong_explosion.play();
 
         shader_time.restart();
-        background.setPosition(exInfo.position.x - background.getGlobalBounds().width/2, exInfo.position.y - background.getGlobalBounds().height/2);
+        background.setPosition(0, 0);
+
+
+        renderSpr.setPosition(0,0);
+        renderSpr2.setPosition(exInfo.position.x - renderSpr.getGlobalBounds().width/2, exInfo.position.y - renderSpr.getGlobalBounds().height/2);
     }
 
     //Todo : Fix shader
 
 private:
+
+    uint16_t width;
+    uint16_t height;
+
+
+    sf::RenderTexture renderTex;   
+    sf::RenderTexture renderTex2;  
+
+    sf::Sprite renderSpr;
+    sf::Sprite renderSpr2;
+
     sf::Sprite background;
     sf::Texture tx;
-	sf::Shader shader;
+	sf::Shader explosion_shader;
+    sf::Shader blur_shader;
+    sf::Shader treshold_shader;
+
 
 	sf::Clock shader_time;
-	const char * shader_frag = 
-    R"( 
-        uniform sampler2D texture;
-		uniform float time;
-        uniform vec2 explosion;
-        uniform vec2 worldpos;
-        uniform float str_;
-
-        float easeOutQuint(const float x) {
-            return 1.0 - pow(1.0 - x, 5.0);
-        }
-
-
-        float random(float seed) {
-            return fract(sin(seed) * 43758.5453);
-        }
-
-        void main( void ) {
-            vec2 position = gl_TexCoord[0].xy + worldpos / 1000;
-
-            const float pixelate = 200.0;
-            
-            vec2 exp_pos = explosion / 1000.0;
-
-            position.x = floor(position.x * pixelate);
-            position.x /= pixelate;
-
-            position.y = floor(position.y * pixelate);
-            position.y /= pixelate;
-            
-            float dist = floor(
-                distance(position,exp_pos) * pixelate
-                );
-            dist /= pixelate;
-
-            float intens = easeOutQuint(time * 5.0) * str_ / 500.0;
-	
-            vec4 color;
-            
-            color.r = 1.0 - dist / intens;
-            color.b = intens - 1.0 * dist;
-
-            color.r = floor(color.r*pixelate);
-            color.r /= pixelate;
-            color.g = floor(color.g*pixelate);
-            color.g /= pixelate;
-            color.b = floor(color.b*pixelate);
-            color.b /= pixelate;
-
-            color.a = color.r;
-
-            gl_FragColor = color;
-        }
-			
-    )";
-
-    const char * shader_vert = 
-    R"( 
-        void main()
-        {
-            // transform the vertex position
-            gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
-
-            // transform the texture coordinates
-            gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
-
-            // forward the vertex color
-            gl_FrontColor = gl_Color;
-        }
-    )";
 
 };
