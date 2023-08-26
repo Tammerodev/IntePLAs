@@ -1,12 +1,12 @@
 uniform sampler2D texture;
 
-const float treshold = 0.3;
+const float treshold = 0.2;
 
 void main() {
     vec2 texCoords = gl_TexCoord[0].xy;
     vec4 color = texture2D(texture, texCoords);
 
-    float brightness = (color.r + color.b + color.g) / 3.0;
+    float brightness = (color.r + color.b + color.g + color.a) / 4.0;
 
     if(brightness >= treshold) {
         color = color;

@@ -52,6 +52,7 @@ public:
     void update(const sf::Vector2f &view_pos) {
         explosion_shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
         explosion_shader.setUniform("worldpos",background.getPosition());
+        blur_shader.setUniform("kernelSize", 20);
 
     }
 

@@ -145,8 +145,9 @@ void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui)
     bg.render(renderTexture);
     player.draw(renderTexture);
     world.render(renderTexture, game_camera.getCenterPosition());
-    effOverlay.render(renderTexture);
     inv.render(renderTexture);
+    
+    effOverlay.render(renderTexture);
 
     // UI Render
     renderTexture.setView(window.getDefaultView());
