@@ -3,6 +3,7 @@
 #include <thread>
 #define DEBUG 1
 #define USE_MULTITHREADING 1
+#define PREALLOCATE_EFFECTS_COUNT 10
 
 #if DEBUG
     #define prndd(x) std::cout << ">" << x <<  "   time : "<<time(0) << std::endl;

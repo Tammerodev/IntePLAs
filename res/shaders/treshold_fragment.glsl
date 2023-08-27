@@ -11,7 +11,7 @@ void main() {
     if(brightness >= treshold) {
         color = color;
     } else {
-        color = vec4(0,0,0,0);
+        color = vec4(0.0, 0.0, 0.0, 0.0);
     }
    
     gl_FragColor = gl_Color * color;

@@ -1,3 +1,7 @@
+
+precision lowp float;
+
+
 uniform sampler2D texture;
 uniform float time;
 uniform vec2 explosion;
@@ -9,14 +13,12 @@ float cubicEaseIn(float t, float d) {
     if(t > 1.0) {
         t = 0.0;
     }
-    float halfTime = 0.01;
     float retVal = 0.0;
 
-    if(t <= halfTime) {
+    if(t <= 0.01) {
         retVal = 1.0 - pow(1 - t, 3.0);
     } else {
-        float time = t - halfTime;
-        retVal = cos((time * 3.14) / 2.0);
+        retVal = cos(((t - 0.01) * 3.14) / 2.0);
     }
 
     if(retVal <= 0.0) retVal = 0.0;
@@ -24,9 +26,9 @@ float cubicEaseIn(float t, float d) {
 }
 
 void main( void ) {
-    vec2 position = gl_TexCoord[0].xy + worldpos / 2000;
+    vec2 position = gl_TexCoord[0].xy + worldpos / 2000.0;
 
-    float pixelate = 60.0;
+    float pixelate = 160.0;
     
     vec2 exp_pos = explosion / 2000.0;
 
@@ -41,7 +43,7 @@ void main( void ) {
         );
     dist /= pixelate;
 
-    float intens = cubicEaseIn(time * 4.0, 5.0) * str_ / 500.0;
+    float intens = cubicEaseIn(time * 4.0, 5.0) * str_ / 2500.0;
 
     vec4 color = vec4(1.0);
     
@@ -49,7 +51,10 @@ void main( void ) {
     color.b = color.r - time * 10.0;
     color.g = color.r - time * 5.0;
 
-    color.a = (color.r) / 1.0;
+    color.a = color.r;
+    if(color.a < 0.2) {
+        color.a = 0.0;
+    }
 
     color.r = floor(color.r*pixelate);
     color.r /= pixelate;
@@ -57,8 +62,6 @@ void main( void ) {
     color.g /= pixelate;
     color.b = floor(color.b*pixelate);
     color.b /= pixelate;
-    color.a = floor(color.a*pixelate);
-    color.a /= pixelate;
 
     gl_FragColor = color;
 }

@@ -1,3 +1,4 @@
+precision lowp float;
 
 uniform sampler2D textureSampler;
 uniform int kernelSize;  // Adjust this for different levels of blur
@@ -7,7 +8,7 @@ void main()
     vec2 TexCoord = gl_TexCoord[0].xy;
 
     vec2 texelSize = 1.0 / textureSize(textureSampler, 0);
-    vec4 result = vec4(1.0, 1.0, 1.0, 1.0);
+    vec4 result = vec4(0.0, 0.0, 0.0, 0.0);
 
     // Horizontal pass
     for (int i = -kernelSize; i <= kernelSize; ++i)
