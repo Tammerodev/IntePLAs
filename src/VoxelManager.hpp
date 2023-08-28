@@ -113,7 +113,7 @@ public:
         return materialpack;
     }
 
-    void build_image(const sf::Vector2i&, const sf::Image&, std::vector<VoxelGroup>*, float angle = 0.f, float mag = 0.f);
+    void build_image(const sf::Vector2i&, const sf::Image&, std::list<VoxelGroup>*, float angle = 0.f, float mag = 0.f);
 
     std::vector <ExplosionInfo> explosion_points;
     std::vector<sf::Vector2i> updateChunks;
@@ -131,6 +131,9 @@ private:
 
     std::list<sf::Vector2i> voxelsInNeedOfUpdate;
     std::vector<sf::Vector2i> mergeChunks;
+
+    std::vector<sf::Vector2i> burningVoxels;
+
 
     sf::Shader shader; 
     std::vector<float> hmap1D;

@@ -43,15 +43,17 @@ void main( void ) {
         );
     dist /= pixelate;
 
-    float intens = cubicEaseIn(time * 4.0, 5.0) * str_ / 2500.0;
+    float intens = cubicEaseIn(time * 4.0, 15.0) * str_ / 1500.0;
 
     vec4 color = vec4(1.0);
     
-    color.r = 1.0 - dist / intens;
-    color.b = color.r - time * 10.0;
-    color.g = color.r - time * 5.0;
+    color.r = 1.0 - dist / (intens);
+    color.b = color.r - (time * 10.0);
+    color.g = color.r - (time * 10.0);
 
-    color.a = color.r;
+    color *= 2.0;
+
+    color.a = (color.r);
     if(color.a < 0.2) {
         color.a = 0.0;
     }

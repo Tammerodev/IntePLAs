@@ -67,7 +67,8 @@
         "cstring": "cpp",
         "unordered_set": "cpp",
         "regex": "cpp",
-        "typeindex": "cpp"
+        "typeindex": "cpp",
+        "fstream": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

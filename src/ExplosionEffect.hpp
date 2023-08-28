@@ -13,10 +13,6 @@ public:
             
 	    explosion_shader.load("res/shaders/default_vertex.glsl", "res/shaders/explosion_fragment.glsl");
 
-        blur_shader.load("res/shaders/default_vertex.glsl", "res/shaders/blur_fragment.glsl");
-
-        treshold_shader.load("res/shaders/default_vertex.glsl", "res/shaders/treshold_fragment.glsl");
-
         background.setTexture(tx);
         background.setTextureRect(sf::IntRect(0,0,2000,2000));
 
@@ -33,7 +29,6 @@ public:
 
         explosion_shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
         explosion_shader.setUniform("worldpos",background.getPosition());
-        blur_shader.setUniform("kernelSize", 13);
     }
 
     void explode(const ExplosionInfo& exInfo) {
@@ -58,7 +53,7 @@ public:
 
         renderSpr.setTexture(renderTex.getTexture());
 
-        renderTex2.draw(renderSpr, &treshold_shader);
+        renderTex2.draw(renderSpr);
 
         renderSpr2.setTexture(renderTex2.getTexture());
         
@@ -66,7 +61,7 @@ public:
 
         targ.draw(renderSpr);
 
-        targ.draw(renderSpr2, &blur_shader);
+        targ.draw(renderSpr2);
 
         renderSpr.setPosition(0,0);
 
@@ -78,8 +73,6 @@ public:
 private:
     bool exploding = false;    
 	Shader explosion_shader;
-    Shader blur_shader;
-    Shader treshold_shader;
 
     uint16_t width;
     uint16_t height;

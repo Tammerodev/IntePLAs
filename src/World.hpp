@@ -27,6 +27,7 @@ public:
                 world->getPhysicsComponent().transform_position.y -= collision_rect.second.height;
 
                 world->destroyPart(main_world, collision_rect.second);
+                break;
             }
         }
 
@@ -67,7 +68,7 @@ public:
     }
 
 	VoxelManager main_world {};
-    std::vector<VoxelGroup> add_worlds {};
+    std::list<VoxelGroup> add_worlds {};
 private:
 
 };

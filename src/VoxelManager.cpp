@@ -103,8 +103,13 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
     if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
         int val = vox.value;
         damageVoxelAt(x,y);
-        if(val == elm::ValLithium) 
+        if(val == elm::ValLithium) {
             hole(sf::Vector2i(x,y),100,true,2000);
+        }
+    }
+
+    if(vox.value == elm::ValMagnesium) {
+        burningVoxels.push_back(sf::Vector2i(x,y));
     }
 
     if(vox.temp <= 0) vox.temp = 0;
@@ -122,8 +127,6 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
     ChunkBounds draw_bounds((center.x / Chunk::sizeX) - 13, (center.y / Chunk::sizeY) - 13, 
                             (center.x / Chunk::sizeX) + 13, (center.y / Chunk::sizeY) + 13);
     ChunkArea draw_area = draw_bounds.getArea();
-
-    draw_area.startY = 0;
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
@@ -160,6 +163,15 @@ void VoxelManager::update()
 
     }
 
+    auto v = burningVoxels.begin();
+    while (v != burningVoxels.end())
+    {
+        heatVoxelAt(v->x, v->y, elm::getAmbientDissipationFromType(getVoxelAt(v->x, v->y).value));
+
+        setImagePixelAt(v->x, v->y, sf::Color(255,255,255));
+
+        ++v;
+    }
 }
 
 void VoxelManager::merge()
@@ -270,18 +282,19 @@ bool VoxelManager::generateVegetation()
 }
 
 
-void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std::vector<VoxelGroup>* grp, float angle, float mag)
+void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std::list<VoxelGroup>* grp, float angle, float mag)
 {
     if(grp != nullptr) {
         VoxelGroup object = VoxelGroup();
         object.load(cimg);
+
         object.getPhysicsComponent().transform_position = sf::Vector2f(p);
 
         float angleRadians = angle * static_cast<float>(M_PI) / 180.0f;
         object.getPhysicsComponent().velocity.x = mag * cos(angleRadians);
         object.getPhysicsComponent().velocity.y = mag * sin(angleRadians);
 
-        grp->push_back(object);
+        grp->emplace_back(object);
         return;
     }
 

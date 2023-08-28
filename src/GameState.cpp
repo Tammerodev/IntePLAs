@@ -41,24 +41,17 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
         perror("Failed to load user interface");
     if(!cursor.load(gui)) 
         perror("Failed to load cursor");
-
-    // load only the vertex shader
-    if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex));
-    // load only the fragment shader
-    if(!shader.loadFromMemory(shader_frag, sf::Shader::Fragment));
-    // load both shaders
-    if(!shader.loadFromMemory(shader_vert, shader_frag));
+    if(!shaderEffect.load(window_width, window_height)) 
+        perror("Failed to load bloom effect");
 
     return true;
 }
 
 void GameState::update()
 {
-    delta_T = deltaClock.restart().asMilliseconds();
-
+    GameStatus::updateBrightness();
     
-    shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
-    shader.setUniform("resolution",sf::Vector2(1.0f,1.0f));
+    delta_T = deltaClock.restart().asMilliseconds();
 
     if(world.main_world.explosion_points.size() > 0) {
         effOverlay.effect_explosion(world.main_world.explosion_points.at(world.main_world.explosion_points.size() - 1));
@@ -79,8 +72,8 @@ void GameState::update()
     player.update(delta_T);    
     matUI.update(world.main_world);
 
+    shaderEffect.update();
     uiStateManager.update(Controls::windowCursorPos);
-
     world.update();
     
     inv.getCurrentItem()->update(world, Controls::worldCursorPos, player.getPhysicsComponent().transform_position, delta_T);
@@ -148,19 +141,22 @@ void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui)
     inv.render(renderTexture);
     
     effOverlay.render(renderTexture);
-
-    // UI Render
-    renderTexture.setView(window.getDefaultView());
-
-    matUI.render(renderTexture);
-    uiStateManager.render(renderTexture, gui);
-    inv.renderUI(renderTexture);
-
-    cursor.draw(renderTexture);
     
     // Display, draw and set shader
     
     renderTexture.display();
     renderSprite.setTexture(renderTexture.getTexture());
-    window.draw(renderSprite , &shader);
+
+
+    shaderEffect.render(window, renderSprite);
+
+
+    // UI Render
+    window.setView(window.getDefaultView());
+
+    matUI.render(window);
+    uiStateManager.render(window, gui);
+    inv.renderUI(window);
+
+    cursor.draw(window);
 }
