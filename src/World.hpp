@@ -36,14 +36,14 @@ public:
     void handleCollisionsWithPlayer(Player& player) {
         auto res = main_world.getOvelapWithRectY(player.getBottomHitbox()); // Ground
         auto res2 = main_world.getOvelapWithRect(player.getTopHitbox()); // Ground
-        auto res4 = main_world.getOvelapWithRect(player.getRightHitbox()); // Ground
-        auto res3 = main_world.getOvelapWithRect(player.getLeftHitbox()); // Ground
+        auto res4 = main_world.getOvelapWithRectX(player.getRightHitbox()); // Ground
+        auto res3 = main_world.getOvelapWithRectX(player.getLeftHitbox()); // Ground
 
         if(res4.first) {    // Right collision
-            player.getPhysicsComponent().transform_position.x -= res4.second.width + 2;
+            player.getPhysicsComponent().transform_position.x -= res4.second.width;
         }
         if(res3.first) {    // Right collision
-            player.getPhysicsComponent().transform_position.x += res3.second.width + 2;
+            player.getPhysicsComponent().transform_position.x += res3.second.width;
         }
         if(res.first) {     // Colliding with ground
             player.ground();

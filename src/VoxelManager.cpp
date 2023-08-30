@@ -51,6 +51,26 @@ std::pair<bool, sf::FloatRect> VoxelManager::getOvelapWithRectY(const sf::FloatR
     return {false, sf::FloatRect()};
 }
 
+std::pair<bool, sf::FloatRect> VoxelManager::getOvelapWithRectX(const sf::FloatRect &collider)
+{
+    ChunkBounds bounds = ChunkBounds(
+        collider.left / Chunk::sizeX - 3,
+        collider.top / Chunk::sizeY - 3,
+        collider.left / Chunk::sizeX + 3,
+        collider.top / Chunk::sizeY + 3);
+
+    for(uint32_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
+    for(uint32_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
+    for(auto &r : chIndexer.getChunkAt(x, y).rects) {
+        if(collider.intersects(r.getGlobalBounds())) {
+            return {true, sf::FloatRect(0,0,collider.width + (collider.left) - r.getGlobalBounds().left, 0)};
+        }   
+    }
+    }
+    }
+    return {false, sf::FloatRect()};
+}
+
 bool VoxelManager::getPixelCollision(sf::Vector2i pos) {
     boundVector(pos);
     return getImagePixelAt(pos.x, pos.y).a != 0;
@@ -163,19 +183,52 @@ void VoxelManager::update()
 
     }
 
+    sf::Vector2i nextVoxelPos;
+
+    bool step = false;
+
     auto v = burningVoxels.begin();
     while (v != burningVoxels.end())
     {
-        heatVoxelAt(v->x, v->y, elm::getAmbientDissipationFromType(getVoxelAt(v->x, v->y).value));
+        int direction = math::randIntInRange(0, 3);
 
-        setImagePixelAt(v->x, v->y, sf::Color(255,255,255));
+        nextVoxelPos = *v;
+        
+        if(step) {
+            if(direction == 0) nextVoxelPos.x += 1;
+            if(direction == 1) nextVoxelPos.x -= 1;
+            if(direction == 2) nextVoxelPos.y += 1;
+            if(direction == 3) nextVoxelPos.y -= 1;
 
-        ++v;
+            step = false;
+        }
+
+        bool found = false;
+        //(std::find(burningVoxels.begin(), burningVoxels.end(), nextVoxelPos) != burningVoxels.end());
+
+        if(!found) {
+
+           *v = nextVoxelPos;
+        }
+
+        heatVoxelAt(nextVoxelPos.x, nextVoxelPos.y, 25);
+        if(getVoxelAt(nextVoxelPos.x, nextVoxelPos.y).value == 0) {
+            step = true;
+            v = burningVoxels.erase(v);
+        }
+        else {
+            ++v;
+        }
+
     }
+
+    mergeChunkBounds(ChunkBounds((nextVoxelPos.x / Chunk::sizeX) - 2, (nextVoxelPos.y / Chunk::sizeX) - 2,
+                                    (nextVoxelPos.x / Chunk::sizeY) + 2, (nextVoxelPos.y / Chunk::sizeY) + 2), true);
 }
 
 void VoxelManager::merge()
 {
+
 
 sf::Sprite r;
 
@@ -251,7 +304,9 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
             if(x > world_sx) break;
             Voxel &voxel = getVoxelAt(x,y);
             if(voxel.value == 0) continue;
+
             const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
+
             if(distance < intensity) {
                 voxelsInNeedOfUpdate.push_back(sf::Vector2i(x,y));
                 if(force) damageVoxelAt(x,y);
@@ -260,8 +315,10 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
         }
     }
 
-    mergeChunkBounds(ChunkBounds((p.x / Chunk::sizeX) - 2, (p.y / Chunk::sizeX) - 2,
-                                 (p.x / Chunk::sizeY) + 2, (p.y / Chunk::sizeY) + 2));
+    int mergeChunkRadius = (intensity / Chunk::sizeX) + 3;
+
+    mergeChunkBounds(ChunkBounds((p.x / Chunk::sizeX) - mergeChunkRadius, (p.y / Chunk::sizeX) - mergeChunkRadius,
+                                 (p.x / Chunk::sizeY) + mergeChunkRadius, (p.y / Chunk::sizeY) + mergeChunkRadius));
 
 }
 
@@ -277,7 +334,32 @@ bool VoxelManager::generate()
 
 bool VoxelManager::generateVegetation()
 {
-    // TODO implement 
+
+    int ind = 0;
+
+    sf::Image image;
+    image.loadFromFile("res/img/Proc.png");
+
+    for(auto h : procGen.heightMap1D) {
+
+        sf::IntRect sourceRect = sf::IntRect(16 * math::randIntInRange(0, 7), 0, 16, 16);
+
+        sf::Image selectedImage;
+        selectedImage.create(sourceRect.width, sourceRect.height);
+
+        for (int x = 0; x < sourceRect.width; ++x) {
+            for (int y = 0; y < sourceRect.height; ++y) {
+                selectedImage.setPixel(x, y, image.getPixel(sourceRect.left + x, sourceRect.top + y));
+            }
+        }
+
+        if(math::randIntInRange(0, 20) < 5) {
+            build_image(sf::Vector2i(ind, (2048 - h) - sourceRect.height + 6), selectedImage, nullptr);
+        }
+
+        ind++;
+    }
+
     return true;
 }
 

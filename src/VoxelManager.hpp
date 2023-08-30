@@ -26,6 +26,8 @@ public:
 
     }
     std::pair<bool, sf::FloatRect> getOvelapWithRect(const sf::FloatRect &collider);
+    std::pair<bool, sf::FloatRect> getOvelapWithRectX(const sf::FloatRect &collider);
+
     std::pair<bool, sf::FloatRect> getOvelapWithRectY(const sf::FloatRect &collider);
     bool getPixelCollision(sf::Vector2i pos);
 
@@ -82,14 +84,14 @@ public:
     bool generateVegetation();
 
 
-    void mergeChunkBounds(const ChunkBounds &bounds) {
+    void mergeChunkBounds(const ChunkBounds &bounds, bool pmerge = true) {
         for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
         for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
                 mergeChunks.push_back(sf::Vector2i(x, y));
             }
         }
 
-        merge();
+        if(pmerge) merge();
     }
 
     void save() {
@@ -120,6 +122,8 @@ public:
 
 private:
 
+    float burn_timer = 0.0f;
+
     sf::Text text;
     sf::Font font;
 
@@ -132,7 +136,7 @@ private:
     std::list<sf::Vector2i> voxelsInNeedOfUpdate;
     std::vector<sf::Vector2i> mergeChunks;
 
-    std::vector<sf::Vector2i> burningVoxels;
+    std::list<sf::Vector2i> burningVoxels;
 
 
     sf::Shader shader; 

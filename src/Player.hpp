@@ -48,23 +48,23 @@ void update_hitboxtop() {
 }
 
 void update_hitboxbottom() {
-    hitbox_bottom.height = 5;
+    hitbox_bottom.height = 2;
     hitbox_bottom.width = 12;
-    hitbox_bottom.top = physComp.transform_position.y + 20;
+    hitbox_bottom.top = physComp.transform_position.y + 23;
     hitbox_bottom.left = physComp.transform_position.x + 3;
 }
 
 void update_hitboxleft() {
-    hitbox_left.height = 8;
+    hitbox_left.height = 12;
     hitbox_left.width = 5;
-    hitbox_left.top = physComp.transform_position.y + 8;
+    hitbox_left.top = physComp.transform_position.y + 0;
     hitbox_left.left = physComp.transform_position.x - 2;
 }
 
 void update_hitboxright() {
-    hitbox_right.height = 8;
+    hitbox_right.height = 12;
     hitbox_right.width = 5;
-    hitbox_right.top = physComp.transform_position.y + 8;
+    hitbox_right.top = physComp.transform_position.y + 0;
     hitbox_right.left = physComp.transform_position.x + 20;
 }
 

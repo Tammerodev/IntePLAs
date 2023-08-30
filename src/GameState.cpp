@@ -79,6 +79,12 @@ void GameState::update()
     inv.getCurrentItem()->update(world, Controls::worldCursorPos, player.getPhysicsComponent().transform_position, delta_T);
 
     world.handleCollisionsWithPlayer(player);
+
+
+    if(Controls::zoomin())
+        game_camera.zoom(0.99);
+    if(Controls::zoomout())
+        game_camera.zoom(1.01);
 }
 
 void GameState::input(sf::Event &ev) {
@@ -110,11 +116,6 @@ void GameState::input(sf::Event &ev) {
         }
     }
 
-
-    if(Controls::zoomin())
-        game_camera.zoom(0.99);
-    if(Controls::zoomout())
-        game_camera.zoom(1.01);
 }
 
 void GameState::statexit()

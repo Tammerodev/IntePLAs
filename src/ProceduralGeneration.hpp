@@ -14,12 +14,12 @@ public:
 
         std::array<std::array<sf::Color, 6>, 6> colorLayers {
             std::array<sf::Color, 6> {
-                sf::Color(19,109,21),
-                sf::Color(17,124,19),
-                sf::Color(19,133,16),            
-                sf::Color(50, 168, 82),            
-                sf::Color (38,139,7),
-                sf::Color(65,152,10)
+                sf::Color(69, 169, 65),
+                sf::Color(69, 169, 69),
+                sf::Color(61, 160, 65),            
+                sf::Color(68, 168, 69),            
+                sf::Color(59, 169, 70),
+                sf::Color(65, 149, 70)
             },
             
             std::array<sf::Color, 6> {
@@ -90,8 +90,7 @@ public:
         return true;
     }
 
-    
-private:
+
     std::list<float> heightMap1D;
     bool generationDone;
 };
