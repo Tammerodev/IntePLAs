@@ -139,6 +139,11 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
     uint64_t valR = vox.temp * 1; 
     if(valR >= 255) valR = 255;
     currPixel.r = valR;
+    if(valR > 300) {
+        currPixel.g = 255;
+        currPixel.b = 255;
+    }
+
     setImagePixelAt(x,y,currPixel);
 }
 
@@ -211,7 +216,7 @@ void VoxelManager::update()
            *v = nextVoxelPos;
         }
 
-        heatVoxelAt(nextVoxelPos.x, nextVoxelPos.y, 25);
+        heatVoxelAt(nextVoxelPos.x, nextVoxelPos.y, 3);
         if(getVoxelAt(nextVoxelPos.x, nextVoxelPos.y).value == 0) {
             step = true;
             v = burningVoxels.erase(v);

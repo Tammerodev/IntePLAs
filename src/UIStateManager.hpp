@@ -3,7 +3,7 @@
 #include "ItemCreatorUIState.hpp"
 #include "NoUIState.hpp"
 
-#include "Entity/Player/Controls.hpp"
+#include "Controls.hpp"
 
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>

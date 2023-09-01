@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Entity/Player/Controls.hpp"
+#include "Controls.hpp"
 #include <SFML/Graphics.hpp>
-#include "Entity/Player/PlayerState.hpp"
-#include "Entity/Player/IdleState.hpp"
-#include "Entity/Player/WalkState.hpp"
-#include "Entity/Player/JumpState.hpp"
+#include "PlayerState.hpp"
+#include "IdleState.hpp"
+#include "WalkState.hpp"
+#include "JumpState.hpp"
 #include "PhysicsComponent.hpp"
 #include <iostream>
 #include "Collider.hpp"

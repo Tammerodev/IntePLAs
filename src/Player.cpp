@@ -13,7 +13,7 @@ int Player::load() {
     return 1;
 }
 void Player::update(float dt) {
-    PlayerState::currentState->update(physComp.transform_position,physComp.velocity.y,dt);
+    PlayerState::currentState->update(physComp, dt);
     PlayerState::currentState->input(grounded);
     if(!grounded) {
         physComp.update();

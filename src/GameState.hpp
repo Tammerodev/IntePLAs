@@ -17,7 +17,7 @@
 #include "Camera.hpp"
 #include "BackgroundMusic.hpp"
 #include "PlayerUI.hpp"
-#include "Entity/Player/Controls.hpp"
+#include "Controls.hpp"
 #include "Cursor.hpp"
 #include "GameStatus.hpp"
 

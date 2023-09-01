@@ -3,8 +3,8 @@
 void JumpState::enter() {
 }
 
-void JumpState::update(sf::Vector2f&pos,float&yacc,float dt) {
-    yacc = -4.0;
+void JumpState::update(PhysicsComponent& physComp,float dt) {
+    physComp.velocity.y = -4.0;
     PlayerState::currentState = idleState;
 }
 

@@ -4,8 +4,9 @@ void IdleState::enter() {
 
 }
 
-void IdleState::update(sf::Vector2f&,float&, float dt) {
+void IdleState::update(PhysicsComponent& physComp, float dt) {
 
+    physComp.velocity.x -= physComp.velocity.x / 10.0;
 }
 
 void IdleState::draw(sf::RenderTarget &window, sf::Sprite &sprite){

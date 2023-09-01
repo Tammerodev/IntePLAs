@@ -3,7 +3,7 @@
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Widget.hpp>
 
-#include "Entity/Player/Controls.hpp"
+#include "Controls.hpp"
 
 class Cursor : private sf::Sprite {
 public:
