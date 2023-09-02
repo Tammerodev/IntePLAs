@@ -32,6 +32,9 @@
 
 class GameState : public MainState {
 public:
+	GameState() {
+
+	}
 	bool load(const std::string s, tgui::BackendGui& gui);
     void update();
 	void input(sf::Event &ev);

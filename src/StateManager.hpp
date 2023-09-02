@@ -27,8 +27,6 @@ public:
         window.setFramerateLimit(fps_limit);
         window.setVerticalSyncEnabled(true);
         window.setVisible(false);
-        //window.setMouseCursorGrabbed(true);
-        //window.setMouseCursorVisible(false);
 
         gui.setWindow(window);
     }

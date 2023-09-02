@@ -17,6 +17,8 @@ void Player::update(float dt) {
     PlayerState::currentState->input(grounded);
     if(!grounded) {
         physComp.update();
+    } else {
+        physComp.transform_position.x += physComp.velocity.x;
     }
     spr.setPosition(physComp.transform_position);
 
@@ -30,10 +32,4 @@ void Player::update(float dt) {
 
 void Player::draw(sf::RenderTarget & window) {
     PlayerState::currentState->draw(window, spr);
-
-    hitbox_top.debugdraw(window);
-    hitbox_bottom.debugdraw(window);
-    hitbox_left.debugdraw(window);
-    hitbox_right.debugdraw(window);
-    
 }

@@ -1,18 +1,25 @@
-/*
-    COMPILE :
-    g++ src/Start/main.cpp -o app -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
-*/
-
-
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include "StateManager.hpp"
 #include <memory>
 
 int main() {
-    std::unique_ptr<StateManager> stateManager = std::make_unique<StateManager>();
+
+    auto path = std::filesystem::current_path(); //Get working path
+
+    path = path.parent_path();                  // Move back one directory 
+
+    std::cout << "Current working path" << path << std::endl;
+
+    std::filesystem::current_path(path); //Set working path
+
+
+    StateManager stateManager = StateManager();
+    
     srand(time(0));
-    stateManager->createWindow(1080,1920,"IntePLAs",false, 0);
-    stateManager->init();
-    stateManager->gameLoop();
+
+    stateManager.createWindow(1080,1920,"IntePLAs",false, 0);
+    stateManager.init();
+    stateManager.gameLoop();
     return 0;
 }

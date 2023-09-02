@@ -35,7 +35,7 @@ public:
 
     void handleCollisionsWithPlayer(Player& player) {
         auto res = main_world.getOvelapWithRectY(player.getBottomHitbox()); // Ground
-        auto res2 = main_world.getOvelapWithRect(player.getTopHitbox()); // Ground
+        auto res2 = main_world.getOvelapWithRectY(player.getTopHitbox()); // Ground
         auto res4 = main_world.getOvelapWithRectX(player.getRightHitbox()); // Ground
         auto res3 = main_world.getOvelapWithRectX(player.getLeftHitbox()); // Ground
 
@@ -52,7 +52,7 @@ public:
         }
 
         if(res2.first) {    // Head collision
-            player.getPhysicsComponent().transform_position.y += res2.second.height;
+            player.getPhysicsComponent().transform_position.y -= res2.second.height;
         }
     }
 

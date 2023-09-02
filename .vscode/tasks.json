@@ -5,11 +5,19 @@
             "label": "C/C++: g++ build active file",
             "command": "/usr/bin/g++",
             "args": [
-                "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "-O3",
+                "*.cpp",
+                "-lsfml-system",
+                "-lsfml-window",
+                "-lsfml-graphics",
+                "-lsfml-audio",
+                "-lsfml-network",
+                "-ltgui",
+                "-ljsoncpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
+                
             ],
             "options": {
                 "cwd": "${fileDirname}"

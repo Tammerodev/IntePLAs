@@ -1,1 +1,0 @@
-g++ -ffast-math -std=c++23 -O3 src/Voxel.cpp src/UIStateManager.cpp src/VoxelGroup.cpp src/GameState.cpp src/main.cpp src/Player.cpp src/Button.cpp src/IdleState.cpp src/WalkState.cpp src/VoxelManager.cpp src/JumpState.cpp -ltgui -ljsoncpp -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio -lsfml-network -o main 

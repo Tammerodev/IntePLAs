@@ -25,7 +25,7 @@ public:
         currZoom = zoom;
     }
 
-    const float getZoom() {
+    const float getZoom() const {
         return currZoom;
     }
 
@@ -35,9 +35,8 @@ public:
 
     void update(const float dt) {
         if(mode == CameraMode::Leap) {
-            //sf::Vector2f movement = target - view.getCenter();
-            //view.move(movement / 500.0f * dt);
-            view.setCenter(target);
+            sf::Vector2f movement = target - view.getCenter();
+            view.move(movement / 150.0f * dt);
         }
         
     }

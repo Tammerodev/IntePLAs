@@ -4,8 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${vcpkgRoot}/x64-linux/include",
-                "/media/lauri/acc1d3fc-a54d-465a-b6f6-116e7faa91c3/IntePLAs/src",
+                "/media/lauri/External HDD/IntePLAs/src",
                 "${workspaceFolder}"
             ],
             "defines": [],
@@ -14,7 +13,19 @@
             "cppStandard": "c++23",
             "intelliSenseMode": "linux-gcc-x64",
             "compilerArgs": [
-                "${workspaceFolder}"
+                "${workspaceFolder}",
+                "-g",
+                "${file}",
+                "-lsfml-system",
+                "-lsfml-window",
+                "-lsfml-graphics",
+                "-lsfml-audio",
+                "-lsfml-network",
+                "-ltgui",
+                "-ljsoncpp",
+                "-o",
+                "main"
+                
             ]
         }
     ],

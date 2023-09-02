@@ -19,14 +19,6 @@ class PlaceItem : public Item {
 
     void render(sf::RenderTarget &target) {
 		target.draw(gun_spr);
-
-		sf::Vector2i testPosition = sf::Vector2i(gun_spr.getPosition());
-
-		sf::RectangleShape rect;
-		rect.setPosition(sf::Vector2f(testPosition));
-		rect.setSize(sf::Vector2f(3,3));
-		rect.setFillColor(sf::Color::Red);
-		target.draw(rect);
     }
 
 	void inventory_render(sf::RenderTarget&r, const sf::Vector2f &pos) {
