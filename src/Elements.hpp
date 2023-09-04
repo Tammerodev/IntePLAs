@@ -12,6 +12,8 @@ namespace elm {
     const sf::Color Copper {186,140,106};
     const sf::Color Titanium {142,129,149};
     const sf::Color Lead {104,102,107};
+    const sf::Color Water {30,129,176, 100};
+
 
     const uint8_t ValCarbon = 2;
     const uint8_t ValLithium = 3;
@@ -22,6 +24,7 @@ namespace elm {
     const uint8_t ValCopper = 8;
     const uint8_t ValTitanium = 9;
     const uint8_t ValLead = 10;
+    const uint8_t ValWater = 11;
 
     const unsigned short defaultMaxTemp = 1000;
     const unsigned short carbonMaxTemp = 3550;
@@ -33,6 +36,7 @@ namespace elm {
     const unsigned short copperMaxTemp = 1085;
     const unsigned short titaniumMaxTemp = 1668;
     const unsigned short leadMaxTemp = 327;
+    const unsigned short waterMaxTemp = 100;
 
     const unsigned short defaultAmbientDissipation = 1;
     const unsigned short carbonAmbientDissipation = 1;
@@ -44,8 +48,14 @@ namespace elm {
     const unsigned short copperAmbientDissipation = 1;
     const unsigned short titaniumAmbientDissipation = 1;
     const unsigned short leadAmbientDissipation = 1;
+    const unsigned short waterAmbientDissipation = 8;
 
     const unsigned short lithiumExplosion = 100;
+    const unsigned short lithiumExplosionTemp = 100;
+
+    const unsigned short sodiumExplosion = 10;
+    const unsigned short sodiumExplosionTemp = 500;
+
 
     static const unsigned short getMaxTempFromType(const uint8_t type) {
         switch (type)
@@ -68,6 +78,8 @@ namespace elm {
             return titaniumMaxTemp;
         case 10:
             return leadMaxTemp;
+        case 11:
+            return waterMaxTemp;
         default:
             return defaultMaxTemp;
         }
@@ -94,8 +106,14 @@ namespace elm {
             return titaniumAmbientDissipation;
         case 10:
             return leadAmbientDissipation;
+        case 11:
+            return waterAmbientDissipation;
         default:
             return defaultAmbientDissipation;
         }
+    }
+
+    static const bool isFluid(const uint8_t type) {
+        return (type > 10);
     }
 }

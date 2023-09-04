@@ -17,6 +17,7 @@
 #include "MaterialPack.hpp"
 #include "VoxelGroup.hpp"
 #include "ProceduralGeneration.hpp"
+#include "Controls.hpp"
 #include <list>
 
 class VoxelManager {
@@ -102,7 +103,22 @@ public:
     Voxel &getVoxelAt (const int64_t x, const int64_t y) {
         return chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).arr[abs(x%Chunk::sizeX)][abs(y%Chunk::sizeY)];
     }
-    
+
+    Voxel &boundGetVoxelAt (const int64_t x, const int64_t y) {
+        sf::Vector2i pos = sf::Vector2i(x, y);
+
+        boundVector(pos);
+
+
+        return chIndexer.getChunkAt(pos.x/Chunk::sizeX, pos.y/Chunk::sizeY).arr[abs(pos.x%Chunk::sizeX)][abs(pos.y%Chunk::sizeY)];
+    }
+
+    const bool compareVoxelColors(const sf::Color &color1, const sf::Color &color2) {
+        return (color1.r == color2.r &&
+                color1.g == color2.g &&
+                color1.b == color2.b);
+    }
+
     const sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
         return chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
     }
@@ -111,8 +127,76 @@ public:
         chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
     }
 
+    void boundSetImagePixelAt(const uint64_t x, const uint64_t y, const sf::Color& color) {
+        sf::Vector2i pos = sf::Vector2i(x, y);
+
+        boundVector(pos);
+
+        chIndexer.getChunkAt(pos.x/Chunk::sizeX, pos.y/Chunk::sizeY).image.setPixel(pos.x%Chunk::sizeX, pos.y%Chunk::sizeY, color);
+    }
+
+    const bool isVoxelPosInView(const sf::Vector2i &pos) {
+        return (Controls::gameCameraCenterPos.x - pos.x < 500.0) &&
+                (Controls::gameCameraCenterPos.y - pos.y < 500.0) &&
+                (Controls::gameCameraCenterPos.x + pos.x < 500.0) &&
+                (Controls::gameCameraCenterPos.y + pos.y < 500.0);
+    }
+
+    const bool isInContactWithVoxel(const sf::Vector2i &pos, const uint8_t voxelValue) {
+        return (getVoxelAt(pos.x + 1, pos.y).value == voxelValue || getVoxelAt(pos.x - 1, pos.y).value == voxelValue ||
+            getVoxelAt(pos.x, pos.y + 1).value == voxelValue || getVoxelAt(pos.x, pos.y -1).value == voxelValue);
+    }
+
+    const Voxel getHandleVoxel(const sf::Color &px, sf::Vector2i p, bool addVoxelsToArr = false) {
+        Voxel vox = Voxel();
+        vox.value = px.a != 0;
+        if(vox.value == 0) return vox;
+
+        if(px == elm::Carbon) {
+            vox.value = 2;
+            vox.strenght = 254; // TODO change to 8
+        } else if(px == elm::Lithium) {
+            vox.value = 3;
+            vox.strenght = 2;
+        } else if(px == elm::Magnesium) {
+            vox.value = 4;
+            vox.strenght = 10;
+        } else if(px == elm::Sodium) {
+            vox.value = 5;
+            vox.strenght = 1;
+
+            if(addVoxelsToArr) reactiveVoxels.push_back(p);
+        } else if(px == elm::Aluminium) {
+            vox.value = 6;
+            vox.strenght = 5;
+        } else if(px == elm::Silicon) {
+            vox.value = 7;
+            vox.strenght = 6;
+        } else if(px == elm::Copper) {
+            vox.value = 8;
+            vox.strenght = 10;
+        } else if(px == elm::Titanium) {
+            vox.value = 9;
+            vox.strenght = 100;
+        } else if(px == elm::Lead) {
+            vox.value = 10;
+            vox.strenght = 3;
+        } else if(px == elm::Water) {
+            vox.value = 11;
+            vox.strenght = 255;
+
+            if(addVoxelsToArr) fluidVoxels.push_back(p);
+        }
+
+        return vox;
+    }
+
     MaterialPack &getReceivedMaterials() {
         return materialpack;
+    }
+
+    void valueFromColor() {
+
     }
 
     void build_image(const sf::Vector2i&, const sf::Image&, std::list<VoxelGroup>*, float angle = 0.f, float mag = 0.f);
@@ -137,6 +221,9 @@ private:
     std::vector<sf::Vector2i> mergeChunks;
 
     std::list<sf::Vector2i> burningVoxels;
+    std::list<sf::Vector2i> fluidVoxels;
+    std::list<sf::Vector2i> reactiveVoxels;
+
 
 
     sf::Shader shader; 

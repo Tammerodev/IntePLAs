@@ -20,11 +20,11 @@ class ItemCreator : public UIState {
 public:
 
     ItemCreator() {
-        editImg.create(sizeX, sizeY, sf::Color(0, 0, 0, 0));
-        editTex.create(sizeX, sizeY);
+        editImg.create(size.x, size.y, sf::Color(0, 0, 0, 0));
+        editTex.create(size.x, size.y);
 
-        for(int y = 0; y < sizeY; y++) {
-            for(int x = 0; x < sizeX; x++) {   
+        for(int y = 0; y < size.y; y++) {
+            for(int x = 0; x < size.x; x++) {   
                 sf::RectangleShape rect;
                 rect.setSize(sf::Vector2f(scaling, scaling));
                 rect.setPosition(x * scaling,y * scaling);
@@ -64,13 +64,22 @@ public:
             button_save->setSize(tgui::Layout2d(48 * 4,16 * 4));
             button_save->setPosition(tgui::Layout2d(200,270));
 
-            auto label_sx = tgui::Label::create("x" + std::to_string(sizeX)); 
-            label_sx->setPosition(tgui::Layout2d(200, 350));
-            label_sx->setRenderer(theme.getRenderer("Label"));
+            sizeXinc = tgui::Button::create("x+");
+            sizeXdec = tgui::Button::create("x-");
+            sizeYinc = tgui::Button::create("y+");
+            sizeYdec = tgui::Button::create("y-");
 
-            auto label_sy = tgui::Label::create("y" + std::to_string(sizeY)); 
-            label_sy->setPosition(tgui::Layout2d(200, 450));
-            label_sy->setRenderer(theme.getRenderer("Label"));
+            sizeXinc->setPosition(tgui::Layout2d(200, 350));
+            sizeXdec->setPosition(tgui::Layout2d(230, 350));
+            sizeYinc->setPosition(tgui::Layout2d(200, 380));
+            sizeYdec->setPosition(tgui::Layout2d(230, 380));
+
+            sizeXinc->onClick(resize, std::ref(sizeXinc->getText()), std::ref(size), std::ref(scaling), std::ref(rects));
+            sizeXdec->onClick(resize, std::ref(sizeXdec->getText()), std::ref(size), std::ref(scaling), std::ref(rects));
+
+            sizeYinc->onClick(resize, std::ref(sizeYinc->getText()), std::ref(size), std::ref(scaling), std::ref(rects));
+            sizeYdec->onClick(resize, std::ref(sizeYdec->getText()), std::ref(size), std::ref(scaling), std::ref(rects));
+
 
             std::vector<tgui::Button::Ptr> element_buttons;
             element_buttons.push_back(tgui::Button::create("  "));
@@ -83,20 +92,26 @@ public:
             element_buttons.push_back(tgui::Button::create("Cu"));
             element_buttons.push_back(tgui::Button::create("Ti"));
             element_buttons.push_back(tgui::Button::create("Pb"));
+            element_buttons.push_back(tgui::Button::create("H2O"));
 
             // Configure button
             button_exit->setSize(tgui::Layout2d(48 * 4,16 * 4));
             button_exit->setPosition(tgui::Layout2d(200,200));
 
-            canvasSFML = tgui::CanvasSFML::create({sizeX * scaling, sizeY * scaling});
+            canvasSFML = tgui::CanvasSFML::create(tgui::Layout2d(size.x * scaling, size.y * scaling));
             canvasSFML->setPosition(325, 360);
 
             gui.add(panel);
             gui.add(button_exit);
             gui.add(button_save);
             gui.add(label_title);
-            gui.add(label_sx);
-            gui.add(label_sy);
+
+            gui.add(sizeXinc);
+            gui.add(sizeXdec);
+
+            gui.add(sizeYinc);
+            gui.add(sizeYdec);
+
             gui.add(canvasSFML);
 
             int index = 0;
@@ -126,7 +141,7 @@ public:
 
         position = mousepos;
 
-        isDrawing = math::distance(mousepos, canvasSFML->getPosition()) < ((sizeX * scaling) + (sizeY * scaling));
+        isDrawing = math::distance(mousepos, canvasSFML->getPosition()) < ((size.x * scaling) + (size.y * scaling));
 
         snapped_pixpos = sf::Vector2i(relativeMousePosition);
         snapped_pixpos.x /= scaling;
@@ -135,8 +150,8 @@ public:
         if(snapped_pixpos.x < 0) snapped_pixpos.x = 0;
         if(snapped_pixpos.y < 0) snapped_pixpos.y = 0;
 
-        if(snapped_pixpos.x > sizeX) snapped_pixpos.x = sizeX;
-        if(snapped_pixpos.y > sizeY) snapped_pixpos.y = sizeY;
+        if(snapped_pixpos.x > size.x) snapped_pixpos.x = size.x;
+        if(snapped_pixpos.y > size.y) snapped_pixpos.y = size.y;
 
         preview.setPosition(snapped_pixpos.x * scaling, snapped_pixpos.y * scaling);
 
@@ -171,11 +186,19 @@ public:
 
     }
 
+
     void statexit() {
 
     }
 
 private:
+
+    tgui::Button::Ptr sizeXinc = nullptr;
+    tgui::Button::Ptr sizeXdec = nullptr;
+    tgui::Button::Ptr sizeYinc = nullptr;
+    tgui::Button::Ptr sizeYdec = nullptr;
+
+    tgui::CanvasSFML::Ptr canvasSFML = nullptr;
 
     bool isDrawing = true;
 
@@ -189,14 +212,12 @@ private:
     sf::RectangleShape preview;
     sf::Texture editTex;
     sf::Sprite editSpr;
-    std::vector<sf::RectangleShape> rects;
+    std::list<sf::RectangleShape> rects;
 
-    tgui::CanvasSFML::Ptr canvasSFML = nullptr;
+    sf::Vector2i size = sf::Vector2i(16, 16);
+    
 
-
-    uint16_t sizeX = 16;
-    uint16_t sizeY = 16;
-    float scaling = 20.0f;
+    int scaling = 20;
 
     static void exitbuttonCallback(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
         removeWidgets(gui);
@@ -227,6 +248,32 @@ private:
         else if(name == "Cu") selColor = elm::Copper;
         else if(name == "Ti") selColor = elm::Titanium;
         else if(name == "Pb") selColor = elm::Lead;
+        else if(name == "H2O") selColor = elm::Water;
     }
 
+    static void resize(const tgui::String& name, sf::Vector2i &currentSize, int &scaling, std::list<sf::RectangleShape> &rects) {
+        if(name == "x+") currentSize.x++;
+        if(name == "x-") currentSize.x--;
+        if(name == "y+") currentSize.y++;
+        if(name == "x-") currentSize.y--;
+
+        if(currentSize.x < 0) currentSize.x = 0;
+        if(currentSize.y < 0) currentSize.y = 0;
+
+
+        rects.clear();
+
+        for(int y = 0; y < currentSize.y; y++) {
+            for(int x = 0; x < currentSize.x; x++) {   
+                sf::RectangleShape rect;
+                rect.setSize(sf::Vector2f(scaling, scaling));
+                rect.setPosition(x * scaling,y * scaling);
+                rect.setFillColor(sf::Color(0,0,0,0));
+                rect.setOutlineColor(sf::Color::Black);
+                rect.setOutlineThickness(-1);
+                rects.push_back(rect);
+            }
+        }
+        
+    }
 };

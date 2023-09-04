@@ -29,10 +29,12 @@ const Voxel getValueFromCol(const sf::Color &px, sf::Vector2i p) {
     } else if(px == elm::Titanium) {
         vox.value = 9;
         vox.strenght = 100;
-    }
-    else if(px == elm::Lead) {
+    } else if(px == elm::Lead) {
         vox.value = 10;
         vox.strenght = 3;
+    } else if(px == elm::Water) {
+        vox.value = 11;
+        vox.strenght = 255;
     }
 
     return vox;

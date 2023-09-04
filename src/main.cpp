@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "StateManager.hpp"
-#include <memory>
 
 int main() {
 
@@ -15,7 +14,7 @@ int main() {
 
 
     StateManager stateManager = StateManager();
-    
+
     srand(time(0));
 
     stateManager.createWindow(1080,1920,"IntePLAs",false, 0);

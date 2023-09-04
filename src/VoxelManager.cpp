@@ -124,7 +124,9 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
         int val = vox.value;
         damageVoxelAt(x,y);
         if(val == elm::ValLithium) {
-            hole(sf::Vector2i(x,y),100,true,2000);
+            hole(sf::Vector2i(x,y),elm::lithiumExplosion,true,elm::lithiumExplosionTemp);
+        } else if(val == elm::ValSodium) {
+            hole(sf::Vector2i(x,y),elm::sodiumExplosion,true,elm::sodiumExplosionTemp);
         }
     }
 
@@ -153,12 +155,16 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
                             (center.x / Chunk::sizeX) + 13, (center.y / Chunk::sizeY) + 13);
     ChunkArea draw_area = draw_bounds.getArea();
 
+    sf::Sprite spriteRend;
+
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
             chIndexer.getChunkAt(x, y).update();
-            for(const auto &r : chIndexer.getChunkAt(x, y).rects)  {
-               target.draw(r);
-            }
+
+            spriteRend.setTexture(chIndexer.getChunkAt(x, y).tx);  
+            spriteRend.setPosition(x * Chunk::sizeX,y * Chunk::sizeY);
+            target.draw(spriteRend);
+
         }
     }
 }
@@ -229,6 +235,61 @@ void VoxelManager::update()
 
     mergeChunkBounds(ChunkBounds((nextVoxelPos.x / Chunk::sizeX) - 2, (nextVoxelPos.y / Chunk::sizeX) - 2,
                                     (nextVoxelPos.x / Chunk::sizeY) + 2, (nextVoxelPos.y / Chunk::sizeY) + 2), true);
+
+
+    sf::Vector2i lastPos = {0,0};
+
+    auto f = fluidVoxels.begin();
+    while (f != fluidVoxels.end())
+    {
+        sf::Color col = elm::Water;
+        col.a += math::randIntInRange(0, 255 - elm::Water.a);
+
+        boundSetImagePixelAt(f->x, f->y, col);
+        getVoxelAt(f->x, f->y).value = elm::ValWater;
+
+        sf::Vector2i nextWaterPos = *f;
+
+        nextWaterPos.y++;
+        if(getVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
+            boundSetImagePixelAt(f->x, f->y, sf::Color(0,0,0,0));
+            getVoxelAt(f->x, f->y).value = 0;
+            *f = nextWaterPos;
+        } else {
+            nextWaterPos.y--;
+            int res = math::randIntInRange(-1, 1);
+
+            nextWaterPos.x += res;
+
+            if(getVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
+                boundSetImagePixelAt(f->x, f->y, sf::Color(0,0,0,0));
+                getVoxelAt(f->x, f->y).value = 0;
+                *f = nextWaterPos;
+            }
+        }
+
+        getVoxelAt(f->x, f->y).value = elm::ValWater;
+        boundSetImagePixelAt(f->x, f->y, col);
+
+        lastPos = *f;
+
+
+        ++f;
+    }
+
+    auto r = reactiveVoxels.begin();
+    while (r != reactiveVoxels.end())
+    {
+        if(getVoxelAt(r->x, r->y).value == elm::ValSodium)
+            if(isInContactWithVoxel(*r, elm::ValWater))
+                heatVoxelAt(r->x, r->y, elm::sodiumExplosionTemp / 100);
+
+        if(getVoxelAt(r->x, r->y).value == elm::ValLithium)
+            if(isInContactWithVoxel(*r, elm::ValWater))
+                heatVoxelAt(r->x, r->y, elm::lithiumExplosionTemp);
+        ++r;
+    }
+
 }
 
 void VoxelManager::merge()
@@ -244,11 +305,11 @@ for(auto c : mergeChunks) {
     for (int y = c.y * Chunk::sizeY; y < (c.y * Chunk::sizeY) + Chunk::sizeY; y++) {
     for (int x = c.x * Chunk::sizeX; x < (c.x * Chunk::sizeX) + Chunk::sizeX; x++) {
 
-        if (getVoxelAt(x,y).value != 0 && !getVoxelAt(x,y).used) {
+        if (getVoxelAt(x,y).value != 0 && !elm::isFluid(getVoxelAt(x,y).value) && !getVoxelAt(x,y).used) {
             int x1 = x;
             int y1 = y;
 
-            while (getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used && y1 < (c.y * Chunk::sizeY) + Chunk::sizeY) {
+            while (!elm::isFluid(getVoxelAt(x,y).value) && getVoxelAt(x1,y1).value != 0 && !getVoxelAt(x1,y1).used && y1 < (c.y * Chunk::sizeY) + Chunk::sizeY) {
                 y1++;
             }
             
@@ -308,7 +369,7 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
         for (int x = xexcept;x < p.x + intensity;x++) {
             if(x > world_sx) break;
             Voxel &voxel = getVoxelAt(x,y);
-            if(voxel.value == 0) continue;
+                 if(voxel.value == 0) continue;
 
             const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
 
@@ -393,8 +454,8 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
             if(x < 0) break;
 
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
-                setImagePixelAt(x,y,cimg.getPixel(x-p.x, y-p.y));
-                getVoxelAt(x,y) = getValueFromCol(getImagePixelAt(x,y), sf::Vector2i(x,y));
+                setImagePixelAt(x,y,cimg.getPixel(x - p.x, y - p.y));
+                getVoxelAt(x,y) = getHandleVoxel(getImagePixelAt(x,y), sf::Vector2i(x,y), true);
             }
         }
     }

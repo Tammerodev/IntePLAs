@@ -70,5 +70,6 @@
         "typeindex": "cpp",
         "fstream": "cpp"
     },
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "enabled",
+    "cmake.configureOnOpen": true
 }

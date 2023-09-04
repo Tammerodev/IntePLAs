@@ -30,7 +30,7 @@ namespace Controls {
     inline ControllerType currentController = ControllerType::Keyboard;
     inline sf::Vector2f windowCursorPos = sf::Vector2f(0, 0);
     inline sf::Vector2f worldCursorPos = sf::Vector2f(0, 0);
-
+    inline sf::Vector2f gameCameraCenterPos = sf::Vector2f(0, 0);
     
     static void searchForDevices() {
         if(sf::Joystick::isConnected(0))
@@ -45,11 +45,6 @@ namespace Controls {
                 windowCursorPos.x = ev.mouseMove.x;
                 windowCursorPos.y = ev.mouseMove.y;
             }
-        }
-    }
-
-    static void registerGamePadClick(sf::RenderWindow &window) {
-        if(currentController == ControllerType::Joystick) {
         }
     }
 
@@ -129,6 +124,7 @@ namespace Controls {
 
 
     static sf::Vector2f cursorPos;
+
 
     static const sf::Vector2f &getCursorPosition() {
         return cursorPos;

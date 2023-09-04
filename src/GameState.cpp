@@ -49,42 +49,47 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
 
 void GameState::update()
 {
+    // Update game status and delta time
     GameStatus::updateBrightness();
-    
     delta_T = deltaClock.restart().asMilliseconds();
 
-    if(world.main_world.explosion_points.size() > 0) {
-        effOverlay.effect_explosion(world.main_world.explosion_points.at(world.main_world.explosion_points.size() - 1));
+    // Handle explosion effects
+    if (!world.main_world.explosion_points.empty()) {
+        effOverlay.effect_explosion(world.main_world.explosion_points.back());
         world.main_world.explosion_points.pop_back();
     }
-    for(auto &wrl: world.add_worlds) {
-        if(wrl.explosion_points.size() > 0) {
-            effOverlay.effect_explosion(wrl.explosion_points.at(wrl.explosion_points.size() - 1));
+
+    for (auto &wrl : world.add_worlds) {
+        if (!wrl.explosion_points.empty()) {
+            effOverlay.effect_explosion(wrl.explosion_points.back());
             wrl.explosion_points.pop_back();
         }
     }
-    
 
+    // Update various game components
     bg.update(game_camera.getCenterPosition());
     BGMusic::update();
     effOverlay.update(game_camera.getCenterPosition());
     game_camera.update(delta_T);
-    player.update(delta_T);    
+    player.update(delta_T);
     matUI.update(world.main_world);
-
     shaderEffect.update();
     uiStateManager.update(Controls::windowCursorPos);
     world.update();
-    
-    inv.getCurrentItem()->update(world, Controls::worldCursorPos, player.getPhysicsComponent().transform_position, delta_T);
 
+    // Update inventory item and handle player collisions
+    inv.getCurrentItem()->update(world, Controls::worldCursorPos, player.getPhysicsComponent().transform_position, delta_T);
     world.handleCollisionsWithPlayer(player);
 
-
-    if(Controls::zoomin())
+    // Update game camera zoom and cursor position
+    Controls::gameCameraCenterPos = game_camera.getCenterPosition();
+    
+    if (Controls::zoomin()) {
         game_camera.zoom(0.99);
-    if(Controls::zoomout())
+    }
+    if (Controls::zoomout()) {
         game_camera.zoom(1.01);
+    }
 }
 
 void GameState::input(sf::Event &ev) {
