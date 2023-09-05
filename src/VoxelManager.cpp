@@ -257,7 +257,17 @@ void VoxelManager::update()
             *f = nextWaterPos;
         } else {
             nextWaterPos.y--;
-            int res = math::randIntInRange(-1, 1);
+            int res = 0;
+
+            if(getVoxelAt(nextWaterPos.x + 1, nextWaterPos.y).value == 0) {
+                res = 1;
+            }
+            if(getVoxelAt(nextWaterPos.x - 1, nextWaterPos.y).value == 0) {
+                res = -1;
+            }
+            if(getVoxelAt(nextWaterPos.x - 1, nextWaterPos.y).value == 0 && getVoxelAt(nextWaterPos.x + 1, nextWaterPos.y).value == 0) {
+                res = math::randIntInRange(-1, 1);
+            }
 
             nextWaterPos.x += res;
 
