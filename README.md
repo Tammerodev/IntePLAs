@@ -15,6 +15,9 @@ PS. Dont use open source xorg gpu drivers, they have some weird problems with th
 
 
 
+# UI 
+Widgets with name "DEL_" should not be deleted.
+So dont use gui.deleteAllWidgets()
 
 
 

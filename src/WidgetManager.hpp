@@ -6,7 +6,7 @@ static void removeWidgets(tgui::BackendGui& gui) {
     const auto widgets = gui.getWidgets();
 
     for(const auto &widget : widgets) {
-        if(widget != nullptr && widget->getWidgetName() != "Cursor")
+        if(widget != nullptr && widget->getWidgetName() != "DEL_")
             gui.remove(widget);
     }
 }

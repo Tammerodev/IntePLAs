@@ -123,41 +123,35 @@ void VoxelGroup::update()
 
 void VoxelGroup::merge()
 {
-if(getDestroyed()) return;
+    if(getDestroyed()) return;
 
-rects.clear();
+    sf::Vector2i relativeTestPosition {0,0};
 
-for (int y = 0; y < img.getSize().y;y++) {
-    for (int x = 0; x < img.getSize().x;x++) {
-        if (getVoxelAt(x,y).value != 0) {
-            Collider r;   
-
-            // We have to rotate the voxel position around physicscomponent.transform origin
-
-            sf::Vector2f p = physicsComponent.transform_position + sf::Vector2f(x,y);
-
-            float sine = sin(math::degreesToRadians(physicsComponent.transform_rotation));
-            float cosine = cos(math::degreesToRadians(physicsComponent.transform_rotation));
-
-            // Translate back to origin ( We dont have to do this becouse voxel index x and y are already at origin)
-            float xx = x - physicsComponent.transform_origin.x;
-            float yy = y - physicsComponent.transform_origin.y;
+    collisionTestPoints.clear();
 
 
-            r.left = xx * cosine - yy * sine;
-            r.top = xx * sine + yy * cosine;
+    if (true) {
+        sf::Vector2i finalTestPoint {0,0};
 
-            // Translate to world position
-            r.left += physicsComponent.transform_position.x;
-            r.top += physicsComponent.transform_position.y;
+        // We have to rotate the voxel position around physicscomponent.transform origin
 
+        sf::Vector2f p = physicsComponent.transform_position + sf::Vector2f(relativeTestPosition.x, relativeTestPosition.y);
 
-            r.height = 1;
-            r.width = 1;
-            rects.push_back(r);
-        }
+        float sine = sin(math::degreesToRadians(physicsComponent.transform_rotation));
+        float cosine = cos(math::degreesToRadians(physicsComponent.transform_rotation));
+
+        // Translate back to origin ( We dont have to do this becouse voxel index x and y are already at origin)
+        float xx = relativeTestPosition.x - physicsComponent.transform_origin.x;
+        float yy = relativeTestPosition.y - physicsComponent.transform_origin.y;
+
+        finalTestPoint = sf::Vector2i(xx * cosine - yy * sine, xx * sine + yy * cosine);
+
+        // Translate to world position
+        finalTestPoint.x += physicsComponent.transform_position.x;
+        finalTestPoint.y += physicsComponent.transform_position.y;
+
+        collisionTestPoints.push_back(finalTestPoint);
     }
-}
 }
 
 void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool force, const int64_t heat)

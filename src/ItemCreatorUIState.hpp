@@ -231,7 +231,7 @@ private:
         std::string saveName = "temp/" + std::to_string(time(0)) + ".png";
         edImg.saveToFile(saveName);
         inv.addItem(vx, std::make_shared<PlaceItem>(vx, saveName, saveName));
-        gui.removeAllWidgets();
+        removeWidgets(gui);
 
         UIState::currentState = UIState::nostate;
         UIState::currentState->load(gui, inv, vx);

@@ -26,10 +26,7 @@ public:
     VoxelManager() : chIndexer() {
 
     }
-    std::pair<bool, sf::FloatRect> getOvelapWithRect(const sf::FloatRect &collider);
-    std::pair<bool, sf::FloatRect> getOvelapWithRectX(const sf::FloatRect &collider);
 
-    std::pair<bool, sf::FloatRect> getOvelapWithRectY(const sf::FloatRect &collider);
     bool getPixelCollision(sf::Vector2i pos);
 
     int load(std::string, bool);
@@ -78,22 +75,10 @@ public:
     void render(sf::RenderTarget&, const sf::Vector2f &center);
     void resetUsedFlag();
     void update();
-    void merge();
     void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const int64_t heat);
 
     bool generate();
     bool generateVegetation();
-
-
-    void mergeChunkBounds(const ChunkBounds &bounds, bool pmerge = true) {
-        for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
-        for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
-                mergeChunks.push_back(sf::Vector2i(x, y));
-            }
-        }
-
-        if(pmerge) merge();
-    }
 
     void save() {
         // TODO : make it save from the chunk images
@@ -158,6 +143,8 @@ public:
         } else if(px == elm::Lithium) {
             vox.value = 3;
             vox.strenght = 2;
+            
+            if(addVoxelsToArr) reactiveVoxels.push_back(p);
         } else if(px == elm::Magnesium) {
             vox.value = 4;
             vox.strenght = 10;

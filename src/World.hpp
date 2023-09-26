@@ -1,4 +1,7 @@
 #pragma once 
+#include <list>
+#include <algorithm>
+#include <iostream>
 #include "VoxelManager.hpp"
 #include "Player.hpp"
 #include "VoxelGroup.hpp"
@@ -21,12 +24,22 @@ public:
         main_world.update();
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
             world->update();
-            const std::pair<bool, sf::FloatRect> collision_rect = main_world.getOvelapWithRect(world->getCollider());
-            if(collision_rect.first) {
-                world->getPhysicsComponent().velocity = sf::Vector2f(0.0f, 0.0f);
-                world->getPhysicsComponent().transform_position.y -= collision_rect.second.height;
+            const std::vector<sf::Vector2i> &collisionTestPoints = world->getCollisionTestPoints();
 
-                world->destroyPart(main_world, collision_rect.second);
+            bool collision = false;
+
+            for(auto &testPoint : collisionTestPoints) {
+                if(main_world.getPixelCollision(testPoint)) collision = true;
+            }
+            
+            if(collision) {    
+            
+                world->getPhysicsComponent().velocity = sf::Vector2f(0.0f, 0.0f);
+
+                world->destroyPart(main_world);
+
+                add_worlds.erase(world);
+    
                 break;
             }
         }
@@ -34,25 +47,33 @@ public:
     }
 
     void handleCollisionsWithPlayer(Player& player) {
-        auto res = main_world.getOvelapWithRectY(player.getBottomHitbox()); // Ground
-        auto res2 = main_world.getOvelapWithRectY(player.getTopHitbox()); // Ground
-        auto res4 = main_world.getOvelapWithRectX(player.getRightHitbox()); // Ground
-        auto res3 = main_world.getOvelapWithRectX(player.getLeftHitbox()); // Ground
+        const bool groundCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x,
+                                                            player.getPhysicsComponent().transform_position.y + 28)); // Ground
 
-        if(res4.first) {    // Right collision
-            player.getPhysicsComponent().transform_position.x -= res4.second.width;
+        const bool headCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x,
+                                                            player.getPhysicsComponent().transform_position.y - 3)); // Ground
+
+        const bool rightCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x - 3,
+                                                            player.getPhysicsComponent().transform_position.y + 14)); // Ground
+
+        const bool leftCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x + 20,
+                                                            player.getPhysicsComponent().transform_position.y + 14)); // Ground
+
+
+        if(rightCollision) {
+            player.getPhysicsComponent().transform_position.x -= 1;
         }
-        if(res3.first) {    // Right collision
-            player.getPhysicsComponent().transform_position.x += res3.second.width;
+        if(leftCollision) {
+            player.getPhysicsComponent().transform_position.x += 1;
         }
-        if(res.first) {     // Colliding with ground
+        if(groundCollision) {
             player.ground();
-            player.getPhysicsComponent().transform_position.y -= res.second.height;
+            player.getPhysicsComponent().transform_position.y -= 1;
             return;
         }
 
-        if(res2.first) {    // Head collision
-            player.getPhysicsComponent().transform_position.y -= res2.second.height;
+        if(headCollision) {
+            player.getPhysicsComponent().transform_position.y += 1;
         }
     }
 

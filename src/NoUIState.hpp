@@ -54,7 +54,7 @@ private:
 
 
     static void exitbuttonCallback(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
-        gui.removeAllWidgets();
+        removeWidgets(gui);
 
         UIState::currentState = UIState::itemcreator;
         UIState::currentState->load(gui, inv, vx);

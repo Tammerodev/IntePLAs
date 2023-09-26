@@ -35,8 +35,6 @@ public:
         }
     }
 
-    //Todo : Fix shader
-
 private:
 
     std::array<ExplosionEffect, PREALLOCATE_EFFECTS_COUNT> explosion_effects;

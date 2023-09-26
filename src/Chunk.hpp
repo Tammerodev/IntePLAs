@@ -10,8 +10,6 @@ static const int chunks_negy = 0;
 
 
 struct Chunk {
-    std::vector <sf::Sprite> rects;
-
     static const int sizeX = 64; 
     static const int sizeY = 64;
 

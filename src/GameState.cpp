@@ -14,7 +14,7 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
     ui_camera.setSize(sf::Vector2u(window_width, window_height));
     
     inv.load(world.main_world);
-    matUI.load();
+    matUI.load(gui);
     game_camera.zoom(0.99f);
     ui_camera.zoom(1.0f);
     ui_camera.setCenterPosition(sf::Vector2f(0.f, 0.f));
@@ -108,9 +108,8 @@ void GameState::input(sf::Event &ev) {
         if(Controls::useItem(ev)) {
             inv.use(player.getPhysicsComponent().transform_position, Controls::worldCursorPos, world);    
         }
-        if(Controls::switchItem(ev)) {
-            inv.switchItem();
-        }
+
+        inv.input(ev);
     }
 
     if(ev.type == sf::Event::KeyReleased) {

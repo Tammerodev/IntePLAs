@@ -5,6 +5,7 @@
 #include <math.h>
 #include <thread>
 #include <optional>
+#include <list>
 
 #include "math.hpp"
 #include "Voxel.hpp"
@@ -61,6 +62,10 @@ public:
         }
     }
 
+    std::vector<sf::Vector2i> &getCollisionTestPoints() {
+        return collisionTestPoints;
+    }
+
     void heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp);
     void render(sf::RenderTarget&, const sf::Vector2f &center);
     void resetUsedFlag();
@@ -80,7 +85,7 @@ public:
 
     template<class T>
 
-    void destroyPart(T& main_world, sf::FloatRect destroyArea) {
+    void destroyPart(T& main_world) {
         if(getDestroyed()) return;
         
         for (int y = 0; y < world_sy;y++) {
@@ -119,5 +124,7 @@ private:
 
     uint64_t world_sx;
     uint64_t world_sy;
+
+    std::vector<sf::Vector2i> collisionTestPoints;
 
 };

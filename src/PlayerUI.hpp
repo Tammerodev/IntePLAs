@@ -21,11 +21,20 @@ public:
     void addItem(VoxelManager&vx, std::shared_ptr<Item> newItem) {
         inventory.push_back(newItem);
     }
-    void switchItem() {
-        currentItemIndex++;
-        if(currentItemIndex >= inventory.size()) {
-            currentItemIndex = 0;
+    void input(sf::Event &ev) {
+        if(ev.type == sf::Event::MouseWheelMoved) {
+            const int moveAmount = ev.mouseWheel.delta;
+
+            currentItemIndex += moveAmount;
+
+            // Bound checking
+            if(currentItemIndex < 0)
+                currentItemIndex = inventory.size() - 1;
+
+            if(currentItemIndex >= inventory.size())
+                currentItemIndex = 0;
         }
+
     }
 
     void use(const sf::Vector2f &p,const sf::Vector2f &m, World& world) {
@@ -37,19 +46,33 @@ public:
         inventory[currentItemIndex]->render(targ);
     }
     void renderUI(sf::RenderTarget& targ) {
+
         sf::RectangleShape seperator;
+
         seperator.setSize(sf::Vector2f(32, 32));
-        seperator.setFillColor(sf::Color(0,0,0,0));
+        seperator.setFillColor(sf::Color(0,0,0,100));
         seperator.setOutlineThickness(-1);
+
         int index = 0;
 
         for(auto &item : inventory) {
-            if(index == currentItemIndex) seperator.setOutlineColor(sf::Color::Black);
-            else seperator.setOutlineColor(sf::Color::White);
+
+            if(index == currentItemIndex) {
+                seperator.setOutlineColor(sf::Color::White);
+                seperator.setOutlineThickness(-3.f);
+            }
+
+            else { 
+                seperator.setOutlineColor(sf::Color::Black); 
+                seperator.setOutlineThickness(-1);
+            }
+
             const sf::Vector2f position = sf::Vector2f(300 + index * 32, 550);
             seperator.setPosition(position - sf::Vector2f(32 / 2, 32 / 2));
-            item->inventory_render(targ, position);
+
             targ.draw(seperator);
+            item->inventory_render(targ, position);
+
             ++index;
         }
     }
@@ -58,6 +81,9 @@ public:
         return inventory[currentItemIndex];
     }
 private:
+
+    sf::Vector2f inventoryPosition = sf::Vector2f();
+
     std::vector<std::shared_ptr<Item>> inventory;
-    uint16_t currentItemIndex = 0;
+    int16_t currentItemIndex = 0;
 };
