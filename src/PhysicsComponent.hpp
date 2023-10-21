@@ -10,7 +10,7 @@ struct PhysicsComponent {
     sf::Vector2f transform_position = sf::Vector2f(0.f, 0.f);
     float transform_rotation = 0.f;
 
-    float gravity = 0.01f;
+    float gravity = 0.001f;
 
     sf::Vector2f rotate_point(float cx, float cy, float angle, sf::Vector2f p){
 
@@ -18,8 +18,8 @@ struct PhysicsComponent {
                     sin(angle) * (p.x - cx) + cos(angle) * (p.y - cy) + cy);
     }
     
-    void update() {
-        velocity.y += gravity;
+    void update(float dt = 0.0) {
+        velocity.y += (gravity * dt);
         transform_position += velocity;
 
         float rotation = std::atan2(velocity.y, velocity.x) * (180.0 / M_PI);

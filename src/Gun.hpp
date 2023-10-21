@@ -103,7 +103,6 @@ private:
 
 	sf::Sprite gun_spr;
 	sf::Texture gun_tx;
-	float bullet_speed = 1.0f;
 	uint64_t explosion_stength = 35;
 	uint64_t temp = 100;
 	sf::Texture bullet_tx;

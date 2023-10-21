@@ -18,7 +18,7 @@ public:
         hitbox.width = 8;
         hitbox.height = 8;
 
-        pos += vel * dt;
+        pos += vel * speed * dt;
         spr.setPosition(pos);
     }
 
@@ -50,6 +50,6 @@ private:
 
     sf::Sprite spr;
 
-    float speed = 1.f;
+    float speed = 10.f;
 
 };

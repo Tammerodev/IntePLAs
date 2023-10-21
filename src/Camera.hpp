@@ -36,7 +36,7 @@ public:
     void update(const float dt) {
         if(mode == CameraMode::Leap) {
             sf::Vector2f movement = target - view.getCenter();
-            view.move(movement / 150.0f * dt);
+            view.move(movement / 50.0f * dt);
         }
         
     }

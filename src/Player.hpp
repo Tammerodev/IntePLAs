@@ -17,19 +17,6 @@ int load();
 void update(float);
 void draw(sf::RenderTarget&);
 
-const sf::FloatRect &getTopHitbox() {
-    return hitbox_top;
-}
-const sf::FloatRect &getBottomHitbox() {
-    return hitbox_bottom;
-}
-const sf::FloatRect &getLeftHitbox() {
-    return hitbox_left;
-}
-const sf::FloatRect &getRightHitbox() {
-    return hitbox_right;
-}
-
 PhysicsComponent &getPhysicsComponent() {
     return physComp;
 }
@@ -39,41 +26,9 @@ void ground() {
     grounded = true;
 }
 
-
-void update_hitboxtop() {
-    hitbox_top.height = 5;
-    hitbox_top.width = 12;
-    hitbox_top.top = physComp.transform_position.y - 5;
-    hitbox_top.left = physComp.transform_position.x + 3;
-}
-
-void update_hitboxbottom() {
-    hitbox_bottom.height = 2;
-    hitbox_bottom.width = 12;
-    hitbox_bottom.top = physComp.transform_position.y + 23;
-    hitbox_bottom.left = physComp.transform_position.x + 3;
-}
-
-void update_hitboxleft() {
-    hitbox_left.height = 12;
-    hitbox_left.width = 5;
-    hitbox_left.top = physComp.transform_position.y + 0;
-    hitbox_left.left = physComp.transform_position.x - 2;
-}
-
-void update_hitboxright() {
-    hitbox_right.height = 12;
-    hitbox_right.width = 5;
-    hitbox_right.top = physComp.transform_position.y + 0;
-    hitbox_right.left = physComp.transform_position.x + 20;
-}
-
-Collider hitbox_top;
-Collider hitbox_bottom;
-Collider hitbox_right;
-Collider hitbox_left;
-
 private:
+
+sf::Vector2i position;
 
 bool grounded = false;
 

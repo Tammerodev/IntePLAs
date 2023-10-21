@@ -3,8 +3,6 @@
 
 bool GameState::load(const std::string s, tgui::BackendGui& gui){
 
-    if(SFX::rocket_launcher_fire_buffer.getDuration() != sf::Time::Zero) return true;
-
     //  : adjustable rendertx size
     const uint16_t window_height = sf::VideoMode::getDesktopMode().height;
     const uint16_t window_width = sf::VideoMode::getDesktopMode().width;
@@ -49,9 +47,9 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
 
 void GameState::update()
 {
-    // Update game status and delta time
+    // Update game status and delta time 
     GameStatus::updateBrightness();
-    delta_T = deltaClock.restart().asMilliseconds();
+    delta_T = 1.0f;
 
     // Handle explosion effects
     if (!world.main_world.explosion_points.empty()) {

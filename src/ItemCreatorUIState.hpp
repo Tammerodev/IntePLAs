@@ -74,11 +74,11 @@ public:
             sizeYinc->setPosition(tgui::Layout2d(200, 380));
             sizeYdec->setPosition(tgui::Layout2d(230, 380));
 
-            sizeXinc->onClick(resize, std::ref(sizeXinc->getText()), std::ref(size), std::ref(scaling), std::ref(rects));
-            sizeXdec->onClick(resize, std::ref(sizeXdec->getText()), std::ref(size), std::ref(scaling), std::ref(rects));
+            sizeXinc->onClick(resize, std::ref(sizeXinc->getText()), std::ref(size), std::ref(scaling), std::ref(rects), std::ref(editImg), std::ref(editTex));
+            sizeXdec->onClick(resize, std::ref(sizeXdec->getText()), std::ref(size), std::ref(scaling), std::ref(rects), std::ref(editImg), std::ref(editTex));
 
-            sizeYinc->onClick(resize, std::ref(sizeYinc->getText()), std::ref(size), std::ref(scaling), std::ref(rects));
-            sizeYdec->onClick(resize, std::ref(sizeYdec->getText()), std::ref(size), std::ref(scaling), std::ref(rects));
+            sizeYinc->onClick(resize, std::ref(sizeYinc->getText()), std::ref(size), std::ref(scaling), std::ref(rects), std::ref(editImg), std::ref(editTex));
+            sizeYdec->onClick(resize, std::ref(sizeYdec->getText()), std::ref(size), std::ref(scaling), std::ref(rects), std::ref(editImg), std::ref(editTex));
 
 
             std::vector<tgui::Button::Ptr> element_buttons;
@@ -158,6 +158,8 @@ public:
         if(Controls::useUI() && isDrawing) {
             editImg.setPixel(snapped_pixpos.x, snapped_pixpos.y, selectedColor);
         }
+
+        canvasSFML->setSize(size.x * scaling, size.y * scaling);
     }
 
     void input(sf::Event &e) {  
@@ -251,7 +253,7 @@ private:
         else if(name == "H2O") selColor = elm::Water;
     }
 
-    static void resize(const tgui::String& name, sf::Vector2i &currentSize, int &scaling, std::list<sf::RectangleShape> &rects) {
+    static void resize(const tgui::String& name, sf::Vector2i &currentSize, int &scaling, std::list<sf::RectangleShape> &rects, sf::Image &img, sf::Texture &tx) {
         if(name == "x+") currentSize.x++;
         if(name == "x-") currentSize.x--;
         if(name == "y+") currentSize.y++;
@@ -274,6 +276,11 @@ private:
                 rects.push_back(rect);
             }
         }
+
+        img.create(8, 8);
+        tx.loadFromImage(img);
+
+        //std::this_thread::sleep_for(std::chrono::seconds(5));
         
     }
 };

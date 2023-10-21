@@ -36,3 +36,6 @@ So dont use gui.deleteAllWidgets()
 186,140,106 Copper    8
 142,129,149 Titanium  9
 104,102,107 Lead      10
+
+# Notes :
+Ideal delta time for 75hz should be 1.0

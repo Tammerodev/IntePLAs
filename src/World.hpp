@@ -48,16 +48,16 @@ public:
 
     void handleCollisionsWithPlayer(Player& player) {
         const bool groundCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x,
-                                                            player.getPhysicsComponent().transform_position.y + 28)); // Ground
+                                                            player.getPhysicsComponent().transform_position.y + 28));
 
         const bool headCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x,
-                                                            player.getPhysicsComponent().transform_position.y - 3)); // Ground
+                                                            player.getPhysicsComponent().transform_position.y - 3)); 
 
-        const bool rightCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x - 3,
-                                                            player.getPhysicsComponent().transform_position.y + 14)); // Ground
+        const bool rightCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x + 20,
+                                                            player.getPhysicsComponent().transform_position.y + 14)); 
 
-        const bool leftCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x + 20,
-                                                            player.getPhysicsComponent().transform_position.y + 14)); // Ground
+        const bool leftCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x - 3,
+                                                            player.getPhysicsComponent().transform_position.y + 14));
 
 
         if(rightCollision) {
@@ -68,6 +68,7 @@ public:
         }
         if(groundCollision) {
             player.ground();
+            player.getPhysicsComponent().velocity.y = 0;
             player.getPhysicsComponent().transform_position.y -= 1;
             return;
         }

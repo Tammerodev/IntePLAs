@@ -51,6 +51,7 @@ private:
 };
 
 struct ChunkArea {
+    ChunkArea() = default;
     ChunkArea(const int64_t sX, const int64_t sY, const int64_t eX, const int64_t eY) : startX(sX), startY(sY), endX(eX), endY(eY) {
 
     }

@@ -125,12 +125,19 @@ void VoxelGroup::merge()
 {
     if(getDestroyed()) return;
 
-    sf::Vector2i relativeTestPosition {0,0};
-
     collisionTestPoints.clear();
 
+    const std::array<const sf::Vector2i, 4> relativeTestPoints {
+        sf::Vector2i(0, 0),
+        sf::Vector2i(img.getSize().x, 0),
+        sf::Vector2i(0, img.getSize().y),
+        sf::Vector2i(img.getSize().x, img.getSize().y),
 
-    if (true) {
+    };
+
+
+    for(auto &relativeTestPosition : relativeTestPoints) {
+
         sf::Vector2i finalTestPoint {0,0};
 
         // We have to rotate the voxel position around physicscomponent.transform origin
@@ -152,6 +159,7 @@ void VoxelGroup::merge()
 
         collisionTestPoints.push_back(finalTestPoint);
     }
+
 }
 
 void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool force, const int64_t heat)

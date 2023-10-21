@@ -211,47 +211,15 @@ private:
     std::list<sf::Vector2i> fluidVoxels;
     std::list<sf::Vector2i> reactiveVoxels;
 
-
-
-    sf::Shader shader; 
-    std::vector<float> hmap1D;
-
-    bool debug = false;
-
     int64_t world_sx;
     int64_t world_sy;
 
     int64_t world_snegx;
     int64_t world_snegy;
 
-    const char * shader_frag = 
-    R"( 
-        uniform sampler2D texture;
+    // These have to be specified here for efficiency
 
-        void main()
-        {
-            
-            // lookup the pixel in the texture
-            vec4 pixel = vec4(0.0, 1.0, 0.0, 1.0);
-
-            // multiply it by the color
-            gl_FragColor = pixel;
-        }
-    )";
-
-    const char * shader_vert = 
-    R"( 
-        void main()
-        {
-            // transform the vertex position
-            gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
-
-            // transform the texture coordinates
-            gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
-
-            // forward the vertex color
-            gl_FrontColor = gl_Color;
-        }
-    )";
-
+    ChunkBounds draw_bounds { 0, 0, 0, 0 };
+    ChunkArea draw_area;
+    sf::Sprite spriteRend;
 };

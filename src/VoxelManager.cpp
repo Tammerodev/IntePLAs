@@ -15,13 +15,6 @@ int VoxelManager::load(std::string file, bool proced)
 
     world_snegx = Chunk::sizeX * chunks_negx;
     world_snegy = Chunk::sizeY * chunks_negy; 
-
-    // load only the vertex shader
-    if(!shader.loadFromMemory(shader_vert, sf::Shader::Vertex)) res = false;
-    // load only the fragment shader
-    if(!shader.loadFromMemory(shader_frag, sf::Shader::Fragment)) res = false;
-    // load both shaders
-    if(!shader.loadFromMemory(shader_vert, shader_frag)) res = false;
     
     ChunkBounds bounds = ChunkBounds(-chunks_negx, 0, chunks_x, chunks_y);
 
@@ -78,13 +71,9 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
 
 void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 {
-    ChunkBounds draw_bounds((center.x / Chunk::sizeX) - 6, (center.y / Chunk::sizeY) - 6, 
+    draw_bounds = ChunkBounds((center.x / Chunk::sizeX) - 6, (center.y / Chunk::sizeY) - 6, 
                             (center.x / Chunk::sizeX) + 6, (center.y / Chunk::sizeY) + 6);
-    ChunkArea draw_area = draw_bounds.getArea();
-
-    sf::Sprite spriteRend;
-
-    sf::Clock timer;
+    draw_area = draw_bounds.getArea();
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
@@ -96,8 +85,6 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
         }
     }
-
-    prndd(timer.getElapsedTime().asMilliseconds());
 }
 
 void VoxelManager::resetUsedFlag()
