@@ -100,6 +100,7 @@ public:
 
                 grid.getChunkAt(ind/Chunk::sizeX, i/Chunk::sizeY).arr[ind%Chunk::sizeX][i%Chunk::sizeY] = 
                     getValueFromCol(col, sf::Vector2i(ind, i));
+
             }
             ind++;
         }
