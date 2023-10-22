@@ -35,7 +35,15 @@ struct Chunk {
 class ChunkIndexer {
 public:
     ChunkIndexer() {
+        updateWorldSize();
+    }
 
+    void updateWorldSize() {
+        world_sx = Chunk::sizeX * chunks_x;
+        world_sy = Chunk::sizeY * chunks_y;
+
+        world_snegx = Chunk::sizeX * chunks_negx;
+        world_snegy = Chunk::sizeY * chunks_negy;
     }
 
     Chunk &getChunkAt(int64_t x, int64_t y) {
@@ -45,9 +53,46 @@ public:
         }
         return gridNeg.at(abs(y)).at(x);
     }
+
+
+    void boundVector(sf::Vector2i &v) {
+        if(v.y < 0) v.y = 0;
+        if(v.x < -chunks_negx) v.x = 0;
+        if(v.y > world_sy - 1) v.y = world_sy - 1;
+        if(v.x > world_sx - 1) v.x = world_sx - 1;
+    }
+
+    Voxel &getVoxelAt (const int64_t x, const int64_t y) {
+        return getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).arr[abs(x%Chunk::sizeX)][abs(y%Chunk::sizeY)];
+    }
+    
+    Voxel &boundGetVoxelAt (const int64_t x, const int64_t y) {
+        sf::Vector2i pos = sf::Vector2i(x, y);
+
+        boundVector(pos);
+
+        return getChunkAt(pos.x/Chunk::sizeX, pos.y/Chunk::sizeY).arr[abs(pos.x%Chunk::sizeX)][abs(pos.y%Chunk::sizeY)];
+    }
+
+
+    void boundSetImagePixelAt(const uint64_t x, const uint64_t y, const sf::Color& color) {
+        sf::Vector2i pos = sf::Vector2i(x, y);
+
+        boundVector(pos);
+
+        getChunkAt(pos.x/Chunk::sizeX, pos.y/Chunk::sizeY).image.setPixel(pos.x%Chunk::sizeX, pos.y%Chunk::sizeY, color);
+    }
+
+    int64_t world_sx;
+    int64_t world_sy;
+
+    int64_t world_snegx;
+    int64_t world_snegy;
+
 private:
     std::array<std::array<Chunk, chunks_x + 1>, chunks_y + 1> gridPos;
     std::array<std::array<Chunk, chunks_negx + 1>, chunks_negy + 1> gridNeg;
+
 };
 
 struct ChunkArea {
