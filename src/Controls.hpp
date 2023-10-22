@@ -8,6 +8,8 @@ namespace Controls {
     static sf::Keyboard::Key keybind_right = sf::Keyboard::D;
     static sf::Keyboard::Key keybind_left = sf::Keyboard::A;
     static sf::Keyboard::Key keybind_jump = sf::Keyboard::Space;
+    static sf::Keyboard::Key keybind_down = sf::Keyboard::S;
+
 
     static sf::Keyboard::Key keybind_zoomin = sf::Keyboard::Up;
     static sf::Keyboard::Key keybind_zoomout = sf::Keyboard::Down;
@@ -81,6 +83,13 @@ namespace Controls {
         return false;
     }
 
+    static bool moveDown() {
+        if(currentController == ControllerType::Keyboard) 
+            return sf::Keyboard::isKeyPressed(keybind_down);
+        else if(currentController == ControllerType::Joystick)
+            throw "Not implemented";
+        return false;
+    }
     static bool useItem(sf::Event &event) {
         if(currentController == ControllerType::Keyboard) 
             return event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == mousebind_useitem;

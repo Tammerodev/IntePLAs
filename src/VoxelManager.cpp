@@ -162,7 +162,7 @@ void VoxelManager::update()
 
 }
 
-void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool force, const int64_t heat)
+void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, const int64_t heat)
 {
     if(force) {
         ExplosionInfo info;
@@ -171,6 +171,8 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
         explosion_points.push_back(info);
     }
 
+    chIndexer.boundVector(p);
+
     int yexcept = p.y - intensity;
     int xexcept = p.x - intensity;
 
@@ -178,7 +180,7 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
     if(xexcept < 0) xexcept = 0;
 
     for (int y = yexcept;y < p.y + intensity;y++) {
-        if(p.y > chIndexer.world_sy) break;
+        if(y > chIndexer.world_sy) break;
 
         for (int x = xexcept;x < p.x + intensity;x++) {
             if(x > chIndexer.world_sx) break;
@@ -188,9 +190,13 @@ void VoxelManager::hole(const sf::Vector2i &p, const uint32_t& intensity, bool f
             const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
 
             if(distance < intensity) {
-                voxelsInNeedOfUpdate.push_back(sf::Vector2i(x,y));
-                if(force) damageVoxelAt(x,y);
-                heatVoxelAt(x,y, (intensity - distance)*heat);
+                sf::Vector2i v = sf::Vector2i(x, y);
+                chIndexer.boundVector(v);
+
+
+                voxelsInNeedOfUpdate.push_back(v);
+                if(force) damageVoxelAt(v.x, v.y);
+                heatVoxelAt(v.x, v.y, (intensity - distance)*heat);
             }
         }
     }

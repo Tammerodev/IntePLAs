@@ -6,6 +6,7 @@
 #include "IdleState.hpp"
 #include "WalkState.hpp"
 #include "JumpState.hpp"
+#include "CreativeState.hpp"
 #include "PhysicsComponent.hpp"
 #include <iostream>
 #include "Collider.hpp"
@@ -17,12 +18,13 @@ int load();
 void update(float);
 void draw(sf::RenderTarget&);
 
-PhysicsComponent &getPhysicsComponent() {
+IntPhysicsComponent &getPhysicsComponent() {
     return physComp;
 }
 
 void ground() {
-    physComp.velocity.y = 0.f;
+    physComp.velocity.y = 0;
+    physComp.velocity_buffer = 0;
     grounded = true;
 }
 
@@ -40,5 +42,5 @@ sf::IntRect texture_rect;
 sf::Sprite sprite;
 
 
-PhysicsComponent physComp;
+IntPhysicsComponent physComp;
 };

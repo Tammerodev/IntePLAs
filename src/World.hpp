@@ -73,6 +73,9 @@ public:
         }
 
         if(headCollision) {
+            player.getPhysicsComponent().velocity.y = 0;
+            player.getPhysicsComponent().velocity_buffer = 0;
+
             player.getPhysicsComponent().transform_position.y += 1;
         }
     }

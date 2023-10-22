@@ -76,7 +76,7 @@ void GameState::update()
     world.update();
 
     // Update inventory item and handle player collisions
-    inv.getCurrentItem()->update(world, Controls::worldCursorPos, player.getPhysicsComponent().transform_position, delta_T);
+    inv.getCurrentItem()->update(world, Controls::worldCursorPos, sf::Vector2f(player.getPhysicsComponent().transform_position), delta_T);
     world.handleCollisionsWithPlayer(player);
 
     // Update game camera zoom and cursor position
@@ -104,7 +104,7 @@ void GameState::input(sf::Event &ev) {
     if(!GUIfocusedOnObject) {
 
         if(Controls::useItem(ev)) {
-            inv.use(player.getPhysicsComponent().transform_position, Controls::worldCursorPos, world);    
+            inv.use(sf::Vector2f(player.getPhysicsComponent().transform_position), Controls::worldCursorPos, world);    
         }
 
         inv.input(ev);
@@ -130,13 +130,13 @@ void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui)
 {    
     GUIfocusedOnObject = gui.getFocusedChild() != nullptr;
     // Clear renderTexture
-    renderTexture.clear();
+    renderTexture.clear(sf::Color(GameStatus::brightness * 100, GameStatus::brightness * 100, GameStatus::brightness * 100, 255));
 
     game_camera.setViewTo(renderTexture);
 
     Controls::setWorldMouseposition(renderTexture);
 
-    game_camera.setTarget(player.getPhysicsComponent().transform_position);
+    game_camera.setTarget(sf::Vector2f(player.getPhysicsComponent().transform_position));
 
     bg.render(renderTexture);
     player.draw(renderTexture);

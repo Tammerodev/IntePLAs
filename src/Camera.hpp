@@ -34,10 +34,11 @@ public:
     }
 
     void update(const float dt) {
-        if(mode == CameraMode::Leap) {
-            sf::Vector2f movement = target - view.getCenter();
-            view.move(movement / 50.0f * dt);
-        }
+        //if(mode == CameraMode::Leap) {
+        //    sf::Vector2f movement = target - view.getCenter();
+        //    view.move(movement / 50.0f * dt);
+        //}
+        view.setCenter(target);
         
     }
 

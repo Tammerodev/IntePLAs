@@ -4,20 +4,15 @@ void WalkState::enter() {
 
 }
  
-void WalkState::update(PhysicsComponent& physComp,float dt) {
+void WalkState::update(IntPhysicsComponent& physComp,float dt) {
     last_pos = physComp.transform_position;
 
-    physComp.velocity.x = std::clamp(physComp.velocity.x, -speed, speed);
+    physComp.velocity.x = 0;
 
-    if(Controls::moveLeft()) {
-        physComp.velocity.x -= acc;
-        return;
-    } 
-    if(Controls::moveRight()) {
-        physComp.velocity.x += acc;
-        return;
-    }
-
+    if(Controls::moveLeft()) 
+        physComp.velocity.x = -speed;
+    if(Controls::moveRight())
+        physComp.velocity.x = speed;
 
     PlayerState::currentState = PlayerState::idleState;
 }

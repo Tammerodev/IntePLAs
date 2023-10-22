@@ -3,6 +3,27 @@
 #include <SFML/Graphics/Vertex.hpp>
 #include <cmath>
 
+struct IntPhysicsComponent {
+    sf::Vector2i transform_origin = sf::Vector2i(0, 0);
+    sf::Vector2i velocity = sf::Vector2i(0, 0);
+    sf::Vector2i transform_position = sf::Vector2i(0, 0);
+
+    float gravity = 0.001;
+
+    void update(int dt = 1) {
+            
+        velocity_buffer += (gravity * dt);
+        //velocity.y = velocity_buffer;
+
+        transform_position += velocity;
+        transform_position.y += floor(velocity_buffer);
+
+    }
+
+    int timer = 0;
+    float velocity_buffer = 0.0;
+
+};
 
 struct PhysicsComponent {
     sf::Vector2f transform_origin = sf::Vector2f(0.f, 0.f);

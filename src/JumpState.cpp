@@ -3,8 +3,9 @@
 void JumpState::enter() {
 }
 
-void JumpState::update(PhysicsComponent& physComp,float dt) {
-    physComp.velocity.y = -3.5 * dt;
+void JumpState::update(IntPhysicsComponent& physComp, float dt) {
+    physComp.velocity_buffer = -6.0;
+
     PlayerState::currentState = idleState;
 }
 

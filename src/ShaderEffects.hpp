@@ -15,7 +15,7 @@ public:
 
     void update() {
         // Set kernel size
-        blur_shader.setUniform("kernelSize", 23 + (int)GameStatus::brightness * 10);
+        blur_shader.setUniform("kernelSize", 35 + (int)GameStatus::brightness * 10);
 
         desaturate_shader.setUniform("targetColor", sf::Vector3f(0.04, 0.02, 0.1));
         desaturate_shader.setUniform("amount", GameStatus::brightness);

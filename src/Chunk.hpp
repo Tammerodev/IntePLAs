@@ -2,8 +2,8 @@
 #include "Voxel.hpp"
 #include <SFML/Graphics.hpp>
 
-static const int chunks_x = 128;
-static const int chunks_y = 128;
+static const int chunks_x = 2048;
+static const int chunks_y = 64;
 
 static const int chunks_negx = 0;
 static const int chunks_negy = 0;
@@ -60,6 +60,17 @@ public:
         if(v.x < -chunks_negx) v.x = 0;
         if(v.y > world_sy - 1) v.y = world_sy - 1;
         if(v.x > world_sx - 1) v.x = world_sx - 1;
+    }
+
+    const sf::Vector2i getBoundedVector(const sf::Vector2i &p) {
+        sf::Vector2i v = p;
+
+        if(v.y < 0) v.y = 0;
+        if(v.x < -chunks_negx) v.x = 0;
+        if(v.y > world_sy - 1) v.y = world_sy - 1;
+        if(v.x > world_sx - 1) v.x = world_sx - 1;
+
+        return v;
     }
 
     Voxel &getVoxelAt (const int64_t x, const int64_t y) {
