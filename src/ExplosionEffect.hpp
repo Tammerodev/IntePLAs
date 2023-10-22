@@ -23,7 +23,7 @@ public:
     void update() {
 
         // TODO FIX This is hacky
-        exploding = shader_time.getElapsedTime().asSeconds() < 1.f;
+        exploding = shader_time.getElapsedTime().asSeconds() < 1.0f;
 
         if(!exploding) return;
 

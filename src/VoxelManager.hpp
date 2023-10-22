@@ -22,6 +22,7 @@
 #include "Fluid.hpp"
 #include "Water.hpp"
 #include "Nitroglycerin.hpp"
+#include "Chlorine.hpp"
 
 #include <list>
 
@@ -154,6 +155,11 @@ public:
             vox.strenght = 2;
 
             if(addVoxelsToArr) elements.push_back(std::make_shared<Nitroglycerin>(p.x, p.y));
+        } else if(px == elm::Chlorine) {
+            vox.value = elm::ValChlorine;
+            vox.strenght = 2;
+
+            if(addVoxelsToArr) elements.push_back(std::make_shared<Chlorine>(p.x, p.y));
         }
 
         return vox;

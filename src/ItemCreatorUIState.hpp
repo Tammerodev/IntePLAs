@@ -94,6 +94,7 @@ public:
             element_buttons.push_back(tgui::Button::create("Pb"));
             element_buttons.push_back(tgui::Button::create("H2O"));
             element_buttons.push_back(tgui::Button::create("C3H5N3O9"));
+            element_buttons.push_back(tgui::Button::create("Cl"));
 
 
             // Configure button
@@ -159,6 +160,14 @@ public:
 
         if(Controls::useUI() && isDrawing) {
             editImg.setPixel(snapped_pixpos.x, snapped_pixpos.y, selectedColor);
+        }
+
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::K) && isDrawing) {
+            for(int y = 0; y < size.y; y++) {
+                for(int x = 0; x < size.x; x++) {
+                    editImg.setPixel(x, y, selectedColor);
+                }
+            }
         }
 
         canvasSFML->setSize(size.x * scaling, size.y * scaling);
@@ -254,7 +263,8 @@ private:
         else if(name == "Pb") selColor = elm::Lead;
         else if(name == "H2O") selColor = elm::Water;
         else if(name == "C3H5N3O9") selColor = elm::Nitroglycerin;
-
+        else if(name == "Cl") selColor = elm::Chlorine;
+        
     }
 
     static void resize(const tgui::String& name, sf::Vector2i &currentSize, int &scaling, std::list<sf::RectangleShape> &rects, sf::Image &img, sf::Texture &tx) {
