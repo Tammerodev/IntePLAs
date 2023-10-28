@@ -68,9 +68,11 @@ Opanel {
 
 Panel {
 	BackgroundColor = #2e6492;
-	
 }
 
+Invisible {
+	BackgroundColor = #000000;
+}
 ProgressBar {
 	BackgroundColor = rgba(180, 180, 180, 215);
 	FillColor = rgba(0, 110, 200, 130);

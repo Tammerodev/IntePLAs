@@ -23,6 +23,9 @@
 #include "Water.hpp"
 #include "Nitroglycerin.hpp"
 #include "Chlorine.hpp"
+#include "Shader.hpp"
+#include "Burning.hpp"
+#include "Settings.hpp"
 
 #include <list>
 
@@ -40,7 +43,7 @@ public:
     void initVoxelMap() {
         for (int y = 0;y < chIndexer.world_sy;y++) {
             for (int x = 0;x < chIndexer.world_sx;x++) {
-                const sf::Color px = getImagePixelAt(x,y);
+                const sf::Color px = chIndexer.getImagePixelAt(x,y);
                 chIndexer.getVoxelAt(x,y) = getValueFromCol(px, sf::Vector2i(x,y));
             }
         }
@@ -48,7 +51,7 @@ public:
 
     void clearVoxelAt(const uint64_t x, const uint64_t y) {
         chIndexer.getVoxelAt(x,y).value = 0; 
-        setImagePixelAt(x,y,sf::Color(0,0,0,0));
+        chIndexer.setImagePixelAt(x,y,sf::Color(0,0,0,0));
     }
 
     void damageVoxelAt(const uint64_t x, const uint64_t y) {
@@ -87,14 +90,6 @@ public:
         return (color1.r == color2.r &&
                 color1.g == color2.g &&
                 color1.b == color2.b);
-    }
-
-    const sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
-        return chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
-    }
-
-    void setImagePixelAt(const uint64_t x, const uint64_t y, const sf::Color& color) {
-        chIndexer.getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
     }
 
     const bool isVoxelPosInView(const sf::Vector2i &pos) {
@@ -182,6 +177,8 @@ private:
 
     float burn_timer = 0.0f;
 
+    Shader shader;
+
     sf::Text text;
     sf::Font font;
 
@@ -194,7 +191,6 @@ private:
     std::list<sf::Vector2i> voxelsInNeedOfUpdate;
     std::vector<sf::Vector2i> mergeChunks;
 
-    std::list<sf::Vector2i> burningVoxels;
     std::list<sf::Vector2i> reactiveVoxels;
 
     std::list<std::shared_ptr<Element>> elements;

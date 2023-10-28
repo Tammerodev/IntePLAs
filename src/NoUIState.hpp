@@ -8,6 +8,7 @@
 #include <TGUI/Widgets/Button.hpp>
 #include <TGUI/Widgets/CheckBox.hpp>
 
+
 class NoUIState : public UIState {
 public:
 
@@ -16,21 +17,10 @@ public:
     }
 
     bool load(tgui::BackendGui& gui, Inventory& inv, VoxelManager& vx) {
-        try{
-			tgui::Theme theme = tgui::Theme("res/themes/nanogui.style");
+        this->gui = &gui;
+        this->inv = &inv;
+        this->vx = &vx;
 
-			auto itemcreatorButton = tgui::Button::create("Blueprint creator");
-            itemcreatorButton->setRenderer(theme.getRenderer("Button"));
-            itemcreatorButton->onClick(exitbuttonCallback, std::ref(gui), std::ref(inv), std::ref(vx));
-            itemcreatorButton->setPosition(10,10);
-
-            gui.add(itemcreatorButton);
-            
-
-        } catch(std::exception &ex) {
-            prnerr("Error at ItemCreator UI state. Could not load gui", ex.what());
-            return false;
-        }
         return true;
     }
 
@@ -39,7 +29,13 @@ public:
     }
 
     void input(sf::Event &e) {
+        if(gui == nullptr) return;
+        if(inv == nullptr) return;
+        if(vx == nullptr)  return;
 
+        if(Controls::openItemCreator()) {
+            exit(*gui, *inv, *vx);
+        }
     }
 
     void draw(sf::RenderTarget& target, tgui::BackendGui& gui) {
@@ -52,8 +48,11 @@ public:
 
 private:
 
+    tgui::BackendGui* gui = nullptr;
+    Inventory *inv = nullptr;
+    VoxelManager* vx = nullptr;
 
-    static void exitbuttonCallback(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
+    void exit(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
         removeWidgets(gui);
 
         UIState::currentState = UIState::itemcreator;

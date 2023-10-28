@@ -2,14 +2,14 @@
 #include "Voxel.hpp"
 #include <SFML/Graphics.hpp>
 
-static const int chunks_x = 2048;
-static const int chunks_y = 64;
+inline int chunks_x = 128;
+inline int chunks_y = 20;
 
 static const int chunks_negx = 0;
 static const int chunks_negy = 0;
 
-
 struct Chunk {
+
     static const int sizeX = 64; 
     static const int sizeY = 64;
 
@@ -20,8 +20,8 @@ struct Chunk {
     }
 
     void create() {
-        image.create(sizeX, sizeY, sf::Color(0,0,0,0));
-        tx.create(sizeX, sizeY);
+        image.create(Chunk::sizeX, Chunk::sizeY, sf::Color(0,0,0,0));
+        tx.create(Chunk::sizeX, Chunk::sizeY);
     }
 
     void update() {
@@ -38,6 +38,17 @@ public:
         updateWorldSize();
     }
 
+    void init() {
+        for(int y = 0; y < chunks_y; y++) {
+            std::vector<Chunk> v;
+            for(int x = 0; x < chunks_x; x++) {
+                v.push_back(Chunk());
+            }
+        
+            gridPos.push_back(v);
+        }
+    }
+
     void updateWorldSize() {
         world_sx = Chunk::sizeX * chunks_x;
         world_sy = Chunk::sizeY * chunks_y;
@@ -47,7 +58,6 @@ public:
     }
 
     Chunk &getChunkAt(int64_t x, int64_t y) {
-
         if(x >= 0) {
            return gridPos.at(abs(y)).at(x);         
         }
@@ -94,6 +104,45 @@ public:
         getChunkAt(pos.x/Chunk::sizeX, pos.y/Chunk::sizeY).image.setPixel(pos.x%Chunk::sizeX, pos.y%Chunk::sizeY, color);
     }
 
+    const sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
+        return getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
+    }
+
+    void setImagePixelAt(const uint64_t x, const uint64_t y, const sf::Color& color) {
+        getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
+    }
+
+    void Heat(const uint64_t x, const uint64_t y, int64_t temp)
+    {
+        Voxel &vox = getVoxelAt(x, y);
+
+        if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
+            uint8_t &strenght = vox.strenght;
+            --strenght;
+            if(vox.strenght <= 0) { 
+                getVoxelAt(x,y).value = 0; 
+                setImagePixelAt(x,y,sf::Color(0,0,0,0));
+            }
+        }
+
+        vox.temp += temp;
+
+        if(vox.temp <= 0) vox.temp = 0;
+
+        sf::Color currPixel = getImagePixelAt(x,y);
+
+        uint64_t valR = vox.temp * 1; 
+        if(valR >= 255) valR = 255;
+        currPixel.r = valR;
+        if(valR > 300) {
+            currPixel.g = 255;
+            currPixel.b = 255;
+        }
+
+        setImagePixelAt(x,y,currPixel);
+    }
+
+
     int64_t world_sx;
     int64_t world_sy;
 
@@ -101,7 +150,7 @@ public:
     int64_t world_snegy;
 
 private:
-    std::array<std::array<Chunk, chunks_x + 1>, chunks_y + 1> gridPos;
+    std::vector<std::vector<Chunk>> gridPos;
     std::array<std::array<Chunk, chunks_negx + 1>, chunks_negy + 1> gridNeg;
 
 };

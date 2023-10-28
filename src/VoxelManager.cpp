@@ -2,13 +2,23 @@
 
 bool VoxelManager::getPixelCollision(sf::Vector2i pos) {
     chIndexer.boundVector(pos);
-    return getImagePixelAt(pos.x, pos.y).a != 0;
+    return chIndexer.getImagePixelAt(pos.x, pos.y).a != 0;
 }
 
 
 int VoxelManager::load(std::string file, bool proced)
 {
     bool res = true;
+
+    if(WorldSettings::worldConfigLoaded) {
+        chunks_x = WorldSettings::createSizeX;
+        chunks_y = WorldSettings::createSizeY;
+    } else {
+        prnerr("World could not load from JSON file!\n", "Using default size...\n");
+        res = false;
+    }
+
+    chIndexer.init();
 
     ChunkBounds bounds = ChunkBounds(-chunks_negx, 0, chunks_x, chunks_y);
 
@@ -22,6 +32,11 @@ int VoxelManager::load(std::string file, bool proced)
     loginf("Multithreading not used : ", " Single threaded", "");
 
     loginf("Creating map took : ", timer.getElapsedTime().asSeconds(), ".");
+
+    shader.load("res/shaders/default_vertex.glsl", "res/shaders/desaturate_fragment.glsl");
+
+    chIndexer.updateWorldSize();
+
 
     initVoxelMap();
 
@@ -47,12 +62,12 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
     }
 
     if(vox.value == elm::ValMagnesium) {
-        burningVoxels.push_back(sf::Vector2i(x,y));
+        elements.push_back(std::make_shared<Burning>(x,y));
     }
 
     if(vox.temp <= 0) vox.temp = 0;
 
-    sf::Color currPixel = getImagePixelAt(x,y);
+    sf::Color currPixel = chIndexer.getImagePixelAt(x,y);
 
     uint64_t valR = vox.temp * 1; 
     if(valR >= 255) valR = 255;
@@ -62,7 +77,7 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
         currPixel.b = 255;
     }
 
-    setImagePixelAt(x,y,currPixel);
+    chIndexer.setImagePixelAt(x,y,currPixel);
 }
 
 void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
@@ -77,7 +92,7 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
             spriteRend.setTexture(chIndexer.getChunkAt(x, y).tx);  
             spriteRend.setPosition(x * Chunk::sizeX,y * Chunk::sizeY);
-            target.draw(spriteRend);
+            target.draw(spriteRend, &shader);
 
         }
     }
@@ -85,6 +100,8 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
 void VoxelManager::update()
 {   
+
+    shader.setUniform("amount", 0.5f);
     chIndexer.updateWorldSize();
 
     auto i = voxelsInNeedOfUpdate.begin();
@@ -98,44 +115,6 @@ void VoxelManager::update()
 
     }
 
-    sf::Vector2i nextVoxelPos;
-
-    bool step = false;
-
-    auto v = burningVoxels.begin();
-    while (v != burningVoxels.end())
-    {
-        int direction = math::randIntInRange(0, 3);
-
-        nextVoxelPos = *v;
-        
-        if(step) {
-            if(direction == 0) nextVoxelPos.x += 1;
-            if(direction == 1) nextVoxelPos.x -= 1;
-            if(direction == 2) nextVoxelPos.y += 1;
-            if(direction == 3) nextVoxelPos.y -= 1;
-
-            step = false;
-        }
-
-        bool found = false;
-        //(std::find(burningVoxels.begin(), burningVoxels.end(), nextVoxelPos) != burningVoxels.end());
-
-        if(!found) {
-
-           *v = nextVoxelPos;
-        }
-
-        heatVoxelAt(nextVoxelPos.x, nextVoxelPos.y, 3);
-        if(chIndexer.getVoxelAt(nextVoxelPos.x, nextVoxelPos.y).value == 0) {
-            step = true;
-            v = burningVoxels.erase(v);
-        }
-        else {
-            ++v;
-        }
-
-    }
 
     auto r = reactiveVoxels.begin();
     while (r != reactiveVoxels.end())
@@ -157,6 +136,9 @@ void VoxelManager::update()
     while (e != elements.end())
     {
         e->get()->update(chIndexer);
+        if(e->get()->clear()) {
+            elements.remove(*e);
+        }
         ++e;
     }
 
@@ -183,15 +165,16 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
         if(y > chIndexer.world_sy) break;
 
         for (int x = xexcept;x < p.x + intensity;x++) {
-            if(x > chIndexer.world_sx) break;
-            Voxel &voxel = chIndexer.getVoxelAt(x,y);
-                 if(voxel.value == 0) continue;
+
+            sf::Vector2i v = sf::Vector2i(x, y);
+                chIndexer.boundVector(v);
+            
+            Voxel &voxel = chIndexer.getVoxelAt(v.x, v.y);
+                if(voxel.value == 0) continue;
 
             const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
 
             if(distance < intensity) {
-                sf::Vector2i v = sf::Vector2i(x, y);
-                chIndexer.boundVector(v);
 
 
                 voxelsInNeedOfUpdate.push_back(v);
@@ -269,8 +252,8 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
             if(x < 0) break;
 
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
-                setImagePixelAt(x,y,cimg.getPixel(x - p.x, y - p.y));
-                chIndexer.getVoxelAt(x,y) = getHandleVoxel(getImagePixelAt(x,y), sf::Vector2i(x,y), true);
+                chIndexer.setImagePixelAt(x,y,cimg.getPixel(x - p.x, y - p.y));
+                chIndexer.getVoxelAt(x,y) = getHandleVoxel(chIndexer.getImagePixelAt(x,y), sf::Vector2i(x,y), true);
             }
         }
     }

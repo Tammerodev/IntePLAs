@@ -5,6 +5,7 @@
 class Element : public sf::Vector2i {
     public:
         virtual void update(ChunkIndexer&) = 0;
+        virtual bool clear() {return false;};
 
     private:
 };

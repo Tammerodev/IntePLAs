@@ -1,25 +1,32 @@
 #include "MaterialsUI.hpp"
 
 void MaterialsUI::load(tgui::BackendGui &gui) {
-
-    auto panel = tgui::Panel::create();
     tgui::Theme theme = tgui::Theme("res/themes/nanogui.style");
 
-    panel->setSize(tgui::Layout2d(450,400));
-    panel->setWidgetName("DEL_");
-    panel->setRenderer(theme.getRenderer("Panel"));
+    canvas = tgui::CanvasSFML::create(tgui::Layout2d(450, 200));
+    canvas->setPosition(tgui::Layout2d(0, 0));
+    canvas->setWidgetName("DEL_");
 
     for(int i = 0; i < barChart.size(); i++) {
         barChart.at(i) = sf::RectangleShape();
         barChart.at(i).setFillColor(sf::Color(201, 58, 77, 150));
-        barChart.at(i).setPosition(-300, i * barDistance);
+        barChart.at(i).setPosition(0, i * barDistance);
         barChart.at(i).setSize(sf::Vector2f(10, barHeight));
     }
 
-    gui.add(panel);
+    gui.add(canvas);
 
 }
 
+void MaterialsUI::render(sf::RenderTarget &target) {
+    canvas->clear(UISettings::getColorRGBA());
+
+    for(auto &bar : barChart) {
+        canvas->draw(bar);
+    }
+
+    canvas->display();
+}
 
 void MaterialsUI::update(VoxelManager &vx_manager)
 {

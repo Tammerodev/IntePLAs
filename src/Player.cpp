@@ -6,7 +6,7 @@ PlayerState* PlayerState::jumpState = new JumpState();
 PlayerState* PlayerState::creativeState = new CreativeState();
 
 
-PlayerState* PlayerState::currentState = PlayerState::creativeState;
+PlayerState* PlayerState::currentState = PlayerState::idleState;
 
 int Player::load() {
     physComp.gravity = 0.1;

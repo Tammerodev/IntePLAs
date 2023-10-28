@@ -21,6 +21,7 @@ public:
     void addItem(VoxelManager&vx, std::shared_ptr<Item> newItem) {
         inventory.push_back(newItem);
     }
+
     void input(sf::Event &ev) {
         if(ev.type == sf::Event::MouseWheelMoved) {
             const int moveAmount = ev.mouseWheel.delta;
@@ -40,11 +41,13 @@ public:
     void use(const sf::Vector2f &p,const sf::Vector2f &m, World& world) {
         inventory[currentItemIndex]->use(p,m, world);
     }
+
     void render(sf::RenderTarget& targ) {
         // Render current item normally
         inventory[currentItemIndex]->getSprite().setScale(1.0f, 1.0f);
         inventory[currentItemIndex]->render(targ);
     }
+
     void renderUI(sf::RenderTarget& targ) {
 
         sf::RectangleShape seperator;
@@ -80,6 +83,7 @@ public:
     std::shared_ptr<Item> getCurrentItem() {
         return inventory[currentItemIndex];
     }
+    
 private:
 
     sf::Vector2f inventoryPosition = sf::Vector2f();

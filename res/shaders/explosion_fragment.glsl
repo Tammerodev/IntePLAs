@@ -48,13 +48,13 @@ void main( void ) {
     vec4 color = vec4(1.0);
     
     color.r = 1.0 - dist / (intens);
-    color.b = color.r - (time * 10.0);
+    color.b = color.r - (time * 8.0);
     color.g = color.r - (time * 10.0);
 
     color *= 2.0;
 
     color.a = (color.r);
-    if(color.a < 0.2) {
+    if(color.a < 0.3) {
         color.a = 0.0;
     }
 

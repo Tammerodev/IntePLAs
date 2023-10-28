@@ -23,6 +23,8 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
 
     Controls::searchForDevices();
 
+    WorldSettings::loadWorldConfig();
+
     if(!world.init(s))
         perror("VoxelManager failed to load world");
     if(!bg.load()) 

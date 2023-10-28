@@ -4,7 +4,7 @@ SFML
 
 
 
-# Hey. I just want to tell you that this project consist of unsafe code. This is just bad code.
+# This project consist of unsafe code!
 Everything is unsafe, you can get this to segfault whenever you want or dont. 
 
 This may/will crash your computer, override GPU memory, or anything possible.
@@ -36,6 +36,9 @@ So dont use gui.deleteAllWidgets()
 186,140,106 Copper    8
 142,129,149 Titanium  9
 104,102,107 Lead      10
+
+# Use
+To change map size, edit json/worldconfig.json
 
 # Notes :
 Ideal delta time for 75hz should be 1.0

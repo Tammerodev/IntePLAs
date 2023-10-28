@@ -20,6 +20,7 @@
 #include "Controls.hpp"
 #include "Cursor.hpp"
 #include "GameStatus.hpp"
+#include "Settings.hpp"
 
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
@@ -102,6 +103,7 @@ private:
 	sf::Sprite renderSprite;
 
 	ShaderEffect shaderEffect;
+	Shader shader_ambient;
 
 
 	float delta_T = 0.f;

@@ -10,10 +10,10 @@ namespace Controls {
     static sf::Keyboard::Key keybind_jump = sf::Keyboard::Space;
     static sf::Keyboard::Key keybind_down = sf::Keyboard::S;
 
-
     static sf::Keyboard::Key keybind_zoomin = sf::Keyboard::Up;
     static sf::Keyboard::Key keybind_zoomout = sf::Keyboard::Down;
 
+    static sf::Keyboard::Key keybind_openItemCreator = sf::Keyboard::E;
 
     static sf::Mouse::Button mousebind_useitem = sf::Mouse::Left;
     static sf::Mouse::Button mousebind_switchitem = sf::Mouse::Middle;
@@ -90,6 +90,7 @@ namespace Controls {
             throw "Not implemented";
         return false;
     }
+
     static bool useItem(sf::Event &event) {
         if(currentController == ControllerType::Keyboard) 
             return event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == mousebind_useitem;
@@ -106,6 +107,13 @@ namespace Controls {
         return false;
     }
 
+    static bool openItemCreator() {
+        if(currentController == ControllerType::Keyboard) 
+            return sf::Keyboard::isKeyPressed(keybind_openItemCreator);
+        else if(currentController == ControllerType::Joystick)
+            throw "Not implemented";
+        return false;
+    }
 
     static bool switchItem(sf::Event &event) {
         if(currentController == ControllerType::Keyboard) 
