@@ -190,12 +190,10 @@ public:
 
         // TODO : Clean up. not pretty but it works
 
-        sf::Vector2f spritePosition = editSpr.getPosition();
-        sf::Vector2f localMousePosition = target.mapPixelToCoords(sf::Vector2i(position));
+        sf::Vector2f spritePosition = canvasSFML->getPosition();
+        sf::Vector2f localMousePosition = position;
 
         relativeMousePosition = localMousePosition - spritePosition;
-        relativeMousePosition.x -= 330;
-        relativeMousePosition.y -= 330;
 
     }
 

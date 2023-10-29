@@ -70,7 +70,7 @@ public:
                 seperator.setOutlineThickness(-1);
             }
 
-            const sf::Vector2f position = sf::Vector2f(300 + index * 32, 550);
+            const sf::Vector2f position = sf::Vector2f((targ.getView().getSize().x / 3) + (index * 32), targ.getView().getSize().y - 32);
             seperator.setPosition(position - sf::Vector2f(32 / 2, 32 / 2));
 
             targ.draw(seperator);

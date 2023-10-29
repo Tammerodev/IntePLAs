@@ -15,7 +15,8 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
     matUI.load(gui);
     game_camera.zoom(0.99f);
     ui_camera.zoom(1.0f);
-    ui_camera.setCenterPosition(sf::Vector2f(0.f, 0.f));
+    ui_camera.setCenterPosition(sf::Vector2f(500.f, 500.f));
+
 
     game_camera.setLeapSpeed(1.f);
     game_camera.setCameraMode(CameraMode::Leap);
@@ -112,6 +113,12 @@ void GameState::input(sf::Event &ev) {
         inv.input(ev);
     }
 
+    if(ev.type == sf::Event::Resized) {
+        // Resize
+        game_camera.getView().setSize(Display::window_width, Display::window_height);
+        ui_camera.getView().setSize(Display::window_width, Display::window_height);
+    }
+
     if(ev.type == sf::Event::KeyReleased) {
         if(ev.key.code == sf::Keyboard::Escape) {
             statexit();
@@ -130,7 +137,12 @@ void GameState::statexit()
 
 void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui)
 {    
+    window.setView(window.getDefaultView());
     GUIfocusedOnObject = gui.getFocusedChild() != nullptr;
+
+    Display::window_width = window.getSize().x;
+    Display::window_height = window.getSize().y;
+
     // Clear renderTexture
     renderTexture.clear(sf::Color(GameStatus::brightness * 100, GameStatus::brightness * 100, GameStatus::brightness * 100, 255));
 
@@ -157,7 +169,7 @@ void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui)
 
 
     // UI Render
-    window.setView(window.getDefaultView());
+    ui_camera.setViewTo(window);
 
     matUI.render(window);
     uiStateManager.render(window, gui);

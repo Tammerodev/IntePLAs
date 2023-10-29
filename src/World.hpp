@@ -47,36 +47,37 @@ public:
     }
 
     void handleCollisionsWithPlayer(Player& player) {
-        const bool groundCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x,
-                                                            player.getPhysicsComponent().transform_position.y + 28));
 
-        const bool headCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x,
-                                                            player.getPhysicsComponent().transform_position.y - 3)); 
+        IntPhysicsComponent &player_physicscomp = player.getPhysicsComponent();
 
-        const bool rightCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x + 20,
-                                                            player.getPhysicsComponent().transform_position.y + 14)); 
+        const bool groundCollision = main_world.getPixelCollision(sf::Vector2i(player_physicscomp.transform_position.x,
+                                                            player_physicscomp.transform_position.y + 28));
 
-        const bool leftCollision = main_world.getPixelCollision(sf::Vector2i(player.getPhysicsComponent().transform_position.x - 3,
-                                                            player.getPhysicsComponent().transform_position.y + 14));
+        const bool headCollision = main_world.getPixelCollision(sf::Vector2i(player_physicscomp.transform_position.x,
+                                                            player_physicscomp.transform_position.y - 3)); 
 
+        const bool rightCollision = main_world.getPixelCollision(sf::Vector2i(player_physicscomp.transform_position.x + 20,
+                                                            player_physicscomp.transform_position.y + 14)); 
 
-        if(rightCollision) {
-            player.getPhysicsComponent().transform_position.x -= 1;
+        const bool leftCollision = main_world.getPixelCollision(sf::Vector2i(player_physicscomp.transform_position.x - 3,
+                                                            player_physicscomp.transform_position.y + 14));
+
+        const bool sideCollision = rightCollision || leftCollision;
+
+        if(sideCollision) {
+            player_physicscomp.transform_position.x -= player_physicscomp.velocity.x;
         }
-        if(leftCollision) {
-            player.getPhysicsComponent().transform_position.x += 1;
-        }
+
         if(groundCollision) {
+            player_physicscomp.transform_position.y -= 1;
             player.ground();
-            player.getPhysicsComponent().transform_position.y -= 1;
-            return;
         }
 
         if(headCollision) {
-            player.getPhysicsComponent().velocity.y = 0;
-            player.getPhysicsComponent().velocity_buffer = 0;
+            player_physicscomp.velocity.y = 0;
+            player_physicscomp.velocity_buffer = 0;
 
-            player.getPhysicsComponent().transform_position.y += 1;
+            player_physicscomp.transform_position.y += 1;
         }
     }
 

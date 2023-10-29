@@ -6,7 +6,7 @@
             "command": "/usr/bin/g++",
             "args": [
                 "-g",
-                "-O3",
+                "-O2",
                 "*.cpp",
                 "-lsfml-system",
                 "-lsfml-window",
@@ -16,7 +16,7 @@
                 "-ltgui",
                 "-ljsoncpp",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/../output/Game"
                 
             ],
             "options": {

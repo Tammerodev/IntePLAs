@@ -136,10 +136,14 @@ void VoxelManager::update()
     while (e != elements.end())
     {
         e->get()->update(chIndexer);
+
         if(e->get()->clear()) {
-            elements.remove(*e);
+            prndd("aa");
+            e = elements.erase(e);  // Remove the element and update the iterator
         }
-        ++e;
+        else {
+            ++e;  // Move to the next element if not removed
+        }
     }
 
 }

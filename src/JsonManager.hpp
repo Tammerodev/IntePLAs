@@ -14,7 +14,7 @@ public:
     }
 
     bool init() {
-        reader.parse(json_stream_read, actualJson);
+        return reader.parse(json_stream_read, actualJson);
     }
 
     const std::string readParameterAsString(const std::string& param) {

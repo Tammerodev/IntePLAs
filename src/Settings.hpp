@@ -29,17 +29,16 @@ namespace WorldSettings {
         const std::string world_size_x = reader.readParameterAsString("world-size-x");
         const std::string world_size_y = reader.readParameterAsString("world-size-y");
 
-        prndd(world_size_x);
-        prndd(world_size_y);
-
         createSizeX = std::stoi(world_size_x);
         createSizeY = std::stoi(world_size_y);
-
-
-        prndd(createSizeX);
-        prndd(createSizeY);
 
         worldConfigLoaded = result;
         return worldConfigLoaded;
     }
+}
+
+namespace Display {
+    inline int window_height = 0;
+    inline int window_width = 0;
+
 }

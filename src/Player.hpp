@@ -25,6 +25,7 @@ IntPhysicsComponent &getPhysicsComponent() {
 void ground() {
     physComp.velocity.y = 0;
     physComp.velocity_buffer = 0;
+    
     grounded = true;
 }
 
