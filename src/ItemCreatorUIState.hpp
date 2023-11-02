@@ -136,13 +136,17 @@ public:
     }
 
     void update(const sf::Vector2f &mousepos) {
+        sf::Vector2f spritePosition = canvasSFML->getPosition();
+        sf::Vector2f localMousePosition = mousepos;
+
+        relativeMousePosition = localMousePosition - spritePosition;
+
+
         editTex.update(editImg);
         editSpr.setTexture(editTex);
 
         editSpr.setPosition(0,0);
         editSpr.setScale(scaling, scaling);
-
-        position = mousepos;
 
         isDrawing = math::distance(mousepos, canvasSFML->getPosition()) < ((size.x * scaling) + (size.y * scaling));
 
@@ -187,13 +191,6 @@ public:
         }
 
         canvasSFML->display();
-
-        // TODO : Clean up. not pretty but it works
-
-        sf::Vector2f spritePosition = canvasSFML->getPosition();
-        sf::Vector2f localMousePosition = position;
-
-        relativeMousePosition = localMousePosition - spritePosition;
 
     }
 

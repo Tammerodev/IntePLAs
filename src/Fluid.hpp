@@ -14,14 +14,15 @@ class Fluid : public Element {
             sf::Vector2i lastPos = {0,0};
 
             world.boundSetImagePixelAt(x, y, color);
-            world.getVoxelAt(x, y).value = elm::ValWater;
+            world.boundGetVoxelAt(x, y).value = elm::ValWater;
 
             sf::Vector2i nextWaterPos = *this;
 
             nextWaterPos.y++;
-            if(world.getVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
+            if(world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
                 world.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
-                world.getVoxelAt(x, y).value = 0;
+                
+                world.boundGetVoxelAt(x, y).value = 0;
 
                 x = nextWaterPos.x;
                 y = nextWaterPos.y;
@@ -30,19 +31,19 @@ class Fluid : public Element {
                 nextWaterPos.y--;
                 int res = 0;
 
-                if(world.getVoxelAt(nextWaterPos.x + 1, nextWaterPos.y).value == 0) {
+                if(world.boundGetVoxelAt(nextWaterPos.x + 1, nextWaterPos.y).value == 0) {
                     res = 1;
                 }
-                if(world.getVoxelAt(nextWaterPos.x - 1, nextWaterPos.y).value == 0) {
+                if(world.boundGetVoxelAt(nextWaterPos.x - 1, nextWaterPos.y).value == 0) {
                     res = -1;
                 }
-                if(world.getVoxelAt(nextWaterPos.x - 1, nextWaterPos.y).value == 0 && world.getVoxelAt(nextWaterPos.x + 1, nextWaterPos.y).value == 0) {
+                if(world.boundGetVoxelAt(nextWaterPos.x - 1, nextWaterPos.y).value == 0 && world.boundGetVoxelAt(nextWaterPos.x + 1, nextWaterPos.y).value == 0) {
                     res = math::randIntInRange(-1, 1);
                 }
 
                 nextWaterPos.x += res;
 
-                if(world.getVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
+                if(world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
                     world.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
                     world.getVoxelAt(x, y).value = 0;
                         
@@ -52,7 +53,8 @@ class Fluid : public Element {
                 }
             }
 
-            world.getVoxelAt(x, y).value = value;
+            world.boundGetVoxelAt(x, y).value = value;
+
             world.boundSetImagePixelAt(x, y, color);
 
             lastPos = *this;

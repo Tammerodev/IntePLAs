@@ -63,14 +63,17 @@ public:
             if(index == currentItemIndex) {
                 seperator.setOutlineColor(sf::Color::White);
                 seperator.setOutlineThickness(-3.f);
+                item->getSprite().setScale(1.5, 1.5);
             }
 
             else { 
                 seperator.setOutlineColor(sf::Color::Black); 
                 seperator.setOutlineThickness(-1);
+                item->getSprite().setScale(1.0, 1.0);
+
             }
 
-            const sf::Vector2f position = sf::Vector2f((targ.getView().getSize().x / 3) + (index * 32), targ.getView().getSize().y - 32);
+            const sf::Vector2f position = sf::Vector2f((targ.getView().getSize().x / 3) + (index * 32), 64);
             seperator.setPosition(position - sf::Vector2f(32 / 2, 32 / 2));
 
             targ.draw(seperator);

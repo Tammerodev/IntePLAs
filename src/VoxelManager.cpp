@@ -57,7 +57,9 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
         } else if(val == elm::ValSodium) {
             hole(sf::Vector2i(x,y),elm::sodiumExplosion,true,elm::sodiumExplosionTemp);
         } else if(val == elm::ValNitroglycerin) {
+
             hole(sf::Vector2i(x,y),elm::nitroglycerinExplosion,true,elm::nitroglycerinExplosionTemp);
+            
         }
     }
 
@@ -138,11 +140,10 @@ void VoxelManager::update()
         e->get()->update(chIndexer);
 
         if(e->get()->clear()) {
-            prndd("aa");
-            e = elements.erase(e);  // Remove the element and update the iterator
+            e = elements.erase(e);  
         }
         else {
-            ++e;  // Move to the next element if not removed
+            ++e;  
         }
     }
 

@@ -22,7 +22,8 @@ MainState* MainState::currentState = MainState::menuState;
 class StateManager {
 public:
     void createWindow(uint16_t height, uint16_t width, const std::string &title, bool fullscreen, uint16_t fps_limit) {
-        window.create(sf::VideoMode(width,height), title);
+        if(fullscreen) window.create(sf::VideoMode(width,height), title, sf::Style::Fullscreen);
+        else window.create(sf::VideoMode(width,height), title);
 
         window.setFramerateLimit(fps_limit);
         window.setVerticalSyncEnabled(true);

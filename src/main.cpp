@@ -17,7 +17,7 @@ int main() {
 
     srand(time(0));
 
-    stateManager.createWindow(1080,1920,"IntePLAs",false, 75);
+    stateManager.createWindow(1080, 1920, "IntePLAs", false, 75);
     stateManager.init();
     stateManager.gameLoop();
     return 0;
