@@ -37,8 +37,9 @@ int VoxelManager::load(std::string file, bool proced)
 
     chIndexer.updateWorldSize();
 
-
+    timer.restart();
     initVoxelMap();
+    loginf("Initializing voxel map took : ", timer.restart().asSeconds(), ".");
 
     return res;
 }
@@ -53,7 +54,7 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
         int val = vox.value;
         damageVoxelAt(x,y);
         if(val == elm::ValLithium) {
-            hole(sf::Vector2i(x,y),elm::lithiumExplosion,true,elm::lithiumExplosionTemp);
+            hole(sf::Vector2i(x,y), elm::lithiumExplosion, true, elm::lithiumExplosionTemp);
         } else if(val == elm::ValSodium) {
             hole(sf::Vector2i(x,y),elm::sodiumExplosion,true,elm::sodiumExplosionTemp);
         } else if(val == elm::ValNitroglycerin) {
@@ -100,7 +101,7 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
     }
 }
 
-void VoxelManager::update()
+void VoxelManager::update(Player &player)
 {   
 
     shader.setUniform("amount", 0.5f);
@@ -147,15 +148,41 @@ void VoxelManager::update()
         }
     }
 
+    auto rad = radioactive_elements.begin();
+    while (rad != radioactive_elements.end())
+    {
+
+        rad->get()->update(chIndexer);
+
+        const float distance = math::distance(
+            sf::Vector2f(*rad->get()), sf::Vector2f(player.getPhysicsComponent().transform_position)
+            );
+
+        const float radiation_strength = rad->get()->getRadiationStrength();
+
+        PlayerGlobal::radiation_received = 0;
+
+        if(distance < radiation_strength) {
+            
+            const int radiation = radiation_strength - (int)distance;
+
+            const bool particle = math::randIntInRange(0, radiation_strength) > distance;
+
+            if(particle) {
+                PlayerGlobal::radiation_received = radiation;
+                if(math::randIntInRange(0, 10000) < 1) 
+                    player.damage_radiation(1);
+            }
+        }
+
+        ++rad;  
+    }
 }
 
 void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, const int64_t heat)
 {
     if(force) {
-        ExplosionInfo info;
-        info.position = sf::Vector2f(p);
-        info.strength = intensity;
-        explosion_points.push_back(info);
+        explosionEffect(sf::Vector2f(p), intensity);
     }
 
     chIndexer.boundVector(p);
@@ -180,8 +207,6 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
             const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
 
             if(distance < intensity) {
-
-
                 voxelsInNeedOfUpdate.push_back(v);
                 if(force) damageVoxelAt(v.x, v.y);
                 heatVoxelAt(v.x, v.y, (intensity - distance)*heat);
@@ -189,7 +214,35 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
         }
     }
 
-    int mergeChunkRadius = (intensity / Chunk::sizeX) + 3;
+}
+
+void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool force, const int64_t heat)
+{
+    if(force) {
+        explosionEffect(sf::Vector2f(p), intensity);
+    }
+
+    const int numRays = intensity * 30;
+    const int rayLength = intensity;
+
+
+    int endX = p.x - intensity;
+    int endY = p.y - intensity;
+
+    for(;endX < p.x + intensity; endX++)
+        castRayLine(p, sf::Vector2i(endX, endY), intensity);
+
+    for(;endY < p.y + intensity; endY++)
+        castRayLine(p, sf::Vector2i(endX, endY), intensity);  
+
+
+    for(;endX > p.x - intensity; endX--)
+        castRayLine(p, sf::Vector2i(endX, endY), intensity);  
+
+
+    for(;endY > p.y - intensity; endY--)
+        castRayLine(p, sf::Vector2i(endX, endY), intensity);   
+
 }
 
 bool VoxelManager::generate()
@@ -203,7 +256,7 @@ bool VoxelManager::generate()
 
 bool VoxelManager::generateVegetation()
 {
-
+    sf::Clock timer;
     int ind = 0;
 
     sf::Image image;
@@ -228,6 +281,8 @@ bool VoxelManager::generateVegetation()
 
         ind++;
     }
+
+    loginf("Creating vegetation took ", timer.restart().asSeconds(), " seconds.");
 
     return true;
 }

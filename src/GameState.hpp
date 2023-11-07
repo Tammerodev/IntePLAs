@@ -41,6 +41,10 @@ public:
 	void input(sf::Event &ev);
 	void statexit();
 
+	bool loaded() {
+		return hasLoaded;
+	}
+
 	uint64_t timer = 0.f;
 
 	const sf::Event event_sig() {
@@ -79,6 +83,7 @@ private:
 	bool GUIfocusedOnObject = false;
 
 	bool slowmo = false;
+	bool hasLoaded = false;
 	sf::Clock clock;
 
 

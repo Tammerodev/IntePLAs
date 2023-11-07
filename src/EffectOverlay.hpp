@@ -23,7 +23,9 @@ public:
     void update(const sf::Vector2f &view_pos) {
         for(auto &eff : explosion_effects) {
             eff.update();
+
         }
+        
     }
 
     void effect_explosion(const ExplosionInfo& exInfo) {

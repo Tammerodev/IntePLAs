@@ -9,6 +9,24 @@
 #include "Panel.hpp"
 #include "MaterialsUI.hpp"
 #include "ItemCreateItem.hpp"
+#include "GeigerCounter.hpp"
+
+class HealthBar {
+    public:
+        void load() {
+
+        }
+
+        void render(sf::RenderTarget& targ) {
+
+        }
+        
+        void update(Player &player) {
+
+        }
+
+    private:
+};
 
 class Inventory {
 public:
@@ -16,6 +34,8 @@ public:
         inventory.push_back(std::make_shared<RocketLauncher>(vx));
         inventory.push_back(std::make_shared<DebugPlacer>(vx));
         inventory.push_back(std::make_shared<HeatGun>(vx));
+        inventory.push_back(std::make_shared<GeigerCounter>(vx));
+
     } 
 
     void addItem(VoxelManager&vx, std::shared_ptr<Item> newItem) {
@@ -73,7 +93,8 @@ public:
 
             }
 
-            const sf::Vector2f position = sf::Vector2f((targ.getView().getSize().x / 3) + (index * 32), 64);
+            const sf::Vector2f position = sf::Vector2f(0, (index * 32));
+
             seperator.setPosition(position - sf::Vector2f(32 / 2, 32 / 2));
 
             targ.draw(seperator);

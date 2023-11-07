@@ -44,7 +44,7 @@ class PlaceItem : public Item {
 		return gun_spr;
 	}
 
-    void update(World &world, const sf::Vector2f &pos, const sf::Vector2f& mspos, const float dt) {
+    void update(World &world, const sf::Vector2f &pos, const sf::Vector2f& mspos, const float dt, Player&) {
 		mospos = sf::Vector2i(pos);
 		mospos /= 16;
 		mospos *= 16;
@@ -53,8 +53,11 @@ class PlaceItem : public Item {
 		gun_spr.setPosition(mospos.x + gun_spr.getGlobalBounds().width / 2, mospos.y + gun_spr.getGlobalBounds().height / 2);
 
 		sf::Vector2i testPosition = sf::Vector2i(gun_spr.getPosition());
-		allowedToplace = !vx_man.getPixelCollision(testPosition);
-
+		
+		// TODO : Temp fix
+		//allowedToplace = !vx_man.getPixelCollision(testPosition);
+		allowedToplace = true;
+		
 		if(allowedToplace)
 			gun_spr.setColor(sf::Color(255,255,255,200));
 		else

@@ -34,6 +34,7 @@ public:
     void explode(const ExplosionInfo& exInfo) {
         explosion_shader.setUniform("explosion", sf::Vector2f(renderSpr.getGlobalBounds().width/2, renderSpr.getGlobalBounds().height/2));
         explosion_shader.setUniform("str_", exInfo.strength);
+        SFX::strong_explosion.setPitch(1.0 + (math::randFloat() / 10.0f));
         SFX::strong_explosion.play();
 
         shader_time.restart();

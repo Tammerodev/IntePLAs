@@ -26,6 +26,7 @@ public:
 		ex->setRotation(rotationAngle);
 		ex->setVelocity(sf::Vector2f(cos(gun_spr.getRotation() * 3.1415926f / 180.f),sin(gun_spr.getRotation() * 3.1415926f / 180.f)));
 		bullets.push_back(std::move(ex));
+
 		SFX::rocket_launcher_fire.play();
     }
 
@@ -58,7 +59,7 @@ public:
 		return gun_spr;
 	}
 
-    void update(World &world, const sf::Vector2f& mousePos, const sf::Vector2f& pos, const float dt) {
+    void update(World &world, const sf::Vector2f& mousePos, const sf::Vector2f& pos, const float dt, Player&) {
 		// Set position and rotation
 		rotationAngle = atan2f(mousePos.y - gun_spr.getPosition().y, mousePos.x - gun_spr.getPosition().x) * 180 / math::PI;
 
@@ -78,7 +79,7 @@ public:
 			const long MAX_DISTANCE_FROM_MOUSE = 5000;
 			
 			if (world.main_world.getPixelCollision(sf::Vector2i(bullet->pos))) {
-				world.main_world.hole(sf::Vector2i(bullet->pos), explosion_stength, true, temp);
+				world.main_world.holeRayCast(sf::Vector2i(bullet->pos), explosion_stength, true, temp);
 				return true; // Remove the bullet
 			}
 

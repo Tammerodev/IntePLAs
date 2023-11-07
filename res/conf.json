@@ -1,6 +1,6 @@
 {
     "fullscreen": true,
      
-    "WorldCreateSizeX": "64",
-    "WorldCreateSizeY": "64"
+    "WorldCreateSizeX": "16",
+    "WorldCreateSizeY": "32"
 }

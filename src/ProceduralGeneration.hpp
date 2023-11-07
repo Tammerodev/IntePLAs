@@ -9,6 +9,7 @@
 #include "Elements.hpp"
 #include "math.hpp"
 #include "Chunk.hpp"
+#include "FastNoiseLite.hpp"
 
 class ProcGenerate {
 public:
@@ -73,10 +74,20 @@ public:
 
         const float val = math::randFloat() * 3;
 
-        for(int x = 0; x <= world_sx - 10; x++ ) {
-            const float fx = x / 400.0;
-            heightMap1D.push_back(abs(1000+((sin(2*fx) + sin(val * fx)) * 50.0)));
+        FastNoiseLite fsl;
+        fsl.SetNoiseType(FastNoiseLite::NoiseType::NoiseType_Perlin);
+        fsl.SetSeed(time(0)); // Set a random seed (change this to get different noise patterns)
+        
+        int index = 0;
+
+        // Generate Simplex noise values
+        for (int x = 0; x <= world_sx - 10; x++) {
+            float y = (fsl.GetNoise((float)x / 10.0f, 0.f) * 300.0) + 1000.0; // Get 1D Simplex noise value for x
+            heightMap1D.push_back(y);
         }
+    
+
+        index = 0;
 
         loginf("Creating height map took : ", timer.restart().asSeconds(), ".");
 
@@ -91,7 +102,10 @@ public:
             for(int i = world_sy - 1; i >= 2048 - h; i--) {
                 int offset = math::randIntInRange(0, 100) + 100;
 
-                int colorLayer = std::clamp(((i - (int)h) - offset) / 200, 0, (int)colorLayers.size() - 1);
+                int colorLayer = std::clamp
+                    (
+                    (int)((i + h + offset) / (world_sy / 6)) - 1, 0, (int)colorLayers.size() - 1
+                    );
 
 
                 sf::Color col = colorLayers.at(colorLayer).at(math::randIntInRange(0, colorLayers.size() - 1));
@@ -111,6 +125,6 @@ public:
     }
 
 
-    std::list<float> heightMap1D;
+    std::vector<float> heightMap1D;
     bool generationDone;
 };

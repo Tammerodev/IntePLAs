@@ -191,6 +191,7 @@ void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool f
         }
     }
 
+
 }
 
 const Voxel VoxelGroup::getValueFromCol(const sf::Color &px, sf::Vector2i p)

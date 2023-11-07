@@ -27,6 +27,10 @@
 #include "Burning.hpp"
 #include "Settings.hpp"
 
+#include "Uranium-235.hpp"
+
+#include "Player.hpp"
+
 #include <list>
 
 class VoxelManager {
@@ -75,8 +79,63 @@ public:
 
     void heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp);
     void render(sf::RenderTarget&, const sf::Vector2f &center);
-    void update();
+    void update(Player&);
     void hole(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat);
+    void holeRayCast(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat);
+
+    void explosionEffect(const sf::Vector2f &p, int intensity) {
+        if(explosion_points.size() < PREALLOCATE_EFFECTS_COUNT) {
+            ExplosionInfo info;
+            info.position = sf::Vector2f(p);
+            info.strength = intensity;
+            explosion_points.push_back(info);
+        }
+    }
+
+    void castRayLine(const sf::Vector2i start, const sf::Vector2i end, int intensity) {
+        sf::Vector2i delta = end - start;
+        int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
+
+        for (int i = 0; i <= length; i++) {
+            float t = static_cast<float>(i) / length;
+            sf::Vector2i pixelPosition(
+                start.x + static_cast<unsigned>(delta.x * t),
+                start.y + static_cast<unsigned>(delta.y * t)
+            );
+
+            if(i < intensity) {
+                chIndexer.boundVector(pixelPosition);
+
+                if(false) damageVoxelAt(pixelPosition.x, pixelPosition.y);
+                heatVoxelAt(pixelPosition.x, pixelPosition.y, 1000);
+
+                if(chIndexer.getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
+                    voxelsInNeedOfUpdate.push_back(pixelPosition);
+                    break;
+                }
+            }
+
+            
+        }
+    }
+
+    bool doesLineContainMaterial(const sf::Vector2i start, const sf::Vector2i end) {
+        sf::Vector2i delta = end - start;
+        int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
+
+        for (int i = 0; i <= length; i++) {
+            float t = static_cast<float>(i) / length;
+            sf::Vector2i pixelPosition(
+                start.x + static_cast<unsigned>(delta.x * t),
+                start.y + static_cast<unsigned>(delta.y * t)
+            );
+
+            if(chIndexer.getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     bool generate();
     bool generateVegetation();
@@ -155,6 +214,11 @@ public:
             vox.strenght = 2;
 
             if(addVoxelsToArr) elements.push_back(std::make_shared<Chlorine>(p.x, p.y));
+        } else if(px == elm::Uranium235) {
+            vox.value = elm::ValUranium235;
+            vox.strenght = 2;
+
+            if(addVoxelsToArr) radioactive_elements.push_back(std::make_shared<Uranium235>(p.x, p.y));
         }
 
         return vox;
@@ -194,6 +258,8 @@ private:
     std::list<sf::Vector2i> reactiveVoxels;
 
     std::list<std::shared_ptr<Element>> elements;
+    std::list<std::shared_ptr<RadioactiveElement>> radioactive_elements;
+
     // These have to be specified here for efficiency
 
     ChunkBounds draw_bounds { 0, 0, 0, 0 };

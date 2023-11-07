@@ -17,6 +17,14 @@ namespace math {
     {
         // TODO implement
     }
+
+    inline const sf::Vector2f subVector(const sf::Vector2f& a, const sf::Vector2f& b) {
+        return sf::Vector2f (
+            a.x - b.x,  
+            a.y - b.y
+        );
+    }
+
     inline unsigned short isqrt(unsigned long a) {
         unsigned long rem = 0;
         int root = 0;

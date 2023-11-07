@@ -18,11 +18,19 @@ struct IntPhysicsComponent {
         transform_position += velocity;
         transform_position.y += floor(velocity_buffer);
 
+
+    }
+
+    void setVelocity(const sf::Vector2f& v) {
+        velocity_buffer = v.y;
+        velocity.x = (int)v.x;
     }
 
     int timer = 0;
     float velocity_buffer = 0.0;
 
+    float weight = 2.0;
+    float friction = 1.0;
 };
 
 struct PhysicsComponent {

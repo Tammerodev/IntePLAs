@@ -19,7 +19,7 @@ public:
 		MainState::currentState->statexit();
 		gui.removeAllWidgets();
 
-		MainState::currentState = MainState::gameState;
+		MainState::currentState = MainState::loadState;
 		MainState::currentState->load(path.toStdString(), gui); 
 	}
 

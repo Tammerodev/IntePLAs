@@ -13,10 +13,13 @@
 #include "Menustate.hpp"
 #include "GameState.hpp"
 #include "SettingsState.hpp"
+#include "LoadingState.hpp"
 
 MainState* MainState::menuState = new MenuState();
 MainState* MainState::gameState = new GameState();
 MainState* MainState::settingsState = new SettingsState();
+MainState* MainState::loadState = new Loading();
+
 MainState* MainState::currentState = MainState::menuState;
 
 class StateManager {

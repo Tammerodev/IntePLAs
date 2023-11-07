@@ -20,8 +20,8 @@ public:
         return res;
     }
 
-    void update() {
-        main_world.update();
+    void update(Player &player) {
+        main_world.update(player);
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
             world->update();
             const std::vector<sf::Vector2i> &collisionTestPoints = world->getCollisionTestPoints();

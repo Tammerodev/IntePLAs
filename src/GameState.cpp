@@ -26,24 +26,39 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
 
     WorldSettings::loadWorldConfig();
 
+    prndd("Initializing worlds...");
     if(!world.init(s))
         perror("VoxelManager failed to load world");
+
+    prndd("Loading background...");
     if(!bg.load()) 
         perror("Background failed to load");
+    
+    prndd("Loading Effects...");
     if(!effOverlay.load()) 
         perror("Effect Overlay failed to load");
+
+    prndd("Loading player...");
     if(!player.load()) 
         perror("Player failed to load");
+    
+    prndd("Loading sounds...");
     if(!SFX::load())
         perror("Failed to load sound effect");
     if(!BGMusic::load())
         perror("Failed to load background music");
+
+    prndd("Loading UI...");
     if(!uiStateManager.load(gui, inv, world.main_world))
         perror("Failed to load user interface");
     if(!cursor.load(gui)) 
         perror("Failed to load cursor");
+
+    prndd("Compiling shaders...");
     if(!shaderEffect.load(window_width, window_height)) 
         perror("Failed to load bloom effect");
+
+    hasLoaded = true;
 
     return true;
 }
@@ -54,7 +69,22 @@ void GameState::update()
     GameStatus::updateBrightness();
     delta_T = 1.0f;
 
-    // Handle explosion effects
+    // Handle explosion player damage
+    for(const auto point : world.main_world.explosion_points) {
+        const sf::Vector2f player_position = sf::Vector2f(player.getPhysicsComponent().transform_position);
+        const float distance = math::distance(player_position, point.position);
+
+        if(distance < point.strength) {
+            player.damage(point.strength - distance);
+
+            // Launch the player in opposite direction
+            player.getPhysicsComponent().setVelocity(
+                math::subVector(player_position, point.position) / (distance * player.getPhysicsComponent().weight)
+                );
+        }   
+    }
+    
+    // Handle explosion effect
     if (!world.main_world.explosion_points.empty()) {
         effOverlay.effect_explosion(world.main_world.explosion_points.back());
         world.main_world.explosion_points.pop_back();
@@ -76,10 +106,10 @@ void GameState::update()
     matUI.update(world.main_world);
     shaderEffect.update();
     uiStateManager.update(Controls::windowCursorPos);
-    world.update();
+    world.update(player);
 
     // Update inventory item and handle player collisions
-    inv.getCurrentItem()->update(world, Controls::worldCursorPos, sf::Vector2f(player.getPhysicsComponent().transform_position), delta_T);
+    inv.getCurrentItem()->update(world, Controls::worldCursorPos, sf::Vector2f(player.getPhysicsComponent().transform_position), delta_T, player);
     world.handleCollisionsWithPlayer(player);
 
     // Update game camera zoom and cursor position

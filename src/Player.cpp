@@ -4,7 +4,8 @@ PlayerState* PlayerState::walkState = new WalkState();
 PlayerState* PlayerState::idleState = new IdleState();
 PlayerState* PlayerState::jumpState = new JumpState();
 PlayerState* PlayerState::creativeState = new CreativeState();
-
+PlayerState* PlayerState::dead = new DeadState();
+PlayerState* PlayerState::damageState = new DamageState();
 
 PlayerState* PlayerState::currentState = PlayerState::idleState;
 
@@ -18,7 +19,9 @@ int Player::load() {
     spr.setTexture(tx);
     return 1;
 }
+
 void Player::update(float dt) {
+    std::cout << (health) << '\n';
     PlayerState::currentState->update(physComp, dt);
     PlayerState::currentState->input(grounded);
 
