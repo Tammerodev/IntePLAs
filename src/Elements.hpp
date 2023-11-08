@@ -16,7 +16,7 @@ namespace elm {
     const sf::Color Nitroglycerin {159, 8, 23, 200};
     const sf::Color Chlorine {239, 255, 61, 60};
     const sf::Color Uranium235 {71, 201, 75};
-
+    const sf::Color Radium226 {31, 71, 57};
 
     const uint8_t ValCarbon = 2;
     const uint8_t ValLithium = 3;
@@ -31,6 +31,7 @@ namespace elm {
     const uint8_t ValNitroglycerin = 12;
     const uint8_t ValChlorine = 13;
     const uint8_t ValUranium235 = 20;
+    const uint8_t ValRadium226 = 21;
 
 
     const unsigned short defaultMaxTemp = 1000;
@@ -46,6 +47,7 @@ namespace elm {
     const unsigned short waterMaxTemp = 100;
     const unsigned short nitroglycerinMaxTemp = 100;
     const unsigned short uranium235MaxTemp = 1132;
+    const unsigned short radium226MaxTemp = 1132;
 
 
 
@@ -99,6 +101,8 @@ namespace elm {
             return waterMaxTemp;
         case ValUranium235:
             return uranium235MaxTemp;
+        case ValRadium226:
+            return radium226MaxTemp;
 
         default:
             return defaultMaxTemp;
@@ -130,6 +134,7 @@ namespace elm {
             return waterAmbientDissipation;
         case ValNitroglycerin:
             return nitroglycerinAmbientDissipation;
+            
         default:
             return defaultAmbientDissipation;
         }

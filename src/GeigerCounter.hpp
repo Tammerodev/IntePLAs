@@ -14,12 +14,12 @@ public:
 		gun_tx.loadFromFile("res/img/Tool/geiger_counter.png");
 		gun_spr.setTexture(gun_tx);
 
-		gun_spr.setOrigin(gun_spr.getGlobalBounds().width / 2,gun_spr.getGlobalBounds().height / 2);
+		gun_spr.setOrigin(20 / 2, 16 / 2);
 
 		gun_spr.setTextureRect(
 			sf::IntRect(
 				sf::Vector2i(0, 0),
-				sf::Vector2i(16, 16)
+				sf::Vector2i(20, 16)
 			)
 		);
 
@@ -37,7 +37,7 @@ public:
 	void inventory_render(sf::RenderTarget&r, const sf::Vector2f &pos) {
 		sf::IntRect(
 				sf::Vector2i(0, 0),
-				sf::Vector2i(16, 16)
+				sf::Vector2i(20, 16)
 			);
 
 		const sf::Vector2f original_position = gun_spr.getPosition();
@@ -74,8 +74,8 @@ public:
 
 		gun_spr.setTextureRect(
 			sf::IntRect(
-				sf::Vector2i(click * 16, 0),
-				sf::Vector2i(16, 16)
+				sf::Vector2i(0, click * 16),
+				sf::Vector2i(20, 16)
 			)
 		);
     }

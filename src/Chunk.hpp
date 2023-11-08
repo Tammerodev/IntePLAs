@@ -112,6 +112,36 @@ public:
         getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
     }
 
+    void SetHeat(const uint64_t x, const uint64_t y, int64_t temp)
+    {
+        Voxel &vox = getVoxelAt(x, y);
+
+        if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
+            uint8_t &strenght = vox.strenght;
+            --strenght;
+            if(vox.strenght <= 0) { 
+                getVoxelAt(x,y).value = 0; 
+                setImagePixelAt(x,y,sf::Color(0,0,0,0));
+            }
+        }
+
+        vox.temp = temp;
+
+        if(vox.temp <= 0) vox.temp = 0;
+
+        sf::Color currPixel = getImagePixelAt(x,y);
+
+        uint64_t valR = vox.temp * 1; 
+        if(valR >= 255) valR = 255;
+        currPixel.r = valR;
+        if(valR > 300) {
+            currPixel.g = 255;
+            currPixel.b = 255;
+        }
+
+        setImagePixelAt(x,y,currPixel);
+    }
+
     void Heat(const uint64_t x, const uint64_t y, int64_t temp)
     {
         Voxel &vox = getVoxelAt(x, y);

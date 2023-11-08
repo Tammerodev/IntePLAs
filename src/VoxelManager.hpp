@@ -28,8 +28,11 @@
 #include "Settings.hpp"
 
 #include "Uranium-235.hpp"
+#include "Radium-226.hpp"
 
 #include "Player.hpp"
+
+#include "ParticleSimulation.hpp"
 
 #include <list>
 
@@ -48,7 +51,7 @@ public:
         for (int y = 0;y < chIndexer.world_sy;y++) {
             for (int x = 0;x < chIndexer.world_sx;x++) {
                 const sf::Color px = chIndexer.getImagePixelAt(x,y);
-                chIndexer.getVoxelAt(x,y) = getValueFromCol(px, sf::Vector2i(x,y));
+                chIndexer.getVoxelAt(x,y) = getHandleVoxel(px, sf::Vector2i(x,y), true);
             }
         }
     }
@@ -95,6 +98,8 @@ public:
     void castRayLine(const sf::Vector2i start, const sf::Vector2i end, int intensity) {
         sf::Vector2i delta = end - start;
         int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
+        float power = intensity / 3;
+        power++;
 
         for (int i = 0; i <= length; i++) {
             float t = static_cast<float>(i) / length;
@@ -111,7 +116,8 @@ public:
 
                 if(chIndexer.getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
                     voxelsInNeedOfUpdate.push_back(pixelPosition);
-                    break;
+                    power--;
+                    if(power <= 0) break;
                 }
             }
 
@@ -161,6 +167,31 @@ public:
     const bool isInContactWithVoxel(const sf::Vector2i &pos, const uint8_t voxelValue) {
         return (chIndexer.getVoxelAt(pos.x + 1, pos.y).value == voxelValue || chIndexer.getVoxelAt(pos.x - 1, pos.y).value == voxelValue ||
             chIndexer.getVoxelAt(pos.x, pos.y + 1).value == voxelValue || chIndexer.getVoxelAt(pos.x, pos.y -1).value == voxelValue);
+    }
+
+    const sf::Vector2i getPositionOnContacy(const sf::Vector2i &pos, const uint8_t voxelValue) {
+
+        /*
+            @brief This returns (0, 0) if no voxel found
+        */
+        const sf::Vector2i pos1(pos.x + 1, pos.y);
+        const sf::Vector2i pos2(pos.x - 1, pos.y);
+        const sf::Vector2i pos3(pos.x, pos.y + 1);
+        const sf::Vector2i pos4(pos.x, pos.y - 1);
+
+        if(chIndexer.getVoxelAt(pos1.x, pos1.y).value = voxelValue) 
+            return pos1;
+
+        if(chIndexer.getVoxelAt(pos2.x, pos2.y).value = voxelValue) 
+            return pos2;
+
+        if(chIndexer.getVoxelAt(pos3.x, pos3.y).value = voxelValue) 
+            return pos3;
+
+        if(chIndexer.getVoxelAt(pos4.x, pos4.y).value = voxelValue) 
+            return pos4;
+
+        return sf::Vector2i(0, 0);
     }
 
     const Voxel getHandleVoxel(const sf::Color &px, sf::Vector2i p, bool addVoxelsToArr = false) {
@@ -221,6 +252,12 @@ public:
             if(addVoxelsToArr) radioactive_elements.push_back(std::make_shared<Uranium235>(p.x, p.y));
         }
 
+        else if(px == elm::Radium226) {
+            vox.value = elm::ValRadium226;
+            vox.strenght = 2;
+
+            if(addVoxelsToArr) radioactive_elements.push_back(std::make_shared<Radium226>(p.x, p.y));
+        }
         return vox;
     }
 
@@ -265,4 +302,6 @@ private:
     ChunkBounds draw_bounds { 0, 0, 0, 0 };
     ChunkArea draw_area;
     sf::Sprite spriteRend;
+
+    ParticleSimulation particleSimulation;
 };

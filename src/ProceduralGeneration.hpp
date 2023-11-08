@@ -52,7 +52,7 @@ public:
             },
 
             std::array<sf::Color, 6> {
-                elm::Carbon,
+                elm::Lead,
                 elm::Carbon,
                 elm::Lead,
                 elm::Titanium,

@@ -64,7 +64,7 @@ public:
     }
 
 private:
-    int health = 100;
+    int health = 5000;
 
     bool grounded = false;
 

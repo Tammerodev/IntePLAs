@@ -95,7 +95,8 @@ public:
             element_buttons.push_back(tgui::Button::create("H2O"));
             element_buttons.push_back(tgui::Button::create("C3H5N3O9"));
             element_buttons.push_back(tgui::Button::create("Cl"));
-            element_buttons.push_back(tgui::Button::create("U"));
+            element_buttons.push_back(tgui::Button::create("U235"));
+            element_buttons.push_back(tgui::Button::create("Ra226"));
 
 
             // Configure button
@@ -260,7 +261,8 @@ private:
         else if(name == "H2O") selColor = elm::Water;
         else if(name == "C3H5N3O9") selColor = elm::Nitroglycerin;
         else if(name == "Cl") selColor = elm::Chlorine;
-        else if(name == "U") selColor = elm::Uranium235;
+        else if(name == "U235") selColor = elm::Uranium235;
+        else if(name == "Ra226") selColor = elm::Radium226;
         
     }
 

@@ -4,20 +4,20 @@
 
 namespace BGMusic {
     static enum Song {
-      ONKES, KINESE, CALM, SANDFALL, BLASS,
+      ONKES, KINESE, CALM, SANDFALL, BLASS, BECO
     } current_song;
     static std::vector<sf::Music*> song_list;
 
     static Song getRandomSong() {
-      return (Song)(rand()%5);
+      return (Song)(rand()%6);
     }
 
     static int load() {
-        current_song = BLASS;
-        for(int i=0;i<5;i++) {
+        for(int i=0;i<6;i++) {
           song_list.push_back(new sf::Music());
           prndd("Added object music to vector");
         }
+
         song_list[Song::CALM]->openFromFile("res/music/Calm.wav");
         prndd("Loaded song CALM");
         song_list[Song::ONKES]->openFromFile("res/music/Onkes.wav");
@@ -28,7 +28,11 @@ namespace BGMusic {
         prndd("Loaded song SANDFALL");
         song_list[Song::BLASS]->openFromFile("res/music/Blass.wav");     
         prndd("Loaded song BLASS");
+        song_list[Song::BECO]->openFromFile("res/music/Beco.wav");     
+        prndd("Loaded song BLASS");
         prndd("Loading complete");
+
+        current_song = BECO;
 
         song_list[current_song]->play();
         song_list[current_song]->setVolume(0);

@@ -19,6 +19,9 @@ class Fluid : public Element {
             sf::Vector2i nextWaterPos = *this;
 
             nextWaterPos.y++;
+
+        
+
             if(world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
                 world.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
                 
@@ -49,9 +52,26 @@ class Fluid : public Element {
                         
                     x = nextWaterPos.x;
                     y = nextWaterPos.y;
-
                 }
             }
+            temp = world.boundGetVoxelAt(x, y).temp;
+
+            // Spaghetti nam nam
+
+            const short t = 1;
+        
+            world.SetHeat(x + 1, y, t);
+            world.SetHeat(x - 1, y, t);
+
+            world.SetHeat(x, y + 1, t);
+            world.SetHeat(x, y - 1, t);
+
+            world.SetHeat(x + 1, y + 1, t);
+            world.SetHeat(x + 1, y - 1, t);
+
+            world.SetHeat(x - 1, y + 1, t);
+            world.SetHeat(x - 1, y - 1, t);
+
 
             world.boundGetVoxelAt(x, y).value = value;
 
@@ -61,6 +81,7 @@ class Fluid : public Element {
         }
         
     protected:
+        short temp = 0;
         sf::Color color;
         uint8_t value;
 };

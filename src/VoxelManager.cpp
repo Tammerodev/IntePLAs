@@ -99,13 +99,52 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
         }
     }
+
+    particleSimulation.render(target);
 }
 
 void VoxelManager::update(Player &player)
 {   
 
-    shader.setUniform("amount", 0.5f);
+    shader.setUniform("amount", 0.1f);
     chIndexer.updateWorldSize();
+
+    particleSimulation.update(1.0f);
+    auto &particles = particleSimulation.getParticlesList();
+
+    for (auto it = particles.begin(); it != particles.end();) {
+        auto& p = *it;
+
+
+        const sf::Vector2i position = sf::Vector2i(*p);
+        const Voxel &voxel = chIndexer.getVoxelAt(position.x, position.y);
+        const bool collision = voxel.value != 0;
+        const bool remove = p->energy <= 0;
+
+        if(collision) {
+            p->collide();
+        }
+
+        // Fission 
+        if(voxel.value == elm::ValUranium235) {
+            heatVoxelAt(position.x, position.y, 100);
+
+            const sf::Vector2i contactPos = getPositionOnContacy(position, elm::ValUranium235);
+
+            if(contactPos != sf::Vector2i(0, 0)) {
+                heatVoxelAt(contactPos.x, contactPos.y, 100);
+
+                if(chIndexer.getVoxelAt(position.x, position.y).temp > elm::getMaxTempFromType(elm::ValUranium235)) {
+                    holeRayCast(position, 250, true, 30000);
+                }   
+            }
+        }
+        if (remove) {
+            it = particles.erase(it);
+        } else {
+            ++it;
+        }
+    }
 
     auto i = voxelsInNeedOfUpdate.begin();
     while (i != voxelsInNeedOfUpdate.end())
@@ -123,14 +162,29 @@ void VoxelManager::update(Player &player)
     while (r != reactiveVoxels.end())
     {
         if(chIndexer.getVoxelAt(r->x, r->y).value == elm::ValSodium) {
+            // Sodium - Water reaction (heat produced)
             if(isInContactWithVoxel(*r, elm::ValWater))
                 heatVoxelAt(r->x, r->y, elm::sodiumExplosionTemp / 100);
         }
 
         if(chIndexer.getVoxelAt(r->x, r->y).value == elm::ValLithium) {
-            if(isInContactWithVoxel(*r, elm::ValWater))
+            // Lithium - Water reaction (heat produced)
+            if(isInContactWithVoxel(*r, elm::ValWater)) {
                 heatVoxelAt(r->x, r->y, elm::lithiumExplosionTemp);
+            }
+
+            // Lithium - Radium226 reaction (free neutrons)
+            if(isInContactWithVoxel(*r, elm::ValRadium226)) {
+                const sf::Vector2f position = sf::Vector2f(*r); 
+                const sf::Vector2f velocity = sf::Vector2f(math::randFloat() - 0.5f, math::randFloat() - 0.5f); 
+
+                std::shared_ptr<FreeNeutron> particle = std::make_shared<FreeNeutron>(position, velocity);
+
+                particleSimulation.addParticle(particle);
+            }
         }
+        
+        
         
         ++r;
     }
