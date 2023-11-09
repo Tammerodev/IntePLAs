@@ -95,6 +95,17 @@ public:
         }
     }
 
+    void launchDebrisParticle(const sf::Vector2i& p, const sf::Color &col) {
+        if(!GraphicsSettings::particleEffects) return;
+        
+        const sf::Vector2f position = sf::Vector2f(p); 
+        const sf::Vector2f velocity = sf::Vector2f(math::randFloat() - 0.5f, math::randFloat() - 0.5f) * 10.0f; 
+
+        std::shared_ptr<Debris> particle = std::make_shared<Debris>(position, velocity, col);
+
+        particleSimulation.addParticle(particle);
+    }
+
     void castRayLine(const sf::Vector2i start, const sf::Vector2i end, int intensity) {
         sf::Vector2i delta = end - start;
         int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
@@ -110,6 +121,10 @@ public:
 
             if(i < intensity) {
                 chIndexer.boundVector(pixelPosition);
+
+                if(math::randIntInRange(0, 100) < 5) {
+                    launchDebrisParticle(pixelPosition, chIndexer.getImagePixelAt(pixelPosition.x, pixelPosition.y));
+                }
 
                 if(false) damageVoxelAt(pixelPosition.x, pixelPosition.y);
                 heatVoxelAt(pixelPosition.x, pixelPosition.y, 1000);

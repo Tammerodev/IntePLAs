@@ -3,16 +3,18 @@
 #include <SFML/Graphics/Vertex.hpp>
 #include <cmath>
 
+namespace PhysicsGlobals {
+    inline float gravity = 0.1f;
+}
+
 struct IntPhysicsComponent {
     sf::Vector2i transform_origin = sf::Vector2i(0, 0);
     sf::Vector2i velocity = sf::Vector2i(0, 0);
     sf::Vector2i transform_position = sf::Vector2i(0, 0);
 
-    float gravity = 0.001;
-
     void update(int dt = 1) {
             
-        velocity_buffer += (gravity * dt);
+        velocity_buffer += (PhysicsGlobals::gravity * dt);
         //velocity.y = velocity_buffer;
 
         transform_position += velocity;
@@ -39,8 +41,6 @@ struct PhysicsComponent {
     sf::Vector2f transform_position = sf::Vector2f(0.f, 0.f);
     float transform_rotation = 0.f;
 
-    float gravity = 0.001f;
-
     sf::Vector2f rotate_point(float cx, float cy, float angle, sf::Vector2f p){
 
         return sf::Vector2f(cos(angle) * (p.x - cx) - sin(angle) * (p.y - cy) + cx,
@@ -48,7 +48,7 @@ struct PhysicsComponent {
     }
     
     void update(float dt = 0.0) {
-        velocity.y += (gravity * dt);
+        velocity.y += (PhysicsGlobals::gravity * dt);
         transform_position += velocity;
 
         float rotation = std::atan2(velocity.y, velocity.x) * (180.0 / M_PI);

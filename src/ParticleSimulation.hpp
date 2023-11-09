@@ -1,6 +1,7 @@
 #pragma once
 #include "Particle.hpp"
 #include "FreeNeutron.hpp"
+#include "DebrisParticle.hpp"
 
 #include <list>
 #include <memory>

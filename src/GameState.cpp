@@ -24,7 +24,7 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
 
     Controls::searchForDevices();
 
-    WorldSettings::loadWorldConfig();
+    SettingsLoader::loadSettings();
 
     prndd("Initializing worlds...");
     if(!world.init(s))

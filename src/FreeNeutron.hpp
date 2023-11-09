@@ -47,6 +47,10 @@ class FreeNeutron : public Particle {
             energy--;
         }
 
+        ParticleType getType() {
+            return ParticleType::Neutron;
+        }
+
     private:
         sf::RectangleShape rect;
         unsigned int timer = 0;

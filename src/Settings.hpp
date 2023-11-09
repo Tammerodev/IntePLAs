@@ -14,6 +14,26 @@ namespace UISettings {
     }
 }
 
+namespace GraphicsSettings {
+    inline bool particleEffects = true;
+
+    inline bool loadGraphicsSettings() {
+        bool result = false;
+
+        JsonReader reader;
+        result = reader.open("json/graphicssettings.json");
+        result = reader.init();
+
+        const std::string useParticleEffects = reader.readParameterAsString("use-particle-effects");
+
+        if(useParticleEffects == "true") particleEffects = true;
+        else if(useParticleEffects == "false") particleEffects = false;
+        else result = false;
+
+        return result;
+    }
+}
+
 namespace WorldSettings {
     inline unsigned int createSizeX = 0;
     inline unsigned int createSizeY = 0;
@@ -41,4 +61,23 @@ namespace Display {
     inline int window_height = 0;
     inline int window_width = 0;
 
+}
+
+namespace SettingsLoader {
+    inline bool loadSettings() {
+        prndd("Loading setttings...");
+
+        bool result = true;
+
+        if(!WorldSettings::loadWorldConfig()) result = false;
+
+        loginf("Loaded data from JSON : createsizex = ", WorldSettings::createSizeX, ".");
+        loginf("Loaded data from JSON : createsizey = ", WorldSettings::createSizeY, ".");
+
+        if(!GraphicsSettings::loadGraphicsSettings()) result = false;
+
+        loginf("Loaded data from JSON : useparticles = ", GraphicsSettings::particleEffects, ".");
+        
+        return result;
+    }
 }

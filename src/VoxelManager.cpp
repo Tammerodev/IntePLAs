@@ -115,9 +115,8 @@ void VoxelManager::update(Player &player)
     for (auto it = particles.begin(); it != particles.end();) {
         auto& p = *it;
 
-
         const sf::Vector2i position = sf::Vector2i(*p);
-        const Voxel &voxel = chIndexer.getVoxelAt(position.x, position.y);
+        const Voxel &voxel = chIndexer.boundGetVoxelAt(position.x, position.y);
         const bool collision = voxel.value != 0;
         const bool remove = p->energy <= 0;
 
@@ -126,7 +125,9 @@ void VoxelManager::update(Player &player)
         }
 
         // Fission 
-        if(voxel.value == elm::ValUranium235) {
+        if(p->getType() == Particle::ParticleType::Neutron && 
+            voxel.value == elm::ValUranium235) {
+
             heatVoxelAt(position.x, position.y, 100);
 
             const sf::Vector2i contactPos = getPositionOnContacy(position, elm::ValUranium235);
@@ -134,7 +135,7 @@ void VoxelManager::update(Player &player)
             if(contactPos != sf::Vector2i(0, 0)) {
                 heatVoxelAt(contactPos.x, contactPos.y, 100);
 
-                if(chIndexer.getVoxelAt(position.x, position.y).temp > elm::getMaxTempFromType(elm::ValUranium235)) {
+                if(chIndexer.boundGetVoxelAt(position.x, position.y).temp > elm::getMaxTempFromType(elm::ValUranium235)) {
                     holeRayCast(position, 250, true, 30000);
                 }   
             }
@@ -264,6 +265,10 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
                 voxelsInNeedOfUpdate.push_back(v);
                 if(force) damageVoxelAt(v.x, v.y);
                 heatVoxelAt(v.x, v.y, (intensity - distance)*heat);
+
+                if(math::randIntInRange(0, 100) < 5) {
+                    launchDebrisParticle(p, chIndexer.getImagePixelAt(v.x, v.y));
+                }
             }
         }
     }

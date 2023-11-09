@@ -10,8 +10,6 @@ PlayerState* PlayerState::damageState = new DamageState();
 PlayerState* PlayerState::currentState = PlayerState::idleState;
 
 int Player::load() {
-    physComp.gravity = 0.1;
-
     physComp.transform_position = sf::Vector2i(200, -100);
 
 

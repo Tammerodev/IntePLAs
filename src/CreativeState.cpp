@@ -6,9 +6,7 @@ void CreativeState::enter() {
  
 void CreativeState::update(IntPhysicsComponent& physComp,float dt) {
     physComp.velocity_buffer = 0;
-
-    physComp.gravity = 0;
-
+    
     last_pos = physComp.transform_position;
 
     physComp.velocity.x = 0;
