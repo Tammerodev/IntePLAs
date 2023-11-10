@@ -6,6 +6,7 @@
 #include <thread>
 #include <optional>
 #include <future>
+#include <filesystem>
 
 #include "math.hpp"
 #include "Voxel.hpp"
@@ -26,6 +27,7 @@
 #include "Shader.hpp"
 #include "Burning.hpp"
 #include "Settings.hpp"
+#include "Sand.hpp"
 
 #include "Uranium-235.hpp"
 #include "Radium-226.hpp"
@@ -33,6 +35,7 @@
 #include "Player.hpp"
 
 #include "ParticleSimulation.hpp"
+#include "VoxelSpy.hpp"
 
 #include <list>
 
@@ -45,7 +48,7 @@ public:
 
     bool getPixelCollision(sf::Vector2i pos);
 
-    int load(std::string, bool);
+    int load(std::string);
 
     void initVoxelMap() {
         for (int y = 0;y < chIndexer.world_sy;y++) {
@@ -54,6 +57,16 @@ public:
                 chIndexer.getVoxelAt(x,y) = getHandleVoxel(px, sf::Vector2i(x,y), true);
             }
         }
+    }
+
+    const std::string getPath(int x, int y) {
+        const std::string x_string  = std::to_string(x);
+        const std::string y_string  = std::to_string(y);
+
+        const std::string filename = x_string + "_" + y_string;
+        const std::string extension = ".png";
+
+        return filename + extension;
     }
 
     void clearVoxelAt(const uint64_t x, const uint64_t y) {
@@ -163,7 +176,26 @@ public:
 
     void save() {
         // TODO : make it save from the chunk images
-        //img.saveToFile("res/saves/" + std::to_string(time(0)) + ".png");
+
+        const std::string created_folder = std::to_string(time(0));
+        std::filesystem::create_directory(StorageSettings::save_path + created_folder);
+
+        for(int y = 0; y < chunks_y; y++) {
+            for(int x = 0; x < chunks_x; x++) {
+                const std::string x_string  = std::to_string(x);
+                const std::string y_string  = std::to_string(y);
+
+                const std::string filename = x_string + "_" + y_string;
+                const std::string folder = StorageSettings::save_path;
+                const std::string extension = ".png";
+
+                
+                const std::string fullpath = folder + created_folder + "/" + filename + extension;
+
+
+                chIndexer.getChunkAt(x, y).image.saveToFile(fullpath);
+            }
+        }
     }
 
     const bool compareVoxelColors(const sf::Color &color1, const sf::Color &color2) {
@@ -273,6 +305,13 @@ public:
 
             if(addVoxelsToArr) radioactive_elements.push_back(std::make_shared<Radium226>(p.x, p.y));
         }
+
+        else if(px == elm::Sand) {
+            vox.value = elm::ValSand;
+            vox.strenght = 2;
+
+            if(addVoxelsToArr) elements.push_back(std::make_shared<Sand>(p.x, p.y));
+        }
         return vox;
     }
 
@@ -299,6 +338,8 @@ private:
     sf::Font font;
 
     ProcGenerate procGen;
+
+    VoxelSpy voxelSpy;
 
     MaterialPack materialpack;
 

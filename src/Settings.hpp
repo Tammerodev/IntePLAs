@@ -2,6 +2,7 @@
 #include <SFML/Graphics/Color.hpp>
 #include "JsonManager.hpp"
 #include <assert.h>
+#include "common.hpp"
 
 namespace UISettings {
     inline unsigned char transparency = 100;
@@ -63,9 +64,25 @@ namespace Display {
 
 }
 
+namespace StorageSettings {
+    inline std::string save_path;
+
+    inline bool loadSettings() {
+        bool result = false;
+
+        JsonReader reader;
+        result = reader.open("json/storagesettings.json");
+        result = reader.init();
+
+        save_path = reader.readParameterAsString("save-path");
+
+        return result;
+    }
+}
+
 namespace SettingsLoader {
     inline bool loadSettings() {
-        prndd("Loading setttings...");
+        prndd("Loading settings...");
 
         bool result = true;
 
@@ -78,6 +95,10 @@ namespace SettingsLoader {
 
         loginf("Loaded data from JSON : useparticles = ", GraphicsSettings::particleEffects, ".");
         
+        if(!StorageSettings::loadSettings()) result = false;
+
+        loginf("Loaded data from JSON : save path = ", StorageSettings::save_path, ".");
+
         return result;
     }
 }

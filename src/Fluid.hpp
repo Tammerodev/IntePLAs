@@ -20,7 +20,6 @@ class Fluid : public Element {
 
             nextWaterPos.y++;
 
-        
 
             if(world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
                 world.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
@@ -72,15 +71,20 @@ class Fluid : public Element {
             world.SetHeat(x - 1, y + 1, t);
             world.SetHeat(x - 1, y - 1, t);
 
-
             world.boundGetVoxelAt(x, y).value = value;
 
             world.boundSetImagePixelAt(x, y, color);
 
             lastPos = *this;
         }
+
+        bool clear() {
+            return remove;
+        }
         
     protected:
+        bool remove = false;
+
         short temp = 0;
         sf::Color color;
         uint8_t value;

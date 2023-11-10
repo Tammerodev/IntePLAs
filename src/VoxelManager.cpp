@@ -6,7 +6,7 @@ bool VoxelManager::getPixelCollision(sf::Vector2i pos) {
 }
 
 
-int VoxelManager::load(std::string file, bool proced)
+int VoxelManager::load(std::string file)
 {
     bool res = true;
 
@@ -24,11 +24,25 @@ int VoxelManager::load(std::string file, bool proced)
 
     sf::Clock timer;
 
+    const bool create_new_world = file == "Create new world";
+
+    const std::string path = StorageSettings::save_path + file;
+
     for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
         for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
-            chIndexer.getChunkAt(x, y).create();
+            std::string finalPath = path + "/" + getPath(x, y);
+
+            prndd(finalPath);
+
+            if(create_new_world)
+                chIndexer.getChunkAt(x, y).create();
+            else 
+                chIndexer.getChunkAt(x, y).load(finalPath.c_str());
+
         }
     }
+
+
     loginf("Multithreading not used : ", " Single threaded", "");
 
     loginf("Creating map took : ", timer.getElapsedTime().asSeconds(), ".");
@@ -38,8 +52,6 @@ int VoxelManager::load(std::string file, bool proced)
     chIndexer.updateWorldSize();
 
     timer.restart();
-    initVoxelMap();
-    loginf("Initializing voxel map took : ", timer.restart().asSeconds(), ".");
 
     return res;
 }
@@ -203,6 +215,8 @@ void VoxelManager::update(Player &player)
         }
     }
 
+    PlayerGlobal::radiation_received = 0;
+    
     auto rad = radioactive_elements.begin();
     while (rad != radioactive_elements.end())
     {
@@ -214,8 +228,6 @@ void VoxelManager::update(Player &player)
             );
 
         const float radiation_strength = rad->get()->getRadiationStrength();
-
-        PlayerGlobal::radiation_received = 0;
 
         if(distance < radiation_strength) {
             
@@ -366,6 +378,7 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
     for (int y = p.y;  y < p.y + cimg.getSize().y;  y++) {
         if(y >= chIndexer.world_sy) break;
         if(y < 0) break;
+
         for (int x = p.x;  x < p.x + cimg.getSize().x;  x++) {
             if(x >= chIndexer.world_sx) break;
             if(x < 0) break;
@@ -373,6 +386,7 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
                 chIndexer.setImagePixelAt(x,y,cimg.getPixel(x - p.x, y - p.y));
                 chIndexer.getVoxelAt(x,y) = getHandleVoxel(chIndexer.getImagePixelAt(x,y), sf::Vector2i(x,y), true);
+        
             }
         }
     }

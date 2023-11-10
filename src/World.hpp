@@ -11,19 +11,22 @@ public:
     bool init(const std::string path) {
         bool res = true;
         
-        if(!main_world.load(path, path == "res/saves/Create new world.png")) res = false;
-        if(!main_world.generate()) res = false;
-        if(!main_world.generateVegetation()) res = false;
+        if(!main_world.load(path)) res = false;
+
+        if(path == "Create new world") {
+            if(!main_world.generate()) res = false;
+            if(!main_world.generateVegetation()) res = false;
+        }
 
         main_world.initVoxelMap();
         
         return res;
     }
 
-    void update(Player &player) {
+    void update(const float dt, Player &player) {
         main_world.update(player);
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
-            world->update();
+            world->update(dt);
             const std::vector<sf::Vector2i> &collisionTestPoints = world->getCollisionTestPoints();
 
             bool collision = false;

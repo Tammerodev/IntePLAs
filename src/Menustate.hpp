@@ -11,6 +11,8 @@
 #include <TGUI/Widgets/Button.hpp>
 #include <TGUI/Widgets/CheckBox.hpp>
 
+#include "Settings.hpp"
+
 
 class MenuState : public MainState {
 public:
@@ -25,6 +27,7 @@ public:
 
 	bool load(const std::string, tgui::BackendGui& gui) {
 		const std::string uipath = "res/img/UI/";
+
 		logo = Panel(uipath + "logo.png");
 		logo.setPosition(0,0);
 		logo.setScale(5,5);
@@ -40,14 +43,15 @@ public:
 			tgui::Theme theme = tgui::Theme("res/themes/nanogui.style");
 
 			int index = 0;
-			for (const auto & entry : std::filesystem::directory_iterator(path)) {
+			for (const auto & entry : std::filesystem::directory_iterator(StorageSettings::save_path)) {
 				std::string parsed_path = entry.path().string();
-				// Remove the res/saves/ substring
-				parsed_path.erase(0, 10);
-				// Remove the .png file extension
-				parsed_path.erase(parsed_path.size() - 4, parsed_path.size());
+
+				parsed_path.erase(0, StorageSettings::save_path.size());
+				prndd(parsed_path);
+
 
 				auto button = tgui::Button::create(parsed_path);
+
 
 				// Configure button
 				button->setPosition(tgui::Layout2d(50, 200 + index * (16 * 4 + 8)));
@@ -101,7 +105,6 @@ private:
 
 	sf::Font font;
 
-	std::string path = "res/saves/";
 	Panel logo;
 	sf::Music music;
 

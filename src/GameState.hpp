@@ -111,7 +111,7 @@ private:
 	Shader shader_ambient;
 
 
-	float delta_T = 0.f;
+	float dt = 0.f;
 	sf::Clock deltaClock;
 
 	sf::Clock shader_time;

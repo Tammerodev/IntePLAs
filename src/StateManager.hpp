@@ -35,7 +35,7 @@ public:
         gui.setWindow(window);
     }
     void init() {
-
+        SettingsLoader::loadSettings();
     }
     void gameLoop(){
 

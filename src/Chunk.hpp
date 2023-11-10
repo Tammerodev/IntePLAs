@@ -24,6 +24,11 @@ struct Chunk {
         tx.create(Chunk::sizeX, Chunk::sizeY);
     }
 
+    void load(const char *file_path) {
+        image.loadFromFile(file_path);
+        tx.loadFromFile(file_path);
+    }
+
     void update() {
         tx.update(image);
     }

@@ -103,7 +103,7 @@ void VoxelGroup::resetUsedFlag()
     }
 }
 
-void VoxelGroup::update()
+void VoxelGroup::update(const float dt)
 {
     if(getDestroyed()) return;
     
@@ -113,7 +113,7 @@ void VoxelGroup::update()
     spr.setPosition(physicsComponent.transform_position);
     spr.setRotation(physicsComponent.transform_rotation);
     spr.setOrigin(physicsComponent.transform_origin);
-    physicsComponent.update();
+    physicsComponent.update(dt);
 
     world_sx = img.getSize().x;
     world_sy = img.getSize().y;

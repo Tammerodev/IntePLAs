@@ -24,8 +24,6 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
 
     Controls::searchForDevices();
 
-    SettingsLoader::loadSettings();
-
     prndd("Initializing worlds...");
     if(!world.init(s))
         perror("VoxelManager failed to load world");
@@ -67,7 +65,7 @@ void GameState::update()
 {
     // Update game status and delta time 
     GameStatus::updateBrightness();
-    delta_T = 1.0f;
+    dt = 1.0f;
 
     // Handle explosion player damage
     for(const auto point : world.main_world.explosion_points) {
@@ -101,15 +99,15 @@ void GameState::update()
     bg.update(game_camera.getCenterPosition());
     BGMusic::update();
     effOverlay.update(game_camera.getCenterPosition());
-    game_camera.update(delta_T);
-    player.update(delta_T);
+    game_camera.update(dt);
+    player.update(dt);
     matUI.update(world.main_world);
     shaderEffect.update();
     uiStateManager.update(Controls::windowCursorPos);
-    world.update(player);
+    world.update(dt, player);
 
     // Update inventory item and handle player collisions
-    inv.getCurrentItem()->update(world, Controls::worldCursorPos, sf::Vector2f(player.getPhysicsComponent().transform_position), delta_T, player);
+    inv.getCurrentItem()->update(world, Controls::worldCursorPos, sf::Vector2f(player.getPhysicsComponent().transform_position), dt, player);
     world.handleCollisionsWithPlayer(player);
 
     // Update game camera zoom and cursor position
