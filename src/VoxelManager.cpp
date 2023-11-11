@@ -97,13 +97,19 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
 
 void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 {
-    draw_bounds = ChunkBounds((center.x / Chunk::sizeX) - 6, (center.y / Chunk::sizeY) - 6, 
-                            (center.x / Chunk::sizeX) + 6, (center.y / Chunk::sizeY) + 6);
+    sf::FloatRect viewRect(target.getView().getCenter() - target.getView().getSize() / 2.f, target.getView().getSize());
+
+    const int draw_distx = viewRect.width / Chunk::sizeX;
+    const int draw_disty = viewRect.height / Chunk::sizeY;
+
+    draw_bounds = ChunkBounds((center.x / Chunk::sizeX) - draw_distx, (center.y / Chunk::sizeY) - draw_disty, 
+                            (center.x / Chunk::sizeX) + draw_distx, (center.y / Chunk::sizeY) + draw_disty);
     draw_area = draw_bounds.getArea();
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
-            chIndexer.getChunkAt(x, y).update();
+            if(chIndexer.getChunkAt(x, y).modified)
+                chIndexer.getChunkAt(x, y).update();
 
             spriteRend.setTexture(chIndexer.getChunkAt(x, y).tx);  
             spriteRend.setPosition(x * Chunk::sizeX,y * Chunk::sizeY);

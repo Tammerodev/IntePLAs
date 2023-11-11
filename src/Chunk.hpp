@@ -31,10 +31,13 @@ struct Chunk {
 
     void update() {
         tx.update(image);
+        modified = false;
     }
 
     sf::Image image;
     sf::Texture tx;
+
+    bool modified = true;
 };
 
 class ChunkIndexer {
@@ -69,6 +72,12 @@ public:
         return gridNeg.at(abs(y)).at(x);
     }
 
+    Chunk &getChunkAt(const sf::Vector2i &pos) {
+        if(pos.x >= 0) {
+           return gridPos.at(abs(pos.y)).at(pos.x);         
+        }
+        return gridNeg.at(abs(pos.y)).at(pos.x);
+    }
 
     void boundVector(sf::Vector2i &v) {
         if(v.y < 0) v.y = 0;
@@ -88,6 +97,10 @@ public:
         return v;
     }
 
+    const sf::Vector2i getChunkFromPos(int x, int y) {
+        return sf::Vector2i(x/Chunk::sizeX, y/Chunk::sizeY);
+    }
+
     Voxel &getVoxelAt (const int64_t x, const int64_t y) {
         return getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).arr[abs(x%Chunk::sizeX)][abs(y%Chunk::sizeY)];
     }
@@ -103,6 +116,7 @@ public:
 
     void boundSetImagePixelAt(const uint64_t x, const uint64_t y, const sf::Color& color) {
         sf::Vector2i pos = sf::Vector2i(x, y);
+        getChunkAt(getChunkFromPos(x, y)).modified = true;
 
         boundVector(pos);
 
@@ -114,6 +128,7 @@ public:
     }
 
     void setImagePixelAt(const uint64_t x, const uint64_t y, const sf::Color& color) {
+        getChunkAt(getChunkFromPos(x, y)).modified = true;
         getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
     }
 
@@ -150,6 +165,7 @@ public:
     void Heat(const uint64_t x, const uint64_t y, int64_t temp)
     {
         Voxel &vox = getVoxelAt(x, y);
+        getChunkAt(getChunkFromPos(x, y)).modified = true;
 
         if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
             uint8_t &strenght = vox.strenght;

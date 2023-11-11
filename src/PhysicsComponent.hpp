@@ -2,6 +2,7 @@
 #include <SFML/Main.hpp>
 #include <SFML/Graphics/Vertex.hpp>
 #include <cmath>
+#include "common.hpp"
 
 namespace PhysicsGlobals {
     inline float gravity = 0.1f;
@@ -13,12 +14,12 @@ struct IntPhysicsComponent {
     sf::Vector2i transform_position = sf::Vector2i(0, 0);
 
     void update(int dt = 1) {
-            
+
         velocity_buffer += (PhysicsGlobals::gravity * dt);
-        //velocity.y = velocity_buffer;
 
         transform_position += velocity;
-        transform_position.y += floor(velocity_buffer);
+        transform_position.y += velocity_buffer;
+        
 
 
     }
@@ -31,8 +32,8 @@ struct IntPhysicsComponent {
     int timer = 0;
     float velocity_buffer = 0.0;
 
-    float weight = 2.0;
-    float friction = 1.0;
+    float weight = 0.5f;
+    float friction = 1.0f;
 };
 
 struct PhysicsComponent {

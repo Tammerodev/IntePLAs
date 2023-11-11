@@ -175,9 +175,9 @@ public:
     bool generateVegetation();
 
     void save() {
-        // TODO : make it save from the chunk images
-
-        const std::string created_folder = std::to_string(time(0));
+        std::string created_folder;
+        // TODO : OK. This is soo hacky
+        std::cin >> created_folder;
         std::filesystem::create_directory(StorageSettings::save_path + created_folder);
 
         for(int y = 0; y < chunks_y; y++) {

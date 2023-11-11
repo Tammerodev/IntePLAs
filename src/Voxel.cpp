@@ -7,7 +7,7 @@ const Voxel getValueFromCol(const sf::Color &px, sf::Vector2i p) {
 
     if(px == elm::Carbon) {
         vox.value = 2;
-        vox.strenght = 254; // TODO change to 8
+        vox.strenght = 8;
     } else if(px == elm::Lithium) {
         vox.value = 3;
         vox.strenght = 2;

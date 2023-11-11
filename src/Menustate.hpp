@@ -17,11 +17,15 @@
 class MenuState : public MainState {
 public:
 
- 	static void buttonCallBack(const tgui::String path, tgui::BackendGui& gui) {
+ 	static void buttonCallBack(const tgui::String path,bool isSettings, tgui::BackendGui& gui) {
 		MainState::currentState->statexit();
 		gui.removeAllWidgets();
 
-		MainState::currentState = MainState::loadState;
+		if(isSettings)
+			MainState::currentState = MainState::settingsState;	
+		else 
+			MainState::currentState = MainState::loadState;
+
 		MainState::currentState->load(path.toStdString(), gui); 
 	}
 
@@ -59,7 +63,7 @@ public:
 				button->setRenderer(theme.getRenderer("Button"));
 				button->setWidgetName("Playbutton" + parsed_path);
 
-				button->onPress(buttonCallBack, button->getText(), std::ref(gui));
+				button->onPress(buttonCallBack, button->getText(), false, std::ref(gui));
 
 				gui.add(button);
 
@@ -68,6 +72,12 @@ public:
 				++index;
 
 			}
+
+			auto settingsButton = tgui::Button::create("settings");
+			settingsButton->setPosition(100,100);
+			settingsButton->onPress(buttonCallBack, settingsButton->getText(), true, std::ref(gui));
+
+			gui.add(settingsButton);
 		} catch(std::exception& ex) {
 			prnerr("TGUI failed with : ", ex.what());
 		}
@@ -94,19 +104,18 @@ public:
 		window.draw(logo);
 	}
 	void statexit() {
+		background.clear();
+		
 		music.stop();
 	}
 private:
 
 	std::vector<sf::Texture> tx;
 	std::vector<sf::Sprite> background;
-	std::vector<Button*> clickables;
-	Button new_world_button;
+
 
 	sf::Font font;
 
 	Panel logo;
 	sf::Music music;
-
-	sf::Texture playbtn_tx;
 };
