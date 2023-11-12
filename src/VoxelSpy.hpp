@@ -7,6 +7,7 @@ class VoxelSpy {
     public:
         void alertOfChunkModification(const sf::Vector2i& chunk_pos) {
             chunks_modified.push_back(chunk_pos);
+            
         }
 
         void receiveChunkChanges(ChunkIndexer &world) {

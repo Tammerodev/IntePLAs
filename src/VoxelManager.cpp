@@ -108,8 +108,11 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
-            if(chIndexer.getChunkAt(x, y).modified)
+            if(chIndexer.getChunkAt(x, y).modified) {
                 chIndexer.getChunkAt(x, y).update();
+
+                voxelSpy.alertOfChunkModification(sf::Vector2i(x, y));
+            }
 
             spriteRend.setTexture(chIndexer.getChunkAt(x, y).tx);  
             spriteRend.setPosition(x * Chunk::sizeX,y * Chunk::sizeY);
