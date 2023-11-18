@@ -4,7 +4,7 @@
 
 int main() {
 
-    auto path = std::filesystem::current_path(); //Get working path
+    auto path = std::filesystem::current_path(); //Get working paths
 
     path = path.parent_path();                  // Move back one directory 
 

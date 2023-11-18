@@ -102,16 +102,18 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
     const int draw_distx = viewRect.width / Chunk::sizeX;
     const int draw_disty = viewRect.height / Chunk::sizeY;
 
-    draw_bounds = ChunkBounds((center.x / Chunk::sizeX) - draw_distx, (center.y / Chunk::sizeY) - draw_disty, 
+    ChunkBounds draw_bounds = ChunkBounds((center.x / Chunk::sizeX) - draw_distx, (center.y / Chunk::sizeY) - draw_disty, 
                             (center.x / Chunk::sizeX) + draw_distx, (center.y / Chunk::sizeY) + draw_disty);
-    draw_area = draw_bounds.getArea();
+    ChunkArea draw_area = draw_bounds.getArea();
+    sf::Sprite spriteRend;
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
             if(chIndexer.getChunkAt(x, y).modified) {
                 chIndexer.getChunkAt(x, y).update();
-
-                voxelSpy.alertOfChunkModification(sf::Vector2i(x, y));
+   
+                if(Session::session = Session::Join)
+                    voxelSpy.alertOfChunkModification(sf::Vector2i(x, y), chIndexer);
             }
 
             spriteRend.setTexture(chIndexer.getChunkAt(x, y).tx);  
@@ -126,6 +128,25 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
 void VoxelManager::update(Player &player)
 {   
+    // TODO : Bad
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::O) && Session::Join) {
+
+        ChunkBounds bounds { 0, 0, chunks_x, chunks_y };
+        ChunkArea area = bounds.getArea();
+
+        int delay = 0;
+        std::cout << "Enter delay ms : "; 
+        std::cin >> delay;
+
+        for(int64_t x = area.startX; x < area.endX; x++) {
+            for(int64_t y = area.startY; y < area.endY; y++) {
+                voxelSpy.alertOfChunkModification(sf::Vector2i(x, y), chIndexer);
+                std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+            }
+        }
+    }
+
+    clientManager.update(chIndexer);
 
     shader.setUniform("amount", 0.1f);
     chIndexer.updateWorldSize();
@@ -251,7 +272,10 @@ void VoxelManager::update(Player &player)
             }
         }
 
-        ++rad;  
+        if(rad->get()->clear())
+            rad = radioactive_elements.erase(rad);
+        else 
+            ++rad;  
     }
 }
 
@@ -309,19 +333,36 @@ void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool fo
     int endX = p.x - intensity;
     int endY = p.y - intensity;
 
-    for(;endX < p.x + intensity; endX++)
-        castRayLine(p, sf::Vector2i(endX, endY), intensity);
+    Raycast::RaycastInfo info(&chIndexer);
+    info.start = p;
+    info.intensity = intensity;
 
-    for(;endY < p.y + intensity; endY++)
-        castRayLine(p, sf::Vector2i(endX, endY), intensity);  
+    for(;endX < p.x + intensity; endX++) {
+        info.end = sf::Vector2i(endX, endY);
+        Raycast::castRayLine(info);
+    }
+
+    for(;endY < p.y + intensity; endY++) {
+        info.end = sf::Vector2i(endX, endY);
+        Raycast::castRayLine(info);
+    }
+
+    for(;endX > p.x - intensity; endX--) {
+        info.end = sf::Vector2i(endX, endY);
+        Raycast::castRayLine(info);
+    }
+
+    for(;endY > p.y - intensity; endY--) {
+        info.end = sf::Vector2i(endX, endY);
+        Raycast::castRayLine(info);  
+    }
 
 
-    for(;endX > p.x - intensity; endX--)
-        castRayLine(p, sf::Vector2i(endX, endY), intensity);  
-
-
-    for(;endY > p.y - intensity; endY--)
-        castRayLine(p, sf::Vector2i(endX, endY), intensity);   
+    // Debris particles 
+    
+    for(const auto &particle : info.particles) {
+        launchDebrisParticle(particle.first, particle.second);
+    }
 
 }
 

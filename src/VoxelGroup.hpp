@@ -17,6 +17,7 @@
 #include "PhysicsComponent.hpp"
 #include "Collider.hpp"
 #include "Dispawner.hpp"
+#include "Raycast.hpp"
 
 
 #include <list>

@@ -124,7 +124,21 @@ public:
     }
 
     const sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
+
         return getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
+    }
+
+    void clearVoxelAt(const uint64_t x, const uint64_t y) {
+        getVoxelAt(x,y).value = 0; 
+        setImagePixelAt(x,y,sf::Color(0,0,0,0));
+    }
+    
+    void damageVoxelAt(const uint64_t x, const uint64_t y) {
+        uint8_t &strenght = getVoxelAt(x,y).strenght;
+        --strenght;
+        if(getVoxelAt(x,y).strenght <= 0) { 
+            clearVoxelAt(x,y);
+        }
     }
 
     void setImagePixelAt(const uint64_t x, const uint64_t y, const sf::Color& color) {

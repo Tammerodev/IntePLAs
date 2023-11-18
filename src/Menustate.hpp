@@ -17,13 +17,15 @@
 class MenuState : public MainState {
 public:
 
- 	static void buttonCallBack(const tgui::String path,bool isSettings, tgui::BackendGui& gui) {
+ 	static void buttonCallBack(const tgui::String path, int destination, tgui::BackendGui& gui) {
 		MainState::currentState->statexit();
 		gui.removeAllWidgets();
 
-		if(isSettings)
+		if(destination == 1)
 			MainState::currentState = MainState::settingsState;	
-		else 
+		else if(destination == 2) 
+			MainState::currentState = MainState::serverHostState;
+		else if(destination == 3)
 			MainState::currentState = MainState::loadState;
 
 		MainState::currentState->load(path.toStdString(), gui); 
@@ -32,9 +34,7 @@ public:
 	bool load(const std::string, tgui::BackendGui& gui) {
 		const std::string uipath = "res/img/UI/";
 
-		logo = Panel(uipath + "logo.png");
-		logo.setPosition(0,0);
-		logo.setScale(5,5);
+		backend_gui = &gui;
 
 		music.openFromFile("res/music/Recs.wav");
 		music.setVolume(100);
@@ -45,43 +45,12 @@ public:
 		try {
 
 			tgui::Theme theme = tgui::Theme("res/themes/nanogui.style");
+			gui.loadWidgetsFromFile("res/ui/start_menu.txt");
 
-			int index = 0;
-			for (const auto & entry : std::filesystem::directory_iterator(StorageSettings::save_path)) {
-				std::string parsed_path = entry.path().string();
-
-				parsed_path.erase(0, StorageSettings::save_path.size());
-				prndd(parsed_path);
-
-
-				auto button = tgui::Button::create(parsed_path);
-
-
-				// Configure button
-				button->setPosition(tgui::Layout2d(50, 200 + index * (16 * 4 + 8)));
-				button->setSize(tgui::Layout2d(48 * 4,16 * 4));
-				button->setRenderer(theme.getRenderer("Button"));
-				button->setWidgetName("Playbutton" + parsed_path);
-
-				button->onPress(buttonCallBack, button->getText(), false, std::ref(gui));
-
-				gui.add(button);
-
-				
-
-				++index;
-
-			}
-
-			auto settingsButton = tgui::Button::create("settings");
-			settingsButton->setPosition(100,100);
-			settingsButton->onPress(buttonCallBack, settingsButton->getText(), true, std::ref(gui));
-
-			gui.add(settingsButton);
+			
 		} catch(std::exception& ex) {
 			prnerr("TGUI failed with : ", ex.what());
 		}
-
 		return true;
 	}
     void update() {
@@ -90,18 +59,22 @@ public:
 		}
 	}
 	void input(sf::Event &e) {
+		if(backend_gui == nullptr) return;
 
+		if(e.type == sf::Event::MouseButtonPressed && e.mouseButton.button == sf::Mouse::Button::Left) {
+
+			auto PlayButton = backend_gui->get("Play");
+			if(PlayButton->isMouseOnWidget(sf::Vector2f(e.mouseButton.x, e.mouseButton.y))) {
+				buttonCallBack("Create new world", 3, *backend_gui);
+			}
+		}
 	}
 	void draw(sf::RenderWindow& window, tgui::BackendGui& gui) {
 		window.clear(sf::Color(20, 22, 33));
 
-		logo.applyTexture();
-
 		for(auto & bg : background) {
 			window.draw(bg);
 		}
-
-		window.draw(logo);
 	}
 	void statexit() {
 		background.clear();
@@ -110,12 +83,12 @@ public:
 	}
 private:
 
+	tgui::BackendGui *backend_gui = nullptr;
+
 	std::vector<sf::Texture> tx;
 	std::vector<sf::Sprite> background;
 
 
 	sf::Font font;
-
-	Panel logo;
 	sf::Music music;
 };

@@ -25,12 +25,20 @@ int main() {
         client.send(packet);
     }   
     if(select == 's') {
+        
         server.init();
         sf::Image rec_img;
         sf::Vector2i pos;
 
         sf::Packet packet;
+a:
         server.receive(packet);
+
+        std::cout << packet.getData();
+
+        if(packet.getData() == NULL) goto a;
+
+        std::cout << "aaaaa";
 
         NetworkingManagerUDP::deserializeImage(packet, rec_img, pos);
 

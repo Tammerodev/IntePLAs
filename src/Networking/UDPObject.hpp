@@ -1,11 +1,16 @@
 #pragma once
-#include <SFML/Network/Packet.hpp>
+#include <SFML/Network.hpp>
 
 class UDPObject {
     public:
-        virtual void init() = 0;
+        virtual bool init() = 0;
         virtual void send(sf::Packet &) = 0;
         virtual void receive(sf::Packet &) = 0;
-    private:
 
+        const sf::IpAddress& getIP() {
+            return ip;
+        }
+        
+    protected:
+        sf::IpAddress ip;
 };

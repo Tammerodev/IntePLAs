@@ -35,7 +35,7 @@ namespace BGMusic {
         current_song = BECO;
 
         song_list[current_song]->play();
-        song_list[current_song]->setVolume(50);
+        song_list[current_song]->setVolume(0);
 
         return 1;
 
@@ -49,7 +49,7 @@ namespace BGMusic {
         current_song = getRandomSong();
 
         song_list[current_song]->play();
-        song_list[current_song]->setVolume(50);
+        song_list[current_song]->setVolume(0);
       }
     }
 

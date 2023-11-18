@@ -28,6 +28,7 @@
 #include "Burning.hpp"
 #include "Settings.hpp"
 #include "Sand.hpp"
+#include "Raycast.hpp"
 
 #include "Uranium-235.hpp"
 #include "Radium-226.hpp"
@@ -36,6 +37,8 @@
 
 #include "ParticleSimulation.hpp"
 #include "VoxelSpy.hpp"
+#include "ClientManager.hpp"
+#include "Session.hpp"
 
 #include <list>
 
@@ -69,11 +72,6 @@ public:
         return filename + extension;
     }
 
-    void clearVoxelAt(const uint64_t x, const uint64_t y) {
-        chIndexer.getVoxelAt(x,y).value = 0; 
-        chIndexer.setImagePixelAt(x,y,sf::Color(0,0,0,0));
-    }
-
     void damageVoxelAt(const uint64_t x, const uint64_t y) {
         uint8_t &strenght = chIndexer.getVoxelAt(x,y).strenght;
         --strenght;
@@ -89,7 +87,7 @@ public:
             else if(chIndexer.getVoxelAt(x, y).value == elm::ValTitanium) materialpack.titanium += 1;
             else if(chIndexer.getVoxelAt(x, y).value == elm::ValLead) materialpack.lead += 1;
 
-            clearVoxelAt(x,y);
+            chIndexer.clearVoxelAt(x,y);
         }
     }
 
@@ -119,40 +117,6 @@ public:
         particleSimulation.addParticle(particle);
     }
 
-    void castRayLine(const sf::Vector2i start, const sf::Vector2i end, int intensity) {
-        sf::Vector2i delta = end - start;
-        int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
-        float power = intensity / 3;
-        power++;
-
-        for (int i = 0; i <= length; i++) {
-            float t = static_cast<float>(i) / length;
-            sf::Vector2i pixelPosition(
-                start.x + static_cast<unsigned>(delta.x * t),
-                start.y + static_cast<unsigned>(delta.y * t)
-            );
-
-            if(i < intensity) {
-                chIndexer.boundVector(pixelPosition);
-
-                if(math::randIntInRange(0, 100) < 5) {
-                    launchDebrisParticle(pixelPosition, chIndexer.getImagePixelAt(pixelPosition.x, pixelPosition.y));
-                }
-
-                if(false) damageVoxelAt(pixelPosition.x, pixelPosition.y);
-                heatVoxelAt(pixelPosition.x, pixelPosition.y, 1000);
-
-                if(chIndexer.getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
-                    voxelsInNeedOfUpdate.push_back(pixelPosition);
-                    power--;
-                    if(power <= 0) break;
-                }
-            }
-
-            
-        }
-    }
-
     bool doesLineContainMaterial(const sf::Vector2i start, const sf::Vector2i end) {
         sf::Vector2i delta = end - start;
         int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
@@ -174,7 +138,7 @@ public:
     bool generate();
     bool generateVegetation();
 
-    void save() {
+    void save() {/*
         std::string created_folder;
         // TODO : OK. This is soo hacky
         std::cin >> created_folder;
@@ -195,7 +159,7 @@ public:
 
                 chIndexer.getChunkAt(x, y).image.saveToFile(fullpath);
             }
-        }
+        }*/
     }
 
     const bool compareVoxelColors(const sf::Color &color1, const sf::Color &color2) {
@@ -248,7 +212,7 @@ public:
 
         if(px == elm::Carbon) {
             vox.value = 2;
-            vox.strenght = 254; // TODO change to 8
+            vox.strenght = 8;
         } else if(px == elm::Lithium) {
             vox.value = 3;
             vox.strenght = 2;
@@ -323,6 +287,23 @@ public:
 
     }
 
+    ChunkIndexer &getChunkIndexer() {
+        return chIndexer;
+    }
+
+    void updateAll() {
+
+        ChunkBounds bounds = ChunkBounds(0, 0, chunks_x, chunks_y);
+        ChunkArea area = bounds.getArea();
+
+        for(int64_t y = area.startY; y < area.endY; y++) {
+            for(int64_t x = area.startX; x < area.endX; x++) {
+                chIndexer.getChunkAt(x, y).update();
+
+            }
+        }
+    }
+
     void build_image(const sf::Vector2i&, const sf::Image&, std::list<VoxelGroup>*, float angle = 0.f, float mag = 0.f);
 
     std::vector <ExplosionInfo> explosion_points;
@@ -330,34 +311,22 @@ public:
 
 private:
 
-    float burn_timer = 0.0f;
+    ClientManager clientManager;
 
     Shader shader;
 
-    sf::Text text;
-    sf::Font font;
-
     ProcGenerate procGen;
-
     VoxelSpy voxelSpy;
-
     MaterialPack materialpack;
-
     ChunkIndexer chIndexer;
 
-    std::list<sf::Vector2i> voxelsInNeedOfUpdate;
     std::vector<sf::Vector2i> mergeChunks;
 
+    std::list<sf::Vector2i> voxelsInNeedOfUpdate;
     std::list<sf::Vector2i> reactiveVoxels;
 
     std::list<std::shared_ptr<Element>> elements;
     std::list<std::shared_ptr<RadioactiveElement>> radioactive_elements;
-
-    // These have to be specified here for efficiency
-
-    ChunkBounds draw_bounds { 0, 0, 0, 0 };
-    ChunkArea draw_area;
-    sf::Sprite spriteRend;
 
     ParticleSimulation particleSimulation;
 };

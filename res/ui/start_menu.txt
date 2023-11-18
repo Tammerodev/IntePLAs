@@ -1,0 +1,128 @@
+Picture.Picture1 {
+    Position = (10, 10);
+    Size = (351, 111.208);
+
+    Renderer {
+        Texture = "../img/UI/logo.png" NoSmooth;
+        TransparentTexture = false;
+    }
+}
+
+Button.Play {
+    Position = (320, 530);
+    Size = (169, 60.1525);
+    Text = Start;
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #0A8754;
+        BackgroundColorDown = #086C43;
+        BackgroundColorHover = rgba(190, 190, 190, 215);
+        BorderColor = black;
+        Borders = (3, 3, 3, 3);
+        TextColor = rgba(255, 255, 255, 215);
+        TextColorDown = rgba(255, 255, 255, 235);
+        TextColorHover = rgba(255, 255, 255, 235);
+        TextOutlineThickness = 1;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+Button.Join {
+    Position = (10, 370);
+    Size = (169, 60.1525);
+    Text = Join;
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #508CA4;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+Button.Host {
+    Position = (10, 530);
+    Size = (169, 60.1525);
+    Text = Host;
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #508CA4;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+Button.Settings {
+    Position = (10, 450);
+    Size = (169, 60.1525);
+    Text = Settings;
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #508CA4;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}

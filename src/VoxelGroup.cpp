@@ -173,6 +173,7 @@ void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool f
         explosion_points.push_back(info);
     }
 
+
     sf::Vector2i p = pos - sf::Vector2i(physicsComponent.transform_position);
     if(p.x <= 0) p.x = 0;
     if(p.y <= 0) p.y = 0;
@@ -191,6 +192,43 @@ void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool f
         }
     }
 
+    const int numRays = intensity * 30;
+    const int rayLength = intensity;
+
+
+    int endX = pos.x - intensity;
+    int endY = pos.y - intensity;
+
+    Raycast::RaycastInfo info(nullptr);
+    info.start = pos;
+    info.intensity = intensity;
+
+    info.world_sx = world_sx;
+    info.world_sy = world_sy;
+
+
+    for(;endX < pos.x + intensity; endX++) {
+        info.end = sf::Vector2i(endX, endY);
+        Raycast::castRayLine(info);
+    }
+
+    for(;endY < pos.y + intensity; endY++) {
+        info.end = sf::Vector2i(endX, endY);
+        Raycast::castRayLine(info);
+    }
+
+    for(;endX > pos.x - intensity; endX--) {
+        info.end = sf::Vector2i(endX, endY);
+        Raycast::castRayLine(info);
+    }
+
+    for(;endY > pos.y - intensity; endY--) {
+        info.end = sf::Vector2i(endX, endY);
+        Raycast::castRayLine(info);  
+    }
+
+    // Get opposite direction from ray
+    physicsComponent.velocity = -info.longestRayVector;
 
 }
 

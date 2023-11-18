@@ -10,7 +10,6 @@ class NetworkingManagerUDP {
             packet << image.getSize().x << image.getSize().y;
             packet << chunk_pos.x << chunk_pos.y;
 
-
             packet.append(image.getPixelsPtr(), image.getSize().x * image.getSize().y * 4);
 
             return packet;

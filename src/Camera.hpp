@@ -25,6 +25,10 @@ public:
         currZoom = zoom;
     }
 
+    void move(float x, float y) {
+        view.move(x, y);
+    }
+
     const float getZoom() const {
         return currZoom;
     }

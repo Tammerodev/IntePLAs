@@ -42,3 +42,10 @@ To change map size, edit json/worldconfig.json
 
 # Notes :
 Ideal delta time for 75hz should be 1.0
+
+# Networking : 
+    Serializing image with sf::Packet :
+        (texture size x, y)
+        (chunk position x, y)
+        (time)
+        (image RGBA data)
