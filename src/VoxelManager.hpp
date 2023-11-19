@@ -15,6 +15,8 @@
 #include "common.hpp"
 #include "Elements.hpp"
 #include "Chunk.hpp"
+#include "ChunkIndexerVoxelContainer.hpp"
+
 #include "MaterialPack.hpp"
 #include "VoxelGroup.hpp"
 #include "ProceduralGeneration.hpp"

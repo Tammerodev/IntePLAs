@@ -20,6 +20,10 @@ class Particle : public sf::Vector2f {
 
         virtual ParticleType getType() = 0;
 
+        virtual sf::Color getColor() {
+            return sf::Color::Blue;
+        }
+
         int energy = 100;
     private:
 };

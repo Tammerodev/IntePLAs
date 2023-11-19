@@ -10,6 +10,8 @@
 #include "math.hpp"
 #include "Chunk.hpp"
 #include "FastNoiseLite.hpp"
+#include "ChunkIndexerVoxelContainer.hpp"
+
 
 class ProcGenerate {
 public:

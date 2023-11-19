@@ -22,7 +22,7 @@ class ClientManager {
                 loginf("Received chunk x: ", chunk_pos.x, ".");
                 loginf("Received chunk y: ", chunk_pos.y, ".");
 
-                world.getChunkAt(chunk_pos).image = received_img;
+                world.getChunkAt(chunk_pos.x, chunk_pos.y).image = received_img;
             }
         }
 

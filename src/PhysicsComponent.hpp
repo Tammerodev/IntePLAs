@@ -50,7 +50,7 @@ struct PhysicsComponent {
     
     void update(float dt = 0.0) {
         velocity.y += (PhysicsGlobals::gravity * dt);
-        transform_position += (velocity / 10.0f);
+        transform_position += velocity;
 
         float rotation = std::atan2(velocity.y, velocity.x) * (180.0 / M_PI);
 

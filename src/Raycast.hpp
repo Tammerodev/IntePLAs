@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Chunk.hpp"
+#include "ChunkIndexerVoxelContainer.hpp"
 #include <list>
 #include "ParticleSimulation.hpp"
 
@@ -51,7 +52,7 @@ namespace Raycast {
                     }
 
                     if(false) info.world->damageVoxelAt(pixelPosition.x, pixelPosition.y);
-                    info.world->Heat(pixelPosition.x, pixelPosition.y, 1000);
+                    info.world->heatVoxelAt(pixelPosition.x, pixelPosition.y, 1000);
 
                     if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
                         if(info.voxelsInNeedOfUpdate != nullptr)
@@ -67,10 +68,6 @@ namespace Raycast {
         if(i > info.longestRay) {
             info.longestRay = i;
             info.longestRayVector = math::subVector(sf::Vector2f(info.start), sf::Vector2f(info.end));
-
-            loginf("Vector X : ", info.longestRayVector.x, ".");
-            loginf("Vector Y : ", info.longestRayVector.y, ".");
-
         }
     }
 }

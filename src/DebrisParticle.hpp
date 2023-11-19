@@ -8,6 +8,9 @@ class Debris : public Particle {
         Debris() {
             x = 0.f;
             y = 0.f;
+
+            energy = 2;
+
         }
 
         Debris(const sf::Vector2f& pos, const sf::Vector2f &vel, const sf::Color &col) {
@@ -22,6 +25,8 @@ class Debris : public Particle {
             rect.setFillColor(col);
 
             rect.setRotation(math::randIntInRange(0, 360));
+
+            energy = 2;
         }
 
         void update(const float dt) {
@@ -44,14 +49,14 @@ class Debris : public Particle {
             int a = rect.getFillColor().a - 1;
             if(a <= 0) a = 0;
 
-            rect.setFillColor(
+            /*rect.setFillColor(
                 sf::Color(
                     rect.getFillColor().r,
                     rect.getFillColor().g,
                     rect.getFillColor().b,
                     a
                 )
-            );
+            );*/
 
         }
 
@@ -60,11 +65,22 @@ class Debris : public Particle {
         }
 
         bool remove() {
-            return timer > lifetime;
+            bool rem = timer > lifetime;
+
+            if(energy <= 0) rem = true;
+            return rem;
         }
 
         void collide() {
-            physComponent.velocity = -physComponent.velocity;
+            physComponent.velocity.y = -physComponent.velocity.y;
+
+            int r = math::randIntInRange(0, 1);
+            if(r == 0) {
+                physComponent.velocity.x = physComponent.velocity.x;
+            } else {
+                physComponent.velocity.x = -physComponent.velocity.x;
+            }
+
             physComponent.velocity /= 1.5f;
 
             energy--;
@@ -74,7 +90,12 @@ class Debris : public Particle {
             return ParticleType::Debris;
         }
 
+        virtual sf::Color getColor() {
+            return rect.getFillColor();
+        }
+
     private:
+        int bounces = 0;
 
         sf::RectangleShape rect;
         PhysicsComponent physComponent;

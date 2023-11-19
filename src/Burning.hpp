@@ -35,7 +35,8 @@ class Burning : public Element {
                 }
                             
             } else {
-                world.Heat(x, y, 50);
+                // TODO : Implement
+                // world.Heat(x, y, 50);
                 if(world.getVoxelAt(nextVoxelPos.x, nextVoxelPos.y).value == 0) {
                     step = true;
                 }

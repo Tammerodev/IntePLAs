@@ -91,7 +91,7 @@ class ServerHostState : public MainState {
                 loginf("Received chunk x: ", chunk_pos.x, ".");
                 loginf("Received chunk y: ", chunk_pos.y, ".");
 
-                voxelManager.getChunkIndexer().getChunkAt(chunk_pos).image = received_img;
+                voxelManager.getChunkIndexer().getChunkAt(chunk_pos.x, chunk_pos.y).image = received_img;
             }
 
         }

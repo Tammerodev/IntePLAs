@@ -23,7 +23,7 @@ class VoxelSpy {
 
             
             packet = NetworkingManagerUDP::serializeImage(
-                world.getChunkAt(chunk_pos).image,
+                world.getChunkAt(chunk_pos.x, chunk_pos.y).image,
                 chunk_pos
             );
             

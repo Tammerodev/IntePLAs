@@ -36,8 +36,14 @@ int VoxelManager::load(std::string file)
 
             if(create_new_world)
                 chIndexer.getChunkAt(x, y).create();
-            else 
-                chIndexer.getChunkAt(x, y).load(finalPath.c_str());
+            else {
+                const bool success = chIndexer.getChunkAt(x, y).load(finalPath.c_str());
+
+                if(!success) {
+                    chIndexer.getChunkAt(x, y).create();
+                    res = false;
+                }
+            }
 
         }
     }
@@ -49,7 +55,7 @@ int VoxelManager::load(std::string file)
 
     shader.load("res/shaders/default_vertex.glsl", "res/shaders/desaturate_fragment.glsl");
 
-    chIndexer.updateWorldSize();
+    chIndexer.update();
 
     timer.restart();
 
@@ -149,7 +155,7 @@ void VoxelManager::update(Player &player)
     clientManager.update(chIndexer);
 
     shader.setUniform("amount", 0.1f);
-    chIndexer.updateWorldSize();
+    chIndexer.update();
 
     particleSimulation.update(1.0f);
     auto &particles = particleSimulation.getParticlesList();
@@ -164,6 +170,26 @@ void VoxelManager::update(Player &player)
 
         if(collision) {
             p->collide();
+
+            if(p->getType() == Particle::ParticleType::Debris) {
+                // TODO : Bad
+                
+                if(chIndexer.boundGetVoxelAt(position.x, position.y).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y, p->getColor());
+
+                else if(chIndexer.boundGetVoxelAt(position.x + 1, position.y).value == 0) chIndexer.boundSetImagePixelAt(position.x + 1, position.y, p->getColor());
+                else if(chIndexer.boundGetVoxelAt(position.x - 1, position.y).value == 0) chIndexer.boundSetImagePixelAt(position.x - 1, position.y, p->getColor());
+
+                else if(chIndexer.boundGetVoxelAt(position.x, position.y + 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y + 1, p->getColor());
+                else if(chIndexer.boundGetVoxelAt(position.x, position.y - 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y - 1, p->getColor());
+
+                else if(chIndexer.boundGetVoxelAt(position.x + 1, position.y + 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y + 1, p->getColor());
+                else if(chIndexer.boundGetVoxelAt(position.x + 1, position.y - 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y - 1, p->getColor());
+
+                else if(chIndexer.boundGetVoxelAt(position.x - 1, position.y + 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y + 1, p->getColor());
+                else if(chIndexer.boundGetVoxelAt(position.x - 1, position.y - 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y - 1, p->getColor());
+
+                
+            }
         }
 
         // Fission 
