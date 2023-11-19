@@ -70,13 +70,20 @@ public:
 
     void renderUI(sf::RenderTarget& targ) {
 
+        sf::RectangleShape bg;
         sf::RectangleShape seperator;
 
         seperator.setSize(sf::Vector2f(32, 32));
         seperator.setFillColor(sf::Color(0,0,0,100));
         seperator.setOutlineThickness(-1);
 
+        bg.setSize(sf::Vector2f(32, 2000));
+        bg.setPosition(0, 0);
+        bg.setFillColor(sf::Color(32, 32, 32));
+
         int index = 0;
+
+        targ.draw(bg);
 
         for(auto &item : inventory) {
 
@@ -95,10 +102,10 @@ public:
 
             const sf::Vector2f position = sf::Vector2f(0, (index * 32));
 
-            seperator.setPosition(position - sf::Vector2f(32 / 2, 32 / 2));
+            seperator.setPosition(position);
 
             targ.draw(seperator);
-            item->inventory_render(targ, position);
+            item->inventory_render(targ, position + sf::Vector2f(10, 10));
 
             ++index;
         }

@@ -10,13 +10,13 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
     
     game_camera.setSize(sf::Vector2u(window_width, window_height));
     ui_camera.setSize(sf::Vector2u(window_width, window_height));
+    ui_camera.setCenterPosition(sf::Vector2f(window_width / 2, window_height / 2));
     
     inv.load(world.main_world);
     matUI.load(gui);
     game_camera.zoom(0.99f);
-    ui_camera.zoom(1.0f);
-    ui_camera.setCenterPosition(sf::Vector2f(500.f, 500.f));
 
+    
 
     game_camera.setLeapSpeed(1.f);
     game_camera.setCameraMode(CameraMode::Leap);

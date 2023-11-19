@@ -74,25 +74,6 @@ public:
         return filename + extension;
     }
 
-    void damageVoxelAt(const uint64_t x, const uint64_t y) {
-        uint8_t &strenght = chIndexer.getVoxelAt(x,y).strenght;
-        --strenght;
-        if(chIndexer.getVoxelAt(x,y).strenght <= 0) { 
-            // I know this is terrible
-            if(chIndexer.getVoxelAt(x, y).value == elm::ValCarbon) materialpack.carbon += 1;
-            else if(chIndexer.getVoxelAt(x, y).value == elm::ValLithium) materialpack.lithium += 1;
-            else if(chIndexer.getVoxelAt(x, y).value == elm::ValMagnesium) materialpack.magnesium += 1;
-            else if(chIndexer.getVoxelAt(x, y).value == elm::ValSodium) materialpack.sodium += 1;
-            else if(chIndexer.getVoxelAt(x, y).value == elm::ValAluminium) materialpack.aluminium += 1;
-            else if(chIndexer.getVoxelAt(x, y).value == elm::ValSilicon) materialpack.silicon += 1;
-            else if(chIndexer.getVoxelAt(x, y).value == elm::ValCopper) materialpack.copper += 1;
-            else if(chIndexer.getVoxelAt(x, y).value == elm::ValTitanium) materialpack.titanium += 1;
-            else if(chIndexer.getVoxelAt(x, y).value == elm::ValLead) materialpack.lead += 1;
-
-            chIndexer.clearVoxelAt(x,y);
-        }
-    }
-
     void heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp);
     void render(sf::RenderTarget&, const sf::Vector2f &center);
     void update(Player&);
@@ -282,7 +263,7 @@ public:
     }
 
     MaterialPack &getReceivedMaterials() {
-        return materialpack;
+        return chIndexer.materialpack;
     }
 
     void valueFromColor() {
@@ -319,7 +300,6 @@ private:
 
     ProcGenerate procGen;
     VoxelSpy voxelSpy;
-    MaterialPack materialpack;
     ChunkIndexer chIndexer;
 
     std::vector<sf::Vector2i> mergeChunks;

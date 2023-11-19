@@ -70,7 +70,7 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
     vox.temp += temp;
     if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
         int val = vox.value;
-        damageVoxelAt(x,y);
+        chIndexer.damageVoxelAt(x,y);
         if(val == elm::ValLithium) {
             hole(sf::Vector2i(x,y), elm::lithiumExplosion, true, elm::lithiumExplosionTemp);
         } else if(val == elm::ValSodium) {
@@ -334,7 +334,7 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
 
             if(distance < intensity) {
                 voxelsInNeedOfUpdate.push_back(v);
-                if(force) damageVoxelAt(v.x, v.y);
+                if(force) chIndexer.damageVoxelAt(v.x, v.y);
                 heatVoxelAt(v.x, v.y, (intensity - distance)*heat);
 
                 if(math::randIntInRange(0, 100) < 5) {
@@ -361,26 +361,27 @@ void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool fo
 
     Raycast::RaycastInfo info(&chIndexer);
     info.start = p;
+    info.voxelsInNeedOfUpdate = &voxelsInNeedOfUpdate;
     info.intensity = intensity;
 
     for(;endX < p.x + intensity; endX++) {
         info.end = sf::Vector2i(endX, endY);
-        Raycast::castRayLine(info);
+        Raycast::castRayLine(info, force);
     }
 
     for(;endY < p.y + intensity; endY++) {
         info.end = sf::Vector2i(endX, endY);
-        Raycast::castRayLine(info);
+        Raycast::castRayLine(info, force);
     }
 
     for(;endX > p.x - intensity; endX--) {
         info.end = sf::Vector2i(endX, endY);
-        Raycast::castRayLine(info);
+        Raycast::castRayLine(info, force);
     }
 
     for(;endY > p.y - intensity; endY--) {
         info.end = sf::Vector2i(endX, endY);
-        Raycast::castRayLine(info);  
+        Raycast::castRayLine(info, force);  
     }
 
 

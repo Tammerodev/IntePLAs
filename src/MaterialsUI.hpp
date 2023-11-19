@@ -27,13 +27,27 @@ class MaterialsUI {
         const float barHeight = 10;
         const float barDistance = 15;
 
-        std::array<sf::RectangleShape, 9> barChart;
+        std::array<sf::RectangleShape, 14> barChart;
 
         bool modified = false;
 
         tgui::CanvasSFML::Ptr canvas = nullptr;
 
     private:
+
+        void addBars(const char *name) {
+            int i = 2;
+            for(auto &bar : barChart) {
+                bar = sf::RectangleShape();
+                bar.setFillColor(sf::Color());
+                bar.setPosition(i * barDistance, 0);
+                bar.setSize(sf::Vector2f(10, barHeight));
+
+                bar.setFillColor(elm::getColorFromType(i));
+
+                ++i;
+            }
+        }
 
         void addPack(const MaterialPack& matPack) {
             materials.carbon += matPack.carbon;

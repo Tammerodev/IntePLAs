@@ -26,9 +26,11 @@ namespace Raycast {
 
         uint64_t world_sx;
         uint64_t world_sy;
+        
+        MaterialPack* matPack = nullptr;
     };
 
-    static void castRayLine(RaycastInfo &info) {
+    static void castRayLine(RaycastInfo &info, bool force = true) {
         sf::Vector2i delta = info.end - info.start;
         int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
         float power = info.intensity / 3;
@@ -51,7 +53,8 @@ namespace Raycast {
                         );
                     }
 
-                    if(false) info.world->damageVoxelAt(pixelPosition.x, pixelPosition.y);
+                    if(force) info.world->damageVoxelAt(pixelPosition.x, pixelPosition.y);
+                    
                     info.world->heatVoxelAt(pixelPosition.x, pixelPosition.y, 1000);
 
                     if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {

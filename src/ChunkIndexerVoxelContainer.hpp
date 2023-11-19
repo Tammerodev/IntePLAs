@@ -1,6 +1,7 @@
 #pragma once
 #include "Chunk.hpp"
 #include "VoxelContainer.hpp"
+#include "MaterialPack.hpp"
 
 class ChunkIndexer : public VoxelContainer {
 public:
@@ -94,6 +95,16 @@ public:
         if(getVoxelAt(x,y).strenght <= 0) { 
             clearVoxelAt(x,y);
         }
+
+        if(getVoxelAt(x, y).value == elm::ValCarbon) materialpack.carbon += 1;
+        else if(getVoxelAt(x, y).value == elm::ValLithium) materialpack.lithium += 1;
+        else if(getVoxelAt(x, y).value == elm::ValMagnesium) materialpack.magnesium += 1;
+        else if(getVoxelAt(x, y).value == elm::ValSodium) materialpack.sodium += 1;
+        else if(getVoxelAt(x, y).value == elm::ValAluminium) materialpack.aluminium += 1;
+        else if(getVoxelAt(x, y).value == elm::ValSilicon) materialpack.silicon += 1;
+        else if(getVoxelAt(x, y).value == elm::ValCopper) materialpack.copper += 1;
+        else if(getVoxelAt(x, y).value == elm::ValTitanium) materialpack.titanium += 1;
+        else if(getVoxelAt(x, y).value == elm::ValLead) materialpack.lead += 1;
     }
 
     void setImagePixelAt(const int x, const int y, const sf::Color& color) {
@@ -169,6 +180,8 @@ public:
 
     int64_t world_snegx;
     int64_t world_snegy;
+
+    MaterialPack materialpack {};
 
 private:
     std::vector<std::vector<Chunk>> gridPos;

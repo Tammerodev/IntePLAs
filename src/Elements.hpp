@@ -74,6 +74,43 @@ namespace elm {
     const unsigned short sodiumExplosion = 10;
     const unsigned short sodiumExplosionTemp = 500;
 
+    static const sf::Color getColorFromType(const uint8_t type) {
+        switch(type) {
+            case 2:
+                return Carbon;
+            case 3:
+                return Lithium;
+            case 4:
+                return Magnesium;
+            case 5:
+                return Sodium;
+            case 6:
+                return Aluminium;
+            case 7:
+                return Silicon;
+            case 8:
+                return Copper;
+            case 9:
+                return Titanium;
+            case 10:
+                return Lead;
+            case 11:
+                return Water;
+
+            case elm::ValNitroglycerin:
+                return Nitroglycerin;
+
+            case elm::ValUranium235:
+                return Uranium235;
+
+            case elm::ValRadium226:
+                return Radium226;
+
+            default:
+                return sf::Color(0,0,0,0);
+        }
+    }
+
 
     static const unsigned short getMaxTempFromType(const uint8_t type) {
         switch (type)

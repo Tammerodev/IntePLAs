@@ -25,7 +25,7 @@ class PlaceItem : public Item {
 		const sf::Vector2f original_position = gun_spr.getPosition();
 		const float original_rotation = gun_spr.getRotation();
 
-		gun_spr.setPosition(pos);
+		gun_spr.setPosition(pos + sf::Vector2f(gun_spr.getGlobalBounds().width / 2, gun_spr.getGlobalBounds().height / 2));
 		gun_spr.setRotation(90);
 
 		r.draw(gun_spr);
