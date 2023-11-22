@@ -15,31 +15,29 @@ public:
 
     void update() {
         // Set kernel size
-        blur_shader.setUniform("kernelSize", 35 + (int)GameStatus::brightness * 10);
+        blur_shader.o_setUniform("kernelSize", 35 + (int)GameStatus::brightness * 10);
 
-        desaturate_shader.setUniform("targetColor", sf::Vector3f(0.04, 0.02, 0.1));
-        desaturate_shader.setUniform("amount", GameStatus::brightness);
-
+        desaturate_shader.o_setUniform("time", (float)clock.getElapsedTime().asSeconds());
+        desaturate_shader.o_setUniform("distortionAmount", ((float)PlayerGlobal::still_radioation) / 10.f);
     }
 
-    void render(sf::RenderTarget& renderTarget, const sf::Sprite& originalFrame) {
+    void render(sf::RenderTarget& renderTarget, sf::Sprite& originalFrame) {
         // Clear renderTexture
         treshold_texture.clear(sf::Color::Transparent);
 
         // Draw original frame to renderTexture using treshold shader
-        treshold_texture.draw(originalFrame, &treshold_shader);
+        treshold_shader.renderTo(originalFrame, treshold_texture);
 
 
         // Draw the original frame
-        renderTarget.draw(originalFrame, &desaturate_shader);
+        desaturate_shader.renderTo(originalFrame, renderTarget);
 
         // Apply renderTexture to sprite
         treshold_texture.display();
         treshold_sprite.setTexture(treshold_texture.getTexture());
 
         // Finally render blurred version of pixels exeeding treshold
-        renderTarget.draw(treshold_sprite, &blur_shader);
-        
+        blur_shader.renderTo(treshold_sprite, renderTarget);  
     }
 private:
     sf::RenderTexture treshold_texture;
@@ -48,5 +46,7 @@ private:
     Shader blur_shader;
     Shader treshold_shader;
     Shader desaturate_shader;
+
+    sf::Clock clock;
 };
 

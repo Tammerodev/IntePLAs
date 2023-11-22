@@ -27,13 +27,14 @@ public:
 
         if(!exploding) return;
 
-        explosion_shader.setUniform("time",shader_time.getElapsedTime().asSeconds());
-        explosion_shader.setUniform("worldpos",background.getPosition());
+        explosion_shader.o_setUniform("time",shader_time.getElapsedTime().asSeconds());
+        explosion_shader.o_setUniform("worldpos", background.getPosition());
+
     }
 
     void explode(const ExplosionInfo& exInfo) {
-        explosion_shader.setUniform("explosion", sf::Vector2f(renderSpr.getGlobalBounds().width/2, renderSpr.getGlobalBounds().height/2));
-        explosion_shader.setUniform("str_", exInfo.strength);
+        explosion_shader.o_setUniform("explosion", sf::Vector2f(renderSpr.getGlobalBounds().width/2, renderSpr.getGlobalBounds().height/2));
+        explosion_shader.o_setUniform("str_", exInfo.strength);
         SFX::strong_explosion.setPitch(1.0 + (math::randFloat() / 10.0f));
         SFX::strong_explosion.play();
 
@@ -50,7 +51,8 @@ public:
 
         renderTex.clear(sf::Color::Transparent);
         renderTex2.clear(sf::Color::Transparent);
-        renderTex.draw(background, &explosion_shader);
+
+        explosion_shader.renderTo(background, renderTex);
 
         renderSpr.setTexture(renderTex.getTexture());
 

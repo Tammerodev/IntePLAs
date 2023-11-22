@@ -56,6 +56,8 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
     if(!shaderEffect.load(window_width, window_height)) 
         perror("Failed to load bloom effect");
 
+    hp_bar.load(window_width, window_height);
+
     hasLoaded = true;
 
     return true;
@@ -102,7 +104,12 @@ void GameState::update()
     game_camera.update(dt);
     player.update(dt);
     matUI.update(world.main_world);
+
+    // Update UI
+    hp_bar.update(player);
+
     shaderEffect.update();
+
     uiStateManager.update(Controls::windowCursorPos);
     world.update(dt, player);
 
@@ -144,7 +151,7 @@ void GameState::input(sf::Event &ev) {
     if(ev.type == sf::Event::Resized) {
         // Resize
         game_camera.getView().setSize(Display::window_width, Display::window_height);
-        ui_camera.getView().setSize(Display::window_width, Display::window_height);
+        
     }
 
     if(ev.type == sf::Event::KeyReleased) {
@@ -202,6 +209,8 @@ void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui)
     matUI.render(window);
     uiStateManager.render(window, gui);
     inv.renderUI(window);
+
+    hp_bar.render(window);
 
     cursor.draw(window);
 }

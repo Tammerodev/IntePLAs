@@ -16,6 +16,7 @@
 
 namespace PlayerGlobal {
     inline int radiation_received = 0; 
+    inline int still_radioation = 0;
 }
 
 class Player {
@@ -48,6 +49,10 @@ public:
         }
     }
 
+    int getHealth() {
+        return health;
+    }
+
     void damage(const int damaged) {
         health -= damaged;
         SFX::damage.play();
@@ -64,7 +69,7 @@ public:
     }
 
 private:
-    int health = 5000;
+    int health = 200;
 
     bool grounded = false;
 

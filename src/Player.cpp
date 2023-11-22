@@ -30,6 +30,11 @@ void Player::update(float dt) {
     }
 
     spr.setPosition(sf::Vector2f(physComp.transform_position));
+
+    if(PlayerGlobal::still_radioation > 0) {
+        PlayerGlobal::still_radioation--;
+    }
+    
     
     grounded = false;
 }

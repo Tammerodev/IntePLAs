@@ -13,19 +13,21 @@
 
 class HealthBar {
     public:
-        void load() {
-
+        void load(const int sizeX, const int sizeY) {
+            rectHealth.setPosition(sf::Vector2f(sizeX / 4, sizeY - 16));
         }
 
         void render(sf::RenderTarget& targ) {
-
+            targ.draw(rectHealth);
         }
         
         void update(Player &player) {
-
+            rectHealth.setFillColor(sf::Color::Red);
+            rectHealth.setSize(sf::Vector2f(player.getHealth(), 16));
         }
 
     private:
+        sf::RectangleShape rectHealth;
 };
 
 class Inventory {

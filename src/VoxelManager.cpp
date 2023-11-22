@@ -52,9 +52,6 @@ int VoxelManager::load(std::string file)
     loginf("Multithreading not used : ", " Single threaded", "");
 
     loginf("Creating map took : ", timer.getElapsedTime().asSeconds(), ".");
-
-    shader.load("res/shaders/default_vertex.glsl", "res/shaders/desaturate_fragment.glsl");
-
     chIndexer.update();
 
     timer.restart();
@@ -124,8 +121,8 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
             spriteRend.setTexture(chIndexer.getChunkAt(x, y).tx);  
             spriteRend.setPosition(x * Chunk::sizeX,y * Chunk::sizeY);
-            target.draw(spriteRend, &shader);
 
+            target.draw(spriteRend);
         }
     }
 
@@ -154,7 +151,6 @@ void VoxelManager::update(Player &player)
 
     clientManager.update(chIndexer);
 
-    shader.setUniform("amount", 0.1f);
     chIndexer.update();
 
     particleSimulation.update(1.0f);
@@ -293,6 +289,10 @@ void VoxelManager::update(Player &player)
 
             if(particle) {
                 PlayerGlobal::radiation_received = radiation;
+                
+                if(radiation > PlayerGlobal::still_radioation) 
+                    PlayerGlobal::still_radioation = radiation;
+
                 if(math::randIntInRange(0, 10000) < 1) 
                     player.damage_radiation(1);
             }

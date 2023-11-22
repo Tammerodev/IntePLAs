@@ -295,9 +295,6 @@ public:
 private:
 
     ClientManager clientManager;
-
-    Shader shader;
-
     ProcGenerate procGen;
     VoxelSpy voxelSpy;
     ChunkIndexer chIndexer;
