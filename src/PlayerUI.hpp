@@ -11,23 +11,29 @@
 #include "ItemCreateItem.hpp"
 #include "GeigerCounter.hpp"
 
-class HealthBar {
+#include "HealthBar.hpp"
+#include "RadiationBar.hpp"
+
+class PlayerUI {
     public:
         void load(const int sizeX, const int sizeY) {
-            rectHealth.setPosition(sf::Vector2f(sizeX / 4, sizeY - 16));
+            healthBar.load(sizeX, sizeY);
+            radiationBar.load(sizeX, sizeY);
         }
 
         void render(sf::RenderTarget& targ) {
-            targ.draw(rectHealth);
+            healthBar.render(targ);
+            radiationBar.render(targ);
         }
         
         void update(Player &player) {
-            rectHealth.setFillColor(sf::Color::Red);
-            rectHealth.setSize(sf::Vector2f(player.getHealth(), 16));
+            healthBar.update();
+            radiationBar.update();
         }
 
     private:
-        sf::RectangleShape rectHealth;
+        HealthBar healthBar;
+        RadiationBar radiationBar;
 };
 
 class Inventory {

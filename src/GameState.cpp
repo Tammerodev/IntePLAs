@@ -56,7 +56,7 @@ bool GameState::load(const std::string s, tgui::BackendGui& gui){
     if(!shaderEffect.load(window_width, window_height)) 
         perror("Failed to load bloom effect");
 
-    hp_bar.load(window_width, window_height);
+    playerUI.load(window_width, window_height);
 
     hasLoaded = true;
 
@@ -106,7 +106,7 @@ void GameState::update()
     matUI.update(world.main_world);
 
     // Update UI
-    hp_bar.update(player);
+    playerUI.update(player);
 
     shaderEffect.update();
 
@@ -210,7 +210,7 @@ void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui)
     uiStateManager.render(window, gui);
     inv.renderUI(window);
 
-    hp_bar.render(window);
+    playerUI.render(window);
 
     cursor.draw(window);
 }

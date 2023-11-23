@@ -116,6 +116,5 @@ private:
 
 	sf::Clock shader_time;
 
-	HealthBar hp_bar;
-
+	PlayerUI playerUI;
 };

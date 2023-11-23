@@ -131,24 +131,6 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
 void VoxelManager::update(Player &player)
 {   
-    // TODO : Bad
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::O) && Session::Join) {
-
-        ChunkBounds bounds { 0, 0, chunks_x, chunks_y };
-        ChunkArea area = bounds.getArea();
-
-        int delay = 0;
-        std::cout << "Enter delay ms : "; 
-        std::cin >> delay;
-
-        for(int64_t x = area.startX; x < area.endX; x++) {
-            for(int64_t y = area.startY; y < area.endY; y++) {
-                voxelSpy.alertOfChunkModification(sf::Vector2i(x, y), chIndexer);
-                std::this_thread::sleep_for(std::chrono::milliseconds(delay));
-            }
-        }
-    }
-
     clientManager.update(chIndexer);
 
     chIndexer.update();
@@ -166,26 +148,6 @@ void VoxelManager::update(Player &player)
 
         if(collision) {
             p->collide();
-
-            if(p->getType() == Particle::ParticleType::Debris) {
-                // TODO : Bad
-                
-                if(chIndexer.boundGetVoxelAt(position.x, position.y).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y, p->getColor());
-
-                else if(chIndexer.boundGetVoxelAt(position.x + 1, position.y).value == 0) chIndexer.boundSetImagePixelAt(position.x + 1, position.y, p->getColor());
-                else if(chIndexer.boundGetVoxelAt(position.x - 1, position.y).value == 0) chIndexer.boundSetImagePixelAt(position.x - 1, position.y, p->getColor());
-
-                else if(chIndexer.boundGetVoxelAt(position.x, position.y + 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y + 1, p->getColor());
-                else if(chIndexer.boundGetVoxelAt(position.x, position.y - 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y - 1, p->getColor());
-
-                else if(chIndexer.boundGetVoxelAt(position.x + 1, position.y + 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y + 1, p->getColor());
-                else if(chIndexer.boundGetVoxelAt(position.x + 1, position.y - 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y - 1, p->getColor());
-
-                else if(chIndexer.boundGetVoxelAt(position.x - 1, position.y + 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y + 1, p->getColor());
-                else if(chIndexer.boundGetVoxelAt(position.x - 1, position.y - 1).value == 0) chIndexer.boundSetImagePixelAt(position.x, position.y - 1, p->getColor());
-
-                
-            }
         }
 
         // Fission 

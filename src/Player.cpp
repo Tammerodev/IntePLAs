@@ -19,7 +19,6 @@ int Player::load() {
 }
 
 void Player::update(float dt) {
-    std::cout << (health) << '\n';
     PlayerState::currentState->update(physComp, dt);
     PlayerState::currentState->input(grounded);
 
