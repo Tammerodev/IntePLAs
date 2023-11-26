@@ -80,6 +80,22 @@ namespace StorageSettings {
     }
 }
 
+namespace SoundSettings {
+    inline int music_volume;
+
+    inline bool loadSettings() {
+        bool result = false;
+
+        JsonReader reader;
+        result = reader.open("json/soundsettings.json");
+        result = reader.init();
+
+        music_volume = std::stoi(reader.readParameterAsString("music-volume"));
+
+        return result;
+    }
+}
+
 namespace SettingsLoader {
     inline bool loadSettings() {
         prndd("Loading settings...");
@@ -98,6 +114,10 @@ namespace SettingsLoader {
         if(!StorageSettings::loadSettings()) result = false;
 
         loginf("Loaded data from JSON : save path = ", StorageSettings::save_path, ".");
+
+        if(!SoundSettings::loadSettings()) result = false;
+
+        loginf("Loaded data from JSON : save path = ", SoundSettings::music_volume, ".");
 
         return result;
     }

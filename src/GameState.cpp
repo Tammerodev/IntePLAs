@@ -98,7 +98,7 @@ void GameState::update()
     }
 
     // Update various game components
-    bg.update(game_camera.getCenterPosition());
+    bg.update(game_camera.getView(), dt);
     BGMusic::update();
     effOverlay.update(game_camera.getCenterPosition());
     game_camera.update(dt);

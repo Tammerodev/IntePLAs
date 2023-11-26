@@ -32,8 +32,6 @@ int VoxelManager::load(std::string file)
         for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
             std::string finalPath = path + "/" + getPath(x, y);
 
-            prndd(finalPath);
-
             if(create_new_world)
                 chIndexer.getChunkAt(x, y).create();
             else {
@@ -107,7 +105,9 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
     ChunkBounds draw_bounds = ChunkBounds((center.x / Chunk::sizeX) - draw_distx, (center.y / Chunk::sizeY) - draw_disty, 
                             (center.x / Chunk::sizeX) + draw_distx, (center.y / Chunk::sizeY) + draw_disty);
+
     ChunkArea draw_area = draw_bounds.getArea();
+
     sf::Sprite spriteRend;
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {

@@ -2,43 +2,64 @@
 #include <SFML/Graphics.hpp>
 
 class ParallaxLayer {
-    public:
+public:
+    void create(const std::string& path, float amountOfParallax = 0.f) {
+        tx.loadFromFile(path);
+        tx.setRepeated(true);
 
-    ParallaxLayer(const std::string& path, float amountOfParallax = 0.f) : parallax(amountOfParallax) {
-		tx.loadFromFile(path);
-        for(int i = 0; i < 6; i++) {
-            sf::Sprite sprite = sf::Sprite();
-            sprite.setTexture(tx);
-            sprite.setPosition(i * tx.getSize().x, 0);
-            spr.push_back(sprite);
-        }
+        spr.setTexture(tx);
+        spr.setPosition(0, 0);
+        spr.setColor(sf::Color(255, 255, 255, 200));
+
+        parallaxShader.loadFromMemory(
+        "uniform float offset;"
+        "uniform float offsety;"
+
+        "void main() {"
+        "    gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * gl_Vertex;"
+        "    gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;"
+        "    gl_TexCoord[0].x = gl_TexCoord[0].x + offset;" // magic
+        "    gl_TexCoord[0].y = gl_TexCoord[0].y + offsety;" // magic
+        "    gl_FrontColor = gl_Color;"
+        "}"
+        , sf::Shader::Vertex);
+
+        parallax = amountOfParallax;
+
+        // Todo : Bad
+
+        spr.setScale(1.f, 1.f);
+
     }
 
-    void update(const sf::Vector2f &pos) {
+    void update(sf::View &view) {
+        const sf::FloatRect viewRect(view.getCenter() - view.getSize() / 2.f, view.getSize());
 
-        int i = 0;
-        for(auto &sprite : spr) {
-            if((sprite.getPosition().x + (tx.getSize().x * 3)
-                 - pos.x) < 0) {
+        // Ok. What the HELL is this value? Really?
 
-                sprite.move(tx.getSize().x * spr.size(), 0);
-                
-            }
-        }
+        float center_x = view.getCenter().x / 1000.0f;
+        float center_y = view.getCenter().y / 1000.0f;
+
+        parallaxShader.setUniform("offset", (parallax * 0.1f) * center_x);
+        parallaxShader.setUniform("offsety", (parallax * 0.1f) * center_y);
+
+
+        const sf::IntRect texture_rect(viewRect);
+        spr.setTextureRect(texture_rect);
+        spr.setPosition(texture_rect.left, texture_rect.top);
     }
 
     void render(sf::RenderTarget& target) {
-        for(auto &sprite : spr) {
-            sprite.setTexture(tx);
-            target.draw(sprite);
-        }
+        spr.setTexture(tx);
+        target.draw(spr, &parallaxShader);
     }
 
-    private:
+private:
+    float offset = 0.f;
+    float parallax = 0.f;
 
-
-
-    float parallax = 0.f;    
-    std::vector<sf::Sprite> spr;
+    sf::Sprite spr;
     sf::Texture tx;
+
+    sf::Shader parallaxShader;
 };

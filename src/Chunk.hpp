@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 
 inline int chunks_x = 128;
-inline int chunks_y = 20;
+inline int chunks_y = 128;
 
 static const int chunks_negx = 0;
 static const int chunks_negy = 0;
@@ -63,10 +63,10 @@ public:
 
     void set(int64_t sX, int64_t sY, int64_t eX, int64_t eY) {
 
-        if(sX < -chunks_negx) sX = -chunks_negx;
+        if(sX < 0) sX = 0;
         if(sY < 0) sY = 0;
 
-        if(eX < -chunks_negx) eX = -chunks_negx;
+        if(eX < 0) eX = 0;
         if(eY < 0) eY = 0;
 
         if(sX >= chunks_x) sX = chunks_x;

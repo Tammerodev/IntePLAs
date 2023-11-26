@@ -36,6 +36,12 @@ void Player::update(float dt) {
     
     
     grounded = false;
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+        PlayerState::currentState = PlayerState::creativeState;
+    } else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+        PlayerState::currentState = PlayerState::idleState;
+    }
 }
 
 void Player::draw(sf::RenderTarget & window) {

@@ -7,12 +7,16 @@
 class Background {
 public:
     int load() {
-        parallax.push_back(ParallaxLayer("res/world/forest_bg_layer2.png", 0.05f));
-        //parallax.push_back(ParallaxLayer("res/world/forest_bg_layer1.png", 0.1f));
-        //parallax.push_back(ParallaxLayer("res/world/forest_bg_layer0.png", 0.2f));
+        parallax.at(0).create("res/world/Parallax/1.png", 0.10f);
+        parallax.at(1).create("res/world/Parallax/2.png", 0.25f);
+        parallax.at(2).create("res/world/Parallax/3.png", 0.50f);
+        parallax.at(3).create("res/world/Parallax/4.png", 0.75f);
+        parallax.at(4).create("res/world/Parallax/5.png", 1.00f);
 
 		return 1;
     }
+
+    
 
     void render(sf::RenderTarget &targ) {
         for(auto &layer : parallax) {
@@ -20,14 +24,14 @@ public:
         }
     }
 
-    void update(sf::Vector2f pos) {
+    void update(sf::View &view, const float dt) {
         for(auto &layer : parallax) {
-            layer.update(pos);
+            layer.update(view);
         }
     }
 
 private:
-    std::vector<ParallaxLayer> parallax;
+    std::array<ParallaxLayer, 5> parallax;
 	sf::Clock shader_time;
 	
 

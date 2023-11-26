@@ -2,6 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include "Shader.hpp"
 
+#include "Player.hpp"
+#include "GameStatus.hpp"
+
 class ShaderEffect {
 public:
     bool load(uint16_t width, uint16_t height) {
@@ -10,6 +13,7 @@ public:
         desaturate_shader.load("res/shaders/default_vertex.glsl", "res/shaders/desaturate_fragment.glsl");
 
         treshold_texture.create(width, height);
+        treshold_texture_before_blend.create(width, height);
         return true;
     }
 
@@ -24,6 +28,7 @@ public:
     void render(sf::RenderTarget& renderTarget, sf::Sprite& originalFrame) {
         // Clear renderTexture
         treshold_texture.clear(sf::Color::Transparent);
+        treshold_texture_before_blend.clear(sf::Color::Transparent);
 
         // Draw original frame to renderTexture using treshold shader
         treshold_shader.renderTo(originalFrame, treshold_texture);
@@ -37,11 +42,20 @@ public:
         treshold_sprite.setTexture(treshold_texture.getTexture());
 
         // Finally render blurred version of pixels exeeding treshold
-        blur_shader.renderTo(treshold_sprite, renderTarget);  
+        blur_shader.renderTo(treshold_sprite, treshold_texture_before_blend);
+
+        treshold_texture_before_blend.display();
+        treshold_sprite_before_blend.setTexture(treshold_texture_before_blend.getTexture());
+
+        renderTarget.draw(treshold_sprite_before_blend, sf::BlendAdd);
+        
     }
 private:
     sf::RenderTexture treshold_texture;
+    sf::RenderTexture treshold_texture_before_blend;
+
     sf::Sprite treshold_sprite;
+    sf::Sprite treshold_sprite_before_blend;
 
     Shader blur_shader;
     Shader treshold_shader;

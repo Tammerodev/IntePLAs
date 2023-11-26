@@ -1,6 +1,6 @@
 uniform sampler2D texture;
 
-const float treshold = 0.9;
+const float treshold = 0.8;
 
 void main() {
     vec2 texCoords = gl_TexCoord[0].xy;

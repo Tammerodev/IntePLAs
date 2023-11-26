@@ -1,4 +1,4 @@
 {
-    "world-size-x" : "16",
-    "world-size-y" : "64"
+    "world-size-x" : "256",
+    "world-size-y" : "128"
 }
