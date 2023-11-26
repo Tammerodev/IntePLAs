@@ -8,8 +8,8 @@ namespace GameStatus {
     inline sf::Clock game_clock;
     
     inline void updateBrightness() {
-        const float timeCycle = 12.0;
-        //brightness = 1.0 + sin(game_clock.getElapsedTime().asSeconds() / timeCycle);
+        const float timeCycle = 48.0;
+        brightness = 0.5 + sin(game_clock.getElapsedTime().asSeconds() / timeCycle) - 2.0;
     
     }
 

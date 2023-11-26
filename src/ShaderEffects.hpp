@@ -14,6 +14,7 @@ public:
 
         treshold_texture.create(width, height);
         treshold_texture_before_blend.create(width, height);
+        desaturate_texture.create(width, height);
         return true;
     }
 
@@ -23,19 +24,29 @@ public:
 
         desaturate_shader.o_setUniform("time", (float)clock.getElapsedTime().asSeconds());
         desaturate_shader.o_setUniform("distortionAmount", ((float)PlayerGlobal::still_radioation) / 10.f);
+
+        if(GameStatus::brightness > 0.25) {
+            desaturate_shader.o_setUniform("desaturationAmount", GameStatus::brightness);
+        }
+
     }
 
     void render(sf::RenderTarget& renderTarget, sf::Sprite& originalFrame) {
         // Clear renderTexture
         treshold_texture.clear(sf::Color::Transparent);
         treshold_texture_before_blend.clear(sf::Color::Transparent);
-
-        // Draw original frame to renderTexture using treshold shader
-        treshold_shader.renderTo(originalFrame, treshold_texture);
-
+        desaturate_texture.clear(sf::Color::Transparent);
 
         // Draw the original frame
-        desaturate_shader.renderTo(originalFrame, renderTarget);
+        desaturate_shader.renderTo(originalFrame, desaturate_texture);
+
+        desaturate_texture.display();
+
+        desaturate_sprite.setTexture(desaturate_texture.getTexture());
+        renderTarget.draw(desaturate_sprite);
+
+        // Draw original frame to renderTexture using treshold shader
+        treshold_shader.renderTo(desaturate_sprite, treshold_texture);
 
         // Apply renderTexture to sprite
         treshold_texture.display();
@@ -53,9 +64,11 @@ public:
 private:
     sf::RenderTexture treshold_texture;
     sf::RenderTexture treshold_texture_before_blend;
+    sf::RenderTexture desaturate_texture;
 
     sf::Sprite treshold_sprite;
     sf::Sprite treshold_sprite_before_blend;
+    sf::Sprite desaturate_sprite;
 
     Shader blur_shader;
     Shader treshold_shader;

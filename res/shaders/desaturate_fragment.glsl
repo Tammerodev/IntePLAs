@@ -3,12 +3,16 @@ uniform sampler2D texture;
 uniform float time; // Time variable for animation
 uniform float distortionAmount; // Adjust distortion effect
 
+uniform float desaturationAmount; // Adjustable amount
+
 float hash(float n) {
     return fract(sin(n) * 43758.5453);
 }
 
 void main()
 {
+	float darknessFactor = 0.5;
+
     vec2 texCoords = gl_TexCoord[0].xy;
 
     vec4 color = texture2D(texture, texCoords);
@@ -36,5 +40,10 @@ void main()
 
 	}
 
-    gl_FragColor = color;
+	float darkness = 1.0 - desaturationAmount * darknessFactor;
+
+    // Darken the color based on the time of day
+    color.rgb *= darkness;
+
+	gl_FragColor = color;
 }
