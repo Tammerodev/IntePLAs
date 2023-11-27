@@ -53,6 +53,8 @@ namespace Raycast {
                         );
                     }
 
+                    info.world->boundGetChunkAt(info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).x, info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).y).needs_update = true;
+
                     if(force) info.world->damageVoxelAt(pixelPosition.x, pixelPosition.y);
                     
                     info.world->heatVoxelAt(pixelPosition.x, pixelPosition.y, 1000);

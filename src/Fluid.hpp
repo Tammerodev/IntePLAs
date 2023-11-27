@@ -4,14 +4,14 @@
 
 class Fluid : public Element {
     public:
-        Fluid(int x, int y) {
+        Fluid(int x, int y) : Element() {
             this->x = x;
             this->y = y;    
         }
 
         void update(ChunkIndexer& world) {
             
-            sf::Vector2i lastPos = {0,0};
+            sf::Vector2i lastPos = *this;
 
             world.boundSetImagePixelAt(x, y, color);
             world.boundGetVoxelAt(x, y).value = elm::ValWater;
@@ -53,7 +53,7 @@ class Fluid : public Element {
                     y = nextWaterPos.y;
                 }
             }
-            temp = world.boundGetVoxelAt(x, y).temp;
+            /*temp = world.boundGetVoxelAt(x, y).temp;
 
             // Spaghetti nam nam
 
@@ -70,12 +70,31 @@ class Fluid : public Element {
 
             world.SetHeat(x - 1, y + 1, t);
             world.SetHeat(x - 1, y - 1, t);
+            */
+
+            if(nextWaterPos != lastPos) {
+                sf::Vector2i boundPos = lastPos;
+                sf::Vector2i chunk_pos = world.getChunkFromPos(boundPos.x, boundPos.y);
+
+                world.boundGetChunkAt(chunk_pos.x, chunk_pos.y).needs_update = true;
+                world.boundGetChunkAt(chunk_pos.x + 1, chunk_pos.y + 1).needs_update = true;
+                world.boundGetChunkAt(chunk_pos.x + 1, chunk_pos.y - 1).needs_update = true;
+
+                world.boundGetChunkAt(chunk_pos.x - 1, chunk_pos.y + 1).needs_update = true;
+                world.boundGetChunkAt(chunk_pos.x - 1, chunk_pos.y - 1).needs_update = true;
+
+                world.boundGetChunkAt(chunk_pos.x - 1, chunk_pos.y).needs_update = true;
+                world.boundGetChunkAt(chunk_pos.x + 1, chunk_pos.y).needs_update = true;
+
+                world.boundGetChunkAt(chunk_pos.x, chunk_pos.y + 1).needs_update = true;
+                world.boundGetChunkAt(chunk_pos.x, chunk_pos.y - 1).needs_update = true;
+            }
+            else 
+                world.getChunkAt(world.getChunkFromPos(lastPos.x, lastPos.y)).needs_update = false;
 
             world.boundGetVoxelAt(x, y).value = value;
 
             world.boundSetImagePixelAt(x, y, color);
-
-            lastPos = *this;
         }
 
         bool clear() {

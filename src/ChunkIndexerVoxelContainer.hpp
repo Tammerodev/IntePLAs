@@ -35,6 +35,28 @@ public:
         return gridNeg.at(abs(y)).at(x);
     }
 
+    Chunk& boundGetChunkAt(const int x, const int y) {
+        int xx = x;
+        int yy = y;
+
+        if(xx < 0) xx = 0;
+        if(yy < 0) yy = 0;
+        if(xx >= chunks_x - 1) xx = chunks_x - 1;
+        if(yy >= chunks_y - 1) yy = chunks_y - 1;
+
+        if(xx >= 0) {
+           return gridPos.at(abs(yy)).at(xx);         
+        }
+        return gridNeg.at(abs(yy)).at(xx);
+    }
+
+    Chunk& getChunkAt(const sf::Vector2i &pos) {
+        if(pos.x >= 0) {
+           return gridPos.at(abs(pos.y)).at(pos.x);         
+        }
+        return gridNeg.at(abs(pos.y)).at(pos.x);
+    }
+
     void boundVector(sf::Vector2i &v) {
         if(v.y < 0) v.y = 0;
         if(v.x < -chunks_negx) v.x = 0;
@@ -172,6 +194,40 @@ public:
         }
 
         setImagePixelAt(x,y,currPixel);
+    }
+
+    void boundHeatVoxelAt(const int xx, const int yy, const int temp)
+    {
+        sf::Vector2i positon = sf::Vector2i(xx,yy);
+        boundVector(positon);
+
+        Voxel &vox = getVoxelAt(positon.x, positon.y);
+        getChunkAt(getChunkFromPos(positon.x, positon.y).x, getChunkFromPos(positon.x, positon.y).y).modified = true;
+
+        if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
+            uint8_t &strenght = vox.strenght;
+            --strenght;
+            if(vox.strenght <= 0) { 
+                getVoxelAt(positon.x,positon.y).value = 0; 
+                setImagePixelAt(positon.x, positon.y, sf::Color(0,0,0,0));
+            }
+        }
+
+        vox.temp += temp;
+
+        if(vox.temp <= 0) vox.temp = 0;
+
+        sf::Color currPixel = getImagePixelAt(positon.x, positon.y);
+
+        uint64_t valR = vox.temp * 1; 
+        if(valR >= 255) valR = 255;
+        currPixel.r = valR;
+        if(valR > 300) {
+            currPixel.g = 255;
+            currPixel.b = 255;
+        }
+
+        setImagePixelAt(positon.x, positon.y,currPixel);
     }
 
 

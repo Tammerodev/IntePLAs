@@ -1,6 +1,10 @@
 #pragma once
 #include "Voxel.hpp"
 #include <SFML/Graphics.hpp>
+#include <list>
+#include <memory>
+
+class Element;
 
 inline int chunks_x = 128;
 inline int chunks_y = 128;
@@ -41,6 +45,10 @@ struct Chunk {
     sf::Texture tx;
 
     bool modified = true;
+
+public:
+
+    bool needs_update = false;
 
     std::list<std::shared_ptr<Element>> elements;
 };

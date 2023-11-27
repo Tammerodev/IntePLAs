@@ -6,7 +6,7 @@
 
 class Sand : public Element {
     public:
-        Sand(int x, int y) {
+        Sand(int x, int y) : Element() {
             this->x = x;
             this->y = y;    
 
@@ -44,7 +44,28 @@ class Sand : public Element {
                 // We have moved, erase previous pixel
                 world.boundSetImagePixelAt(previous_position.x, previous_position.y, sf::Color(0,0,0,0));
                 world.boundGetVoxelAt(previous_position.x, previous_position.y).value = 0;
+
+                sf::Vector2i boundPos = *this;
+                sf::Vector2i chunk_pos = world.getChunkFromPos(boundPos.x, boundPos.y);
+
+                world.boundGetChunkAt(chunk_pos.x, chunk_pos.y).needs_update = true;
+                world.boundGetChunkAt(chunk_pos.x + 1, chunk_pos.y + 1).needs_update = true;
+                world.boundGetChunkAt(chunk_pos.x + 1, chunk_pos.y - 1).needs_update = true;
+
+                world.boundGetChunkAt(chunk_pos.x - 1, chunk_pos.y + 1).needs_update = true;
+                world.boundGetChunkAt(chunk_pos.x - 1, chunk_pos.y - 1).needs_update = true;
+
+                world.boundGetChunkAt(chunk_pos.x - 1, chunk_pos.y).needs_update = true;
+                world.boundGetChunkAt(chunk_pos.x + 1, chunk_pos.y).needs_update = true;
+
+                world.boundGetChunkAt(chunk_pos.x, chunk_pos.y + 1).needs_update = true;
+                world.boundGetChunkAt(chunk_pos.x, chunk_pos.y - 1).needs_update = true;
             }
+            else {
+                world.getChunkAt(world.getChunkFromPos(x, y)).needs_update = false;
+            }
+
+
         }
 
         bool clear() {

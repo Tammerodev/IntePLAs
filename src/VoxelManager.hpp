@@ -228,17 +228,17 @@ public:
             vox.value = elm::ValWater;
             vox.strenght = 2;
 
-            if(addVoxelsToArr) elements.push_back(std::make_shared<Water>(p.x, p.y));
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Water>(p.x, p.y));
         } else if(px == elm::Nitroglycerin) {
             vox.value = elm::ValNitroglycerin;
             vox.strenght = 2;
 
-            if(addVoxelsToArr) elements.push_back(std::make_shared<Nitroglycerin>(p.x, p.y));
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Nitroglycerin>(p.x, p.y));
         } else if(px == elm::Chlorine) {
             vox.value = elm::ValChlorine;
             vox.strenght = 2;
 
-            if(addVoxelsToArr) elements.push_back(std::make_shared<Chlorine>(p.x, p.y));
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Chlorine>(p.x, p.y));
         } else if(px == elm::Uranium235) {
             vox.value = elm::ValUranium235;
             vox.strenght = 2;
@@ -257,10 +257,18 @@ public:
             vox.value = elm::ValSand;
             vox.strenght = 2;
 
-            if(addVoxelsToArr) elements.push_back(std::make_shared<Sand>(p.x, p.y));
+            
+
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Sand>(p.x, p.y));
         }
         return vox;
     }
+
+    void addElement(int x, int y, std::shared_ptr<Element> element) {
+        chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(x,y).x, chIndexer.getChunkFromPos(x,y).y).needs_update = true;
+        chIndexer.getChunkAt(chIndexer.getChunkFromPos(x, y)).elements.push_back(element);
+    }
+
 
     MaterialPack &getReceivedMaterials() {
         return chIndexer.materialpack;
@@ -294,6 +302,8 @@ public:
 
 private:
 
+    sf::FloatRect update_area;
+
     ClientManager clientManager;
     ProcGenerate procGen;
     VoxelSpy voxelSpy;
@@ -304,7 +314,6 @@ private:
     std::list<sf::Vector2i> voxelsInNeedOfUpdate;
     std::list<sf::Vector2i> reactiveVoxels;
 
-    std::list<std::shared_ptr<Element>> elements;
     std::list<std::shared_ptr<RadioactiveElement>> radioactive_elements;
 
     ParticleSimulation particleSimulation;

@@ -19,6 +19,9 @@ class VoxelContainer {
         // Bounding
         virtual void boundVector(sf::Vector2i &v) = 0;
         virtual const sf::Vector2i getBoundedVector(const sf::Vector2i &p) = 0;
+        virtual void boundHeatVoxelAt(const int x, const int y, const int a) = 0;
+
+        virtual Chunk& boundGetChunkAt(const int x, const int y) = 0;
 
         // Bounded manipulation
         virtual Voxel& boundGetVoxelAt(const int x, const int y) = 0;
@@ -33,6 +36,7 @@ class VoxelContainer {
         // Chunking (All child classes might not use these)
         // getChunkAt returns nullptr if not implemented
         virtual Chunk& getChunkAt(const int x, const int y) = 0;
+        virtual Chunk& getChunkAt(const sf::Vector2i &pos) = 0;
         virtual const sf::Vector2i getChunkFromPos(const int x, const int y) = 0;
     private:
 };

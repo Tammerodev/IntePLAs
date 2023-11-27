@@ -78,7 +78,7 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
     }
 
     if(vox.value == elm::ValMagnesium) {
-        elements.push_back(std::make_shared<Burning>(x,y));
+        addElement(x, y, std::make_shared<Burning>(x,y));
     }
 
     if(vox.temp <= 0) vox.temp = 0;
@@ -99,6 +99,8 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
 void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 {
     sf::FloatRect viewRect(target.getView().getCenter() - target.getView().getSize() / 2.f, target.getView().getSize());
+    update_area = viewRect;
+
 
     const int draw_distx = viewRect.width / Chunk::sizeX;
     const int draw_disty = viewRect.height / Chunk::sizeY;
@@ -109,6 +111,7 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
     ChunkArea draw_area = draw_bounds.getArea();
 
     sf::Sprite spriteRend;
+    sf::RectangleShape rect;
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
@@ -121,6 +124,18 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
             spriteRend.setTexture(chIndexer.getChunkAt(x, y).tx);  
             spriteRend.setPosition(x * Chunk::sizeX,y * Chunk::sizeY);
+
+            if(chIndexer.getChunkAt(x, y).needs_update) {
+                rect.setPosition(spriteRend.getPosition());
+                rect.setSize(sf::Vector2f(Chunk::sizeX, Chunk::sizeY));
+
+                rect.setFillColor(sf::Color::Transparent);
+                rect.setOutlineColor(sf::Color::Black);
+                rect.setOutlineThickness(3);
+
+                target.draw(rect);
+            } 
+
 
             target.draw(spriteRend);
         }
@@ -216,16 +231,50 @@ void VoxelManager::update(Player &player)
         ++r;
     }
 
-    auto e = elements.begin();
-    while (e != elements.end())
-    {
-        e->get()->update(chIndexer);
+    const sf::Vector2i center = player.getPhysicsComponent().transform_position;
 
-        if(e->get()->clear()) {
-            e = elements.erase(e);  
-        }
-        else {
-            ++e;  
+    const int draw_distx = update_area.width / Chunk::sizeX;
+    const int draw_disty = update_area.height / Chunk::sizeY;
+
+    ChunkBounds draw_bounds = ChunkBounds((center.x / Chunk::sizeX) - draw_distx, (center.y / Chunk::sizeY) - draw_disty, 
+                            (center.x / Chunk::sizeX) + draw_distx, (center.y / Chunk::sizeY) + draw_disty);
+
+    ChunkArea draw_area = draw_bounds.getArea();
+
+    sf::Sprite spriteRend;
+
+    for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
+        for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
+            Chunk& chunk = chIndexer.getChunkAt(x, y);
+
+            if(chunk.elements.empty()) chunk.needs_update = false;
+
+            if(!chunk.needs_update) continue;
+
+
+            auto e = chunk.elements.begin();
+            while (e != chunk.elements.end())
+            {
+                e->get()->update(chIndexer);
+
+                const sf::Vector2i chunk_p = e->get()->move_this_to_chunk(chIndexer);
+
+                if(chunk_p != sf::Vector2i(x, y)) {
+                    chIndexer.getChunkAt(chunk_p).elements.push_back(*e);
+
+                    chunk.needs_update = false;
+                    e = chunk.elements.erase(e);  
+                    continue;
+                }
+
+                if(e->get()->clear()) {
+                    e = chunk.elements.erase(e);  
+                }
+                else {
+                    ++e;  
+                }
+            }
+
         }
     }
 
@@ -298,6 +347,9 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
                 voxelsInNeedOfUpdate.push_back(v);
                 if(force) chIndexer.damageVoxelAt(v.x, v.y);
                 heatVoxelAt(v.x, v.y, (intensity - distance)*heat);
+
+                chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(v.x, v.y).x, chIndexer.getChunkFromPos(v.x, v.y).y).needs_update = true;
+
 
                 if(math::randIntInRange(0, 100) < 5) {
                     launchDebrisParticle(p, chIndexer.getImagePixelAt(v.x, v.y));
@@ -425,7 +477,6 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
                 chIndexer.setImagePixelAt(x,y,cimg.getPixel(x - p.x, y - p.y));
                 chIndexer.getVoxelAt(x,y) = getHandleVoxel(chIndexer.getImagePixelAt(x,y), sf::Vector2i(x,y), true);
-        
             }
         }
     }

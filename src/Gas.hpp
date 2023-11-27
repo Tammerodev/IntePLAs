@@ -4,7 +4,7 @@
 
 class Gas : public Element {
     public:
-        Gas(int x, int y) {
+        Gas(int x, int y) : Element() {
             this->x = x;
             this->y = y;    
         }

@@ -16,7 +16,8 @@ class VoxelSpy {
 
         void alertOfChunkModification(const sf::Vector2i& chunk_pos, ChunkIndexer &world) {
             chunks_modified.push_back(chunk_pos);
-
+            //world.getChunkAt(chunk_pos).needs_update = true;
+            /*
             sf::Packet packet;
 
             
@@ -26,6 +27,7 @@ class VoxelSpy {
             );
             
             client.send(packet);
+            */
         }
 
         void receiveChunkChanges(ChunkIndexer &world) {
