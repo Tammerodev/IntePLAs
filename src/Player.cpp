@@ -23,7 +23,7 @@ void Player::update(float dt) {
     PlayerState::currentState->input(grounded);
 
     if(!grounded) {
-        physComp.update();
+        physComp.update(dt);
     } else {
         physComp.transform_position.x += physComp.velocity.x * dt;
     }

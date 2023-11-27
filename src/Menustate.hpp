@@ -12,6 +12,7 @@
 #include <TGUI/Widgets/CheckBox.hpp>
 
 #include "Settings.hpp"
+#include "Palettes/PaletteUI.hpp"
 
 
 class MenuState : public MainState {
@@ -67,10 +68,15 @@ public:
 			if(PlayButton->isMouseOnWidget(sf::Vector2f(e.mouseButton.x, e.mouseButton.y))) {
 				buttonCallBack("Create new world", 3, *backend_gui);
 			}
+
+			auto SettingsButton = backend_gui->get("Settings");
+			if(SettingsButton != nullptr && SettingsButton->isMouseOnWidget(sf::Vector2f(e.mouseButton.x, e.mouseButton.y))) {
+				buttonCallBack("", 1, *backend_gui);
+			}
 		}
 	}
 	void draw(sf::RenderWindow& window, tgui::BackendGui& gui) {
-		window.clear(sf::Color(20, 22, 33));
+		window.clear(Palette::PaletteUI::Black);
 
 		for(auto & bg : background) {
 			window.draw(bg);

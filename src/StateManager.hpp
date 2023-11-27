@@ -32,7 +32,7 @@ public:
         else window.create(sf::VideoMode(width,height), title);
 
         window.setFramerateLimit(fps_limit);
-        window.setVerticalSyncEnabled(true);
+        //window.setVerticalSyncEnabled(true);
         window.setVisible(false);
 
         gui.setWindow(window);
@@ -53,6 +53,9 @@ public:
             if(testevent.type == sf::Event::Closed) {
                 window.close();
             }
+
+            window.setFramerateLimit(GraphicsSettings::max_fps);
+            window.setVerticalSyncEnabled(GraphicsSettings::use_vsync);
 
             gui.handleEvent(testevent);
 

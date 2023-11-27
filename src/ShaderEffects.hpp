@@ -20,7 +20,7 @@ public:
 
     void update() {
         // Set kernel size
-        blur_shader.o_setUniform("kernelSize", 35 + (int)GameStatus::brightness * 10);
+        blur_shader.o_setUniform("kernelSize", 35);
 
         desaturate_shader.o_setUniform("time", (float)clock.getElapsedTime().asSeconds());
         desaturate_shader.o_setUniform("distortionAmount", ((float)PlayerGlobal::still_radioation) / 10.f);
@@ -32,35 +32,35 @@ public:
     }
 
     void render(sf::RenderTarget& renderTarget, sf::Sprite& originalFrame) {
-        // Clear renderTexture
-        treshold_texture.clear(sf::Color::Transparent);
-        treshold_texture_before_blend.clear(sf::Color::Transparent);
-        desaturate_texture.clear(sf::Color::Transparent);
+        clearTextures();
 
-        // Draw the original frame
+        // Apply desaturation shader to the original frame
         desaturate_shader.renderTo(originalFrame, desaturate_texture);
-
         desaturate_texture.display();
 
+        // Draw desaturated frame
         desaturate_sprite.setTexture(desaturate_texture.getTexture());
         renderTarget.draw(desaturate_sprite);
 
-        // Draw original frame to renderTexture using treshold shader
+        // Apply threshold shader to the desaturated frame
         treshold_shader.renderTo(desaturate_sprite, treshold_texture);
-
-        // Apply renderTexture to sprite
         treshold_texture.display();
+
+        // Draw thresholded frame and apply blending
         treshold_sprite.setTexture(treshold_texture.getTexture());
-
-        // Finally render blurred version of pixels exeeding treshold
         blur_shader.renderTo(treshold_sprite, treshold_texture_before_blend);
-
         treshold_texture_before_blend.display();
         treshold_sprite_before_blend.setTexture(treshold_texture_before_blend.getTexture());
-
-        renderTarget.draw(treshold_sprite_before_blend, sf::BlendAdd);
         
+        renderTarget.draw(treshold_sprite_before_blend, sf::BlendAdd);
     }
+
+    void clearTextures() {
+        desaturate_texture.clear(sf::Color::Transparent);
+        treshold_texture.clear(sf::Color::Transparent);
+        treshold_texture_before_blend.clear(sf::Color::Transparent);
+    }
+
 private:
     sf::RenderTexture treshold_texture;
     sf::RenderTexture treshold_texture_before_blend;

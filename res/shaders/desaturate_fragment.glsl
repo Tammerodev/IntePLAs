@@ -39,11 +39,15 @@ void main()
 		color.a -= (hash(uv.x) * distortionAmount);
 
 	}
+    float brightness = (color.r + color.b + color.g + color.a) / 4.0;
 
-	float darkness = 1.0 - desaturationAmount * darknessFactor;
+	if(brightness < 0.8) {
 
-    // Darken the color based on the time of day
-    color.rgb *= darkness;
+		float darkness = 1.0 - desaturationAmount * darknessFactor;
+
+		// Darken the color based on the time of day
+		color.rgb *= darkness;
+	}
 
 	gl_FragColor = color;
 }

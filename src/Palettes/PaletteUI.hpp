@@ -9,6 +9,6 @@ namespace Palette {
         const sf::Color WineRed      = sf::Color(153, 1, 0);
         const sf::Color Red          = sf::Color(185, 5, 4);    
         const sf::Color Yellow       = sf::Color(255, 214, 10);    
-        
+        const sf::Color Black        = sf::Color(27, 16, 18);
     }
 }

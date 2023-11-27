@@ -2,6 +2,7 @@
 #include "State.hpp"
 #include "common.hpp"
 #include "JsonManager.hpp"
+#include "Settings.hpp"
 
 #include <TGUI/AllWidgets.hpp>
 
@@ -32,6 +33,12 @@ struct Writers {
 
 		jsonWriterStorage.writeParameter("use-particle-effects", savePathtextArea->getText().toStdString());
 		jsonWriterGraphics.close();
+	} 
+
+	void closeAll() {
+		jsonWriterGraphics.close();
+		jsonWriterStorage.close();
+		jsonWriterWorld.close();
 	}
 };
 
@@ -39,6 +46,9 @@ class SettingsState : public MainState {
 public:
 	bool load(const std::string, tgui::BackendGui& gui) {
 		try {
+			tgui::Theme theme;
+			theme.load("res/ui/settings_menu.txt");
+
 			writers.useParticleEffectsCheckBox = tgui::CheckBox::create("Use particle effects");
 			writers.useParticleEffectsCheckBox->setChecked(GraphicsSettings::particleEffects);
 
@@ -54,6 +64,7 @@ public:
 			auto exit = tgui::Button::create("Back to menu");
 			exit->onPress(backToMenu, "", std::ref(gui));
 			exit->setPosition(tgui::Layout2d(500, 500));
+			exit->setRenderer(theme.getRenderer("Button"));
 
 			
 			gui.add(writers.useParticleEffectsCheckBox);
@@ -75,12 +86,15 @@ public:
 	}
 
 	void draw(sf::RenderWindow& window, tgui::BackendGui&) {
-		window.clear(sf::Color(20, 22, 33));
+		window.clear(Palette::PaletteUI::Black);
+
 	}
 
 	void statexit() {
 		writers.writeGraphics();
 		writers.writeStorage();
+
+		writers.closeAll();
 	}
 private:
 	Writers writers;

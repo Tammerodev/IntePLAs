@@ -1,3 +1,5 @@
 {
-	"use-particle-effects" : "true"
+	"max-fps" : "144",
+	"use-particle-effects" : "true",
+	"use-vsync" : "true"
 }

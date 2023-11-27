@@ -41,6 +41,8 @@ struct Chunk {
     sf::Texture tx;
 
     bool modified = true;
+
+    std::list<std::shared_ptr<Element>> elements;
 };
 
 struct ChunkArea {

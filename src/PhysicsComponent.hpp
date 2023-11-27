@@ -13,11 +13,12 @@ struct IntPhysicsComponent {
     sf::Vector2i velocity = sf::Vector2i(0, 0);
     sf::Vector2i transform_position = sf::Vector2i(0, 0);
 
-    void update(int dt = 1) {
+    void update(float dt = 1) {
 
         velocity_buffer += (PhysicsGlobals::gravity * dt);
 
-        transform_position += velocity;
+        
+        transform_position += sf::Vector2i(sf::Vector2f(velocity) * dt);
         transform_position.y += velocity_buffer;
         
 

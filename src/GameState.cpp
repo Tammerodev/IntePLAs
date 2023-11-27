@@ -67,7 +67,8 @@ void GameState::update()
 {
     // Update game status and delta time 
     GameStatus::updateBrightness();
-    dt = 1.0f;
+    dt = (float)deltaClock.restart().asMilliseconds() / 13.f;
+
 
     // Handle explosion player damage
     for(const auto point : world.main_world.explosion_points) {

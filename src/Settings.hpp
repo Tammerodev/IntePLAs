@@ -3,6 +3,7 @@
 #include "JsonManager.hpp"
 #include <assert.h>
 #include "common.hpp"
+#include "Utils/StringUtils.hpp"
 
 namespace UISettings {
     inline unsigned char transparency = 100;
@@ -17,6 +18,8 @@ namespace UISettings {
 
 namespace GraphicsSettings {
     inline bool particleEffects = true;
+    inline unsigned int max_fps = 75;
+    inline bool use_vsync = false;
 
     inline bool loadGraphicsSettings() {
         bool result = false;
@@ -25,11 +28,10 @@ namespace GraphicsSettings {
         result = reader.open("json/graphicssettings.json");
         result = reader.init();
 
-        const std::string useParticleEffects = reader.readParameterAsString("use-particle-effects");
+        particleEffects = StringUtils::stringToBool(reader.readParameterAsString("use-particle-effects"));
+        use_vsync = StringUtils::stringToBool(reader.readParameterAsString("use-vsync"));
 
-        if(useParticleEffects == "true") particleEffects = true;
-        else if(useParticleEffects == "false") particleEffects = false;
-        else result = false;
+        max_fps = std::stoi(reader.readParameterAsString("max-fps"));
 
         return result;
     }
@@ -110,6 +112,9 @@ namespace SettingsLoader {
         if(!GraphicsSettings::loadGraphicsSettings()) result = false;
 
         loginf("Loaded data from JSON : useparticles = ", GraphicsSettings::particleEffects, ".");
+        loginf("Loaded data from JSON : usevsync = ", GraphicsSettings::use_vsync, ".");
+        loginf("Loaded data from JSON : max fps = ", GraphicsSettings::max_fps, ".");
+        
         
         if(!StorageSettings::loadSettings()) result = false;
 
