@@ -7,7 +7,7 @@ void CreativeState::enter() {
 void CreativeState::update(IntPhysicsComponent& physComp,float dt) {
     physComp.velocity_buffer = 0;
     
-    last_pos = physComp.transform_position;
+    last_pos = sf::Vector2i(physComp.transform_position);
 
     physComp.velocity.x = 0;
     physComp.velocity.y = 0;

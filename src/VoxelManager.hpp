@@ -51,7 +51,7 @@ public:
 
     }
 
-    bool getPixelCollision(sf::Vector2i pos);
+    std::pair<bool, sf::Vector2f> getPixelCollision(const sf::Vector2f& pos);
 
     int load(std::string);
 
@@ -299,6 +299,10 @@ public:
 
     std::vector <ExplosionInfo> explosion_points;
     std::vector<sf::Vector2i> updateChunks;
+
+    const sf::FloatRect &getUpdateArea() {
+        return update_area;
+    }
 
 private:
 

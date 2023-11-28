@@ -78,7 +78,7 @@ public:
 		bullets.remove_if([&](const std::unique_ptr<ExplosiveBullet>& bullet) {
 			const long MAX_DISTANCE_FROM_MOUSE = 5000;
 			
-			if (world.main_world.getPixelCollision(sf::Vector2i(bullet->pos))) {
+			if (world.main_world.getPixelCollision(bullet->pos).first) {
 				world.main_world.holeRayCast(sf::Vector2i(bullet->pos), explosion_stength, true, temp);
 				return true; // Remove the bullet
 			}

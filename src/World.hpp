@@ -5,6 +5,7 @@
 #include "VoxelManager.hpp"
 #include "Player.hpp"
 #include "VoxelGroup.hpp"
+#include "WeatherManager.hpp"
 
 class World {
 public:
@@ -19,11 +20,15 @@ public:
         }
 
         main_world.initVoxelMap();
+
+        weatherManager.load();
         
         return res;
     }
 
     void update(const float dt, Player &player) {
+        weatherManager.update(main_world, player);
+
         main_world.update(player);
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
             world->update(dt);
@@ -32,7 +37,7 @@ public:
             bool collision = false;
 
             for(auto &testPoint : collisionTestPoints) {
-                if(main_world.getPixelCollision(testPoint)) collision = true;
+                if(main_world.getPixelCollision(sf::Vector2f(testPoint)).first) collision = true;
             }
             
             if(collision) {    
@@ -52,36 +57,45 @@ public:
     void handleCollisionsWithPlayer(Player& player) {
 
         IntPhysicsComponent &player_physicscomp = player.getPhysicsComponent();
+        sf::Vector2f ground = player_physicscomp.transform_position;
 
-        const bool groundCollision = main_world.getPixelCollision(sf::Vector2i(player_physicscomp.transform_position.x,
+        std::pair<bool, sf::Vector2f> groundCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
                                                             player_physicscomp.transform_position.y + 28));
 
-        const bool headCollision = main_world.getPixelCollision(sf::Vector2i(player_physicscomp.transform_position.x,
+        ground = sf::Vector2f(player_physicscomp.transform_position.x,
+                                    player_physicscomp.transform_position.y + 28);
+
+        groundCollision = main_world.getPixelCollision(ground);
+
+
+        const std::pair<bool, sf::Vector2f> headCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
                                                             player_physicscomp.transform_position.y - 3)); 
 
-        const bool rightCollision = main_world.getPixelCollision(sf::Vector2i(player_physicscomp.transform_position.x + 20,
+        const std::pair<bool, sf::Vector2f> rightCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x + 20,
                                                             player_physicscomp.transform_position.y + 14)); 
 
-        const bool leftCollision = main_world.getPixelCollision(sf::Vector2i(player_physicscomp.transform_position.x - 3,
+        const std::pair<bool, sf::Vector2f> leftCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x - 3,
                                                             player_physicscomp.transform_position.y + 14));
 
-        const bool sideCollision = rightCollision || leftCollision;
+        const bool sideCollision = rightCollision.first || leftCollision.first;
 
         if(sideCollision) {
             player_physicscomp.transform_position.x -= player_physicscomp.velocity.x;
         }
 
-        if(groundCollision) {
-            player_physicscomp.transform_position.y -= 1;
+        if(groundCollision.first) {
+            player_physicscomp.transform_position.y -= groundCollision.second.y + 0.1f;
+
             player.ground();
         }
 
-        if(headCollision) {
+        if(headCollision.first) {
             player_physicscomp.velocity.y = 0;
             player_physicscomp.velocity_buffer = 0;
 
             player_physicscomp.transform_position.y += 1;
         }
+        
     }
 
     void save() {
@@ -98,5 +112,6 @@ public:
 	VoxelManager main_world {};
     std::list<VoxelGroup> add_worlds {};
 private:
+    WeatherManager weatherManager;
 
 };

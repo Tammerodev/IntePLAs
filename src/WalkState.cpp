@@ -5,7 +5,7 @@ void WalkState::enter() {
 }
  
 void WalkState::update(IntPhysicsComponent& physComp,float dt) {
-    last_pos = physComp.transform_position;
+    last_pos = sf::Vector2i(physComp.transform_position);
 
     physComp.velocity.x = 0;
 

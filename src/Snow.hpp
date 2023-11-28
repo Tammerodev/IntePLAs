@@ -1,19 +1,19 @@
 #pragma once
 #include "Element.hpp"
 #include "math.hpp"
+#include "ChunkIndexerVoxelContainer.hpp"
 
-class Sand : public Element {
+class Snow : public Element {
     public:
-        Sand(int x, int y) : Element() {
+        Snow(int x, int y) : Element() {
             this->x = x;
             this->y = y;    
 
-            color = elm::Sand;
-            value = elm::ValSand;
+            color = elm::Snow;
+            value = elm::ValSnow;
         }
 
         void update(ChunkIndexer& world) {
-
             const sf::Vector2i previous_position = *this;
 
 

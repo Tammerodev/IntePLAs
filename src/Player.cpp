@@ -10,7 +10,7 @@ PlayerState* PlayerState::damageState = new DamageState();
 PlayerState* PlayerState::currentState = PlayerState::idleState;
 
 int Player::load() {
-    physComp.transform_position = sf::Vector2i(200, -100);
+    physComp.transform_position = sf::Vector2f(200.f, -100.f);
 
 
     if(!tx.loadFromFile("res/img/Player/Player.png")) return 0;

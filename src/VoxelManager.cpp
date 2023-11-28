@@ -1,8 +1,25 @@
 #include "VoxelManager.hpp"
 
-bool VoxelManager::getPixelCollision(sf::Vector2i pos) {
-    chIndexer.boundVector(pos);
-    return chIndexer.getImagePixelAt(pos.x, pos.y).a != 0;
+std::pair<bool, sf::Vector2f> VoxelManager::getPixelCollision(const sf::Vector2f& pos) {
+    std::pair<bool, sf::Vector2f> ret = {false, {0.f, 0.f}};
+    sf::Vector2i pixelPosition = sf::Vector2i(pos);
+
+    chIndexer.boundVector(pixelPosition);
+
+    bool result = false;
+    const sf::Color pixel = chIndexer.getImagePixelAt(pixelPosition.x, pixelPosition.y);
+
+    result = pixel.a != 0;
+
+    if(pixel == elm::Snow) {
+        result = false;
+    }
+
+
+    ret.second = pos - sf::Vector2f(pixelPosition);
+
+    ret.first = result;
+    return ret;
 }
 
 
@@ -133,7 +150,9 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
                 rect.setOutlineColor(sf::Color::Black);
                 rect.setOutlineThickness(3);
 
-                target.draw(rect);
+
+                // TODO DEBUG 
+                //target.draw(rect);
             } 
 
 
@@ -231,7 +250,7 @@ void VoxelManager::update(Player &player)
         ++r;
     }
 
-    const sf::Vector2i center = player.getPhysicsComponent().transform_position;
+    const sf::Vector2i center = sf::Vector2i(player.getPhysicsComponent().transform_position);
 
     const int draw_distx = update_area.width / Chunk::sizeX;
     const int draw_disty = update_area.height / Chunk::sizeY;

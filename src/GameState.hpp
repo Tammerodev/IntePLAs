@@ -31,6 +31,8 @@
 #include "JsonManager.hpp"
 #include "ShaderEffects.hpp"
 
+#include "WeatherManager.hpp"
+
 class GameState : public MainState {
 public:
 	GameState() {
