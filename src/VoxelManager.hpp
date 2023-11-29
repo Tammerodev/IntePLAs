@@ -34,6 +34,7 @@
 
 #include "Uranium-235.hpp"
 #include "Radium-226.hpp"
+#include "Acid.hpp"
 
 #include "Player.hpp"
 
@@ -158,11 +159,6 @@ public:
                 (Controls::gameCameraCenterPos.y + pos.y < 500.0);
     }
 
-    const bool isInContactWithVoxel(const sf::Vector2i &pos, const uint8_t voxelValue) {
-        return (chIndexer.getVoxelAt(pos.x + 1, pos.y).value == voxelValue || chIndexer.getVoxelAt(pos.x - 1, pos.y).value == voxelValue ||
-            chIndexer.getVoxelAt(pos.x, pos.y + 1).value == voxelValue || chIndexer.getVoxelAt(pos.x, pos.y -1).value == voxelValue);
-    }
-
     const sf::Vector2i getPositionOnContacy(const sf::Vector2i &pos, const uint8_t voxelValue) {
 
         /*
@@ -229,7 +225,12 @@ public:
             vox.strenght = 2;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Water>(p.x, p.y));
-        } else if(px == elm::Nitroglycerin) {
+        } else if(px == elm::Acid) {
+            vox.value = elm::ValAcid;
+            vox.strenght = 2;
+
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Acid>(p.x, p.y));
+        }else if(px == elm::Nitroglycerin) {
             vox.value = elm::ValNitroglycerin;
             vox.strenght = 2;
 

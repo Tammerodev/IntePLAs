@@ -72,6 +72,14 @@ class Fluid : public Element {
             world.SetHeat(x - 1, y - 1, t);
             */
 
+            if(corrosion != 0) {
+                sf::Vector2i bounded = *this;
+
+                if(world.boundGetVoxelAt(x, y + 1).value != elm::ValAcid)
+                    world.boundDamageVoxelAt(x, y + 1);
+                
+            }
+
             if(nextWaterPos != lastPos) {
                 sf::Vector2i boundPos = lastPos;
                 sf::Vector2i chunk_pos = world.getChunkFromPos(boundPos.x, boundPos.y);
@@ -102,6 +110,9 @@ class Fluid : public Element {
         }
         
     protected:
+
+        int corrosion = 0;
+
         bool remove = false;
 
         short temp = 0;

@@ -16,6 +16,16 @@ class Snow : public Element {
         void update(ChunkIndexer& world) {
             const sf::Vector2i previous_position = *this;
 
+            if(world.isInContactWithVoxel(*this, elm::ValWater)) {
+                // Snow turns into water when in contact
+                world.boundSetImagePixelAt(x, y, elm::Water);
+                world.boundGetVoxelAt(x, y).value = elm::ValWater;
+
+                remove = true;
+                turnIntoWater = true;
+                return;
+            }
+
 
             // move
             y++;
@@ -67,12 +77,21 @@ class Snow : public Element {
 
         }
 
+        virtual std::shared_ptr<Element> turn_into() {
+            if(remove && turnIntoWater) {
+                return std::make_shared<Water>(x, y);
+            }
+            else
+                return nullptr;
+        }
+
         bool clear() {
             return remove;
         }
         
     protected:
         bool remove = false;
+        bool turnIntoWater = false;
 
         short temp = 0;
         sf::Color color;

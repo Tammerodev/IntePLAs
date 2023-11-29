@@ -19,6 +19,7 @@ namespace elm {
     const sf::Color Radium226 {31, 71, 57};
     const sf::Color Sand {168, 173, 26};
     const sf::Color Snow {211, 235, 230};
+    const sf::Color Acid {68, 255, 0};
 
     const uint8_t ValCarbon = 2;
     const uint8_t ValLithium = 3;
@@ -29,13 +30,18 @@ namespace elm {
     const uint8_t ValCopper = 8;
     const uint8_t ValTitanium = 9;
     const uint8_t ValLead = 10;
+    
     const uint8_t ValWater = 11;
     const uint8_t ValNitroglycerin = 12;
     const uint8_t ValChlorine = 13;
+    const uint8_t ValAcid = 14;
+
     const uint8_t ValUranium235 = 20;
     const uint8_t ValRadium226 = 21;
+
     const uint8_t ValSand = 30;
     const uint8_t ValSnow = 31;
+
 
 
     const unsigned short defaultMaxTemp = 1000;

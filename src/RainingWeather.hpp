@@ -6,7 +6,8 @@
 class RainWeather : public WeatherState {
     public:
         void load() {
-
+            timer = 0;
+            max_time = math::randIntInRange(500, 1000);
         }
 
         void update(VoxelManager& world, Player& player) {
@@ -21,6 +22,21 @@ class RainWeather : public WeatherState {
                     world.addElement(position.x, position.y, std::make_shared<Water>(position.x, position.y));
                 }
             }
+
+            timer++;
+            if(timer > max_time) {
+                const int nextWeather = math::randIntInRange(0, 1);
+
+                WeatherState::currentState->leave();
+
+                if(nextWeather)
+                    WeatherState::currentState = WeatherState::snowingWeather;
+                else 
+                    WeatherState::currentState = WeatherState::clearWeather;
+
+                WeatherState::currentState->load();
+
+            }
         }
 
         void leave() {
@@ -28,4 +44,6 @@ class RainWeather : public WeatherState {
         }
     private:
         int snowingIntensity = 2;
+        int timer = 0;
+        int max_time = 0;
 };

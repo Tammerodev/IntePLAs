@@ -224,18 +224,18 @@ void VoxelManager::update(Player &player)
     {
         if(chIndexer.getVoxelAt(r->x, r->y).value == elm::ValSodium) {
             // Sodium - Water reaction (heat produced)
-            if(isInContactWithVoxel(*r, elm::ValWater))
+            if(chIndexer.isInContactWithVoxel(*r, elm::ValWater))
                 heatVoxelAt(r->x, r->y, elm::sodiumExplosionTemp / 100);
         }
 
         if(chIndexer.getVoxelAt(r->x, r->y).value == elm::ValLithium) {
             // Lithium - Water reaction (heat produced)
-            if(isInContactWithVoxel(*r, elm::ValWater)) {
+            if(chIndexer.isInContactWithVoxel(*r, elm::ValWater)) {
                 heatVoxelAt(r->x, r->y, elm::lithiumExplosionTemp);
             }
 
             // Lithium - Radium226 reaction (free neutrons)
-            if(isInContactWithVoxel(*r, elm::ValRadium226)) {
+            if(chIndexer.isInContactWithVoxel(*r, elm::ValRadium226)) {
                 const sf::Vector2f position = sf::Vector2f(*r); 
                 const sf::Vector2f velocity = sf::Vector2f(math::randFloat() - 0.5f, math::randFloat() - 0.5f); 
 
@@ -277,6 +277,11 @@ void VoxelManager::update(Player &player)
                 e->get()->update(chIndexer);
 
                 const sf::Vector2i chunk_p = e->get()->move_this_to_chunk(chIndexer);
+                const auto turned_into = e->get()->turn_into();
+                
+                if(turned_into != nullptr) {
+                    addElement(e->get()->x, e->get()->y, turned_into);
+                }
 
                 if(chunk_p != sf::Vector2i(x, y)) {
                     chIndexer.getChunkAt(chunk_p).elements.push_back(*e);

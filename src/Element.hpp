@@ -12,6 +12,10 @@ class Element : public sf::Vector2i {
 
         virtual bool clear() {return false;};
 
+        virtual std::shared_ptr<Element> turn_into() {
+            return nullptr;
+        }
+
         virtual sf::Vector2i move_this_to_chunk(ChunkIndexer& world) {
             sf::Vector2i chunk = world.getChunkFromPos(x, y);
 

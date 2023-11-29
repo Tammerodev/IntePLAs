@@ -110,6 +110,27 @@ public:
         getVoxelAt(x,y).value = 0; 
         setImagePixelAt(x,y,sf::Color(0,0,0,0));
     }
+
+    void boundDamageVoxelAt(const int xx, const int yy) {
+        sf::Vector2i pos = sf::Vector2i(xx, yy);
+        boundVector(pos);
+
+        uint8_t &strenght = getVoxelAt(pos.x, pos.y).strenght;
+        --strenght;
+        if(getVoxelAt(pos.x, pos.y).strenght <= 0) { 
+            clearVoxelAt(pos.x, pos.y);
+        }
+
+        if(getVoxelAt(pos.x, pos.y).value == elm::ValCarbon) materialpack.carbon += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == elm::ValLithium) materialpack.lithium += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == elm::ValMagnesium) materialpack.magnesium += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == elm::ValSodium) materialpack.sodium += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == elm::ValAluminium) materialpack.aluminium += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == elm::ValSilicon) materialpack.silicon += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == elm::ValCopper) materialpack.copper += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == elm::ValTitanium) materialpack.titanium += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == elm::ValLead) materialpack.lead += 1;
+    }
     
     void damageVoxelAt(const int x, const int y) {
         uint8_t &strenght = getVoxelAt(x,y).strenght;
@@ -133,6 +154,11 @@ public:
         getChunkAt(getChunkFromPos(x, y).x, getChunkFromPos(x, y).y).modified = true;
 
         getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
+    }
+
+    const bool isInContactWithVoxel(const sf::Vector2i &pos, const uint8_t voxelValue) {
+        return (getVoxelAt(pos.x + 1, pos.y).value == voxelValue || getVoxelAt(pos.x - 1, pos.y).value == voxelValue ||
+            getVoxelAt(pos.x, pos.y + 1).value == voxelValue || getVoxelAt(pos.x, pos.y -1).value == voxelValue);
     }
 
     void SetHeat(const uint64_t x, const uint64_t y, int64_t temp)

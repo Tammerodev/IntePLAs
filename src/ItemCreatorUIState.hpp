@@ -98,6 +98,7 @@ public:
             element_buttons.push_back(tgui::Button::create("U235"));
             element_buttons.push_back(tgui::Button::create("Ra226"));
             element_buttons.push_back(tgui::Button::create("Sand"));
+            element_buttons.push_back(tgui::Button::create("Acid"));
 
 
             // Configure button
@@ -265,6 +266,7 @@ private:
         else if(name == "U235") selColor = elm::Uranium235;
         else if(name == "Ra226") selColor = elm::Radium226;
         else if(name == "Sand") selColor = elm::Sand;
+        else if(name == "Acid") selColor = elm::Acid;
         
     }
 
