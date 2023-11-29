@@ -13,7 +13,7 @@ class Debris : public Particle {
 
         }
 
-        Debris(const sf::Vector2f& pos, const sf::Vector2f &vel, const sf::Color &col) {
+        Debris(const sf::Vector2f& pos, const sf::Vector2f &vel, const sf::Color &col, const float size = 1.f) {
             physComponent.transform_position = pos;
             this->x = pos.x;
             this->y = pos.y;
@@ -21,8 +21,9 @@ class Debris : public Particle {
 
             physComponent.velocity = vel;
 
-            rect.setSize(sf::Vector2f(1.f, 1.f));
+            rect.setSize(sf::Vector2f(size, size));
             rect.setFillColor(col);
+
 
             rect.setRotation(math::randIntInRange(0, 360));
 

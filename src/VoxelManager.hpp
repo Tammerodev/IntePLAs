@@ -90,13 +90,14 @@ public:
         }
     }
 
-    void launchDebrisParticle(const sf::Vector2i& p, const sf::Color &col) {
+    void launchDebrisParticle(const sf::Vector2i& p, const sf::Color &col, sf::Vector2f vel = sf::Vector2f(0.f, 0.f), float size = 1.f) {
         if(!GraphicsSettings::particleEffects) return;
         
         const sf::Vector2f position = sf::Vector2f(p); 
-        const sf::Vector2f velocity = sf::Vector2f(math::randFloat() - 0.5f, math::randFloat() - 0.5f) * 10.0f; 
+        sf::Vector2f velocity = sf::Vector2f(math::randFloat() - 0.5f, math::randFloat() - 0.5f) * 10.0f; 
+        velocity = vel;
 
-        std::shared_ptr<Debris> particle = std::make_shared<Debris>(position, velocity, col);
+        std::shared_ptr<Debris> particle = std::make_shared<Debris>(position, velocity, col, size);
 
         particleSimulation.addParticle(particle);
     }
@@ -265,9 +266,10 @@ public:
         return vox;
     }
 
-    void addElement(int x, int y, std::shared_ptr<Element> element) {
+    void addElement(int x, int y, const std::shared_ptr<Element> element) {
         chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(x,y).x, chIndexer.getChunkFromPos(x,y).y).needs_update = true;
-        chIndexer.getChunkAt(chIndexer.getChunkFromPos(x, y)).elements.push_back(element);
+
+        chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(x, y).x, chIndexer.getChunkFromPos(x, y).y).elements.push_back(element);
     }
 
 
@@ -296,7 +298,7 @@ public:
         }
     }
 
-    void build_image(const sf::Vector2i&, const sf::Image&, std::list<VoxelGroup>*, float angle = 0.f, float mag = 0.f);
+    void build_image(const sf::Vector2i&, const sf::Image&, std::list<VoxelGroup>*, const sf::Vector2f velocity = sf::Vector2f(0.f, 0.f));
 
     std::vector <ExplosionInfo> explosion_points;
     std::vector<sf::Vector2i> updateChunks;

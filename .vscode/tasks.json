@@ -6,6 +6,8 @@
             "command": "/usr/bin/g++",
             "args": [
                 "-g",
+                "-ggdb",
+                "-g3",
                 "-O2",
                 "*.cpp",
                 "-lsfml-system",

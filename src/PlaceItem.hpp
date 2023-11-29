@@ -5,6 +5,7 @@
 #include "VoxelManager.hpp"
 #include "common.hpp"
 #include "World.hpp"
+#include "ThrowInteface.hpp"
 
 class PlaceItem : public Item {
     public:
@@ -19,6 +20,8 @@ class PlaceItem : public Item {
 
     void render(sf::RenderTarget &target) {
 		target.draw(gun_spr);
+
+		throwInterface.render(target);
     }
 
 	void inventory_render(sf::RenderTarget&r, const sf::Vector2f &pos) {
@@ -44,7 +47,7 @@ class PlaceItem : public Item {
 		return gun_spr;
 	}
 
-    void update(World &world, const sf::Vector2f &pos, const sf::Vector2f& mspos, const float dt, Player&) {
+    void update(World &world, const sf::Vector2f &pos, const sf::Vector2f& mspos, const float dt, Player& player) {
 		mospos = sf::Vector2i(pos);
 		mospos /= 16;
 		mospos *= 16;
@@ -63,18 +66,19 @@ class PlaceItem : public Item {
 			gun_spr.setColor(sf::Color(255,25,25,255));
 
 		if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-			gun_spr.rotate(-1);
-			gun_spr.setPosition(pos.x, pos.y);	
+			throwInterface.enter();
 		}
 		else {
-			gun_spr.setRotation(0);
+			throwInterface.exit();
 		}
+
+		throwInterface.update(player.getPhysicsComponent().transform_position, pos);
     }
 
 	void use(const sf::Vector2f& player,const sf::Vector2f& mouse, World&world) {
 		if(!allowedToplace) return;
 		if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-			vx_man.build_image(sf::Vector2i(mouse), copy_, &world.add_worlds, gun_spr.getRotation(), 3.0f);
+			vx_man.build_image(sf::Vector2i(throwInterface.getThrowPosition()), copy_, &world.add_worlds, throwInterface.getThrowVelocity() / 50.f);
 		} else {
 			vx_man.build_image(sf::Vector2i(mospos), copy_, nullptr);
 		}
@@ -83,6 +87,7 @@ private:
 
 	sf::Vector2i mospos;
 
+	ThrowInteface throwInterface;
 
 	bool allowedToplace = true;
 	bool launchLoaded = false;

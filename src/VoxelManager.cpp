@@ -284,7 +284,8 @@ void VoxelManager::update(Player &player)
                 }
 
                 if(chunk_p != sf::Vector2i(x, y)) {
-                    chIndexer.getChunkAt(chunk_p).elements.push_back(*e);
+
+                    chIndexer.boundGetChunkAt(chunk_p.x, chunk_p.y).elements.push_back(*e);
 
                     chunk.needs_update = false;
                     e = chunk.elements.erase(e);  
@@ -474,7 +475,7 @@ bool VoxelManager::generateVegetation()
 }
 
 
-void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std::list<VoxelGroup>* grp, float angle, float mag)
+void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std::list<VoxelGroup>* grp, const sf::Vector2f velocity)
 {
     if(grp != nullptr) {
         VoxelGroup object = VoxelGroup();
@@ -482,9 +483,7 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
 
         object.getPhysicsComponent().transform_position = sf::Vector2f(p);
 
-        float angleRadians = angle * static_cast<float>(M_PI) / 180.0f;
-        object.getPhysicsComponent().velocity.x = mag * cos(angleRadians);
-        object.getPhysicsComponent().velocity.y = mag * sin(angleRadians);
+        object.getPhysicsComponent().velocity = velocity;
 
         grp->emplace_back(object);
         return;
