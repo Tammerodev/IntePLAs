@@ -7,6 +7,6 @@ class Acid : public Fluid {
             color = elm::Acid;
             value = elm::ValAcid;
             
-            corrosion = 1;
+            corrosion = 30;
         }
 };

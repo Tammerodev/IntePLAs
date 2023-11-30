@@ -1,6 +1,7 @@
 #pragma once
 #include "Element.hpp"
 #include "math.hpp"
+#include "ChunkIndexerVoxelContainer.hpp"
 
 class Fluid : public Element {
     public:
@@ -77,8 +78,12 @@ class Fluid : public Element {
 
                 if(world.boundGetVoxelAt(x, y + 1).value != elm::ValAcid)
                     world.boundDamageVoxelAt(x, y + 1);
+
+                if(world.boundGetVoxelAt(x, y + 1).value == 0) {
+                    corrosion--;
+                }
                 
-            }
+            } 
 
             if(nextWaterPos != lastPos) {
                 sf::Vector2i boundPos = lastPos;
@@ -98,7 +103,7 @@ class Fluid : public Element {
                 world.boundGetChunkAt(chunk_pos.x, chunk_pos.y - 1).needs_update = true;
             }
             else 
-                world.getChunkAt(world.getChunkFromPos(lastPos.x, lastPos.y)).needs_update = false;
+                world.boundGetChunkAt(world.getChunkFromPos(lastPos.x, lastPos.y).x, world.getChunkFromPos(lastPos.x, lastPos.y).y).needs_update = false;
 
             world.boundGetVoxelAt(x, y).value = value;
 

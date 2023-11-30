@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "VoxelManager.hpp"
+#include "World.hpp"
 
 class Item {
 public:

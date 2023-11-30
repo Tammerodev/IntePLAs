@@ -22,6 +22,7 @@
 #include "ProceduralGeneration.hpp"
 #include "Controls.hpp"
 #include "Element.hpp"
+#include "Acid.hpp"
 #include "Fluid.hpp"
 #include "Water.hpp"
 #include "Nitroglycerin.hpp"
@@ -34,7 +35,6 @@
 
 #include "Uranium-235.hpp"
 #include "Radium-226.hpp"
-#include "Acid.hpp"
 
 #include "Player.hpp"
 
@@ -99,6 +99,12 @@ public:
 
         std::shared_ptr<Debris> particle = std::make_shared<Debris>(position, velocity, col, size);
 
+        particleSimulation.addParticle(particle);
+    }
+
+    void launchParticle(std::shared_ptr<Particle> particle) {
+        if(!GraphicsSettings::particleEffects) return;
+        
         particleSimulation.addParticle(particle);
     }
 

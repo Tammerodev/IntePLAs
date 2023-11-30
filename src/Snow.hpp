@@ -71,7 +71,7 @@ class Snow : public Element {
                 world.boundGetChunkAt(chunk_pos.x, chunk_pos.y - 1).needs_update = true;
             }
             else {
-                world.getChunkAt(world.getChunkFromPos(x, y)).needs_update = false;
+                world.boundGetChunkAt(world.getChunkFromPos(x, y).x, world.getChunkFromPos(x, y).y).needs_update = false;
             }
 
 

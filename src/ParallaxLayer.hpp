@@ -44,8 +44,14 @@ public:
         parallaxShader.setUniform("offsety", (parallax * 0.1f) * center_y);
 
 
-        const sf::IntRect texture_rect(viewRect);
+        sf::IntRect texture_rect(viewRect);
+
+        if(texture_rect.top < 0) {
+            texture_rect.top = 0;
+        }
+
         spr.setTextureRect(texture_rect);
+
         spr.setPosition(texture_rect.left, texture_rect.top);
     }
 

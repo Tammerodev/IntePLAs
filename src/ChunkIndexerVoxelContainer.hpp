@@ -157,8 +157,11 @@ public:
     }
 
     const bool isInContactWithVoxel(const sf::Vector2i &pos, const uint8_t voxelValue) {
-        return (getVoxelAt(pos.x + 1, pos.y).value == voxelValue || getVoxelAt(pos.x - 1, pos.y).value == voxelValue ||
-            getVoxelAt(pos.x, pos.y + 1).value == voxelValue || getVoxelAt(pos.x, pos.y -1).value == voxelValue);
+        return (
+            boundGetVoxelAt(pos.x + 1, pos.y).value == voxelValue
+         || boundGetVoxelAt(pos.x - 1, pos.y).value == voxelValue
+         || boundGetVoxelAt(pos.x, pos.y + 1).value == voxelValue
+         || boundGetVoxelAt(pos.x, pos.y -1).value == voxelValue);
     }
 
     void SetHeat(const uint64_t x, const uint64_t y, int64_t temp)

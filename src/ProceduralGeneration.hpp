@@ -70,6 +70,8 @@ public:
             }
         };
 
+        const int waterLevel = 1100;
+
         prndd("Creating heightmap");
 
         sf::Clock timer;
@@ -83,7 +85,7 @@ public:
         int index = 0;
 
         // Generate Simplex noise values
-        for (int x = 0; x <= world_sx - 10; x++) {
+        for (int x = 0; x <= world_sx - 1; x++) {
             float y = (fsl.GetNoise((float)x / 10.0f, 0.f) * 300.0) + 1000.0; // Get 1D Simplex noise value for x
             heightMap1D.push_back(y);
         }
@@ -98,6 +100,14 @@ public:
         //*
         //*     TODO : Make this async
         //* 
+
+        for(int y = world_sy; y > waterLevel; y--) {
+            for(int x = 0; x < world_sx; x++) {
+                grid.boundSetImagePixelAt(x, y, elm::Water);
+                grid.boundGetVoxelAt(x, y).value = elm::ValWater;
+            }
+        }
+
 
         int ind = 0;
         for(auto h : heightMap1D) {

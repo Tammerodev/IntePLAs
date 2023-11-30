@@ -7,6 +7,7 @@ namespace SFX {
     inline sf::SoundBuffer fire_buffer;
     inline sf::SoundBuffer damage_buffer;
     inline sf::SoundBuffer geigerCounter_buffer;
+    inline sf::SoundBuffer rocket_buffer;
 
 
     inline sf::Sound strong_explosion;
@@ -14,6 +15,7 @@ namespace SFX {
     inline sf::Sound fire;
     inline sf::Sound damage;
     inline sf::Sound geigerCounter;
+    inline sf::Sound rocket;
 
 
     
@@ -25,6 +27,7 @@ namespace SFX {
         if(!fire_buffer.loadFromFile("res/sound/fire.wav")) res = 0;
         if(!damage_buffer.loadFromFile("res/sound/damage.wav")) res = 0;
         if(!geigerCounter_buffer.loadFromFile("res/sound/geiger_counter.wav")) res = 0;
+        if(!rocket_buffer.loadFromFile("res/sound/rocket.wav")) res = 0;
         
 
         // Set buffers
@@ -33,6 +36,7 @@ namespace SFX {
         fire.setBuffer(fire_buffer);
         damage.setBuffer(damage_buffer);
         geigerCounter.setBuffer(geigerCounter_buffer);
+        rocket.setBuffer(rocket_buffer);
         
         return res;
     }

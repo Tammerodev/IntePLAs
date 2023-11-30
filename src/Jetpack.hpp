@@ -1,4 +1,6 @@
 #pragma once
+#include "World.hpp"
+
 #include <memory>
 #include <list>
 #include "ExplosiveBullet.hpp"
@@ -6,7 +8,7 @@
 #include "VoxelManager.hpp"
 #include "common.hpp"
 #include "SoundFX.hpp"
-#include "World.hpp"
+#include "FireParticle.hpp"
 
 class Jetpack : public Item {
 public:
@@ -22,6 +24,8 @@ public:
 				sf::Vector2i(20, 16)
 			)
 		);
+
+        SFX::rocket.setLoop(true);
 
 	}
 
@@ -61,43 +65,7 @@ public:
 		return gun_spr;
 	}
 
-    void update(World &world, const sf::Vector2f& mousePos, const sf::Vector2f& pos, const float dt, Player& player) {
-		const bool use = sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
-
-		gun_spr.setPosition(pos.x + 9, pos.y + 13);
-
-        if(use) {
-            player.getPhysicsComponent().velocity_buffer -= abs(sin(clock.getElapsedTime().asSeconds())) * 0.3;
-
-            if(player.getPhysicsComponent().velocity_buffer < -5.5) {
-                player.getPhysicsComponent().velocity_buffer = -5.5;
-            }
-
-            for(int i = 0; i < (int)-(player.getPhysicsComponent().velocity_buffer - 10); i++) {
-                sf::Color particleColor = sf::Color::Red;
-                particleColor.r += math::randIntInRange(-80, 0);
-                particleColor.g += math::randIntInRange(0, 80);
-                particleColor.b += math::randIntInRange(0, 80);
-
-                sf::Vector2f vel = sf::Vector2f(
-                    math::randFloat() * player.getPhysicsComponent().velocity_buffer, math::randFloat() * 2.0
-                );
-
-                if(math::randIntInRange(0,1) == 0) {
-                    vel.x = -vel.x;
-                }
-
-                world.main_world.launchDebrisParticle(sf::Vector2i(gun_spr.getPosition()), particleColor, vel, math::randIntInRange(2, 4));
-            }
-        }
-
-		gun_spr.setTextureRect(
-			sf::IntRect(
-				sf::Vector2i(0, use * 16),
-				sf::Vector2i(20, 16)
-			)
-		);
-    }
+    void update(World &world, const sf::Vector2f& mousePos, const sf::Vector2f& pos, const float dt, Player& player);
 
 private:
     sf::Clock clock;
@@ -105,4 +73,6 @@ private:
 	sf::Sprite gun_spr;
 	sf::Texture gun_tx;
 
+	bool isEnabled = true;
+	int thrust = 0;
 };

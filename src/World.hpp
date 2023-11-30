@@ -27,8 +27,6 @@ public:
     }
 
     void update(const float dt, Player &player) {
-        weatherManager.update(main_world, player);
-
         main_world.update(player);
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
             world->update(dt);
@@ -52,6 +50,7 @@ public:
             }
         }
 
+        weatherManager.update(main_world, player);
     }
 
     void handleCollisionsWithPlayer(Player& player) {
