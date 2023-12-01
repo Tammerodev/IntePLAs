@@ -444,12 +444,12 @@ bool VoxelManager::generate()
 bool VoxelManager::generateVegetation()
 {
     sf::Clock timer;
-    int ind = 0;
 
     sf::Image image;
     image.loadFromFile("res/img/Proc.png");
 
-    for(auto h : procGen.heightMap1D) {
+    for(int i = 0; i < chIndexer.world_sx - 1; i++) {
+        const float h = procGen.getHeightOnMap(i);
 
         sf::IntRect sourceRect = sf::IntRect(16 * math::randIntInRange(0, 7), 0, 16, 16);
 
@@ -463,10 +463,9 @@ bool VoxelManager::generateVegetation()
         }
 
         if(math::randIntInRange(0, 20) < 5) {
-            build_image(sf::Vector2i(ind, (2048 - h) - sourceRect.height + 6), selectedImage, nullptr);
+            build_image(sf::Vector2i(i, (2048 - h) - sourceRect.height + 6), selectedImage, nullptr);
         }
 
-        ind++;
     }
 
     loginf("Creating vegetation took ", timer.restart().asSeconds(), " seconds.");

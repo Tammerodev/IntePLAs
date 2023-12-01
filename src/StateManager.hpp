@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 #include <TGUI/Core.hpp>
@@ -9,7 +8,6 @@
 #include <TGUI/Widgets/CheckBox.hpp>
 
 #include "State.hpp"
-
 #include "Menustate.hpp"
 #include "GameState.hpp"
 #include "SettingsState.hpp"
@@ -22,7 +20,6 @@ MainState* MainState::settingsState = new SettingsState();
 MainState* MainState::loadState = new Loading();
 MainState* MainState::serverHostState = new ServerHostState();
 
-
 MainState* MainState::currentState = MainState::menuState;
 
 class StateManager {
@@ -32,54 +29,62 @@ public:
         else window.create(sf::VideoMode(width,height), title);
 
         window.setFramerateLimit(fps_limit);
-        //window.setVerticalSyncEnabled(true);
         window.setVisible(false);
 
         gui.setWindow(window);
     }
+
     void init() {
         SettingsLoader::loadSettings();
     }
-    void gameLoop(){
 
+    void gameLoop() {
         MainState::currentState->load("", gui);
         window.setVisible(true);
 
         while(window.isOpen()) {
             MainState::currentState->update();
 
-            sf::Event testevent = MainState::currentState->event_sig();
+            {
+                std::lock_guard<std::mutex> lock(windowMutex);
+                sf::Event testevent = MainState::currentState->event_sig();
 
-            if(testevent.type == sf::Event::Closed) {
-                window.close();
-            }
-
-            window.setFramerateLimit(GraphicsSettings::max_fps);
-            window.setVerticalSyncEnabled(GraphicsSettings::use_vsync);
-
-            gui.handleEvent(testevent);
-
-            while(window.pollEvent(wevent)) {
-
-                gui.handleEvent(wevent);
-
-                if(wevent.type == sf::Event::Closed) {
+                if(testevent.type == sf::Event::Closed) {
                     window.close();
                 }
-                MainState::currentState->input(wevent);
-            }
-            
-            MainState::currentState->draw(window, gui);
 
-            gui.draw();
+                window.setFramerateLimit(GraphicsSettings::max_fps);
+                window.setVerticalSyncEnabled(GraphicsSettings::use_vsync);
+
+                gui.handleEvent(testevent);
+
+                while(window.pollEvent(wevent)) {
+                    gui.handleEvent(wevent);
+
+                    if(wevent.type == sf::Event::Closed) {
+                        window.close();
+                    }
+                    MainState::currentState->input(wevent);
+                }
+
+                MainState::currentState->draw(window, gui);
+            }
+
+            {
+                std::lock_guard<std::mutex> lock(guiMutex);
+                gui.draw();
+            }
 
             window.display();
         }
 
         MainState::currentState->statexit();
     }
+
 private:
     tgui::Gui gui;
     sf::RenderWindow window;
     sf::Event wevent;
+    std::mutex windowMutex;  // Mutex for sf::RenderWindow
+    std::mutex guiMutex;     // Mutex for tgui::Gui
 };

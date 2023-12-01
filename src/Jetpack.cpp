@@ -11,9 +11,9 @@ void Jetpack::update(World &world, const sf::Vector2f &mousePos, const sf::Vecto
 
         if(thrust == 0) {
             if(player.getPhysicsComponent().velocity_buffer < 0.f)  
-                player.getPhysicsComponent().velocity_buffer += 0.01;
+                player.getPhysicsComponent().velocity_buffer += 0.1;
             else if(player.getPhysicsComponent().velocity_buffer > 0.f)  
-                player.getPhysicsComponent().velocity_buffer -= 0.01;
+                player.getPhysicsComponent().velocity_buffer -= 0.1;
         }
 
         if(player.getPhysicsComponent().velocity_buffer < -5.5) {

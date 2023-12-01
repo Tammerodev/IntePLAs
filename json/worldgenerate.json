@@ -1,0 +1,9 @@
+{
+    "noise-type": "perlin",
+
+    "layer-1" : {
+        "c1" : {"col" : "", "prob": "25"},
+        "c2" : {"col" : "", "prob": "25"},
+        "c3" : {"col" : "", "prob": "25"}
+    }
+}

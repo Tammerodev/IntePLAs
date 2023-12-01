@@ -5,6 +5,7 @@
 #include "Settings.hpp"
 
 #include <TGUI/AllWidgets.hpp>
+#include "Palettes/PaletteUI.hpp"
 
 
 struct Writers {
