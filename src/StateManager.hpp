@@ -13,12 +13,14 @@
 #include "SettingsState.hpp"
 #include "LoadingState.hpp"
 #include "ServerHostState.hpp"
+#include "WorldSelectionState.hpp"
 
 MainState* MainState::menuState = new MenuState();
 MainState* MainState::gameState = new GameState();
 MainState* MainState::settingsState = new SettingsState();
 MainState* MainState::loadState = new Loading();
 MainState* MainState::serverHostState = new ServerHostState();
+MainState* MainState::worldSelectionState = new WorldSelectionState();
 
 MainState* MainState::currentState = MainState::menuState;
 

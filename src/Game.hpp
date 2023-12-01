@@ -42,6 +42,7 @@ class Game {
         void input(sf::Event &ev);
 
         void exit() {
+            BGMusic::stop();
             world.save();
         }
 

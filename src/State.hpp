@@ -22,7 +22,7 @@ public:
 	}
 
 	static MainState* currentState;
-	static MainState *menuState, *settingsState, *gameState, *loadState, *serverHostState;
+	static MainState *menuState, *settingsState, *gameState, *loadState, *serverHostState, *worldSelectionState;
 private:
 
 };

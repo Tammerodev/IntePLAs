@@ -17,8 +17,8 @@ namespace LoadingScreen {
         font.loadFromFile("res/Fonts/VT323.ttf");
         text_prompt.setFont(font);
         text_prompt.setString("Loading the game... This is actually running on a seperate thread!"
-                              "\nIt was a PAIN to get this working! Remember, window.setActive(false)"
-                              "\n when running on multiple threads!");
+                              "\n Remember, window.setActive(false)"
+                              " when running on multiple threads!");
         text_position.x /= 2;
         text_position.y -= text_prompt.getGlobalBounds().height + 64;
         text_position.x -= text_prompt.getGlobalBounds().width / 2;

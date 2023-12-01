@@ -14,6 +14,8 @@
 #include "Settings.hpp"
 #include "Palettes/PaletteUI.hpp"
 
+#include "WorldSelectionState.hpp"
+
 
 class MenuState : public MainState {
 public:
@@ -27,7 +29,7 @@ public:
 		else if(destination == 2) 
 			MainState::currentState = MainState::serverHostState;
 		else if(destination == 3)
-			MainState::currentState = MainState::loadState;
+			MainState::currentState = MainState::worldSelectionState;
 
 		MainState::currentState->load(path.toStdString(), gui); 
 	}
@@ -45,9 +47,7 @@ public:
 
 		try {
 
-			tgui::Theme theme = tgui::Theme("res/themes/nanogui.style");
 			gui.loadWidgetsFromFile("res/ui/start_menu.txt");
-
 			
 		} catch(std::exception& ex) {
 			prnerr("TGUI failed with : ", ex.what());
@@ -72,6 +72,11 @@ public:
 			auto SettingsButton = backend_gui->get("Settings");
 			if(SettingsButton != nullptr && SettingsButton->isMouseOnWidget(sf::Vector2f(e.mouseButton.x, e.mouseButton.y))) {
 				buttonCallBack("", 1, *backend_gui);
+			}
+
+			auto HostButton = backend_gui->get("Host");
+			if(HostButton != nullptr && HostButton->isMouseOnWidget(sf::Vector2f(e.mouseButton.x, e.mouseButton.y))) {
+				buttonCallBack("", 2, *backend_gui);
 			}
 		}
 	}

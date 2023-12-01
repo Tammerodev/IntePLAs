@@ -3,7 +3,7 @@
 void MaterialsUI::load(tgui::BackendGui &gui) {
     tgui::Theme theme = tgui::Theme("res/themes/nanogui.style");
 
-    canvas = tgui::CanvasSFML::create(tgui::Layout2d(500, 500));
+    canvas = tgui::CanvasSFML::create(tgui::Layout2d(500, 150));
     canvas->setPosition(tgui::Layout2d(500, 0));
     
     canvas->setWidgetName("DEL_");
