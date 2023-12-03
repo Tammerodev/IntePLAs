@@ -42,12 +42,17 @@ class Game {
         void input(sf::Event &ev);
 
         void exit() {
-            BGMusic::stop();
             world.save();
+
+            hasSaved = true;
         }
 
         const bool getLoaded() const {
             return hasLoaded;
+        }
+
+        const bool getSaved() const {
+            return hasSaved;
         }
 
     private:
@@ -55,6 +60,7 @@ class Game {
 
         bool slowmo = false;
         bool hasLoaded = false;
+        bool hasSaved = false;
         sf::Clock clock;
 
 
@@ -67,9 +73,7 @@ class Game {
         Background bg;
         EffectOverlay effOverlay;
         UIStateManager uiStateManager;
-
-        Cursor cursor;
-
+        
         World world;
 
         Camera game_camera;

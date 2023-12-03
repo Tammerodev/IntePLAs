@@ -17,7 +17,7 @@ public:
 	virtual void draw(sf::RenderTarget&, tgui::BackendGui& gui) = 0;
 	virtual void statexit() = 0;
 	static UIState* currentState;
-	static UIState *nostate, *itemcreator;
+	static UIState *nostate, *itemcreator, *death;
 private:
 
 };

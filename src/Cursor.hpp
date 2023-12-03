@@ -7,34 +7,17 @@
 
 class Cursor : private sf::Sprite {
 public:
-    bool load(tgui::BackendGui &gui) {
-        bool res = tx.loadFromFile("res/themes/cross.png");
-        setTexture(tx);
+    bool load(tgui::BackendGui &gui, sf::Window &window) {
+        bool res = tx.loadFromFile("res/img/UI/cursor.png");
 
-        setOrigin(getGlobalBounds().width / 2, getGlobalBounds().height / 2);
-
-        canvas = tgui::CanvasSFML::create();
-        canvas->setSize(tgui::Layout2d(1980, 1080));
-        canvas->setWidgetName("Cursor");
-
-        // If we dont do this, the canvas will grab the focus and disable all other UI elements
-        canvas->setFocusable(false);
-        canvas->setEnabled(false);
-        canvas->setFocused(false);
-        //gui.add(canvas);
+        if (cursor.loadFromPixels(tx.copyToImage().getPixelsPtr(), { 32, 32 }, { 0, 0 })) {
+            window.setMouseCursor(cursor);
+        } else {
+            res = false;
+        }
         return res;
     }
-
-    void draw(sf::RenderTarget &target) {
-        canvas->clear(sf::Color::Transparent);
-        setPosition(Controls::windowCursorPos);
-
-
-        canvas->draw(*this);
-
-        canvas->display();
-    }
 private:
-    tgui::CanvasSFML::Ptr canvas = nullptr;
-    sf::Texture tx;    
+    sf::Texture tx;   
+    sf::Cursor cursor; 
 };

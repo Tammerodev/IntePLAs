@@ -20,6 +20,9 @@ namespace Controls {
 
     static uint16_t joystick_bind_jump = 0;
     static uint16_t joystick_bind_switchitem = 1;
+    static uint16_t joystick_bind_openItemCreator = 2;
+    static uint16_t joystick_bind_inventory_switch_left = 4;
+    static uint16_t joystick_bind_inventory_switch_right = 5;
 
     
 
@@ -87,7 +90,8 @@ namespace Controls {
         if(currentController == ControllerType::Keyboard) 
             return sf::Keyboard::isKeyPressed(keybind_down);
         else if(currentController == ControllerType::Joystick)
-            throw "Not implemented";
+            return sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::PovY) <= -1;
+
         return false;
     }
 
@@ -111,7 +115,7 @@ namespace Controls {
         if(currentController == ControllerType::Keyboard) 
             return sf::Keyboard::isKeyPressed(keybind_openItemCreator);
         else if(currentController == ControllerType::Joystick)
-            throw "Not implemented";
+            return sf::Joystick::isButtonPressed(0, joystick_bind_openItemCreator);
         return false;
     }
 
@@ -139,6 +143,25 @@ namespace Controls {
         return false;
     }
 
+    static int inventoryMove(sf::Event &ev) {
+        if(currentController == ControllerType::Keyboard) {
+            if(ev.type == sf::Event::MouseWheelMoved) {
+                const int moveAmount = ev.mouseWheel.delta;
+
+                return moveAmount;
+                
+            }
+        }
+        else if(currentController == ControllerType::Joystick) {
+            if(ev.type == sf::Event::JoystickButtonPressed)
+                if(ev.joystickButton.button == joystick_bind_inventory_switch_right)
+                    return 1;
+                if(ev.joystickButton.button == joystick_bind_inventory_switch_left)
+                    return -1;
+        }
+
+        return 0;
+    }
 
     static sf::Vector2f cursorPos;
 

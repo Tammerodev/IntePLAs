@@ -56,7 +56,6 @@ EditBox {
 }
 
 Label {
-
     Font = "VT323.ttf";
 	TextSize = 20;
 	TextColor = rgba(255, 255, 255, 215);

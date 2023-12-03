@@ -9,6 +9,6 @@ public:
     virtual void draw(sf::RenderTarget&, sf::Sprite&) = 0;
     virtual void input(bool)                              = 0;
     static PlayerState* currentState;
-	static PlayerState *walkState, *idleState, *jumpState, *creativeState, *dead, *damageState;
+	static PlayerState *walkState, *idleState, *jumpState, *creativeState, *dead, *damageState, *respawnState;
 private:
 };

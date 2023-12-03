@@ -152,7 +152,7 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
 
                 // TODO DEBUG 
-                //target.draw(rect);
+                target.draw(rect);
             } 
 
 

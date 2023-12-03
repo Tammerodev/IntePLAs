@@ -54,18 +54,15 @@ public:
     }
 
     void input(sf::Event &ev) {
-        if(ev.type == sf::Event::MouseWheelMoved) {
-            const int moveAmount = ev.mouseWheel.delta;
 
-            currentItemIndex += moveAmount;
+        currentItemIndex += Controls::inventoryMove(ev);
 
-            // Bound checking
-            if(currentItemIndex < 0)
-                currentItemIndex = inventory.size() - 1;
+        // Bound checking
+        if(currentItemIndex < 0)
+            currentItemIndex = inventory.size() - 1;
 
-            if(currentItemIndex >= inventory.size())
-                currentItemIndex = 0;
-        }
+        if(currentItemIndex >= inventory.size())
+            currentItemIndex = 0;
 
     }
 

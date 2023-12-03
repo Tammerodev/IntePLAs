@@ -37,8 +37,9 @@ public:
 
 	}
 
-	void draw(sf::RenderWindow& window, tgui::BackendGui&) {
+	void draw(sf::RenderWindow& window, tgui::BackendGui&gui) {
 		window.clear(Palette::PaletteUI::Black);
+    	gui.draw();
 
 	}
 

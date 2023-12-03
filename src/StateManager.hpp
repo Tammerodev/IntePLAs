@@ -51,10 +51,6 @@ public:
                 std::lock_guard<std::mutex> lock(windowMutex);
                 sf::Event testevent = MainState::currentState->event_sig();
 
-                if(testevent.type == sf::Event::Closed) {
-                    window.close();
-                }
-
                 window.setFramerateLimit(GraphicsSettings::max_fps);
                 window.setVerticalSyncEnabled(GraphicsSettings::use_vsync);
 
@@ -63,9 +59,6 @@ public:
                 while(window.pollEvent(wevent)) {
                     gui.handleEvent(wevent);
 
-                    if(wevent.type == sf::Event::Closed) {
-                        window.close();
-                    }
                     MainState::currentState->input(wevent);
                 }
 
@@ -74,7 +67,6 @@ public:
 
             {
                 std::lock_guard<std::mutex> lock(guiMutex);
-                gui.draw();
             }
 
             window.display();

@@ -5,6 +5,8 @@ uniform float distortionAmount; // Adjust distortion effect
 
 uniform float desaturationAmount; // Adjustable amount
 
+uniform int isDead;
+
 float hash(float n) {
     return fract(sin(n) * 43758.5453);
 }
@@ -47,6 +49,10 @@ void main()
 
 		// Darken the color based on the time of day
 		color.rgb *= darkness;
+	}
+
+	if(isDead == 1) {
+		color.r += abs(sin(time * 0.1) * 10.0);
 	}
 
 	gl_FragColor = color;

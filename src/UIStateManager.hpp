@@ -4,6 +4,7 @@
 #include "NoUIState.hpp"
 
 #include "Controls.hpp"
+#include "DeadUIState.hpp"
 
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
@@ -22,5 +23,8 @@ public:
 
     void input(sf::Event &);
 
-private:
+private:    
+    tgui::BackendGui* gui = nullptr;
+    Inventory *inv = nullptr;
+    VoxelManager* vx = nullptr;
 };

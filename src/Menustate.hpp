@@ -85,7 +85,10 @@ public:
 
 		for(auto & bg : background) {
 			window.draw(bg);
-		}
+		}	
+		
+   		gui.draw();
+
 	}
 	void statexit() {
 		background.clear();

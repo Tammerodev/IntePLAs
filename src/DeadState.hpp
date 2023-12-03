@@ -5,12 +5,10 @@
 class DeadState : public PlayerState { 
 public:
     virtual void enter() {
-
+        
     }
 
     virtual void update(IntPhysicsComponent&, float) {
-        prndd("Dead!");
-
         
         
     }

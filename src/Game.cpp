@@ -47,8 +47,6 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     prndd("Loading UI...");
     if(!uiStateManager.load(gui, inv, world.main_world))
         perror("Failed to load user interface");
-    if(!cursor.load(gui)) 
-        perror("Failed to load cursor");
 
     prndd("Compiling shaders...");
     if(!shaderEffect.load(window_width, window_height)) 
@@ -63,10 +61,15 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
 }
 
 void Game::update() {
+
     // Update game status and delta time 
     GameStatus::updateBrightness();
     dt = (float)deltaClock.restart().asMilliseconds() / 13.f;
 
+    uiStateManager.update(Controls::windowCursorPos);
+    shaderEffect.update();
+
+    if(PlayerGlobal::health <= 0) return;
 
     // Handle explosion player damage
     for(const auto point : world.main_world.explosion_points) {
@@ -107,9 +110,6 @@ void Game::update() {
     // Update UI
     playerUI.update(player);
 
-    shaderEffect.update();
-
-    uiStateManager.update(Controls::windowCursorPos);
     world.update(dt, player);
 
     // Update inventory item and handle player collisions
@@ -134,12 +134,12 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
     Display::window_width = window.getSize().x;
     Display::window_height = window.getSize().y;
 
+
     // Clear renderTexture
     renderTexture.clear(sf::Color(GameStatus::brightness * 100, GameStatus::brightness * 100, GameStatus::brightness * 100, 255));
+    Controls::setWorldMouseposition(renderTexture);
 
     game_camera.setViewTo(renderTexture);
-
-    Controls::setWorldMouseposition(renderTexture);
 
     game_camera.setTarget(sf::Vector2f(player.getPhysicsComponent().transform_position));
 
@@ -162,13 +162,16 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
     // UI Render
     ui_camera.setViewTo(window);
 
+
     matUI.render(window);
     uiStateManager.render(window, gui);
     inv.renderUI(window);
 
     playerUI.render(window);
+                
+    gui.draw();
 
-    cursor.draw(window);
+    game_camera.setViewTo(renderTexture);
 }
 
 void Game::input(sf::Event& ev) {

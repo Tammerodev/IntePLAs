@@ -13,6 +13,7 @@
 #include <iostream>
 #include "Collider.hpp"
 #include "SoundFX.hpp"
+#include "RespawnState.hpp"
 
 namespace PlayerGlobal {
     inline int radiation_received = 0; 
@@ -20,6 +21,15 @@ namespace PlayerGlobal {
 
     inline int max_health = 500;
     inline int health = max_health;
+
+    inline void respawn() {
+        PlayerGlobal::health = PlayerGlobal::max_health;
+        PlayerGlobal::radiation_received = 0;
+        PlayerGlobal::still_radioation = 0;
+
+        PlayerState::currentState = PlayerState::respawnState;
+        PlayerState::currentState->enter();
+    }
 }
 
 class Player {

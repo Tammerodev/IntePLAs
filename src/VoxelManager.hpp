@@ -44,6 +44,7 @@
 #include "Session.hpp"
 
 #include <list>
+#include <future>
 
 class VoxelManager {
 public:
@@ -129,28 +130,35 @@ public:
     bool generate();
     bool generateVegetation();
 
-    void save() {/*
-        std::string created_folder;
-        // TODO : OK. This is soo hacky
-        std::cin >> created_folder;
-        std::filesystem::create_directory(StorageSettings::save_path + created_folder);
+    void save() {
+        const std::string created_folder = std::to_string(time(0));
 
-        for(int y = 0; y < chunks_y; y++) {
-            for(int x = 0; x < chunks_x; x++) {
-                const std::string x_string  = std::to_string(x);
-                const std::string y_string  = std::to_string(y);
+        if (!std::filesystem::create_directory(StorageSettings::save_path + created_folder)) {
+            prnerr("Could not create folder for save! Path is ", StorageSettings::save_path + created_folder);
+            return;
+        }
 
-                const std::string filename = x_string + "_" + y_string;
-                const std::string folder = StorageSettings::save_path;
-                const std::string extension = ".png";
+        std::vector<std::future<void>> futures;
 
-                
-                const std::string fullpath = folder + created_folder + "/" + filename + extension;
+        for (int y = 0; y < chunks_y; y++) {
+            for (int x = 0; x < chunks_x; x++) {
+                const std::string filename = std::to_string(x) + "_" + std::to_string(y);
+                const std::string fullpath = StorageSettings::save_path + created_folder + "/" + filename;
 
-
-                chIndexer.getChunkAt(x, y).image.saveToFile(fullpath);
+                // Use std::async with a lambda function
+                futures.emplace_back(std::async(std::launch::deferred, [fullpath, filename, this]() {
+                    // Inside the lambda, save the chunk
+                    this->getChunkIndexer().getChunkAt(std::stoi(filename), std::stoi(filename)).image.saveToFile(fullpath + ".png");
+                }));
             }
-        }*/
+        }
+
+        prndd("Saving complete!!!11!!");
+
+        // Wait for all threads to finish
+        for (auto& future : futures) {
+            future.wait();
+        }
     }
 
     const bool compareVoxelColors(const sf::Color &color1, const sf::Color &color2) {

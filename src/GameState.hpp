@@ -41,13 +41,18 @@ public:
 		else {
 			tEvent.type = sf::Event::SensorChanged;
 		}
-
 		*/
+
 		return tEvent;
 	}
 
 	void draw(sf::RenderWindow& window, tgui::BackendGui&);
 private:
+	sf::RenderWindow *window_ptr = nullptr;
+	tgui::BackendGui *gui_ptr 	 = nullptr;
+
 	Game game;
 	std::string path = "";
+
+	Cursor cursor;
 };
