@@ -31,6 +31,7 @@
 #include "ShaderEffects.hpp"
 
 #include "WeatherManager.hpp"
+#include "MobManager.hpp"
 
 class Game {
     public:
@@ -53,6 +54,10 @@ class Game {
 
         const bool getSaved() const {
             return hasSaved;
+        }
+
+        void damageMobs(sf::Vector2f pos, int hp) {
+            
         }
 
     private:
@@ -92,4 +97,6 @@ class Game {
         sf::Clock shader_time;
 
         PlayerUI playerUI;
+
+        MobManager mobManager;
 };

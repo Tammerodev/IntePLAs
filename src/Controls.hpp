@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <iostream>
+#include "Settings.hpp" 
 
 namespace Controls {
 
@@ -57,9 +58,24 @@ namespace Controls {
         if(currentController == ControllerType::Joystick) {
             windowCursorPos.x += sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::U) / 10.0;
             windowCursorPos.y += sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::V) / 10.0;
+
+
+            if(windowCursorPos.x > Display::window_width) {
+                windowCursorPos.x = Display::window_width;
+            } else if(windowCursorPos.y > Display::window_height) {
+                windowCursorPos.y = Display::window_height;
+            }
+
+            if(windowCursorPos.x < 0) {
+                windowCursorPos.x = 0;
+            } else if(windowCursorPos.y < 0) {
+                windowCursorPos.y = 0;
+            }
+
+            sf::Mouse::setPosition(sf::Vector2i(windowCursorPos));
         }
         
-        worldCursorPos = target.mapPixelToCoords(sf::Vector2i(windowCursorPos));
+        worldCursorPos = target.mapPixelToCoords(sf::Vector2i(windowCursorPos), target.getView());
     }
 
     static bool moveRight() {
@@ -149,7 +165,7 @@ namespace Controls {
                 const int moveAmount = ev.mouseWheel.delta;
 
                 return moveAmount;
-                
+            
             }
         }
         else if(currentController == ControllerType::Joystick) {

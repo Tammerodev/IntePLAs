@@ -53,6 +53,7 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
         perror("Failed to load bloom effect");
 
     playerUI.load(window_width, window_height);
+    mobManager.load();
 
     hasLoaded = true;
 
@@ -66,8 +67,14 @@ void Game::update() {
     GameStatus::updateBrightness();
     dt = (float)deltaClock.restart().asMilliseconds() / 13.f;
 
+    if(dt > 10.f) {
+        dt = 10.f;
+    }
+
     uiStateManager.update(Controls::windowCursorPos);
     shaderEffect.update();
+    mobManager.update(dt);
+    mobManager.checkCollisions(world.main_world);
 
     if(PlayerGlobal::health <= 0) return;
 
@@ -78,6 +85,7 @@ void Game::update() {
 
         if(distance < point.strength) {
             player.damage(point.strength - distance);
+
 
             // Launch the player in opposite direction
             player.getPhysicsComponent().setVelocity(
@@ -98,6 +106,8 @@ void Game::update() {
             wrl.explosion_points.pop_back();
         }
     }
+
+    mobManager.invokeMobs(player);
 
     // Update various game components
     bg.update(game_camera.getView(), dt);
@@ -137,17 +147,22 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
 
     // Clear renderTexture
     renderTexture.clear(sf::Color(GameStatus::brightness * 100, GameStatus::brightness * 100, GameStatus::brightness * 100, 255));
-    Controls::setWorldMouseposition(renderTexture);
+
 
     game_camera.setViewTo(renderTexture);
 
+    Controls::setWorldMouseposition(renderTexture);
+    
     game_camera.setTarget(sf::Vector2f(player.getPhysicsComponent().transform_position));
 
     bg.render(renderTexture);
+
     player.draw(renderTexture);
+    mobManager.render(renderTexture);
+
     world.render(renderTexture, game_camera.getCenterPosition());
     inv.render(renderTexture);
-    
+
     effOverlay.render(renderTexture);
     
     // Display, draw and set shader

@@ -8,6 +8,8 @@
 #include <TGUI/Widgets/Button.hpp>
 #include <TGUI/Widgets/CheckBox.hpp>
 
+#include "WidgetManager.hpp"
+
 
 class NoUIState : public UIState {
 public:
@@ -20,7 +22,13 @@ public:
         this->gui = &gui;
         this->inv = &inv;
         this->vx = &vx;
+    
+        voxelLabel = tgui::Label::create("");
+        voxelLabel->setPosition(tgui::Layout2d(250, 0));
+        voxelLabel->setSize(tgui::Layout2d(100, 24));
 
+        gui.add(voxelLabel);
+        
         return true;
     }
 
@@ -36,6 +44,11 @@ public:
         if(Controls::openItemCreator()) {
             exit(*gui, *inv, *vx);
         }
+
+        const char* voxelName = elm::getNameByType(vx->getChunkIndexer().boundGetVoxelAt(Controls::worldCursorPos.x, Controls::worldCursorPos.y).value);
+
+        voxelLabel->setVisible(voxelName != "");
+        voxelLabel->setText(voxelName);
     }
 
     void draw(sf::RenderTarget& target, tgui::BackendGui& gui) {
@@ -51,6 +64,8 @@ private:
     tgui::BackendGui* gui = nullptr;
     Inventory *inv = nullptr;
     VoxelManager* vx = nullptr;
+
+    tgui::Label::Ptr voxelLabel = nullptr; 
 
     void exit(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
         removeWidgets(gui);

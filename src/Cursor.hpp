@@ -10,7 +10,7 @@ public:
     bool load(tgui::BackendGui &gui, sf::Window &window) {
         bool res = tx.loadFromFile("res/img/UI/cursor.png");
 
-        if (cursor.loadFromPixels(tx.copyToImage().getPixelsPtr(), { 32, 32 }, { 0, 0 })) {
+        if (cursor.loadFromPixels(tx.copyToImage().getPixelsPtr(), { 32, 32 }, { 16, 16 })) {
             window.setMouseCursor(cursor);
         } else {
             res = false;

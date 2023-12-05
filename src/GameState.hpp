@@ -21,7 +21,7 @@ public:
 	const sf::Event event_sig() {
 		
 		sf::Event tEvent;
-		/*
+		
 		if(Controls::useUI()) {
 
 			timer += 1;
@@ -41,7 +41,6 @@ public:
 		else {
 			tEvent.type = sf::Event::SensorChanged;
 		}
-		*/
 
 		return tEvent;
 	}
