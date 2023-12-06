@@ -15,6 +15,8 @@ class Voxel {
     bool isFalling = false;
     // Bitfield (11 bits, 1023 combinations)
     unsigned short temp = 0;
+
+    bool hasCollision = true;
     
     private:
 };

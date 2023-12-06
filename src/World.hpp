@@ -58,14 +58,23 @@ public:
         IntPhysicsComponent &player_physicscomp = player.getPhysicsComponent();
         sf::Vector2f ground = player_physicscomp.transform_position;
 
+
         std::pair<bool, sf::Vector2f> groundCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
                                                             player_physicscomp.transform_position.y + 28));
 
-        ground = sf::Vector2f(player_physicscomp.transform_position.x,
-                                    player_physicscomp.transform_position.y + 28);
+        int i = -10;   
+        
 
-        groundCollision = main_world.getPixelCollision(ground);
+        for(; i < 1; i++) {     
 
+            ground = sf::Vector2f(player_physicscomp.transform_position.x,
+                                        (player_physicscomp.transform_position.y + 28) + i);
+            groundCollision = main_world.getPixelCollision(ground);
+
+            if(groundCollision.first) 
+                break;
+            
+        }
 
         const std::pair<bool, sf::Vector2f> headCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
                                                             player_physicscomp.transform_position.y - 3)); 
@@ -83,7 +92,7 @@ public:
         }
 
         if(groundCollision.first) {
-            player_physicscomp.transform_position.y -= groundCollision.second.y + 0.1f;
+            player_physicscomp.transform_position.y = ground.y - 28;
 
             player.ground();
         }
@@ -91,8 +100,6 @@ public:
         if(headCollision.first) {
             player_physicscomp.velocity.y = 0;
             player_physicscomp.velocity_buffer = 0;
-
-            player_physicscomp.transform_position.y += 1;
         }
         
     }

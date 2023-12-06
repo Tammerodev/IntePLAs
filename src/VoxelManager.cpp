@@ -15,6 +15,10 @@ std::pair<bool, sf::Vector2f> VoxelManager::getPixelCollision(const sf::Vector2f
         result = false;
     }
 
+    if(chIndexer.getVoxelAt(pixelPosition.x, pixelPosition.y).hasCollision == false) {
+        prndd("CollisionFALSE");
+    }
+
 
     ret.second = pos - sf::Vector2f(pixelPosition);
 
@@ -463,7 +467,8 @@ bool VoxelManager::generateVegetation()
         }
 
         if(math::randIntInRange(0, 20) < 5) {
-            build_image(sf::Vector2i(i, (2048 - h) - sourceRect.height + 6), selectedImage, nullptr);
+            // Build with no collisionss
+            build_image(sf::Vector2i(i, (2048 - h) - sourceRect.height + 6), selectedImage, nullptr, sf::Vector2f(0.f, 0.f), false);
         }
 
     }
@@ -474,7 +479,7 @@ bool VoxelManager::generateVegetation()
 }
 
 
-void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std::list<VoxelGroup>* grp, const sf::Vector2f velocity)
+void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std::list<VoxelGroup>* grp, const sf::Vector2f velocity, bool hasCollisions)
 {
     if(grp != nullptr) {
         VoxelGroup object = VoxelGroup();
@@ -498,7 +503,13 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
 
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
                 chIndexer.setImagePixelAt(x,y,cimg.getPixel(x - p.x, y - p.y));
-                chIndexer.getVoxelAt(x,y) = getHandleVoxel(chIndexer.getImagePixelAt(x,y), sf::Vector2i(x,y), true);
+                chIndexer.getVoxelAt(x, y) = getHandleVoxel(chIndexer.getImagePixelAt(x,y), sf::Vector2i(x,y), true);
+                chIndexer.getVoxelAt(x, y).hasCollision = hasCollisions;
+
+                if(hasCollisions == false) {
+                    prndd("DADDADD");
+                }
+
             }
         }
     }
