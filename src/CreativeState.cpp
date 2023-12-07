@@ -26,7 +26,7 @@ void CreativeState::update(IntPhysicsComponent& physComp,float dt) {
 void CreativeState::draw(sf::RenderTarget &window, sf::Sprite &sprite){
 
     const int frames = 5;
-    const sf::Vector2i frameSize = sf::Vector2i(18, 26);
+    const sf::Vector2i frameSize = sf::Vector2i(18, 28);
 
     const bool isMoving = last_pos.x < sprite.getPosition().x;
 

@@ -15,7 +15,7 @@ void RespawnState::update(IntPhysicsComponent& physComp, float dt) {
 }
 
 void RespawnState::draw(sf::RenderTarget &window, sf::Sprite &sprite) {
-    sprite.setTextureRect(sf::IntRect(0,0,18,26));
+    sprite.setTextureRect(sf::IntRect(0,0,18,28));
     sprite.setColor(sf::Color::Blue);
     window.draw(sprite);
 }

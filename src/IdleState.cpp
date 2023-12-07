@@ -11,7 +11,7 @@ void IdleState::update(IntPhysicsComponent& physComp, float dt) {
 
 void IdleState::draw(sf::RenderTarget &window, sf::Sprite &sprite){
     sprite.setColor(sf::Color::White);
-    sprite.setTextureRect(sf::IntRect(0,0,18,26));
+    sprite.setTextureRect(sf::IntRect(0,0, PlayerGlobal::characterSize.x, PlayerGlobal::characterSize.y));
     window.draw(sprite);
 }
 

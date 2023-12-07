@@ -19,16 +19,16 @@ void WalkState::update(IntPhysicsComponent& physComp,float dt) {
 
 void WalkState::draw(sf::RenderTarget &window, sf::Sprite &sprite){
 
-    const int frames = 5;
-    const sf::Vector2i frameSize = sf::Vector2i(18, 26);
+    const int frames = 8;
+    const sf::Vector2u frameSize = PlayerGlobal::characterSize;
 
     const bool isMoving = last_pos.x < sprite.getPosition().x;
 
     const int time = timer.getElapsedTime().asMilliseconds() / 100;
 
-    const sf::Vector2i offset = sf::Vector2i(time * frameSize.x,  isMoving * frameSize.y);
+    const sf::Vector2u offset = sf::Vector2u(time * frameSize.x,  isMoving * frameSize.y);
 
-    const sf::IntRect textureRect = sf::IntRect(offset, frameSize);
+    const sf::IntRect textureRect = sf::IntRect(sf::Vector2i(offset), sf::Vector2i(frameSize));
 
     sprite.setTextureRect(sf::IntRect(textureRect));
 

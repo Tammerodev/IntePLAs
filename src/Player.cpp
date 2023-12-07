@@ -11,8 +11,7 @@ PlayerState* PlayerState::respawnState = new RespawnState();
 PlayerState* PlayerState::currentState = PlayerState::idleState;
 
 int Player::load() {
-    physComp.transform_position = sf::Vector2f(200.f, -100.f);
-
+    physComp.transform_position = PlayerGlobal::spawn_point;
 
     if(!tx.loadFromFile("res/img/Player/Player.png")) return 0;
     spr.setTexture(tx);

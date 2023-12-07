@@ -36,15 +36,13 @@ void Frog::update(const float dt) {
 
 void Frog::collisionCheck(VoxelManager &voxelManager) {
 
-    std::pair<bool, sf::Vector2f> groundCollision = 
-        voxelManager.getPixelCollision(physicsComponent.transform_position + sf::Vector2f(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height));
+    bool res = CollisionManager::handleCollisionsWith(physicsComponent, voxelManager, sf::Vector2i(-16, -16));
 
-    grounded = groundCollision.first;
-
-    if(groundCollision.first) {
-        physicsComponent.velocity.y = 0.f;
-        physicsComponent.transform_position.y -= groundCollision.second.y + groundCollision.second.y;
+    if(res) {
+        physicsComponent.velocity.y = 0;
     }
+
+    grounded = res;
 }
 
 void Frog::render(sf::RenderTarget &target) {
@@ -56,9 +54,9 @@ void Frog::invoke(const MobInvoke &inv) {
 
     if(mobInvoke.distanceToPlayer <= distanceWhenInvoked) {
         if(mobInvoke.playerSubVector.x < 0.f) {
-            physicsComponent.velocity.x = 2.0f;
+            physicsComponent.velocity.x = 5.0f;
         } else if(mobInvoke.playerSubVector.x > 0.f) {
-            physicsComponent.velocity.x = -2.0f;
+            physicsComponent.velocity.x = -5.0f;
         }
 
         if(FrogState::currentState != FrogState::jumpState) {

@@ -26,6 +26,9 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     if(!world.init(s))
         perror("VoxelManager failed to load world");
 
+       
+    PlayerGlobal::spawn_point = sf::Vector2f((float)(world.main_world.getChunkIndexer().world_sx / 2), -400.f); 
+
     prndd("Loading background...");
     if(!bg.load()) 
         perror("Background failed to load");
@@ -37,6 +40,7 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     prndd("Loading player...");
     if(!player.load()) 
         perror("Player failed to load");
+    
     
     prndd("Loading sounds...");
     if(!SFX::load())

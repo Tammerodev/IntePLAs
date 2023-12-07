@@ -7,6 +7,8 @@
 #include "VoxelGroup.hpp"
 #include "WeatherManager.hpp"
 
+#include "CollisionManager.hpp"
+
 class World {
 public:
     bool init(const std::string path) {
@@ -54,54 +56,11 @@ public:
     }
 
     void handleCollisionsWithPlayer(Player& player) {
+        bool res = CollisionManager::handleCollisionsWith(player.getPhysicsComponent(), main_world, PlayerGlobal::characterHitBoxSize);
 
-        IntPhysicsComponent &player_physicscomp = player.getPhysicsComponent();
-        sf::Vector2f ground = player_physicscomp.transform_position;
-
-
-        std::pair<bool, sf::Vector2f> groundCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
-                                                            player_physicscomp.transform_position.y + 28));
-
-        int i = -10;   
-        
-
-        for(; i < 1; i++) {     
-
-            ground = sf::Vector2f(player_physicscomp.transform_position.x,
-                                        (player_physicscomp.transform_position.y + 28) + i);
-            groundCollision = main_world.getPixelCollision(ground);
-
-            if(groundCollision.first) 
-                break;
-            
-        }
-
-        const std::pair<bool, sf::Vector2f> headCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
-                                                            player_physicscomp.transform_position.y - 3)); 
-
-        const std::pair<bool, sf::Vector2f> rightCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x + 20,
-                                                            player_physicscomp.transform_position.y + 14)); 
-
-        const std::pair<bool, sf::Vector2f> leftCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x - 3,
-                                                            player_physicscomp.transform_position.y + 14));
-
-        const bool sideCollision = rightCollision.first || leftCollision.first;
-
-        if(sideCollision) {
-            player_physicscomp.transform_position.x -= player_physicscomp.velocity.x;
-        }
-
-        if(groundCollision.first) {
-            player_physicscomp.transform_position.y = ground.y - 28;
-
+        if(res) {
             player.ground();
         }
-
-        if(headCollision.first) {
-            player_physicscomp.velocity.y = 0;
-            player_physicscomp.velocity_buffer = 0;
-        }
-        
     }
 
     void save() {

@@ -6,6 +6,7 @@
 #include "FrogJumpState.hpp"
 
 #include "PhysicsComponent.hpp"
+#include "CollisionManager.hpp"
 
 #include <vector>
 
