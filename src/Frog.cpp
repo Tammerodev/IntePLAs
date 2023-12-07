@@ -14,7 +14,22 @@ void Frog::load() {
     physicsComponent.transform_position = sf::Vector2f(800, 0);
 }
 
-void Frog::update(const float dt) {
+ void Frog::update(const float dt) {
+
+    if(scaredTimer > 0) {
+        scaredTimer--;
+        if(mobInvoke.playerSubVector.x < 0.f) {
+            physicsComponent.velocity.x = frogSpeed;
+        } else if(mobInvoke.playerSubVector.x > 0.f) {
+            physicsComponent.velocity.x = -frogSpeed;
+        }
+
+        if(FrogState::currentState != FrogState::jumpState) {
+            FrogState::currentState = FrogState::jumpState;
+            FrogState::currentState->enter();
+        }
+    }
+
     sprite.setTexture(texture);
 
     FrogState::currentState->update(physicsComponent, dt, grounded);
@@ -53,16 +68,7 @@ void Frog::invoke(const MobInvoke &inv) {
     mobInvoke = inv;
 
     if(mobInvoke.distanceToPlayer <= distanceWhenInvoked) {
-        if(mobInvoke.playerSubVector.x < 0.f) {
-            physicsComponent.velocity.x = 5.0f;
-        } else if(mobInvoke.playerSubVector.x > 0.f) {
-            physicsComponent.velocity.x = -5.0f;
-        }
-
-        if(FrogState::currentState != FrogState::jumpState) {
-            FrogState::currentState = FrogState::jumpState;
-            FrogState::currentState->enter();
-        }
+        scaredTimer = scaredTime;
     }
 }
 

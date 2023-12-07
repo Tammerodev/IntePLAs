@@ -35,4 +35,9 @@ class Frog : public Mob {
         float distanceWhenInvoked = 50.f;
 
         bool grounded = false;    
+
+        int scaredTimer = 0;
+        const int scaredTime = 500;
+
+        const float frogSpeed = 1.0;
 };

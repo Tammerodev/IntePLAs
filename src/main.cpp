@@ -8,6 +8,7 @@ int main() {
 
     path = path.parent_path();                  // Move back one directory 
 
+
     std::cout << "Current working path" << path << std::endl;
 
     std::filesystem::current_path(path); //Set working path
