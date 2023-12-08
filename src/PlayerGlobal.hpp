@@ -18,8 +18,9 @@ namespace PlayerGlobal {
         PlayerState::currentState->enter();
     }
 
-    inline sf::Vector2u characterSize = sf::Vector2u(32, 32);
-    inline sf::Vector2u characterHitBoxSize = sf::Vector2u(32, 32);
+    inline sf::Vector2u characterSize = sf::Vector2u(18, 28);
+    inline sf::Vector2u characterHitBoxSize = sf::Vector2u(18, 28);
+    inline int character_animation_frames = 4;
 
     inline sf::Vector2f spawn_point = sf::Vector2f(0.f, 0.f);
 

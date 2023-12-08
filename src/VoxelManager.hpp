@@ -46,6 +46,7 @@
 #include <list>
 #include <future>
 
+
 class VoxelManager {
 public:
 

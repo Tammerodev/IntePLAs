@@ -17,6 +17,8 @@ class Voxel {
     unsigned short temp = 0;
 
     bool hasCollision = true;
+
+    short voltage = 0;
     
     private:
 };
