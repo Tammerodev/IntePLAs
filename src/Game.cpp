@@ -127,7 +127,7 @@ void Game::update() {
     world.update(dt, player);
 
     // Update inventory item and handle player collisions
-    inv.getCurrentItem()->update(world, Controls::worldCursorPos, sf::Vector2f(player.getPhysicsComponent().transform_position), dt, player);
+    inv.getCurrentItem()->update(world, Controls::worldCursorPos, sf::Vector2f(player.getPhysicsComponent().transform_position + sf::Vector2f(0, 4)), dt, player);
     world.handleCollisionsWithPlayer(player);
 
     // Update game camera zoom and cursor position

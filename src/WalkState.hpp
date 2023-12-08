@@ -11,7 +11,7 @@ public:
     virtual void input(bool);
 private:
 
-    const int speed = 3;
+    const int speed = 2;
     const float acc = 0.15;
 
     sf::Vector2i voxelpos;

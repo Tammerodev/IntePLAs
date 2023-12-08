@@ -20,7 +20,7 @@ namespace PlayerGlobal {
 
     inline sf::Vector2u characterSize = sf::Vector2u(18, 28);
     inline sf::Vector2u characterHitBoxSize = sf::Vector2u(18, 28);
-    inline int character_animation_frames = 4;
+    inline int character_animation_frames = 3;
 
     inline sf::Vector2f spawn_point = sf::Vector2f(0.f, 0.f);
 
