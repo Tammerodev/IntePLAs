@@ -32,6 +32,7 @@
 
 #include "WeatherManager.hpp"
 #include "MobManager.hpp"
+#include "SimulationManager.hpp"
 
 class Game {
     public:
@@ -89,8 +90,7 @@ class Game {
 
         ShaderEffect shaderEffect;
         Shader shader_ambient;
-
-
+        
         float dt = 0.f;
         sf::Clock deltaClock;
 

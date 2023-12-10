@@ -45,7 +45,7 @@
 
 #include <list>
 #include <future>
-
+#include "SimulationManager.hpp"
 
 class VoxelManager {
 public:
@@ -230,6 +230,12 @@ public:
         } else if(px == elm::Copper) {
             vox.value = 8;
             vox.strenght = 10;
+        
+            std::shared_ptr<ElectricComponent> wire = std::make_shared<Wire>();
+            wire->x = p.x;
+            wire->y = p.y;
+
+            if(addVoxelsToArr) simulationManager.addElementToES(wire);
         } else if(px == elm::Titanium) {
             vox.value = 9;
             vox.strenght = 100;
@@ -252,10 +258,20 @@ public:
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Nitroglycerin>(p.x, p.y));
         } else if(px == elm::Chlorine) {
-            vox.value = elm::ValChlorine;
-            vox.strenght = 2;
+            // TODO make workd!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111
+            //vox.value = elm::ValChlorine;
+            //vox.strenght = 2;
 
-            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Chlorine>(p.x, p.y));
+            //if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Chlorine>(p.x, p.y));
+
+            vox.value = elm::ValCarbon;
+            vox.strenght = 1;
+
+            std::shared_ptr<ElectricComponent> led = std::make_shared<Led>();
+            led->x = p.x;
+            led->y = p.y;
+            
+            if(addVoxelsToArr) simulationManager.addElementToES(led);
         } else if(px == elm::Uranium235) {
             vox.value = elm::ValUranium235;
             vox.strenght = 2;
@@ -339,4 +355,5 @@ private:
     std::list<std::shared_ptr<RadioactiveElement>> radioactive_elements;
 
     ParticleSimulation particleSimulation;
+    SimulationManager simulationManager;
 };

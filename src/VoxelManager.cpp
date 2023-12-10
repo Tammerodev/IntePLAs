@@ -170,8 +170,8 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 void VoxelManager::update(Player &player)
 {   
     clientManager.update(chIndexer);
-
     chIndexer.update();
+    simulationManager.updateAll(chIndexer);
 
     particleSimulation.update(1.0f);
     auto &particles = particleSimulation.getParticlesList();

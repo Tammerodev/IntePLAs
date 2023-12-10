@@ -1,5 +1,6 @@
 #pragma once
 #include "ElectricComponent.hpp"
+#include "Wire.hpp"
 
 class ElectricitySimulation {
     public:

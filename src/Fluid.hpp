@@ -54,25 +54,7 @@ class Fluid : public Element {
                     y = nextWaterPos.y;
                 }
             }
-            /*temp = world.boundGetVoxelAt(x, y).temp;
-
-            // Spaghetti nam nam
-
-            const short t = 1;
-        
-            world.SetHeat(x + 1, y, t);
-            world.SetHeat(x - 1, y, t);
-
-            world.SetHeat(x, y + 1, t);
-            world.SetHeat(x, y - 1, t);
-
-            world.SetHeat(x + 1, y + 1, t);
-            world.SetHeat(x + 1, y - 1, t);
-
-            world.SetHeat(x - 1, y + 1, t);
-            world.SetHeat(x - 1, y - 1, t);
-            */
-
+            
             if(corrosion != 0) {
                 sf::Vector2i bounded = *this;
 
