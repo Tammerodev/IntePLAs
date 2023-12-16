@@ -132,7 +132,6 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
     ChunkArea draw_area = draw_bounds.getArea();
 
     sf::Sprite spriteRend;
-    sf::RectangleShape rect;
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
@@ -145,20 +144,6 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
             spriteRend.setTexture(chIndexer.getChunkAt(x, y).tx);  
             spriteRend.setPosition(x * Chunk::sizeX,y * Chunk::sizeY);
-
-            if(chIndexer.getChunkAt(x, y).needs_update) {
-                rect.setPosition(spriteRend.getPosition());
-                rect.setSize(sf::Vector2f(Chunk::sizeX, Chunk::sizeY));
-
-                rect.setFillColor(sf::Color::Transparent);
-                rect.setOutlineColor(sf::Color::Black);
-                rect.setOutlineThickness(3);
-
-
-                // TODO DEBUG 
-                target.draw(rect);
-            } 
-
 
             target.draw(spriteRend);
         }
@@ -436,6 +421,44 @@ void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool fo
 
 }
 
+void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity)
+{
+    chIndexer.boundVector(p);
+
+    int yexcept = p.y - intensity;
+    int xexcept = p.x - intensity;
+
+    if(yexcept < 0) yexcept = 0;
+    if(xexcept < 0) xexcept = 0;
+
+    for (int y = yexcept;y < p.y + intensity;y++) {
+        if(y > chIndexer.world_sy) break;
+
+        for (int x = xexcept;x < p.x + intensity;x++) {
+
+            sf::Vector2i v = sf::Vector2i(x, y);
+                chIndexer.boundVector(v);
+            
+            Voxel &voxel = chIndexer.getVoxelAt(v.x, v.y);
+                if(voxel.value == 0) continue;
+
+            const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
+
+            if(distance < intensity) {
+                voxelsInNeedOfUpdate.push_back(v);
+                chIndexer.damageVoxelAt(v.x, v.y);
+
+                chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(v.x, v.y).x, chIndexer.getChunkFromPos(v.x, v.y).y).needs_update = true;
+
+                if(math::randIntInRange(0, 100) < 25) {
+                    launchDebrisParticle(p, chIndexer.getImagePixelAt(v.x, v.y));
+                }
+            }
+        }
+    }
+
+}
+
 bool VoxelManager::generate()
 {
     procGen.generate(chIndexer, chIndexer.world_sx, chIndexer.world_sy);
@@ -506,7 +529,7 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
                 chIndexer.getVoxelAt(x, y) = getHandleVoxel(chIndexer.getImagePixelAt(x,y), sf::Vector2i(x,y), true);
                 chIndexer.getVoxelAt(x, y).hasCollision = hasCollisions;
 
-                if(hasCollisions == false) {
+                if(chIndexer.getVoxelAt(x, y).hasCollision == false) {
                     prndd("DADDADD");
                 }
 

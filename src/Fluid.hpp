@@ -12,6 +12,12 @@ class Fluid : public Element {
 
         void update(ChunkIndexer& world) {
             
+            if(world.boundGetVoxelAt(x, y).value == 0) {
+                remove = true;
+                return;
+            }
+
+            
             sf::Vector2i lastPos = *this;
 
             world.boundSetImagePixelAt(x, y, color);

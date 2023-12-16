@@ -124,8 +124,6 @@ void Game::update() {
     // Update UI
     playerUI.update(player);
 
-    world.update(dt, player);
-
     // Update inventory item and handle player collisions
     inv.getCurrentItem()->update(world, Controls::worldCursorPos, sf::Vector2f(player.getPhysicsComponent().transform_position + sf::Vector2f(0, 4)), dt, player);
     world.handleCollisionsWithPlayer(player);
@@ -139,6 +137,9 @@ void Game::update() {
     if (Controls::zoomout()) {
         game_camera.zoom(1.01);
     }
+
+
+    world.update(dt, player);
 }
 
 void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
@@ -194,10 +195,6 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
 }
 
 void Game::input(sf::Event& ev) {
-    // Toggle slow motion (set delta time to 0.1)
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::F)) slowmo = true; // Slow-mo
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)) slowmo = false; // Slow-mo
-
     uiStateManager.input(ev);
 
     Controls::setWindowMouseposition(ev);

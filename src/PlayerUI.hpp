@@ -11,9 +11,11 @@
 #include "ItemCreateItem.hpp"
 #include "GeigerCounter.hpp"
 #include "Jetpack.hpp"
+#include "IronPickaxe.hpp"
 
 #include "HealthBar.hpp"
 #include "RadiationBar.hpp"
+
 
 
 class PlayerUI {
@@ -46,6 +48,7 @@ public:
         inventory.push_back(std::make_shared<HeatGun>(vx));
         inventory.push_back(std::make_shared<GeigerCounter>(vx));
         inventory.push_back(std::make_shared<Jetpack>(vx));
+        inventory.push_back(std::make_shared<IronPickaxe>(vx));
 
     } 
 

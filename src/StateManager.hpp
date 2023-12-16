@@ -71,8 +71,6 @@ public:
 
             window.display();
         }
-
-        MainState::currentState->statexit();
     }
 
 private:

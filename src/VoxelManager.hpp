@@ -82,6 +82,7 @@ public:
     void update(Player&);
     void hole(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat);
     void holeRayCast(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat);
+    void mine(sf::Vector2i p, const uint32_t intensity);
 
     void explosionEffect(const sf::Vector2f &p, int intensity) {
         if(explosion_points.size() < PREALLOCATE_EFFECTS_COUNT) {
@@ -132,7 +133,9 @@ public:
     bool generateVegetation();
 
     void save() {
-        const std::string created_folder = std::to_string(time(0));
+
+        prndd("AAAAAAAAA__AA_A_A");
+        const std::string created_folder = "Save";
 
         if (!std::filesystem::create_directory(StorageSettings::save_path + created_folder)) {
             prnerr("Could not create folder for save! Path is ", StorageSettings::save_path + created_folder);
@@ -147,9 +150,9 @@ public:
                 const std::string fullpath = StorageSettings::save_path + created_folder + "/" + filename;
 
                 // Use std::async with a lambda function
-                futures.emplace_back(std::async(std::launch::deferred, [fullpath, filename, this]() {
+                futures.emplace_back(std::async(std::launch::deferred, [fullpath, filename, this, x, y]() {
                     // Inside the lambda, save the chunk
-                    this->getChunkIndexer().getChunkAt(std::stoi(filename), std::stoi(filename)).image.saveToFile(fullpath + ".png");
+                    this->getChunkIndexer().getChunkAt(x, y).image.saveToFile(fullpath + ".png");
                 }));
             }
         }
