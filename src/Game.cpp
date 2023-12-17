@@ -27,7 +27,7 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
         perror("VoxelManager failed to load world");
 
        
-    PlayerGlobal::spawn_point = sf::Vector2f((float)(world.main_world.getChunkIndexer().world_sx / 2), -400.f); 
+    PlayerGlobal::spawn_point = sf::Vector2f((float)(worldSize::world_sx / 2), -400.f); 
 
     prndd("Loading background...");
     if(!bg.load()) 

@@ -3,6 +3,11 @@
 #include "VoxelContainer.hpp"
 #include "MaterialPack.hpp"
 
+namespace worldSize {
+    inline int64_t world_sx;
+    inline int64_t world_sy;
+}
+
 class ChunkIndexer : public VoxelContainer {
 public:
     ChunkIndexer() {
@@ -21,8 +26,8 @@ public:
     }
 
     void update() {
-        world_sx = Chunk::sizeX * chunks_x;
-        world_sy = Chunk::sizeY * chunks_y;
+        worldSize::world_sx = Chunk::sizeX * chunks_x;
+        worldSize::world_sy = Chunk::sizeY * chunks_y;
 
         world_snegx = Chunk::sizeX * chunks_negx;
         world_snegy = Chunk::sizeY * chunks_negy;
@@ -60,8 +65,8 @@ public:
     void boundVector(sf::Vector2i &v) {
         if(v.y < 0) v.y = 0;
         if(v.x < -chunks_negx) v.x = 0;
-        if(v.y > world_sy - 1) v.y = world_sy - 1;
-        if(v.x > world_sx - 1) v.x = world_sx - 1;
+        if(v.y > worldSize::world_sy - 1) v.y = worldSize::world_sy - 1;
+        if(v.x > worldSize::world_sx - 1) v.x = worldSize::world_sx - 1;
     }
 
     const sf::Vector2i getBoundedVector(const sf::Vector2i &p) {
@@ -69,8 +74,8 @@ public:
 
         if(v.y < 0) v.y = 0;
         if(v.x < -chunks_negx) v.x = 0;
-        if(v.y > world_sy - 1) v.y = world_sy - 1;
-        if(v.x > world_sx - 1) v.x = world_sx - 1;
+        if(v.y > worldSize::world_sy - 1) v.y = worldSize::world_sy - 1;
+        if(v.x > worldSize::world_sx - 1) v.x = worldSize::world_sx - 1;
 
         return v;
     }
@@ -258,10 +263,6 @@ public:
 
         setImagePixelAt(positon.x, positon.y,currPixel);
     }
-
-
-    int64_t world_sx;
-    int64_t world_sy;
 
     int64_t world_snegx;
     int64_t world_snegy;

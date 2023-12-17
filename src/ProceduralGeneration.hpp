@@ -14,13 +14,18 @@
 
 #include "WorldJsonReader.hpp"
 
+#include "Desert.hpp"
+#include "Forest.hpp"
+
 
 class ProcGenerate {
 public:
     bool generate(ChunkIndexer& grid, int64_t world_sx, int64_t world_sy) {
 
         init(time(0));
-        generateHeightMap(world_sx, world_sy);
+        initBiomes();
+
+        generateHeightMap(grid, world_sx, world_sy);
         generateWater(grid, 1100, world_sx, world_sy);
         build(grid, world_sx, world_sy);
 
@@ -31,22 +36,27 @@ public:
         return heightMap1D.at(index);
     }
 
+    Biome &getBiomeAtPosition(int x, ChunkIndexer& grid) {
+        return *biomes.at(std::clamp(grid.getChunkFromPos(x, 0).x, 0, (int)biomes.size() - 1));
+    }
 
 private:
 
     void build(ChunkIndexer& grid, const int world_sx, const int world_sy) {
         int ind = 0;
+        int biome_edge = 0;
+
+        std::shared_ptr<Biome>& biome = biomes.at(math::randIntInRange(0, biomes.size() - 1));
+
         for(auto h : heightMap1D) {
+            
+            biome = biomes.at(
+                std::clamp(grid.getChunkFromPos(ind, 0).x, 0, (int)biomes.size() - 1)
+            );
+
             for(int i = world_sy - 1; i >= 2048 - h; i--) {
-                int offset = math::randIntInRange(0, 100) + 100;
-
-                int colorLayer = std::clamp
-                    (
-                    (int)((i + h + offset) / (world_sy / 6)) - 1, 0, (int)colorLayers.size() - 1
-                    );
-
-
-                sf::Color col = colorLayers.at(colorLayer).at(math::randIntInRange(0, colorLayers.size() - 1));
+    
+                sf::Color col = biome->getColorAt(i, h, world_sy);
 
                 grid.getChunkAt(ind/Chunk::sizeX, i/Chunk::sizeY).image.setPixel(ind%Chunk::sizeX, i%Chunk::sizeY, col);
 
@@ -67,10 +77,35 @@ private:
         fsl.SetSeed(seed); // Set a random seed (change this to get different noise patterns)
     }
 
-    void generateHeightMap(const int world_sx, const int world_sy) {
+    void initBiomes() {
+
+        for(int i = 0; i < worldSize::world_sx; i++) {
+            std::shared_ptr<Biome> biome = nullptr;
+
+            int biomeType = (int)(fsl.GetNoise((float)i * 1.0f, 0.f) * 100.f);
+
+            if(biomeType < 0) {
+                biome = std::make_shared<Desert>();
+            } else {
+                biome = std::make_shared<Forest>();
+            }
+
+            if(biome != nullptr)
+                biomes.push_back(biome);
+        }
+    }
+
+    void generateHeightMap(ChunkIndexer& grid, const int world_sx, const int world_sy) {
         // Generate Simplex noise values
+        std::shared_ptr<Biome>& biome = biomes.at(math::randIntInRange(0, biomes.size() - 1));
+
         for (int x = 0; x <= world_sx - 1; x++) {
-            float y = (fsl.GetNoise((float)x / 10.0f, 0.f) * 300.0) + 1000.0; // Get 1D Simplex noise value for x
+
+            biome = biomes.at(
+                std::clamp(grid.getChunkFromPos(x, 0).x, 0, (int)biomes.size() - 1)
+            );
+
+            float y = biome->getNoise(fsl, (float)x); // Get 1D Simplex noise value for x
             heightMap1D.push_back(y);
         }
     }
@@ -89,55 +124,9 @@ private:
     std::vector<float> heightMap1D;
     bool generationDone;
 
+    std::vector<std::shared_ptr<Biome>> biomes; 
+    
+
 private:
-    std::array<std::array<sf::Color, 6>, 6> colorLayers {
-        std::array<sf::Color, 6> {
-            sf::Color(69, 169, 65),
-            sf::Color(69, 169, 69),
-            sf::Color(61, 160, 65),            
-            sf::Color(68, 168, 69),            
-            sf::Color(59, 169, 70),
-            sf::Color(65, 149, 70)
-        },
-        
-        std::array<sf::Color, 6> {
-            elm::Carbon,
-            elm::Carbon,
-            elm::Lead,
-            sf::Color(96,96,96), 
-            sf::Color(96,96,96)
-        },
-
-        std::array<sf::Color, 6> {
-            elm::Carbon,
-            elm::Carbon,
-            elm::Lead,
-            sf::Color(96,96,96), 
-            sf::Color(96,96,96)
-        },
-
-        std::array<sf::Color, 6> {
-            elm::Carbon,
-            elm::Carbon,
-            elm::Lead,
-            elm::Titanium,
-            elm::Aluminium
-        },
-
-        std::array<sf::Color, 6> {
-            elm::Lead,
-            elm::Carbon,
-            elm::Lead,
-            elm::Titanium,
-            elm::Aluminium
-        },
-
-        std::array<sf::Color, 6> {
-            elm::Carbon,
-            elm::Carbon,
-            elm::Lead,
-            elm::Titanium,
-            elm::Aluminium
-        }
-    };
+    
 };

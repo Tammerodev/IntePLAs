@@ -345,7 +345,7 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
     if(xexcept < 0) xexcept = 0;
 
     for (int y = yexcept;y < p.y + intensity;y++) {
-        if(y > chIndexer.world_sy) break;
+        if(y > worldSize::world_sy) break;
 
         for (int x = xexcept;x < p.x + intensity;x++) {
 
@@ -432,7 +432,7 @@ void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity)
     if(xexcept < 0) xexcept = 0;
 
     for (int y = yexcept;y < p.y + intensity;y++) {
-        if(y > chIndexer.world_sy) break;
+        if(y > worldSize::world_sy) break;
 
         for (int x = xexcept;x < p.x + intensity;x++) {
 
@@ -461,7 +461,7 @@ void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity)
 
 bool VoxelManager::generate()
 {
-    procGen.generate(chIndexer, chIndexer.world_sx, chIndexer.world_sy);
+    procGen.generate(chIndexer, worldSize::world_sx, worldSize::world_sy);
     
     ChunkBounds bounds(0,0, chunks_x, chunks_y);
 
@@ -473,9 +473,15 @@ bool VoxelManager::generateVegetation()
     sf::Clock timer;
 
     sf::Image image;
-    image.loadFromFile("res/img/Proc.png");
 
-    for(int i = 0; i < chIndexer.world_sx - 1; i++) {
+    for(int i = 0; i < worldSize::world_sx - 1; i++) {
+        VegetationInfo vegetationInfo;
+        Biome &biome = procGen.getBiomeAtPosition(i, chIndexer);
+        vegetationInfo = biome.getVegetationInfo();
+
+        if(vegetationInfo.filepath == "") continue;
+        if(!image.loadFromFile(vegetationInfo.filepath)) continue;
+
         const float h = procGen.getHeightOnMap(i);
 
         sf::IntRect sourceRect = sf::IntRect(16 * math::randIntInRange(0, 7), 0, 16, 16);
@@ -489,7 +495,7 @@ bool VoxelManager::generateVegetation()
             }
         }
 
-        if(math::randIntInRange(0, 20) < 5) {
+        if(math::randIntInRange(0, 20) < vegetationInfo.amount) {
             // Build with no collisionss
             build_image(sf::Vector2i(i, (2048 - h) - sourceRect.height + 6), selectedImage, nullptr, sf::Vector2f(0.f, 0.f), false);
         }
@@ -517,21 +523,17 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
     }
 
     for (int y = p.y;  y < p.y + cimg.getSize().y;  y++) {
-        if(y >= chIndexer.world_sy) break;
+        if(y >= worldSize::world_sy) break;
         if(y < 0) break;
 
         for (int x = p.x;  x < p.x + cimg.getSize().x;  x++) {
-            if(x >= chIndexer.world_sx) break;
+            if(x >= worldSize::world_sx) break;
             if(x < 0) break;
 
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
                 chIndexer.setImagePixelAt(x,y,cimg.getPixel(x - p.x, y - p.y));
                 chIndexer.getVoxelAt(x, y) = getHandleVoxel(chIndexer.getImagePixelAt(x,y), sf::Vector2i(x,y), true);
                 chIndexer.getVoxelAt(x, y).hasCollision = hasCollisions;
-
-                if(chIndexer.getVoxelAt(x, y).hasCollision == false) {
-                    prndd("DADDADD");
-                }
 
             }
         }

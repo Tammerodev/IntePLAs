@@ -59,8 +59,8 @@ public:
     int load(std::string);
 
     void initVoxelMap() {
-        for (int y = 0;y < chIndexer.world_sy;y++) {
-            for (int x = 0;x < chIndexer.world_sx;x++) {
+        for (int y = 0;y < worldSize::world_sy;y++) {
+            for (int x = 0;x < worldSize::world_sx;x++) {
                 const sf::Color px = chIndexer.getImagePixelAt(x,y);
                 chIndexer.getVoxelAt(x,y) = getHandleVoxel(px, sf::Vector2i(x,y), true);
             }
