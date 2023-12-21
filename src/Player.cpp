@@ -7,6 +7,7 @@ PlayerState* PlayerState::creativeState = new CreativeState();
 PlayerState* PlayerState::dead = new DeadState();
 PlayerState* PlayerState::damageState = new DamageState();
 PlayerState* PlayerState::respawnState = new RespawnState();
+PlayerState* PlayerState::swimState = new SwimState();
 
 PlayerState* PlayerState::currentState = PlayerState::idleState;
 

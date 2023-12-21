@@ -16,6 +16,7 @@
 #include "RespawnState.hpp"
 #include "PlayerGlobal.hpp"
 #include "PlayerGlobal.hpp"
+#include "SwimState.hpp"
 
 class Player {
 public:

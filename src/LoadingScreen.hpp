@@ -10,6 +10,8 @@ namespace LoadingScreen {
     inline static sf::Sprite loading_sprite;
 
     inline int animation_phase = 0;
+    inline int animation_timer = 0;
+    inline int animation_time = 3;
 
     inline static void loadText(const sf::Vector2f windowSize) {
         sf::Vector2f text_position(windowSize);
@@ -34,11 +36,21 @@ namespace LoadingScreen {
     }
 
     inline static void updateSprites(const sf::Vector2f windowSize) {
+        
+        animation_timer++;
 
-        animation_phase++;
+        if(animation_timer > animation_time) {
+            animation_timer = 0;
+            animation_phase++;
+        }
 
-        if(animation_phase > 35) {
+        loading_sprite.setScale(1.0f + animation_timer / animation_time, 1.0f + animation_timer / animation_time);
+
+        if(animation_phase > 13) {
             animation_phase = 0;
+        }
+        if(animation_phase == 6) {
+            loading_sprite.setColor(sf::Color(rand() % 255, rand() % 255, rand() % 255));
         }
 
         sf::IntRect spriteArea = sf::IntRect(animation_phase * 32, 0, 32, 32);

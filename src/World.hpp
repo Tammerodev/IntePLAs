@@ -56,10 +56,22 @@ public:
     }
 
     void handleCollisionsWithPlayer(Player& player) {
-        bool res = CollisionManager::handleCollisionsWith(player.getPhysicsComponent(), main_world, PlayerGlobal::characterHitBoxSize);
+        CollisionManager::CollisionState res = CollisionManager::handleCollisionsWith(player.getPhysicsComponent(), main_world, PlayerGlobal::characterHitBoxSize);
 
-        if(res) {
+        if(res.hasCollision) {
             player.ground();
+        }
+
+        if(res.isLiquidContact) {
+            if(PlayerState::currentState != PlayerState::jumpState) {
+                PlayerState::currentState = PlayerState::swimState;
+                PlayerState::currentState->enter();
+            }
+        } else {
+            if(PlayerState::currentState == PlayerState::swimState) {
+                PlayerState::currentState = PlayerState::idleState;
+                PlayerState::currentState->enter();
+            }
         }
     }
 

@@ -54,7 +54,7 @@ public:
 
     }
 
-    std::pair<bool, sf::Vector2f> getPixelCollision(const sf::Vector2f& pos);
+    std::pair<int, sf::Vector2f> getPixelCollision(const sf::Vector2f& pos);
 
     int load(std::string);
 

@@ -51,13 +51,19 @@ void Frog::load() {
 
 void Frog::collisionCheck(VoxelManager &voxelManager) {
 
-    bool res = CollisionManager::handleCollisionsWith(physicsComponent, voxelManager, sf::Vector2i(-16, -16));
+    CollisionManager::CollisionState res = CollisionManager::handleCollisionsWith(physicsComponent, voxelManager, sf::Vector2u(16, 16));
 
-    if(res) {
+    if(res.hasCollision) {
         physicsComponent.velocity.y = 0;
     }
 
-    grounded = res;
+    if(res.isLiquidContact) {
+        // TODO : SWIM
+    } else {
+        // TODO : DONT SWIM
+    }
+
+    grounded = res.hasCollision;
 }
 
 void Frog::render(sf::RenderTarget &target) {

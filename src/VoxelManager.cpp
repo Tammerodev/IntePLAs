@@ -1,24 +1,23 @@
 #include "VoxelManager.hpp"
 
-std::pair<bool, sf::Vector2f> VoxelManager::getPixelCollision(const sf::Vector2f& pos) {
-    std::pair<bool, sf::Vector2f> ret = {false, {0.f, 0.f}};
+// liquid is 5
+
+std::pair<int, sf::Vector2f> VoxelManager::getPixelCollision(const sf::Vector2f& pos) {
+    std::pair<int, sf::Vector2f> ret = {false, {0.f, 0.f}};
     sf::Vector2i pixelPosition = sf::Vector2i(pos);
 
     chIndexer.boundVector(pixelPosition);
 
-    bool result = false;
+    int result = 1;
     const sf::Color pixel = chIndexer.getImagePixelAt(pixelPosition.x, pixelPosition.y);
 
     result = pixel.a != 0;
 
-    if(pixel == elm::Snow) {
-        result = false;
-    }
+    if(pixel == elm::Snow)
+        result = 0;
 
-    if(chIndexer.getVoxelAt(pixelPosition.x, pixelPosition.y).hasCollision == false) {
-        prndd("CollisionFALSE");
-    }
-
+    if(pixel == elm::Water)
+        result = 5;
 
     ret.second = pos - sf::Vector2f(pixelPosition);
 
