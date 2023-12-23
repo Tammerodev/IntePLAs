@@ -7,7 +7,10 @@ class FrogIdleState : public FrogState {
 
         }
 
-        void update(PhysicsComponent&, float, bool) {
+        void update(PhysicsComponent& comp, float, bool) {
+
+            comp.transform_position += comp.velocity;
+
             timer++;
 
             if(timer > 10) {
@@ -35,4 +38,13 @@ class FrogIdleState : public FrogState {
         sf::IntRect textureRect;
         int phase = 0;
         int timer = 0;
+
+
+    protected:
+        const float speed = 1.f;
+        const float water_slowdown_x = 2.5f;
+        const float water_slowdown_y = 15.f;
+
+        sf::Clock timer;
+        sf::Clock swimCoolDown;
 };

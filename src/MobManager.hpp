@@ -1,5 +1,6 @@
 #pragma once
 #include "Frog.hpp"
+#include "Fish.hpp"
 #include <list>
 
 class MobManager {
@@ -27,7 +28,7 @@ class MobManager {
             return mobs.size();
         }
 
-        void update(const float dt);
+        void update(const float dt, Player& player); 
 
         void render(sf::RenderTarget &target) {
             for(const auto mob : mobs) {

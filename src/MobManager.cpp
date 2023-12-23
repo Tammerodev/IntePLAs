@@ -1,6 +1,6 @@
 #include "MobManager.hpp"
 
-void MobManager::update(const float dt) {
+void MobManager::update(const float dt, Player& player) {
     auto &particles = mobs;
 
     for (auto it = mobs.begin(); it != mobs.end();) {
@@ -14,6 +14,14 @@ void MobManager::update(const float dt) {
             ++it;
         }
     }   
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
+        auto fish = std::make_shared<Fish>();
+        fish->getPhysicsComponent().transform_position = player.getPhysicsComponent().transform_position;
+        fish->load();
+
+        mobs.push_back(fish);
+    }
 }
 
 void MobManager::invokeMobs(Player &player) {

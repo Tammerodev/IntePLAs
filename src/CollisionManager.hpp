@@ -89,7 +89,7 @@ class CollisionManager {
                 // ごわみずです！
                 
             if(groundCollision.first == 5) {
-                //result.isLiquidContact = true;
+                result.isLiquidContact = true;
                 groundCollision.first = 0;
             }
 
@@ -100,7 +100,7 @@ class CollisionManager {
                 auto temp_groundCollision = main_world.getPixelCollision(temp_ground);
 
                 if(temp_groundCollision.first == 5) {
-                    //result.isLiquidContact = true;
+                    result.isLiquidContact = true;
                     temp_groundCollision.first = 0;
                 } else if(temp_groundCollision.first != 0) {
                     temp_groundCollision.first = 1;
@@ -113,6 +113,8 @@ class CollisionManager {
                     break;
             }
 
+            //if(result.isLiquidContact) return result;
+
             const std::pair<int, sf::Vector2f> headCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
                                                                 player_physicscomp.transform_position.y)); 
 
@@ -124,12 +126,13 @@ class CollisionManager {
 
             const bool sideCollision = rightCollision.first || leftCollision.first;
 
-            if(sideCollision) {
+            if(sideCollision && result.isLiquidContact == false) {
                 player_physicscomp.transform_position.x -= player_physicscomp.velocity.x;
             }
 
             if(groundCollision.first == 1) {
                 player_physicscomp.transform_position.y = ground.y - PlayerGlobal::characterHitBoxSize.y;
+                player_physicscomp.velocity.y = 0.f;
 
                 result.hasCollision = true;
             }

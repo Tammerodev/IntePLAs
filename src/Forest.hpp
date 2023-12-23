@@ -19,7 +19,7 @@ public:
 
     Forest() {
         
-        frequency = 0.15f;
+        frequency = 15.0f;
         amplitude = 400.f;
 
         colorLayers = {

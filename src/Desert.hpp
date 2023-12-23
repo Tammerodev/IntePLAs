@@ -10,7 +10,7 @@ public:
 
     Desert() : Biome() {
 
-        frequency = 0.05f;
+        frequency = 10.0f;
         amplitude = 350.f;
 
         colorLayers = {

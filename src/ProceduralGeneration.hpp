@@ -16,6 +16,7 @@
 
 #include "Desert.hpp"
 #include "Forest.hpp"
+#include "Ocean.hpp"
 
 
 class ProcGenerate {
@@ -84,11 +85,16 @@ private:
 
             int biomeType = (int)(fsl.GetNoise((float)i * 1.0f, 0.f) * 100.f);
 
-            if(biomeType < 0) {
+            // Rather complex rules...
+            if(biomeType < 0 && biomeType > -10) {   // Wait... why not if(biomeType == 0)?
                 biome = std::make_shared<Desert>();
+            } else if(biomeType < -10) {
+                biome = std::make_shared<Ocean>();
             } else {
                 biome = std::make_shared<Forest>();
             }
+
+            prndd(biomeType);
 
             if(biome != nullptr)
                 biomes.push_back(biome);
@@ -99,13 +105,23 @@ private:
         // Generate Simplex noise values
         std::shared_ptr<Biome>& biome = biomes.at(math::randIntInRange(0, biomes.size() - 1));
 
+        
+        float amplitude = 300.f;
+        float freq = 5.0f;
+
         for (int x = 0; x <= world_sx - 1; x++) {
 
             biome = biomes.at(
                 std::clamp(grid.getChunkFromPos(x, 0).x, 0, (int)biomes.size() - 1)
             );
 
-            float y = biome->getNoise(fsl, (float)x); // Get 1D Simplex noise value for x
+            amplitude += ((biome->getAmplitude() - amplitude) / 100.0f);
+            //freq +=      ((biome->getFrequency() - freq) / 1000.0f);
+            // G A I J I N     E N T E R T A I N M E N T
+            // WAR THUNDER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+
+
+            float y = biome->getNoise(fsl, (float)x / 100.f, amplitude, freq); // Get 1D Simplex noise value for x
             heightMap1D.push_back(y);
         }
     }

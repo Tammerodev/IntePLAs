@@ -77,10 +77,10 @@ void Game::update() {
 
     uiStateManager.update(Controls::windowCursorPos);
     shaderEffect.update();
-    mobManager.update(dt);
+    mobManager.update(dt, player);
     mobManager.checkCollisions(world.main_world);
-
-    if(PlayerGlobal::health <= 0) return;
+    
+    if(PlayerGlobal::health <= 0) return;                 
 
     // Handle explosion player damage
     for(const auto point : world.main_world.explosion_points) {
