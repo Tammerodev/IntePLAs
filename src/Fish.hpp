@@ -39,7 +39,7 @@ class Fish : public Mob {
         int scaredTimer = 0;
         const int scaredTime = 500;
 
-        const float speed_division = 0.1;
+        const float speed_division = 0.5;
 
         bool do_remove = false;
 

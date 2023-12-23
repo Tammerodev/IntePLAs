@@ -32,8 +32,8 @@ class Biome {
             return vegetationInfo;
         }
 
-        float getNoise(FastNoiseLite &fsl, const float x, float amp, float freq) {
-            return (fsl.GetNoise(x * freq, 0.f) * amp) + 1000.0;
+        float getNoise(FastNoiseLite &fsl, const float x, float amp, float freq, float elev) {
+            return (fsl.GetNoise(x * freq, 0.f) * amp) + elev;
         }
 
         float getAmplitude() {
@@ -42,6 +42,10 @@ class Biome {
 
         float getFrequency() {
             return frequency;
+        }
+
+        float getElevation() {
+            return elevation;
         }
 
     protected:
@@ -99,4 +103,5 @@ class Biome {
 
         float amplitude = 300.f;
         float frequency = 0.1f;
+        float elevation = 1000.f;
 };

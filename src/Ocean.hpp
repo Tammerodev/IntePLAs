@@ -21,6 +21,7 @@ public:
         
         frequency = 0.1f;
         amplitude = 100.f;
+        elevation = 300.f;
 
         colorLayers = {
             std::array<sf::Color, 6> {

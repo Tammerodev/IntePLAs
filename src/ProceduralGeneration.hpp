@@ -108,6 +108,7 @@ private:
         
         float amplitude = 300.f;
         float freq = 5.0f;
+        float elevation = 1000.f;
 
         for (int x = 0; x <= world_sx - 1; x++) {
 
@@ -116,12 +117,14 @@ private:
             );
 
             amplitude += ((biome->getAmplitude() - amplitude) / 100.0f);
+            elevation += ((biome->getElevation() - elevation) / 100.0f);
+
             //freq +=      ((biome->getFrequency() - freq) / 1000.0f);
             // G A I J I N     E N T E R T A I N M E N T
             // WAR THUNDER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 
 
-            float y = biome->getNoise(fsl, (float)x / 100.f, amplitude, freq); // Get 1D Simplex noise value for x
+            float y = biome->getNoise(fsl, (float)x / 100.f, amplitude, freq, elevation); // Get 1D Simplex noise value for x
             heightMap1D.push_back(y);
         }
     }

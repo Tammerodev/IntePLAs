@@ -5,7 +5,7 @@ void Fish::load() {
     sprite.setTexture(texture);
 
     const int seed = time(0);
-    time_offset = rand() % 1000;
+    time_offset = rand() % 10000;
 
     fsl.SetNoiseType(FastNoiseLite::NoiseType::NoiseType_Perlin);
     fsl.SetFractalOctaves(13);
