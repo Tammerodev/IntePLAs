@@ -1,51 +1,30 @@
-Libraries : 
-SFML
-(MODIFIED) TGUI
+# INTRO
+
+Inteplas is a 2D "voxel" based destruction platformer.
 
 
+# Installing
+The install will vary on different operating systems. Only linux is supported
+for now.
+## LINUX - INSTALL
+1) Download the repo to your machine.
+2) Unzip / uncompress the folder.
+3) In the uncompressed folder, you should find a folder named "Scripts"
+4) Run install.sh in the terminal as sudo
+5) Go to the "output" folder, and execute the file named "Game".
 
-# This project consist of unsafe code!
-Everything is unsafe, you can get this to segfault whenever you want or dont. 
+## Troubleshooting : 
+### Errors regarding cpu architecture :
+    Compile the project on your machuine and try again.
 
-This may/will crash your computer, override GPU memory, or anything possible.
-
-This works on my computer. 
-
-PS. Dont use open source xorg gpu drivers, they have some weird problems with this one ;)
-
-
-
-# UI 
-Widgets with name "DEL_" should not be deleted.
-So dont use gui.deleteAllWidgets()
-
-
-
-
-# Block/Voxel action reference
-
--(R,G,B) -- "use" -- voxel code
+### Executing "Game" doesnt open a folder :
+    Run in the terminal to see error messages.
+    If it still doesnt run, you may have to set "Run files as executables" flag to true.
 
 
-74,74,74 Carbon       2
-119,120,115 Lithium   3
-186,186,166 Magnesium 4
-119,142,125 Sodium    5
-209,213,216 Aluminium 6
-117,121,139 Silicon   7
-186,140,106 Copper    8
-142,129,149 Titanium  9
-104,102,107 Lead      10
+# Libraries : 
+SFML https://www.sfml-dev.org/
 
-# Use
-To change map size, edit json/worldconfig.json
+JSONCPP https://github.com/open-source-parsers/jsoncpp
 
-# Notes :
-Ideal delta time for 75hz should be 1.0
-
-# Networking : 
-    Serializing image with sf::Packet :
-        (texture size x, y)
-        (chunk position x, y)
-        (time)
-        (image RGBA data)
+TGUI https://tgui.eu/
