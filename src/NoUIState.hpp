@@ -45,7 +45,7 @@ public:
             exit(*gui, *inv, *vx);
         }
 
-        const char* voxelName = elm::getNameByType(vx->getChunkIndexer().boundGetVoxelAt(Controls::worldCursorPos.x, Controls::worldCursorPos.y).value);
+        const std::string voxelName = elm::getNameByType(vx->getChunkIndexer().boundGetVoxelAt(Controls::worldCursorPos.x, Controls::worldCursorPos.y).value);
 
         voxelLabel->setVisible(voxelName != "");
         voxelLabel->setText(voxelName);

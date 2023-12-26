@@ -10,14 +10,16 @@
 
 class Gun : public Item {
 public:
-	Gun(VoxelManager &vx_manager,const std::string&bullet_tx_path, const std::string&gun_tx_path, uint64_t strenth, bool f, int t, bool spin = false) : temp(t), spn(spin) {
+	Gun(VoxelManager &vx_manager, const std::string&bullet_tx_path, const std::string&gun_tx_path, const uint64_t strenth, const bool f, const int t, const bool spin = false)  {
+		temp = t;
+		spn = spin;
+
 		bullet_tx.loadFromFile(bullet_tx_path);
 		gun_tx.loadFromFile(gun_tx_path);
 		gun_spr.setTexture(gun_tx);
 
 		explosion_stength = strenth;
 		gun_spr.setOrigin(gun_spr.getGlobalBounds().width / 2,gun_spr.getGlobalBounds().height / 2);
-
 	}
 
     void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse, World &world) {
@@ -103,7 +105,7 @@ public:
     }
 private:
 	bool spn = false;
-	float rotationAngle;
+	float rotationAngle = 0.f;
 	std::list<std::unique_ptr<ExplosiveBullet>> bullets;
 
 	sf::Sprite gun_spr;

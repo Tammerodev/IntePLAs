@@ -89,8 +89,8 @@ public:
     void destroyPart(T& main_world) {
         if(getDestroyed()) return;
         
-        for (int y = 0; y < world_sy;y++) {
-            for (int x = 0; x < world_sx;x++) {
+        for (uint64_t y = 0; y < world_sy;y++) {
+            for (uint64_t x = 0; x < world_sx;x++) {
                 if(getVoxelAt(x,y).value == elm::ValLithium) {
                     main_world.holeRayCast(
                         sf::Vector2i(physicsComponent.transform_position + sf::Vector2f(x,y)), elm::lithiumExplosion, true, 100);

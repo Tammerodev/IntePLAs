@@ -188,16 +188,16 @@ public:
         const sf::Vector2i pos3(pos.x, pos.y + 1);
         const sf::Vector2i pos4(pos.x, pos.y - 1);
 
-        if(chIndexer.getVoxelAt(pos1.x, pos1.y).value = voxelValue) 
+        if(chIndexer.getVoxelAt(pos1.x, pos1.y).value == voxelValue) 
             return pos1;
 
-        if(chIndexer.getVoxelAt(pos2.x, pos2.y).value = voxelValue) 
+        if(chIndexer.getVoxelAt(pos2.x, pos2.y).value == voxelValue) 
             return pos2;
 
-        if(chIndexer.getVoxelAt(pos3.x, pos3.y).value = voxelValue) 
+        if(chIndexer.getVoxelAt(pos3.x, pos3.y).value == voxelValue) 
             return pos3;
 
-        if(chIndexer.getVoxelAt(pos4.x, pos4.y).value = voxelValue) 
+        if(chIndexer.getVoxelAt(pos4.x, pos4.y).value == voxelValue) 
             return pos4;
 
         return sf::Vector2i(0, 0);

@@ -137,7 +137,7 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
             if(chIndexer.getChunkAt(x, y).modified) {
                 chIndexer.getChunkAt(x, y).update();
    
-                if(Session::session = Session::Join)
+                if(Session::session == Session::Join)
                     voxelSpy.alertOfChunkModification(sf::Vector2i(x, y), chIndexer);
             }
 
@@ -332,21 +332,21 @@ void VoxelManager::update(Player &player)
 void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, const int64_t heat)
 {
     if(force) {
-        explosionEffect(sf::Vector2f(p), intensity);
+        explosionEffect(sf::Vector2f(p), (int)intensity);
     }
 
     chIndexer.boundVector(p);
 
-    int yexcept = p.y - intensity;
-    int xexcept = p.x - intensity;
+    int yexcept = p.y - (int)intensity;
+    int xexcept = p.x - (int)intensity;
 
     if(yexcept < 0) yexcept = 0;
     if(xexcept < 0) xexcept = 0;
 
-    for (int y = yexcept;y < p.y + intensity;y++) {
+    for (int y = yexcept;y < p.y + (int)intensity;y++) {
         if(y > worldSize::world_sy) break;
 
-        for (int x = xexcept;x < p.x + intensity;x++) {
+        for (int x = xexcept;x < p.x + (int)intensity;x++) {
 
             sf::Vector2i v = sf::Vector2i(x, y);
                 chIndexer.boundVector(v);
@@ -391,22 +391,22 @@ void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool fo
     info.voxelsInNeedOfUpdate = &voxelsInNeedOfUpdate;
     info.intensity = intensity;
 
-    for(;endX < p.x + intensity; endX++) {
+    for(;endX < p.x + (int)intensity; endX++) {
         info.end = sf::Vector2i(endX, endY);
         Raycast::castRayLine(info, force);
     }
 
-    for(;endY < p.y + intensity; endY++) {
+    for(;endY < p.y + (int)intensity; endY++) {
         info.end = sf::Vector2i(endX, endY);
         Raycast::castRayLine(info, force);
     }
 
-    for(;endX > p.x - intensity; endX--) {
+    for(;endX > p.x - (int)intensity; endX--) {
         info.end = sf::Vector2i(endX, endY);
         Raycast::castRayLine(info, force);
     }
 
-    for(;endY > p.y - intensity; endY--) {
+    for(;endY > p.y - (int)intensity; endY--) {
         info.end = sf::Vector2i(endX, endY);
         Raycast::castRayLine(info, force);  
     }
@@ -430,10 +430,10 @@ void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity)
     if(yexcept < 0) yexcept = 0;
     if(xexcept < 0) xexcept = 0;
 
-    for (int y = yexcept;y < p.y + intensity;y++) {
+    for (int y = yexcept;y < p.y + (int)intensity;y++) {
         if(y > worldSize::world_sy) break;
 
-        for (int x = xexcept;x < p.x + intensity;x++) {
+        for (int x = xexcept;x < p.x + (int)intensity;x++) {
 
             sf::Vector2i v = sf::Vector2i(x, y);
                 chIndexer.boundVector(v);
@@ -521,11 +521,11 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
         return;
     }
 
-    for (int y = p.y;  y < p.y + cimg.getSize().y;  y++) {
+    for (int y = p.y;  y < p.y + (int)cimg.getSize().y;  y++) {
         if(y >= worldSize::world_sy) break;
         if(y < 0) break;
 
-        for (int x = p.x;  x < p.x + cimg.getSize().x;  x++) {
+        for (int x = p.x;  x < p.x + (int)cimg.getSize().x;  x++) {
             if(x >= worldSize::world_sx) break;
             if(x < 0) break;
 

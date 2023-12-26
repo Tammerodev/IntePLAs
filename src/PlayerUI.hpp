@@ -64,7 +64,7 @@ public:
         if(currentItemIndex < 0)
             currentItemIndex = inventory.size() - 1;
 
-        if(currentItemIndex >= inventory.size())
+        if(currentItemIndex >= (int16_t)inventory.size())
             currentItemIndex = 0;
 
     }

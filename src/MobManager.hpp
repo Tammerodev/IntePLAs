@@ -8,7 +8,7 @@ class MobManager {
         void load() {
             mobs.push_back(std::make_shared<Frog>());
 
-            for(const auto mob : mobs) {
+            for(const auto &mob : mobs) {
                 mob->load();
             }
         }
@@ -19,7 +19,7 @@ class MobManager {
         }
 
         void checkCollisions(VoxelManager& voxelManager) {
-            for(const auto mob : mobs) {
+            for(const auto &mob : mobs) {
                 mob->collisionCheck(voxelManager);
             }
         }
@@ -31,7 +31,7 @@ class MobManager {
         void update(const float dt, Player& player); 
 
         void render(sf::RenderTarget &target) {
-            for(const auto mob : mobs) {
+            for(const auto &mob : mobs) {
                 mob->render(target);
             }
         }

@@ -41,18 +41,18 @@ int VoxelGroup::load(const sf::Image &copy_img)
 
     tex.create(world_sx,world_sy);
 
-    for(int i=0; i<img.getSize().y; i++)
+    for(unsigned int i = 0; i < img.getSize().y; i++)
     {
         std::vector <Voxel> voxRow;
-        for(int j=0; j<img.getSize().x; j++)
+        for(unsigned int j = 0; j < img.getSize().x; j++)
         {
             voxRow.push_back(Voxel());
         }
         grid.push_back(voxRow);
     }
 
-    for (int y = 0;y < world_sy;y++) {
-        for (int x = 0;x < world_sx;x++) {
+    for (uint64_t y = 0; y < world_sy; y++) {
+        for (uint64_t x = 0; x < world_sx; x++) {
             const sf::Color px = img.getPixel(x,y);
             getVoxelAt(x,y) = getValueFromCol(px, sf::Vector2i(x,y));
         }
@@ -96,8 +96,8 @@ void VoxelGroup::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
 void VoxelGroup::resetUsedFlag()
 {
-    for (int y = 0;y < world_sy;y++) {
-        for (int x = 0;x < world_sx;x++) {
+    for (uint64_t y = 0; y < world_sy; y++) {
+        for (uint64_t x = 0;x < world_sx;x++) {
             getVoxelAt(x,y).used = false;
         }
     }
@@ -177,14 +177,16 @@ void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool f
     sf::Vector2i p = pos - sf::Vector2i(physicsComponent.transform_position);
     if(p.x <= 0) p.x = 0;
     if(p.y <= 0) p.y = 0;
-    if(p.x >= world_sx) p.x = world_sx;
-    if(p.y >= world_sy) p.y = world_sy;
+    if(p.x >= (int)world_sx) p.x = (int)world_sx;
+    if(p.y >= (int)world_sy) p.y = (int)world_sy;
 
 
-    for (int y = 0;y < world_sy;y++) {
-        for (int x = 0;x < world_sx;x++) {
+    for (uint64_t y = 0;y < world_sy;y++) {
+        for (uint64_t x = 0;x < world_sx;x++) {
+
             Voxel &voxel = getVoxelAt(x,y);
             const float distance = std::sqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
+
             if(distance < intensity) {
                 if(force) damageVoxelAt(x,y);
                 heatVoxelAt(x,y, (intensity - distance)*heat);
@@ -207,22 +209,22 @@ void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool f
     info.world_sy = world_sy;
 
 
-    for(;endX < pos.x + intensity; endX++) {
+    for(;endX < pos.x + (int)intensity; endX++) {
         info.end = sf::Vector2i(endX, endY);
         Raycast::castRayLine(info);
     }
 
-    for(;endY < pos.y + intensity; endY++) {
+    for(;endY < pos.y + (int)intensity; endY++) {
         info.end = sf::Vector2i(endX, endY);
         Raycast::castRayLine(info);
     }
 
-    for(;endX > pos.x - intensity; endX--) {
+    for(;endX > pos.x - (int)intensity; endX--) {
         info.end = sf::Vector2i(endX, endY);
         Raycast::castRayLine(info);
     }
 
-    for(;endY > pos.y - intensity; endY--) {
+    for(;endY > pos.y - (int)intensity; endY--) {
         info.end = sf::Vector2i(endX, endY);
         Raycast::castRayLine(info);  
     }

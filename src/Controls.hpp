@@ -169,11 +169,12 @@ namespace Controls {
             }
         }
         else if(currentController == ControllerType::Joystick) {
-            if(ev.type == sf::Event::JoystickButtonPressed)
+            if(ev.type == sf::Event::JoystickButtonPressed) {
                 if(ev.joystickButton.button == joystick_bind_inventory_switch_right)
                     return 1;
                 if(ev.joystickButton.button == joystick_bind_inventory_switch_left)
                     return -1;
+            }
         }
 
         return 0;

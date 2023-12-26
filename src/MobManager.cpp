@@ -25,7 +25,7 @@ void MobManager::update(const float dt, Player& player) {
 }
 
 void MobManager::invokeMobs(Player &player) {
-    for(const auto mob : mobs) {
+    for(const auto &mob : mobs) {
         const float distance = math::distance(player.getPhysicsComponent().transform_position, mob->getPhysicsComponent().transform_position);
         MobInvoke mobInvoke;
         mobInvoke.distanceToPlayer = distance;
