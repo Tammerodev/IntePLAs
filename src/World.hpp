@@ -18,12 +18,14 @@ public:
 
         if(path == "Create new world") {
             if(!main_world.generate()) res = false;
-            if(!main_world.generateVegetation()) res = false;
         }
 
         main_world.initVoxelMap();
 
         weatherManager.load();
+
+        if(path == "Create new world") 
+            if(!main_world.generateVegetation()) res = false;
         
         return res;
     }

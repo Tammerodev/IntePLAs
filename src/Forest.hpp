@@ -12,7 +12,7 @@ public:
     const VegetationInfo getVegetationInfo() {
         VegetationInfo vegetationInfo;
         vegetationInfo.filepath = "res/img/Procedural/forest.png";
-        vegetationInfo.amount = 5;
+        vegetationInfo.amount = 25;
 
         return vegetationInfo;
     }

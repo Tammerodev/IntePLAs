@@ -80,7 +80,7 @@ class PlaceItem : public Item {
 		if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
 			vx_man.build_image(sf::Vector2i(throwInterface.getThrowPosition()), copy_, &world.add_worlds, throwInterface.getThrowVelocity() / 50.f);
 		} else {
-			vx_man.build_image(sf::Vector2i(mospos), copy_, nullptr);
+			vx_man.build_image(sf::Vector2i(mospos), copy_, nullptr, sf::Vector2f(0.f, 0.f), true);
 		}
 	}
 private:

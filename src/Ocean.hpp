@@ -11,8 +11,9 @@ public:
 
     const VegetationInfo getVegetationInfo() {
         VegetationInfo vegetationInfo;
-        vegetationInfo.filepath = "res/img/Procedural/forest.png";
-        vegetationInfo.amount = 5;
+        vegetationInfo.filepath = "res/img/Procedural/ocean.png";
+        vegetationInfo.amount = 25;
+        vegetationInfo.offset_up = 2;
 
         return vegetationInfo;
     }

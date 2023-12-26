@@ -1,6 +1,7 @@
 #include "VoxelManager.hpp"
 
 // liquid is 5
+// "neutral" is 3
 
 std::pair<int, sf::Vector2f> VoxelManager::getPixelCollision(const sf::Vector2f& pos) {
     std::pair<int, sf::Vector2f> ret = {false, {0.f, 0.f}};
@@ -470,7 +471,6 @@ bool VoxelManager::generate()
 bool VoxelManager::generateVegetation()
 {
     sf::Clock timer;
-
     sf::Image image;
 
     for(int i = 0; i < worldSize::world_sx - 1; i++) {
@@ -483,7 +483,10 @@ bool VoxelManager::generateVegetation()
 
         const float h = procGen.getHeightOnMap(i);
 
-        sf::IntRect sourceRect = sf::IntRect(16 * math::randIntInRange(0, 7), 0, 16, 16);
+
+        sf::IntRect sourceRect = sf::IntRect(vegetationInfo.width_of_part * math::randIntInRange(0, vegetationInfo.parts_on_x), 0,
+                                            vegetationInfo.width_of_part,
+                                            vegetationInfo.height_of_part);
 
         sf::Image selectedImage;
         selectedImage.create(sourceRect.width, sourceRect.height);
@@ -494,9 +497,9 @@ bool VoxelManager::generateVegetation()
             }
         }
 
-        if(math::randIntInRange(0, 20) < vegetationInfo.amount) {
-            // Build with no collisionss
-            build_image(sf::Vector2i(i, (2048 - h) - sourceRect.height + 6), selectedImage, nullptr, sf::Vector2f(0.f, 0.f), false);
+        if(math::randIntInRange(0, 100) < vegetationInfo.amount) {
+            // Build with no collisions
+            build_image(sf::Vector2i(i, (2048 - h) - sourceRect.height + vegetationInfo.offset_up), selectedImage, nullptr, sf::Vector2f(0.f, 0.f), false);
         }
 
     }
