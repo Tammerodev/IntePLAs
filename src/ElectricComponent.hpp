@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics/Vertex.hpp>
 #include "ChunkIndexerVoxelContainer.hpp"
+#include "ElectricityGlobal.hpp"
+#include "common.hpp"
 
 class component_data {
     public:
@@ -16,5 +18,6 @@ class ElectricComponent : public sf::Vector2i {
 
         virtual bool clear() = 0;
         
-    private:
+    protected:
+        std::pair<sf::Vector2i, int>* connected_to = nullptr;
 };

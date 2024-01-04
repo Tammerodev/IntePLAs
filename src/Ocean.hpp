@@ -37,7 +37,7 @@ public:
             std::array<sf::Color, 6> {
                 elm::Carbon,
                 elm::Carbon,
-                elm::Lead,
+                elm::Carbon,
                 elm::Sand,
                 elm::Sand
             },
@@ -45,7 +45,7 @@ public:
             std::array<sf::Color, 6> {
                 elm::Carbon,
                 elm::Carbon,
-                elm::Lead,
+                elm::Carbon,
                 elm::Sand,
                 elm::Sand
             },
@@ -53,15 +53,7 @@ public:
             std::array<sf::Color, 6> {
                 elm::Carbon,
                 elm::Carbon,
-                elm::Lead,
-                elm::Titanium,
-                elm::Aluminium
-            },
-
-            std::array<sf::Color, 6> {
-                elm::Lead,
                 elm::Carbon,
-                elm::Lead,
                 elm::Titanium,
                 elm::Aluminium
             },
@@ -69,7 +61,15 @@ public:
             std::array<sf::Color, 6> {
                 elm::Carbon,
                 elm::Carbon,
-                elm::Lead,
+                elm::Carbon,
+                elm::Titanium,
+                elm::Aluminium
+            },
+
+            std::array<sf::Color, 6> {
+                elm::Carbon,
+                elm::Carbon,
+                elm::Carbon,
                 elm::Titanium,
                 elm::Aluminium
             }

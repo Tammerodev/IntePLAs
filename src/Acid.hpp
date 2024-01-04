@@ -1,5 +1,6 @@
 #pragma once
 #include "Fluid.hpp"
+#include "ElectricityGlobal.hpp"
 
 class Acid : public Element {
     public:
@@ -51,11 +52,6 @@ class Acid : public Element {
                     y = nextWaterPos.y;
                 }
             }
-
-            world.boundGetVoxelAt(x + 1, y).voltage = generated_voltage;
-            world.boundGetVoxelAt(x - 1, y).voltage = generated_voltage;
-            world.boundGetVoxelAt(x, y + 1).voltage = generated_voltage;
-            world.boundGetVoxelAt(x, y - 1).voltage = generated_voltage;
             
 
             if(corrosion > 0) {

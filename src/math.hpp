@@ -1,5 +1,6 @@
 #pragma once
 #include <random>
+#include <SFML/Graphics/Vertex.hpp>
 
 namespace math {
     static std::random_device rd;
@@ -43,6 +44,7 @@ namespace math {
 
         return (unsigned short) (root >> 1);
     }
+
     constexpr double PI = 3.1459;
 
     static double degreesToRadians(double degree)

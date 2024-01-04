@@ -1,13 +1,9 @@
 class Wire : public ElectricComponent {
 public:
     component_data update(ChunkIndexer& world) {
-        int voltageSum = world.boundGetVoxelAt(x, y).voltage;
-        voltageSum += world.boundGetVoxelAt(x + 1, y).voltage;
-        voltageSum += world.boundGetVoxelAt(x - 1, y).voltage;
-
-        voltage = voltageSum /= 2;
-
-        world.boundSetImagePixelAt(x, y, sf::Color(elm::Copper.r, elm::Copper.g, elm::Copper.b + voltage));
+        if(connected_to != nullptr) {
+            world.boundGetVoxelAt(x, y).voltage = connected_to->second;
+        }
 
         component_data data{};
         return data;

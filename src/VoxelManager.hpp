@@ -31,6 +31,7 @@
 #include "Burning.hpp"
 #include "Settings.hpp"
 #include "Sand.hpp"
+#include "Lead.hpp"
 #include "Raycast.hpp"
 
 #include "Uranium-235.hpp"
@@ -245,6 +246,8 @@ public:
         } else if(px == elm::Lead) {
             vox.value = 10;
             vox.strenght = 3;
+
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Lead>(p.x, p.y));
         } else if(px == elm::Water) {
             vox.value = elm::ValWater;
             vox.strenght = 2;
@@ -258,7 +261,6 @@ public:
         }else if(px == elm::Nitroglycerin) {
             vox.value = elm::ValNitroglycerin;
             vox.strenght = 2;
-
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Nitroglycerin>(p.x, p.y));
         } else if(px == elm::Chlorine) {
             // TODO make workd!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111
