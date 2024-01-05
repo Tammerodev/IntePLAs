@@ -9,6 +9,7 @@ namespace SFX {
     inline sf::SoundBuffer geigerCounter_buffer;
     inline sf::SoundBuffer rocket_buffer;
     inline sf::SoundBuffer pickaxe_swing_buffer;
+    inline sf::SoundBuffer collect_buffer;
 
 
     inline sf::Sound strong_explosion;
@@ -18,6 +19,7 @@ namespace SFX {
     inline sf::Sound geigerCounter;
     inline sf::Sound rocket;
     inline sf::Sound pickaxe_swing;
+    inline sf::Sound collect;
     
     inline int load() {
         int res = 1;
@@ -29,6 +31,7 @@ namespace SFX {
         if(!geigerCounter_buffer.loadFromFile("res/sound/geiger_counter.wav")) res = 0;
         if(!rocket_buffer.loadFromFile("res/sound/rocket.wav")) res = 0;
         if(!pickaxe_swing_buffer.loadFromFile("res/sound/pickaxe_swing.wav")) res = 0;
+        if(!collect_buffer.loadFromFile("res/sound/collect.wav")) res = 0;
         
 
         // Set buffers
@@ -39,6 +42,7 @@ namespace SFX {
         geigerCounter.setBuffer(geigerCounter_buffer);
         rocket.setBuffer(rocket_buffer);
         pickaxe_swing.setBuffer(pickaxe_swing_buffer);
+        collect.setBuffer(collect_buffer);
         
         return res;
     }

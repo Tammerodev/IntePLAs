@@ -7,4 +7,8 @@ class Nitroglycerin : public Fluid {
             color = elm::Nitroglycerin;
             value = elm::ValNitroglycerin;
         }
+
+        void fluidUpdate(ChunkIndexer& world) {
+
+        }
 };

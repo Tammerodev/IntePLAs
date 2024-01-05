@@ -7,4 +7,8 @@ class Water : public Fluid {
             color = elm::Water;
             value = elm::ValWater;
         }
+
+        void fluidUpdate(ChunkIndexer& world) {
+
+        }
 };

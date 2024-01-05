@@ -4,6 +4,7 @@
 #include "ChunkIndexerVoxelContainer.hpp"
 #include <list>
 #include "ParticleSimulation.hpp"
+#include "PickableDebris.hpp"
 
 namespace Raycast {
 
@@ -22,12 +23,12 @@ namespace Raycast {
         float longestRay = 0.f;
         sf::Vector2f longestRayVector = {0,0};
 
-        std::list<std::pair<sf::Vector2i, sf::Color>> particles;
+        ParticleSimulation* particle_simulation;
 
         uint64_t world_sx;
         uint64_t world_sy;
-        
-        MaterialPack* matPack = nullptr;
+
+        int propability_of_material = 0;
     };
 
     static void castRayLine(RaycastInfo &info, bool force = true) {
@@ -48,9 +49,17 @@ namespace Raycast {
                 if(info.world != nullptr) {
                     info.world->boundVector(pixelPosition);
 
-                    if(math::randIntInRange(0, 100) < 5) {
-                        info.particles.push_back(std::pair(pixelPosition,  info.world->getImagePixelAt(pixelPosition.x, pixelPosition.y))
-                        );
+                    if(math::randIntInRange(0, 100) < info.propability_of_material) {
+
+                        if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
+                            info.particle_simulation->addParticle(
+                                std::make_shared<PickableDebris>(
+                                    sf::Vector2f(pixelPosition), math::subVector(sf::Vector2f(pixelPosition), sf::Vector2f(info.start)) / 10.f,
+                                    info.world->getImagePixelAt(pixelPosition.x, pixelPosition.y),
+                                    info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value,
+                                    info.world
+                                    ));
+                        }
                     }
 
                     info.world->boundGetChunkAt(info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).x, info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).y).needs_update = true;

@@ -10,6 +10,8 @@ class Fluid : public Element {
             this->y = y;    
         }
 
+        virtual void fluidUpdate(ChunkIndexer& world) = 0;
+
         void update(ChunkIndexer& world) {
             
             if(world.boundGetVoxelAt(x, y).value == 0) {
@@ -61,17 +63,6 @@ class Fluid : public Element {
                 }
             }
             
-            if(corrosion != 0) {
-                sf::Vector2i bounded = *this;
-
-                if(world.boundGetVoxelAt(x, y + 1).value != elm::ValAcid)
-                    world.boundDamageVoxelAt(x, y + 1);
-
-                if(world.boundGetVoxelAt(x, y + 1).value == 0) {
-                    corrosion--;
-                }
-                
-            } 
 
             if(nextWaterPos != lastPos) {
                 sf::Vector2i boundPos = lastPos;
@@ -103,9 +94,6 @@ class Fluid : public Element {
         }
         
     protected:
-
-        int corrosion = 0;
-
         bool remove = false;
 
         short temp = 0;

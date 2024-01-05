@@ -2,6 +2,7 @@
 #include "Particle.hpp"
 #include "FreeNeutron.hpp"
 #include "DebrisParticle.hpp"
+#include "PlayerGlobal.hpp"
 
 #include <list>
 #include <memory>
@@ -12,10 +13,16 @@ class ParticleSimulation {
             particles.push_back(newParticle);
         }
 
-        void update(const float dt) {
+        void update(const float dt, sf::Vector2f playerPosition) {
+            playerPosition.x += PlayerGlobal::characterSize.x / 2;
+            playerPosition.y += PlayerGlobal::characterSize.y / 2;
+
             for (auto it = particles.begin(); it != particles.end();) {
                 auto& particle = *it;
-                particle->update(dt);
+
+                particle->update(dt, playerPosition);
+
+
                 if (particle->remove()) {
                     it = particles.erase(it);
                 } else {

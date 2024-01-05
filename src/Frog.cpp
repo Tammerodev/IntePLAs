@@ -51,7 +51,7 @@ void Frog::load() {
 
 void Frog::collisionCheck(VoxelManager &voxelManager) {
 
-    CollisionManager::CollisionState res = CollisionManager::handleCollisionsWith(physicsComponent, voxelManager, sf::Vector2u(16, 16));
+    CollisionManager::CollisionState res = CollisionManager::handleCollisionsWith(physicsComponent, voxelManager.getChunkIndexer(), sf::Vector2u(16, 16));
 
     if(res.hasCollision) {
         physicsComponent.velocity.y = 0;

@@ -30,7 +30,7 @@ class Debris : public Particle {
             energy = 2;
         }
 
-        void update(const float dt) {
+        void update(const float dt, const sf::Vector2f &pos) {
             timer++;
 
             rect.setPosition(physComponent.transform_position);

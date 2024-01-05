@@ -1,6 +1,7 @@
 #pragma once
 #include "PhysicsComponent.hpp"
-#include "VoxelManager.hpp"
+#include "ChunkIndexerVoxelContainer.hpp"
+#include "PlayerGlobal.hpp"
 
 class CollisionManager {
     public:
@@ -11,7 +12,7 @@ class CollisionManager {
         };
 
         // Returns true if collisions found
-        static CollisionState handleCollisionsWith(IntPhysicsComponent& player_physicscomp, VoxelManager& main_world, const sf::Vector2u &hitBox) {
+        static CollisionState handleCollisionsWith(IntPhysicsComponent& player_physicscomp, ChunkIndexer& main_world, const sf::Vector2u &hitBox) {
             CollisionState result;
             // ちゅき！ いいえ、これわ　悪いです！
 
@@ -78,7 +79,7 @@ class CollisionManager {
         }
 
         // Returns true if collisions found
-        static CollisionState handleCollisionsWith(PhysicsComponent& player_physicscomp, VoxelManager& main_world, const sf::Vector2u &hitBox) {
+        static CollisionState handleCollisionsWith(PhysicsComponent& player_physicscomp, ChunkIndexer& main_world, const sf::Vector2u &hitBox) {
             CollisionState result;
             // ちゅき！ いいえ、これわ　悪いです！
 

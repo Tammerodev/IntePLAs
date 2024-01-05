@@ -143,17 +143,32 @@ public:
         if(getVoxelAt(x,y).strenght <= 0) { 
             clearVoxelAt(x,y);
         }
-
-        if(getVoxelAt(x, y).value == elm::ValCarbon) materialpack.carbon += 1;
-        else if(getVoxelAt(x, y).value == elm::ValLithium) materialpack.lithium += 1;
-        else if(getVoxelAt(x, y).value == elm::ValMagnesium) materialpack.magnesium += 1;
-        else if(getVoxelAt(x, y).value == elm::ValSodium) materialpack.sodium += 1;
-        else if(getVoxelAt(x, y).value == elm::ValAluminium) materialpack.aluminium += 1;
-        else if(getVoxelAt(x, y).value == elm::ValSilicon) materialpack.silicon += 1;
-        else if(getVoxelAt(x, y).value == elm::ValCopper) materialpack.copper += 1;
-        else if(getVoxelAt(x, y).value == elm::ValTitanium) materialpack.titanium += 1;
-        else if(getVoxelAt(x, y).value == elm::ValLead) materialpack.lead += 1;
     }
+
+
+    std::pair<int, sf::Vector2f> getPixelCollision(const sf::Vector2f& pos) {
+        std::pair<int, sf::Vector2f> ret = {false, {0.f, 0.f}};
+        sf::Vector2i pixelPosition = sf::Vector2i(pos);
+
+        boundVector(pixelPosition);
+
+        int result = 1;
+        const sf::Color pixel = getImagePixelAt(pixelPosition.x, pixelPosition.y);
+
+        result = pixel.a != 0;
+
+        if(pixel == elm::Snow)
+            result = 0;
+
+        if(pixel == elm::Water)
+            result = 5;
+
+        ret.second = pos - sf::Vector2f(pixelPosition);
+
+        ret.first = result;
+        return ret;
+    }
+
 
     void setImagePixelAt(const int x, const int y, const sf::Color& color) {
         getChunkAt(getChunkFromPos(x, y).x, getChunkFromPos(x, y).y).modified = true;

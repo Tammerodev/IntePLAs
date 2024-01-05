@@ -25,12 +25,15 @@ namespace ElectricityGlobal {
         source_positions.insert({pos_c, voltage});
     }
 
-    static void check_sources(ChunkIndexer world) {
-        for(const auto &source : source_positions) {
-            // Check if power source generates power anymore
-            if(world.boundGetVoxelAt(source.first.x, source.first.y).value == 0) {
-                source_positions.erase(source.first);
+    static void check_sources(ChunkIndexer &world) {
+        for (auto it = source_positions.cbegin(), next_it = it; it != source_positions.cend(); it = next_it)
+        {
+            ++next_it;
+            if (world.boundGetVoxelAt(it->first.x, it->first.y).value == 0)
+            {
+                source_positions.erase(it);
             }
         }
+
     }
 }

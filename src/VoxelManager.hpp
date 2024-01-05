@@ -55,8 +55,6 @@ public:
 
     }
 
-    std::pair<int, sf::Vector2f> getPixelCollision(const sf::Vector2f& pos);
-
     int load(std::string);
 
     void initVoxelMap() {
@@ -134,8 +132,6 @@ public:
     bool generateVegetation();
 
     void save() {
-
-        prndd("AAAAAAAAA__AA_A_A");
         const std::string created_folder = "Save";
 
         if (!std::filesystem::create_directory(StorageSettings::save_path + created_folder)) {
@@ -234,12 +230,6 @@ public:
         } else if(px == elm::Copper) {
             vox.value = 8;
             vox.strenght = 10;
-        
-            std::shared_ptr<ElectricComponent> wire = std::make_shared<Wire>();
-            wire->x = p.x;
-            wire->y = p.y;
-
-            if(addVoxelsToArr) simulationManager.addElementToES(wire);
         } else if(px == elm::Titanium) {
             vox.value = 9;
             vox.strenght = 100;
@@ -336,7 +326,7 @@ public:
 
     void build_image(const sf::Vector2i&, const sf::Image&, std::list<VoxelGroup>*, const sf::Vector2f velocity = sf::Vector2f(0.f, 0.f), bool hasCollisions = true);
 
-    std::vector <ExplosionInfo> explosion_points;
+    std::vector<ExplosionInfo> explosion_points;
     std::vector<sf::Vector2i> updateChunks;
 
     const sf::FloatRect &getUpdateArea() {

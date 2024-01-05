@@ -3,30 +3,6 @@
 // liquid is 5
 // "neutral" is 3
 
-std::pair<int, sf::Vector2f> VoxelManager::getPixelCollision(const sf::Vector2f& pos) {
-    std::pair<int, sf::Vector2f> ret = {false, {0.f, 0.f}};
-    sf::Vector2i pixelPosition = sf::Vector2i(pos);
-
-    chIndexer.boundVector(pixelPosition);
-
-    int result = 1;
-    const sf::Color pixel = chIndexer.getImagePixelAt(pixelPosition.x, pixelPosition.y);
-
-    result = pixel.a != 0;
-
-    if(pixel == elm::Snow)
-        result = 0;
-
-    if(pixel == elm::Water)
-        result = 5;
-
-    ret.second = pos - sf::Vector2f(pixelPosition);
-
-    ret.first = result;
-    return ret;
-}
-
-
 int VoxelManager::load(std::string file)
 {
     bool res = true;
@@ -158,8 +134,10 @@ void VoxelManager::update(Player &player)
     chIndexer.update();
     simulationManager.updateAll(chIndexer);
 
-    particleSimulation.update(1.0f);
+    particleSimulation.update(1.0f, player.getPhysicsComponent().transform_position);
     auto &particles = particleSimulation.getParticlesList();
+
+    debug_globals::particle_count = particles.size();
 
     for (auto it = particles.begin(); it != particles.end();) {
         auto& p = *it;
@@ -391,6 +369,8 @@ void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool fo
     info.start = p;
     info.voxelsInNeedOfUpdate = &voxelsInNeedOfUpdate;
     info.intensity = intensity;
+    info.propability_of_material = 10;
+    info.particle_simulation = &particleSimulation;
 
     for(;endX < p.x + (int)intensity; endX++) {
         info.end = sf::Vector2i(endX, endY);
@@ -411,14 +391,6 @@ void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool fo
         info.end = sf::Vector2i(endX, endY);
         Raycast::castRayLine(info, force);  
     }
-
-
-    // Debris particles 
-    
-    for(const auto &particle : info.particles) {
-        launchDebrisParticle(particle.first, particle.second);
-    }
-
 }
 
 void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity)

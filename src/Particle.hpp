@@ -6,12 +6,12 @@
 class Particle : public sf::Vector2f {
     public:
         enum ParticleType {
-            Neutron, Debris
+            Neutron, Debris, PickableDebris
         };
 
         Particle() = default;
         
-        virtual void update(const float) = 0;
+        virtual void update(const float, const sf::Vector2f &pos) = 0;
         virtual void render(sf::RenderTarget&) = 0;
 
         virtual bool remove() = 0;

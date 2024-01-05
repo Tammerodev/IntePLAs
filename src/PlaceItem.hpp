@@ -57,7 +57,7 @@ class PlaceItem : public Item {
 
 		sf::Vector2i testPosition = sf::Vector2i(gun_spr.getPosition());
 		
-		allowedToplace = !vx_man.getPixelCollision(sf::Vector2f(testPosition)).first;
+		allowedToplace = !vx_man.getChunkIndexer().getPixelCollision(sf::Vector2f(testPosition)).first;
 		allowedToplace = true;
 		
 		if(allowedToplace)

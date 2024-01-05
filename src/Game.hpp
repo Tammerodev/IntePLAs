@@ -34,6 +34,8 @@
 #include "MobManager.hpp"
 #include "SimulationManager.hpp"
 
+#include "DebugDisplay.hpp"
+
 class Game {
     public:
         const std::string load(const std::string s, tgui::BackendGui& gui, const int width, const int height);
@@ -99,4 +101,6 @@ class Game {
         PlayerUI playerUI;
 
         MobManager mobManager;
+
+        DebugDisplay debugDisplay;
 };

@@ -66,7 +66,7 @@ public:
 
 
             const sf::Vector2f check_position = gun_spr.getTransform().transformPoint(16, 16);
-            const auto collision = world.main_world.getPixelCollision(check_position);
+            const auto collision = world.main_world.getChunkIndexer().getPixelCollision(check_position);
 
             if(collision.first) {
                 state = PickaxeState::Idle;

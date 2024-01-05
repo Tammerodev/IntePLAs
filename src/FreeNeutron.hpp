@@ -18,7 +18,7 @@ class FreeNeutron : public Particle {
             rect.setRotation(math::randIntInRange(0, 360));
         }
 
-        void update(const float dt) {
+        void update(const float dt, const sf::Vector2f &pos) {
             timer++;
 
             rect.setPosition(*this);

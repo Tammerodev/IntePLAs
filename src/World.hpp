@@ -39,7 +39,7 @@ public:
             bool collision = false;
 
             for(auto &testPoint : collisionTestPoints) {
-                if(main_world.getPixelCollision(sf::Vector2f(testPoint)).first) collision = true;
+                if(main_world.getChunkIndexer().getPixelCollision(sf::Vector2f(testPoint)).first) collision = true;
             }
             
             if(collision) {    
@@ -58,7 +58,7 @@ public:
     }
 
     void handleCollisionsWithPlayer(Player& player) {
-        CollisionManager::CollisionState res = CollisionManager::handleCollisionsWith(player.getPhysicsComponent(), main_world, PlayerGlobal::characterHitBoxSize);
+        CollisionManager::CollisionState res = CollisionManager::handleCollisionsWith(player.getPhysicsComponent(), main_world.getChunkIndexer(), PlayerGlobal::characterHitBoxSize);
 
         if(res.hasCollision) {
             player.ground();

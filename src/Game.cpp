@@ -13,7 +13,6 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     inv.load(world.main_world);
     matUI.load(gui);
     game_camera.zoom(0.99f);
-
     
 
     game_camera.setLeapSpeed(1.f);
@@ -58,6 +57,7 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
 
     playerUI.load(window_width, window_height);
     mobManager.load();
+    debugDisplay.load(gui);
 
     hasLoaded = true;
 
@@ -188,7 +188,8 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
     inv.renderUI(window);
 
     playerUI.render(window);
-                
+
+    debugDisplay.render(window);            
     gui.draw();
 
     game_camera.setViewTo(renderTexture);
