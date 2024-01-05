@@ -42,7 +42,11 @@ public:
         if(vx == nullptr)  return;
 
         if(Controls::openItemCreator()) {
-            exit(*gui, *inv, *vx);
+            exit_to_itemcreator(*gui, *inv, *vx);
+        }
+
+        if(Controls::pause(e)) {
+            exit_to_pause(*gui, *inv, *vx);
         }
 
         const std::string voxelName = elm::getNameByType(vx->getChunkIndexer().boundGetVoxelAt(Controls::worldCursorPos.x, Controls::worldCursorPos.y).value);
@@ -67,10 +71,19 @@ private:
 
     tgui::Label::Ptr voxelLabel = nullptr; 
 
-    void exit(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
+    void exit_to_itemcreator(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
         removeWidgets(gui);
 
         UIState::currentState = UIState::itemcreator;
+        UIState::currentState->load(gui, inv, vx);
+    }
+
+    void exit_to_pause(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
+        removeWidgets(gui);
+
+        prndd("HEELLOLLLL");
+
+        UIState::currentState = UIState::pause;
         UIState::currentState->load(gui, inv, vx);
     }
 };

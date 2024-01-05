@@ -3,6 +3,7 @@
 UIState* UIState::itemcreator = new ItemCreator();
 UIState* UIState::nostate = new NoUIState();
 UIState* UIState::death = new DeadUIState();
+UIState* UIState::pause = new PauseUIState();
 
 UIState *UIState::currentState = UIState::nostate;
 

@@ -10,11 +10,13 @@ namespace Controls {
     static sf::Keyboard::Key keybind_left = sf::Keyboard::A;
     static sf::Keyboard::Key keybind_jump = sf::Keyboard::Space;
     static sf::Keyboard::Key keybind_down = sf::Keyboard::S;
+    
 
     static sf::Keyboard::Key keybind_zoomin = sf::Keyboard::Up;
     static sf::Keyboard::Key keybind_zoomout = sf::Keyboard::Down;
 
     static sf::Keyboard::Key keybind_openItemCreator = sf::Keyboard::E;
+    static sf::Keyboard::Key keybind_pause = sf::Keyboard::Escape;
 
     static sf::Mouse::Button mousebind_useitem = sf::Mouse::Left;
     static sf::Mouse::Button mousebind_switchitem = sf::Mouse::Middle;
@@ -132,6 +134,14 @@ namespace Controls {
             return sf::Keyboard::isKeyPressed(keybind_openItemCreator);
         else if(currentController == ControllerType::Joystick)
             return sf::Joystick::isButtonPressed(0, joystick_bind_openItemCreator);
+        return false;
+    }
+
+    static bool pause(sf::Event &event) {
+        if(currentController == ControllerType::Keyboard && event.type == sf::Event::KeyReleased) 
+            return event.key.code == keybind_pause;
+        else if(currentController == ControllerType::Joystick)
+            return sf::Joystick::isButtonPressed(0, joystick_bind_openItemCreator);         ///////// <------------- TODO !!!! TODO!!!! TODO!!!
         return false;
     }
 

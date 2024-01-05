@@ -5,6 +5,7 @@
 
 #include "Controls.hpp"
 #include "DeadUIState.hpp"
+#include "PauseUIState.hpp"
 
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>

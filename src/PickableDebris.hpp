@@ -61,12 +61,16 @@ class PickableDebris : public Particle {
                     SFX::collect.setPitch(0.5f + math::randFloat() / 2.f);
 
                 }
-                rect.setOutlineColor(sf::Color::Black);
+
+                // Set outline to inverse color
+                rect.setOutlineColor(sf::Color(255 - rect.getFillColor().r, 255 - rect.getFillColor().g, 255 - rect.getFillColor().b));
                 rect.setOutlineThickness(0.5f);
 
                 rect.move((pos - rect.getPosition()) / 20.f);
                 physComponent.velocity = sf::Vector2f(0.f, 0.f);
                 physComponent.transform_position = rect.getPosition();
+            } else {
+                rect.setOutlineThickness(0.f);
             }
 
             physComponent.transform_position.y -= 23.f;
