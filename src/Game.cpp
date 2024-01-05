@@ -71,6 +71,8 @@ void Game::update() {
     GameStatus::updateBrightness();
     dt = (float)deltaClock.restart().asMilliseconds() / 13.f;
 
+    debug_globals::frame_time = dt;
+
     if(dt > 10.f) {
         dt = 10.f;
     }

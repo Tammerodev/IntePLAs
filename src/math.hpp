@@ -21,30 +21,6 @@ namespace math {
         );
     }
 
-    inline unsigned short isqrt(unsigned long a) {
-        /*
-            The famous quake 3 inverse square algorithm ;)
-        */
-        unsigned long rem = 0;
-        int root = 0;
-        int i;
-
-        for (i = 0; i < 16; i++) {
-            root <<= 1;
-            rem <<= 2;
-            rem += a >> 30;
-            a <<= 2;
-
-            if (root < rem) {
-                root++;
-                rem -= root;
-                root++;
-            }
-        }
-
-        return (unsigned short) (root >> 1);
-    }
-
     constexpr double PI = 3.1459;
 
     static double degreesToRadians(double degree)

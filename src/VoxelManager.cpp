@@ -333,7 +333,7 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
             Voxel &voxel = chIndexer.getVoxelAt(v.x, v.y);
                 if(voxel.value == 0) continue;
 
-            const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
+            const float distance = std::sqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
 
             if(distance < intensity) {
                 voxelsInNeedOfUpdate.push_back(v);
@@ -414,7 +414,7 @@ void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity)
             Voxel &voxel = chIndexer.getVoxelAt(v.x, v.y);
                 if(voxel.value == 0) continue;
 
-            const float distance = math::isqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
+            const float distance = std::sqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
 
             if(distance < intensity) {
                 voxelsInNeedOfUpdate.push_back(v);

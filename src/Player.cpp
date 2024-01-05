@@ -43,6 +43,8 @@ void Player::update(float dt) {
     } else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
         PlayerState::currentState = PlayerState::idleState;
     }
+
+    debug_globals::player_position = physComp.transform_position;
 }
 
 void Player::draw(sf::RenderTarget & window) {

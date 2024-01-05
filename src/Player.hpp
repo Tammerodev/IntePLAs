@@ -17,6 +17,7 @@
 #include "PlayerGlobal.hpp"
 #include "PlayerGlobal.hpp"
 #include "SwimState.hpp"
+#include "debug_globals.hpp"
 
 class Player {
 public:

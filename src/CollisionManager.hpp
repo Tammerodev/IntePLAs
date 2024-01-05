@@ -27,24 +27,26 @@ class CollisionManager {
                 groundCollision.first = 0;
             }
 
-            for(int i = -10; i < 1; i++) {     
-                auto temp_ground = sf::Vector2f(player_physicscomp.transform_position.x,
-                                            (player_physicscomp.transform_position.y + PlayerGlobal::characterHitBoxSize.y) + i);
+            for(int x = -10; x < 10; x++) {     
+                for(int i = -10; i < 1; i++) {     
+                    auto temp_ground = sf::Vector2f(player_physicscomp.transform_position.x + x,
+                                                (player_physicscomp.transform_position.y + PlayerGlobal::characterHitBoxSize.y) + i);
 
-                auto temp_groundCollision = main_world.getPixelCollision(temp_ground);
+                    auto temp_groundCollision = main_world.getPixelCollision(temp_ground);
 
-                if(temp_groundCollision.first == 5) {
-                    result.isLiquidContact = true;
-                    temp_groundCollision.first = 0;
-                } else if(temp_groundCollision.first != 0) {
-                    temp_groundCollision.first = 1;
+                    if(temp_groundCollision.first == 5) {
+                        result.isLiquidContact = true;
+                        temp_groundCollision.first = 0;
+                    } else if(temp_groundCollision.first != 0) {
+                        temp_groundCollision.first = 1;
+                    }
+
+                    ground = temp_ground;
+                    groundCollision = temp_groundCollision;
+
+                    if(groundCollision.first == 1) 
+                        break;
                 }
-
-                ground = temp_ground;
-                groundCollision = temp_groundCollision;
-
-                if(groundCollision.first == 1) 
-                    break;
             }
 
             //if(result.isLiquidContact) return result;
@@ -71,8 +73,11 @@ class CollisionManager {
                 result.hasCollision = true;
             }
 
-            if(headCollision.first) {
-                //player_physicscomp.velocity.y = 0;
+            if(headCollision.first == 1) {
+                player_physicscomp.velocity.y = 0;
+                player_physicscomp.velocity_buffer = 0.f;
+                player_physicscomp.transform_position.y += 1;
+
             }
 
             return result;
@@ -138,8 +143,8 @@ class CollisionManager {
                 result.hasCollision = true;
             }
 
-            if(headCollision.first) {
-                //player_physicscomp.velocity.y = 0;
+            if(headCollision.first == 1) {
+                player_physicscomp.velocity.y = 0;
             }
 
             return result;
