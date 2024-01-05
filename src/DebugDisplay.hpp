@@ -12,7 +12,7 @@ class DebugDisplay {
     public:
         void load(tgui::BackendGui& gui) {
             debugLabel = tgui::Label::create("");
-            debugLabel->setPosition(tgui::Layout2d(250, 50));
+            debugLabel->setPosition(tgui::Layout2d(100, 50));
             debugLabel->setSize(tgui::Layout2d(500, 300));
             debugLabel->setWidgetName("DEL_");
 

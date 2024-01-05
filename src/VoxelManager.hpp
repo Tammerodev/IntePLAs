@@ -48,6 +48,8 @@
 #include <future>
 #include "SimulationManager.hpp"
 
+#include "Flammable.hpp"
+
 class VoxelManager {
 public:
 
@@ -216,6 +218,9 @@ public:
         } else if(px == elm::Magnesium) {
             vox.value = 4;
             vox.strenght = 10;
+
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Flammable>(p.x, p.y));
+            
         } else if(px == elm::Sodium) {
             vox.value = 5;
             vox.strenght = 1;
