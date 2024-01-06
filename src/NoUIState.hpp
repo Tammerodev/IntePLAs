@@ -84,8 +84,6 @@ private:
     void exit_to_pause(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
         removeWidgets(gui);
 
-        prndd("HEELLOLLLL");
-
         UIState::currentState = UIState::pause;
         UIState::currentState->load(gui, inv, vx);
     }

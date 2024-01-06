@@ -411,7 +411,7 @@ void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool fo
     }
 }
 
-void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity)
+void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity, int percent_gain)
 {
     chIndexer.boundVector(p);
 
@@ -435,13 +435,20 @@ void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity)
             const float distance = std::sqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
 
             if(distance < intensity) {
-                voxelsInNeedOfUpdate.push_back(v);
                 chIndexer.damageVoxelAt(v.x, v.y);
 
                 chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(v.x, v.y).x, chIndexer.getChunkFromPos(v.x, v.y).y).needs_update = true;
 
-                if(math::randIntInRange(0, 100) < 25) {
-                    launchDebrisParticle(p, chIndexer.getImagePixelAt(v.x, v.y));
+                if(math::randIntInRange(0, 100) < percent_gain) {
+                    if(chIndexer.getVoxelAt(v.x, v.y).value != 0) {
+                            particleSimulation.addParticle(
+                                std::make_shared<PickableDebris>(
+                                    sf::Vector2f(v), math::subVector(sf::Vector2f(v), sf::Vector2f(p)) / 10.f,
+                                    chIndexer.getImagePixelAt(v.x, v.y),
+                                    chIndexer.getVoxelAt(v.x, v.y).value,
+                                    &chIndexer
+                                    ));
+                        }
                 }
             }
         }

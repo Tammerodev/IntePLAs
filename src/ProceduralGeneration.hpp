@@ -94,8 +94,6 @@ private:
                 biome = std::make_shared<Forest>();
             }
 
-            prndd(biomeType);
-
             if(biome != nullptr)
                 biomes.push_back(biome);
         }

@@ -73,7 +73,7 @@ public:
             if(collision.first) {
                 state = PickaxeState::Idle;
 
-                world.main_world.mine(sf::Vector2i(check_position), strength);
+                world.main_world.mine(sf::Vector2i(check_position), strength, gains);
             }
         }
 
@@ -89,7 +89,7 @@ public:
             if(collision.first) {
                 state = PickaxeState::Idle;
 
-                world.main_world.mine(sf::Vector2i(check_position), strength);
+                world.main_world.mine(sf::Vector2i(check_position), strength, gains);
             }
         }
 
@@ -105,6 +105,8 @@ private:
     float rotation = 0.f;
     float rotation_speed = 0.f;
     int strength = 0;
+
+    int gains = 75;
 
     enum PickaxeState {
         Idle, Swing_Right, Swing_Left, Hit

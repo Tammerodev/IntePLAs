@@ -74,7 +74,7 @@ public:
     void update(Player&);
     void hole(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat);
     void holeRayCast(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat);
-    void mine(sf::Vector2i p, const uint32_t intensity);
+    void mine(sf::Vector2i p, const uint32_t intensity, const int percent_gain = 0);
 
     void explosionEffect(const sf::Vector2f &p, int intensity) {
         if(explosion_points.size() < PREALLOCATE_EFFECTS_COUNT) {
@@ -144,17 +144,12 @@ public:
                 const std::string filename = std::to_string(x) + "_" + std::to_string(y);
                 const std::string fullpath = StorageSettings::save_path + created_folder + "/" + filename;
 
-                // Use std::async with a lambda function
                 futures.emplace_back(std::async(std::launch::deferred, [fullpath, filename, this, x, y]() {
-                    // Inside the lambda, save the chunk
                     this->getChunkIndexer().getChunkAt(x, y).getImage().saveToFile(fullpath + ".png");
                 }));
             }
         }
 
-        prndd("Saving complete!!!11!!");
-
-        // Wait for all threads to finish
         for (auto& future : futures) {
             future.wait();
         }
