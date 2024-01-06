@@ -10,7 +10,7 @@ class Element : public sf::Vector2i {
 
         virtual void update(ChunkIndexer&) = 0;
 
-        virtual bool clear() {return false;};
+        virtual bool clear() {return false;}
 
         virtual std::shared_ptr<Element> turn_into() {
             return nullptr;

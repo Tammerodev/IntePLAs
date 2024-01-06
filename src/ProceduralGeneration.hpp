@@ -24,7 +24,7 @@ public:
     bool generate(ChunkIndexer& grid, int64_t world_sx, int64_t world_sy) {
 
         init(time(0));
-        initBiomes();
+        initBiomes(worldSize::world_sx);
 
         generateHeightMap(grid, world_sx, world_sy);
         generateWater(grid, 1100, world_sx, world_sy);
@@ -78,9 +78,9 @@ private:
         fsl.SetSeed(seed); // Set a random seed (change this to get different noise patterns)
     }
 
-    void initBiomes() {
+    void initBiomes(int biome_count) {
 
-        for(int i = 0; i < worldSize::world_sx; i++) {
+        for(int i = 0; i < biome_count; i++) {
             std::shared_ptr<Biome> biome = nullptr;
 
             int biomeType = (int)(fsl.GetNoise((float)i * 1.0f, 0.f) * 100.f);
@@ -129,11 +129,11 @@ private:
         }
     }
 
-    void generateWater(ChunkIndexer& grid, const int waterLevel, const int world_sx, const int world_sy) {
+    void generateWater(ChunkIndexer& grid, const int waterLevel, const int world_sx, const int world_sy, const int start = 0) {
         for(int y = world_sy; y > waterLevel; y--) {
             for(int x = 0; x < world_sx; x++) {
-                grid.boundSetImagePixelAt(x, y, elm::Water);
-                grid.boundGetVoxelAt(x, y).value = elm::ValWater;
+                grid.boundSetImagePixelAt(x + start, y, elm::Water);
+                grid.boundGetVoxelAt(x + start, y).value = elm::ValWater;
             }
         }
     }

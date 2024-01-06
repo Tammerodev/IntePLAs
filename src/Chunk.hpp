@@ -87,6 +87,10 @@ public:
         area = ChunkArea(sX, sY, eX, eY);
     }
 
+    void set_forced(int64_t sX, int64_t sY, int64_t eX, int64_t eY) {
+        area = ChunkArea(sX, sY, eX, eY);
+    }
+
     const ChunkArea &getArea() const {
         return area;
     }

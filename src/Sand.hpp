@@ -1,6 +1,7 @@
 #pragma once
 #include "Element.hpp"
 #include "math.hpp"
+#include "MoltenGlass.hpp"
 
 class Sand : public Element {
     public:
@@ -44,6 +45,11 @@ class Sand : public Element {
             world.boundSetImagePixelAt(x, y, color);
             world.boundGetVoxelAt(x, y).value = value;
 
+            temp = world.boundGetVoxelAt(x, y).temp;
+            if(temp > melting_point) {
+                turn_to_glass = true;
+            }
+
             if(*this != previous_position) {
                 // We have moved, erase previous pixel
                 world.boundSetImagePixelAt(previous_position.x, previous_position.y, sf::Color(0,0,0,0));
@@ -72,12 +78,23 @@ class Sand : public Element {
 
         }
 
+        std::shared_ptr<Element> turn_into() {
+            if(remove ) {
+                if(turn_to_glass) 
+                    return std::make_shared<MoltenGlass>(x + 1, y);
+            }
+            return nullptr;
+        }
+
         bool clear() {
             return remove;
         }
         
     protected:
+        bool turn_to_glass = false;
         bool remove = false;
+
+        const int melting_point = 5000;
 
         short temp = 0;
         sf::Color color;

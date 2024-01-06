@@ -42,6 +42,7 @@ namespace elm {
     const uint8_t ValSand = 30;
     const uint8_t ValSnow = 31;
 
+    const uint8_t ValGlass = 32;
 
 
     const unsigned short defaultMaxTemp = 1000;

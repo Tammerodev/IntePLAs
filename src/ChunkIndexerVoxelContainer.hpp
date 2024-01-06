@@ -25,6 +25,17 @@ public:
         }
     }
 
+    void expandChunksBy(int x_chunks) {
+        for(int y = 0; y < chunks_y; y++) {
+            std::vector<Chunk> v;
+            for(int x = 0; x < x_chunks; x++) {
+                v.push_back(Chunk());
+            }
+        
+            gridPos.push_back(v);
+        }
+    }
+
     void update() {
         worldSize::world_sx = Chunk::sizeX * chunks_x;
         worldSize::world_sy = Chunk::sizeY * chunks_y;

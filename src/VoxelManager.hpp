@@ -112,7 +112,12 @@ public:
         particleSimulation.addParticle(particle);
     }
 
-    bool doesLineContainMaterial(const sf::Vector2i start, const sf::Vector2i end) {
+    bool doesLineContainMaterial(sf::Vector2i start, sf::Vector2i end) {
+
+        chIndexer.boundVector(start);
+        chIndexer.boundVector(end);
+
+
         sf::Vector2i delta = end - start;
         int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
 

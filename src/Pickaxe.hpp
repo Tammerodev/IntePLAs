@@ -22,7 +22,11 @@ public:
 	}
 
     void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse, World &world) {
-        state = PickaxeState::Swing;
+        if((mouse.x - playerpos.x) < 0)
+            state = PickaxeState::Swing_Right;
+        if((mouse.x - playerpos.x) > 0)
+            state = PickaxeState::Swing_Left;
+
 		SFX::pickaxe_swing.play();
     }
 
@@ -57,13 +61,27 @@ public:
 
         if(state == PickaxeState::Idle)
             rotation = 0.f;
-        if(state == PickaxeState::Swing) {
-
+        if(state == PickaxeState::Swing_Left) {
             rotation += rotation_speed;
 
             if(rotation >= 180.f)
                 state = PickaxeState::Idle;
 
+            const sf::Vector2f check_position = gun_spr.getTransform().transformPoint(16, 16);
+            const auto collision = world.main_world.getChunkIndexer().getPixelCollision(check_position);
+
+            if(collision.first) {
+                state = PickaxeState::Idle;
+
+                world.main_world.mine(sf::Vector2i(check_position), strength);
+            }
+        }
+
+        if(state == PickaxeState::Swing_Right) {
+            rotation -= rotation_speed;
+
+            if(rotation <= -180.f)
+                state = PickaxeState::Idle;
 
             const sf::Vector2f check_position = gun_spr.getTransform().transformPoint(16, 16);
             const auto collision = world.main_world.getChunkIndexer().getPixelCollision(check_position);
@@ -89,6 +107,6 @@ private:
     int strength = 0;
 
     enum PickaxeState {
-        Idle, Swing, Hit
+        Idle, Swing_Right, Swing_Left, Hit
     } state;
 };

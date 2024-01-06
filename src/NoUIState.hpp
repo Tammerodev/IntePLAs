@@ -49,10 +49,13 @@ public:
             exit_to_pause(*gui, *inv, *vx);
         }
 
-        const std::string voxelName = elm::getNameByType(vx->getChunkIndexer().boundGetVoxelAt(Controls::worldCursorPos.x, Controls::worldCursorPos.y).value);
+        Voxel &voxel = vx->getChunkIndexer().boundGetVoxelAt(Controls::worldCursorPos.x, Controls::worldCursorPos.y);
+
+        const std::string voxelName = elm::getNameByType(voxel.value);
+        const std::string tempatature = "\t" + std::to_string(voxel.temp);
 
         voxelLabel->setVisible(voxelName != "");
-        voxelLabel->setText(voxelName);
+        voxelLabel->setText(voxelName + tempatature);
     }
 
     void draw(sf::RenderTarget& target, tgui::BackendGui& gui) {

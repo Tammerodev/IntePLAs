@@ -13,6 +13,8 @@ public:
     }
 
     void update(const float dt) {
+        prev_pos = spr.getPosition();
+
         hitbox.left = pos.x;
         hitbox.top = pos.y;
         hitbox.width = 8;
@@ -43,7 +45,8 @@ public:
     }
 
     sf::Vector2f pos = sf::Vector2f(0,0);
-    
+    sf::Vector2f prev_pos = sf::Vector2f(0,0);
+
 private:
     sf::Vector2f vel = sf::Vector2f(0,0);
     sf::FloatRect hitbox;

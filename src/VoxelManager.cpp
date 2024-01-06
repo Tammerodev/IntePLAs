@@ -130,6 +130,7 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
 void VoxelManager::update(Player &player)
 {   
+
     clientManager.update(chIndexer);
     chIndexer.update();
     simulationManager.updateAll(chIndexer);
@@ -354,6 +355,7 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
 
 void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool force, const int64_t heat)
 {
+
     if(force) {
         explosionEffect(sf::Vector2f(p), intensity);
     }
