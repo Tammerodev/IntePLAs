@@ -83,6 +83,10 @@ class PlaceItem : public Item {
 			vx_man.build_image(sf::Vector2i(mospos), copy_, nullptr, sf::Vector2f(0.f, 0.f), true);
 		}
 	}
+
+	Category getCategory() {
+		return Category::Usercreated;
+	}
 private:
 
 	sf::Vector2i mospos;

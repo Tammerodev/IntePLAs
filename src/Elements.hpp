@@ -208,7 +208,7 @@ namespace elm {
                 return "Titanium";
             case 10:
                 return "Lead";
-            case 11:
+            case elm::ValWater:
                 return "Water";
 
             case elm::ValNitroglycerin:
@@ -219,6 +219,12 @@ namespace elm {
 
             case elm::ValRadium226:
                 return "Radium 226";
+
+            case elm::ValSand:
+                return "Sand";
+
+            case elm::ValGlass:
+                return "Glass";
 
             default:
                 return "";

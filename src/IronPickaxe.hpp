@@ -6,4 +6,6 @@ class IronPickaxe : public Pickaxe {
         IronPickaxe(VoxelManager &vx) : Pickaxe(vx, 3.f, 10) {
 
         }
+
+        
 };

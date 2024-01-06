@@ -100,9 +100,13 @@ public:
 			
 			return false; // Keep the bullet
 		});
-
-
     }
+
+	Category getCategory() {
+		return Category::Pairing;
+	}
+
+
 private:
 	bool spn = false;
 	float rotationAngle = 0.f;

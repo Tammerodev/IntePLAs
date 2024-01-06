@@ -67,6 +67,10 @@ public:
 
     void update(World &world, const sf::Vector2f& mousePos, const sf::Vector2f& pos, const float dt, Player& player);
 
+	Category getCategory() {
+		return Category::Tool;
+	}
+
 private:
     sf::Clock clock;
 	

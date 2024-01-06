@@ -80,6 +80,10 @@ public:
 		);
     }
 
+	Category getCategory() {
+		return Category::Tool;
+	}
+
 private:
 	
 	sf::Sprite gun_spr;

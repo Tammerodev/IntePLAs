@@ -76,7 +76,10 @@ public:
 
             }
         }
+    }
 
+    Category getCategory() {
+        return Category::Tool;
     }
 private:
 	float rotationAngle = 0.f;

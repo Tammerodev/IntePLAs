@@ -96,6 +96,10 @@ public:
         gun_spr.setRotation(rotation);
         
     }
+
+    Category getCategory() {
+        return Category::Tool;
+    }
 private:
 	sf::Sprite gun_spr;
 	sf::Texture gun_tx;
