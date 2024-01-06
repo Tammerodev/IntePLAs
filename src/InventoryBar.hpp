@@ -62,7 +62,7 @@ class InventoryBar {
 
                 seperator.setPosition(position);
 
-                //targ.draw(seperator);
+                targ.draw(seperator);
                 item->inventory_render(targ, position + sf::Vector2f(10, 10));
 
                 ++index;
