@@ -7,5 +7,7 @@ namespace debug_globals {
     inline int electricity_source_count = 0;
     inline float frame_time = 0.f;
 
+    inline int loaded_chunks = 0;
+
     inline sf::Vector2f player_position {0.f, 0.f};
 }

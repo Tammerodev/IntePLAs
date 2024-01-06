@@ -25,9 +25,13 @@ int VoxelManager::load(std::string file)
 
     const std::string path = StorageSettings::save_path + file;
 
+    utils::path = path + "/";
+
     for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
         for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
-            std::string finalPath = path + "/" + getPath(x, y);
+            std::string finalPath = utils::path + utils::getPath(x, y);
+
+            chIndexer.getChunkAt(x, y).setPosition(sf::Vector2i(x, y));
 
             if(create_new_world)
                 chIndexer.getChunkAt(x, y).create();
@@ -139,6 +143,18 @@ void VoxelManager::update(Player &player)
     auto &particles = particleSimulation.getParticlesList();
 
     debug_globals::particle_count = particles.size();
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::I)) {
+        ChunkBounds bounds = ChunkBounds(0, 0, chunks_x, chunks_y);
+
+        for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
+            for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
+                chIndexer.getChunkAt(x, y).unLoad();
+            }
+        }
+
+        malloc_trim(0);
+    }
 
     for (auto it = particles.begin(); it != particles.end();) {
         auto& p = *it;

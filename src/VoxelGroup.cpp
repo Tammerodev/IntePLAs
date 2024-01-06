@@ -98,7 +98,7 @@ void VoxelGroup::resetUsedFlag()
 {
     for (uint64_t y = 0; y < world_sy; y++) {
         for (uint64_t x = 0;x < world_sx;x++) {
-            getVoxelAt(x,y).used = false;
+            //TODO !!!! TODO!!!! getVoxelAt(x,y).used = false;
         }
     }
 }

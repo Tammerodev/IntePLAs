@@ -114,12 +114,12 @@ public:
 
         getChunkAt(getChunkFromPos(pos.x, pos.y).x, getChunkFromPos(pos.x, pos.y).y).modified = true;
 
-        getChunkAt(pos.x/Chunk::sizeX, pos.y/Chunk::sizeY).image.setPixel(pos.x%Chunk::sizeX, pos.y%Chunk::sizeY, color);
+        getChunkAt(pos.x/Chunk::sizeX, pos.y/Chunk::sizeY).getImage().setPixel(pos.x%Chunk::sizeX, pos.y%Chunk::sizeY, color);
     }
 
     const sf::Color getImagePixelAt(const int x, const int y) {
 
-        return getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
+        return getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).getImage().getPixel(x%Chunk::sizeX, y%Chunk::sizeY);
     }
 
     void clearVoxelAt(const int x, const int y) {
@@ -184,7 +184,7 @@ public:
     void setImagePixelAt(const int x, const int y, const sf::Color& color) {
         getChunkAt(getChunkFromPos(x, y).x, getChunkFromPos(x, y).y).modified = true;
 
-        getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).image.setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
+        getChunkAt(x/Chunk::sizeX, y/Chunk::sizeY).getImage().setPixel(x%Chunk::sizeX, y%Chunk::sizeY, color);
     }
 
     const bool isInContactWithVoxel(const sf::Vector2i &pos, const uint8_t voxelValue) {

@@ -27,6 +27,10 @@ class DebugDisplay {
             std::string PC  = "\tParticle  count       = " + std::to_string(debug_globals::particle_count) + '\n';
             std::string DT  = "\tFrame time            = " + std::to_string(debug_globals::frame_time) + '\n';
 
+            std::string CL  = "\tChunks loaded         = " + std::to_string(debug_globals::loaded_chunks) + '\n';
+            std::string WS  = "\tWorld size (voxels)   = xy(" + std::to_string(worldSize::world_sx) + ", " + std::to_string(worldSize::world_sy) + ")\n";
+
+
             std::string PPOS= "\tPlayer position       = p(" + std::to_string(debug_globals::player_position.x) + ", " + std::to_string(debug_globals::player_position.y) + ")\n";
 
 
@@ -38,6 +42,11 @@ class DebugDisplay {
             final_text += ESC.c_str();
             final_text += PC.c_str();
             final_text += DT.c_str();
+
+            final_text += "World info : ";
+            final_text += CL.c_str();
+            final_text += WS.c_str();
+
 
             final_text += "Player info : ";
             final_text += PPOS;

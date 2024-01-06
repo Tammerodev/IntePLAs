@@ -59,7 +59,7 @@ private:
     
                 sf::Color col = biome->getColorAt(i, h, world_sy);
 
-                grid.getChunkAt(ind/Chunk::sizeX, i/Chunk::sizeY).image.setPixel(ind%Chunk::sizeX, i%Chunk::sizeY, col);
+                grid.getChunkAt(ind/Chunk::sizeX, i/Chunk::sizeY).getImage().setPixel(ind%Chunk::sizeX, i%Chunk::sizeY, col);
 
                 grid.getChunkAt(ind/Chunk::sizeX, i/Chunk::sizeY).arr[ind%Chunk::sizeX][i%Chunk::sizeY] = 
                     getValueFromCol(col, sf::Vector2i(ind, i));

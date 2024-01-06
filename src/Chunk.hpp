@@ -3,7 +3,11 @@
 #include <SFML/Graphics.hpp>
 #include <list>
 #include <memory>
+#include "SaveUtils.hpp"
+#include "common.hpp"
+#include <malloc.h>
 
+#include "debug_globals.hpp"
 class Element;
 
 inline int chunks_x = 128;
@@ -19,35 +23,69 @@ struct Chunk {
 
     std::array<std::array<Voxel, 64>, 64> arr;
 
-    sf::Image &requestImageAccess() {
-        return image;
-    }
-
     void create() {
-        image.create(Chunk::sizeX, Chunk::sizeY, sf::Color(0,0,0,0));
+        image = new sf::Image();
+        image->create(Chunk::sizeX, Chunk::sizeY, sf::Color(0,0,0,0));
         tx.create(Chunk::sizeX, Chunk::sizeY);
+
+        debug_globals::loaded_chunks++;
     }
 
     bool load(const char *file_path) {
+        image = new sf::Image();
+
         bool success = true;
-        if(!image.loadFromFile(file_path)) success = false;
+        if(!image->loadFromFile(file_path)) success = false;
         if(!tx.loadFromFile(file_path)) success = false;
+
+        debug_globals::loaded_chunks++;
 
         return success;
     }
 
+    void unLoad() {
+        // Rare case where trying to unload unloaded chunk...
+        if(image == nullptr) {
+            return;
+        }
+
+        // Delete image
+        image->saveToFile(utils::path + utils::getPath(position.x, position.y));
+        delete image;
+        image = nullptr;
+
+        debug_globals::loaded_chunks--;
+    }
+
+    sf::Image &getImage() {
+        if(image == nullptr) {
+            load((utils::path + utils::getPath(position.x, position.y)).c_str());
+        }
+        return *image;
+    }
+
     void update() {
-        tx.update(image);
+        if(image == nullptr) {
+            load((utils::path + utils::getPath(position.x, position.y)).c_str());
+        }
+        tx.update(*image);
         modified = false;
     }
 
-    sf::Image image;
+    void setPosition(const sf::Vector2i &pos) {
+        position = pos;
+    }
+
     sf::Texture tx;
 
     bool modified = true;
 
-public:
+private:
 
+    sf::Image* image = nullptr;
+    sf::Vector2i position {0, 0};
+
+public:
     bool needs_update = false;
 
     std::list<std::shared_ptr<Element>> elements;

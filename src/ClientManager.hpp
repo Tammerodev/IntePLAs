@@ -22,7 +22,8 @@ class ClientManager {
                 loginf("Received chunk x: ", chunk_pos.x, ".");
                 loginf("Received chunk y: ", chunk_pos.y, ".");
 
-                world.getChunkAt(chunk_pos.x, chunk_pos.y).image = received_img;
+                std::cout << "TODODODODO";
+                // TODO : world.getChunkAt(chunk_pos.x, chunk_pos.y).getImage() = received_img;
             }
         }
 

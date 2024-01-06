@@ -49,6 +49,7 @@
 #include "SimulationManager.hpp"
 
 #include "Flammable.hpp"
+#include "SaveUtils.hpp"
 
 class VoxelManager {
 public:
@@ -66,16 +67,6 @@ public:
                 chIndexer.getVoxelAt(x,y) = getHandleVoxel(px, sf::Vector2i(x,y), true);
             }
         }
-    }
-
-    const std::string getPath(int x, int y) {
-        const std::string x_string  = std::to_string(x);
-        const std::string y_string  = std::to_string(y);
-
-        const std::string filename = x_string + "_" + y_string;
-        const std::string extension = ".png";
-
-        return filename + extension;
     }
 
     void heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp);
@@ -156,7 +147,7 @@ public:
                 // Use std::async with a lambda function
                 futures.emplace_back(std::async(std::launch::deferred, [fullpath, filename, this, x, y]() {
                     // Inside the lambda, save the chunk
-                    this->getChunkIndexer().getChunkAt(x, y).image.saveToFile(fullpath + ".png");
+                    this->getChunkIndexer().getChunkAt(x, y).getImage().saveToFile(fullpath + ".png");
                 }));
             }
         }
