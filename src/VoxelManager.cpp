@@ -176,7 +176,7 @@ void VoxelManager::update(Player &player)
             chIndexer.boundVector(vp);
 
             if(doesLineContainMaterial(vp, v)) {
-                holeRayCast(v, 10, false, 50);
+                holeRayCast(v, 10, false, 20);
                 p->energy = 0;
             }
         }
