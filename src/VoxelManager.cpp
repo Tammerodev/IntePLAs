@@ -168,6 +168,19 @@ void VoxelManager::update(Player &player)
             p->collide();
         }
 
+        if(p->getType() == Particle::ParticleType::FireParticle) {
+            sf::Vector2i v = sf::Vector2i(*p);
+            chIndexer.boundVector(v);
+
+            sf::Vector2i vp = sf::Vector2i(p->prev_position);
+            chIndexer.boundVector(vp);
+
+            if(doesLineContainMaterial(vp, v)) {
+                holeRayCast(v, 10, false, 50);
+                p->energy = 0;
+            }
+        }
+
         // Fission 
         if(p->getType() == Particle::ParticleType::Neutron && 
             voxel.value == elm::ValUranium235) {
@@ -195,10 +208,19 @@ void VoxelManager::update(Player &player)
     while (i != voxelsInNeedOfUpdate.end())
     {
         bool del = false;
-        heatVoxelAt(i->x, i->y, -elm::getAmbientDissipationFromType(chIndexer.getVoxelAt(i->x, i->y).value));
 
-        if(chIndexer.getVoxelAt(i->x, i->y).temp <= 0 || chIndexer.getVoxelAt(i->x, i->y).value == 0) {i = voxelsInNeedOfUpdate.erase(i); }
-        else { ++i; }
+        Voxel& voxel = chIndexer.getVoxelAt(i->x, i->y);
+
+        if(voxel.temp > 0)
+            heatVoxelAt(i->x, i->y, -elm::getAmbientDissipationFromType(chIndexer.getVoxelAt(i->x, i->y).value));
+
+        if(voxel.temp <= 0 || voxel.value == 0) {
+            i = voxelsInNeedOfUpdate.erase(i); 
+            i++;
+        }
+        else { 
+            ++i; 
+        }
 
     }
 
@@ -389,6 +411,7 @@ void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool fo
     info.intensity = intensity;
     info.propability_of_material = 10;
     info.particle_simulation = &particleSimulation;
+    info.temp = heat;
 
     for(;endX < p.x + (int)intensity; endX++) {
         info.end = sf::Vector2i(endX, endY);

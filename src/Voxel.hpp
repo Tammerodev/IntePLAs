@@ -13,7 +13,7 @@ public:
     unsigned char strenght = 1;
 
     // Bitfield (11 bits, 1023 combinations)
-    unsigned short temp = 0;
+    short temp = 0;
 
     bool hasCollision = true;
 

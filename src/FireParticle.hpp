@@ -5,11 +5,15 @@
 
 class FireParticle : public Particle {
     public:
-        FireParticle(const sf::Vector2f& pos, const sf::Vector2f &vel, const sf::Color &col, const float size = 1.f) {
+        FireParticle(const sf::Vector2f& pos, const sf::Vector2f &vel, const sf::Color &col, const float size = 1.f, bool gravity = true) {
             physComponent.transform_position = pos;
             this->x = pos.x;
             this->y = pos.y;
 
+            
+            if(gravity == false) {
+                physComponent.disable_gravity();
+            }
 
             physComponent.velocity = vel;
 
@@ -23,6 +27,8 @@ class FireParticle : public Particle {
         }
 
         void update(const float dt, const sf::Vector2f &pos) {
+            prev_position = *this;
+
             timer++;
 
             rect.setPosition(physComponent.transform_position);
@@ -35,7 +41,11 @@ class FireParticle : public Particle {
             this->y = physComponent.transform_position.y;
 
             int a = rect.getFillColor().a - 1;
-            if(a <= 0) a = 0;
+            if(a <= 0) {
+                a = 0;
+                rem = true;
+            }
+
     
             int r = rect.getFillColor().r - 1;
             if(r <= 0) r = 0;
@@ -48,6 +58,8 @@ class FireParticle : public Particle {
                     a
                 )
             );
+
+            if(energy <= 0) rem = true;
 
         }
 
@@ -64,7 +76,7 @@ class FireParticle : public Particle {
         }
 
         ParticleType getType() {
-            return ParticleType::Debris;
+            return ParticleType::FireParticle;
         }
 
         virtual sf::Color getColor() {

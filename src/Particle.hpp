@@ -6,7 +6,7 @@
 class Particle : public sf::Vector2f {
     public:
         enum ParticleType {
-            Neutron, Debris, PickableDebris
+            Neutron, Debris, PickableDebris, FireParticle
         };
 
         Particle() = default;
@@ -25,5 +25,7 @@ class Particle : public sf::Vector2f {
         }
 
         int energy = 100;
+
+        sf::Vector2f prev_position {0,0};
     private:
 };

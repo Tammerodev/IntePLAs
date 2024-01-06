@@ -29,6 +29,7 @@ namespace Raycast {
         uint64_t world_sy;
 
         int propability_of_material = 0;
+        int temp = 0;
     };
 
     static void castRayLine(RaycastInfo &info, bool force = true) {
@@ -64,14 +65,17 @@ namespace Raycast {
 
                     info.world->boundGetChunkAt(info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).x, info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).y).needs_update = true;
 
-                    if(force) info.world->damageVoxelAt(pixelPosition.x, pixelPosition.y);
+                    if(force) { 
+                        info.world->damageVoxelAt(pixelPosition.x, pixelPosition.y);
+                    }
                     
-                    info.world->heatVoxelAt(pixelPosition.x, pixelPosition.y, 1000);
+                    info.world->heatVoxelAt(pixelPosition.x, pixelPosition.y, info.temp);
 
                     if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
-                        if(info.voxelsInNeedOfUpdate != nullptr)
+                        if(info.voxelsInNeedOfUpdate != nullptr) {
                             info.voxelsInNeedOfUpdate->push_back(pixelPosition);
-
+                        }
+                            
                         power--;
                         if(power <= 0) break;
                     }

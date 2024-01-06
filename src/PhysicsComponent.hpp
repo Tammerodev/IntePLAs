@@ -49,12 +49,21 @@ struct PhysicsComponent {
     }
     
     void update(float dt = 0.0) {
-        velocity.y += (PhysicsGlobals::gravity * dt);
+        if(has_gravity)
+            velocity.y += (PhysicsGlobals::gravity * dt);
+            
         transform_position += velocity;
 
         float rotation = std::atan2(velocity.y, velocity.x) * (180.0 / M_PI);
 
         transform_rotation = rotation;
     }
+
+    void disable_gravity() {
+        has_gravity = false;
+    }
+
+private:
+    bool has_gravity = true;
 
 };

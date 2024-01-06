@@ -121,6 +121,14 @@ namespace Controls {
         return false;
     }
 
+    static bool use() {
+        if(currentController == ControllerType::Keyboard) 
+            return sf::Mouse::isButtonPressed(mousebind_useitem);
+        else if(currentController == ControllerType::Joystick)
+            return false; // TODO FIX                               <---------TODO--------------TODO---------TODO-------------------!"¤%¤#&!!!!!!!!!!!!"
+        return false;
+    }
+
     static bool useUI() {
         if(currentController == ControllerType::Keyboard) 
             return sf::Mouse::isButtonPressed(sf::Mouse::Button(mousebind_useitem));
