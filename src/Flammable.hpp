@@ -18,6 +18,13 @@ class Flammable : public Element {
             temp = world.boundGetVoxelAt(x, y).temp;
 
             if(temp > ignition_temp) {
+
+                sf::Vector2i boundPos = *this;
+                world.boundVector(boundPos);
+                sf::Vector2i chunk_pos = world.getChunkFromPos(boundPos.x, boundPos.y);
+                world.boundGetChunkAt(chunk_pos.x, chunk_pos.y).needs_update = true;
+                
+
                 const int energy = 10;
 
                 world.heatVoxelAt(x + 1, y, energy);

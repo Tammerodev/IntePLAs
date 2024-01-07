@@ -13,6 +13,8 @@ public:
         VegetationInfo vegetationInfo;
         vegetationInfo.filepath = "res/img/Procedural/forest.png";
         vegetationInfo.amount = 25;
+        vegetationInfo.width_of_part = 16;
+        
 
         return vegetationInfo;
     }

@@ -80,15 +80,30 @@ class InventoryBar {
             bg.setOutlineColor(Palette::PaletteUI::White);
         }
 
-        void input(sf::Event &ev, int &currentItemIndex) {
+        void input(sf::Event &ev, int &currentItemIndex, std::string& currentBar) {
             currentItemIndex += Controls::inventoryMove(ev);
 
             // Bound checking
-            if(currentItemIndex < 0)
-                currentItemIndex = inventory.size() - 1;
+            if(currentBar == "tool") {
+                if(currentItemIndex < 0)
+                    currentItemIndex = 0;
 
-            if(currentItemIndex >= (int16_t)inventory.size())
-                currentItemIndex = 0;
+                if(currentItemIndex >= (int16_t)inventory.size()) {
+                    currentBar = "usercreated";
+                    currentItemIndex = 0;
+                }
+            }
+
+            if(currentBar == "usercreated") {
+                if(currentItemIndex < 0) {
+                    currentBar = "tool";
+                    currentItemIndex = 0;
+                }
+
+                if(currentItemIndex >= (int16_t)inventory.size()) {
+                    currentItemIndex = inventory.size() - 1;
+                }
+            }
         }
 
     protected:

@@ -76,7 +76,7 @@ public:
     }
 
     void input(sf::Event &ev) {
-        inventorybars.at(currentInventoryBar)->input(ev, currentItemIndex);
+        inventorybars.at(currentInventoryBar)->input(ev, currentItemIndex, currentInventoryBar);
     }
 
     void use(const sf::Vector2f &p,const sf::Vector2f &m, World& world) {
