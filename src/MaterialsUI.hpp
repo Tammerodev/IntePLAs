@@ -43,7 +43,7 @@ class MaterialsUI {
                 bar.setPosition(i * barDistance, 0);
                 bar.setSize(sf::Vector2f(10, barHeight));
 
-                bar.setFillColor(elm::getColorFromType(i));
+                bar.setFillColor(elm::getInfoFromType(i).color);
 
                 ++i;
             }

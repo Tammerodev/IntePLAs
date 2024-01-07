@@ -4,7 +4,7 @@
 class Chlorine : public Gas {
     public:
         Chlorine(int xx, int yy) : Gas(xx, yy) {
-            value = elm::ValChlorine;
-            color = elm::Chlorine;
+            value = VoxelValues::CHLORINE;
+            color = elm::getInfoFromType(VoxelValues::CHLORINE).color;
         }
 };

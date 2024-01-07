@@ -137,15 +137,15 @@ public:
             clearVoxelAt(pos.x, pos.y);
         }
 
-        if(getVoxelAt(pos.x, pos.y).value == elm::ValCarbon) materialpack.carbon += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == elm::ValLithium) materialpack.lithium += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == elm::ValMagnesium) materialpack.magnesium += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == elm::ValSodium) materialpack.sodium += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == elm::ValAluminium) materialpack.aluminium += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == elm::ValSilicon) materialpack.silicon += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == elm::ValCopper) materialpack.copper += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == elm::ValTitanium) materialpack.titanium += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == elm::ValLead) materialpack.lead += 1;
+        if(getVoxelAt(pos.x, pos.y).value == VoxelValues::CARBON) materialpack.carbon += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::LITHIUM) materialpack.lithium += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::MAGNESIUM) materialpack.magnesium += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::SODIUM) materialpack.sodium += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::ALUMINIUM) materialpack.aluminium += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::SILICON) materialpack.silicon += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::COPPER) materialpack.copper += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::TITANIUM) materialpack.titanium += 1;
+        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::LEAD) materialpack.lead += 1;
     }
     
     void damageVoxelAt(const int x, const int y) {
@@ -168,10 +168,10 @@ public:
 
         result = pixel.a != 0;
 
-        if(pixel == elm::Snow)
+        if(pixel == elm::getInfoFromType(VoxelValues::SNOW).color)
             result = 0;
 
-        if(pixel == elm::Water)
+        if(pixel == elm::getInfoFromType(VoxelValues::WATER).color)
             result = 5;
 
         ret.second = pos - sf::Vector2f(pixelPosition);
@@ -199,7 +199,7 @@ public:
     {
         Voxel &vox = getVoxelAt(x, y);
 
-        if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
+        if(vox.temp >= elm::getInfoFromType(vox.value).max_temp) {
             uint8_t &strenght = vox.strenght;
             --strenght;
             if(vox.strenght <= 0) { 
@@ -230,7 +230,7 @@ public:
         Voxel &vox = getVoxelAt(x, y);
         getChunkAt(getChunkFromPos(x, y).x, getChunkFromPos(x, y).y).modified = true;
 
-        if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
+        if(vox.temp >= elm::getInfoFromType(vox.value).max_temp) {
             uint8_t &strenght = vox.strenght;
             --strenght;
             if(vox.strenght <= 0) { 
@@ -264,7 +264,7 @@ public:
         Voxel &vox = getVoxelAt(positon.x, positon.y);
         getChunkAt(getChunkFromPos(positon.x, positon.y).x, getChunkFromPos(positon.x, positon.y).y).modified = true;
 
-        if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
+        if(vox.temp >= elm::getInfoFromType(vox.value).max_temp) {
             uint8_t &strenght = vox.strenght;
             --strenght;
             if(vox.strenght <= 0) { 

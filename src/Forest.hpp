@@ -35,43 +35,43 @@ public:
             },
             
             std::array<sf::Color, 6> {
-                elm::Carbon,
-                elm::Carbon,
-                elm::Carbon,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
                 sf::Color(12, 104, 45),
                 sf::Color(22, 84, 35)
             },
 
             std::array<sf::Color, 6> {
-                elm::Carbon,
-                elm::Carbon,
-                elm::Carbon,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
                 sf::Color(12, 104, 45),
                 sf::Color(22, 84, 35)
             },
 
             std::array<sf::Color, 6> {
-                elm::Carbon,
-                elm::Carbon,
-                elm::Carbon,
-                elm::Titanium,
-                elm::Aluminium
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::TITANIUM).color,
+                elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             },
 
             std::array<sf::Color, 6> {
-                elm::Carbon,
-                elm::Carbon,
-                elm::Carbon,
-                elm::Titanium,
-                elm::Aluminium
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::TITANIUM).color,
+                elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             },
 
             std::array<sf::Color, 6> {
-                elm::Carbon,
-                elm::Carbon,
-                elm::Carbon,
-                elm::Titanium,
-                elm::Aluminium
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::TITANIUM).color,
+                elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             }
         };
     }

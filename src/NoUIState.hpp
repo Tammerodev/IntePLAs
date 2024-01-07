@@ -51,7 +51,7 @@ public:
 
         Voxel &voxel = vx->getChunkIndexer().boundGetVoxelAt(Controls::worldCursorPos.x, Controls::worldCursorPos.y);
 
-        const std::string voxelName = elm::getNameByType(voxel.value);
+        const std::string voxelName = elm::getInfoFromType(voxel.value).name;
         const std::string tempatature = "\t" + std::to_string(voxel.temp);
 
         voxelLabel->setVisible(voxelName != "");

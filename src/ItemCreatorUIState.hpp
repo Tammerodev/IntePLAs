@@ -214,7 +214,7 @@ private:
 
     bool isDrawing = true;
 
-    sf::Color selectedColor = elm::Carbon;
+    sf::Color selectedColor = elm::getInfoFromType(VoxelValues::CARBON).color;
 
     sf::Vector2f position;
     sf::Vector2f relativeMousePosition;
@@ -251,22 +251,22 @@ private:
 
     static void element_buttonCallback(const tgui::String& name, sf::Color &selColor) {
         if(name == "  ") selColor = sf::Color(0, 0, 0, 0);
-        else if(name == "C ") selColor = elm::Carbon;
-        else if(name == "Li") selColor = elm::Lithium;
-        else if(name == "Mg") selColor = elm::Magnesium;
-        else if(name == "Na") selColor = elm::Sodium;
-        else if(name == "Al") selColor = elm::Aluminium;
-        else if(name == "Si") selColor = elm::Silicon;
-        else if(name == "Cu") selColor = elm::Copper;
-        else if(name == "Ti") selColor = elm::Titanium;
-        else if(name == "Pb") selColor = elm::Lead;
-        else if(name == "H2O") selColor = elm::Water;
-        else if(name == "C3H5N3O9") selColor = elm::Nitroglycerin;
-        else if(name == "Cl") selColor = elm::Chlorine;
-        else if(name == "U235") selColor = elm::Uranium235;
-        else if(name == "Ra226") selColor = elm::Radium226;
-        else if(name == "Sand") selColor = elm::Sand;
-        else if(name == "Acid") selColor = elm::Acid;
+        else if(name == "C ") selColor = elm::getInfoFromType(VoxelValues::CARBON).color;
+        else if(name == "Li") selColor = elm::getInfoFromType(VoxelValues::LITHIUM).color;
+        else if(name == "Mg") selColor =elm::getInfoFromType(VoxelValues::MAGNESIUM).color;
+        else if(name == "Na") selColor = elm::getInfoFromType(VoxelValues::SODIUM).color;
+        else if(name == "Al") selColor = elm::getInfoFromType(VoxelValues::ALUMINIUM).color;
+        else if(name == "Si") selColor = elm::getInfoFromType(VoxelValues::SILICON).color;
+        else if(name == "Cu") selColor = elm::getInfoFromType(VoxelValues::COPPER).color;
+        else if(name == "Ti") selColor = elm::getInfoFromType(VoxelValues::TITANIUM).color;
+        else if(name == "Pb") selColor = elm::getInfoFromType(VoxelValues::LEAD).color;
+        else if(name == "H2O") selColor = elm::getInfoFromType(VoxelValues::WATER).color;
+        else if(name == "C3H5N3O9") selColor = elm::getInfoFromType(VoxelValues::NITROGLYCERIN).color;
+        else if(name == "Cl") selColor = elm::getInfoFromType(VoxelValues::CHLORINE).color;
+        else if(name == "U235") selColor = elm::getInfoFromType(VoxelValues::URANIUM235).color;
+        else if(name == "Ra226") selColor = elm::getInfoFromType(VoxelValues::RADIUM226).color;
+        else if(name == "Sand") selColor = elm::getInfoFromType(VoxelValues::SAND).color;
+        else if(name == "Acid") selColor = elm::getInfoFromType(VoxelValues::ACID).color;
         
     }
 

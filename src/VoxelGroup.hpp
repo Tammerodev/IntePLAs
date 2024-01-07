@@ -74,8 +74,6 @@ public:
     void merge();
     void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const int64_t heat);
 
-    const Voxel getValueFromCol(const sf::Color &px, sf::Vector2i p);
-
     sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
         return img.getPixel(x,y);
     }
@@ -91,7 +89,7 @@ public:
         
         for (uint64_t y = 0; y < world_sy;y++) {
             for (uint64_t x = 0; x < world_sx;x++) {
-                if(getVoxelAt(x,y).value == elm::ValLithium) {
+                if(getVoxelAt(x,y).value == VoxelValues::LITHIUM) {
                     main_world.holeRayCast(
                         sf::Vector2i(physicsComponent.transform_position + sf::Vector2f(x,y)), elm::lithiumExplosion, true, 100);
                 }

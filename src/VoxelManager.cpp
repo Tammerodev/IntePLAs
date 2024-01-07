@@ -64,21 +64,21 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
     Voxel &vox = chIndexer.getVoxelAt(x,y);
 
     vox.temp += temp;
-    if(vox.temp >= elm::getMaxTempFromType(vox.value)) {
+    if(vox.temp >= elm::getInfoFromType(vox.value).max_temp) {
         int val = vox.value;
         chIndexer.damageVoxelAt(x,y);
-        if(val == elm::ValLithium) {
+        if(val == VoxelValues::LITHIUM) {
             hole(sf::Vector2i(x,y), elm::lithiumExplosion, true, elm::lithiumExplosionTemp);
-        } else if(val == elm::ValSodium) {
+        } else if(val == VoxelValues::SODIUM) {
             hole(sf::Vector2i(x,y),elm::sodiumExplosion,true,elm::sodiumExplosionTemp);
-        } else if(val == elm::ValNitroglycerin) {
+        } else if(val == VoxelValues::NITROGLYCERIN) {
 
             hole(sf::Vector2i(x,y),elm::nitroglycerinExplosion,true,elm::nitroglycerinExplosionTemp);
             
         }
     }
 
-    if(vox.value == elm::ValMagnesium) {
+    if(vox.value == VoxelValues::MAGNESIUM) {
         addElement(x, y, std::make_shared<Burning>(x,y));
     }
 
@@ -183,16 +183,16 @@ void VoxelManager::update(Player &player)
 
         // Fission 
         if(p->getType() == Particle::ParticleType::Neutron && 
-            voxel.value == elm::ValUranium235) {
+            elm::getInfoFromType(voxel.value).value == VoxelValues::URANIUM235) {
 
             heatVoxelAt(position.x, position.y, 100);
 
-            const sf::Vector2i contactPos = getPositionOnContacy(position, elm::ValUranium235);
+            const sf::Vector2i contactPos = getPositionOnContacy(position, VoxelValues::URANIUM235);
 
             if(contactPos != sf::Vector2i(0, 0)) {
                 heatVoxelAt(contactPos.x, contactPos.y, 100);
 
-                if(chIndexer.boundGetVoxelAt(position.x, position.y).temp > elm::getMaxTempFromType(elm::ValUranium235)) {
+                if(chIndexer.boundGetVoxelAt(position.x, position.y).temp > elm::getInfoFromType(VoxelValues::URANIUM235).max_temp) {
                     holeRayCast(position, 250, true, 30000);
                 }   
             }
@@ -212,7 +212,8 @@ void VoxelManager::update(Player &player)
         Voxel& voxel = chIndexer.getVoxelAt(i->x, i->y);
 
         if(voxel.temp > 0)
-            heatVoxelAt(i->x, i->y, -elm::getAmbientDissipationFromType(chIndexer.getVoxelAt(i->x, i->y).value));
+        // TODO Ambient Dissipation
+            heatVoxelAt(i->x, i->y, -1);
 
         if(voxel.temp <= 0 || voxel.value == 0) {
             i = voxelsInNeedOfUpdate.erase(i); 
@@ -228,20 +229,20 @@ void VoxelManager::update(Player &player)
     auto r = reactiveVoxels.begin();
     while (r != reactiveVoxels.end())
     {
-        if(chIndexer.getVoxelAt(r->x, r->y).value == elm::ValSodium) {
+        if(chIndexer.getVoxelAt(r->x, r->y).value == VoxelValues::SODIUM) {
             // Sodium - Water reaction (heat produced)
-            if(chIndexer.isInContactWithVoxel(*r, elm::ValWater))
+            if(chIndexer.isInContactWithVoxel(*r, VoxelValues::WATER))
                 heatVoxelAt(r->x, r->y, elm::sodiumExplosionTemp / 100);
         }
 
-        if(chIndexer.getVoxelAt(r->x, r->y).value == elm::ValLithium) {
+        if(chIndexer.getVoxelAt(r->x, r->y).value == VoxelValues::LITHIUM) {
             // Lithium - Water reaction (heat produced)
-            if(chIndexer.isInContactWithVoxel(*r, elm::ValWater)) {
+            if(chIndexer.isInContactWithVoxel(*r, VoxelValues::WATER)) {
                 heatVoxelAt(r->x, r->y, elm::lithiumExplosionTemp);
             }
 
             // Lithium - Radium226 reaction (free neutrons)
-            if(chIndexer.isInContactWithVoxel(*r, elm::ValRadium226)) {
+            if(chIndexer.isInContactWithVoxel(*r, VoxelValues::RADIUM226)) {
                 const sf::Vector2f position = sf::Vector2f(*r); 
                 const sf::Vector2f velocity = sf::Vector2f(math::randFloat() - 0.5f, math::randFloat() - 0.5f); 
 

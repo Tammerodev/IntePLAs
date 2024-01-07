@@ -15,15 +15,15 @@ struct MaterialPack {
     void addElementOfType(const int type, const int amount) {
         switch (type)
         {
-            case elm::ValCarbon: carbon += amount; return;
-            case elm::ValLithium: lithium += amount; return;
-            case elm::ValMagnesium: magnesium += amount; return;
-            case elm::ValSodium: sodium += amount; return;
-            case elm::ValAluminium: aluminium += amount; return;
-            case elm::ValSilicon: silicon += amount; return;
-            case elm::ValCopper: copper += amount; return;
-            case elm::ValTitanium: titanium += amount; return;
-            case elm::ValLead: lead += amount; return;
+            case VoxelValues::CARBON: carbon += amount; return;
+            case VoxelValues::LITHIUM: lithium += amount; return;
+            case VoxelValues::MAGNESIUM: magnesium += amount; return;
+            case VoxelValues::SNOW: sodium += amount; return;
+            case VoxelValues::ALUMINIUM: aluminium += amount; return;
+            case VoxelValues::SILICON: silicon += amount; return;
+            case VoxelValues::COPPER: copper += amount; return;
+            case VoxelValues::TITANIUM: titanium += amount; return;
+            case VoxelValues::LEAD: lead += amount; return;
     
         default:
             break;

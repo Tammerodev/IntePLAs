@@ -4,8 +4,8 @@
 class Water : public Fluid {
     public:
         Water(int xpos, int ypos) : Fluid(xpos, ypos){
-            color = elm::Water;
-            value = elm::ValWater;
+            color = elm::getInfoFromType(VoxelValues::WATER).color;
+            value = VoxelValues::WATER;
         }
 
         void fluidUpdate(ChunkIndexer& world) {

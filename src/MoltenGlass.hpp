@@ -6,7 +6,7 @@ class MoltenGlass : public Fluid {
     public:
         MoltenGlass(int xpos, int ypos) : Fluid(xpos, ypos){
             color = sf::Color(10, 10, 10, 20);
-            value = elm::ValGlass;
+            value = VoxelValues::GLASS;
         }
 
         void fluidUpdate(ChunkIndexer& world) {

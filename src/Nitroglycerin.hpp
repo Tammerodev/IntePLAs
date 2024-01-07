@@ -4,8 +4,8 @@
 class Nitroglycerin : public Fluid {
     public:
         Nitroglycerin(int xpos, int ypos) : Fluid(xpos, ypos){
-            color = elm::Nitroglycerin;
-            value = elm::ValNitroglycerin;
+            color = elm::getInfoFromType(NITROGLYCERIN).color;
+            value = VoxelValues::NITROGLYCERIN;
         }
 
         void fluidUpdate(ChunkIndexer& world) {

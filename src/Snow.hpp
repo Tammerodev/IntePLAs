@@ -9,17 +9,17 @@ class Snow : public Element {
             this->x = x;
             this->y = y;    
 
-            color = elm::Snow;
-            value = elm::ValSnow;
+            color = elm::getInfoFromType(VoxelValues::SNOW).color;
+            value = VoxelValues::SAND;
         }
 
         void update(ChunkIndexer& world) {
             const sf::Vector2i previous_position = *this;
 
-            if(world.isInContactWithVoxel(*this, elm::ValWater)) {
+            if(world.isInContactWithVoxel(*this, value)) {
                 // Snow turns into water when in contact
-                world.boundSetImagePixelAt(x, y, elm::Water);
-                world.boundGetVoxelAt(x, y).value = elm::ValWater;
+                world.boundSetImagePixelAt(x, y, color);
+                world.boundGetVoxelAt(x, y).value = value;
 
                 remove = true;
                 turnIntoWater = true;

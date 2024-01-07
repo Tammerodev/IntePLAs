@@ -198,64 +198,64 @@ public:
         vox.value = px.a != 0;
         if(vox.value == 0) return vox;
 
-        if(px == elm::Carbon) {
+        if(px == elm::getInfoFromType(VoxelValues::CARBON).color) {
             vox.value = 2;
             vox.strenght = 8;
-        } else if(px == elm::Lithium) {
+        } else if(px == elm::getInfoFromType(VoxelValues::LITHIUM).color) {
             vox.value = 3;
             vox.strenght = 2;
             
             if(addVoxelsToArr) reactiveVoxels.push_back(p);
-        } else if(px == elm::Magnesium) {
+        } else if(px == elm::getInfoFromType(VoxelValues::MAGNESIUM).color) {
             vox.value = 4;
             vox.strenght = 10;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Flammable>(p.x, p.y));
             
-        } else if(px == elm::Sodium) {
+        } else if(px == elm::getInfoFromType(VoxelValues::SODIUM).color) {
             vox.value = 5;
             vox.strenght = 1;
 
             if(addVoxelsToArr) reactiveVoxels.push_back(p);
-        } else if(px == elm::Aluminium) {
+        } else if(px == elm::getInfoFromType(VoxelValues::ALUMINIUM).color) {
             vox.value = 6;
             vox.strenght = 5;
-        } else if(px == elm::Silicon) {
+        } else if(px == elm::getInfoFromType(VoxelValues::SILICON).color) {
             vox.value = 7;
             vox.strenght = 6;
-        } else if(px == elm::Copper) {
+        } else if(px == elm::getInfoFromType(VoxelValues::COPPER).color) {
             vox.value = 8;
             vox.strenght = 10;
-        } else if(px == elm::Titanium) {
+        } else if(px == elm::getInfoFromType(VoxelValues::TITANIUM).color) {
             vox.value = 9;
             vox.strenght = 100;
-        } else if(px == elm::Lead) {
+        } else if(px == elm::getInfoFromType(VoxelValues::LEAD).color) {
             vox.value = 10;
             vox.strenght = 3;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Lead>(p.x, p.y));
-        } else if(px == elm::Water) {
-            vox.value = elm::ValWater;
+        } else if(px == elm::getInfoFromType(VoxelValues::WATER).color) {
+            vox.value = VoxelValues::WATER;
             vox.strenght = 2;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Water>(p.x, p.y));
-        } else if(px == elm::Acid) {
-            vox.value = elm::ValAcid;
+        } else if(px == elm::getInfoFromType(VoxelValues::ACID).color) {
+            vox.value = VoxelValues::ACID;
             vox.strenght = 2;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Acid>(p.x, p.y));
-        }else if(px == elm::Nitroglycerin) {
-            vox.value = elm::ValNitroglycerin;
+        }else if(px == elm::getInfoFromType(VoxelValues::NITROGLYCERIN).color) {
+            vox.value = VoxelValues::NITROGLYCERIN;
             vox.strenght = 2;
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Nitroglycerin>(p.x, p.y));
-        } else if(px == elm::Chlorine) {
+        } else if(px == elm::getInfoFromType(VoxelValues::CHLORINE).color) {
             // TODO make workd!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111
             //vox.value = elm::ValChlorine;
             //vox.strenght = 2;
 
             //if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Chlorine>(p.x, p.y));
 
-            vox.value = elm::ValCarbon;
+            vox.value = VoxelValues::CARBON;
             vox.strenght = 1;
 
             std::shared_ptr<ElectricComponent> led = std::make_shared<Led>();
@@ -263,25 +263,23 @@ public:
             led->y = p.y;
             
             if(addVoxelsToArr) simulationManager.addElementToES(led);
-        } else if(px == elm::Uranium235) {
-            vox.value = elm::ValUranium235;
+        } else if(px == elm::getInfoFromType(VoxelValues::URANIUM235).color) {
+            vox.value = VoxelValues::URANIUM235;
             vox.strenght = 2;
 
             if(addVoxelsToArr) radioactive_elements.push_back(std::make_shared<Uranium235>(p.x, p.y));
         }
 
-        else if(px == elm::Radium226) {
-            vox.value = elm::ValRadium226;
+        else if(px == elm::getInfoFromType(VoxelValues::RADIUM226).color) {
+            vox.value = VoxelValues::RADIUM226;
             vox.strenght = 2;
 
             if(addVoxelsToArr) radioactive_elements.push_back(std::make_shared<Radium226>(p.x, p.y));
         }
 
-        else if(px == elm::Sand) {
-            vox.value = elm::ValSand;
+        else if(px == elm::getInfoFromType(VoxelValues::SAND).color) {
+            vox.value = VoxelValues::SAND;
             vox.strenght = 2;
-
-            
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Sand>(p.x, p.y));
         }

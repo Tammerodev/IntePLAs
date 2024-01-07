@@ -8,8 +8,8 @@ class Acid : public Fluid {
             x = xpos;
             y = ypos;
 
-            color = elm::Acid;
-            value = elm::ValAcid;
+            color = elm::getInfoFromType(VoxelValues::ACID).color;
+            value = VoxelValues::ACID;
         }
 
 

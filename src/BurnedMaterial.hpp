@@ -10,7 +10,7 @@ class BurnedMaterial : public Element {
             this->y = y;    
 
             color = sf::Color(math::randIntInRange(0, 50), math::randIntInRange(0, 50), math::randIntInRange(0, 50), math::randIntInRange(50, 200));
-            value = elm::ValSand;
+            value = VoxelValues::SAND;
         }
 
         void update(ChunkIndexer& world) {

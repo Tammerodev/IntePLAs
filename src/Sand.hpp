@@ -9,8 +9,8 @@ class Sand : public Element {
             this->x = x;
             this->y = y;    
 
-            color = elm::Sand;
-            value = elm::ValSand;
+            color = elm::getInfoFromType(VoxelValues::SAND).color;
+            value = VoxelValues::SAND;
         }
 
         void update(ChunkIndexer& world) {

@@ -14,7 +14,7 @@ class Gas : public Element {
             sf::Vector2i lastPos = {0,0};
 
             world.boundSetImagePixelAt(x, y, color);
-            world.getVoxelAt(x, y).value = elm::ValWater;
+            world.getVoxelAt(x, y).value = VoxelValues::WATER;
 
             sf::Vector2i nextWaterPos = *this;
 

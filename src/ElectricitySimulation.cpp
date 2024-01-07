@@ -45,8 +45,8 @@ void ElectricitySimulation::update(ChunkIndexer& world) {
 
     for(const auto& source : ElectricityGlobal::source_positions) {
         if(source.second != 0) {
-            int current_val = (int)elm::ValCopper;
-            int new_val = (int)elm::ValUranium235;
+            int current_val = (int)VoxelValues::COPPER;
+            int new_val = (int)VoxelValues::URANIUM235;
 
             if(world.boundGetVoxelAt(source.first.x + 1, source.first.y).value == current_val)
                 floodFill(world, source.first.x + 1, source.first.y, current_val, new_val);

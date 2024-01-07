@@ -130,8 +130,8 @@ private:
     void generateWater(ChunkIndexer& grid, const int waterLevel, const int world_sx, const int world_sy, const int start = 0) {
         for(int y = world_sy; y > waterLevel; y--) {
             for(int x = 0; x < world_sx; x++) {
-                grid.boundSetImagePixelAt(x + start, y, elm::Water);
-                grid.boundGetVoxelAt(x + start, y).value = elm::ValWater;
+                grid.boundSetImagePixelAt(x + start, y, elm::getInfoFromType(VoxelValues::WATER).color);
+                grid.boundGetVoxelAt(x + start, y).value = VoxelValues::WATER;
             }
         }
     }

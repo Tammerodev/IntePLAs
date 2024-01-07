@@ -12,7 +12,7 @@ class Lead : public Element {
         }
 
         void update(ChunkIndexer& world) {
-            if(world.isInContactWithVoxel(*this, elm::ValAcid)) {
+            if(world.isInContactWithVoxel(*this, VoxelValues::LEAD)) {
                 // Lead - Acid battery
                 ElectricityGlobal::add_source(sf::Vector2i(x,y), 50);
             }

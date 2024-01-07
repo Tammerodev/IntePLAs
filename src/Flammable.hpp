@@ -35,14 +35,14 @@ class Flammable : public Element {
                 if(temp > breakdown_temp) {
                     remove = true;
                     world.boundGetVoxelAt(x, y).temp = 0;
-                    world.boundGetVoxelAt(x, y).value = elm::ValSand;
+                    world.boundGetVoxelAt(x, y).value = VoxelValues::SAND;
                 }
             }
         }   
 
         std::shared_ptr<Element> turn_into() {
             if(remove ) {
-                if(world_local != nullptr && world_local->boundGetVoxelAt(x + 1, y).value != elm::ValSand) 
+                if(world_local != nullptr && world_local->boundGetVoxelAt(x + 1, y).value != VoxelValues::SAND) 
                     return std::make_shared<BurnedMaterial>(x + 1, y);
             }
             return nullptr;
@@ -56,7 +56,7 @@ private:
 
     bool remove = false;
 
-    int value = elm::ValMagnesium;
+    int value = VoxelValues::MAGNESIUM;
     const int ignition_temp = 100;
     const int breakdown_temp = 10000;
 
