@@ -558,6 +558,9 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
                 chIndexer.getVoxelAt(x, y) = getHandleVoxel(chIndexer.getImagePixelAt(x,y), sf::Vector2i(x,y), true);
                 chIndexer.getVoxelAt(x, y).hasCollision = hasCollisions;
 
+                // Use one materials
+                chIndexer.materialpack.addElementOfType(chIndexer.getVoxelAt(x, y).value, -1);
+
             }
         }
     }

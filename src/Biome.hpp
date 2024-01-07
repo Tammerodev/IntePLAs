@@ -21,7 +21,13 @@ class Biome {
                 );
 
 
-            sf::Color col = colorLayers.at(colorLayer).at(math::randIntInRange(0, colorLayers.size() - 1));
+            const auto &layer = colorLayers.at(colorLayer);
+
+            const int randomValue = math::randIntInRange(0, layer.size() - 1);
+
+            const auto &color = layer.at(randomValue);
+
+            sf::Color col = color;
             return col;
         }
 
@@ -50,8 +56,8 @@ class Biome {
 
     protected:
 
-        std::array<std::array<sf::Color, 6>, 6> colorLayers {
-            std::array<sf::Color, 6> {
+        std::array<std::vector<sf::Color>, 6> colorLayers {
+            std::vector<sf::Color> {
                 sf::Color(69, 169, 65),
                 sf::Color(69, 169, 69),
                 sf::Color(61, 160, 65),            
@@ -60,7 +66,7 @@ class Biome {
                 sf::Color(65, 149, 70)
             },
             
-            std::array<sf::Color, 6> {
+            std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::LEAD).color,
@@ -68,7 +74,7 @@ class Biome {
                 sf::Color(96,96,96)
             },
 
-            std::array<sf::Color, 6> {
+            std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::LEAD).color,
@@ -76,7 +82,7 @@ class Biome {
                 sf::Color(96,96,96)
             },
 
-            std::array<sf::Color, 6> {
+            std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::LEAD).color,
@@ -84,7 +90,7 @@ class Biome {
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             },
 
-            std::array<sf::Color, 6> {
+            std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::LEAD).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::LEAD).color,
@@ -92,7 +98,7 @@ class Biome {
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             },
 
-            std::array<sf::Color, 6> {
+            std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::LEAD).color,

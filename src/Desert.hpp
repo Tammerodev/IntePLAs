@@ -25,7 +25,7 @@ public:
         amplitude = 350.f;
 
         colorLayers = {
-            std::array<sf::Color, 6> {
+            std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::SAND).color,
                 elm::getInfoFromType(VoxelValues::SAND).color,
                 elm::getInfoFromType(VoxelValues::SAND).color,          
@@ -34,7 +34,7 @@ public:
                 elm::getInfoFromType(VoxelValues::SAND).color
             },
             
-            std::array<sf::Color, 6> {
+            std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
@@ -43,7 +43,7 @@ public:
                 elm::getInfoFromType(VoxelValues::SAND).color
             },
 
-            std::array<sf::Color, 6> {
+            std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
@@ -52,7 +52,7 @@ public:
                 elm::getInfoFromType(VoxelValues::SAND).color
             },
 
-            std::array<sf::Color, 6> {
+            std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::LEAD).color,
@@ -61,7 +61,7 @@ public:
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             },
 
-            std::array<sf::Color, 6> {
+            std::vector<sf::Color>{
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::LEAD).color,
@@ -70,7 +70,7 @@ public:
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             },
 
-            std::array<sf::Color, 6> {
+            std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::LEAD).color,

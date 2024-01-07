@@ -119,7 +119,7 @@ public:
                 start.y + static_cast<unsigned>(delta.y * t)
             );
 
-            if(chIndexer.getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
+            if(chIndexer.getPixelCollision(sf::Vector2f(pixelPosition)).first == 1) {
                 return true;
             }
         }
@@ -290,11 +290,6 @@ public:
         chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(x,y).x, chIndexer.getChunkFromPos(x,y).y).needs_update = true;
 
         chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(x, y).x, chIndexer.getChunkFromPos(x, y).y).elements.push_back(element);
-    }
-
-
-    MaterialPack &getReceivedMaterials() {
-        return chIndexer.materialpack;
     }
 
     void valueFromColor() {

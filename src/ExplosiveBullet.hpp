@@ -5,7 +5,10 @@ class ExplosiveBullet {
 public:
     ExplosiveBullet(const sf::Texture &bullet_tx, const sf::Vector2f &pos) {
         setPosition(pos);
+        spr.setPosition(pos);
         spr.setTexture(bullet_tx);
+    
+        prev_pos = pos;
     }
 
     virtual ~ExplosiveBullet() {
@@ -14,11 +17,6 @@ public:
 
     void update(const float dt) {
         prev_pos = spr.getPosition();
-
-        hitbox.left = pos.x;
-        hitbox.top = pos.y;
-        hitbox.width = 8;
-        hitbox.height = 8;
 
         pos += vel * speed * dt;
         spr.setPosition(pos);
@@ -36,23 +34,17 @@ public:
         this->vel = vel;
     }
 
-    sf::FloatRect &getHitbox () {
-        return hitbox;
-    }
-
     void setRotation(const float& angle) {
         spr.setRotation(angle);
     }
 
-    sf::Vector2f pos = sf::Vector2f(0,0);
-    sf::Vector2f prev_pos = sf::Vector2f(0,0);
+    sf::Vector2f pos = sf::Vector2f(0, 0);
+    sf::Vector2f prev_pos = sf::Vector2f(0, 0);
 
 private:
     sf::Vector2f vel = sf::Vector2f(0,0);
-    sf::FloatRect hitbox;
 
     sf::Sprite spr;
 
     float speed = 10.f;
-
 };

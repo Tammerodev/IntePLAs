@@ -86,10 +86,7 @@ public:
 			}
 
 			for(auto &wr : world.add_worlds) {
-				if(wr.getCollider().intersects(bullet->getHitbox())) {
-					wr.hole(sf::Vector2i(bullet->pos), explosion_stength, true, temp);
-					return true;
-				}
+				// TODO other worlds...
 			}
 
 			// Check if bullet is too far...
