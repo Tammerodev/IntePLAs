@@ -11,16 +11,12 @@ class CollisionManager {
             bool isLiquidContact = false;
         };
 
-        // Returns true if collisions found
-        static CollisionState handleCollisionsWith(IntPhysicsComponent& player_physicscomp, ChunkIndexer& main_world, const sf::Vector2u &hitBox) {
+        static CollisionState playerHandleCollisions(IntPhysicsComponent& player_physicscomp, ChunkIndexer& main_world, const sf::Vector2u &hitBox) {
             CollisionState result;
-            // ちゅき！ いいえ、これわ　悪いです！
-
             sf::Vector2f ground = player_physicscomp.transform_position;
 
             std::pair<int, sf::Vector2f> groundCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x + hitBox.x / 2, player_physicscomp.transform_position.y + hitBox.y));
 
-                // ごわみずです！
                 
             if(groundCollision.first == 5) {
                 result.isLiquidContact = true;
@@ -48,8 +44,6 @@ class CollisionManager {
                         break;
                 }
             }
-
-            //if(result.isLiquidContact) return result;
 
             const std::pair<int, sf::Vector2f> headCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
                                                                 player_physicscomp.transform_position.y)); 
@@ -83,16 +77,12 @@ class CollisionManager {
             return result;
         }
 
-        // Returns true if collisions found
         static CollisionState handleCollisionsWith(PhysicsComponent& player_physicscomp, ChunkIndexer& main_world, const sf::Vector2u &hitBox) {
             CollisionState result;
-            // ちゅき！ いいえ、これわ　悪いです！
 
             sf::Vector2f ground = player_physicscomp.transform_position;
 
             std::pair<int, sf::Vector2f> groundCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x + hitBox.x / 2, player_physicscomp.transform_position.y + hitBox.y));
-
-                // ごわみずです！
                 
             if(groundCollision.first == 5) {
                 result.isLiquidContact = true;
@@ -119,8 +109,6 @@ class CollisionManager {
                     break;
             }
 
-            //if(result.isLiquidContact) return result;
-
             const std::pair<int, sf::Vector2f> headCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
                                                                 player_physicscomp.transform_position.y)); 
 
@@ -142,11 +130,7 @@ class CollisionManager {
 
                 result.hasCollision = true;
             }
-
-            if(headCollision.first == 1) {
-                player_physicscomp.velocity.y = 0;
-            }
-
+            
             return result;
         }
 };

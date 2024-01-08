@@ -267,14 +267,14 @@ public:
             vox.value = VoxelValues::URANIUM235;
             vox.strenght = 2;
 
-            if(addVoxelsToArr) radioactive_elements.push_back(std::make_shared<Uranium235>(p.x, p.y));
+            if(addVoxelsToArr) addRadioactiveElement(p.x, p.y, std::make_shared<Uranium235>(p.x, p.y));
         }
 
         else if(px == elm::getInfoFromType(VoxelValues::RADIUM226).color) {
             vox.value = VoxelValues::RADIUM226;
             vox.strenght = 2;
 
-            if(addVoxelsToArr) radioactive_elements.push_back(std::make_shared<Radium226>(p.x, p.y));
+            if(addVoxelsToArr) addRadioactiveElement(p.x, p.y, std::make_shared<Radium226>(p.x, p.y));
         }
 
         else if(px == elm::getInfoFromType(VoxelValues::SAND).color) {
@@ -290,6 +290,10 @@ public:
         chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(x,y).x, chIndexer.getChunkFromPos(x,y).y).needs_update = true;
 
         chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(x, y).x, chIndexer.getChunkFromPos(x, y).y).elements.push_back(element);
+    }
+
+    void addRadioactiveElement(int x, int y, const std::shared_ptr<RadioactiveElement> element) {
+        chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(x, y).x, chIndexer.getChunkFromPos(x, y).y).radioactive_elements.push_back(element);
     }
 
     void valueFromColor() {
@@ -335,8 +339,6 @@ private:
 
     std::list<sf::Vector2i> voxelsInNeedOfUpdate;
     std::list<sf::Vector2i> reactiveVoxels;
-
-    std::list<std::shared_ptr<RadioactiveElement>> radioactive_elements;
 
     ParticleSimulation particleSimulation;
     SimulationManager simulationManager;

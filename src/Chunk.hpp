@@ -6,9 +6,9 @@
 #include "SaveUtils.hpp"
 #include "common.hpp"
 #include <malloc.h>
-
 #include "debug_globals.hpp"
 class Element;
+class RadioactiveElement;
 
 inline int chunks_x = 128;
 inline int chunks_y = 128;
@@ -89,6 +89,7 @@ public:
     bool needs_update = false;
 
     std::list<std::shared_ptr<Element>> elements;
+    std::list<std::shared_ptr<RadioactiveElement>> radioactive_elements;
 };
 
 struct ChunkArea {

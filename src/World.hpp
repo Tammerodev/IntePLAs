@@ -58,7 +58,7 @@ public:
     }
 
     void handleCollisionsWithPlayer(Player& player) {
-        CollisionManager::CollisionState res = CollisionManager::handleCollisionsWith(player.getPhysicsComponent(), main_world.getChunkIndexer(), PlayerGlobal::characterHitBoxSize);
+        CollisionManager::CollisionState res = CollisionManager::playerHandleCollisions(player.getPhysicsComponent(), main_world.getChunkIndexer(), PlayerGlobal::characterHitBoxSize);
 
         if(res.hasCollision) {
             player.ground();

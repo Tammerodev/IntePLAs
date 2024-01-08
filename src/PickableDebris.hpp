@@ -59,7 +59,6 @@ class PickableDebris : public Particle {
 
                     SFX::collect.play();
                     SFX::collect.setPitch(0.5f + math::randFloat() / 2.f);
-
                 }
 
                 // Set outline to inverse color
@@ -128,7 +127,7 @@ class PickableDebris : public Particle {
         PhysicsComponent physComponent;
 
         unsigned int timer = 0;
-        unsigned int lifetime = 10000;
+        unsigned int lifetime = 1000;
 
         int value = 0;
 

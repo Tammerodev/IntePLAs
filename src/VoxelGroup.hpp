@@ -67,7 +67,7 @@ public:
         return collisionTestPoints;
     }
 
-    void heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp);
+    void heatVoxelAt(const int64_t x, const int64_t y, int64_t temp);
     void render(sf::RenderTarget&, const sf::Vector2f &center);
     void resetUsedFlag();
     void update(const float);

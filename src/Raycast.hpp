@@ -69,7 +69,7 @@ namespace Raycast {
                         info.world->damageVoxelAt(pixelPosition.x, pixelPosition.y);
                     }
                     
-                    info.world->heatVoxelAt(pixelPosition.x, pixelPosition.y, info.temp);
+                    info.world->boundHeatVoxelAt(pixelPosition.x, pixelPosition.y, info.temp);
 
                     if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
                         if(info.voxelsInNeedOfUpdate != nullptr) {

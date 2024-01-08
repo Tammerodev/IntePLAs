@@ -53,7 +53,7 @@ public:
             std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
-                elm::getInfoFromType(VoxelValues::LEAD).color,
+                elm::getInfoFromType(VoxelValues::SILICON).color,
                 elm::getInfoFromType(VoxelValues::TITANIUM).color,
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             },
@@ -61,7 +61,7 @@ public:
             std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
-                elm::getInfoFromType(VoxelValues::LEAD).color,
+                elm::getInfoFromType(VoxelValues::SILICON).color,
                 elm::getInfoFromType(VoxelValues::TITANIUM).color,
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             },
@@ -69,7 +69,7 @@ public:
             std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
-                elm::getInfoFromType(VoxelValues::LEAD).color,
+                elm::getInfoFromType(VoxelValues::SILICON).color,
                 elm::getInfoFromType(VoxelValues::TITANIUM).color,
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             }

@@ -69,7 +69,17 @@ public:
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::TITANIUM).color,
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color,
-                elm::getInfoFromType(VoxelValues::TITANIUM).color
+                elm::getInfoFromType(VoxelValues::SILICON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::CARBON).color,
+                elm::getInfoFromType(VoxelValues::TITANIUM).color,
+                elm::getInfoFromType(VoxelValues::ALUMINIUM).color,
+                elm::getInfoFromType(VoxelValues::ALUMINIUM).color,
+                elm::getInfoFromType(VoxelValues::URANIUM235).color,
+                sf::Color(75,75,75),
+                sf::Color(75,75,75),
+                sf::Color(75,75,75)
             },
 
             std::vector<sf::Color> {
@@ -78,13 +88,7 @@ public:
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::TITANIUM).color,
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color,
-                elm::getInfoFromType(VoxelValues::MAGNESIUM).color,
-                elm::getInfoFromType(VoxelValues::CARBON).color,
-                elm::getInfoFromType(VoxelValues::CARBON).color,
-                elm::getInfoFromType(VoxelValues::CARBON).color,
-                elm::getInfoFromType(VoxelValues::TITANIUM).color,
-                elm::getInfoFromType(VoxelValues::ALUMINIUM).color,
-                elm::getInfoFromType(VoxelValues::ALUMINIUM).color
+                elm::getInfoFromType(VoxelValues::MAGNESIUM).color
             }
         };
     }

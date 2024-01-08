@@ -269,6 +269,9 @@ void VoxelManager::update(Player &player)
 
     sf::Sprite spriteRend;
 
+    PlayerGlobal::radiation_received = 0;
+    
+
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
             Chunk& chunk = chIndexer.getChunkAt(x, y);
@@ -306,45 +309,48 @@ void VoxelManager::update(Player &player)
                     ++e;  
                 }
             }
-
         }
     }
 
-    PlayerGlobal::radiation_received = 0;
-    
-    auto rad = radioactive_elements.begin();
-    while (rad != radioactive_elements.end())
-    {
+    for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
+        for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
+            Chunk& chunk = chIndexer.getChunkAt(x, y);
 
-        rad->get()->update(chIndexer);
+            auto rad = chunk.radioactive_elements.begin();
+            while (rad != chunk.radioactive_elements.end())
+            {
+                rad->get()->update(chIndexer);
 
-        const float distance = math::distance(
-            sf::Vector2f(*rad->get()), sf::Vector2f(player.getPhysicsComponent().transform_position)
-            );
+                const float distance = math::distance(
+                    sf::Vector2f(*rad->get()), sf::Vector2f(player.getPhysicsComponent().transform_position)
+                    );
 
-        const float radiation_strength = rad->get()->getRadiationStrength();
+                const float radiation_strength = rad->get()->getRadiationStrength();
 
-        if(distance < radiation_strength) {
-            
-            const int radiation = radiation_strength - (int)distance;
+                if(distance < radiation_strength) {
+                    
+                    const int radiation = radiation_strength - (int)distance;
 
-            const bool particle = math::randIntInRange(0, radiation_strength) > distance;
+                    const bool particle = math::randIntInRange(0, radiation_strength) > distance;
 
-            if(particle) {
-                PlayerGlobal::radiation_received = radiation;
-                
-                if(radiation > PlayerGlobal::still_radioation) 
-                    PlayerGlobal::still_radioation = radiation;
+                    if(particle) {
+                        PlayerGlobal::radiation_received = radiation;
+                        
+                        if(radiation > PlayerGlobal::still_radioation) 
+                            PlayerGlobal::still_radioation = radiation;
 
-                if(math::randIntInRange(0, 10000) < 1) 
-                    player.damage_radiation(1);
+                        if(math::randIntInRange(0, 10000) < 1) 
+                            player.damage_radiation(1);
+                    }
+                }
+
+                if(rad->get()->clear())
+                    rad = chunk.radioactive_elements.erase(rad);
+                else 
+                    ++rad;  
             }
-        }
 
-        if(rad->get()->clear())
-            rad = radioactive_elements.erase(rad);
-        else 
-            ++rad;  
+        }
     }
 }
 

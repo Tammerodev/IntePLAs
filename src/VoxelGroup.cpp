@@ -63,8 +63,12 @@ int VoxelGroup::load(const sf::Image &copy_img)
     return true;
 }
 
-void VoxelGroup::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
+void VoxelGroup::heatVoxelAt(int64_t x, int64_t y, int64_t temp)
 {
+    if(x <= 0) x = 0;
+    if(y <= 0) y = 0;
+    if(x >= (int)world_sx - 1) x = (int)world_sx - 1;
+    if(y >= (int)world_sy - 1) y = (int)world_sy - 1;
 
     Voxel &vox = getVoxelAt(x,y);
 

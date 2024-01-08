@@ -69,7 +69,7 @@ class Biome {
             std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
-                elm::getInfoFromType(VoxelValues::LEAD).color,
+                elm::getInfoFromType(VoxelValues::SILICON).color,
                 sf::Color(96,96,96), 
                 sf::Color(96,96,96)
             },
@@ -77,7 +77,7 @@ class Biome {
             std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
-                elm::getInfoFromType(VoxelValues::LEAD).color,
+                elm::getInfoFromType(VoxelValues::SILICON).color,
                 sf::Color(96,96,96), 
                 sf::Color(96,96,96)
             },
@@ -85,15 +85,15 @@ class Biome {
             std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
-                elm::getInfoFromType(VoxelValues::LEAD).color,
+                elm::getInfoFromType(VoxelValues::SILICON).color,
                 elm::getInfoFromType(VoxelValues::TITANIUM).color,
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             },
 
             std::vector<sf::Color> {
-                elm::getInfoFromType(VoxelValues::LEAD).color,
+                elm::getInfoFromType(VoxelValues::SILICON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
-                elm::getInfoFromType(VoxelValues::LEAD).color,
+                elm::getInfoFromType(VoxelValues::SILICON).color,
                 elm::getInfoFromType(VoxelValues::TITANIUM).color,
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             },
@@ -101,7 +101,7 @@ class Biome {
             std::vector<sf::Color> {
                 elm::getInfoFromType(VoxelValues::CARBON).color,
                 elm::getInfoFromType(VoxelValues::CARBON).color,
-                elm::getInfoFromType(VoxelValues::LEAD).color,
+                elm::getInfoFromType(VoxelValues::SILICON).color,
                 elm::getInfoFromType(VoxelValues::TITANIUM).color,
                 elm::getInfoFromType(VoxelValues::ALUMINIUM).color
             }

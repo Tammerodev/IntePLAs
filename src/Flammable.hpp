@@ -27,10 +27,10 @@ class Flammable : public Element {
 
                 const int energy = 10;
 
-                world.heatVoxelAt(x + 1, y, energy);
-                world.heatVoxelAt(x - 1, y, energy);
-                world.heatVoxelAt(x, y + 1, energy);
-                world.heatVoxelAt(x, y - 1, energy);
+                world.boundHeatVoxelAt(x + 1, y, energy);
+                world.boundHeatVoxelAt(x - 1, y, energy);
+                world.boundHeatVoxelAt(x, y + 1, energy);
+                world.boundHeatVoxelAt(x, y - 1, energy);
 
                 if(temp > breakdown_temp) {
                     remove = true;
