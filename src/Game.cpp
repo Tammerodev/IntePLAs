@@ -5,6 +5,8 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     const uint16_t window_height = height;
     const uint16_t window_width = width;
     renderTexture.create(window_width, window_height);
+
+    Fonts::loadFont();
     
     game_camera.setSize(sf::Vector2u(window_width, window_height));
     ui_camera.setSize(sf::Vector2u(window_width, window_height));
@@ -81,6 +83,7 @@ void Game::update() {
     shaderEffect.update();
     mobManager.update(dt, player);
     mobManager.checkCollisions(world.main_world);
+    mobManager.invokeMobs(player, world.main_world.explosion_points);
     
     if(PlayerGlobal::health <= 0) return;                 
 
@@ -112,8 +115,6 @@ void Game::update() {
             wrl.explosion_points.pop_back();
         }
     }
-
-    mobManager.invokeMobs(player);
 
     // Update various game components
     bg.update(game_camera.getView(), dt);

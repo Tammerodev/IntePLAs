@@ -2,6 +2,7 @@
 #include "Frog.hpp"
 #include "Fish.hpp"
 #include <list>
+#include "MobInfoBar.hpp"
 
 class MobManager {
     public:
@@ -36,7 +37,7 @@ class MobManager {
             }
         }
 
-        void invokeMobs(Player& player);
+        void invokeMobs(Player& player, std::vector<ExplosionInfo>& points);
         
     private:
         std::list<std::shared_ptr<Mob>> mobs;

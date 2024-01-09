@@ -12,9 +12,16 @@ void Frog::load() {
     sprite.setTexture(texture);
 
     physicsComponent.transform_position = sf::Vector2f(800, 0);
+
+    default_behaviour.default_load();
+
+    maxHealth = 10;
+    health = maxHealth;
 }
 
- void Frog::update(const float dt) {
+void Frog::update(const float dt) {
+
+    default_behaviour.update(physicsComponent.transform_position, "Frog", health);
 
     if(scaredTimer > 0) {
         scaredTimer--;
@@ -68,6 +75,8 @@ void Frog::collisionCheck(VoxelManager &voxelManager) {
 
 void Frog::render(sf::RenderTarget &target) {
     FrogState::currentState->draw(target, sprite);
+
+    default_behaviour.default_render(target);
 }
 
 void Frog::invoke(const MobInvoke &inv) {
@@ -76,10 +85,17 @@ void Frog::invoke(const MobInvoke &inv) {
     if(mobInvoke.distanceToPlayer <= distanceWhenInvoked) {
         scaredTimer = scaredTime;
     }
-}
+
+    if(inv.damage > 0) {
+        generalDamageBehaviour(inv.damage);
+
+        FrogState::currentState = FrogState::damageState;
+        FrogState::currentState->enter(); 
+    }
+} 
 
 bool Frog::remove() {
-    return false;
+    return remove_mob;
 }
 
 PhysicsComponent &Frog::getPhysicsComponent() {

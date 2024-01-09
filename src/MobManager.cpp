@@ -24,11 +24,24 @@ void MobManager::update(const float dt, Player& player) {
     }
 }
 
-void MobManager::invokeMobs(Player &player) {
+void MobManager::invokeMobs(Player &player, std::vector<ExplosionInfo>& points) {
     for(const auto &mob : mobs) {
         const float distance = math::distance(player.getPhysicsComponent().transform_position, mob->getPhysicsComponent().transform_position);
         MobInvoke mobInvoke;
         mobInvoke.distanceToPlayer = distance;
+
+        for(const auto point : points) {
+            const sf::Vector2f mob_position = mob->getPhysicsComponent().transform_position;
+            const float distance = math::distance(mob_position, point.position);
+
+            if(distance < point.strength) {
+                float damage = point.strength - distance;
+
+                if(damage > mobInvoke.damage) {
+                    mobInvoke.damage = damage;
+                } 
+            }   
+        }
 
         mobInvoke.playerSubVector = math::subVector(player.getPhysicsComponent().transform_position, mob->getPhysicsComponent().transform_position);
 

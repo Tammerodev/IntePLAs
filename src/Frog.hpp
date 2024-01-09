@@ -32,6 +32,8 @@ class Frog : public Mob {
 
         MobInvoke mobInvoke;
 
+        DefaultBehaviour default_behaviour;
+
         float distanceWhenInvoked = 50.f;
 
         bool grounded = false;    
