@@ -1,6 +1,7 @@
 #pragma once
 #include "ElectricComponent.hpp"
 #include "debug_globals.hpp"
+#include "common.hpp"
 
 class ElectricitySimulation {
     public:

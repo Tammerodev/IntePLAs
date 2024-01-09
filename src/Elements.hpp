@@ -92,6 +92,8 @@ namespace elm {
                 return Titanium;
             case LEAD:
                 return Lead;
+            case ACID:
+                return Acid;
             case WATER:
                 return Water;
             case NITROGLYCERIN:

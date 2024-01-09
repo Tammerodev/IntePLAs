@@ -5,7 +5,19 @@
 class Led : public ElectricComponent {
     public:
         component_data update(ChunkIndexer& world) {
-            voltage = world.boundGetVoxelAt(x, y).voltage;
+            Voxel& voxel = world.boundGetVoxelAt(x, y);
+
+            rem = voxel.value == 0;
+    
+            voltage = std::max({
+                voxel.value,
+                world.boundGetVoxelAt(x + 1, y).value,
+                world.boundGetVoxelAt(x - 1, y).value,
+                world.boundGetVoxelAt(x, y + 1).value,
+                world.boundGetVoxelAt(x, y - 1).value
+            });
+
+
 
             sf::Color color = sf::Color(14, 15, 23);
 
@@ -30,9 +42,11 @@ class Led : public ElectricComponent {
         }
 
         bool clear() {
-            return false;
+            return rem;
         }
     private:
+        bool rem = false;
+
         int treshold = 5;
         int voltage = 0;
 };
