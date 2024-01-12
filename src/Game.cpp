@@ -57,6 +57,8 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     if(!shaderEffect.load(window_width, window_height)) 
         perror("Failed to load bloom effect");
 
+    gameEventManager.load();
+
     playerUI.load(window_width, window_height);
     mobManager.load();
     debugDisplay.load(gui);
@@ -81,9 +83,11 @@ void Game::update() {
 
     uiStateManager.update(Controls::windowCursorPos);
     shaderEffect.update();
-    mobManager.update(dt, player);
+    mobManager.update(dt, player, world.main_world);
     mobManager.checkCollisions(world.main_world);
     mobManager.invokeMobs(player, world.main_world.explosion_points);
+
+    gameEventManager.update(world.main_world);
     
     if(PlayerGlobal::health <= 0) return;                 
 
@@ -170,6 +174,7 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
 
     world.render(renderTexture, game_camera.getCenterPosition());
     inv.render(renderTexture);
+    gameEventManager.render(renderTexture);
 
     effOverlay.render(renderTexture);
     

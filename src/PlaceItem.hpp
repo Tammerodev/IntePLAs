@@ -16,6 +16,8 @@ class PlaceItem : public Item {
 		gun_spr.setTexture(gun_tx);
 
 		gun_spr.setOrigin(gun_spr.getGlobalBounds().width / 2,gun_spr.getGlobalBounds().height / 2);
+
+		placed = false;
 	}
 
     void render(sf::RenderTarget &target) {
@@ -78,10 +80,16 @@ class PlaceItem : public Item {
 	void use(const sf::Vector2f& player,const sf::Vector2f& mouse, World&world) {
 		if(!allowedToplace) return;
 		if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+			placed = true;
 			vx_man.build_image(sf::Vector2i(throwInterface.getThrowPosition()), copy_, &world.add_worlds, throwInterface.getThrowVelocity() / 50.f);
 		} else {
+			placed = true;
 			vx_man.build_image(sf::Vector2i(mospos), copy_, nullptr, sf::Vector2f(0.f, 0.f), true);
 		}
+	}
+	
+	bool remove_item() {
+		return placed;
 	}
 
 	Category getCategory() {
@@ -95,6 +103,8 @@ private:
 
 	bool allowedToplace = true;
 	bool launchLoaded = false;
+
+	bool placed = false;
 
 	sf::Sprite gun_spr;
 	sf::Texture gun_tx;

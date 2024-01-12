@@ -245,6 +245,8 @@ private:
         inv.addItem(vx, std::make_shared<PlaceItem>(vx, saveName, saveName));
         removeWidgets(gui);
 
+        vx.removeMaterialsOfImage(edImg);
+
         UIState::currentState = UIState::nostate;
         UIState::currentState->load(gui, inv, vx);
     }

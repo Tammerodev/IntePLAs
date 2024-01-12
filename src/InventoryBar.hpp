@@ -42,8 +42,10 @@ class InventoryBar {
 
             targ.draw(bg);
 
-        
-            for(auto &item : inventory) {
+
+            for(auto it = inventory.begin(); it != inventory.end();) {
+
+                auto &item = *it; 
 
                 if(index == currentItemIndex && isSelected) {
                     seperator.setOutlineColor(sf::Color::White);
@@ -65,6 +67,11 @@ class InventoryBar {
                 targ.draw(seperator);
                 item->inventory_render(targ, position + sf::Vector2f(10, 10));
 
+                if(item->remove_item()) {
+                    it = inventory.erase(it);
+                } else {
+                    ++it;
+                }
                 ++index;
             }
 

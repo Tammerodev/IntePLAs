@@ -37,8 +37,4 @@ void MaterialsUI::update(VoxelManager &vx_manager)
     barChart.at(6).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.copper);
     barChart.at(7).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.titanium);
     barChart.at(8).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.lead);
-
-    for(auto &bar : barChart) {
-        bar.setSize(sf::Vector2f(bar.getSize().x, bar.getSize().y / 10));
-    }
 }

@@ -94,7 +94,15 @@ void Frog::invoke(const MobInvoke &inv) {
     }
 } 
 
-bool Frog::remove() {
+bool Frog::remove(VoxelManager& vx) {
+    if(remove_mob) {
+        sf::Vector2i pos = sf::Vector2i(physicsComponent.transform_position);
+
+        vx.getChunkIndexer().boundVector(pos);
+
+        default_behaviour.default_death(pos.x, pos.y, vx);
+    }
+
     return remove_mob;
 }
 

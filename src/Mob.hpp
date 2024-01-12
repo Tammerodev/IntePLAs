@@ -2,6 +2,7 @@
 #include "Entity.hpp"
 #include "VoxelManager.hpp"
 #include "MobInfoBar.hpp"
+#include "Blood.hpp"
 
 struct MobInvoke {
     float damage = 0.f;
@@ -26,6 +27,19 @@ class DefaultBehaviour {
             mobInfoBar.update(name, health);
         }
 
+        void default_death(int x, int y, VoxelManager& voxelManager) {
+            for(int i = 0; i < 10; i++) {
+                sf::Vector2i pos(x, y - i);
+
+                voxelManager.getChunkIndexer().boundVector(pos);
+
+                voxelManager.getChunkIndexer().getVoxelAt(pos.x, pos.y).value = VoxelValues::BLOOD;
+                voxelManager.getChunkIndexer().setImagePixelAt(pos.x, pos.y, elm::getInfoFromType(VoxelValues::BLOOD).color);
+
+                voxelManager.getHandleVoxel(elm::getInfoFromType(VoxelValues::BLOOD).color, pos, true);
+            }
+        }
+
     private:
         MobInfoBar mobInfoBar;
 };
@@ -38,7 +52,7 @@ class Mob : public Entity {
         virtual void render(sf::RenderTarget&) = 0;
 
         virtual void invoke(const MobInvoke&) = 0;
-        virtual bool remove() = 0;
+        virtual bool remove(VoxelManager&) = 0;
 
         virtual PhysicsComponent& getPhysicsComponent() = 0;
 

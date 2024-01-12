@@ -17,6 +17,10 @@ public:
     virtual void setPosition(const sf::Vector2f&) = 0;
     virtual sf::Sprite &getSprite() = 0;
 
+    virtual bool remove_item() {
+        return false;
+    }
+
     virtual Category getCategory() = 0;
 
 };

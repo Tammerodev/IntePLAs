@@ -2,6 +2,7 @@
 #include "Chunk.hpp"
 #include "VoxelContainer.hpp"
 #include "MaterialPack.hpp"
+#include <math.h>
 
 namespace worldSize {
     inline int64_t world_sx;
@@ -146,6 +147,29 @@ public:
         else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::COPPER) materialpack.copper += 1;
         else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::TITANIUM) materialpack.titanium += 1;
         else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::LEAD) materialpack.lead += 1;
+    }
+
+    bool doesLineContainMaterial(sf::Vector2i start, sf::Vector2i end) {
+
+        boundVector(start);
+        boundVector(end);
+
+
+        sf::Vector2i delta = end - start;
+        int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
+
+        for (int i = 0; i <= length; i++) {
+            float t = static_cast<float>(i) / length;
+            sf::Vector2i pixelPosition(
+                start.x + static_cast<unsigned>(delta.x * t),
+                start.y + static_cast<unsigned>(delta.y * t)
+            );
+
+            if(getPixelCollision(sf::Vector2f(pixelPosition)).first == 1) {
+                return true;
+            }
+        }
+        return false;
     }
     
     void damageVoxelAt(const int x, const int y) {

@@ -29,7 +29,7 @@ class MobManager {
             return mobs.size();
         }
 
-        void update(const float dt, Player& player); 
+        void update(const float dt, Player& player, VoxelManager&); 
 
         void render(sf::RenderTarget &target) {
             for(const auto &mob : mobs) {

@@ -25,6 +25,7 @@
 #include "Acid.hpp"
 #include "Fluid.hpp"
 #include "Water.hpp"
+#include "Blood.hpp"
 #include "Nitroglycerin.hpp"
 #include "Chlorine.hpp"
 #include "Shader.hpp"
@@ -50,6 +51,7 @@
 
 #include "Flammable.hpp"
 #include "SaveUtils.hpp"
+#include "FireEffectManager.hpp"
 
 class VoxelManager {
 public:
@@ -101,29 +103,6 @@ public:
         if(!GraphicsSettings::particleEffects) return;
         
         particleSimulation.addParticle(particle);
-    }
-
-    bool doesLineContainMaterial(sf::Vector2i start, sf::Vector2i end) {
-
-        chIndexer.boundVector(start);
-        chIndexer.boundVector(end);
-
-
-        sf::Vector2i delta = end - start;
-        int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
-
-        for (int i = 0; i <= length; i++) {
-            float t = static_cast<float>(i) / length;
-            sf::Vector2i pixelPosition(
-                start.x + static_cast<unsigned>(delta.x * t),
-                start.y + static_cast<unsigned>(delta.y * t)
-            );
-
-            if(chIndexer.getPixelCollision(sf::Vector2f(pixelPosition)).first == 1) {
-                return true;
-            }
-        }
-        return false;
     }
 
     bool generate();
@@ -239,6 +218,11 @@ public:
             vox.strenght = 2;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Water>(p.x, p.y));
+        } else if(px == elm::getInfoFromType(VoxelValues::BLOOD).color) {
+            vox.value = VoxelValues::BLOOD;
+            vox.strenght = 2;
+
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Blood>(p.x, p.y));
         } else if(px == elm::getInfoFromType(VoxelValues::ACID).color) {
             vox.value = VoxelValues::ACID;
             vox.strenght = 2;
@@ -317,6 +301,19 @@ public:
         }
     }
 
+    void removeMaterialsOfImage(sf::Image &img) {
+        for(unsigned int y = 0; y < img.getSize().y; y++) {
+            for(unsigned int x = 0; x < img.getSize().x; x++) {
+                const sf::Color pixel = img.getPixel(x, y);
+
+                const int voxel_value = getHandleVoxel(pixel, sf::Vector2i(x, y)).value;
+                chIndexer.materialpack.addElementOfType(voxel_value, -1);
+
+                prndd("ADAd");
+            }
+        }
+    }
+
     void build_image(const sf::Vector2i&, const sf::Image&, std::list<VoxelGroup>*, const sf::Vector2f velocity = sf::Vector2f(0.f, 0.f), bool hasCollisions = true);
 
     std::vector<ExplosionInfo> explosion_points;
@@ -342,4 +339,5 @@ private:
 
     ParticleSimulation particleSimulation;
     SimulationManager simulationManager;
+    FireEffectManager fireEffectManager;
 };

@@ -4,6 +4,7 @@
 #include "common.hpp"
 
 #include "BurnedMaterial.hpp"
+#include "FireEffectManager.hpp"
 
 class Flammable : public Element {
     public:
@@ -31,6 +32,8 @@ class Flammable : public Element {
                 world.boundHeatVoxelAt(x - 1, y, energy);
                 world.boundHeatVoxelAt(x, y + 1, energy);
                 world.boundHeatVoxelAt(x, y - 1, energy);
+
+                if(math::randIntInRange(1, 25) == 1) FireGlobal::add_source(sf::Vector2i(x, y));
 
                 if(temp > breakdown_temp) {
                     remove = true;

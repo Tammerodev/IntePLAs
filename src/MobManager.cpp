@@ -1,14 +1,12 @@
 #include "MobManager.hpp"
 
-void MobManager::update(const float dt, Player& player) {
-    auto &particles = mobs;
-
+void MobManager::update(const float dt, Player& player, VoxelManager& vx) {
     for (auto it = mobs.begin(); it != mobs.end();) {
         auto& mob = *it;
 
         mob->update(dt);
 
-        if(mob->remove()) {
+        if(mob->remove(vx)) {
             it = mobs.erase(it);
         } else {
             ++it;

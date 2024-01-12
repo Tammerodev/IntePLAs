@@ -140,6 +140,8 @@ void VoxelManager::update(Player &player)
     simulationManager.updateAll(chIndexer);
 
     particleSimulation.update(1.0f, player.getPhysicsComponent().transform_position);
+    fireEffectManager.update(particleSimulation);
+
     auto &particles = particleSimulation.getParticlesList();
 
     debug_globals::particle_count = particles.size();
@@ -175,7 +177,7 @@ void VoxelManager::update(Player &player)
             sf::Vector2i vp = sf::Vector2i(p->prev_position);
             chIndexer.boundVector(vp);
 
-            if(doesLineContainMaterial(vp, v)) {
+            if(chIndexer.doesLineContainMaterial(vp, v)) {
                 holeRayCast(v, 10, false, 20);
                 p->energy = 0;
             }
@@ -560,13 +562,10 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
             if(x < 0) break;
 
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
+                // Use one materials
                 chIndexer.setImagePixelAt(x,y,cimg.getPixel(x - p.x, y - p.y));
                 chIndexer.getVoxelAt(x, y) = getHandleVoxel(chIndexer.getImagePixelAt(x,y), sf::Vector2i(x,y), true);
                 chIndexer.getVoxelAt(x, y).hasCollision = hasCollisions;
-
-                // Use one materials
-                chIndexer.materialpack.addElementOfType(chIndexer.getVoxelAt(x, y).value, -1);
-
             }
         }
     }

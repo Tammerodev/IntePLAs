@@ -69,7 +69,7 @@ void Fish::invoke(const MobInvoke &inv) {
     }
 }
 
-bool Fish::remove() {
+bool Fish::remove(VoxelManager&) {
     return do_remove;
 }
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "Particle.hpp"
+#include "math.hpp"
 
 class FreeNeutron : public Particle {
     public:

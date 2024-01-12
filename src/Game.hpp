@@ -35,6 +35,7 @@
 #include "SimulationManager.hpp"
 
 #include "DebugDisplay.hpp"
+#include "GameEventManager.hpp"
 
 class Game {
     public:
@@ -103,4 +104,6 @@ class Game {
         MobManager mobManager;
 
         DebugDisplay debugDisplay;
+
+        GameEventManager gameEventManager;
 };

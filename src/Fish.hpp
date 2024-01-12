@@ -19,7 +19,7 @@ class Fish : public Mob {
         void render(sf::RenderTarget&);
 
         void invoke(const MobInvoke&);
-        bool remove();
+        bool remove(VoxelManager&);
 
         PhysicsComponent& getPhysicsComponent();
 
