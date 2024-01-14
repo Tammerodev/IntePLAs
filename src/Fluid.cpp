@@ -9,16 +9,19 @@ void Fluid::update(ChunkIndexer &world) {
     checkExisting(world);
     move(nextWaterPos);
 
+    sf::Vector2i pos = world.pointLineContainMaterial(lastPos, nextWaterPos);
+
+    if(pos != sf::Vector2i(0, 0)) {
+        velocity.y = 0;
+        nextWaterPos = pos;
+    }
+
     if(world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
         clearLastPos(nextWaterPos, world);
     } else {
         // If position inside another voxel
         nextWaterPos.y -= velocity.y;
         velocity.y = 0;
-
-        sf::Vector2i pos = world.pointLineContainMaterial(lastPos, nextWaterPos);
-        if(pos != sf::Vector2i(0, 0)) 
-            nextWaterPos = pos;
 
         // res means x direction
         int res = 0;

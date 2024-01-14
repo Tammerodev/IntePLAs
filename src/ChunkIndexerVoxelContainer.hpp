@@ -177,14 +177,15 @@ public:
         boundVector(start);
         boundVector(end);
 
-
         sf::Vector2i delta = end - start;
         int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
 
         sf::Vector2i prev_pos = start;
 
         for (int i = 0; i <= length; i++) {
-            float t = static_cast<float>(i) / length;
+
+            const float t = static_cast<float>(i) / length;
+
             sf::Vector2i pixelPosition(
                 start.x + static_cast<unsigned>(delta.x * t),
                 start.y + static_cast<unsigned>(delta.y * t)
