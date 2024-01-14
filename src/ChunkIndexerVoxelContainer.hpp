@@ -171,6 +171,33 @@ public:
         }
         return false;
     }
+
+    sf::Vector2i pointLineContainMaterial(sf::Vector2i start, sf::Vector2i end) {
+
+        boundVector(start);
+        boundVector(end);
+
+
+        sf::Vector2i delta = end - start;
+        int length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
+
+        sf::Vector2i prev_pos = start;
+
+        for (int i = 0; i <= length; i++) {
+            float t = static_cast<float>(i) / length;
+            sf::Vector2i pixelPosition(
+                start.x + static_cast<unsigned>(delta.x * t),
+                start.y + static_cast<unsigned>(delta.y * t)
+            );
+
+            if(getPixelCollision(sf::Vector2f(pixelPosition)).first == 1) {
+                return prev_pos;
+            }
+
+            prev_pos = pixelPosition;
+        }
+        return sf::Vector2i(0, 0);
+    }
     
     void damageVoxelAt(const int x, const int y) {
         uint8_t &strenght = getVoxelAt(x,y).strenght;

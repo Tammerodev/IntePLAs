@@ -308,8 +308,6 @@ public:
 
                 const int voxel_value = getHandleVoxel(pixel, sf::Vector2i(x, y)).value;
                 chIndexer.materialpack.addElementOfType(voxel_value, -1);
-
-                prndd("ADAd");
             }
         }
     }

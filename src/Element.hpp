@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Chunk.hpp"
+#include "ChunkIndexerVoxelContainer.hpp"
 
 class Element : public sf::Vector2i {
     public:
