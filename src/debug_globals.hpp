@@ -10,4 +10,7 @@ namespace debug_globals {
     inline int loaded_chunks = 0;
 
     inline sf::Vector2f player_position {0.f, 0.f};
+
+
+    inline bool inDebugDisplayState = true;
 }

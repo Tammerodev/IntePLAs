@@ -18,14 +18,6 @@ class MoltenGlass : public Fluid {
 
             if(voxel.temp < 1000)
                 solid = true;
-            if(voxel.temp > 100) {
-
-                sf::Vector2i boundPos = *this;
-                world.boundVector(boundPos);
-                sf::Vector2i chunk_pos = world.getChunkFromPos(boundPos.x, boundPos.y);
-                world.boundGetChunkAt(chunk_pos.x, chunk_pos.y).needs_update = true;
-                
-            }
         }
 
         bool clear() {

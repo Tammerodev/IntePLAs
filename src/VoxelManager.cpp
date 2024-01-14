@@ -113,19 +113,32 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
     sf::Sprite spriteRend;
 
+    sf::RectangleShape debug;
+    debug.setSize(sf::Vector2f(Chunk::sizeX, Chunk::sizeY));
+    debug.setFillColor(sf::Color(0,0,0,0));
+    debug.setOutlineColor(sf::Color::Black);
+    debug.setOutlineThickness(1);
+
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
-            if(chIndexer.getChunkAt(x, y).modified) {
-                chIndexer.getChunkAt(x, y).update();
+            Chunk& chunk = chIndexer.getChunkAt(x, y);
+
+            if(chunk.modified) {
+                chunk.update();
    
                 if(Session::session == Session::Join)
                     voxelSpy.alertOfChunkModification(sf::Vector2i(x, y), chIndexer);
             }
 
-            spriteRend.setTexture(chIndexer.getChunkAt(x, y).tx);  
-            spriteRend.setPosition(x * Chunk::sizeX,y * Chunk::sizeY);
 
+            spriteRend.setTexture(chunk.tx);  
+            spriteRend.setPosition(x * Chunk::sizeX,y * Chunk::sizeY);
+            debug.setPosition(spriteRend.getPosition());
+            
             target.draw(spriteRend);
+
+            if(debug_globals::inDebugDisplayState && chunk.needs_update)
+                target.draw(debug);
         }
     }
 
@@ -356,7 +369,7 @@ void VoxelManager::update(Player &player)
     }
 }
 
-void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, const int64_t heat)
+void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent)
 {
     if(force) {
         explosionEffect(sf::Vector2f(p), (int)intensity);
@@ -400,7 +413,7 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
 
 }
 
-void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool force, const int64_t heat)
+void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent, bool turnToAsh)
 {
 
     if(force) {
@@ -418,9 +431,11 @@ void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool fo
     info.start = p;
     info.voxelsInNeedOfUpdate = &voxelsInNeedOfUpdate;
     info.intensity = intensity;
-    info.propability_of_material = 10;
+    info.propability_of_material = collect_percent;
     info.particle_simulation = &particleSimulation;
     info.temp = heat;
+
+    info.turnToAsh = turnToAsh;
 
     for(;endX < p.x + (int)intensity; endX++) {
         info.end = sf::Vector2i(endX, endY);

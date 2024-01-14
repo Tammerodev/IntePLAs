@@ -1,6 +1,7 @@
 #pragma once
 #include "GameEvent.hpp"
 #include "DefaultGameEvent.hpp"
+#include "NuclearExplosionGameEvent.hpp"
 
 namespace GameEventEnum {
     enum Event {
@@ -12,7 +13,7 @@ class GameEventManager {
     public:
         void load() {
             gameEvents.at(GameEventEnum::Event::Default) = std::make_shared<DefaultGameEvent>();
-            gameEvents.at(GameEventEnum::Event::Nuclear_Explosion) = std::make_shared<DefaultGameEvent>();
+            gameEvents.at(GameEventEnum::Event::Nuclear_Explosion) = std::make_shared<NuclearExplosionGameEvent>();
 
         }
 

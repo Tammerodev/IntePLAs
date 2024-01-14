@@ -5,6 +5,7 @@
 #include <list>
 #include "ParticleSimulation.hpp"
 #include "PickableDebris.hpp"
+#include "BurnedMaterial.hpp"
 
 namespace Raycast {
 
@@ -30,6 +31,8 @@ namespace Raycast {
 
         int propability_of_material = 0;
         int temp = 0;
+
+        bool turnToAsh = false;
     };
 
     static void castRayLine(RaycastInfo &info, bool force = true) {
@@ -72,7 +75,12 @@ namespace Raycast {
                     info.world->boundHeatVoxelAt(pixelPosition.x, pixelPosition.y, info.temp);
 
                     if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
-                        if(info.voxelsInNeedOfUpdate != nullptr) {
+                        if(info.turnToAsh) {
+                            info.world->clearVoxelAt(pixelPosition.x, pixelPosition.y);
+                            info.world->getChunkAt(info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y)).elements.emplace_back(
+                                std::make_shared<BurnedMaterial>(pixelPosition.x, pixelPosition.y)
+                            );
+                        } else if(info.voxelsInNeedOfUpdate != nullptr) {
                             info.voxelsInNeedOfUpdate->push_back(pixelPosition);
                         }
                             

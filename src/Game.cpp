@@ -174,7 +174,10 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
 
     world.render(renderTexture, game_camera.getCenterPosition());
     inv.render(renderTexture);
+
+    ui_camera.setViewTo(renderTexture);
     gameEventManager.render(renderTexture);
+    game_camera.setViewTo(renderTexture);
 
     effOverlay.render(renderTexture);
     
@@ -208,6 +211,11 @@ void Game::input(sf::Event& ev) {
 
     Controls::setWindowMouseposition(ev);
 
+    if(ev.type == sf::Event::KeyPressed) {
+        if(ev.key.code == sf::Keyboard::N) {
+            gameEventManager.switchEvent(GameEventEnum::Event::Nuclear_Explosion);
+        }
+    }
 
     if(!GUIfocusedOnObject) {
 

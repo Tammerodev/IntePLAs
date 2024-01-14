@@ -18,6 +18,11 @@
 #include "Forest.hpp"
 #include "Ocean.hpp"
 
+namespace GenerationGlobals {
+    inline int high_ = 0;
+    inline int low_ = 0;
+}
+
 
 class ProcGenerate {
 public:
@@ -31,6 +36,11 @@ public:
         build(grid, world_sx, world_sy);
 
         return true;
+    }
+
+    void clear() {
+        heightMap1D.clear();
+        biomes.clear();
     }
 
     const float getHeightOnMap(const int index) {
@@ -117,12 +127,14 @@ private:
             amplitude += ((biome->getAmplitude() - amplitude) / 100.0f);
             elevation += ((biome->getElevation() - elevation) / 100.0f);
 
-            //freq +=      ((biome->getFrequency() - freq) / 1000.0f);
-            // G A I J I N     E N T E R T A I N M E N T
-            // WAR THUNDER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
-
-
             float y = biome->getNoise(fsl, (float)x / 100.f, amplitude, freq, elevation); // Get 1D Simplex noise value for x
+
+            if(y < GenerationGlobals::low_) 
+                GenerationGlobals::low_ = y;
+
+            if(y > GenerationGlobals::high_) 
+                GenerationGlobals::high_ = y;
+
             heightMap1D.push_back(y);
         }
     }
