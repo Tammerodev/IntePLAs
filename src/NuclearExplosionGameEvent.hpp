@@ -27,7 +27,7 @@ class NuclearExplosionGameEvent : public GameEvent {
                 heatwave_happened = true;
             }
 
-            if(time > 1000) {
+            if(time > 500) {
                 flash_opacity -= 2;
                 if(flash_opacity < 0) 
                     flash_opacity = 0;

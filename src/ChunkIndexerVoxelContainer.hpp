@@ -191,7 +191,7 @@ public:
                 start.y + static_cast<unsigned>(delta.y * t)
             );
 
-            if(getPixelCollision(sf::Vector2f(pixelPosition)).first == 1) {
+            if(boundGetVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
                 return prev_pos;
             }
 
