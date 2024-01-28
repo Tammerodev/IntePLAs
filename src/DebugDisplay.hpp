@@ -20,7 +20,14 @@ class DebugDisplay {
         }
 
         void render(sf::RenderTarget& target) {
+            debug_globals::inDebugDisplayState = Controls::showDebugInfo();
+
             if(debugLabel == nullptr) return;
+
+
+            debugLabel->setVisible(debug_globals::inDebugDisplayState);
+
+            if(!debug_globals::inDebugDisplayState) return;
 
             std::string ECC = "\tElectric comp count   = " + std::to_string(debug_globals::electricity_component_count) + '\n';
             std::string ESC = "\tElectric source count = " + std::to_string(debug_globals::electricity_source_count) + '\n';

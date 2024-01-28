@@ -38,8 +38,6 @@ class NuclearExplosionGameEvent : public GameEvent {
                 explosion_happened = true;
             }
 
-
-
             flash.setFillColor(sf::Color(flash.getFillColor().r, flash.getFillColor().g, flash.getFillColor().b, flash_opacity));
         }
 

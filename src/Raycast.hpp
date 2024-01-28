@@ -49,22 +49,14 @@ namespace Raycast {
                 info.start.y + static_cast<unsigned>(delta.y * t)
             );
 
+            info.world->boundVector(pixelPosition);
+
             if(i < info.intensity) {
                 if(info.world != nullptr) {
+                    const sf::Color originalColor = info.world->getImagePixelAt(pixelPosition.x, pixelPosition.y);
+                    const unsigned char originalValue = info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value;
+
                     info.world->boundVector(pixelPosition);
-
-                    if(math::randIntInRange(0, 100) < info.propability_of_material) {
-
-                        if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
-                            info.particle_simulation->addParticle(
-                                std::make_shared<PickableDebris>(
-                                    sf::Vector2f(pixelPosition), math::subVector(sf::Vector2f(pixelPosition), sf::Vector2f(info.start)) / 10.f,
-                                    info.world->getImagePixelAt(pixelPosition.x, pixelPosition.y),
-                                    info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value,
-                                    info.world
-                                    ));
-                        }
-                    }
 
                     info.world->boundGetChunkAt(info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).x, info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).y).needs_update = true;
 
@@ -86,6 +78,16 @@ namespace Raycast {
                             
                         power--;
                         if(power <= 0) break;
+                    }  else if(originalColor.a != 0) {
+                        if(math::randIntInRange(0, 100) < info.propability_of_material) {
+                            info.particle_simulation->addParticle(
+                                std::make_shared<PickableDebris>(
+                                    sf::Vector2f(pixelPosition), math::subVector(sf::Vector2f(pixelPosition), sf::Vector2f(info.start)) / 10.f,
+                                    originalColor,
+                                    info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value,
+                                    info.world
+                                    ));
+                        }
                     }
                 }
             }

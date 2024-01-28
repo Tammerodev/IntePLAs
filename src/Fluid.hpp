@@ -10,6 +10,12 @@ class Fluid : public Element {
         }
 
         void update(ChunkIndexer& world) {
+
+            if(world.boundGetVoxelAt(x, y).value == 0) {
+                remove = true;
+                return;
+            }
+            
             
             sf::Vector2i lastPos = *this;
 
@@ -116,6 +122,9 @@ class Fluid : public Element {
         bool remove = false;
 
         short temp = 0;
+        short gasTemp = 100;
+
         sf::Color color;
         uint8_t value;
+
 };

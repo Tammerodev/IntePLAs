@@ -18,6 +18,9 @@ namespace Controls {
     static sf::Keyboard::Key keybind_openItemCreator = sf::Keyboard::E;
     static sf::Keyboard::Key keybind_pause = sf::Keyboard::Escape;
 
+    static sf::Keyboard::Key keybind_debugInfo = sf::Keyboard::F3;
+
+
     static sf::Mouse::Button mousebind_useitem = sf::Mouse::Left;
     static sf::Mouse::Button mousebind_switchitem = sf::Mouse::Middle;
 
@@ -142,6 +145,14 @@ namespace Controls {
             return sf::Keyboard::isKeyPressed(keybind_openItemCreator);
         else if(currentController == ControllerType::Joystick)
             return sf::Joystick::isButtonPressed(0, joystick_bind_openItemCreator);
+        return false;
+    }
+
+    static bool showDebugInfo() {
+        if(currentController == ControllerType::Keyboard) 
+            return sf::Keyboard::isKeyPressed(keybind_debugInfo);
+        else if(currentController == ControllerType::Joystick)
+            return /*sf::Joystick::isButtonPressed(0, joystick_bind_openItemCreator)*/ false;  // TODO FIX                               <---------TODO--------------TODO---------TODO-------------------!"¤%¤#&!!!!!!!!!!!!"
         return false;
     }
 
