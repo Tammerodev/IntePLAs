@@ -17,6 +17,8 @@ void Frog::load() {
 
     maxHealth = 10;
     health = maxHealth;
+
+    mobType = MobType::Fish;
 }
 
 void Frog::update(const float dt) {

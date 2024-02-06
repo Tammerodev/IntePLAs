@@ -518,19 +518,19 @@ bool VoxelManager::generateVegetation()
     sf::Image image;
 
     for(int i = 0; i < worldSize::world_sx - 1; i++) {
-        VegetationInfo vegetationInfo;
+        BiomeInfo info;
         Biome &biome = procGen.getBiomeAtPosition(i, chIndexer);
-        vegetationInfo = biome.getVegetationInfo();
+        info = *biome.getInfo();
 
-        if(vegetationInfo.filepath == "") continue;
-        if(!image.loadFromFile(vegetationInfo.filepath)) continue;
+        if(info.vegetationInfo.filepath == "") continue;
+        if(!image.loadFromFile(info.vegetationInfo.filepath)) continue;
 
         const float h = procGen.getHeightOnMap(i);
 
 
-        sf::IntRect sourceRect = sf::IntRect(vegetationInfo.width_of_part * math::randIntInRange(0, vegetationInfo.parts_on_x), 0,
-                                            vegetationInfo.width_of_part,
-                                            vegetationInfo.height_of_part);
+        sf::IntRect sourceRect = sf::IntRect(info.vegetationInfo.width_of_part * math::randIntInRange(0, info.vegetationInfo.parts_on_x), 0,
+                                            info.vegetationInfo.width_of_part,
+                                            info.vegetationInfo.height_of_part);
 
         sf::Image selectedImage;
         selectedImage.create(sourceRect.width, sourceRect.height);
@@ -541,12 +541,14 @@ bool VoxelManager::generateVegetation()
             }
         }
 
-        if(math::randIntInRange(0, 100) < vegetationInfo.amount) {
+        if(math::randIntInRange(0, 100) < info.vegetationInfo.amount) {
             // Build with no collisions
-            build_image(sf::Vector2i(i, (2048 - h) - sourceRect.height + vegetationInfo.offset_up), selectedImage, nullptr, sf::Vector2f(0.f, 0.f), false);
+            build_image(sf::Vector2i(i, (2048 - h) - sourceRect.height + info.vegetationInfo.offset_up), selectedImage, nullptr, sf::Vector2f(0.f, 0.f), false);
         }
 
     }
+
+    
 
     loginf("Creating vegetation took ", timer.restart().asSeconds(), " seconds.");
 

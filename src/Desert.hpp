@@ -8,15 +8,16 @@ public:
         return "Desert";
     }
 
-    const VegetationInfo getVegetationInfo() {
-        VegetationInfo vegetationInfo;
-        vegetationInfo.filepath = "res/img/Procedural/desert.png";
-        vegetationInfo.amount = 1;
-        vegetationInfo.offset_up = 2;
-        vegetationInfo.height_of_part = 32;
+    BiomeInfo info;
+
+    const BiomeInfo* getInfo() {
+        info.vegetationInfo.filepath = "res/img/Procedural/desert.png";
+        info.vegetationInfo.amount = 1;
+        info.vegetationInfo.offset_up = 2;
+        info.vegetationInfo.height_of_part = 32;
         
 
-        return vegetationInfo;
+        return &info;
     }
 
     Desert() : Biome() {

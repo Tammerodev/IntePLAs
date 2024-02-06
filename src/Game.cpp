@@ -4,6 +4,9 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     //  : adjustable rendertx size
     const uint16_t window_height = height;
     const uint16_t window_width = width;
+
+    load_state::setState(load_state::Pre_initialization);
+
     renderTexture.create(window_width, window_height);
 
     Fonts::loadFont();
@@ -21,47 +24,60 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     game_camera.setCameraMode(CameraMode::Leap);
     game_camera.setZoomLimited(true);
 
+    load_state::setState(load_state::Search_devices);
+
     Controls::searchForDevices();
 
-    prndd("Initializing worlds...");
+    load_state::setState(load_state::Initializing_map);
     if(!world.init(s))
         perror("VoxelManager failed to load world");
 
        
     PlayerGlobal::spawn_point = sf::Vector2f((float)(worldSize::world_sx / 2), -400.f); 
 
-    prndd("Loading background...");
+    load_state::setState(load_state::Loading_sprites);
     if(!bg.load()) 
         perror("Background failed to load");
     
-    prndd("Loading Effects...");
+    load_state::setState(load_state::Loading_effects);
     if(!effOverlay.load()) 
         perror("Effect Overlay failed to load");
 
-    prndd("Loading player...");
+    load_state::setState(load_state::Loading_player);
     if(!player.load()) 
         perror("Player failed to load");
     
     
-    prndd("Loading sounds...");
+    load_state::setState(load_state::Loading_sounds);
     if(!SFX::load())
         perror("Failed to load sound effect");
+
+    load_state::setState(load_state::Loading_sounds);
     if(!BGMusic::load())
         perror("Failed to load background music");
 
-    prndd("Loading UI...");
+    load_state::setState(load_state::Loading_ui);
     if(!uiStateManager.load(gui, inv, world.main_world))
         perror("Failed to load user interface");
 
-    prndd("Compiling shaders...");
+    load_state::setState(load_state::Compiling_shaders);
     if(!shaderEffect.load(window_width, window_height)) 
         perror("Failed to load bloom effect");
+
+    load_state::setState(load_state::Loading_mobs);
+    mobManager.load();
+
+    load_state::setState(load_state::Spawning_mobs);
+    mobManager.spawnMobs(world.main_world.procGen, world.main_world.getChunkIndexer());
+
+    load_state::setState(load_state::Finishing);
 
     gameEventManager.load();
 
     playerUI.load(window_width, window_height);
-    mobManager.load();
+
     debugDisplay.load(gui);
+
 
     hasLoaded = true;
 

@@ -1,5 +1,12 @@
 #include "Fish.hpp"
 
+FishState* FishState::damageState = new FishDamageState();
+FishState* FishState::idleState = new FishIdleState();
+FishState* FishState::dead = new FishDeadState();
+FishState* FishState::swimState = new FishSwimState();
+
+FishState* FishState::currentState = FishState::idleState;
+
 void Fish::load() {
     texture.loadFromFile("res/img/Mob/fish.png");
     sprite.setTexture(texture);
@@ -13,13 +20,15 @@ void Fish::load() {
     fsl.SetFractalLacunarity(50.5);
     
     fsl.SetSeed(seed); // Set a random seed (change this to get different noise patterns)
+
+    mobType = MobType::Fish;
 }
 
 void Fish::update(const float dt) {
 
     sprite.setTexture(texture);
 
-    FrogState::currentState->update(physicsComponent, dt, grounded);
+    FishState::currentState->update(physicsComponent, dt, grounded);
 
     physicsComponent.update(dt);
     sprite.setPosition(physicsComponent.transform_position);
@@ -58,7 +67,7 @@ void Fish::collisionCheck(VoxelManager &voxelManager) {
 }
 
 void Fish::render(sf::RenderTarget &target) {
-    FrogState::currentState->draw(target, sprite);
+    FishState::currentState->draw(target, sprite);
 }
 
 void Fish::invoke(const MobInvoke &inv) {

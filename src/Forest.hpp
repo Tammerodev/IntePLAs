@@ -8,15 +8,15 @@ public:
         return "Forest";
     }
 
+    BiomeInfo info;
 
-    const VegetationInfo getVegetationInfo() {
-        VegetationInfo vegetationInfo;
-        vegetationInfo.filepath = "res/img/Procedural/forest.png";
-        vegetationInfo.amount = 25;
-        vegetationInfo.width_of_part = 16;
+    const BiomeInfo* getInfo() {
+        info.vegetationInfo.filepath = "res/img/Procedural/forest.png";
+        info.vegetationInfo.amount = 25;
+        info.vegetationInfo.width_of_part = 16;
         
 
-        return vegetationInfo;
+        return &info;
     }
 
     Forest() {

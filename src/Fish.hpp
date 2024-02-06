@@ -1,9 +1,9 @@
 #pragma once
 #include "Mob.hpp"
-#include "FrogDamageState.hpp"
-#include "FrogDeadState.hpp"
-#include "FrogIdleState.hpp"
-#include "FrogJumpState.hpp"
+#include "FishDamageState.hpp"
+#include "FishDeadState.hpp"
+#include "FishIdleState.hpp"
+#include "FishSwimState.hpp"
 
 #include "PhysicsComponent.hpp"
 #include "CollisionManager.hpp"

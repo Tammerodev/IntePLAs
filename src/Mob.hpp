@@ -3,6 +3,7 @@
 #include "VoxelManager.hpp"
 #include "MobInfoBar.hpp"
 #include "Blood.hpp"
+#include "MobType.hpp"
 
 struct MobInvoke {
     float damage = 0.f;
@@ -56,7 +57,13 @@ class Mob : public Entity {
 
         virtual PhysicsComponent& getPhysicsComponent() = 0;
 
+        virtual MobType getMobType() {
+            return mobType;
+        }
+ 
     protected:
+
+        MobType mobType = MobType::Undefined;
 
         void generalDamageBehaviour(int damage) {
             health -= damage;

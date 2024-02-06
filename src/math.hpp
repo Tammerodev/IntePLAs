@@ -13,6 +13,10 @@ namespace math {
     inline int randIntInRange(int min, int max) {
         return min + ( std::rand() % ( max - min + 1 ) );
     }
+
+    inline bool randProp(int propability) {
+        return randIntInRange(0, 100) < propability;
+    }
     
     inline const sf::Vector2f subVector(const sf::Vector2f& a, const sf::Vector2f& b) {
         return sf::Vector2f (

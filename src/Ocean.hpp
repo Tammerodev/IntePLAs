@@ -1,5 +1,6 @@
 #pragma once
 #include "Biome.hpp"
+#include "MobType.hpp"
 
 class Ocean : public Biome {
 public:
@@ -7,15 +8,18 @@ public:
     const std::string getName() {
         return "Ocean";
     }
+        
+    BiomeInfo info;
 
+    const BiomeInfo* getInfo() {
+        info.vegetationInfo.filepath = "res/img/Procedural/ocean.png";
+        info.vegetationInfo.amount = 25;
+        info.vegetationInfo.offset_up = 2;
 
-    const VegetationInfo getVegetationInfo() {
-        VegetationInfo vegetationInfo;
-        vegetationInfo.filepath = "res/img/Procedural/ocean.png";
-        vegetationInfo.amount = 25;
-        vegetationInfo.offset_up = 2;
+        info.mobInfo.amount = 1;
+        info.mobInfo.spawns.emplace_back(std::pair(MobType::Fish, 100));
 
-        return vegetationInfo;
+        return &info;
     }
 
     Ocean() {

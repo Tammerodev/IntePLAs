@@ -33,9 +33,8 @@ class Biome {
 
         virtual const std::string getName() = 0;
 
-        virtual const VegetationInfo getVegetationInfo() {
-            VegetationInfo vegetationInfo;
-            return vegetationInfo;
+        virtual const BiomeInfo* getInfo() {
+            return &info;
         }
 
         float getNoise(FastNoiseLite &fsl, const float x, float amp, float freq, float elev) {
@@ -55,6 +54,7 @@ class Biome {
         }
 
     protected:
+        BiomeInfo info;
 
         std::array<std::vector<sf::Color>, 6> colorLayers {
             std::vector<sf::Color> {

@@ -2,9 +2,13 @@
 #include <SFML/Graphics.hpp>
 #include "Palettes/PaletteUI.hpp"
 #include <iostream>
+#include "debug_globals.hpp"
 
 namespace LoadingScreen {
     inline static sf::Text text_prompt;
+    inline static sf::Text text_state;
+
+
     inline static sf::Font font;
     inline static sf::Texture loading_texture;
     inline static sf::Sprite loading_sprite;
@@ -26,6 +30,9 @@ namespace LoadingScreen {
         text_position.x -= text_prompt.getGlobalBounds().width / 2;
 
         text_prompt.setPosition(text_position);
+
+        text_state.setFont(font);
+        text_state.setPosition(text_position - sf::Vector2f(0, 50));
     }
 
     inline static void loadSprites(const sf::Vector2f windowSize) {
@@ -83,10 +90,14 @@ namespace LoadingScreen {
         while(game.getLoaded() == false) {
             updateSprites(sf::Vector2f(size));
 
+            text_state.setString(load_state::getNameOfLoadState(load_state::loadState));
+
 
             window.clear(Palette::PaletteUI::Black);
 
             window.draw(text_prompt);
+            window.draw(text_state);
+
             window.draw(loading_sprite);
 
             window.display();

@@ -14,18 +14,23 @@ public:
     bool init(const std::string path) {
         bool res = true;
         
+        load_state::setState(load_state::Loading_map);
         if(!main_world.load(path)) res = false;
 
         if(path == "Create new world") {
+            load_state::setState(load_state::Creating_map);
             if(!main_world.generate()) res = false;
         }
 
+        load_state::setState(load_state::Initializing_map);
         main_world.initVoxelMap();
 
         weatherManager.load();
 
-        if(path == "Create new world") 
+        if(path == "Create new world") {
+            load_state::setState(load_state::Generating_vegetation);
             if(!main_world.generateVegetation()) res = false;
+        }
         
         return res;
     }
