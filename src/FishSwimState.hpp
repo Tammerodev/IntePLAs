@@ -20,10 +20,10 @@ class FishSwimState : public FishState {
             }
 
             textureRect.height = 20;
-            textureRect.width = 20;
+            textureRect.width = 16;
 
             textureRect.top = 0;
-            textureRect.left = 20 * phase;
+            textureRect.left = 16 * phase;
         }
 
         void draw(sf::RenderTarget& target, sf::Sprite& sprite) {

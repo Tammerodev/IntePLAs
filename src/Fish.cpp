@@ -5,7 +5,7 @@ FishState* FishState::idleState = new FishIdleState();
 FishState* FishState::dead = new FishDeadState();
 FishState* FishState::swimState = new FishSwimState();
 
-FishState* FishState::currentState = FishState::idleState;
+FishState* FishState::currentState = FishState::swimState;
 
 void Fish::load() {
     texture.loadFromFile("res/img/Mob/fish.png");
@@ -21,10 +21,15 @@ void Fish::load() {
     
     fsl.SetSeed(seed); // Set a random seed (change this to get different noise patterns)
 
+    maxHealth = 10;
+    health = maxHealth;
+    default_behaviour.default_load();
+
     mobType = MobType::Fish;
 }
 
 void Fish::update(const float dt) {
+    default_behaviour.update(physicsComponent.transform_position, "Fish", health);
 
     sprite.setTexture(texture);
 
@@ -68,6 +73,8 @@ void Fish::collisionCheck(VoxelManager &voxelManager) {
 
 void Fish::render(sf::RenderTarget &target) {
     FishState::currentState->draw(target, sprite);
+
+    default_behaviour.default_render(target);
 }
 
 void Fish::invoke(const MobInvoke &inv) {
@@ -75,6 +82,13 @@ void Fish::invoke(const MobInvoke &inv) {
 
     if(mobInvoke.distanceToPlayer <= distanceWhenInvoked) {
         scaredTimer = scaredTime;
+    }
+
+    if(inv.damage > 0) {
+        generalDamageBehaviour(inv.damage);
+
+        FishState::currentState = FishState::damageState;
+        FishState::currentState->enter(); 
     }
 }
 

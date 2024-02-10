@@ -26,6 +26,7 @@ class Fish : public Mob {
     protected:
         unsigned int maxHealth = 0;
         PhysicsComponent physicsComponent;
+        DefaultBehaviour default_behaviour;
 
         sf::Sprite sprite;
         sf::Texture texture;   

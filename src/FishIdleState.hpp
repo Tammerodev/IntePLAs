@@ -23,7 +23,7 @@ class FishIdleState : public FishState {
             textureRect.width = 20;
 
             textureRect.top = 0;
-            textureRect.left = 20 * phase;
+            textureRect.left = 16 * phase;
         }
 
         void draw(sf::RenderTarget& target, sf::Sprite& sprite) {
