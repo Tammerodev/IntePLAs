@@ -32,11 +32,15 @@ public:
             if(!main_world.generateVegetation()) res = false;
         }
         
+        load_state::setState(load_state::Unloding_chunks);
+        main_world.unloadAll();
+
+
         return res;
     }
 
-    void update(const float dt, Player &player) {
-        main_world.update(player);
+    void update(const float dt, Player &player, GameEventEnum::Event& gameEventManager) {
+        main_world.update(player, gameEventManager);
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
             world->update(dt);
             const std::vector<sf::Vector2i> &collisionTestPoints = world->getCollisionTestPoints();

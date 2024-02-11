@@ -138,6 +138,8 @@ void Game::update() {
 
     // Update various game components
     bg.update(game_camera.getView(), dt);
+    bg.updateForBiomeChanges(player, world.main_world);
+
     BGMusic::update();
     effOverlay.update(game_camera.getCenterPosition());
     game_camera.update(dt);
@@ -162,7 +164,7 @@ void Game::update() {
     }
 
 
-    world.update(dt, player);
+    world.update(dt, player, gameEventManager.getEvent());
 }
 
 void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
@@ -188,8 +190,9 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
     player.draw(renderTexture);
     mobManager.render(renderTexture);
 
-    world.render(renderTexture, game_camera.getCenterPosition());
     inv.render(renderTexture);
+    
+    world.render(renderTexture, game_camera.getCenterPosition());
 
     ui_camera.setViewTo(renderTexture);
     gameEventManager.render(renderTexture);
@@ -205,33 +208,32 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
 
     shaderEffect.render(window, renderSprite);
 
+    Globals::renderSprite = &renderSprite;
+    if(!debug_globals::photoMode) renderUI(window, gui);
 
-    // UI Render
+    uiStateManager.render(window, gui);
+
+
+    game_camera.setViewTo(renderTexture);
+}
+
+void Game::renderUI(sf::RenderWindow& window, tgui::BackendGui& gui) {
     ui_camera.setViewTo(window);
 
-
     matUI.render(window);
-    uiStateManager.render(window, gui);
     inv.renderUI(window);
 
     playerUI.render(window);
 
-    debugDisplay.render(window);            
-    gui.draw();
+    debugDisplay.render(window);       
 
-    game_camera.setViewTo(renderTexture);
+    gui.draw();
 }
 
 void Game::input(sf::Event& ev) {
     uiStateManager.input(ev);
 
     Controls::setWindowMouseposition(ev);
-
-    if(ev.type == sf::Event::KeyPressed) {
-        if(ev.key.code == sf::Keyboard::N) {
-            gameEventManager.switchEvent(GameEventEnum::Event::Nuclear_Explosion);
-        }
-    }
 
     if(!GUIfocusedOnObject) {
 

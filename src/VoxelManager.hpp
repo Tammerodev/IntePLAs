@@ -53,6 +53,10 @@
 #include "SaveUtils.hpp"
 #include "FireEffectManager.hpp"
 
+#include "Snow.hpp"
+#include "GameEventEnum.hpp"
+#include "EventGlobals.hpp"
+
 class VoxelManager {
 public:
 
@@ -73,7 +77,7 @@ public:
 
     void heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp);
     void render(sf::RenderTarget&, const sf::Vector2f &center);
-    void update(Player&);
+    void update(Player&, GameEventEnum::Event&);
     void hole(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent = 10);
     void holeRayCast(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent = 10, bool turnToAsh = false);
     void mine(sf::Vector2i p, const uint32_t intensity, const int percent_gain = 0);
@@ -267,6 +271,12 @@ public:
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Sand>(p.x, p.y));
         }
+
+        else if(px == elm::getInfoFromType(VoxelValues::SNOW).color) {
+            vox.value = VoxelValues::SNOW;
+            vox.strenght = 1;
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Snow>(p.x, p.y));
+        }
         return vox;
     }
 
@@ -286,6 +296,22 @@ public:
 
     ChunkIndexer &getChunkIndexer() {
         return chIndexer;
+    }
+
+    void unloadAll() {
+        ChunkBounds bounds = ChunkBounds(0, 0, chunks_x, chunks_y);
+        unloadArea(bounds);
+    }
+
+    void unloadArea(ChunkBounds bounds) {
+        for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
+            for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
+                chIndexer.getChunkAt(x, y).unLoad();
+            }
+        }
+
+        // Note: Only on linux
+        malloc_trim(0);
     }
 
     void updateAll() {

@@ -10,6 +10,7 @@ namespace SFX {
     inline sf::SoundBuffer rocket_buffer;
     inline sf::SoundBuffer pickaxe_swing_buffer;
     inline sf::SoundBuffer collect_buffer;
+    inline sf::SoundBuffer nuclear_explosion_buffer;
 
 
     inline sf::Sound strong_explosion;
@@ -20,6 +21,8 @@ namespace SFX {
     inline sf::Sound rocket;
     inline sf::Sound pickaxe_swing;
     inline sf::Sound collect;
+    inline sf::Sound nuclear_explosion;
+
     
     inline int load() {
         int res = 1;
@@ -32,6 +35,7 @@ namespace SFX {
         if(!rocket_buffer.loadFromFile("res/sound/rocket.wav")) res = 0;
         if(!pickaxe_swing_buffer.loadFromFile("res/sound/pickaxe_swing.wav")) res = 0;
         if(!collect_buffer.loadFromFile("res/sound/collect.wav")) res = 0;
+        if(!nuclear_explosion_buffer.loadFromFile("res/sound/nuclear_explosion.wav")) res = 0;
         
 
         // Set buffers
@@ -43,6 +47,7 @@ namespace SFX {
         rocket.setBuffer(rocket_buffer);
         pickaxe_swing.setBuffer(pickaxe_swing_buffer);
         collect.setBuffer(collect_buffer);
+        nuclear_explosion.setBuffer(nuclear_explosion_buffer);
         
         return res;
     }

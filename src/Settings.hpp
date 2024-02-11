@@ -68,6 +68,8 @@ namespace Display {
 
 namespace StorageSettings {
     inline std::string save_path;
+    inline std::string screenshot_path;
+
 
     inline bool loadSettings() {
         bool result = false;
@@ -77,6 +79,7 @@ namespace StorageSettings {
         result = reader.init();
 
         save_path = reader.readParameterAsString("save-path");
+        screenshot_path = reader.readParameterAsString("screenshot-path");
 
         return result;
     }

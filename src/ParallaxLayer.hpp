@@ -3,14 +3,7 @@
 
 class ParallaxLayer {
 public:
-    void create(const std::string& path, float amountOfParallax = 0.f) {
-        tx.loadFromFile(path);
-        tx.setRepeated(true);
-
-        spr.setTexture(tx);
-        spr.setPosition(0, 0);
-        spr.setColor(sf::Color(255, 255, 255, 200));
-
+    void create(float amountOfParallax = 0.f) {
         parallaxShader.loadFromMemory(
         "uniform float offset;"
         "uniform float offsety;"
@@ -25,11 +18,17 @@ public:
         , sf::Shader::Vertex);
 
         parallax = amountOfParallax;
+    }
 
-        // Todo : Bad
+    void load(const std::string &path) {
+        tx.loadFromFile(path);
+        tx.setRepeated(true);
 
+        spr.setPosition(0, 0);
+        spr.setColor(sf::Color(255, 255, 255, 200));
+
+        spr.setTexture(tx);
         spr.setScale(1.f, 1.f);
-
     }
 
     void update(sf::View &view) {

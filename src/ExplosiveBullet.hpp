@@ -38,6 +38,10 @@ public:
         spr.setRotation(angle);
     }
 
+    sf::FloatRect getCollider() {
+        return spr.getGlobalBounds();
+    }
+
     sf::Vector2f pos = sf::Vector2f(0, 0);
     sf::Vector2f prev_pos = sf::Vector2f(0, 0);
 

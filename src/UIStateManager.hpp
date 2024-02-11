@@ -2,7 +2,7 @@
 #include "UIState.hpp"
 #include "ItemCreatorUIState.hpp"
 #include "NoUIState.hpp"
-
+#include "PhotoModeUIState.hpp"
 #include "Controls.hpp"
 #include "DeadUIState.hpp"
 #include "PauseUIState.hpp"

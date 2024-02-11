@@ -29,6 +29,8 @@ namespace Raycast {
         uint64_t world_sx;
         uint64_t world_sy;
 
+        sf::Vector2f* velocity = nullptr;
+
         int propability_of_material = 0;
         int temp = 0;
 
@@ -49,7 +51,9 @@ namespace Raycast {
                 info.start.y + static_cast<unsigned>(delta.y * t)
             );
 
-            info.world->boundVector(pixelPosition);
+            if(info.world != nullptr) {
+                info.world->boundVector(pixelPosition);
+            }
 
             if(i < info.intensity) {
                 if(info.world != nullptr) {
@@ -63,11 +67,15 @@ namespace Raycast {
                     if(force) { 
                         info.world->damageVoxelAt(pixelPosition.x, pixelPosition.y);
                     }
+
+                    if(info.velocity != nullptr) {
+                        *info.velocity += (sf::Vector2f(delta.x, delta.y) * t) / 100.0f; 
+                    }
                     
                     info.world->boundHeatVoxelAt(pixelPosition.x, pixelPosition.y, info.temp);
 
                     if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
-                        if(info.turnToAsh) {
+                        if(info.turnToAsh && math::randProp(10) && math::distance(sf::Vector2f(pixelPosition), sf::Vector2f(info.start)) > info.intensity - 10) {
                             info.world->clearVoxelAt(pixelPosition.x, pixelPosition.y);
                             info.world->getChunkAt(info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y)).elements.emplace_back(
                                 std::make_shared<BurnedMaterial>(pixelPosition.x, pixelPosition.y)

@@ -33,7 +33,7 @@ class Flammable : public Element {
                 world.boundHeatVoxelAt(x, y + 1, energy);
                 world.boundHeatVoxelAt(x, y - 1, energy);
 
-                if(math::randIntInRange(1, 25) == 1) FireGlobal::add_source(sf::Vector2i(x, y));
+                //if(math::randIntInRange(1, 25) == 1) FireGlobal::add_source(sf::Vector2i(x, y));
 
                 if(temp > breakdown_temp) {
                     remove = true;

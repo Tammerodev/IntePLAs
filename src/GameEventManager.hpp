@@ -2,12 +2,7 @@
 #include "GameEvent.hpp"
 #include "DefaultGameEvent.hpp"
 #include "NuclearExplosionGameEvent.hpp"
-
-namespace GameEventEnum {
-    enum Event {
-        Default, Nuclear_Explosion
-    };
-}
+#include "GameEventEnum.hpp"
 
 class GameEventManager {
     public:
@@ -18,11 +13,16 @@ class GameEventManager {
         }
 
         void update(VoxelManager &vx) {
+            lastEvent = currentEvent;
             gameEvents.at(currentEvent)->update(vx);
         }
 
         void render(sf::RenderTarget& target) {
             gameEvents.at(currentEvent)->render(target);
+
+            if(currentEvent != lastEvent) {
+                gameEvents.at(currentEvent)->enter();
+            }
         }
 
         void switchEvent(GameEventEnum::Event newEvent) {
@@ -30,7 +30,12 @@ class GameEventManager {
             gameEvents.at(currentEvent)->enter();
         }
 
+        GameEventEnum::Event &getEvent() {
+            return currentEvent;
+        }
+
     private:
+        GameEventEnum::Event lastEvent;
         GameEventEnum::Event currentEvent = GameEventEnum::Event::Default;
         std::array<std::shared_ptr<GameEvent>, 3> gameEvents;
 };

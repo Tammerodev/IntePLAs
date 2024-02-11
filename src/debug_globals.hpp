@@ -17,6 +17,8 @@ namespace debug_globals {
 
 
     inline bool inDebugDisplayState = true;
+    inline bool photoMode = false;
+
 }
 
 namespace load_state {
@@ -33,6 +35,7 @@ namespace load_state {
         Loading_map,
 
         Generating_vegetation,
+        Unloding_chunks,
 
         Loading_sprites,
         Loading_effects,
@@ -58,6 +61,7 @@ namespace load_state {
         case Creating_map: return "Creating map";
         case Loading_map: return "Loading map";
         case Generating_vegetation: return "Generating vegetation";
+        case Unloding_chunks: return "Unloading chunks";
         case Loading_sprites: return "Loading sprites";
         case Loading_effects: return "Loading effects";
         case Loading_player: return "Loading player";

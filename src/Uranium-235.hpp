@@ -26,7 +26,7 @@ class Uranium235 : public RadioactiveElement {
 
     private:
         int radiation_strength = 200;
-        int radiation_frequency = 40;
+        int radiation_frequency = 20;
         int radiation_pulse = 0;
 
         bool remove = false;

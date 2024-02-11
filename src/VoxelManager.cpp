@@ -1,8 +1,5 @@
 #include "VoxelManager.hpp"
 
-// liquid is 5
-// "neutral" is 3
-
 int VoxelManager::load(std::string file)
 {
     bool res = true;
@@ -145,7 +142,7 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
     particleSimulation.render(target);
 }
 
-void VoxelManager::update(Player &player)
+void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
 {   
 
     clientManager.update(chIndexer);
@@ -158,18 +155,6 @@ void VoxelManager::update(Player &player)
     auto &particles = particleSimulation.getParticlesList();
 
     debug_globals::particle_count = particles.size();
-
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::I)) {
-        ChunkBounds bounds = ChunkBounds(0, 0, chunks_x, chunks_y);
-
-        for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
-            for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
-                chIndexer.getChunkAt(x, y).unLoad();
-            }
-        }
-
-        malloc_trim(0);
-    }
 
     for (auto it = particles.begin(); it != particles.end();) {
         auto& p = *it;
@@ -205,10 +190,11 @@ void VoxelManager::update(Player &player)
             const sf::Vector2i contactPos = getPositionOnContacy(position, VoxelValues::URANIUM235);
 
             if(contactPos != sf::Vector2i(0, 0)) {
-                heatVoxelAt(contactPos.x, contactPos.y, 100);
+                heatVoxelAt(contactPos.x, contactPos.y, 10);
 
                 if(chIndexer.boundGetVoxelAt(position.x, position.y).temp > elm::getInfoFromType(VoxelValues::URANIUM235).max_temp) {
-                    holeRayCast(position, 250, true, 30000);
+                    gameEvent = GameEventEnum::Event::Nuclear_Explosion;
+                    EventGlobals::position = position;
                 }   
             }
         }
@@ -266,8 +252,6 @@ void VoxelManager::update(Player &player)
                 particleSimulation.addParticle(particle);
             }
         }
-        
-        
         
         ++r;
     }

@@ -17,6 +17,7 @@
 #include "Desert.hpp"
 #include "Forest.hpp"
 #include "Ocean.hpp"
+#include "Mountains.hpp"
 
 namespace GenerationGlobals {
     inline int high_ = 0;
@@ -96,7 +97,9 @@ private:
             int biomeType = (int)(fsl.GetNoise((float)i * 1.0f, 0.f) * 100.f);
 
             // Rather complex rules...
-            if(biomeType < 0 && biomeType > -10) {   // Wait... why not if(biomeType == 0)?
+            if(biomeType > 10) {
+                biome = std::make_shared<Mountains>();
+            } else if(biomeType < 0 && biomeType > -10) {   // Wait... why not if(biomeType == 0)?
                 biome = std::make_shared<Desert>();
             } else if(biomeType < -10) {
                 biome = std::make_shared<Ocean>();

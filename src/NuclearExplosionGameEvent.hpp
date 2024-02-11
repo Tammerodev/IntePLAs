@@ -2,6 +2,8 @@
 #include "GameEvent.hpp"
 #include "common.hpp"
 #include <iostream>
+#include "EventGlobals.hpp"
+#include "RadioactiveWaste.hpp"
 
 class NuclearExplosionGameEvent : public GameEvent {
     public:
@@ -16,25 +18,42 @@ class NuclearExplosionGameEvent : public GameEvent {
 
             heatwave_happened = false;
             explosion_happened = false;
+
+            pos = EventGlobals::position;
+            started = true;
+
+            SFX::nuclear_explosion.play();
         }
 
         void update(VoxelManager& vx) {
+
+            if(started == false) {
+                clock.restart();
+                return;
+            }            
             time = clock.getElapsedTime().asMilliseconds();
 
-            if(time > 100 && heatwave_happened == false) {
-                //vx.hole(pos, 2500, false, 20000, 0);
 
+            if(time > 50 && heatwave_happened == false) {
+                for(int i = 0; i < 6; i++) {
+                    sf::Vector2i r_pos = pos + sf::Vector2i(math::randIntInRange(0, 1500), math::randIntInRange(0, 1500));
+                    vx.holeRayCast(r_pos, 500, true, 0, 0, true);
+                }
                 heatwave_happened = true;
             }
 
-            if(time > 500) {
+            if(time > 50) {
                 flash_opacity -= 2;
                 if(flash_opacity < 0) 
                     flash_opacity = 0;
             }
 
-            if(time > 2500 && explosion_happened == false) {
+            if(time > 10 && explosion_happened == false) {
                 vx.holeRayCast(pos, 2000, true, 10000, 0, true);
+                for(int i = 0; i < 200; i++) {
+                    sf::Vector2i r_pos = pos + sf::Vector2i(math::randIntInRange(0, 2000), math::randIntInRange(0, 2000));
+                    vx.addRadioactiveElement(pos.x, pos.y, std::make_shared<RadioactiveWaste>(pos.x, pos.y));
+                }
                 explosion_happened = true;
             }
 
@@ -46,6 +65,7 @@ class NuclearExplosionGameEvent : public GameEvent {
         }
 
     private:
+        bool started = false;
         sf::Vector2i pos {5000, 500};
 
         bool explosion_happened = false;

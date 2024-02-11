@@ -36,6 +36,7 @@
 
 #include "DebugDisplay.hpp"
 #include "GameEventManager.hpp"
+#include "Globals.hpp"
 
 class Game {
     public:
@@ -43,6 +44,7 @@ class Game {
         void update();
 
         void render(sf::RenderWindow& window, tgui::BackendGui& gui);
+        void renderUI(sf::RenderWindow& window, tgui::BackendGui& gui);
 
         void input(sf::Event &ev);
 

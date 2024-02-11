@@ -59,7 +59,6 @@ int VoxelGroup::load(const sf::Image &copy_img)
     }
 
     physicsComponent.transform_origin = sf::Vector2f(tex.getSize().x / 2, tex.getSize().y / 2);
-
     return true;
 }
 
@@ -78,7 +77,7 @@ void VoxelGroup::heatVoxelAt(int64_t x, int64_t y, int64_t temp)
         damageVoxelAt(x,y);
         
         if(val == VoxelValues::LITHIUM) 
-            hole(sf::Vector2i(x,y),elm::lithiumExplosion,true,2000);
+            hole(sf::Vector2i(x,y), elm::lithiumExplosion, true, 2000);
     }
 
     if(vox.temp <= 0) vox.temp = 0;
@@ -212,6 +211,8 @@ void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool f
     info.world_sx = world_sx;
     info.world_sy = world_sy;
 
+    info.velocity = &physicsComponent.velocity;
+
 
     for(;endX < pos.x + (int)intensity; endX++) {
         info.end = sf::Vector2i(endX, endY);
@@ -232,8 +233,5 @@ void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool f
         info.end = sf::Vector2i(endX, endY);
         Raycast::castRayLine(info);  
     }
-
-    // Get opposite direction from ray
-    physicsComponent.velocity = -info.longestRayVector;
 
 }

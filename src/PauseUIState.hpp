@@ -37,6 +37,20 @@ public:
         darken_rect.move(sf::Vector2f(-Display::window_width, 0)); 
         top_rect.move(sf::Vector2f(Display::window_width, 0)); 
         bottom_rect.move(sf::Vector2f(Display::window_width, Display::window_height - 16)); 
+
+        try
+        {
+            tgui::Button::Ptr photoMode = tgui::Button::create("Photo mode");
+            photoMode->setPosition(Display::window_width  / 2, 100);
+            photoMode->onClick(photoModeClick, std::ref(gui), std::ref(inv), std::ref(vx));
+
+            gui.add(photoMode);
+        }
+        catch(const std::exception& e)
+        {
+            prnerr("Error in pause menu TGUI", e.what());
+        }
+        
     
         
         return true;
@@ -95,6 +109,13 @@ private:
         removeWidgets(gui);
 
         UIState::currentState = UIState::nostate;
+        UIState::currentState->load(gui, inv, vx);
+    }
+
+    static void photoModeClick(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
+        removeWidgets(gui);
+        UIState::currentState->statexit();
+        UIState::currentState = UIState::photoMode;
         UIState::currentState->load(gui, inv, vx);
     }
 };
