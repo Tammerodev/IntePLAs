@@ -37,7 +37,7 @@ public:
         auto continue_button = tgui::Button::create("Respawn");
         continue_button->setOrigin(0.5, 0.5);
         continue_button->setPosition(death_message_text->getPosition() + tgui::Layout2d(0, 100));
-        continue_button->onClick(respawn, std::ref(gui));
+        continue_button->onClick(respawn, std::ref(gui), std::ref(inv), std::ref(vx));
 
         gui.add(continue_button);
 
@@ -68,8 +68,13 @@ private:
     Inventory *inv = nullptr;
     VoxelManager* vx = nullptr;
 
-    static void respawn(tgui::BackendGui& gui) {
+    static void respawn(tgui::BackendGui& gui, Inventory& inv, VoxelManager& vx) {
         PlayerGlobal::respawn();
         removeWidgets(gui);
+
+        UIState::currentState->statexit();
+        UIState::currentState = UIState::nostate;
+        UIState::currentState->load(gui, inv, vx);
+
     }
 };

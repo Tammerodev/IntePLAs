@@ -16,7 +16,10 @@ int main() {
 
     StateManager stateManager = StateManager();
 
-    srand(time(0));
+    unsigned int seed = time(0);
+
+    srand(seed);
+    std::srand(seed);
 
     stateManager.createWindow(1080, 1920, "IntePLAs", false, 75);
     stateManager.init();

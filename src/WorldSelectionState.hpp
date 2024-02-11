@@ -7,6 +7,7 @@
 
 #include <filesystem>
 #include <TGUI/AllWidgets.hpp>
+#include "MenuBackground.hpp"
 
 namespace fs = std::filesystem;
 
@@ -14,6 +15,7 @@ namespace fs = std::filesystem;
 class WorldSelectionState : public MainState {
 public:
 	bool load(const std::string path, tgui::BackendGui& gui) {
+
 		try {
 
 			saves_list = tgui::ScrollablePanel::create(tgui::Layout2d(300, 600), "Saves");
@@ -23,14 +25,15 @@ public:
             gui.add(saves_list);
 
 		} catch (std::exception& ex) {
-			prnerr("Failed loading settings gui with code : ", ex.what());
+			prnerr("Failed loading world selection gui with code : ", ex.what());
 			return false;
 		}
+
 		return true;
 	}
 
     void update() {
-
+		MenuBackground::update();
 	}
 
 	void input(sf::Event &) {
@@ -39,6 +42,7 @@ public:
 
 	void draw(sf::RenderWindow& window, tgui::BackendGui&gui) {
 		window.clear(Palette::PaletteUI::Black);
+		MenuBackground::render(window);
     	gui.draw();
 
 	}

@@ -187,10 +187,12 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
 
     bg.render(renderTexture);
 
-    player.draw(renderTexture);
-    mobManager.render(renderTexture);
+    if(!debug_globals::photoMode) {
+        player.draw(renderTexture);
+        inv.render(renderTexture);
+    }
 
-    inv.render(renderTexture);
+    mobManager.render(renderTexture);
     
     world.render(renderTexture, game_camera.getCenterPosition());
 

@@ -3,6 +3,7 @@
 #include "Palettes/PaletteUI.hpp"
 #include <iostream>
 #include "debug_globals.hpp"
+#include "MenuBackground.hpp"
 
 namespace LoadingScreen {
     inline static sf::Text text_prompt;
@@ -73,6 +74,8 @@ namespace LoadingScreen {
         position.x -= loading_sprite.getGlobalBounds().width / 2;
 
         loading_sprite.setPosition(position);
+
+        MenuBackground::update();
     }
 
     inline static void load_screen(sf::RenderWindow &window, const Game &game, sf::Vector2u size) {        
@@ -95,10 +98,12 @@ namespace LoadingScreen {
 
             window.clear(Palette::PaletteUI::Black);
 
+            MenuBackground::render(window);
+
             window.draw(text_prompt);
             window.draw(text_state);
 
-            window.draw(loading_sprite);
+            //window.draw(loading_sprite);      FOR TODO!!!
 
             window.display();
         }

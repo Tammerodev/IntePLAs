@@ -15,7 +15,9 @@
 #include "Palettes/PaletteUI.hpp"
 
 #include "WorldSelectionState.hpp"
-
+#include <iostream>
+#include "common.hpp"
+#include "MenuBackground.hpp"
 
 class MenuState : public MainState {
 public:
@@ -36,14 +38,17 @@ public:
 
 	bool load(const std::string, tgui::BackendGui& gui) {
 		const std::string uipath = "res/img/UI/";
+		SettingsLoader::loadSettings();
 
 		backend_gui = &gui;
 
 		music.openFromFile("res/music/Recs.wav");
-		music.setVolume(100);
+		music.setVolume(SoundSettings::music_volume);
 		music.play();
 
 		font.loadFromFile("res/Fonts/VT323.ttf");
+
+		MenuBackground::load();
 
 		try {
 
@@ -58,6 +63,8 @@ public:
 		for(auto & bg : background) {
 			bg.move(0, -1.f);
 		}
+
+		MenuBackground::update();
 	}
 	void input(sf::Event &e) {
 		if(backend_gui == nullptr) return;
@@ -82,6 +89,8 @@ public:
 	}
 	void draw(sf::RenderWindow& window, tgui::BackendGui& gui) {
 		window.clear(Palette::PaletteUI::Black);
+
+		MenuBackground::render(window);
 
 		for(auto & bg : background) {
 			window.draw(bg);
