@@ -34,6 +34,7 @@
 #include "Sand.hpp"
 #include "Lead.hpp"
 #include "Raycast.hpp"
+#include "Wood.hpp"
 
 #include "Uranium-235.hpp"
 #include "Radium-226.hpp"
@@ -195,6 +196,13 @@ public:
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Flammable>(p.x, p.y));
             
+        } else if(px == elm::getInfoFromType(VoxelValues::WOOD).color) {
+            vox.value = 4;
+            vox.strenght = 10;
+            prndd("WROOD");
+
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Wood>(p.x, p.y));
+            
         } else if(px == elm::getInfoFromType(VoxelValues::SODIUM).color) {
             vox.value = 5;
             vox.strenght = 1;
@@ -277,6 +285,7 @@ public:
             vox.strenght = 1;
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Snow>(p.x, p.y));
         }
+
         return vox;
     }
 

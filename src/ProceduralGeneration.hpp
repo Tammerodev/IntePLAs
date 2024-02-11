@@ -36,6 +36,10 @@ public:
         generateWater(grid, 1100, world_sx, world_sy);
         build(grid, world_sx, world_sy);
 
+        for(int i = 0; i < 100; i++) {
+            spawnHouse(grid, world_sx, world_sy);
+        }
+
         return true;
     }
 
@@ -147,6 +151,31 @@ private:
             for(int x = 0; x < world_sx; x++) {
                 grid.boundSetImagePixelAt(x + start, y, elm::getInfoFromType(VoxelValues::WATER).color);
                 grid.boundGetVoxelAt(x + start, y).value = VoxelValues::WATER;
+            }
+        }
+    }
+  
+    void spawnHouse(ChunkIndexer& grid,  const int world_sx, const int world_sy) {
+        
+        sf::Vector2i position;
+
+        position.x = math::randIntInRange(0, world_sx - 1);
+        position.y = 2048 - getHeightOnMap(position.x);
+
+        if(getBiomeAtPosition(position.x, grid).getName() == "Forest") {
+            sf::Image image;
+            image.loadFromFile("res/img/Procedural/Buildings/Houses/forest_house.png");
+
+            sf::Vector2u size = image.getSize();
+
+            for(uint16_t y = 0; y < size.y - 1; y++) {
+                for(uint16_t x = 0; x < size.x - 1; x++) {
+
+                    sf::Vector2i pos = position + sf::Vector2i(x, y);
+                    pos.y -= size.y;
+
+                    grid.boundSetImagePixelAt(pos.x, pos.y, image.getPixel(x, y));
+                }
             }
         }
     }

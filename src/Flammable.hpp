@@ -55,13 +55,13 @@ class Flammable : public Element {
             return remove;
         }
 
-private:
+protected:
 
     bool remove = false;
 
     int value = VoxelValues::MAGNESIUM;
-    const int ignition_temp = 100;
-    const int breakdown_temp = 10000;
+    int ignition_temp = 300;
+    int breakdown_temp = 10000;
 
     int temp = 0;
 
