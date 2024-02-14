@@ -25,7 +25,7 @@ public:
     
         voxelLabel = tgui::Label::create("");
         voxelLabel->setPosition(tgui::Layout2d(250, 0));
-        voxelLabel->setSize(tgui::Layout2d(100, 24));
+        voxelLabel->setSize(tgui::Layout2d(300, 24));
 
         gui.add(voxelLabel);
         
@@ -53,9 +53,10 @@ public:
 
         const std::string voxelName = elm::getInfoFromType(voxel.value).name;
         const std::string tempatature = "\t" + std::to_string(voxel.temp);
+        const std::string voltage = "\t" + std::to_string(voxel.voltage) + "v";
 
         voxelLabel->setVisible(voxelName != "");
-        voxelLabel->setText(voxelName + tempatature);
+        voxelLabel->setText(voxelName + tempatature + voltage);
     }
 
     void draw(sf::RenderTarget& target, tgui::BackendGui& gui) {

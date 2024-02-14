@@ -9,6 +9,8 @@ class Fluid : public Element {
             this->y = y;    
         }
 
+        virtual void fluidUpdate(ChunkIndexer& world) {}
+
         void update(ChunkIndexer& world) {
 
             if(world.boundGetVoxelAt(x, y).value == 0) {
@@ -26,6 +28,7 @@ class Fluid : public Element {
 
             nextWaterPos.y++;
 
+            fluidUpdate(world);
 
             if(world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
                 world.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
@@ -59,9 +62,7 @@ class Fluid : public Element {
                     y = nextWaterPos.y;
                 }
             }
-            /*temp = world.boundGetVoxelAt(x, y).temp;
-
-            // Spaghetti nam nam
+            //temp = world.boundGetVoxelAt(x, y).temp;
 
             const short t = 1;
         
@@ -76,7 +77,7 @@ class Fluid : public Element {
 
             world.SetHeat(x - 1, y + 1, t);
             world.SetHeat(x - 1, y - 1, t);
-            */
+            
 
             if(corrosion != 0) {
                 sf::Vector2i bounded = *this;

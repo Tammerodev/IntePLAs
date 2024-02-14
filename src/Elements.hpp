@@ -20,6 +20,7 @@ struct VoxelInfo {
 
 enum VoxelValues {
     DEFAULT = 0,
+    
     CARBON = 2,
     LITHIUM = 3,
     MAGNESIUM = 4,
@@ -45,6 +46,8 @@ enum VoxelValues {
 
     URANIUM235 = 100,
     RADIUM226 = 101,
+
+    OSCILLATOR = 200,
 };
 
 namespace elm {
@@ -77,6 +80,8 @@ namespace elm {
     const VoxelInfo Glass           {VoxelValues::GLASS,        sf::Color(68, 255, 0),         1000,   "Glass"           };
     
     const VoxelInfo Steam           {VoxelValues::STEAM,        sf::Color(68, 255, 0),         1000,   "Glass"           };
+
+    const VoxelInfo Oscillator      {VoxelValues::OSCILLATOR,   sf::Color(255, 87, 244),       1000,   "Oscillator"      };
 
 
     const unsigned short lithiumExplosion = 100;
@@ -131,6 +136,9 @@ namespace elm {
                 return Radium226;
             case STEAM:
                 return Steam;
+
+            case OSCILLATOR:
+                return Oscillator;
 
             default:
                 return Default;

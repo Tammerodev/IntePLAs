@@ -62,16 +62,19 @@ void ElectricitySimulation::update(ChunkIndexer& world) {
 
             for(auto &p : pos) {
                 Voxel &voxel = world.boundGetVoxelAt(p.x, p.y);
+
+                if(voxel.value != VoxelValues::URANIUM235) continue;
+
                 voxel.value = VoxelValues::COPPER;
                 voxel.voltage = 0;
                 world.setImagePixelAt(p.x, p.y, elm::getInfoFromType(VoxelValues::COPPER).color);
             }
 
-            int current_val = (int)VoxelValues::COPPER;
-            int new_val = (int)VoxelValues::URANIUM235;
-
             pos.clear();
 
+            int current_val = (int)VoxelValues::COPPER;
+            int new_val = (int)VoxelValues::URANIUM235;
+            
             if(world.boundGetVoxelAt(source.first.x + 1, source.first.y).value == current_val)
                 floodFill(world, source.first.x + 1, source.first.y, current_val, new_val, source.second);
 
@@ -83,6 +86,8 @@ void ElectricitySimulation::update(ChunkIndexer& world) {
 
             else if(world.boundGetVoxelAt(source.first.x, source.first.y - 1).value == current_val)
                 floodFill(world, source.first.x, source.first.y - 1, current_val, new_val, source.second);
+                
+
         }
     }
 }

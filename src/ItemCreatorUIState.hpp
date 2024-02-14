@@ -99,6 +99,7 @@ public:
             element_buttons.push_back(tgui::Button::create("Ra226"));
             element_buttons.push_back(tgui::Button::create("Sand"));
             element_buttons.push_back(tgui::Button::create("Acid"));
+            element_buttons.push_back(tgui::Button::create("Oscillator"));
 
 
             // Configure button
@@ -269,6 +270,7 @@ private:
         else if(name == "Ra226") selColor = elm::getInfoFromType(VoxelValues::RADIUM226).color;
         else if(name == "Sand") selColor = elm::getInfoFromType(VoxelValues::SAND).color;
         else if(name == "Acid") selColor = elm::getInfoFromType(VoxelValues::ACID).color;
+        else if(name == "Oscillator") selColor = elm::getInfoFromType(VoxelValues::OSCILLATOR).color;
         
     }
 

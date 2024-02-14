@@ -168,9 +168,10 @@ private:
 
             sf::Vector2u size = image.getSize();
 
+            if(isAreaOccupied(grid, size, position - sf::Vector2i(0, size.y))) return;                      
+
             for(uint16_t y = 0; y < size.y - 1; y++) {
                 for(uint16_t x = 0; x < size.x - 1; x++) {
-
                     sf::Vector2i pos = position + sf::Vector2i(x, y);
                     pos.y -= size.y;
 
@@ -178,6 +179,24 @@ private:
                 }
             }
         }
+    }
+
+    bool isAreaOccupied(ChunkIndexer& grid, sf::Vector2u size, sf::Vector2i position) {
+        for(uint16_t y = 0; y < size.y - 1; y++) {
+            for(uint16_t x = 0; x < size.x - 1; x++) {
+                
+                sf::Vector2i pos = position + sf::Vector2i(x, y);
+                grid.boundVector(pos);
+
+                if(grid.getVoxelAt(pos.x, pos.y).value == VoxelValues::WATER ||
+                  grid.getImagePixelAt(pos.x, pos.y) == elm::getInfoFromType(VoxelValues::WOOD).color) {
+                    return true;
+                }
+
+            }
+        }
+
+        return false;
     }
 
 private:

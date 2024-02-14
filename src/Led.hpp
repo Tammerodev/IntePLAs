@@ -10,7 +10,6 @@ class Led : public ElectricComponent {
             rem = voxel.value == 0;
     
             voltage = std::max({
-                voxel.value,
                 world.boundGetVoxelAt(x + 1, y).value,
                 world.boundGetVoxelAt(x - 1, y).value,
                 world.boundGetVoxelAt(x, y + 1).value,
@@ -47,6 +46,6 @@ class Led : public ElectricComponent {
     private:
         bool rem = false;
 
-        int treshold = 5;
+        int treshold = 10;
         int voltage = 0;
 };

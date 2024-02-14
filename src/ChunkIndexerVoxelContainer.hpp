@@ -217,13 +217,14 @@ public:
 
         int result = 1;
         const sf::Color pixel = getImagePixelAt(pixelPosition.x, pixelPosition.y);
+        const int voxel_value = getVoxelAt(pixelPosition.x, pixelPosition.y).value;
 
         result = pixel.a != 0;
 
-        if(pixel == elm::getInfoFromType(VoxelValues::SNOW).color)
+        if(voxel_value == VoxelValues::SNOW)
             result = 0;
 
-        if(pixel == elm::getInfoFromType(VoxelValues::WATER).color)
+        if(voxel_value == VoxelValues::WATER)
             result = 5;
 
         ret.second = pos - sf::Vector2f(pixelPosition);
@@ -262,7 +263,7 @@ public:
 
         vox.temp = temp;
 
-        if(vox.temp <= 0) vox.temp = 0;
+        if(temp <= 0) vox.temp = 0;
 
         sf::Color currPixel = getImagePixelAt(x,y);
 
@@ -274,7 +275,7 @@ public:
             currPixel.b = 255;
         }
 
-        setImagePixelAt(x,y,currPixel);
+        setImagePixelAt(x, y, currPixel);
     }
 
     void heatVoxelAt(const int x, const int y, const int temp)

@@ -32,7 +32,6 @@
 #include "Burning.hpp"
 #include "Settings.hpp"
 #include "Sand.hpp"
-#include "Lead.hpp"
 #include "Raycast.hpp"
 #include "Wood.hpp"
 
@@ -57,6 +56,8 @@
 #include "Snow.hpp"
 #include "GameEventEnum.hpp"
 #include "EventGlobals.hpp"
+
+#include "Oscillator.hpp"
 
 class VoxelManager {
 public:
@@ -223,8 +224,6 @@ public:
         } else if(px == elm::getInfoFromType(VoxelValues::LEAD).color) {
             vox.value = 10;
             vox.strenght = 3;
-
-            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Lead>(p.x, p.y));
         } else if(px == elm::getInfoFromType(VoxelValues::WATER).color) {
             vox.value = VoxelValues::WATER;
             vox.strenght = 2;
@@ -284,6 +283,17 @@ public:
             vox.value = VoxelValues::SNOW;
             vox.strenght = 1;
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Snow>(p.x, p.y));
+        }
+
+        else if(px == elm::getInfoFromType(VoxelValues::OSCILLATOR).color) {
+            vox.value = VoxelValues::OSCILLATOR;
+            vox.strenght = 1;
+            
+            std::shared_ptr<ElectricComponent> oscillator = std::make_shared<Oscillator>();
+            oscillator->x = p.x;
+            oscillator->y = p.y;
+            
+            if(addVoxelsToArr) simulationManager.addElementToES(oscillator);
         }
 
         return vox;
