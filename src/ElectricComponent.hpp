@@ -12,6 +12,7 @@ class component_data {
 class ElectricComponent : public sf::Vector2i {
     public:
         virtual component_data update(ChunkIndexer &) = 0;
+        virtual void render(sf::RenderTarget&) {}
 
         virtual int getVoltage() = 0;
         virtual void setVoltage(int) = 0;

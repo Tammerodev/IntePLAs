@@ -1,0 +1,14 @@
+Led:
+    class extending ElectricComponent
+
+    USAGE:
+        When voltage in one of neighboring cells extends treshold. 
+                
+               INPUT
+                 |
+       INPUT -> LED <- INPUT
+                 |
+               INPUT
+
+    INPUT:
+        treshold = 10

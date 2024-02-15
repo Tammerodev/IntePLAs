@@ -1,0 +1,17 @@
+Transistor:
+    class extending ElectricComponent
+
+    USAGE:
+        Connects INPUT to OUTPUT when voltage in BASE is above treshold.
+
+
+                INPUT
+                  |
+                  |
+        BASE--->|
+                  |
+                  |
+                OUTPUT
+
+    BASE:
+        treshold = 10

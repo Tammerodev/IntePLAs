@@ -33,7 +33,7 @@ void floodFill(ChunkIndexer& wr, int x, int y, int currColor, int newColor, int 
 
     sf::Color col = wr.getImagePixelAt(bound_pos.x, bound_pos.y);
 
-    wr.setImagePixelAt(bound_pos.x, bound_pos.y, sf::Color(col.r, col.g, voltage));
+    wr.setImagePixelAt(bound_pos.x, bound_pos.y, sf::Color(col.r, col.g, col.b + voltage));
 
     pos.emplace_back(sf::Vector2f(x, y));
   
@@ -57,24 +57,24 @@ void ElectricitySimulation::update(ChunkIndexer& world) {
 
     ElectricityGlobal::check_sources(world);
 
+    for(auto &p : pos) {
+        Voxel &voxel = world.boundGetVoxelAt(p.x, p.y);
+
+        if(voxel.value != VoxelValues::URANIUM235) continue;
+
+        voxel.value = VoxelValues::COPPER;
+        voxel.voltage = 0;
+        world.setImagePixelAt(p.x, p.y, elm::getInfoFromType(VoxelValues::COPPER).color);
+    }
+
+    pos.clear();
+
     for(const auto& source : ElectricityGlobal::source_positions) {
         if(source.second != 0) {
 
-            for(auto &p : pos) {
-                Voxel &voxel = world.boundGetVoxelAt(p.x, p.y);
-
-                if(voxel.value != VoxelValues::URANIUM235) continue;
-
-                voxel.value = VoxelValues::COPPER;
-                voxel.voltage = 0;
-                world.setImagePixelAt(p.x, p.y, elm::getInfoFromType(VoxelValues::COPPER).color);
-            }
-
-            pos.clear();
-
             int current_val = (int)VoxelValues::COPPER;
             int new_val = (int)VoxelValues::URANIUM235;
-            
+
             if(world.boundGetVoxelAt(source.first.x + 1, source.first.y).value == current_val)
                 floodFill(world, source.first.x + 1, source.first.y, current_val, new_val, source.second);
 
@@ -89,5 +89,11 @@ void ElectricitySimulation::update(ChunkIndexer& world) {
                 
 
         }
+    }
+}
+
+void ElectricitySimulation::render(sf::RenderTarget& target) {
+    for(auto &component : components) {
+        component->render(target);
     }
 }

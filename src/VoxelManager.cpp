@@ -140,6 +140,8 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
     }
 
     particleSimulation.render(target);
+    simulationManager.drawAll(target);
+    
 }
 
 void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)

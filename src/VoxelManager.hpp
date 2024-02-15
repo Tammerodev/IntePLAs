@@ -58,6 +58,8 @@
 #include "EventGlobals.hpp"
 
 #include "Oscillator.hpp"
+#include "Transistor.hpp"
+#include "Switch.hpp"
 
 class VoxelManager {
 public:
@@ -200,7 +202,6 @@ public:
         } else if(px == elm::getInfoFromType(VoxelValues::WOOD).color) {
             vox.value = 4;
             vox.strenght = 10;
-            prndd("WROOD");
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Wood>(p.x, p.y));
             
@@ -294,6 +295,39 @@ public:
             oscillator->y = p.y;
             
             if(addVoxelsToArr) simulationManager.addElementToES(oscillator);
+        }
+
+        else if(px == elm::getInfoFromType(VoxelValues::TRANSISTORDON).color) {
+            vox.value = VoxelValues::TRANSISTORDON;
+            vox.strenght = 1;
+            
+            std::shared_ptr<ElectricComponent> transistor = std::make_shared<TransistorDON>();
+            transistor->x = p.x;
+            transistor->y = p.y;
+            
+            if(addVoxelsToArr) simulationManager.addElementToES(transistor);
+        }
+
+        else if(px == elm::getInfoFromType(VoxelValues::TRANSISTORDOFF).color) {
+            vox.value = VoxelValues::TRANSISTORDOFF;
+            vox.strenght = 1;
+            
+            std::shared_ptr<ElectricComponent> transistor = std::make_shared<TransistorDOFF>();
+            transistor->x = p.x;
+            transistor->y = p.y;
+            
+            if(addVoxelsToArr) simulationManager.addElementToES(transistor);
+        }
+
+        else if(px == elm::getInfoFromType(VoxelValues::SWITCH).color) {
+            vox.value = VoxelValues::SWITCH;
+            vox.strenght = 1;
+            
+            std::shared_ptr<ElectricComponent> switch_ = std::make_shared<Switch>(p.x, p.y);
+            switch_->x = p.x;
+            switch_->y = p.y;
+            
+            if(addVoxelsToArr) simulationManager.addElementToES(switch_);
         }
 
         return vox;

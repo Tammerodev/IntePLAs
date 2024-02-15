@@ -25,6 +25,14 @@ namespace ElectricityGlobal {
         source_positions.insert({pos_c, voltage});
     }
 
+    inline void remove_source(const sf::Vector2i pos) {
+        ComparableVector2i pos_c;
+        pos_c.x = pos.x;
+        pos_c.y = pos.y;
+
+        source_positions.erase(pos_c);
+    }
+
     static void check_sources(ChunkIndexer &world) {
         for (auto it = source_positions.cbegin(), next_it = it; it != source_positions.cend(); it = next_it)
         {

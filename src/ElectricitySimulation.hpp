@@ -11,6 +11,8 @@ class ElectricitySimulation {
 
         void update(ChunkIndexer&);
 
+        void render(sf::RenderTarget&);
+
     protected:
         std::list<std::shared_ptr<ElectricComponent>> components; 
 };

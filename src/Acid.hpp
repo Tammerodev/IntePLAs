@@ -21,7 +21,6 @@ class Acid : public Fluid {
             }
 
             if(world.isInContactWithVoxel(*this, VoxelValues::LEAD)) {
-                prndd("VOlllt");
                 ElectricityGlobal::add_source(*this, generated_voltage);
             }
             

@@ -18,6 +18,10 @@ class SimulationManager {
             // TODO es.remove
         }
 
+        void drawAll(sf::RenderTarget& target) {
+            es.render(target);
+        }
+
 
     private:
         ElectricitySimulation es;

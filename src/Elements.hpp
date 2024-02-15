@@ -48,6 +48,10 @@ enum VoxelValues {
     RADIUM226 = 101,
 
     OSCILLATOR = 200,
+    TRANSISTORDON = 201,
+    TRANSISTORDOFF = 202,
+
+    SWITCH = 203,
 };
 
 namespace elm {
@@ -82,6 +86,11 @@ namespace elm {
     const VoxelInfo Steam           {VoxelValues::STEAM,        sf::Color(68, 255, 0),         1000,   "Glass"           };
 
     const VoxelInfo Oscillator      {VoxelValues::OSCILLATOR,   sf::Color(255, 87, 244),       1000,   "Oscillator"      };
+    const VoxelInfo TransistorDon      {VoxelValues::TRANSISTORDON,sf::Color(107, 13, 55),        1000,   "Transistor Default on"      };
+    const VoxelInfo TransistorDoff     {VoxelValues::TRANSISTORDOFF,sf::Color(107, 100, 55),       1000,   "Transistor Default off"      };
+
+    const VoxelInfo Switch          {VoxelValues::SWITCH,       sf::Color(28, 94, 24),         1000,   "Switch"          };
+
 
 
     const unsigned short lithiumExplosion = 100;
@@ -139,6 +148,15 @@ namespace elm {
 
             case OSCILLATOR:
                 return Oscillator;
+
+            case TRANSISTORDON:
+                return TransistorDon;
+
+            case TRANSISTORDOFF:
+                return TransistorDoff;
+
+            case SWITCH:
+                return Switch;
 
             default:
                 return Default;
