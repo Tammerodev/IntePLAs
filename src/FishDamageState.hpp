@@ -13,19 +13,25 @@ class FishDamageState : public FishState {
 
         void draw(sf::RenderTarget& target, sf::Sprite& sprite) {
             timer++;
-
+            
             if(timer > damage_time) {
-                FishState::currentState = FishState::idleState;
-                FishState::currentState->enter();
                 timer = 0;
-
+                change = true;
                 sprite.setColor(sf::Color::White);
             }
 
             sprite.setColor(sf::Color::Red);
         }
 
+        FishStateType changeTo() {
+            if(change) return FishStateType::FishIdle;
+            else return No;
+        }
+
+
     private: 
         int timer = 0;
         int damage_time = 500;
+
+        bool change = false;
 };

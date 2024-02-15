@@ -1,13 +1,8 @@
 #include "Fish.hpp"
 
-FishState* FishState::damageState = new FishDamageState();
-FishState* FishState::idleState = new FishIdleState();
-FishState* FishState::dead = new FishDeadState();
-FishState* FishState::swimState = new FishSwimState();
-
-FishState* FishState::currentState = FishState::swimState;
-
 void Fish::load() {
+
+
     texture.loadFromFile("res/img/Mob/fish.png");
     sprite.setTexture(texture);
 
@@ -32,8 +27,9 @@ void Fish::update(const float dt) {
     default_behaviour.update(physicsComponent.transform_position, "Fish", health);
 
     sprite.setTexture(texture);
-
-    FishState::currentState->update(physicsComponent, dt, grounded);
+    
+    if(states.at(currentState) != nullptr)
+        states.at(currentState)->update(physicsComponent, dt, grounded);
 
     physicsComponent.update(dt);
     sprite.setPosition(physicsComponent.transform_position);
@@ -45,6 +41,14 @@ void Fish::update(const float dt) {
         sprite.setOrigin({ 0, 0 });
         sprite.setScale(1.0, 1.0f);
     }
+
+    if(states.at(currentState) != nullptr) {
+        FishStateType fishStateType = states.at(currentState)->changeTo();
+        if(fishStateType != FishStateType::No) {
+            currentState = fishStateType;
+        }
+    }
+
 
 }
 
@@ -72,7 +76,8 @@ void Fish::collisionCheck(VoxelManager &voxelManager) {
 }
 
 void Fish::render(sf::RenderTarget &target) {
-    FishState::currentState->draw(target, sprite);
+    if(states.at(currentState) != nullptr)
+        states.at(currentState)->draw(target, sprite);
 
     default_behaviour.default_render(target);
 }
@@ -87,8 +92,15 @@ void Fish::invoke(const MobInvoke &inv) {
     if(inv.damage > 0) {
         generalDamageBehaviour(inv.damage);
 
-        FishState::currentState = FishState::damageState;
-        FishState::currentState->enter(); 
+
+
+        currentState = FishStateType::FishDamage;
+        if(states.at(currentState) != nullptr)
+            states.at(currentState)->enter();
+
+        loginf("Settading state of", getEntityID(), "...");
+        
+        
     }
 }
 

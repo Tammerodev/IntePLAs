@@ -9,7 +9,7 @@
 #include "CollisionManager.hpp"
 
 #include <vector>
-
+#include "common.hpp"
 
 class Fish : public Mob {
     public:
@@ -24,6 +24,17 @@ class Fish : public Mob {
         PhysicsComponent& getPhysicsComponent();
 
     protected:
+        std::array<FishState*, 10> states {
+            nullptr,
+            new FishDamageState(),
+            new FishSwimState(),
+            new FishDeadState(),
+            new FishIdleState()
+        };
+
+        FishStateType currentState = FishStateType::FishIdle;
+
+
         unsigned int maxHealth = 0;
         PhysicsComponent physicsComponent;
         DefaultBehaviour default_behaviour;

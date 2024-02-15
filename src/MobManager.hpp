@@ -5,6 +5,7 @@
 #include "MobInfoBar.hpp"
 #include "ProceduralGeneration.hpp"
 #include "ChunkIndexerVoxelContainer.hpp"
+#include "MobIDGenerator.hpp"
 
 class MobManager {
     public:
@@ -58,7 +59,8 @@ class MobManager {
             default:
                 return;
             }
-
+            
+            mob->setID(MobIDGenerator::getNextID());
             mob->getPhysicsComponent().transform_position = position;
             mob->load();
             mobs.emplace_back(mob);

@@ -60,6 +60,14 @@ class Mob : public Entity {
         virtual MobType getMobType() {
             return mobType;
         }
+
+        int getEntityID() {
+            return entity_id;
+        }
+
+        void setID(const int id) {
+            entity_id = id;
+        }
  
     protected:
 
@@ -75,6 +83,8 @@ class Mob : public Entity {
 
         unsigned int maxHealth = 0;
         int health = 0;
+
+        int entity_id;
 
         bool remove_mob = false;
 };
