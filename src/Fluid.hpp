@@ -64,19 +64,21 @@ class Fluid : public Element {
             }
             //temp = world.boundGetVoxelAt(x, y).temp;
 
-            const short t = 1;
-        
-            world.SetHeat(x + 1, y, t);
-            world.SetHeat(x - 1, y, t);
+            if(doesCooldown) {
+                const short t = 1;
+            
+                world.SetHeat(x + 1, y, t);
+                world.SetHeat(x - 1, y, t);
 
-            world.SetHeat(x, y + 1, t);
-            world.SetHeat(x, y - 1, t);
+                world.SetHeat(x, y + 1, t);
+                world.SetHeat(x, y - 1, t);
 
-            world.SetHeat(x + 1, y + 1, t);
-            world.SetHeat(x + 1, y - 1, t);
+                world.SetHeat(x + 1, y + 1, t);
+                world.SetHeat(x + 1, y - 1, t);
 
-            world.SetHeat(x - 1, y + 1, t);
-            world.SetHeat(x - 1, y - 1, t);
+                world.SetHeat(x - 1, y + 1, t);
+                world.SetHeat(x - 1, y - 1, t);
+            }
             
 
             if(corrosion != 0) {
@@ -117,6 +119,7 @@ class Fluid : public Element {
         }
         
     protected:
+        bool doesCooldown = true;
 
         int corrosion = 0;
 

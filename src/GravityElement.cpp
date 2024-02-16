@@ -11,14 +11,18 @@ void GravityElement::update(ChunkIndexer &world) {
     checkExisting(world);
     move_(nextWaterPos);
 
-    /*sf::Vector2i pos = world.pointLineContainMaterial(lastPos, nextWaterPos);
+    if(abs(velocity.y) > terminal_velocity) {
+        velocity.y--;
+    }
+
+    sf::Vector2i pos = world.pointLineContainMaterial(lastPos, nextWaterPos);
 
     if(pos != sf::Vector2i(0, 0)) {
         velocity.y = 0;
         nextWaterPos = pos;
-    }*/
+    }
 
-
+                
     if(world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).value != 0) {
         // If position inside another voxel
         nextWaterPos.y -= velocity.y;
@@ -28,15 +32,13 @@ void GravityElement::update(ChunkIndexer &world) {
         if(world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
             clearLastPos(nextWaterPos, world);
         }
-    } else {
-        clearLastPos(nextWaterPos, world);
-
-        run_rules(world, nextWaterPos);
     }
 
-    setVoxelInWorld(world);
-    setPosition(nextWaterPos);
-    
+    clearLastPos(nextWaterPos, world);
+
+    run_rules(world, nextWaterPos);
+    setPosition(nextWaterPos); 
+
     // Set 'needs_update' flags
     if(nextWaterPos != lastPos) {
         sf::Vector2i boundPos = nextWaterPos;
@@ -58,9 +60,7 @@ void GravityElement::update(ChunkIndexer &world) {
     else 
         world.boundGetChunkAt(world.getChunkFromPos(lastPos.x, lastPos.y).x, world.getChunkFromPos(lastPos.x, lastPos.y).y).needs_update = false;
 
-    // Draw voxel
-    world.boundGetVoxelAt(x, y).value = value;
-    world.boundSetImagePixelAt(x, y, color);
+    setVoxelInWorld(world);
 }
 
 void GravityElement::move_(sf::Vector2i &nextWaterPos) {

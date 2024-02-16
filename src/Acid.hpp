@@ -1,10 +1,10 @@
 #pragma once
-#include "Fluid.hpp"
+#include "GravityFluid.hpp"
 #include "ElectricityGlobal.hpp"
 
-class Acid : public Fluid {
+class Acid : public GravityFluid {
     public:
-        Acid(int xpos, int ypos) : Fluid(xpos, ypos) {
+        Acid(int xpos, int ypos) : GravityFluid(xpos, ypos) {
             x = xpos;
             y = ypos;
 
@@ -14,16 +14,15 @@ class Acid : public Fluid {
 
 
         void fluidUpdate(ChunkIndexer& world) {
-            if(world.boundGetVoxelAt(x, y + 1).value != 0) {
+            /*if(world.boundGetVoxelAt(x, y + 1).value != 0) {
                 if(corrosion <= 0 ) return;
                 world.boundDamageVoxelAt(x, y + 1);
                 corrosion--;
-            }
+            }*/
 
-            if(world.isInContactWithVoxel(*this, VoxelValues::LEAD)) {
+            /*if(world.isInContactWithVoxel(*this, VoxelValues::LEAD)) {
                 ElectricityGlobal::add_source(*this, generated_voltage);
-            }
-            
+            }*/
         }
 
 private:

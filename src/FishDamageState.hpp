@@ -23,9 +23,9 @@ class FishDamageState : public FishState {
             sprite.setColor(sf::Color::Red);
         }
 
-        FishStateType changeTo() {
+        FishStateType::Type changeTo() {
             if(change) return FishStateType::FishIdle;
-            else return No;
+            else return FishStateType::No;
         }
 
 

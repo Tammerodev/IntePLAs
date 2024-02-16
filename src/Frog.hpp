@@ -24,6 +24,16 @@ class Frog : public Mob {
         PhysicsComponent& getPhysicsComponent();
 
     protected:
+        std::array<FrogState*, 10> states {
+            nullptr,
+            new FrogDamageState(),
+            new FrogJumpState(),
+            new FrogDeadState(),
+            new FrogIdleState()
+        };
+
+        FrogStateType::Type currentState = FrogStateType::FrogIdle;
+
         unsigned int maxHealth = 0;
         PhysicsComponent physicsComponent;
 

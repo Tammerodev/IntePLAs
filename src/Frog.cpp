@@ -1,17 +1,8 @@
 #include "Frog.hpp"
 
-FrogState* FrogState::damageState = new FrogDamageState();
-FrogState* FrogState::idleState = new FrogIdleState();
-FrogState* FrogState::dead = new FrogDeadState();
-FrogState* FrogState::jumpState = new FrogJumpState();
-
-FrogState* FrogState::currentState = FrogState::idleState;
-
 void Frog::load() {
     texture.loadFromFile("res/img/Mob/frog.png");
     sprite.setTexture(texture);
-
-    physicsComponent.transform_position = sf::Vector2f(800, 0);
 
     default_behaviour.default_load();
 
@@ -19,6 +10,7 @@ void Frog::load() {
     health = maxHealth;
 
     mobType = MobType::Fish;
+    currentState = FrogStateType::FrogIdle;
 }
 
 void Frog::update(const float dt) {
@@ -33,15 +25,15 @@ void Frog::update(const float dt) {
             physicsComponent.velocity.x = -frogSpeed;
         }
 
-        if(FrogState::currentState != FrogState::jumpState) {
-            FrogState::currentState = FrogState::jumpState;
-            FrogState::currentState->enter();
+        if(currentState != FrogStateType::FrogJump) {
+            currentState = FrogStateType::FrogJump;
+            states.at(currentState)->enter();
         }
     }
 
     sprite.setTexture(texture);
 
-    FrogState::currentState->update(physicsComponent, dt, grounded);
+    states.at(currentState)->update(physicsComponent, dt, grounded);
 
     physicsComponent.update(dt);
     sprite.setPosition(physicsComponent.transform_position);
@@ -52,6 +44,14 @@ void Frog::update(const float dt) {
     } else {
         sprite.setOrigin({ 0, 0 });
         sprite.setScale(1.0, 1.0f);
+    }
+
+    if(states.at(currentState) != nullptr) {
+        FrogStateType::Type frogStateType = states.at(currentState)->changeTo();
+        if(frogStateType != FrogStateType::No) {
+            currentState = frogStateType;
+            states.at(currentState)->enter();
+        }
     }
 
     if(grounded)
@@ -76,13 +76,13 @@ void Frog::collisionCheck(VoxelManager &voxelManager) {
 }
 
 void Frog::render(sf::RenderTarget &target) {
-    FrogState::currentState->draw(target, sprite);
+    states.at(currentState)->draw(target, sprite);
 
     default_behaviour.default_render(target);
 }
 
 void Frog::invoke(const MobInvoke &inv) {
-    mobInvoke = inv;
+    //mobInvoke = inv;
 
     if(mobInvoke.distanceToPlayer <= distanceWhenInvoked) {
         scaredTimer = scaredTime;
@@ -91,8 +91,8 @@ void Frog::invoke(const MobInvoke &inv) {
     if(inv.damage > 0) {
         generalDamageBehaviour(inv.damage);
 
-        FrogState::currentState = FrogState::damageState;
-        FrogState::currentState->enter(); 
+        currentState = FrogStateType::FrogDamage;
+        states.at(currentState)->enter(); 
     }
 } 
 

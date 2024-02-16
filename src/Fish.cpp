@@ -43,9 +43,10 @@ void Fish::update(const float dt) {
     }
 
     if(states.at(currentState) != nullptr) {
-        FishStateType fishStateType = states.at(currentState)->changeTo();
+        FishStateType::Type fishStateType = states.at(currentState)->changeTo();
         if(fishStateType != FishStateType::No) {
             currentState = fishStateType;
+            states.at(currentState)->enter();
         }
     }
 

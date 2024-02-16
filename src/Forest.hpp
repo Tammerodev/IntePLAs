@@ -1,5 +1,6 @@
 #pragma once
 #include "Biome.hpp"
+#include "MobType.hpp"
 
 class Forest : public Biome {
 public:
@@ -14,6 +15,9 @@ public:
         info.vegetationInfo.filepath = "res/img/Procedural/forest.png";
         info.vegetationInfo.amount = 25;
         info.vegetationInfo.width_of_part = 16;
+
+        info.mobInfo.amount = 1;
+        info.mobInfo.spawns.emplace_back(std::pair(MobType::Frog, 100));
         
 
         return &info;

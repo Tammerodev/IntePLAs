@@ -32,7 +32,7 @@ class Fish : public Mob {
             new FishIdleState()
         };
 
-        FishStateType currentState = FishStateType::FishIdle;
+        FishStateType::Type currentState = FishStateType::FishIdle;
 
 
         unsigned int maxHealth = 0;

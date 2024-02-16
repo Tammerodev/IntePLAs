@@ -29,8 +29,10 @@ class DefaultBehaviour {
         }
 
         void default_death(int x, int y, VoxelManager& voxelManager) {
-            for(int i = 0; i < 10; i++) {
+            for(int i = 0; i < 50; i++) {
                 sf::Vector2i pos(x, y - i);
+
+                pos += sf::Vector2i(math::randIntInRange(-5, 5), math::randIntInRange(-5, 5));
 
                 voxelManager.getChunkIndexer().boundVector(pos);
 

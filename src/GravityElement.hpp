@@ -8,7 +8,7 @@ class GravityElement : public Element {
         GravityElement(int x, int y) : Element() {
             this->x = x;
             this->y = y;    
-
+            first = true;
         }
 
         virtual void run_rules(ChunkIndexer& world, sf::Vector2i& nextWaterPos) {};
@@ -23,6 +23,7 @@ class GravityElement : public Element {
         
     protected:
         sf::Vector2i velocity {0, 0};
+        int terminal_velocity = 4;
 
         void setVoxelInWorld(ChunkIndexer& world);
         void clearLastPos(const sf::Vector2i& nextWaterPos, ChunkIndexer& world);

@@ -33,10 +33,20 @@ class FrogJumpState : public FrogState {
             
 
             if(grounded && phase == 7) {
-                FrogState::currentState = FrogState::idleState;
-                FrogState::currentState->enter(); 
+                change = true;
             }
         }
+
+        FrogStateType::Type changeTo() {
+            if(change) {
+                return FrogStateType::FrogIdle;
+                change = false;
+                timer = 0;
+                phase = 0;
+            };
+
+            return FrogStateType::No;
+        };
 
         void draw(sf::RenderTarget& target, sf::Sprite& sprite) {
             sprite.setTextureRect(textureRect);
@@ -44,6 +54,8 @@ class FrogJumpState : public FrogState {
         }
 
     private: 
+        bool change = false;
+
         sf::IntRect textureRect;
         int phase = 0;
         int timer = 0;

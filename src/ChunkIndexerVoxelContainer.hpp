@@ -182,7 +182,7 @@ public:
 
         sf::Vector2i prev_pos = start;
 
-        for (int i = 0; i <= length; i++) {
+        for (int i = 1; i <= length; i++) {
 
             const float t = static_cast<float>(i) / length;
 
