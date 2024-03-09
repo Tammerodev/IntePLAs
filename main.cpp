@@ -14,6 +14,7 @@ sf::Clock Clock;
 
 class AppState : public dep::State {
 public:
+
     AppState() {
         dep::GameObjects.insert({"Cube", std::make_shared<dep::Cube>(dep::Color(0.820, 0.755, 0.385, 0.5f))});
     }
