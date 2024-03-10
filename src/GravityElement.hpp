@@ -32,8 +32,8 @@ class GravityElement : public Element {
 
         bool remove = false;
 
-        sf::Color color;
-        uint8_t value;
+        sf::Color color {};
+        uint8_t value = 0;
 
         bool first = true;
 };

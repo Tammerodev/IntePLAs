@@ -4,8 +4,7 @@
 class GravityFluid : public GravityElement {
     public:
         GravityFluid(int xpos, int ypos) : GravityElement(xpos, ypos) {
-            color = elm::getInfoFromType(VoxelValues::WATER).color;
-            value = VoxelValues::WATER;
+            
         }
 
         void run_rules(ChunkIndexer& world, sf::Vector2i& nextWaterPos) {

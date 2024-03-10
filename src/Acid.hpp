@@ -14,15 +14,15 @@ class Acid : public GravityFluid {
 
 
         void fluidUpdate(ChunkIndexer& world) {
-            /*if(world.boundGetVoxelAt(x, y + 1).value != 0) {
+            if(world.boundGetVoxelAt(x, y + 1).value != 0 && world.boundGetVoxelAt(x, y + 1).value != VoxelValues::ACID) {
                 if(corrosion <= 0 ) return;
                 world.boundDamageVoxelAt(x, y + 1);
                 corrosion--;
-            }*/
+            }
 
-            /*if(world.isInContactWithVoxel(*this, VoxelValues::LEAD)) {
+            if(world.isInContactWithVoxel(*this, VoxelValues::LEAD)) {
                 ElectricityGlobal::add_source(*this, generated_voltage);
-            }*/
+            }
         }
 
 private:

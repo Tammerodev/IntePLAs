@@ -1,9 +1,9 @@
 #pragma once
-#include "Fluid.hpp"
+#include "GravityFluid.hpp"
 
-class Water : public Fluid {
+class Water : public GravityFluid {
     public:
-        Water(int xpos, int ypos) : Fluid(xpos, ypos){
+        Water(int xpos, int ypos) : GravityFluid(xpos, ypos) {
             color = elm::getInfoFromType(VoxelValues::WATER).color;
             value = VoxelValues::WATER;
         }

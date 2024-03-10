@@ -3,29 +3,13 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++ build active file",
-            "command": "/usr/bin/g++",
+            "command": "/bin/bash", // Use bash to execute a shell command
             "args": [
-                "-g",
-                "-ggdb",
-                "-g3",
-                "-Wall",
-                "-Wno-unused",
-                "-Wno-unused-function",
-                "-O2",
-                "*.cpp",
-                "-lsfml-system",
-                "-lsfml-window",
-                "-lsfml-graphics",
-                "-lsfml-audio",
-                "-lsfml-network",
-                "-ltgui",
-                "-ljsoncpp",
-                "-o",
-                "${fileDirname}/../output/Game"
-                
+                "-c", // -c option tells bash to read commands from the command string
+                "g++ ${workspaceFolder}/src/*.cpp -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio -lsfml-network -ltgui -ljsoncpp -o ${workspaceFolder}/src/main" // Shell command to compile all .cpp files in src folder
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"

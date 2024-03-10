@@ -9,7 +9,7 @@ namespace worldSize {
     inline int64_t world_sy;
 }
 
-class ChunkIndexer : public VoxelContainer {
+class ChunkIndexer {
 public:
     ChunkIndexer() {
         update();
@@ -67,7 +67,10 @@ public:
         return gridNeg.at(abs(yy)).at(xx);
     }
 
-    Chunk& getChunkAt(const sf::Vector2i &pos) {
+    Chunk& getChunkAt(sf::Vector2i pos) {
+        if(pos.x > worldSize::world_sx - 1) pos.x = worldSize::world_sx - 1;
+        if(pos.y > worldSize::world_sy - 1) pos.y = worldSize::world_sy - 1;
+
         if(pos.x >= 0) {
            return gridPos.at(abs(pos.y)).at(pos.x);         
         }
@@ -76,7 +79,7 @@ public:
 
     void boundVector(sf::Vector2i &v) {
         if(v.y < 0) v.y = 0;
-        if(v.x < -chunks_negx) v.x = 0;
+        if(v.x < 0) v.x = 0;
         if(v.y > worldSize::world_sy - 1) v.y = worldSize::world_sy - 1;
         if(v.x > worldSize::world_sx - 1) v.x = worldSize::world_sx - 1;
     }
@@ -85,7 +88,7 @@ public:
         sf::Vector2i v = p;
 
         if(v.y < 0) v.y = 0;
-        if(v.x < -chunks_negx) v.x = 0;
+        if(v.x < 0) v.x = 0;
         if(v.y > worldSize::world_sy - 1) v.y = worldSize::world_sy - 1;
         if(v.x > worldSize::world_sx - 1) v.x = worldSize::world_sx - 1;
 

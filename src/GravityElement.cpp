@@ -10,6 +10,7 @@ void GravityElement::update(ChunkIndexer &world) {
 
     checkExisting(world);
     move_(nextWaterPos);
+    custom_update(world, nextWaterPos);
 
     if(abs(velocity.y) > terminal_velocity) {
         velocity.y--;
@@ -90,6 +91,5 @@ void GravityElement::setPosition(sf::Vector2i& nextWaterPos) {
 void GravityElement::checkExisting(ChunkIndexer &world) {
     if(world.boundGetVoxelAt(x, y).value == 0) {
         remove = true;
-        return;
     }
 }
