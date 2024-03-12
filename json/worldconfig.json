@@ -1,4 +1,6 @@
 {
-    "world-size-x" : "120",
-    "world-size-y" : "120"
+    "world-size-x" : "54",
+    "world-size-y" : "120",
+
+    "noise-type" : "perlin"
 }

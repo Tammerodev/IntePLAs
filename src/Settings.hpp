@@ -4,6 +4,7 @@
 #include <assert.h>
 #include "common.hpp"
 #include "Utils/StringUtils.hpp"
+#include "FastNoiseLite.hpp"
 
 namespace UISettings {
     inline unsigned char transparency = 100;
@@ -42,6 +43,8 @@ namespace WorldSettings {
     inline unsigned int createSizeY = 0;
     inline bool worldConfigLoaded = false;
 
+    inline FastNoiseLite::NoiseType noiseType;
+
     inline bool loadWorldConfig() {
         bool result = false;
 
@@ -51,9 +54,23 @@ namespace WorldSettings {
 
         const std::string world_size_x = reader.readParameterAsString("world-size-x");
         const std::string world_size_y = reader.readParameterAsString("world-size-y");
+        const std::string noise_type   = reader.readParameterAsString("noise-type");
 
         createSizeX = std::stoi(world_size_x);
         createSizeY = std::stoi(world_size_y);
+
+        if(noise_type == "perlin")
+            noiseType = FastNoiseLite::NoiseType::NoiseType_Perlin;
+        else if(noise_type == "opensimplex2")
+            noiseType = FastNoiseLite::NoiseType::NoiseType_OpenSimplex2;
+        else if(noise_type == "opensimplex2S")
+            noiseType = FastNoiseLite::NoiseType::NoiseType_OpenSimplex2S;
+        else if(noise_type == "value")
+            noiseType = FastNoiseLite::NoiseType::NoiseType_Value;
+        else if(noise_type == "valuecubic")
+            noiseType = FastNoiseLite::NoiseType::NoiseType_ValueCubic;
+        else if(noise_type == "cellular")
+            noiseType = FastNoiseLite::NoiseType::NoiseType_Cellular;
 
         worldConfigLoaded = result;
         return worldConfigLoaded;

@@ -18,6 +18,8 @@
 #include "Forest.hpp"
 #include "Ocean.hpp"
 #include "Mountains.hpp"
+#include <stdint.h>
+#include "Settings.hpp"
 
 namespace GenerationGlobals {
     inline int high_ = 0;
@@ -28,13 +30,19 @@ namespace GenerationGlobals {
 class ProcGenerate {
 public:
     bool generate(ChunkIndexer& grid, int64_t world_sx, int64_t world_sy) {
+        // This is bad but its cool
+        const int seed = (intptr_t)&grid + (rand() % math::randIntInRange(0, 100) + time(0)) - (intptr_t)&world_sx;
+        init(seed);
+        
+        loginf("World generation seed = ", seed, ".");
 
-        init(time(0));
         initBiomes(worldSize::world_sx);
 
         generateHeightMap(grid, world_sx, world_sy);
         generateWater(grid, 1100, world_sx, world_sy);
         build(grid, world_sx, world_sy);
+
+        generateCaves(grid, world_sx, world_sy);
 
         for(int i = 0; i < 100; i++) {
             spawnHouse(grid, world_sx, world_sy);
@@ -57,6 +65,32 @@ public:
     }
 
 private:
+
+    void generateCaves(ChunkIndexer& grid, const int world_sx, const int world_sy) {
+        fsl.SetNoiseType(WorldSettings::noiseType);
+        fsl.SetFractalOctaves(2);
+        fsl.SetFrequency(0.005f);
+        fsl.SetFractalGain(100.0);
+
+
+        float a = 0.f;
+
+        for(int y = 0; y < world_sy; y++) {
+            for(int x = 0; x < world_sx; x++) {
+
+                if(grid.boundGetVoxelAt(x, y).value == VoxelValues::SAND) continue;
+
+                float treshold = 0.55f - (y / (world_sy * 3)) - (a / 10.0);
+
+                float noiseValue = fsl.GetNoise((float)x, (float)y);
+
+                if(noiseValue > treshold) {
+                    grid.boundGetVoxelAt(x, y).value = 0;
+                    grid.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
+                }
+            }
+        }
+    }
 
     void build(ChunkIndexer& grid, const int world_sx, const int world_sy) {
         int ind = 0;
@@ -85,12 +119,12 @@ private:
     }
 
     void init(const int seed) {
+        fsl.SetSeed(seed); // Set a random seed (change this to get different noise patterns)
+
         fsl.SetNoiseType(FastNoiseLite::NoiseType::NoiseType_Perlin);
         fsl.SetFractalOctaves(13);
-        fsl.SetFractalGain(10.0);
+        fsl.SetFractalGain(10.0 + seed);
         fsl.SetFractalLacunarity(50.5);
-        
-        fsl.SetSeed(seed); // Set a random seed (change this to get different noise patterns)
     }
 
     void initBiomes(int biome_count) {
@@ -149,8 +183,8 @@ private:
     void generateWater(ChunkIndexer& grid, const int waterLevel, const int world_sx, const int world_sy, const int start = 0) {
         for(int y = world_sy; y > waterLevel; y--) {
             for(int x = 0; x < world_sx; x++) {
-                grid.boundSetImagePixelAt(x + start, y, elm::getInfoFromType(VoxelValues::WATER).color);
-                grid.boundGetVoxelAt(x + start, y).value = VoxelValues::WATER;
+                //grid.boundSetImagePixelAt(x + start, y, elm::getInfoFromType(VoxelValues::WATER).color);
+                //grid.boundGetVoxelAt(x + start, y).value = VoxelValues::WATER;
             }
         }
     }

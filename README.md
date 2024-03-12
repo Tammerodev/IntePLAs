@@ -22,6 +22,18 @@ for now.
     If it still doesnt run, you may have to set "Run files as executables" flag to true.
 
 
+# JSON Info
+worldconfig.json
+noise-type options:
+    "perlin"
+    "value"
+    "valuecubic"
+    "opensimplex2"
+    "opensimplex2S"
+    "cellular"
+
+
+
 # Libraries : 
 SFML https://www.sfml-dev.org/
 
