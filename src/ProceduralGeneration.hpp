@@ -68,19 +68,21 @@ private:
 
     void generateCaves(ChunkIndexer& grid, const int world_sx, const int world_sy) {
         fsl.SetNoiseType(WorldSettings::noiseType);
-        fsl.SetFractalOctaves(2);
-        fsl.SetFrequency(0.005f);
-        fsl.SetFractalGain(100.0);
+        fsl.SetFractalOctaves(WorldSettings::noiseOctaves);
+        fsl.SetFrequency(WorldSettings::noiseFrequency);
 
+        fsl.SetDomainWarpType(FastNoiseLite::DomainWarpType::DomainWarpType_BasicGrid);
+        fsl.SetDomainWarpAmp(0.5);
+        fsl.SetFractalGain(1.0);
 
         float a = 0.f;
 
         for(int y = 0; y < world_sy; y++) {
             for(int x = 0; x < world_sx; x++) {
 
-                if(grid.boundGetVoxelAt(x, y).value == VoxelValues::SAND) continue;
+                if(grid.boundGetVoxelAt(x, y).value == VoxelValues::SAND || grid.boundGetVoxelAt(x, y).value == VoxelValues::WATER) continue;
 
-                float treshold = 0.55f - (y / (world_sy * 3)) - (a / 10.0);
+                float treshold = WorldSettings::noiseTreshold - (y / (world_sy * 3)) - (a / 10.0);
 
                 float noiseValue = fsl.GetNoise((float)x, (float)y);
 

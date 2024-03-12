@@ -2,5 +2,8 @@
     "world-size-x" : "54",
     "world-size-y" : "120",
 
-    "noise-type" : "perlin"
+    "noise-type" : "perlin",
+    "noise-frequency" : "0.005",
+    "noise-octaves" : "10",
+    "noise-treshold" : "0.40"
 }

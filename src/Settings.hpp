@@ -44,6 +44,9 @@ namespace WorldSettings {
     inline bool worldConfigLoaded = false;
 
     inline FastNoiseLite::NoiseType noiseType;
+    inline double noiseFrequency;
+    inline int noiseOctaves;
+    inline double noiseTreshold;
 
     inline bool loadWorldConfig() {
         bool result = false;
@@ -52,9 +55,13 @@ namespace WorldSettings {
         result = reader.open("json/worldconfig.json");
         result = reader.init();
 
-        const std::string world_size_x = reader.readParameterAsString("world-size-x");
-        const std::string world_size_y = reader.readParameterAsString("world-size-y");
-        const std::string noise_type   = reader.readParameterAsString("noise-type");
+        const std::string world_size_x      = reader.readParameterAsString("world-size-x");
+        const std::string world_size_y      = reader.readParameterAsString("world-size-y");
+        const std::string noise_type        = reader.readParameterAsString("noise-type");
+        const std::string noise_frequency   = reader.readParameterAsString("noise-frequency");
+        const std::string noise_octaves     = reader.readParameterAsString("noise-octaves");
+        const std::string noise_treshold    = reader.readParameterAsString("noise-treshold");
+
 
         createSizeX = std::stoi(world_size_x);
         createSizeY = std::stoi(world_size_y);
@@ -71,6 +78,11 @@ namespace WorldSettings {
             noiseType = FastNoiseLite::NoiseType::NoiseType_ValueCubic;
         else if(noise_type == "cellular")
             noiseType = FastNoiseLite::NoiseType::NoiseType_Cellular;
+
+        noiseFrequency = std::stod(noise_frequency);
+        noiseOctaves   = std::stod(noise_octaves);
+        noiseTreshold  = std::stod(noise_treshold);
+
 
         worldConfigLoaded = result;
         return worldConfigLoaded;
