@@ -28,6 +28,8 @@ namespace GenerationGlobals {
 
 
 class ProcGenerate {
+private:
+    unsigned int water_level = 1100;
 public:
     bool generate(ChunkIndexer& grid, int64_t world_sx, int64_t world_sy) {
         // This is bad but its cool
@@ -39,7 +41,7 @@ public:
         initBiomes(worldSize::world_sx);
 
         generateHeightMap(grid, world_sx, world_sy);
-        generateWater(grid, 1100, world_sx, world_sy);
+        generateWater(grid, water_level, world_sx, world_sy);
         build(grid, world_sx, world_sy);
 
         generateCaves(grid, world_sx, world_sy);
@@ -80,6 +82,9 @@ private:
         for(int y = 0; y < world_sy; y++) {
             for(int x = 0; x < world_sx; x++) {
 
+                const std::string& currentBiomeName = getBiomeAtPosition(x, grid).getName();
+                if(currentBiomeName == "Desert") continue;
+
                 if(grid.boundGetVoxelAt(x, y).value == VoxelValues::SAND || grid.boundGetVoxelAt(x, y).value == VoxelValues::WATER) continue;
 
                 float treshold = WorldSettings::noiseTreshold - (y / (world_sy * 3)) - (a / 10.0);
@@ -87,8 +92,16 @@ private:
                 float noiseValue = fsl.GetNoise((float)x, (float)y);
 
                 if(noiseValue > treshold) {
-                    grid.boundGetVoxelAt(x, y).value = 0;
-                    grid.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
+                    if(currentBiomeName == "Ocean") {
+                        // We wouldnt want empty caves in oceans, would we?
+                        if(y > water_level) {
+                            grid.boundGetVoxelAt(x, y).value = VoxelValues::WATER;
+                            grid.boundSetImagePixelAt(x, y, elm::getInfoFromType(VoxelValues::WATER).color);
+                        }
+                    } else {
+                        grid.boundGetVoxelAt(x, y).value = 0;
+                        grid.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
+                    }
                 }
             }
         }
@@ -185,8 +198,8 @@ private:
     void generateWater(ChunkIndexer& grid, const int waterLevel, const int world_sx, const int world_sy, const int start = 0) {
         for(int y = world_sy; y > waterLevel; y--) {
             for(int x = 0; x < world_sx; x++) {
-                //grid.boundSetImagePixelAt(x + start, y, elm::getInfoFromType(VoxelValues::WATER).color);
-                //grid.boundGetVoxelAt(x + start, y).value = VoxelValues::WATER;
+                grid.boundSetImagePixelAt(x + start, y, elm::getInfoFromType(VoxelValues::WATER).color);
+                grid.boundGetVoxelAt(x + start, y).value = VoxelValues::WATER;
             }
         }
     }

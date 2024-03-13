@@ -1,6 +1,6 @@
 {
-    "world-size-x" : "54",
-    "world-size-y" : "120",
+    "world-size-x" : "400",
+    "world-size-y" : "480",
 
     "noise-type" : "perlin",
     "noise-frequency" : "0.005",

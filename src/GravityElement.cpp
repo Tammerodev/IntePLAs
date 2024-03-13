@@ -2,7 +2,7 @@
 
 void GravityElement::update(ChunkIndexer &world) {
     if(first) {
-        setVoxelInWorld(world); first = false;
+        first = false;
     }
 
     sf::Vector2i lastPos = *this;
@@ -23,43 +23,38 @@ void GravityElement::update(ChunkIndexer &world) {
         nextWaterPos = pos;
     }
 
-                
-    if(world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).value != 0) {
+    auto nextVoxelValue = world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).value;
+    if(nextVoxelValue != 0) {
         // If position inside another voxel
         nextWaterPos.y -= velocity.y;
         velocity.y = 0;
 
         // If new value
-        if(world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
+        if(nextVoxelValue == 0) {
+            world.boundVector(nextWaterPos);
             clearLastPos(nextWaterPos, world);
         }
     }
 
+    //
+    world.boundVector(nextWaterPos);
     clearLastPos(nextWaterPos, world);
-
     run_rules(world, nextWaterPos);
     setPosition(nextWaterPos); 
 
     // Set 'needs_update' flags
-    if(nextWaterPos != lastPos) {
-        sf::Vector2i boundPos = nextWaterPos;
-        sf::Vector2i chunk_pos = world.getChunkFromPos(boundPos.x, boundPos.y);
+    const sf::Vector2i& boundPos = nextWaterPos;
+    const sf::Vector2i& chunk_pos = world.getChunkFromPos(boundPos.x, boundPos.y);
 
-        world.boundGetChunkAt(chunk_pos.x, chunk_pos.y).needs_update = true;
-        world.boundGetChunkAt(chunk_pos.x + 1, chunk_pos.y + 1).needs_update = true;
-        world.boundGetChunkAt(chunk_pos.x + 1, chunk_pos.y - 1).needs_update = true;
-
-        world.boundGetChunkAt(chunk_pos.x - 1, chunk_pos.y + 1).needs_update = true;
-        world.boundGetChunkAt(chunk_pos.x - 1, chunk_pos.y - 1).needs_update = true;
-
-        world.boundGetChunkAt(chunk_pos.x - 1, chunk_pos.y).needs_update = true;
-        world.boundGetChunkAt(chunk_pos.x + 1, chunk_pos.y).needs_update = true;
-
-        world.boundGetChunkAt(chunk_pos.x, chunk_pos.y + 1).needs_update = true;
-        world.boundGetChunkAt(chunk_pos.x, chunk_pos.y - 1).needs_update = true;
+    if (nextWaterPos == lastPos) {
+        world.boundGetChunkAt(chunk_pos.x, chunk_pos.y).needs_update = false;
+    } else {
+        for (int dx = -1; dx <= 1; ++dx) {
+            for (int dy = -1; dy <= 1; ++dy) {
+                world.boundGetChunkAt(chunk_pos.x + dx, chunk_pos.y + dy).needs_update = true;
+            }
+        }
     }
-    else 
-        world.boundGetChunkAt(world.getChunkFromPos(lastPos.x, lastPos.y).x, world.getChunkFromPos(lastPos.x, lastPos.y).y).needs_update = false;
 
     setVoxelInWorld(world);
 }
@@ -77,9 +72,9 @@ void GravityElement::setVoxelInWorld(ChunkIndexer &world)
 
 void GravityElement::clearLastPos(const sf::Vector2i &nextWaterPos, ChunkIndexer &world)
 {
-    world.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
+    world.setImagePixelAt(x, y, sf::Color(0,0,0,0));
     
-    world.boundGetVoxelAt(x, y).value = 0;
+    world.getVoxelAt(x, y).value = 0;
 }
 
 void GravityElement::setPosition(sf::Vector2i& nextWaterPos) {
@@ -89,7 +84,7 @@ void GravityElement::setPosition(sf::Vector2i& nextWaterPos) {
 
 
 void GravityElement::checkExisting(ChunkIndexer &world) {
-    if(world.boundGetVoxelAt(x, y).value == 0) {
+    if(world.getVoxelAt(x, y).value == 0) {
         remove = true;
     }
 }

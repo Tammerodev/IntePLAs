@@ -18,10 +18,10 @@ static const int chunks_negy = 0;
 
 struct Chunk {
 
-    static const int sizeX = 64; 
-    static const int sizeY = 64;
+    static const int sizeX = 16; 
+    static const int sizeY = 16;
 
-    std::array<std::array<Voxel, 64>, 64> arr;
+    std::array<std::array<Voxel, 16>, 16> arr;
 
     void create() {
         image = new sf::Image();
