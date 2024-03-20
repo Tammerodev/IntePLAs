@@ -42,7 +42,7 @@ public:
     void update(const float dt, Player &player, GameEventEnum::Event& gameEventManager) {
         main_world.update(player, gameEventManager);
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
-            world->update(dt);
+            world->update(main_world.getChunkIndexer(), dt);
             const std::vector<sf::Vector2i> &collisionTestPoints = world->getCollisionTestPoints();
 
             bool collision = false;

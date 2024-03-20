@@ -29,6 +29,7 @@ class DebugDisplay {
 
             if(!debug_globals::inDebugDisplayState) return;
 
+            std::string FC  = "\tCurrent frame         = " + std::to_string(Globals::frame) + '\n';
             std::string MC  = "\tMob count             = " + std::to_string(debug_globals::mob_count) + '\n';
             std::string ECC = "\tElectric comp count   = " + std::to_string(debug_globals::electricity_component_count) + '\n';
             std::string ESC = "\tElectric source count = " + std::to_string(debug_globals::electricity_source_count) + '\n';
@@ -45,7 +46,8 @@ class DebugDisplay {
             tgui::String final_text;
 
             final_text += "Simulation info : ";
-
+            
+            final_text += FC.c_str();
             final_text += MC.c_str();
             final_text += ECC.c_str();
             final_text += ESC.c_str();

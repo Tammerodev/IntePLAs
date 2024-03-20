@@ -18,7 +18,8 @@
 #include "Collider.hpp"
 #include "Dispawner.hpp"
 #include "Raycast.hpp"
-
+#include "RectangleRigidbody.hpp"
+#include "Globals.hpp"
 
 #include <list>
 #include <memory>
@@ -27,11 +28,13 @@
 class VoxelManager;
 
 class VoxelGroup : public DispawnableVoxelObject {
+
 public:
 
-    VoxelGroup() {
+    VoxelGroup() : DispawnableVoxelObject() {
 
     }
+    
     std::pair<bool, sf::FloatRect> getOvelapWithRect(const sf::FloatRect &collider);
     std::pair<bool, sf::FloatRect> getOvelapWithRectY(const sf::FloatRect &collider);
 
@@ -70,7 +73,7 @@ public:
     void heatVoxelAt(const int64_t x, const int64_t y, int64_t temp);
     void render(sf::RenderTarget&, const sf::Vector2f &center);
     void resetUsedFlag();
-    void update(const float);
+    void update(ChunkIndexer &vx, const float);
     void merge();
     void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const int64_t heat);
 
@@ -115,6 +118,7 @@ private:
     }
 
     PhysicsComponent physicsComponent;
+    RectangleRigidbody rigidBody;
 
     std::vector<std::vector<Voxel>> grid;
     std::vector<Collider> rects;

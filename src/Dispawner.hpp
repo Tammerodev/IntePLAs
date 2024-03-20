@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Globals.hpp"
 
 class VoxelObject {
     public:
@@ -16,6 +17,10 @@ class DispawnableVoxelObject : public VoxelObject {
     public:
         virtual void dispawn() = 0;
         
+        DispawnableVoxelObject() {
+            frameCreated = Globals::frame;
+        }
+
         bool getDestroyed() {
             return destroyed;
         }
@@ -25,6 +30,7 @@ class DispawnableVoxelObject : public VoxelObject {
         }
 
     protected:
+        uFrame frameCreated;
         bool destroyed = false;
 };
 

@@ -95,6 +95,7 @@ void VoxelGroup::render(sf::RenderTarget &target, const sf::Vector2f &center)
     if(destroyed) return;
 
     target.draw(spr);
+    rigidBody.debugRender(target);
 }
 
 void VoxelGroup::resetUsedFlag()
@@ -106,7 +107,7 @@ void VoxelGroup::resetUsedFlag()
     }
 }
 
-void VoxelGroup::update(const float dt)
+void VoxelGroup::update(ChunkIndexer& world, const float dt)
 {
     if(getDestroyed()) return;
     
@@ -117,9 +118,14 @@ void VoxelGroup::update(const float dt)
     spr.setRotation(physicsComponent.transform_rotation);
     spr.setOrigin(physicsComponent.transform_origin);
     physicsComponent.update(dt);
+    rigidBody.calculatePoints(world);
 
     world_sx = img.getSize().x;
     world_sy = img.getSize().y;
+
+    if(std::abs((int)(Globals::frame - frameCreated)) < 5) {
+        rigidBody.loadFromRectangle(spr.getGlobalBounds());
+    }
 
     merge();
 }

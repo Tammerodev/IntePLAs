@@ -9,6 +9,7 @@ static void mul_load(const std::string s, tgui::BackendGui& gui, Game& game, con
 
 bool GameState::load(const std::string s, tgui::BackendGui& gui) {
     path = s;
+    Globals::resetFrame();
     return true;
 }
 

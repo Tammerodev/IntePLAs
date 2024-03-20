@@ -63,6 +63,7 @@ public:
                 }
 
                 MainState::currentState->draw(window, gui);
+                ++Globals::frame;
             }
 
             {
