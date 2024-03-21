@@ -52,19 +52,16 @@ public:
         return gridNeg.at(abs(y)).at(x);
     }
 
-    Chunk& boundGetChunkAt(const int x, const int y) {
-        int xx = x;
-        int yy = y;
+    Chunk& boundGetChunkAt(int x, int y) {
+        if(x < 0) x = 0;
+        if(y < 0) y = 0;
+        if(x >= chunks_x - 1) x = chunks_x - 1;
+        if(y >= chunks_y - 1) y = chunks_y - 1;
 
-        if(xx < 0) xx = 0;
-        if(yy < 0) yy = 0;
-        if(xx >= chunks_x - 1) xx = chunks_x - 1;
-        if(yy >= chunks_y - 1) yy = chunks_y - 1;
-
-        if(xx >= 0) {
-           return gridPos.at(abs(yy)).at(xx);         
+        if(x >= 0) {
+           return gridPos.at(abs(y)).at(x);         
         }
-        return gridNeg.at(abs(yy)).at(xx);
+        return gridNeg.at(abs(y)).at(x);
     }
 
     Chunk& getChunkAt(sf::Vector2i pos) {
@@ -104,7 +101,7 @@ public:
     }
     
     Voxel &boundGetVoxelAt (const int x, const int y) {
-        sf::Vector2i pos = sf::Vector2i(x, y);
+        sf::Vector2i pos {x, y};
 
         boundVector(pos);
 

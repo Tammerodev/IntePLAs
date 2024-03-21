@@ -16,8 +16,10 @@ class MoltenGlass : public Fluid {
 
             voxel.temp -= 5;
 
-            if(voxel.temp < 1000)
+            if(voxel.temp < 1000) {
+                world.boundGetChunkAt(x, y).needs_update = true;
                 solid = true;
+            }
         }
 
         bool clear() {

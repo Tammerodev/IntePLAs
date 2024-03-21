@@ -8,7 +8,6 @@ int main() {
 
     path = path.parent_path();
 
-
     std::cout << "Current working path" << path << std::endl;
 
     std::filesystem::current_path(path); //Set working path
@@ -21,7 +20,7 @@ int main() {
     srand(seed);
     std::srand(seed);
 
-    stateManager.createWindow(1080, 1920, "IntePLAs", false, 75);
+    stateManager.createWindow(1080, 1920, "inteplas", false, 75);
     stateManager.init();
     stateManager.gameLoop();
     return 0;

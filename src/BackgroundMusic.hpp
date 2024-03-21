@@ -34,11 +34,6 @@ namespace BGMusic {
         prndd("Loaded song BLASS");
         prndd("Loading complete");
 
-        current_song = FLY;
-
-        song_list[current_song]->play();
-        song_list[current_song]->setVolume(SoundSettings::music_volume);
-
         return 1;
 
     }

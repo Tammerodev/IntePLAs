@@ -1,0 +1,15 @@
+Remember, when using multiple threads use window.setActive(false) on main thread!
+Try to build a stable nuclear reactor, it won't work!
+You can melt glass by heating it up, but how do you make glass?
+Wood is flammable, but water is not.
+You can build a NAND gate. I think?
+Copper is conductive.
+You can make lithium explode.
+Stay away from radiation!
+Every time you have taken a screenshot, there is a change it will appear *now*
+This game was not coded in 48 hours!
+Carbon has a high melting point!
+Made in c++, not Java!
+This message was written in 15.3.2024
+The location of this message is res/text/splashes.txt, line 14!
+[80010514]

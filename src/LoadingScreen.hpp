@@ -13,24 +13,46 @@ namespace LoadingScreen {
     inline static sf::Font font;
     inline static sf::Texture loading_texture;
     inline static sf::Sprite loading_sprite;
+    inline static int clock;
 
     inline int animation_phase = 0;
     inline int animation_timer = 0;
     inline int animation_time = 3;
+
+    inline static std::ifstream splashes_file;
+    inline static std::vector<std::string> lines;
+
+    inline static void addSplashLines() {
+        std::string line;
+        splashes_file.open("res/text/splashes.txt");
+
+        while (std::getline(splashes_file, line)) {
+            lines.push_back(line);
+            prndd(line);
+        }
+    }
+
+    inline static const std::string getSplash() {
+        int randomIndex = std::rand() % lines.size();
+
+        if(randomIndex < 0) randomIndex = 0;
+        if(randomIndex > lines.size() - 1) randomIndex = lines.size() - 1;
+
+
+        return lines.at(randomIndex);
+    }
 
     inline static void loadText(const sf::Vector2f windowSize) {
         sf::Vector2f text_position(windowSize);
 
         font.loadFromFile("res/Fonts/VT323.ttf");
         text_prompt.setFont(font);
-        text_prompt.setString("Loading the game... This is actually running on a seperate thread!"
-                              "\n Remember, window.setActive(false)"
-                              " when running on multiple threads!");
+        text_prompt.setString("Loading the game...");
+
+
         text_position.x /= 2;
         text_position.y -= text_prompt.getGlobalBounds().height + 64;
         text_position.x -= text_prompt.getGlobalBounds().width / 2;
-
-        text_prompt.setPosition(text_position);
 
         text_state.setFont(font);
         text_state.setPosition(text_position - sf::Vector2f(0, 50));
@@ -78,6 +100,15 @@ namespace LoadingScreen {
         MenuBackground::update();
     }
 
+    inline static void update_text() {
+        ++clock;
+        // TODO: this bad
+        if(clock > (3 * 75)) {
+            clock = 0;
+            text_prompt.setString(getSplash());
+        }
+    }
+
     inline static void load_screen(sf::RenderWindow &window, const Game &game, sf::Vector2u size) {        
         // Make window active
         window.setActive(true);
@@ -89,8 +120,21 @@ namespace LoadingScreen {
 
         loadText(sf::Vector2f(size));
         loadSprites(sf::Vector2f(size));
+        addSplashLines();
 
         while(game.getLoaded() == false) {
+
+            update_text();
+            
+            sf::Vector2f text_position(size);
+
+            text_position.x /= 2;
+            text_position.y -= text_prompt.getGlobalBounds().height + 64;
+            text_position.x -= text_prompt.getGlobalBounds().width / 2;
+
+            text_prompt.setPosition(text_position);
+
+
             updateSprites(sf::Vector2f(size));
 
             text_state.setString(load_state::getNameOfLoadState(load_state::loadState));
@@ -110,6 +154,7 @@ namespace LoadingScreen {
 
         // Disable window on this thread
         window.setActive(false);
-
+        splashes_file.close();
+        lines.clear();
     }
 }

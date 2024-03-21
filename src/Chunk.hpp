@@ -68,6 +68,7 @@ struct Chunk {
         if(image == nullptr) {
             load((utils::path + utils::getPath(position.x, position.y)).c_str());
         }
+        
         tx.update(*image);
         modified = false;
     }

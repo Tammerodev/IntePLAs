@@ -8,11 +8,9 @@
 #define PREALLOCATE_EFFECTS_COUNT 10
 
 #if DEBUG
-    #define prndd(x) std::cout << ">" << x <<  "   time : "<<time(0) << std::endl;
+    #define prndd(x) std::cout << "[OUTPUT]:" << x <<  "   [TIME]: "<<time(0) << std::endl;
     #define prnerr(x, y) std::cout << x << y << '\n'
     #define loginf(x, y, z) std::cout << x << y << z <<'\n'
-
-    
 
 #else
     #define prndd(x)

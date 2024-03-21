@@ -14,11 +14,19 @@ class Sand : public GravitySand {
         }
 
         std::shared_ptr<Element> turn_into() {
-            if(remove ) {
+            if(remove) {
                 if(turn_to_glass) 
                     return std::make_shared<MoltenGlass>(x + 1, y);
             }
             return nullptr;
+        }
+
+        void custom_update(ChunkIndexer& world, sf::Vector2i& nextWaterPos) {
+            if(world.getVoxelAt(nextWaterPos.x, nextWaterPos.y).temp > melting_point) {
+                turn_to_glass = true;
+                remove = true;
+                world.boundSetImagePixelAt(nextWaterPos.x, nextWaterPos.y, sf::Color(0,0,0,0));
+            }
         }
 
         bool clear() {
@@ -29,7 +37,5 @@ class Sand : public GravitySand {
         bool turn_to_glass = false;
         bool remove = false;
 
-        const int melting_point = 5000;
-
-        short temp = 0;
+        const int melting_point = 200;
 };

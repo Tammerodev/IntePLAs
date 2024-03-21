@@ -82,7 +82,7 @@ void Frog::render(sf::RenderTarget &target) {
 }
 
 void Frog::invoke(const MobInvoke &inv) {
-    //mobInvoke = inv;
+    mobInvoke = inv;
 
     if(mobInvoke.distanceToPlayer <= distanceWhenInvoked) {
         scaredTimer = scaredTime;

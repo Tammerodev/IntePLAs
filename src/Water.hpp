@@ -9,6 +9,12 @@ class Water : public GravityFluid {
         }
 
         void fluidUpdate(ChunkIndexer& world) {
-
+            
         }
+
+    private:
+        bool turn_to_glass = false;
+        bool remove = false;
+
+        const int melting_point = 2000;
 };

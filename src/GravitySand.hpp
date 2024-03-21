@@ -8,20 +8,20 @@ class GravitySand : public GravityElement {
         }
 
         void run_rules(ChunkIndexer& world, sf::Vector2i& nextWaterPos) {
-            if(world.boundGetVoxelAt(nextWaterPos.x + 1, nextWaterPos.y + 1).value == 0) {
+            if(world.getVoxelAt(nextWaterPos.x + 1, nextWaterPos.y + 1).value == 0) {
                 nextWaterPos.x = nextWaterPos.x + 1;
                 nextWaterPos.y = nextWaterPos.y + 1;
-            } else if(world.boundGetVoxelAt(nextWaterPos.x - 1, nextWaterPos.y + 1).value == 0) {
+            } else if(world.getVoxelAt(nextWaterPos.x - 1, nextWaterPos.y + 1).value == 0) {
                 nextWaterPos.x = nextWaterPos.x - 1;
                 nextWaterPos.y = nextWaterPos.y + 1;
             } 
         }
 
         void custom_update(ChunkIndexer& world, sf::Vector2i& nextWaterPos) {
-            fluidUpdate(world);
+            sandUpdate(world);
         }
 
-        virtual void fluidUpdate(ChunkIndexer& world) {
+        virtual void sandUpdate(ChunkIndexer& world) {
 
         }
     private:
