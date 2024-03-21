@@ -12,6 +12,7 @@
 #include "GeigerCounter.hpp"
 #include "Jetpack.hpp"
 #include "IronPickaxe.hpp"
+#include "Backpack.hpp"
 
 #include "HealthBar.hpp"
 #include "RadiationBar.hpp"
@@ -59,6 +60,8 @@ public:
         addItem(vx, std::make_shared<GeigerCounter>(vx));
         addItem(vx, std::make_shared<Jetpack>(vx));
         addItem(vx, std::make_shared<IronPickaxe>(vx));
+        addItem(vx, std::make_shared<Backpack>(vx));
+
     } 
 
     void addItem(VoxelManager&vx, std::shared_ptr<Item> newItem) {

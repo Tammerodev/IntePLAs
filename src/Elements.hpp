@@ -43,6 +43,7 @@ enum VoxelValues {
 
     STEAM = 60,
     CHLORINE = 61,
+    BUTANE = 62,
 
     URANIUM235 = 100,
     RADIUM226 = 101,
@@ -84,6 +85,7 @@ namespace elm {
     const VoxelInfo Glass           {VoxelValues::GLASS,        sf::Color(68, 255, 0),         1000,   "Glass"           };
     
     const VoxelInfo Steam           {VoxelValues::STEAM,        sf::Color(68, 255, 0),         1000,   "Glass"           };
+    const VoxelInfo Butane          {VoxelValues::BUTANE,       sf::Color(20, 20, 20, 60),     420,    "Butane"          };
 
     const VoxelInfo Oscillator      {VoxelValues::OSCILLATOR,   sf::Color(255, 87, 244),       1000,   "Oscillator"      };
     const VoxelInfo TransistorDon      {VoxelValues::TRANSISTORDON,sf::Color(107, 13, 55),        1000,   "Transistor Default on"      };
@@ -145,6 +147,8 @@ namespace elm {
                 return Radium226;
             case STEAM:
                 return Steam;
+            case BUTANE:
+                return Butane;
 
             case OSCILLATOR:
                 return Oscillator;

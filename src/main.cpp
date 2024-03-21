@@ -12,7 +12,6 @@ int main() {
 
     std::filesystem::current_path(path); //Set working path
 
-
     StateManager stateManager = StateManager();
 
     unsigned int seed = time(0);

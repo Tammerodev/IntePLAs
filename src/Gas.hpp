@@ -52,10 +52,16 @@ class Gas : public Element {
                 }
             }
 
+            gasUpdate(world);
+
             world.getVoxelAt(x, y).value = value;
             world.boundSetImagePixelAt(x, y, color);
 
             lastPos = *this;
+        }
+
+        virtual void gasUpdate(ChunkIndexer& world) {
+            
         }
         
     protected:

@@ -61,6 +61,8 @@
 #include "Transistor.hpp"
 #include "Switch.hpp"
 
+#include "Butane.hpp"
+
 class VoxelManager {
 public:
 
@@ -328,6 +330,14 @@ public:
             switch_->y = p.y;
             
             if(addVoxelsToArr) simulationManager.addElementToES(switch_);
+        }
+
+        else if(px == elm::getInfoFromType(VoxelValues::BUTANE).color) {
+            vox.value = VoxelValues::BUTANE;
+            vox.strenght = 2;
+
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Butane>(p.x, p.y));
+            
         }
 
         return vox;
