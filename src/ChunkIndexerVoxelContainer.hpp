@@ -125,6 +125,7 @@ public:
 
     void clearVoxelAt(const int x, const int y) {
         getVoxelAt(x,y).value = 0; 
+        getVoxelAt(x,y).temp = 0; 
         setImagePixelAt(x,y,sf::Color(0,0,0,0));
     }
 
@@ -287,8 +288,7 @@ public:
             uint8_t &strenght = vox.strenght;
             --strenght;
             if(vox.strenght <= 0) { 
-                getVoxelAt(x,y).value = 0; 
-                setImagePixelAt(x,y,sf::Color(0,0,0,0));
+                clearVoxelAt(x, y);
             }
         }
 

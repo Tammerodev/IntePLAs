@@ -11,7 +11,8 @@
 class Backpack : public Item {
 public:
 	Backpack(VoxelManager &vx_manager) {
-
+        texture.loadFromFile("res/img/Tool/gas_container.png");
+        sprite.setTexture(texture);
 	}
 
     void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse, World &world) {
@@ -20,8 +21,6 @@ public:
             sf::Vector2i pos = sf::Vector2i(playerpos);
             pos.x += math::randIntInRange(-5, 5);
             pos.y += math::randIntInRange(-5, 5);
-
-            prndd("GAS");
 
             world.main_world.getChunkIndexer().boundVector(pos);
 
@@ -33,7 +32,7 @@ public:
     }
 
     void render(sf::RenderTarget &target) {
-
+		target.draw(sprite);
     }
 
 	void inventory_render(sf::RenderTarget&r, const sf::Vector2f &pos) {
@@ -58,4 +57,5 @@ public:
 
 private:
     sf::Sprite sprite;
+    sf::Texture texture;
 };

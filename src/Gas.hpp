@@ -1,70 +1,47 @@
 #pragma once
-#include "Element.hpp"
+#include "Element.hpp" 
 #include "math.hpp"
+#include "GravityElement.hpp"
 
-class Gas : public Element {
+class Gas : public GravityElement {
     public:
-        Gas(int x, int y) : Element() {
+        Gas(int x, int y) : GravityElement(x, y) {
             this->x = x;
             this->y = y;    
+
+            velocity = {0,0};
+
+            terminal_velocity = 2;
         }
 
-        void update(ChunkIndexer& world) {
-            
-            sf::Vector2i lastPos = {0,0};
+        void run_rules(ChunkIndexer& world, sf::Vector2i& nextWaterPos) {
+            int res = 0;
 
-            world.boundSetImagePixelAt(x, y, color);
-            world.getVoxelAt(x, y).value = VoxelValues::WATER;
-
-            sf::Vector2i nextWaterPos = *this;
-
-            nextWaterPos.y--;
-            if(world.getVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
-                world.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
-                world.getVoxelAt(x, y).value = 0;
-
-                x = nextWaterPos.x;
-                y = nextWaterPos.y;
-
-            } else {
-                nextWaterPos.y++;
-                int res = 0;
-
-                if(world.getVoxelAt(nextWaterPos.x + 1, nextWaterPos.y).value == 0) {
-                    res = 1;
-                }
-                if(world.getVoxelAt(nextWaterPos.x - 1, nextWaterPos.y).value == 0) {
-                    res = -1;
-                }
-                if(world.getVoxelAt(nextWaterPos.x - 1, nextWaterPos.y).value == 0 && world.getVoxelAt(nextWaterPos.x + 1, nextWaterPos.y).value == 0) {
-                    res = math::randIntInRange(-1, 1);
-                }
-
-                nextWaterPos.x += res;
-
-                if(world.getVoxelAt(nextWaterPos.x, nextWaterPos.y).value == 0) {
-                    world.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
-                    world.getVoxelAt(x, y).value = 0;
-                        
-                    x = nextWaterPos.x;
-                    y = nextWaterPos.y;
-
-                }
+            if(world.boundGetVoxelAt(nextWaterPos.x + 1, nextWaterPos.y).value == 0) {
+                res = 1;
+            }
+            if(world.boundGetVoxelAt(nextWaterPos.x - 1, nextWaterPos.y).value == 0) {
+                res = -1;
+            }
+            if(world.boundGetVoxelAt(nextWaterPos.x - 1, nextWaterPos.y).value == 0 && world.boundGetVoxelAt(nextWaterPos.x + 1, nextWaterPos.y).value == 0) {
+                res = math::randIntInRange(-1, 1);
             }
 
-            gasUpdate(world);
-
-            world.getVoxelAt(x, y).value = value;
-            world.boundSetImagePixelAt(x, y, color);
-
-            lastPos = *this;
+            nextWaterPos.x += res;
         }
 
+        void move_(sf::Vector2i& nextWaterPos) {
+            velocity.y += 1;
+            nextWaterPos -= velocity;
+        }
+
+        void custom_update(ChunkIndexer& world, sf::Vector2i& nextWaterPos) {
+            gasUpdate(world);
+        }
+        
         virtual void gasUpdate(ChunkIndexer& world) {
             
         }
         
     protected:
-        sf::Color color;
-        uint8_t value;
 };
