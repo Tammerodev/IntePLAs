@@ -5,6 +5,7 @@ UIState* UIState::nostate = new NoUIState();
 UIState* UIState::death = new DeadUIState();
 UIState* UIState::pause = new PauseUIState();
 UIState* UIState::photoMode = new PhotoModeUIState();
+UIState* UIState::saveExit = new SaveExitUIState();
 
 UIState *UIState::currentState = UIState::nostate;
 
@@ -13,6 +14,8 @@ bool UIStateManager::load(tgui::BackendGui& gui, Inventory &inv, VoxelManager &v
     this->gui = &gui;
     this->inv = &inv;
     this->vx = &vx;
+
+    prndd("Loaded UI State manager.");
 
     return UIState::currentState->load(gui, inv, vx);
 }

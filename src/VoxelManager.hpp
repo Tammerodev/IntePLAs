@@ -118,30 +118,68 @@ public:
     bool generate();
     bool generateVegetation();
 
-    void save() {
-        const std::string created_folder = "Save";
+    void loadProcGenData(const std::string& path) {
+        procGen.loadHeightMap(path);
+        procGen.loadBiomeData(path);
+    }
 
-        if (!std::filesystem::create_directory(StorageSettings::save_path + created_folder)) {
-            prnerr("Could not create folder for save! Path is ", StorageSettings::save_path + created_folder);
+    void save() {
+        const std::string created_folder = StorageSettings::save_path + Globals::exitSaveName;
+
+        if (!std::filesystem::create_directories(created_folder + "/data")) {
+            prnerr("Could not create folder for save! Path is ", created_folder);
             return;
         }
+
+
+        loginf("Created save folder folder located in ", created_folder, ".");
 
         std::vector<std::future<void>> futures;
 
         for (int y = 0; y < chunks_y; y++) {
             for (int x = 0; x < chunks_x; x++) {
                 const std::string filename = std::to_string(x) + "_" + std::to_string(y);
-                const std::string fullpath = StorageSettings::save_path + created_folder + "/" + filename;
+                const std::string fullpath = created_folder + "/" + filename;
 
                 futures.emplace_back(std::async(std::launch::deferred, [fullpath, filename, this, x, y]() {
                     this->getChunkIndexer().getChunkAt(x, y).getImage().saveToFile(fullpath + ".png");
+                    return;
                 }));
+
+                prndd("Chunk saved.");
             }
         }
+
+        prndd("Finished saving chunks, waiting for threads to finish...");
 
         for (auto& future : futures) {
             future.wait();
         }
+
+        prndd("Preparing saving height map...");
+
+        const std::string hm_path = created_folder + "/data/heightMap.dat";
+
+        std::fstream heightMapFile;
+        heightMapFile.open(created_folder + "/data/heightMap.dat", std::fstream::out);
+
+        for(int i = 0; i < worldSize::world_sx - 1; i++) {
+            heightMapFile << procGen.getHeightOnMap(i) << std::endl;
+        }
+
+        heightMapFile.close();
+
+        std::fstream biomeDataFile;
+        biomeDataFile.open(created_folder + "/data/biomeData.dat", std::fstream::out);
+
+        auto biomeData = procGen.getBiomeData();
+        for(const auto &biome : biomeData) {
+            biomeDataFile << biome->getName() << std::endl;
+        }
+
+        biomeDataFile.close();
+
+        prndd("All saving threads finished.");
     }
 
     const bool compareVoxelColors(const sf::Color &color1, const sf::Color &color2) {

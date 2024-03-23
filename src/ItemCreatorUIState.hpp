@@ -244,7 +244,7 @@ private:
 
     static void savebuttonCallback(tgui::BackendGui& gui, sf::Image edImg, Inventory &inv, VoxelManager&vx) {
         // TODO better name
-        std::string saveName = "temp/" + std::to_string(time(0)) + ".png";
+        std::string saveName = StorageSettings::save_path + "inv" + std::to_string(time(0)) + ".png";
         edImg.saveToFile(saveName);
         inv.addItem(vx, std::make_shared<PlaceItem>(vx, saveName, saveName));
         removeWidgets(gui);

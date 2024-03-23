@@ -5,6 +5,8 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     const uint16_t window_height = height;
     const uint16_t window_width = width;
 
+    local_gui = &gui;
+
     load_state::setState(load_state::Pre_initialization);
 
     renderTexture.create(window_width, window_height);
@@ -81,11 +83,15 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
 
     hasLoaded = true;
 
+    prndd("Everything loaded!");
+
     // TODO error handling
     return "false";
 }
 
 void Game::update() {
+
+    if(goingToSave) exit();
 
     // Update game status and delta time 
     GameStatus::updateBrightness();

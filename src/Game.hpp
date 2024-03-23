@@ -48,10 +48,25 @@ class Game {
 
         void input(sf::Event &ev);
 
-        void exit() {
+        void saveWorld() {
             world.save();
+        }
 
-            hasSaved = true;
+        void exit() {
+            prndd("Exiting the game...");
+            goingToSave = true;
+
+            if(UIState::currentState != UIState::saveExit) {
+                UIState::currentState = UIState::saveExit;
+                UIState::currentState->load(*local_gui, inv, world.main_world);
+            }
+
+            if(!Globals::exitSaveName.empty()) {
+                goingToSave = false;
+                MainState::currentState->statexit();               
+
+                prndd("Saving complete!");            
+            }
         }
 
         const bool getLoaded() const {
@@ -66,12 +81,20 @@ class Game {
             
         }
 
-    private:
-        bool GUIfocusedOnObject = false;
+    public:
 
         bool slowmo = false;
         bool hasLoaded = false;
         bool hasSaved = false;
+
+    private:
+        tgui::BackendGui* local_gui = nullptr;
+
+    private:
+        bool GUIfocusedOnObject = false;
+
+        bool goingToSave = false;
+
         sf::Clock clock;
 
 

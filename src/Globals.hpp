@@ -8,6 +8,8 @@ namespace Globals {
 
     inline unsigned long long frame = 0;
 
+    inline std::string exitSaveName = ""; 
+
     inline void resetFrame() {
         frame = 0;
     }

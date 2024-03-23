@@ -8,6 +8,8 @@
 
 class Biome {
     public:
+    
+    public:
         Biome() {
 
         }

@@ -30,6 +30,8 @@ public:
         if(path == "Create new world") {
             load_state::setState(load_state::Generating_vegetation);
             if(!main_world.generateVegetation()) res = false;
+        } else {
+            main_world.loadProcGenData(path);
         }
         
         load_state::setState(load_state::Unloding_chunks);

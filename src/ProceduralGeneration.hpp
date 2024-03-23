@@ -26,10 +26,22 @@ namespace GenerationGlobals {
     inline int low_ = 0;
 }
 
+namespace BiomeUtils {
+    static std::shared_ptr<Biome> getBiomeFromName(const std::string& name) {
+        if(name == "Desert")        return std::make_shared<Desert>();
+        if(name == "Forest")        return std::make_shared<Forest>();
+        if(name == "Ocean")         return std::make_shared<Ocean>();
+        if(name == "Mountains")     return std::make_shared<Mountains>();
+
+        return nullptr;
+    }
+}
+
 
 class ProcGenerate {
 private:
     unsigned int water_level = 1100;
+
 public:
     bool generate(ChunkIndexer& grid, int64_t world_sx, int64_t world_sy) {
         // This is bad but its cool
@@ -53,12 +65,75 @@ public:
         return true;
     }
 
+
+
+    void loadBiomeData(const std::string path) {
+        if(!biomes.empty()) {
+            prnerr("Biome data is not empty!", "");
+            return;
+        }
+
+        std::fstream bd_file;
+        bd_file.open(StorageSettings::save_path + path + "/data/biomeData.dat");
+
+        std::string line = "";
+
+        while(!bd_file.eof()) {
+            std::getline(bd_file, line);
+
+            if(line.empty()) continue;
+            
+            std::shared_ptr<Biome> biome = BiomeUtils::getBiomeFromName(line);
+
+            if(biome != nullptr)
+                biomes.emplace_back(biome);
+            else 
+                prnerr("Biome was nullptr, input data name was : ", line);
+        }
+
+        bd_file.close();
+    }
+
+    void loadHeightMap(const std::string path) {
+        if(!heightMap1D.empty()) {
+            prnerr("Height map not empty!", "");
+            return;
+        }
+
+        std::fstream hm_file;
+        hm_file.open(StorageSettings::save_path + path + "/data/heightMap.dat");
+
+        std::string line = "";
+
+        while(!hm_file.eof()) {
+            std::getline(hm_file, line);
+
+            float value = 0.f;
+
+            if(!line.empty())
+                value = std::stod(line);
+            else 
+                prndd("Invalid value!");
+
+            heightMap1D.emplace_back(value);
+        }
+
+        hm_file.close();
+    }
+
+
+    // NOTE : Do not save for a long time! Vector location will invalidate
+    std::vector<std::shared_ptr<Biome>>& getBiomeData() {
+        return biomes;
+    }
+
     void clear() {
         heightMap1D.clear();
         biomes.clear();
     }
 
     const float getHeightOnMap(const int index) {
+        if(heightMap1D.empty()) prnerr("Height map is empty!", "");
         return heightMap1D.at(index);
     }
 

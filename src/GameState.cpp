@@ -20,7 +20,7 @@ void GameState::update() {
 
 void GameState::input(sf::Event &ev) {
     if(ev.type == sf::Event::Closed) {
-        statexit();
+        game.exit();
     }
 
     if(game.getLoaded())
@@ -43,7 +43,11 @@ void GameState::statexit() {
     // Start thread for loading screen
     std::thread save_screen_thread(SavingScreen::load_screen, window_ptr, std::ref(game), window_ptr->getSize());
 
-    game.exit();
+    game.saveWorld();
+
+    game.hasSaved = true;
+
+    prndd("World saved, waiting for thread to stop...");
 
     // Wait for load screen to stop
     save_screen_thread.join();
