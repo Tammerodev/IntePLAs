@@ -21,9 +21,14 @@ class HealthBar {
         void update() {
             bar_ui.setValue(PlayerGlobal::health);
 
-            sf::Color radiationColor = {255, 255, 255, 255};
-            radiationColor.r -= PlayerGlobal::still_radioation / 500;
-            prndd(PlayerGlobal::still_radioation);
+            sf::Color radiationColor = sf::Color(255, 255, 255, 255);
+
+            int b = 255 - PlayerGlobal::still_radioation / 5;
+            int r = 255 - PlayerGlobal::still_radioation / 15.0;
+
+
+            radiationColor.b = std::clamp(b, 0, 255);
+            radiationColor.r = std::clamp(r, 0, 255);
 
             for(auto &heart : bar_ui.heartSprites) {
                 heart.setColor(radiationColor);

@@ -6,8 +6,7 @@
 
 class Voxel {
 public:
-    
-    // Bitfield (4 bits, 16 combinations)
+
     unsigned char value = 0;
 
     unsigned char strenght = 1;

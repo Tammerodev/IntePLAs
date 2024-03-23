@@ -15,7 +15,6 @@
 #include "Backpack.hpp"
 
 #include "HealthBar.hpp"
-#include "RadiationBar.hpp"
 
 #include "InventoryBar.hpp"
 #include "InventoryToolBar.hpp"
@@ -27,22 +26,18 @@ class PlayerUI {
     public:
         void load(const int sizeX, const int sizeY) {
             healthBar.load(sizeX, sizeY);
-            radiationBar.load(sizeX, sizeY);
         }
 
         void render(sf::RenderTarget& targ) {
             healthBar.render(targ);
-            radiationBar.render(targ);
         }
         
         void update(Player &player) {
             healthBar.update();
-            radiationBar.update();
         }
 
     private:
         HealthBar healthBar;
-        RadiationBar radiationBar;
 };
 
 class Inventory {
