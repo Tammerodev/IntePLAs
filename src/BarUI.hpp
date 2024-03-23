@@ -5,24 +5,45 @@
 
 class BarUI : public UIElement {
     public:
-        bool load(const int sizeX, const int sizeY) {
-            bar_area.setPosition(sf::Vector2f(sizeX / 3, sizeY - (index * 16)));
-            bar_filled.setPosition(bar_area.getPosition());
+        bool load(const int sizeX, const int sizeY, const std::string& texturePath = "res/img/Player/heart.png") {
+            const sf::Vector2f pos = sf::Vector2f(sizeX / 3.5, sizeY - (index * 16));
+
+            heartTexture.loadFromFile(texturePath);
+            for(int i = 0; i < max_value; i++) {
+                sf::Sprite newSprite;
+                newSprite.setTexture(heartTexture);
+                newSprite.setScale(2.f, 2.f);
+                newSprite.setPosition(pos.x + (i * 32), pos.y);
+
+                heartSprites.push_back(newSprite);
+            }
 
             return true;
         }
 
         void update() {
-            bar_filled.setFillColor(color_fill);
-            bar_filled.setSize(sf::Vector2f(value, 16));
 
-            bar_area.setFillColor(color_empty);
-            bar_area.setSize(sf::Vector2f(max_value, 16));
+            int healthRemaining = value;
+
+            for(auto &heart : heartSprites) {
+                heart.setTexture(heartTexture);
+
+                if (healthRemaining >= valueForHeart) { // Full heart
+                    heart.setTextureRect(sf::IntRect(0, 0, 16, 16));
+                } else if(healthRemaining > 0 && healthRemaining < valueForHeart) { // Half heart
+                    heart.setTextureRect(sf::IntRect(16, 0, 16, 16));
+                } else {
+                    heart.setTextureRect(sf::IntRect(32, 0, 16, 16));
+                }
+
+                healthRemaining -= 1;
+            }
         }
 
         void render(sf::RenderTarget &target) {
-            target.draw(bar_area);
-            target.draw(bar_filled);
+            for(const auto &heart : heartSprites) {
+                target.draw(heart);
+            }
         }
 
         void setValue(const int val) {
@@ -34,26 +55,25 @@ class BarUI : public UIElement {
         }
 
         void setColorFill(const sf::Color& color) {
-            color_fill = color;
+
         } 
 
         void setColorEmpty(const sf::Color& color) {
-            color_empty = color;
+
         }
 
         void setIndex(const int ind) {
             index = ind;
         }
-        
+    public:
+        std::vector<sf::Sprite> heartSprites;
+
     private:
         int value = 0;
         int max_value = 0;
 
-        sf::Color color_fill;
-        sf::Color color_empty;
+        int valueForHeart = 2;
 
         int index = 0;
-
-        sf::RectangleShape bar_area;
-        sf::RectangleShape bar_filled;
+        sf::Texture heartTexture;
 };

@@ -50,7 +50,7 @@ public:
     }
 
     void damage(const int damaged) {
-        PlayerGlobal::health -= damaged;
+        PlayerGlobal::health -= damaged / 10.0;
         SFX::damage.play();
 
         PlayerState::currentState = PlayerState::damageState;

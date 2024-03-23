@@ -23,19 +23,32 @@ public:
         this->inv = &inv;
         this->vx = &vx;
 
+		tgui::Theme theme = tgui::Theme("res/themes/nanogui.style");
+
+        auto panel = tgui::Panel::create();
+        panel->setPosition(Display::window_width / 2, Display::window_height / 2);
+        panel->setSize(500, 400);
+        panel->setPosition(panel->getPosition() - panel->getSize() / 2);
+
         saveNameEditBox = tgui::EditBox::create();
         saveAndExitButton = tgui::Button::create("Save and Exit");
         cancelSaveButton = tgui::Button::create("Cancel");
+        
+        panel->setRenderer(theme.getRenderer("Panel"));
+        saveNameEditBox->setRenderer(theme.getRenderer("EditBox"));
+        saveAndExitButton->setRenderer(theme.getRenderer("Button"));
+        cancelSaveButton->setRenderer(theme.getRenderer("Button"));
 
         saveNameEditBox->setSize(100, 25);
-        saveNameEditBox->setPosition(Display::window_width / 2, Display::window_height / 2);
+        saveNameEditBox->setPosition((Display::window_width / 2) - saveNameEditBox->getSize().x, Display::window_height / 2);
 
         saveAndExitButton->setSize(70, 25);
         cancelSaveButton->setSize(70, 25);
 
         saveAndExitButton->setPosition((Display::window_width / 2) + 120, Display::window_height / 1.5);
-        cancelSaveButton->setPosition((Display::window_width / 2) - 120, Display::window_height / 1.5);
+        cancelSaveButton->setPosition((Display::window_width / 2) - (120 + cancelSaveButton->getSize().x), Display::window_height / 1.5);
 
+        gui.add(panel);
         gui.add(saveNameEditBox);
         gui.add(saveAndExitButton);
         gui.add(cancelSaveButton);

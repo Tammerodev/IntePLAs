@@ -12,14 +12,14 @@ class RadiationBar {
 
             bar_ui.setColorEmpty(Palette::PaletteUI::Gray);
             bar_ui.setColorFill(Palette::PaletteUI::Yellow);
-
+            bar_ui.setMaxValue(PlayerGlobal::max_health);
+            
             bar_ui.load(sizeX, sizeY);
 
             return true;
         }
 
         void update() {
-            bar_ui.setMaxValue(PlayerGlobal::max_health);
             bar_ui.setValue(PlayerGlobal::still_radioation / 4);
 
             int col = std::clamp(PlayerGlobal::still_radioation, 0, 20);

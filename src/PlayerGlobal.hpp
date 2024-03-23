@@ -6,7 +6,7 @@ namespace PlayerGlobal {
     inline int radiation_received = 0; 
     inline int still_radioation = 0;
 
-    inline int max_health = 500;
+    inline int max_health = 16;
     inline int health = max_health;
 
     inline void respawn() {
