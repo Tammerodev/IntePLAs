@@ -19,7 +19,7 @@ int Player::load() {
     return 1;
 }
 
-void Player::update(float dt) {
+void Player::update(ChunkIndexer& world, float dt) {
     PlayerState::currentState->update(physComp, dt);
     PlayerState::currentState->input(grounded);
 
@@ -35,6 +35,7 @@ void Player::update(float dt) {
         PlayerGlobal::still_radioation--;
     }
     
+    playerTempManager.checkTemparature(world, sf::Vector2i(physComp.transform_position));
     
     grounded = false;
 

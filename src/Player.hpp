@@ -18,12 +18,13 @@
 #include "PlayerGlobal.hpp"
 #include "SwimState.hpp"
 #include "debug_globals.hpp"
+#include "PlayerTemparatureManager.hpp"
 
 class Player {
 public:
 
     int load();
-    void update(float);
+    void update(ChunkIndexer& world, float);
     void draw(sf::RenderTarget&);
 
     IntPhysicsComponent &getPhysicsComponent() {
@@ -72,7 +73,7 @@ private:
     sf::Texture tx;
 
     sf::Sprite sprite;
-
-
     IntPhysicsComponent physComp;
+
+    PlayerTemparatureManager playerTempManager;
 };

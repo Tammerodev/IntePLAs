@@ -67,13 +67,17 @@ void GravityElement::move_(sf::Vector2i &nextWaterPos) {
 void GravityElement::setVoxelInWorld(ChunkIndexer &world)
 {
     world.boundSetImagePixelAt(x, y, color);
-    world.boundGetVoxelAt(x, y).value = value;
+    Voxel& vox =  world.boundGetVoxelAt(x, y);
+    vox.value = value;
+
+    int avarage = (vox.temp + temperature) / 2;
+    vox.temp = avarage;
 }
 
 void GravityElement::clearLastPos(const sf::Vector2i &nextWaterPos, ChunkIndexer &world)
 {
     world.setImagePixelAt(x, y, sf::Color(0,0,0,0));
-    
+    world.getVoxelAt(x, y).temp = 0;
     world.getVoxelAt(x, y).value = 0;
 }
 
@@ -85,6 +89,8 @@ void GravityElement::setPosition(sf::Vector2i& nextWaterPos) {
 
 void GravityElement::checkExisting(ChunkIndexer &world) {
     if(world.getVoxelAt(x, y).value == 0) {
+        world.setImagePixelAt(x, y, sf::Color(0,0,0,0));
+        world.clearVoxelAt(x, y);
         remove = true;
     }
 }

@@ -9,6 +9,8 @@ namespace PlayerGlobal {
     inline int max_health = 16;
     inline int health = max_health;
 
+    inline float temparature = 0;
+
     inline void respawn() {
         PlayerGlobal::health = PlayerGlobal::max_health;
         PlayerGlobal::radiation_received = 0;

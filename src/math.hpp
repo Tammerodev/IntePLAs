@@ -27,8 +27,6 @@ namespace math {
         );
     }
 
-    constexpr double PI = 3.1459;
-
     static double degreesToRadians(double degree)
     {
         return (degree * (PI / 180));

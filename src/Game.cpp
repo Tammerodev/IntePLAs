@@ -149,7 +149,7 @@ void Game::update() {
     BGMusic::update();
     effOverlay.update(game_camera.getCenterPosition());
     game_camera.update(dt);
-    player.update(dt);
+    player.update(world.main_world.getChunkIndexer(), dt);
     matUI.update(world.main_world);
 
     // Update UI

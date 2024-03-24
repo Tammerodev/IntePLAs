@@ -102,6 +102,7 @@ public:
             element_buttons.push_back(tgui::Button::create("Oscillator"));
             element_buttons.push_back(tgui::Button::create("TransistorDON"));
             element_buttons.push_back(tgui::Button::create("TransistorDOFF"));
+            element_buttons.push_back(tgui::Button::create("Snow"));
 
             element_buttons.push_back(tgui::Button::create("Switch"));
 
@@ -276,6 +277,7 @@ private:
         else if(name == "Oscillator") selColor = elm::getInfoFromType(VoxelValues::OSCILLATOR).color;
         else if(name == "TransistorDON") selColor = elm::getInfoFromType(VoxelValues::TRANSISTORDON).color;
         else if(name == "TransistorDOFF") selColor = elm::getInfoFromType(VoxelValues::TRANSISTORDOFF).color;
+        else if(name == "Snow") selColor = elm::getInfoFromType(VoxelValues::SNOW).color;
 
         else if(name == "Switch") selColor = elm::getInfoFromType(VoxelValues::SWITCH).color;
         

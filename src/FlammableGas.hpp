@@ -9,7 +9,7 @@
 
 class FlammableGas : public Gas {
     public:
-        FlammableGas(int xpos, int ypos) : Gas(x,y) {
+        FlammableGas(int xpos, int ypos) : Gas(xpos, ypos) {
             x = xpos;
             y = ypos;
         }

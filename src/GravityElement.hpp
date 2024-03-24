@@ -34,6 +34,7 @@ class GravityElement : public Element {
 
         sf::Color color {};
         uint8_t value = 0;
+        int temperature = 0;
 
         bool first = true;
 };

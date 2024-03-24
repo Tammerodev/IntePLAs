@@ -13,7 +13,7 @@ class Sand : public GravitySand {
             value = VoxelValues::SAND;
         }
 
-        std::shared_ptr<Element> turn_into() {
+        virtual std::shared_ptr<Element> turn_into() {
             if(remove) {
                 if(turn_to_glass) 
                     return std::make_shared<MoltenGlass>(x + 1, y);
@@ -27,7 +27,11 @@ class Sand : public GravitySand {
                 remove = true;
                 world.boundSetImagePixelAt(nextWaterPos.x, nextWaterPos.y, sf::Color(0,0,0,0));
             }
+
+            sandUpdate(world, nextWaterPos);
         }
+
+        virtual void sandUpdate(ChunkIndexer& world, sf::Vector2i& nextWaterPos) {}; 
 
         bool clear() {
             return remove;

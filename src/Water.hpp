@@ -6,6 +6,8 @@ class Water : public GravityFluid {
         Water(int xpos, int ypos) : GravityFluid(xpos, ypos) {
             color = elm::getInfoFromType(VoxelValues::WATER).color;
             value = VoxelValues::WATER;
+
+            temperature = 5;
         }
 
         void fluidUpdate(ChunkIndexer& world) {
