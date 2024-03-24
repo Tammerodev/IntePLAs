@@ -4,6 +4,8 @@
 
 namespace math {
     static std::random_device rd;
+    constexpr double PI = 3.1415926;
+
     inline float randFloat() {
         static std::mt19937 gen(rd());
         std::uniform_real_distribution<float> dis(0.f,1.f);

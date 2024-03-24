@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Network.hpp>
 #include "UDPObject.hpp"
+#include <iostream>
 
 class Server : public UDPObject {
 public:

@@ -7,6 +7,8 @@
 #include "common.hpp"
 #include <malloc.h>
 #include "debug_globals.hpp"
+#include <array>
+
 class Element;
 class RadioactiveElement;
 

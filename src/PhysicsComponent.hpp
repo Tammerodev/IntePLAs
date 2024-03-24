@@ -3,6 +3,7 @@
 #include <SFML/Graphics/Vertex.hpp>
 #include <cmath>
 #include "common.hpp"
+#include "math.hpp"
 
 namespace PhysicsGlobals {
     inline float gravity = 0.1f;
@@ -62,7 +63,7 @@ struct PhysicsComponent {
             
         transform_position += velocity;
 
-        float rotation = std::atan2(velocity.y, velocity.x) * (180.0 / M_PI);
+        float rotation = std::atan2(velocity.y, velocity.x) * (180.0 / math::PI);
 
         transform_rotation = rotation;
     }
