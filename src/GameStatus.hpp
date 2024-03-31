@@ -5,12 +5,12 @@
 namespace GameStatus {
     inline float brightness = 0.0;
 
-    inline sf::Clock game_clock;
-    
+    inline double game_clock = 0.0; 
+
     inline void updateBrightness() {
-        const float timeCycle = 12.0;
-        //brightness = sin(game_clock.getElapsedTime().asSeconds() / timeCycle) * 3.0;
-    
+        const float timeSpeed = 12.0;
+        game_clock += 1.0 / 75.0; 
+        brightness = sin(game_clock / timeSpeed) * 3.0;
     }
 
 }

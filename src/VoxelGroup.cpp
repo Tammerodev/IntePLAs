@@ -148,11 +148,7 @@ void VoxelGroup::merge()
     for(auto &relativeTestPosition : relativeTestPoints) {
 
         sf::Vector2i finalTestPoint {0,0};
-
-        // We have to rotate the voxel position around physicscomponent.transform origin
-
-        sf::Vector2f p = physicsComponent.transform_position + sf::Vector2f(relativeTestPosition.x, relativeTestPosition.y);
-
+        
         float sine = sin(math::degreesToRadians(physicsComponent.transform_rotation));
         float cosine = cos(math::degreesToRadians(physicsComponent.transform_rotation));
 

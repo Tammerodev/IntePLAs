@@ -1,19 +1,17 @@
 #pragma once
-#include "Fluid.hpp"
+#include "GravityFluid.hpp"
+#include <SFML/Graphics/Vertex.hpp>
 
-class Blood : public Fluid {
+class Blood : public GravityFluid {
     public:
-        Blood(int xpos, int ypos) : Fluid(xpos, ypos){
+        Blood(int xpos, int ypos, const sf::Vector2i &vel) : GravityFluid(xpos, ypos){
             color = elm::getInfoFromType(VoxelValues::BLOOD).color;
             value = VoxelValues::BLOOD;
 
-            doesCooldown = false;
+            velocity = vel;
         }
 
         void fluidUpdate(ChunkIndexer& world) {
 
         }
-
-    private:
-        sf::Vector2i velocity;
 };

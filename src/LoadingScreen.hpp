@@ -36,7 +36,7 @@ namespace LoadingScreen {
         int randomIndex = std::rand() % lines.size();
 
         if(randomIndex < 0) randomIndex = 0;
-        if(randomIndex > lines.size() - 1) randomIndex = lines.size() - 1;
+        if(randomIndex > (int)lines.size() - 1) randomIndex = lines.size() - 1;
 
 
         return lines.at(randomIndex);
@@ -147,10 +147,10 @@ namespace LoadingScreen {
             window.draw(text_prompt);
             window.draw(text_state);
 
-            //window.draw(loading_sprite);      FOR TODO!!!
-
             window.display();
         }
+
+        MenuMusic::stop();
 
         // Disable window on this thread
         window.setActive(false);

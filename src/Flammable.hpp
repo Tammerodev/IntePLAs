@@ -1,5 +1,4 @@
 #pragma once
-#include "Fluid.hpp"
 #include "ElectricityGlobal.hpp"
 #include "common.hpp"
 
@@ -53,6 +52,10 @@ class Flammable : public Element {
 
         bool clear() {
             return remove;
+        }
+
+        virtual void customUpdate(ChunkIndexer& world) {
+
         }
 
 protected:

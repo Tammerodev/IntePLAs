@@ -33,6 +33,8 @@ enum VoxelValues {
     GLASS = 11,
     WOOD = 12,
 
+    MIRROR = 20,
+
     SAND = 30,
     SNOW = 31,
 
@@ -40,6 +42,7 @@ enum VoxelValues {
     NITROGLYCERIN = 51,
     ACID = 52,
     BLOOD = 53,
+    MANGANESEHEPTOXIDE = 54,
 
     STEAM = 60,
     CHLORINE = 61,
@@ -69,7 +72,8 @@ namespace elm {
     const VoxelInfo Copper          {VoxelValues::COPPER,       sf::Color(186,140,106),        1085,   "Copper"          };
     const VoxelInfo Titanium        {VoxelValues::TITANIUM,     sf::Color(142,129,149),        1668,   "Titanium"        };
     const VoxelInfo Lead            {VoxelValues::LEAD,         sf::Color(104,102,107),        327,    "Lead"            };
-    const VoxelInfo Wood            {VoxelValues::WOOD,         sf::Color(61, 36, 36),        327,    "WOOD"            };
+    const VoxelInfo Wood            {VoxelValues::WOOD,         sf::Color(61, 36, 36),         327,    "Wood"            };
+    const VoxelInfo Mirror          {VoxelValues::MIRROR,       sf::Color(61, 61, 61),         1000,   "Mirror"            };
     
     
     const VoxelInfo Water           {VoxelValues::WATER,        sf::Color(30,129,176, 100),    100,    "Water"           };
@@ -77,6 +81,8 @@ namespace elm {
     const VoxelInfo Chlorine        {VoxelValues::CHLORINE,     sf::Color(239, 255, 61, 60),   10000,  "Chlorine"        };
     const VoxelInfo Acid            {VoxelValues::ACID,         sf::Color(68, 255, 0),         100,    "Acid"            };
     const VoxelInfo Blood           {VoxelValues::BLOOD,        sf::Color(255, 49, 20, 200),   100,    "Blood"           };
+  const VoxelInfo ManganeseHeptoxide{VoxelValues::MANGANESEHEPTOXIDE,sf::Color(255, 49, 20, 200),   100,    "Manganese Heptoxide"           };
+
 
     const VoxelInfo Uranium235      {VoxelValues::URANIUM235,   sf::Color(71, 201, 75),        1132,   "Uranium - 235"   };
     const VoxelInfo Radium226       {VoxelValues::RADIUM226,    sf::Color(31, 71, 57),         1132,   "Radium - 226"    };
@@ -112,7 +118,11 @@ namespace elm {
             case MAGNESIUM:
                 return Magnesium;
             case WOOD:
-                return Wood;
+                return Wood;    
+
+            case MIRROR:
+                return Mirror;
+
             case SODIUM:
                 return Sodium;
             case ALUMINIUM:
@@ -135,6 +145,8 @@ namespace elm {
                 return Chlorine;
             case BLOOD:
                 return Blood;
+            case MANGANESEHEPTOXIDE:    
+                return ManganeseHeptoxide;
             case SAND:
                 return Sand;
             case SNOW:
@@ -167,7 +179,4 @@ namespace elm {
         }
     }
 
-    static const bool isFluid(const uint8_t type) {
-        return (type > 10);
-    }
 }

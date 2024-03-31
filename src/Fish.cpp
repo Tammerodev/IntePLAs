@@ -91,9 +91,7 @@ void Fish::invoke(const MobInvoke &inv) {
     }
 
     if(inv.damage > 0) {
-        generalDamageBehaviour(inv.damage);
-
-
+        default_behaviour.generalDamageBehaviour(health, inv.damage);
 
         currentState = FishStateType::FishDamage;
         if(states.at(currentState) != nullptr)

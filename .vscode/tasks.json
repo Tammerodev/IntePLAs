@@ -6,7 +6,7 @@
             "command": "/bin/bash", // Use bash to execute a shell command
             "args": [
                 "-c", // -c option tells bash to read commands from the command string
-                "g++ ${workspaceFolder}/src/*.cpp -O3 -Wall -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio -lsfml-network -ltgui -ljsoncpp -o ${workspaceFolder}/src/main" // Shell command to compile all .cpp files in src folder
+                "g++ ${workspaceFolder}/src/*.cpp -pg -g -O3 -Wall -Wno-unused-function -Wno-unused-variable -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio -lsfml-network -ltgui -ljsoncpp -o ${workspaceFolder}/src/${fileBasenameNoExtension}" // Shell command to compile all .cpp files in src folder
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

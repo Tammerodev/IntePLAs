@@ -23,17 +23,16 @@
 #include "Controls.hpp"
 #include "Element.hpp"
 #include "Acid.hpp"
-#include "Fluid.hpp"
 #include "Water.hpp"
 #include "Blood.hpp"
 #include "Nitroglycerin.hpp"
 #include "Chlorine.hpp"
 #include "Shader.hpp"
-#include "Burning.hpp"
 #include "Settings.hpp"
 #include "Sand.hpp"
 #include "Raycast.hpp"
 #include "Wood.hpp"
+#include "ManganeseHeptoxide.hpp"
 
 #include "Uranium-235.hpp"
 #include "Radium-226.hpp"
@@ -85,7 +84,10 @@ public:
     void render(sf::RenderTarget&, const sf::Vector2f &center);
     void update(Player&, GameEventEnum::Event&);
     void hole(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent = 10);
-    void holeRayCast(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent = 10, bool turnToAsh = false);
+    void holeRayCast(const sf::Vector2i& pos, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent = 10, bool turnToAsh = false);
+    void singleRayCast(const sf::Vector2i& start, const sf::Vector2i& end, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent = 10, bool turnToAsh = false);
+    
+    
     void mine(sf::Vector2i p, const uint32_t intensity, const int percent_gain = 0);
 
     void explosionEffect(const sf::Vector2f &p, int intensity) {
@@ -267,14 +269,14 @@ public:
             vox.strenght = 3;
         } else if(px == elm::getInfoFromType(VoxelValues::WATER).color) {
             vox.value = VoxelValues::WATER;
-            vox.strenght = 2;
+            vox.strenght = 20;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Water>(p.x, p.y));
         } else if(px == elm::getInfoFromType(VoxelValues::BLOOD).color) {
             vox.value = VoxelValues::BLOOD;
             vox.strenght = 2;
 
-            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Blood>(p.x, p.y));
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Blood>(p.x, p.y, sf::Vector2i(0,0)));
         } else if(px == elm::getInfoFromType(VoxelValues::ACID).color) {
             vox.value = VoxelValues::ACID;
             vox.strenght = 2;
@@ -315,7 +317,7 @@ public:
 
         else if(px == elm::getInfoFromType(VoxelValues::SAND).color) {
             vox.value = VoxelValues::SAND;
-            vox.strenght = 2;
+            vox.strenght = 250;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Sand>(p.x, p.y));
         }
@@ -324,6 +326,11 @@ public:
             vox.value = VoxelValues::SNOW;
             vox.strenght = 1;
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Snow>(p.x, p.y));
+        }
+
+        else if(px == elm::getInfoFromType(VoxelValues::MIRROR).color) {
+            vox.value = VoxelValues::MIRROR;
+            vox.strenght = 255;
         }
 
         else if(px == elm::getInfoFromType(VoxelValues::OSCILLATOR).color) {
@@ -375,7 +382,13 @@ public:
             vox.strenght = 2;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Butane>(p.x, p.y));
-            
+        }
+
+        else if(px == elm::getInfoFromType(VoxelValues::MANGANESEHEPTOXIDE).color) {
+            vox.value = VoxelValues::MANGANESEHEPTOXIDE;
+            vox.strenght = 2;
+
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<ManganeseHeptoxide>(p.x, p.y));
         }
 
         return vox;

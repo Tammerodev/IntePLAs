@@ -22,7 +22,7 @@ class Sand : public GravitySand {
         }
 
         void custom_update(ChunkIndexer& world, sf::Vector2i& nextWaterPos) {
-            if(world.getVoxelAt(nextWaterPos.x, nextWaterPos.y).temp > melting_point) {
+            if(world.boundGetVoxelAt(nextWaterPos.x, nextWaterPos.y).temp > melting_point) {
                 turn_to_glass = true;
                 remove = true;
                 world.boundSetImagePixelAt(nextWaterPos.x, nextWaterPos.y, sf::Color(0,0,0,0));

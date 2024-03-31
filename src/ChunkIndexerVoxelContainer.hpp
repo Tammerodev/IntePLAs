@@ -129,6 +129,13 @@ public:
         setImagePixelAt(x,y,sf::Color(0,0,0,0));
     }
 
+    void boundClearVoxelAt(const int x, const int y) {
+        Voxel& vox = getVoxelAt(x,y);
+        vox.value = 0; 
+        vox.temp = 0; 
+        boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
+    }
+
     void boundDamageVoxelAt(const int xx, const int yy) {
         sf::Vector2i pos = sf::Vector2i(xx, yy);
         boundVector(pos);
@@ -184,6 +191,11 @@ public:
         sf::Vector2i prev_pos = start;
 
         for (int i = 1; i <= length; i++) {
+
+            if(i > worldSize::world_sx) {
+                prndd("pointLineContainMaterial() encountered an unexpected loop size larger than world size!");
+                return {0, 0};
+            }
 
             const float t = static_cast<float>(i) / length;
 
@@ -252,13 +264,13 @@ public:
     void SetHeat(const uint64_t x, const uint64_t y, int64_t temp)
     {
         Voxel &vox = getVoxelAt(x, y);
+        if(vox.value == 0) return;
 
         if(vox.temp >= elm::getInfoFromType(vox.value).max_temp) {
             uint8_t &strenght = vox.strenght;
             --strenght;
             if(vox.strenght <= 0) { 
-                getVoxelAt(x,y).value = 0; 
-                setImagePixelAt(x,y,sf::Color(0,0,0,0));
+                clearVoxelAt(x, y);
             }
         }
 
@@ -283,6 +295,7 @@ public:
     {
         Voxel &vox = getVoxelAt(x, y);
         getChunkAt(getChunkFromPos(x, y).x, getChunkFromPos(x, y).y).modified = true;
+        if(vox.value == 0) return;
 
         if(vox.temp >= elm::getInfoFromType(vox.value).max_temp) {
             uint8_t &strenght = vox.strenght;
@@ -311,18 +324,19 @@ public:
 
     void boundHeatVoxelAt(const int xx, const int yy, const int temp)
     {
-        sf::Vector2i positon = sf::Vector2i(xx,yy);
-        boundVector(positon);
+        sf::Vector2i position = sf::Vector2i(xx,yy);
+        boundVector(position);
 
-        Voxel &vox = getVoxelAt(positon.x, positon.y);
-        getChunkAt(getChunkFromPos(positon.x, positon.y).x, getChunkFromPos(positon.x, positon.y).y).modified = true;
+        Voxel &vox = getVoxelAt(position.x, position.y);
+        if(vox.value == 0) return;
+
+        getChunkAt(getChunkFromPos(position.x, position.y).x, getChunkFromPos(position.x, position.y).y).modified = true;
 
         if(vox.temp >= elm::getInfoFromType(vox.value).max_temp) {
             uint8_t &strenght = vox.strenght;
             --strenght;
             if(vox.strenght <= 0) { 
-                getVoxelAt(positon.x,positon.y).value = 0; 
-                setImagePixelAt(positon.x, positon.y, sf::Color(0,0,0,0));
+                clearVoxelAt(position.x, position.y);
             }
         }
 
@@ -330,7 +344,7 @@ public:
 
         if(vox.temp <= 0) vox.temp = 0;
 
-        sf::Color currPixel = getImagePixelAt(positon.x, positon.y);
+        sf::Color currPixel = getImagePixelAt(position.x, position.y);
 
         uint64_t valR = vox.temp * 1; 
         if(valR >= 255) valR = 255;
@@ -340,7 +354,7 @@ public:
             currPixel.b = 255;
         }
 
-        setImagePixelAt(positon.x, positon.y,currPixel);
+        setImagePixelAt(position.x, position.y,currPixel);
     }
 
     int64_t world_snegx;

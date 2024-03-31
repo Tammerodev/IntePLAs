@@ -15,7 +15,7 @@ void MobManager::update(const float dt, Player& player, VoxelManager& vx) {
 
     debug_globals::mob_count = getMobCount();
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
         auto fish = std::make_shared<Frog>();
         fish->getPhysicsComponent().transform_position = player.getPhysicsComponent().transform_position;
         fish->load();

@@ -17,6 +17,13 @@ class GravityElement : public Element {
 
         void update(ChunkIndexer& world);
 
+        void setVelocity(const sf::Vector2i& vel) {
+            velocity = vel;
+            *this += velocity;
+
+            do_update = true;
+        }
+
         bool clear() {
             return remove;
         }
@@ -25,9 +32,11 @@ class GravityElement : public Element {
         sf::Vector2i velocity {0, 0};
         int terminal_velocity = 4;
 
+        bool do_update = false;
+
         void setVoxelInWorld(ChunkIndexer& world);
-        void clearLastPos(const sf::Vector2i& nextWaterPos, ChunkIndexer& world);
-        void checkExisting(ChunkIndexer& world);
+        void clearLastPos(ChunkIndexer& world);
+        bool checkExisting(ChunkIndexer& world);
         void setPosition(sf::Vector2i& nextWaterPos);
 
         bool remove = false;

@@ -52,7 +52,8 @@ class NuclearExplosionGameEvent : public GameEvent {
                 vx.holeRayCast(pos, 2000, true, 10000, 0, true);
                 for(int i = 0; i < 200; i++) {
                     sf::Vector2i r_pos = pos + sf::Vector2i(math::randIntInRange(0, 2000), math::randIntInRange(0, 2000));
-                    vx.addRadioactiveElement(pos.x, pos.y, std::make_shared<RadioactiveWaste>(pos.x, pos.y));
+                    vx.getChunkIndexer().boundVector(r_pos);
+                    vx.addRadioactiveElement(r_pos.x, r_pos.y, std::make_shared<RadioactiveWaste>(r_pos.x, r_pos.y));
                 }
                 explosion_happened = true;
             }

@@ -103,6 +103,8 @@ public:
             element_buttons.push_back(tgui::Button::create("TransistorDON"));
             element_buttons.push_back(tgui::Button::create("TransistorDOFF"));
             element_buttons.push_back(tgui::Button::create("Snow"));
+            element_buttons.push_back(tgui::Button::create("Manganese Heptoxide"));
+            element_buttons.push_back(tgui::Button::create("Mirror"));
 
             element_buttons.push_back(tgui::Button::create("Switch"));
 
@@ -278,9 +280,11 @@ private:
         else if(name == "TransistorDON") selColor = elm::getInfoFromType(VoxelValues::TRANSISTORDON).color;
         else if(name == "TransistorDOFF") selColor = elm::getInfoFromType(VoxelValues::TRANSISTORDOFF).color;
         else if(name == "Snow") selColor = elm::getInfoFromType(VoxelValues::SNOW).color;
+        else if(name == "Mirror") selColor = elm::getInfoFromType(VoxelValues::MIRROR).color;
 
         else if(name == "Switch") selColor = elm::getInfoFromType(VoxelValues::SWITCH).color;
-        
+        else if(name == "Manganese Heptoxide") selColor = elm::getInfoFromType(VoxelValues::MANGANESEHEPTOXIDE).color;
+    
     }
 
     static void resize(const tgui::String& name, sf::Vector2i &currentSize, int &scaling, std::list<sf::RectangleShape> &rects, sf::Image &img, sf::Texture &tx) {

@@ -13,31 +13,36 @@
 #include "Jetpack.hpp"
 #include "IronPickaxe.hpp"
 #include "Backpack.hpp"
+#include "Laser.hpp"
 
 #include "HealthBar.hpp"
+#include "TemperatureBar.hpp"
 
 #include "InventoryBar.hpp"
 #include "InventoryToolBar.hpp"
 #include "InventoryUserCreatedBar.hpp"
 
 
-
 class PlayerUI {
     public:
         void load(const int sizeX, const int sizeY) {
             healthBar.load(sizeX, sizeY);
+            tempBar.load(sizeX, sizeY);
         }
 
         void render(sf::RenderTarget& targ) {
             healthBar.render(targ);
+            tempBar.render(targ);
         }
         
         void update(Player &player) {
             healthBar.update();
+            tempBar.update();
         }
 
     private:
         HealthBar healthBar;
+        TemperatureBar tempBar;
 };
 
 class Inventory {
@@ -56,6 +61,7 @@ public:
         addItem(vx, std::make_shared<Jetpack>(vx));
         addItem(vx, std::make_shared<IronPickaxe>(vx));
         addItem(vx, std::make_shared<Backpack>(vx));
+        addItem(vx, std::make_shared<Laser>(vx));
 
     } 
 

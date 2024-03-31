@@ -45,7 +45,7 @@ private:
 public:
     bool generate(ChunkIndexer& grid, int64_t world_sx, int64_t world_sy) {
         // This is bad but its cool
-        const int seed = (intptr_t)&grid + (rand() % math::randIntInRange(0, 100) + time(0)) - (intptr_t)&world_sx;
+        const int seed = (rand() % math::randIntInRange(0, 100) + time(0)) - (intptr_t)&world_sx;
         init(seed);
         
         loginf("World generation seed = ", seed, ".");
@@ -154,8 +154,8 @@ private:
 
         float a = 0.f;
 
-        for(int y = 0; y < world_sy; y++) {
-            for(int x = 0; x < world_sx; x++) {
+        for(uint16_t y = 0; y < world_sy; y++) {
+            for(uint16_t x = 0; x < world_sx; x++) {
 
                 const std::string& currentBiomeName = getBiomeAtPosition(x, grid).getName();
                 if(currentBiomeName == "Desert") continue;
@@ -174,8 +174,7 @@ private:
                             grid.boundSetImagePixelAt(x, y, elm::getInfoFromType(VoxelValues::WATER).color);
                         }
                     } else {
-                        grid.boundGetVoxelAt(x, y).value = 0;
-                        grid.boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
+                        grid.boundClearVoxelAt(x, y);
                     }
                 }
             }

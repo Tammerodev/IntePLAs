@@ -34,6 +34,8 @@ namespace Raycast {
         int propability_of_material = 0;
         int temp = 0;
 
+        bool isLaser = false;
+
         bool turnToAsh = false;
     };
 
@@ -58,9 +60,19 @@ namespace Raycast {
             if(i < info.intensity) {
                 if(info.world != nullptr) {
                     const sf::Color originalColor = info.world->getImagePixelAt(pixelPosition.x, pixelPosition.y);
-                    const unsigned char originalValue = info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value;
 
                     info.world->boundVector(pixelPosition);
+
+                    if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value == VoxelValues::MIRROR) {
+                        const sf::Vector2i originalStart = info.start;
+                        info.end = pixelPosition;
+                        info.start = info.end;
+                        info.end.y = originalStart.y + 100;
+
+                        delta = info.end - info.start;
+                        length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
+
+                    }
 
                     info.world->boundGetChunkAt(info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).x, info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).y).needs_update = true;
 

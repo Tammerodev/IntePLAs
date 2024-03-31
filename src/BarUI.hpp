@@ -13,7 +13,7 @@ class BarUI : public UIElement {
                 sf::Sprite newSprite;
                 newSprite.setTexture(heartTexture);
                 newSprite.setScale(2.f, 2.f);
-                newSprite.setPosition(pos.x + (i * 32), pos.y);
+                newSprite.setPosition(pos.x + (i * (16 * newSprite.getScale().x)), pos.y);
 
                 heartSprites.push_back(newSprite);
             }

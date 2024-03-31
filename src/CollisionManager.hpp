@@ -108,8 +108,8 @@ class CollisionManager {
                 }
             }
 
-            const std::pair<int, sf::Vector2f> headCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
-                                                                player_physicscomp.transform_position.y)); 
+            //const std::pair<int, sf::Vector2f> headCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
+            //                                                    player_physicscomp.transform_position.y)); 
 
             const std::pair<int, sf::Vector2f> rightCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x + hitBox.x,
                                                                 player_physicscomp.transform_position.y + hitBox.y / 2)); 

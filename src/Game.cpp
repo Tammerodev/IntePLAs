@@ -94,7 +94,6 @@ void Game::update() {
     if(goingToSave) exit();
 
     // Update game status and delta time 
-    GameStatus::updateBrightness();
     dt = (float)deltaClock.restart().asMilliseconds() / 13.f;
 
     debug_globals::frame_time = dt;
@@ -112,28 +111,6 @@ void Game::update() {
     gameEventManager.update(world.main_world);
     
     if(PlayerGlobal::health <= 0) return;                 
-
-    // Handle explosion player damage
-    for(const auto point : world.main_world.explosion_points) {
-        const sf::Vector2f player_position = sf::Vector2f(player.getPhysicsComponent().transform_position);
-        const float distance = math::distance(player_position, point.position);
-
-        if(distance < point.strength) {
-            player.damage(point.strength - distance);
-
-
-            // Launch the player in opposite direction
-            player.getPhysicsComponent().setVelocity(
-                math::subVector(player_position, point.position) / (distance * player.getPhysicsComponent().weight)
-                );
-        }   
-    }
-    
-    // Handle explosion effect
-    if (!world.main_world.explosion_points.empty()) {
-        effOverlay.effect_explosion(world.main_world.explosion_points.back());
-        world.main_world.explosion_points.pop_back();
-    }
 
     for (auto &wrl : world.add_worlds) {
         if (!wrl.explosion_points.empty()) {
@@ -171,9 +148,35 @@ void Game::update() {
 
 
     world.update(dt, player, gameEventManager.getEvent());
+
+    // Handle explosion player damage
+    for(const auto point : world.main_world.explosion_points) {
+        const sf::Vector2f player_position = sf::Vector2f(player.getPhysicsComponent().transform_position);
+        const float distance = math::distance(player_position, point.position);
+
+        if(distance < point.strength) {
+            player.damage(point.strength - distance);
+
+
+            // Launch the player in opposite direction
+            player.getPhysicsComponent().setVelocity(
+                math::subVector(player_position, point.position) / (distance * player.getPhysicsComponent().weight)
+                );
+        }   
+    }
+
+
+    // Handle explosion effect
+    if (!world.main_world.explosion_points.empty()) {
+        effOverlay.effect_explosion(world.main_world.explosion_points.back());
+        world.main_world.explosion_points.pop_back();
+    }
 }
 
 void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
+    GameStatus::updateBrightness();
+    
+
     window.setView(window.getDefaultView());
     GUIfocusedOnObject = gui.getFocusedChild() != nullptr;
 
@@ -248,12 +251,18 @@ void Game::input(sf::Event& ev) {
         if(Controls::useItem(ev)) {
             inv.use(sf::Vector2f(player.getPhysicsComponent().transform_position), Controls::worldCursorPos, world);    
         }
-
         inv.input(ev);
     }
 
     if(ev.type == sf::Event::Resized) {
         // Resize
         game_camera.getView().setSize(Display::window_width, Display::window_height);
+    }
+
+    if(ev.type == sf::Event::KeyReleased) {
+        if(ev.key.code == sf::Keyboard::Key::L) {
+            SettingsLoader::loadSettings();
+            shaderEffect.load(Display::window_width, Display::window_height);
+        }
     }
 }

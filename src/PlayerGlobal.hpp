@@ -1,6 +1,7 @@
 #pragma once
 #include "PlayerState.hpp"
 #include <SFML/Graphics/Vertex.hpp>
+#include <algorithm>
 
 namespace PlayerGlobal {
     inline int radiation_received = 0; 
@@ -10,6 +11,10 @@ namespace PlayerGlobal {
     inline int health = max_health;
 
     inline float temparature = 0;
+
+    inline float getTemparature() {
+        return (std::clamp(temparature / 100.f, -250.f, 250.f) / 1) + 3.5f;
+    }
 
     inline void respawn() {
         PlayerGlobal::health = PlayerGlobal::max_health;

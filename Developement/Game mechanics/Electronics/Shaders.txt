@@ -1,0 +1,6 @@
+GLSL Shaders
+
+Treshold, Blur are for bloom effect.
+
+Treshold : 
+    If alpha channel is set to 233 output color is multiplied by 50;

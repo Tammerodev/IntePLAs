@@ -13,6 +13,10 @@ class Element : public sf::Vector2i {
 
         virtual bool clear() {return false;}
 
+        virtual void setVelocity(const sf::Vector2i& pos) {
+            
+        } 
+
         virtual std::shared_ptr<Element> turn_into() {
             return nullptr;
         }

@@ -26,9 +26,7 @@ public:
         desaturate_shader.o_setUniform("distortionAmount", ((float)PlayerGlobal::still_radioation) / 100.f);
         desaturate_shader.o_setUniform("isDead", (int)(PlayerGlobal::health <= 0));
 
-        if(GameStatus::brightness > 0.25) {
-            desaturate_shader.o_setUniform("desaturationAmount", GameStatus::brightness);
-        }
+        desaturate_shader.o_setUniform("desaturationAmount", (float)GameStatus::brightness);
 
     }
 

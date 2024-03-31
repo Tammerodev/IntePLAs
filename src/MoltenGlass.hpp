@@ -1,10 +1,10 @@
 #pragma once
-#include "Fluid.hpp"
 #include <algorithm>
+#include "GravityFluid.hpp"
 
-class MoltenGlass : public Fluid {
+class MoltenGlass : public GravityFluid {
     public:
-        MoltenGlass(int xpos, int ypos) : Fluid(xpos, ypos){
+        MoltenGlass(int xpos, int ypos) : GravityFluid(xpos, ypos){
             color = sf::Color(10, 10, 10, 20);
             value = VoxelValues::GLASS;
         }

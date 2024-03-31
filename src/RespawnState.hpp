@@ -11,4 +11,5 @@ public:
 
 private:
     bool firstTime = true;
+    int timer = 0;
 };

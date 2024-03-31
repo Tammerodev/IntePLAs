@@ -41,10 +41,8 @@ public:
 		SettingsLoader::loadSettings();
 
 		backend_gui = &gui;
-
-		music.openFromFile("res/music/Recs.wav");
-		music.setVolume(SoundSettings::music_volume);
-		music.play();
+		MenuMusic::load();
+		MenuMusic::play();
 
 		font.loadFromFile("res/Fonts/VT323.ttf");
 
@@ -101,8 +99,6 @@ public:
 	}
 	void statexit() {
 		background.clear();
-		
-		music.stop();
 	}
 private:
 
@@ -111,7 +107,5 @@ private:
 	std::vector<sf::Texture> tx;
 	std::vector<sf::Sprite> background;
 
-
 	sf::Font font;
-	sf::Music music;
 };

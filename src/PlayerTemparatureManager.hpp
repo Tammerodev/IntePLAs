@@ -5,8 +5,6 @@
 class PlayerTemparatureManager {
     public:
         void checkTemparature(ChunkIndexer& world, sf::Vector2i playerPosition) {
-            const int checkVoxelCount = 0;
-
             PlayerGlobal::temparature = 0;
 
             for(int x = 0; x < checkRange.x; x++) {
@@ -17,8 +15,6 @@ class PlayerTemparatureManager {
                     PlayerGlobal::temparature += (float)temp;
                 }
             }
-        
-            prndd(PlayerGlobal::temparature);
         }
     private:
         sf::Vector2i checkRange {25,25};

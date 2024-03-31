@@ -65,7 +65,7 @@ public:
             }
         }
 
-        //weatherManager.update(main_world, player);
+        weatherManager.update(main_world, player);
     }
 
     void handleCollisionsWithPlayer(Player& player) {

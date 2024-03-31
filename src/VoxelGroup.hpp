@@ -55,6 +55,7 @@ public:
 
     void clearVoxelAt(const uint64_t x, const uint64_t y) {
         getVoxelAt(x,y).value = 0; 
+        getVoxelAt(x,y).temp = 0; 
         setImagePixelAt(x,y,sf::Color(0,0,0,0));
     }
 

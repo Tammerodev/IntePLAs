@@ -89,7 +89,7 @@ void Frog::invoke(const MobInvoke &inv) {
     }
 
     if(inv.damage > 0) {
-        generalDamageBehaviour(inv.damage);
+        default_behaviour.generalDamageBehaviour(health, inv.damage);
 
         currentState = FrogStateType::FrogDamage;
         states.at(currentState)->enter(); 

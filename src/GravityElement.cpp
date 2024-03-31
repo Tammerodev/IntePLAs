@@ -8,7 +8,10 @@ void GravityElement::update(ChunkIndexer &world) {
     sf::Vector2i lastPos = *this;
     sf::Vector2i nextWaterPos = *this;
 
-    checkExisting(world);
+    if(checkExisting(world)) {
+        return;
+    }
+
     move_(nextWaterPos);
     custom_update(world, nextWaterPos);
 
@@ -27,19 +30,20 @@ void GravityElement::update(ChunkIndexer &world) {
     if(nextVoxelValue != 0) {
         // If position inside another voxel
         nextWaterPos.y -= velocity.y;
-        velocity.y = 0;
 
         // If new value
         if(nextVoxelValue == 0) {
             world.boundVector(nextWaterPos);
-            clearLastPos(nextWaterPos, world);
+            clearLastPos(world);
         }
     }
 
     //
     world.boundVector(nextWaterPos);
-    clearLastPos(nextWaterPos, world);
-    run_rules(world, nextWaterPos);
+
+    clearLastPos(world);
+    setPosition(nextWaterPos); 
+    run_rules(world , nextWaterPos);
     setPosition(nextWaterPos); 
 
     // Set 'needs_update' flags
@@ -52,11 +56,14 @@ void GravityElement::update(ChunkIndexer &world) {
         for (int dx = -1; dx <= 1; ++dx) {
             for (int dy = -1; dy <= 1; ++dy) {
                 world.boundGetChunkAt(chunk_pos.x + dx, chunk_pos.y + dy).needs_update = true;
+                prndd("p");
             }
         }
     }
 
     setVoxelInWorld(world);
+
+    lastPos = *this;
 }
 
 void GravityElement::move_(sf::Vector2i &nextWaterPos) {
@@ -74,11 +81,9 @@ void GravityElement::setVoxelInWorld(ChunkIndexer &world)
     vox.temp = avarage;
 }
 
-void GravityElement::clearLastPos(const sf::Vector2i &nextWaterPos, ChunkIndexer &world)
+void GravityElement::clearLastPos(ChunkIndexer &world)
 {
-    world.setImagePixelAt(x, y, sf::Color(0,0,0,0));
-    world.getVoxelAt(x, y).temp = 0;
-    world.getVoxelAt(x, y).value = 0;
+    world.boundClearVoxelAt(x, y);
 }
 
 void GravityElement::setPosition(sf::Vector2i& nextWaterPos) {
@@ -87,10 +92,13 @@ void GravityElement::setPosition(sf::Vector2i& nextWaterPos) {
 }
 
 
-void GravityElement::checkExisting(ChunkIndexer &world) {
-    if(world.getVoxelAt(x, y).value == 0) {
-        world.setImagePixelAt(x, y, sf::Color(0,0,0,0));
-        world.clearVoxelAt(x, y);
+bool GravityElement::checkExisting(ChunkIndexer &world) {
+    sf::Vector2i v = world.getBoundedVector(sf::Vector2i(x, y));
+
+    if(world.getVoxelAt(v.x, v.y).value == 0) {
+        world.clearVoxelAt(v.x, v.y);
         remove = true;
     }
+
+    return remove;
 }

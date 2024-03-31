@@ -1,7 +1,7 @@
 #include "RespawnState.hpp"
 
 void RespawnState::enter() {
-
+    firstTime = true;
 }
 
 void RespawnState::update(IntPhysicsComponent& physComp, float dt) {
@@ -9,9 +9,10 @@ void RespawnState::update(IntPhysicsComponent& physComp, float dt) {
         physComp.transform_position = sf::Vector2f(1000, -300);
     }
 
-    physComp.velocity_buffer /= 1.001;
+    physComp.velocity_buffer /= 1.2;
 
     firstTime = false;
+    timer++;
 }
 
 void RespawnState::draw(sf::RenderTarget &window, sf::Sprite &sprite) {
@@ -21,7 +22,7 @@ void RespawnState::draw(sf::RenderTarget &window, sf::Sprite &sprite) {
 }
 
 void RespawnState::input(bool grounded) {
-    if(grounded) {
+    if(grounded && timer > 100) {
         PlayerState::currentState = PlayerState::idleState;
         PlayerState::currentState->enter();
     }

@@ -38,6 +38,12 @@ namespace math {
         return std::sqrt(deltaX * deltaX + deltaY * deltaY);
     }
 
+   /* static float fastDistance() {
+        float deltaX = vectorB.x - vectorA.x;
+        float deltaY = vectorB.y - vectorA.y;
+        return 
+    }*/
+
     static void limitDistance(const sf::Vector2f& vectorA, sf::Vector2f& vectorB, const float limit) {
         sf::Vector2f direction = vectorB - vectorA;
         float dist = distance(vectorA, vectorB);

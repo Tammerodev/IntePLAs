@@ -76,7 +76,7 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
     }
 
     if(vox.value == VoxelValues::MAGNESIUM) {
-        addElement(x, y, std::make_shared<Burning>(x,y));
+        addElement(x, y, std::make_shared<Flammable>(x,y));
     }
 
     if(vox.temp <= 0) vox.temp = 0;
@@ -210,8 +210,6 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
     auto i = voxelsInNeedOfUpdate.begin();
     while (i != voxelsInNeedOfUpdate.end())
     {
-        bool del = false;
-
         Voxel& voxel = chIndexer.getVoxelAt(i->x, i->y);
 
         if(voxel.temp > 0)
@@ -275,7 +273,7 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
-            Chunk& chunk = chIndexer.getChunkAt(x, y);
+            Chunk& chunk = chIndexer.boundGetChunkAt(x, y);
 
             if(chunk.elements.empty()) chunk.needs_update = false;
 
@@ -399,16 +397,12 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
 
 }
 
-void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent, bool turnToAsh)
+void VoxelManager::holeRayCast(const sf::Vector2i& p, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent, bool turnToAsh)
 {
 
     if(force) {
         explosionEffect(sf::Vector2f(p), intensity);
     }
-
-    const int numRays = intensity * 30;
-    const int rayLength = intensity;
-
 
     int endX = p.x - intensity;
     int endY = p.y - intensity;
@@ -442,6 +436,26 @@ void VoxelManager::holeRayCast(sf::Vector2i p, const uint32_t intensity, bool fo
         info.end = sf::Vector2i(endX, endY);
         Raycast::castRayLine(info, force);  
     }
+}
+
+void VoxelManager::singleRayCast(const sf::Vector2i &start, const sf::Vector2i &end, const uint32_t intensity, bool isLaser, const int64_t heat, const unsigned char collect_percent, bool turnToAsh)
+{
+    Raycast::RaycastInfo info(&chIndexer);
+    info.start = start;
+    info.end = end;
+
+    info.voxelsInNeedOfUpdate = &voxelsInNeedOfUpdate;
+    info.intensity = intensity;
+    info.propability_of_material = collect_percent;
+    info.particle_simulation = &particleSimulation;
+    info.temp = heat;
+
+    info.turnToAsh = turnToAsh;
+    info.isLaser = isLaser;
+
+    Raycast::castRayLine(info, true);
+
+
 }
 
 void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity, int percent_gain)

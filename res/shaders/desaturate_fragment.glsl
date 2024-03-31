@@ -13,14 +13,14 @@ float hash(float n) {
 
 void main()
 {
-	float darknessFactor = 0.5;
+	float darknessFactor = 0.2;
 
     vec2 texCoords = gl_TexCoord[0].xy;
 
     vec4 color = texture2D(texture, texCoords);
 
 	if (distortionAmount != 0.0) {
-		distortionAmount /= 1000.0;
+		distortionAmount /= 500.0;
 
     	vec2 uv = gl_TexCoord[0].xy;
 
@@ -37,18 +37,29 @@ void main()
 		color.a -= (hash(uv.x) * distortionAmount);
 
 	}
-    float brightness = (color.r + color.b + color.g + color.a) / 4.0;
-
-	if(brightness < 0.8) {
-
-		float darkness = 1.0 - desaturationAmount * darknessFactor;
-
-		// Darken the color based on the time of day
-		color.rgb *= darkness;
-	}
 
 	if(isDead == 1) {
-		color.r += abs(sin(time * 0.1) * 10.0);
+		int kernelSize = 100;  // Adjust this for different levels of blur
+
+		// BLUR screen
+		vec2 texelSize = 1.0 / textureSize(texture, 0);
+		vec4 color = vec4(0.0);
+
+		// Horizontal pass
+		for (int i = -kernelSize; i <= kernelSize; ++i)
+		{
+			vec2 offset = vec2(float(i), 0.0) * texelSize;
+			float weight = 1.0 / float(2 * kernelSize + 1);
+			color += texture2D(texture, texCoords + offset) * weight;
+		}
+
+		// Vertical pass
+		for (int i = -kernelSize; i <= kernelSize; ++i)
+		{
+			vec2 offset = vec2(0.0, float(i)) * texelSize;
+			float weight = 1.0 / float(2 * kernelSize + 1);
+			color += texture2D(texture, texCoords + offset) * weight;
+		}
 	}
 
 	gl_FragColor = color;

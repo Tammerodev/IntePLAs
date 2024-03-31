@@ -9,7 +9,7 @@
 #include <TGUI/Widgets/CheckBox.hpp>
 
 #include "WidgetManager.hpp"
-
+#include "GameStatus.hpp"
 
 class NoUIState : public UIState {
 public:
@@ -27,13 +27,19 @@ public:
         voxelLabel->setPosition(tgui::Layout2d(250, 0));
         voxelLabel->setSize(tgui::Layout2d(300, 24));
 
+        timeLabel = tgui::Label::create("");
+        timeLabel->setPosition(tgui::Layout2d(250, 34));
+        timeLabel->setSize(tgui::Layout2d(300, 24));
+
         gui.add(voxelLabel);
+        gui.add(timeLabel);
         
         return true;
     }
 
     void update(const sf::Vector2f&) {
-
+        const std::string timeText = "Time : " + std::to_string(GameStatus::brightness);
+        timeLabel->setText(timeText);
     }
 
     void input(sf::Event &e) {
@@ -55,8 +61,9 @@ public:
         const std::string tempatature = "\t" + std::to_string(voxel.temp);
         const std::string voltage = "\t" + std::to_string(voxel.voltage) + "v";
 
-        voxelLabel->setVisible(voxelName != "");
+        //voxelLabel->setVisible(voxelName != "");
         voxelLabel->setText(voxelName + tempatature + voltage);
+
     }
 
     void draw(sf::RenderTarget& target, tgui::BackendGui& gui) {
@@ -74,6 +81,7 @@ private:
     VoxelManager* vx = nullptr;
 
     tgui::Label::Ptr voxelLabel = nullptr; 
+    tgui::Label::Ptr timeLabel = nullptr; 
 
     void exit_to_itemcreator(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
         removeWidgets(gui);

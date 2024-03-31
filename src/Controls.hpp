@@ -6,16 +6,27 @@
 
 namespace Controls {
 
-    static sf::Keyboard::Key keybind_right = sf::Keyboard::D;
-    static sf::Keyboard::Key keybind_left = sf::Keyboard::A;
-    static sf::Keyboard::Key keybind_jump = sf::Keyboard::Space;
-    static sf::Keyboard::Key keybind_down = sf::Keyboard::S;
+    static sf::Keyboard::Key keybind_right0 = sf::Keyboard::D;
+    static sf::Keyboard::Key keybind_right1 = sf::Keyboard::Right;
+
+    static sf::Keyboard::Key keybind_left0 = sf::Keyboard::A;
+    static sf::Keyboard::Key keybind_left1 = sf::Keyboard::Left;
+
+    static sf::Keyboard::Key keybind_jump0 = sf::Keyboard::W;
+    static sf::Keyboard::Key keybind_jump1 = sf::Keyboard::Space;
+    static sf::Keyboard::Key keybind_jump2 = sf::Keyboard::Up;
+
+    static sf::Keyboard::Key keybind_down0 = sf::Keyboard::S;
+    static sf::Keyboard::Key keybind_down1 = sf::Keyboard::Down;
+    static sf::Keyboard::Key keybind_down2 = sf::Keyboard::LControl;
     
 
-    static sf::Keyboard::Key keybind_zoomin = sf::Keyboard::Up;
-    static sf::Keyboard::Key keybind_zoomout = sf::Keyboard::Down;
+    static sf::Keyboard::Key keybind_zoomin = sf::Keyboard::I;
+    static sf::Keyboard::Key keybind_zoomout = sf::Keyboard::O;
 
-    static sf::Keyboard::Key keybind_openItemCreator = sf::Keyboard::E;
+    static sf::Keyboard::Key keybind_openItemCreator0 = sf::Keyboard::E;
+    static sf::Keyboard::Key keybind_openItemCreator1 = sf::Keyboard::T;
+
     static sf::Keyboard::Key keybind_pause = sf::Keyboard::Escape;
 
     static sf::Keyboard::Key keybind_debugInfo = sf::Keyboard::F3;
@@ -29,6 +40,10 @@ namespace Controls {
     static uint16_t joystick_bind_openItemCreator = 2;
     static uint16_t joystick_bind_inventory_switch_left = 4;
     static uint16_t joystick_bind_inventory_switch_right = 5;
+
+    static bool isPressed(sf::Keyboard::Key key) {
+        return sf::Keyboard::isKeyPressed(key);
+    }
 
     
 
@@ -85,7 +100,7 @@ namespace Controls {
 
     static bool moveRight() {
         if(currentController == ControllerType::Keyboard) 
-            return sf::Keyboard::isKeyPressed(keybind_right);
+            return isPressed(keybind_right0) || isPressed(keybind_right1);
         else if(currentController == ControllerType::Joystick)
             return sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X) > joystick_treshold;
         return false;
@@ -93,7 +108,7 @@ namespace Controls {
 
     static bool moveLeft() {
         if(currentController == ControllerType::Keyboard) 
-            return sf::Keyboard::isKeyPressed(keybind_left);
+            return isPressed(keybind_left0) || isPressed(keybind_left1);
         else if(currentController == ControllerType::Joystick)
             return sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X) < -joystick_treshold;
         return false;
@@ -101,7 +116,7 @@ namespace Controls {
 
     static bool jump() {
         if(currentController == ControllerType::Keyboard) 
-            return sf::Keyboard::isKeyPressed(keybind_jump);
+            return isPressed(keybind_jump0) || isPressed(keybind_jump1) || isPressed(keybind_jump2);
         else if(currentController == ControllerType::Joystick)
             return sf::Joystick::isButtonPressed(0, joystick_bind_jump);
         return false;
@@ -109,7 +124,7 @@ namespace Controls {
 
     static bool moveDown() {
         if(currentController == ControllerType::Keyboard) 
-            return sf::Keyboard::isKeyPressed(keybind_down);
+            return isPressed(keybind_down0) || isPressed(keybind_down1) || isPressed(keybind_down2);
         else if(currentController == ControllerType::Joystick)
             return sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::PovY) <= -1;
 
@@ -142,7 +157,7 @@ namespace Controls {
 
     static bool openItemCreator() {
         if(currentController == ControllerType::Keyboard) 
-            return sf::Keyboard::isKeyPressed(keybind_openItemCreator);
+            return isPressed(keybind_openItemCreator0) || isPressed(keybind_openItemCreator1);
         else if(currentController == ControllerType::Joystick)
             return sf::Joystick::isButtonPressed(0, joystick_bind_openItemCreator);
         return false;

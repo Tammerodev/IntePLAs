@@ -29,21 +29,33 @@ class DefaultBehaviour {
         }
 
         void default_death(int x, int y, VoxelManager& voxelManager) {
-            for(int i = 0; i < 50; i++) {
-                sf::Vector2i pos(x, y - i);
+            splashBlood(x, y, voxelManager);
+        }
 
+        bool generalDamageBehaviour(int &health, int damage) {
+            health -= damage;
+
+            return health <= 0;
+        }
+
+    private:
+
+        void splashBlood(int x, int y, VoxelManager& voxelManager, int amount = 50) {
+            for(int i = 0; i < amount; i++) {
+                sf::Vector2i pos(x, y - i);
                 pos += sf::Vector2i(math::randIntInRange(-5, 5), math::randIntInRange(-5, 5));
+
+                sf::Vector2i vel {0,0};
+                vel = sf::Vector2i(math::randIntInRange(-2, 2), math::randIntInRange(-2, 0));
 
                 voxelManager.getChunkIndexer().boundVector(pos);
 
                 voxelManager.getChunkIndexer().getVoxelAt(pos.x, pos.y).value = VoxelValues::BLOOD;
                 voxelManager.getChunkIndexer().setImagePixelAt(pos.x, pos.y, elm::getInfoFromType(VoxelValues::BLOOD).color);
 
-                voxelManager.getHandleVoxel(elm::getInfoFromType(VoxelValues::BLOOD).color, pos, true);
+                voxelManager.addElement(pos.x, pos.y, std::make_shared<Blood>(pos.x, pos.y, vel));
             }
         }
-
-    private:
         MobInfoBar mobInfoBar;
 };
 
@@ -74,14 +86,6 @@ class Mob : public Entity {
     protected:
 
         MobType mobType = MobType::Undefined;
-
-        void generalDamageBehaviour(int damage) {
-            health -= damage;
-
-            if(health <= 0) {
-                remove_mob = true;
-            }
-        }
 
         unsigned int maxHealth = 0;
         int health = 0;

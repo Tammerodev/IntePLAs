@@ -1,9 +1,9 @@
 #pragma once
-#include "Fluid.hpp"
+#include "GravityFluid.hpp"
 
-class Nitroglycerin : public Fluid {
+class Nitroglycerin : public GravityFluid {
     public:
-        Nitroglycerin(int xpos, int ypos) : Fluid(xpos, ypos){
+        Nitroglycerin(int xpos, int ypos) : GravityFluid(xpos, ypos){
             color = elm::getInfoFromType(NITROGLYCERIN).color;
             value = VoxelValues::NITROGLYCERIN;
         }

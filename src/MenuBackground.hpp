@@ -5,6 +5,23 @@
 #include "Settings.hpp"
 #include <filesystem>
 
+namespace MenuMusic {
+    inline sf::Music music;
+
+    inline bool load() {
+        music.setVolume(SoundSettings::music_volume);
+        return music.openFromFile("res/music/Recs.wav");
+    }
+
+    inline void play() {
+        music.play();
+    }
+
+    inline void stop() {
+        music.stop();
+    }
+}
+
 namespace MenuBackground {
     inline bool changed = false;
 
