@@ -23,6 +23,9 @@ void Player::update(ChunkIndexer& world, float dt) {
     PlayerState::currentState->update(physComp, dt);
     PlayerState::currentState->input(grounded);
 
+    PlayerGlobal::updateBodyTemparature();
+    healthManager.calculateHeatDamage(PlayerGlobal::bodyTemparature);
+
     if(!grounded) {
         physComp.update(dt);
     } else {

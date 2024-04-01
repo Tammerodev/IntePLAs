@@ -11,9 +11,18 @@ namespace PlayerGlobal {
     inline int health = max_health;
 
     inline float temparature = 0;
+    inline float bodyTemparature = 0;
 
     inline float getTemparature() {
-        return (std::clamp(temparature / 100.f, -250.f, 250.f) / 1) + 3.5f;
+        return (std::clamp(temparature / 100.f, -250.f, 250.f) / 1);
+    }
+
+    inline void updateBodyTemparature() {
+        const float tempDiff = temparature - bodyTemparature;
+        const float tempChangeSpeed = 0.01f;
+
+        if(abs(tempDiff) < 1.0f) return;
+        bodyTemparature += tempDiff * tempChangeSpeed;
     }
 
     inline void respawn() {

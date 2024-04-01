@@ -155,7 +155,7 @@ void Game::update() {
         const float distance = math::distance(player_position, point.position);
 
         if(distance < point.strength) {
-            player.damage(point.strength - distance);
+            player.getHealthManager().damageHit(point.strength - distance);
 
 
             // Launch the player in opposite direction

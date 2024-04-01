@@ -19,8 +19,8 @@ class TemperatureBar {
         }
 
         void update() {
-            const float temp = (PlayerGlobal::getTemparature());
-            bar_ui.setValue(temp);
+            const float temp = (PlayerGlobal::bodyTemparature);
+            bar_ui.setValue(temp + 32);
             
             sf::Color barColor = sf::Color(0,40,0,255);
 

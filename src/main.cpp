@@ -17,7 +17,7 @@ int main() {
     unsigned int seed = time(0);
 
     srand(seed);
-    std::srand(seed);
+    std::srand(seed); 
 
     stateManager.createWindow(1080, 1920, "inteplas", false, 75);
     stateManager.init();

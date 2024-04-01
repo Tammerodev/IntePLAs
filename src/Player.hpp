@@ -20,6 +20,8 @@
 #include "debug_globals.hpp"
 #include "PlayerTemparatureManager.hpp"
 
+#include "PlayerHealthManager.hpp"
+
 class Player {
 public:
 
@@ -39,34 +41,12 @@ public:
         grounded = true;
     }
 
-    void damage_radiation(const int damaged) {
-        PlayerGlobal::health -= damaged;
-
-        if(PlayerGlobal::health <= 0) {
-            PlayerState::currentState = PlayerState::dead;
-            PlayerState::currentState->enter();
-
-            PlayerGlobal::health = 0;
-        }
-    }
-
-    void damage(const int damaged) {
-        PlayerGlobal::health -= damaged / 10.0;
-        SFX::damage.play();
-
-        PlayerState::currentState = PlayerState::damageState;
-        PlayerState::currentState->enter();
-
-        if(PlayerGlobal::health <= 0) {
-            PlayerState::currentState = PlayerState::dead;
-            PlayerState::currentState->enter();
-
-            PlayerGlobal::health = 0;
-        }
+    PlayerHealthManager& getHealthManager() {
+        return healthManager;
     }
 
 private:
-
+    PlayerHealthManager healthManager;
     bool grounded = false;
 
     sf::Sprite spr;

@@ -276,13 +276,13 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
             Chunk& chunk = chIndexer.boundGetChunkAt(x, y);
 
             if(chunk.elements.empty()) chunk.needs_update = false;
-
             if(!chunk.needs_update) continue;
 
 
             auto e = chunk.elements.begin();
             while (e != chunk.elements.end())
             {
+                if(e->get() == nullptr) continue;
                 e->get()->update(chIndexer);
 
                 const sf::Vector2i chunk_p = e->get()->move_this_to_chunk(chIndexer);
@@ -339,7 +339,7 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
                             PlayerGlobal::still_radioation = radiation;
 
                         if(math::randIntInRange(0, 10000) < 1) 
-                            player.damage_radiation(1);
+                            player.getHealthManager().damageRadiation(1);
                     }
                 }
 

@@ -26,23 +26,9 @@ public:
         }
     }
 
-    void expandChunksBy(int x_chunks) {
-        for(int y = 0; y < chunks_y; y++) {
-            std::vector<Chunk> v;
-            for(int x = 0; x < x_chunks; x++) {
-                v.push_back(Chunk());
-            }
-        
-            gridPos.push_back(v);
-        }
-    }
-
     void update() {
         worldSize::world_sx = Chunk::sizeX * chunks_x;
         worldSize::world_sy = Chunk::sizeY * chunks_y;
-
-        world_snegx = Chunk::sizeX * chunks_negx;
-        world_snegy = Chunk::sizeY * chunks_negy;
     }
 
     Chunk& getChunkAt(const int x, const int y) {
@@ -67,17 +53,21 @@ public:
     Chunk& getChunkAt(sf::Vector2i pos) {
         if(pos.x > worldSize::world_sx - 1) pos.x = worldSize::world_sx - 1;
         if(pos.y > worldSize::world_sy - 1) pos.y = worldSize::world_sy - 1;
+        if(pos.x < 0) pos.x = 0;
+        if(pos.y < 0) pos.y = 0;
 
-        if(pos.x >= 0) {
-           return gridPos.at(abs(pos.y)).at(pos.x);         
-        }
-        return gridNeg.at(abs(pos.y)).at(pos.x);
+
+        return gridPos.at(abs(pos.y)).at(pos.x);         
+
     }
 
     void boundVector(sf::Vector2i &v) {
         if(v.y < 0) v.y = 0;
+
         if(v.x < 0) v.x = 0;
+
         if(v.y > worldSize::world_sy - 1) v.y = worldSize::world_sy - 1;
+
         if(v.x > worldSize::world_sx - 1) v.x = worldSize::world_sx - 1;
     }
 
@@ -113,9 +103,9 @@ public:
         sf::Vector2i pos = sf::Vector2i(x, y);
         boundVector(pos);
 
-        getChunkAt(getChunkFromPos(pos.x, pos.y).x, getChunkFromPos(pos.x, pos.y).y).modified = true;
+        boundGetChunkAt(getChunkFromPos(pos.x, pos.y).x, getChunkFromPos(pos.x, pos.y).y).modified = true;
 
-        getChunkAt(pos.x/Chunk::sizeX, pos.y/Chunk::sizeY).getImage().setPixel(pos.x%Chunk::sizeX, pos.y%Chunk::sizeY, color);
+        boundGetChunkAt(pos.x/Chunk::sizeX, pos.y/Chunk::sizeY).getImage().setPixel(pos.x%Chunk::sizeX, pos.y%Chunk::sizeY, color);
     }
 
     const sf::Color getImagePixelAt(const int x, const int y) {
@@ -130,7 +120,7 @@ public:
     }
 
     void boundClearVoxelAt(const int x, const int y) {
-        Voxel& vox = getVoxelAt(x,y);
+        Voxel& vox = boundGetVoxelAt(x,y);
         vox.value = 0; 
         vox.temp = 0; 
         boundSetImagePixelAt(x, y, sf::Color(0,0,0,0));
