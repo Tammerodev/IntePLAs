@@ -99,8 +99,8 @@ public:
     }
 
 
-    void boundSetImagePixelAt(const int x, const int y, const sf::Color& color) {
-        sf::Vector2i pos = sf::Vector2i(x, y);
+    void boundSetImagePixelAt(const int xx, const int yx, const sf::Color& color) {
+        sf::Vector2i pos = sf::Vector2i(xx, yx);
         boundVector(pos);
 
         boundGetChunkAt(getChunkFromPos(pos.x, pos.y).x, getChunkFromPos(pos.x, pos.y).y).modified = true;

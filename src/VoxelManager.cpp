@@ -168,6 +168,16 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
 
         if(collision) {
             p->collide();
+
+            if(p->getType() == Particle::ParticleType::RainParticle) {
+                chIndexer.boundGetVoxelAt(position.x, position.y).value = VoxelValues::WATER;
+                addElement(position.x, position.y, std::make_shared<Water>(position.x, position.y));
+            } 
+            
+            if(p->getType() == Particle::ParticleType::SnowParticle) {
+                chIndexer.boundGetVoxelAt(position.x, position.y).value = VoxelValues::SNOW;
+                addElement(position.x, position.y, std::make_shared<Snow>(position.x, position.y));
+            }
         }
 
         if(p->getType() == Particle::ParticleType::FireParticle) {
@@ -200,7 +210,8 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
                 }   
             }
         }
-        if (remove) {
+
+        if (remove || p->remove()) {
             it = particles.erase(it);
         } else {
             ++it;

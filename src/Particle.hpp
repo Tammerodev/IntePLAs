@@ -6,7 +6,7 @@
 class Particle : public sf::Vector2f {
     public:
         enum ParticleType {
-            Neutron, Debris, PickableDebris, FireParticle
+            Neutron, Debris, PickableDebris, FireParticle, RainParticle, SnowParticle
         };
 
         Particle() = default;

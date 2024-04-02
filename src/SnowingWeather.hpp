@@ -2,24 +2,27 @@
 #include "WeatherState.hpp"
 #include "VoxelManager.hpp"
 #include "Snow.hpp"
+#include "SnowParticle.hpp"
 
 class SnowingWeather : public WeatherState {
     public:
         void load() {
             timer = 0;
             max_time = math::randIntInRange(500, 1000);
+
+            setArea();
         }
 
         void update(VoxelManager& world, Player& player) {
-            for(int i = 0; i < snowingIntensity; i++) {
-                sf::Vector2i position = sf::Vector2i(player.getPhysicsComponent().transform_position);
-                position.y = world.getUpdateArea().top;
-                position.x += math::randIntInRange(-(world.getUpdateArea().width / 2), (world.getUpdateArea().width / 2));
+            for(int i = WeatherState::areaStart; i < WeatherState::areaEnd; i++) {
+                if(math::randIntInRange(0, 100) < snowingIntensity) {
 
-                world.getChunkIndexer().boundVector(position);
+                    sf::Vector2i position = sf::Vector2i(i, -100);
+                    position.x += math::randIntInRange(-50, 50);
 
-                if(world.getChunkIndexer().getVoxelAt(position.x, position.y).value == 0) {
-                    world.addElement(position.x, position.y, std::make_shared<Snow>(position.x, position.y));
+                    world.getChunkIndexer().boundVector(position);
+
+                    world.launchParticle(std::make_shared<SnowParticle>(sf::Vector2f(position)));
                 }
             }
 

@@ -6,6 +6,8 @@ class ClearWeather : public WeatherState {
         void load() {
             timer = 0;
             max_time = math::randIntInRange(500, 1000);
+
+            setArea();
         }
 
         void update(VoxelManager& vox, Player&) {
