@@ -1,23 +1,23 @@
 #include "Jetpack.hpp"
 
 void Jetpack::update(World &world, const sf::Vector2f &mousePos, const sf::Vector2f &pos, const float dt, Player &player)  {
-    isEnabled = sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
-    thrust = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
+    isEnabled = Controls::use();
+    thrust = Controls::useUI();
 
     gun_spr.setPosition(pos.x + 9, pos.y + 13);
 
     if(isEnabled) {
-        player.getPhysicsComponent().velocity_buffer -= (float)thrust * 0.5;
+        player.getPhysicsComponent().velocity.y -= (float)thrust * 0.5;
 
         if(thrust == 0) {
-            if(player.getPhysicsComponent().velocity_buffer < 0.f)  
-                player.getPhysicsComponent().velocity_buffer += 0.1;
-            else if(player.getPhysicsComponent().velocity_buffer > 0.f)  
-                player.getPhysicsComponent().velocity_buffer -= 0.1;
+            if(player.getPhysicsComponent().velocity.y < 0.f)  
+                player.getPhysicsComponent().velocity.y += 0.1;
+            else if(player.getPhysicsComponent().velocity.y > 0.f)  
+                player.getPhysicsComponent().velocity.y -= 0.1;
         }
 
-        if(player.getPhysicsComponent().velocity_buffer < -5.5) {
-            player.getPhysicsComponent().velocity_buffer = -5.5;
+        if(player.getPhysicsComponent().velocity.y < -5.5) {
+            player.getPhysicsComponent().velocity.y = -5.5;
         }
 
         if(SFX::rocket.getStatus() != sf::SoundSource::Status::Playing) {
@@ -25,17 +25,17 @@ void Jetpack::update(World &world, const sf::Vector2f &mousePos, const sf::Vecto
             SFX::rocket.play();
         }
 
-        for(int i = 0; i < (int)-(player.getPhysicsComponent().velocity_buffer - 10); i++) {
+        for(int i = 0; i < (int)-(player.getPhysicsComponent().velocity.y - 10); i++) {
             sf::Color particleColor = sf::Color::Red;
             particleColor.r += math::randIntInRange(-80, 0);
             particleColor.g += math::randIntInRange(0, 200);
             particleColor.b += math::randIntInRange(0, 100);
 
             sf::Vector2f vel = sf::Vector2f(
-                math::randFloat() * player.getPhysicsComponent().velocity_buffer, math::randFloat() * 30.0
+                math::randFloat() * player.getPhysicsComponent().velocity.y, math::randFloat() * 30.0
             );
 
-            if(math::randIntInRange(0,1) == 0) {
+            if(math::randIntInRange(0, 1) == 0) {
                 vel.x = -vel.x;
             }
 

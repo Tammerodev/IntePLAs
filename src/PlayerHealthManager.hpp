@@ -7,13 +7,14 @@
 class PlayerHealthManager {
     public:
         void calculateHeatDamage(const float temp) {
-            prndd(temp);
-            if(temp > 500.0) {
-                damagePlayer(abs(temp / 10), PlayerDamageSoundType::Hot, false);
+            if(temp > 120.0) {
+                if(math::randProp(2))
+                    damagePlayer(std::clamp(temp / 150.f, 0.0f, 3.0f), PlayerDamageSoundType::Hot, false);
             }
 
-            if(temp < -500.0) {
-                damagePlayer(abs(temp / 10), PlayerDamageSoundType::Cold, false);
+            if(temp < -27.0) {
+                if(math::randProp(2))
+                    damagePlayer(std::clamp(temp / -10.f, 0.0f, 3.0f), PlayerDamageSoundType::Cold, false);
             }
         }
 

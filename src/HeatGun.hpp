@@ -11,7 +11,7 @@ public:
 		gun_spr.setOrigin(gun_spr.getGlobalBounds().width / 2,gun_spr.getGlobalBounds().height / 2);
 	}
 
-    void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse, World &world) {
+    void use(Player& player, const sf::Vector2f& mouse, World &world) {
 
     }
 

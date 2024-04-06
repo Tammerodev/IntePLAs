@@ -4,7 +4,7 @@ void JumpState::enter() {
 }
 
 void JumpState::update(IntPhysicsComponent& physComp, float dt) {
-    physComp.velocity_buffer = -6.0;
+    physComp.velocity.y = -4.0;
     physComp.transform_position.y -= 1;
 
     PlayerState::currentState = idleState;

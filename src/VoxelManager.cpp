@@ -65,19 +65,17 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
         int val = vox.value;
         chIndexer.damageVoxelAt(x,y);
         if(val == VoxelValues::LITHIUM) {
-            hole(sf::Vector2i(x,y), elm::lithiumExplosion, true, elm::lithiumExplosionTemp);
+            holeRayCast(sf::Vector2i(x,y), elm::lithiumExplosion, true, elm::lithiumExplosionTemp);
         } else if(val == VoxelValues::SODIUM) {
-            hole(sf::Vector2i(x,y),elm::sodiumExplosion,true,elm::sodiumExplosionTemp);
+            holeRayCast(sf::Vector2i(x,y),elm::sodiumExplosion, true, elm::sodiumExplosionTemp);
         } else if(val == VoxelValues::NITROGLYCERIN) {
-
-            hole(sf::Vector2i(x,y),elm::nitroglycerinExplosion,true,elm::nitroglycerinExplosionTemp);
-            
+            holeRayCast(sf::Vector2i(x,y), elm::nitroglycerinExplosion, true, elm::nitroglycerinExplosionTemp);
         }
     }
 
-    if(vox.value == VoxelValues::MAGNESIUM) {
+    /*if(vox.value == VoxelValues::MAGNESIUM) {
         addElement(x, y, std::make_shared<Flammable>(x,y));
-    }
+    }*/
 
     if(vox.temp <= 0) vox.temp = 0;
 
@@ -151,7 +149,6 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
     chIndexer.update();
     simulationManager.updateAll(chIndexer);
 
-    particleSimulation.update(1.0f, player.getPhysicsComponent().transform_position);
     fireEffectManager.update(particleSimulation);
 
     auto &particles = particleSimulation.getParticlesList();
@@ -171,12 +168,12 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
 
             if(p->getType() == Particle::ParticleType::RainParticle) {
                 chIndexer.boundGetVoxelAt(position.x, position.y).value = VoxelValues::WATER;
-                addElement(position.x, position.y, std::make_shared<Water>(position.x, position.y));
+                addElement(position.x, position.y, std::make_shared<Water>(position.x, position.y - 1));
             } 
             
             if(p->getType() == Particle::ParticleType::SnowParticle) {
                 chIndexer.boundGetVoxelAt(position.x, position.y).value = VoxelValues::SNOW;
-                addElement(position.x, position.y, std::make_shared<Snow>(position.x, position.y));
+                addElement(position.x, position.y, std::make_shared<Snow>(position.x, position.y - 1));
             }
         }
 
@@ -217,6 +214,8 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
             ++it;
         }
     }
+
+    particleSimulation.update(1.0f, player.getPhysicsComponent().transform_position);
 
     auto i = voxelsInNeedOfUpdate.begin();
     while (i != voxelsInNeedOfUpdate.end())

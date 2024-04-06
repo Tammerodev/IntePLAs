@@ -67,10 +67,9 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
         perror("Failed to load bloom effect");
 
     load_state::setState(load_state::Loading_mobs);
-    mobManager.load();
-
+    // TODO
     load_state::setState(load_state::Spawning_mobs);
-    mobManager.spawnMobs(world.main_world.procGen, world.main_world.getChunkIndexer());
+    // TODO
 
     load_state::setState(load_state::Finishing);
 
@@ -104,10 +103,6 @@ void Game::update() {
 
     uiStateManager.update(Controls::windowCursorPos);
     shaderEffect.update();
-    mobManager.update(dt, player, world.main_world);
-    mobManager.checkCollisions(world.main_world);
-    mobManager.invokeMobs(player, world.main_world.explosion_points);
-
     gameEventManager.update(world.main_world);
     
     if(PlayerGlobal::health <= 0) return;                 
@@ -148,21 +143,24 @@ void Game::update() {
 
 
     world.update(dt, player, gameEventManager.getEvent());
+    world.mobInvoke(player, world.main_world.explosion_points);
 
     // Handle explosion player damage
     for(const auto point : world.main_world.explosion_points) {
         const sf::Vector2f player_position = sf::Vector2f(player.getPhysicsComponent().transform_position);
         const float distance = math::distance(player_position, point.position);
 
+        if(distance < point.strength * 5) {    
+            game_camera.shake(point.strength * 5 - distance);
+        }
+
         if(distance < point.strength) {
             player.getHealthManager().damageHit(point.strength - distance);
-
-
             // Launch the player in opposite direction
             player.getPhysicsComponent().setVelocity(
                 math::subVector(player_position, point.position) / (distance * player.getPhysicsComponent().weight)
                 );
-        }   
+        } 
     }
 
 
@@ -180,10 +178,6 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
     window.setView(window.getDefaultView());
     GUIfocusedOnObject = gui.getFocusedChild() != nullptr;
 
-    Display::window_width = window.getSize().x;
-    Display::window_height = window.getSize().y;
-
-
     // Clear renderTexture
     renderTexture.clear(sf::Color(GameStatus::brightness * 100, GameStatus::brightness * 100, GameStatus::brightness * 100, 255));
 
@@ -194,14 +188,16 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
     
     game_camera.setTarget(sf::Vector2f(player.getPhysicsComponent().transform_position));
 
+    if(debug_view::forced_view_center != sf::Vector2f(0.f, 0.f)) {
+        game_camera.setTarget(debug_view::forced_view_center);
+    } 
+
     bg.render(renderTexture);
 
     if(!debug_globals::photoMode) {
         player.draw(renderTexture);
         inv.render(renderTexture);
     }
-
-    mobManager.render(renderTexture);
     
     world.render(renderTexture, game_camera.getCenterPosition());
 
@@ -249,7 +245,7 @@ void Game::input(sf::Event& ev) {
     if(!GUIfocusedOnObject) {
 
         if(Controls::useItem(ev)) {
-            inv.use(sf::Vector2f(player.getPhysicsComponent().transform_position), Controls::worldCursorPos, world);    
+            inv.use(player, Controls::worldCursorPos, world);    
         }
         inv.input(ev);
     }

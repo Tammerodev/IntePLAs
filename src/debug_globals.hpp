@@ -1,6 +1,10 @@
 #pragma once
 #include <SFML/System/Vector2.hpp>
 
+namespace debug_view {
+    inline sf::Vector2f forced_view_center {0.f, 0.f};
+}
+
 namespace debug_globals {
     inline int particle_count = 0;
     inline int mob_count = 0;

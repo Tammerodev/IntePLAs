@@ -10,8 +10,8 @@ void GravityElement::update(ChunkIndexer &world) {
     sf::Vector2i lastPos = *this;
     sf::Vector2i nextPos = *this;
 
-    //if(checkExisting(world)) 
-    //    return;                         // Return if voxel does not exist (destroyed)
+    if(checkExisting(world)) 
+        return;                         // Return if voxel does not exist (destroyed)
 
     move_(nextPos);                     // Calculate velocity and position
     custom_update(world, nextPos);      // Call virtual update method

@@ -3,19 +3,23 @@
 #include "VoxelManager.hpp"
 #include "Snow.hpp"
 #include "RainParticle.hpp"
+#include "BackgroundMusic.hpp"
 
 class RainWeather : public WeatherState {
     public:
         void load() {
             timer = 0;
-            max_time = math::randIntInRange(500, 1000);
+            max_time = math::randIntInRange(1500, 3000);
 
             setArea();
+
+            AmbientSounds::rainAmbience.play();
+
         }
 
         void update(VoxelManager& world, Player& player) {
             for(int i = WeatherState::areaStart; i < WeatherState::areaEnd; i++) {
-                if(math::randIntInRange(0, 100) < rainingIntensity) {
+                if(math::randIntInRange(0, 1000) < rainingIntensity) {
                     
                     sf::Vector2i position = sf::Vector2i(i, 0);
                     position.x += math::randIntInRange(-50, 50);
@@ -31,22 +35,18 @@ class RainWeather : public WeatherState {
                 const int nextWeather = math::randIntInRange(0, 1);
 
                 WeatherState::currentState->leave();
-
-                if(nextWeather)
-                    WeatherState::currentState = WeatherState::snowingWeather;
-                else 
-                    WeatherState::currentState = WeatherState::clearWeather;
-
+                WeatherState::currentState = WeatherState::clearWeather;
                 WeatherState::currentState->load();
 
             }
         }
 
         void leave() {
+            AmbientSounds::rainAmbience.stop();
 
         }
     private:
-        int rainingIntensity = 20;
+        int rainingIntensity = 2;
         int timer = 0;
         int max_time = 0;
 };

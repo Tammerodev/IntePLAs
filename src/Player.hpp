@@ -33,10 +33,13 @@ public:
         return physComp;
     }
 
+    const sf::FloatRect getHitbox() const {
+        return spr.getGlobalBounds();
+    }
+
     void ground() {
         physComp.velocity.y = 0;
-        physComp.velocity_buffer = 0;
-        physComp.velocity.x /= 2;
+        physComp.velocity.x /= 1.5;
         
         grounded = true;
     }

@@ -6,5 +6,8 @@ class Entity {
         virtual void load() = 0;
         virtual void update(const float dt) = 0;
         virtual void render(sf::RenderTarget&) = 0; 
-    private:
+        
+    protected:
+        sf::Sprite sprite;
+        sf::Texture texture;
 };

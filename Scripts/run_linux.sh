@@ -1,2 +1,6 @@
 bash Scripts/build_g++_linux.sh
-./bin/Build
+
+ls -l
+
+cd bin
+./Build

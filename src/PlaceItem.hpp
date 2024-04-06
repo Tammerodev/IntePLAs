@@ -77,7 +77,7 @@ class PlaceItem : public Item {
 		throwInterface.update(player.getPhysicsComponent().transform_position, pos);
     }
 
-	void use(const sf::Vector2f& player,const sf::Vector2f& mouse, World&world) {
+    void use(Player& player, const sf::Vector2f& mouse, World &world) {
 		if(!allowedToplace) return;
 		if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
 			placed = true;

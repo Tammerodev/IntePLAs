@@ -210,25 +210,31 @@ public:
             clearVoxelAt(x,y);
         }
     }
+    
+    enum CollisionType {
+        No, Yes, Fluid, RemovePart
+    };
 
-
-    std::pair<int, sf::Vector2f> getPixelCollision(const sf::Vector2f& pos) {
-        std::pair<int, sf::Vector2f> ret = {false, {0.f, 0.f}};
+    std::pair<CollisionType, sf::Vector2f> getPixelCollision(const sf::Vector2f& pos) {
+        std::pair<CollisionType, sf::Vector2f> ret = {CollisionType::No, {0.f, 0.f}};
         sf::Vector2i pixelPosition = sf::Vector2i(pos);
 
         boundVector(pixelPosition);
 
-        int result = 1;
+        CollisionType result = CollisionType::Yes;
         const sf::Color pixel = getImagePixelAt(pixelPosition.x, pixelPosition.y);
         const int voxel_value = getVoxelAt(pixelPosition.x, pixelPosition.y).value;
 
-        result = pixel.a != 0;
+        if(pixel.a == 0) {
+            result = CollisionType::No;
+        }
 
         if(voxel_value == VoxelValues::SNOW)
-            result = 0;
-
-        if(voxel_value == VoxelValues::WATER)
-            result = 5;
+            result = CollisionType::No;
+        else if(voxel_value == VoxelValues::WATER || voxel_value == VoxelValues::NITROGLYCERIN || voxel_value == VoxelValues::BLOOD)
+            result = CollisionType::Fluid;
+        else if(voxel_value == VoxelValues::ACID) 
+            result = CollisionType::RemovePart;
 
         ret.second = pos - sf::Vector2f(pixelPosition);
 

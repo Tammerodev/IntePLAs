@@ -14,8 +14,8 @@ class InventoryBar {
             inventory.push_back(newItem);
         }
 
-        void useItem(const sf::Vector2f &p,const sf::Vector2f &m, World& world, int currentItemIndex) {
-            inventory.at(std::clamp(currentItemIndex, 0, (int)inventory.size() - 1))->use(p,m, world);
+        void useItem(Player& player,const sf::Vector2f &m, World& world, int currentItemIndex) {
+            inventory.at(std::clamp(currentItemIndex, 0, (int)inventory.size() - 1))->use(player, m, world);
         }
 
         std::shared_ptr<Item> getItemAtIndex(const int index) {

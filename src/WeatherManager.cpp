@@ -5,4 +5,4 @@ WeatherState* WeatherState::snowingWeather = new SnowingWeather();
 WeatherState* WeatherState::rainingWeather = new RainWeather();
 
 
-WeatherState* WeatherState::currentState = WeatherState::snowingWeather;
+WeatherState* WeatherState::currentState = WeatherState::clearWeather;

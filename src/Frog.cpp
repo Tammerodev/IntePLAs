@@ -15,8 +15,6 @@ void Frog::load() {
 
 void Frog::update(const float dt) {
 
-    default_behaviour.update(physicsComponent.transform_position, "Frog", health);
-
     if(scaredTimer > 0) {
         scaredTimer--;
         if(mobInvoke.playerSubVector.x < 0.f) {
@@ -59,6 +57,9 @@ void Frog::update(const float dt) {
 }
 
 void Frog::collisionCheck(VoxelManager &voxelManager) {
+
+    default_behaviour.update(physicsComponent.transform_position, "Frog", health, voxelManager);
+    remove_mob = default_behaviour.remove_mob;
 
     CollisionManager::CollisionState res = CollisionManager::handleCollisionsWith(physicsComponent, voxelManager.getChunkIndexer(), sf::Vector2u(16, 16));
 

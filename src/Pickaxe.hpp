@@ -21,7 +21,9 @@ public:
         state = PickaxeState::Idle;
 	}
 
-    void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse, World &world) {
+    void use(Player& player, const sf::Vector2f& mouse, World &world) {
+        const sf::Vector2f playerpos = sf::Vector2f(player.getPhysicsComponent().transform_position);
+
         if((mouse.x - playerpos.x) < 0)
             state = PickaxeState::Swing_Right;
         if((mouse.x - playerpos.x) > 0)

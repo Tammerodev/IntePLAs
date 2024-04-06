@@ -24,7 +24,6 @@ void Fish::load() {
 }
 
 void Fish::update(const float dt) {
-    default_behaviour.update(physicsComponent.transform_position, "Fish", health);
 
     sprite.setTexture(texture);
     
@@ -54,6 +53,8 @@ void Fish::update(const float dt) {
 }
 
 void Fish::collisionCheck(VoxelManager &voxelManager) {
+    default_behaviour.update(physicsComponent.transform_position, "Fish", health, voxelManager);
+    remove_mob = default_behaviour.remove_mob;
 
     CollisionManager::CollisionState res = CollisionManager::handleCollisionsWith(physicsComponent, voxelManager.getChunkIndexer(), sf::Vector2u(16, 16));
 
@@ -104,7 +105,7 @@ void Fish::invoke(const MobInvoke &inv) {
 }
 
 bool Fish::remove(VoxelManager&) {
-    return do_remove;
+    return remove_mob;
 }
 
 PhysicsComponent &Fish::getPhysicsComponent() {

@@ -7,7 +7,7 @@ void main() {
     vec4 color = texture2D(texture, texCoords);
 
     color -= vec4(treshold, treshold, treshold, treshold);
-    color *= 3.0;
+    color *= 4.0;
 
     gl_FragColor = gl_Color * color;
 }

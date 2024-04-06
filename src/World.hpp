@@ -8,6 +8,7 @@
 #include "WeatherManager.hpp"
 
 #include "CollisionManager.hpp"
+#include "MobManager.hpp"
 
 class World {
 public:
@@ -33,6 +34,9 @@ public:
         } else {
             main_world.loadProcGenData(path);
         }
+
+        mobManager.load();
+        mobManager.spawnMobs(main_world.procGen, main_world.getChunkIndexer());
         
         load_state::setState(load_state::Unloding_chunks);
         main_world.unloadAll();
@@ -43,6 +47,9 @@ public:
 
     void update(const float dt, Player &player, GameEventEnum::Event& gameEventManager) {
         main_world.update(player, gameEventManager);
+        mobManager.update(dt, player, main_world);
+        mobManager.checkCollisions(main_world);
+
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
             world->update(main_world.getChunkIndexer(), dt);
             const std::vector<sf::Vector2i> &collisionTestPoints = world->getCollisionTestPoints();
@@ -70,6 +77,7 @@ public:
 
     void handleCollisionsWithPlayer(Player& player) {
         CollisionManager::CollisionState res = CollisionManager::playerHandleCollisions(player.getPhysicsComponent(), main_world.getChunkIndexer(), PlayerGlobal::characterHitBoxSize);
+        player_loc_ = &player;
 
         if(res.hasCollision) {
             player.ground();
@@ -90,10 +98,28 @@ public:
 
     void save() {
         main_world.save();
+    }   
+
+    bool checkEntityCollisions(const sf::Vector2f &point) {
+        if(mobManager.getCollisionsInPoint(point))
+            return true;
+
+        if(player_loc_ != nullptr) {
+            if(player_loc_->getHitbox().contains(point))
+                return true;
+        }
+
+        return false;
+    }
+
+    void mobInvoke(Player& player, std::vector<ExplosionInfo> &points) {
+        mobManager.invokeMobs(player, points);
     }
 
     void render(sf::RenderTarget& target, const sf::Vector2f& view_center) {
         main_world.render(target, view_center);
+        mobManager.render(target);
+
         for(auto &world : add_worlds) {
             world.render(target, view_center);
         }
@@ -102,6 +128,8 @@ public:
 	VoxelManager main_world {};
     std::list<VoxelGroup> add_worlds {};
 private:
-    WeatherManager weatherManager;
+    Player* player_loc_ = nullptr;
 
+    WeatherManager weatherManager;
+    MobManager mobManager;
 };

@@ -83,8 +83,8 @@ public:
         inventorybars.at(currentInventoryBar)->input(ev, currentItemIndex, currentInventoryBar);
     }
 
-    void use(const sf::Vector2f &p,const sf::Vector2f &m, World& world) {
-        inventorybars.at(currentInventoryBar)->useItem(p, m, world, currentItemIndex);
+    void use(Player& player,const sf::Vector2f &m, World& world) {
+        inventorybars.at(currentInventoryBar)->useItem(player, m, world, currentItemIndex);
     }
 
     void render(sf::RenderTarget& targ) {

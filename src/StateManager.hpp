@@ -44,11 +44,20 @@ public:
         MainState::currentState->load("", gui);
         window.setVisible(true);
 
+
+    Display::window_width = window.getSize().x;
+    Display::window_height = window.getSize().y;
+
         while(window.isOpen()) {
             MainState::currentState->update();
 
             {
+                
                 std::lock_guard<std::mutex> lock(windowMutex);
+
+                Display::window_width = window.getSize().x;
+                Display::window_height = window.getSize().y;
+
                 sf::Event testevent = MainState::currentState->event_sig();
 
                 window.setFramerateLimit(GraphicsSettings::max_fps);

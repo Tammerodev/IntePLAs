@@ -1,6 +1,7 @@
 #pragma once
 #include "PlayerState.hpp"
 #include "Controls.hpp"
+#include "PlayerGlobal.hpp"
 
 class RespawnState : public PlayerState {
 public:

@@ -14,14 +14,14 @@ class WeatherParticle : public Particle {
             rect.setFillColor(col);
             rect.setPosition(pos);
 
-            rect.setRotation(math::randIntInRange(0, 360));
+            rect.setRotation(-(WeatherState::windDir * 2.0));
         }
 
         void update(const float dt, const sf::Vector2f &pos) {
             x = rect.getPosition().x;
             y = rect.getPosition().y;
 
-            rect.move(0, (speed / 120.f) * dt);
+            rect.move(WeatherState::windDir, (speed / 60.f) * dt);
         }
 
         void render(sf::RenderTarget& target) {

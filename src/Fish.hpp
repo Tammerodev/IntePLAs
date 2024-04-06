@@ -38,10 +38,7 @@ class Fish : public Mob {
         unsigned int maxHealth = 0;
         PhysicsComponent physicsComponent;
         DefaultBehaviour default_behaviour;
-
-        sf::Sprite sprite;
-        sf::Texture texture;   
-
+        
         MobInvoke mobInvoke;
 
         float distanceWhenInvoked = 50.f;
@@ -52,8 +49,6 @@ class Fish : public Mob {
         const int scaredTime = 500;
 
         const float speed_division = 0.5;
-
-        bool do_remove = false;
 
         FastNoiseLite fsl;
 

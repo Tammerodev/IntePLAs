@@ -21,6 +21,15 @@ class MobManager {
             mobs.push_back(mob);
         }
 
+        bool getCollisionsInPoint(const sf::Vector2f& pos) {
+            for(const auto &mob : mobs) {
+                if(mob->getHitbox().contains(pos))
+                    return true;
+            }
+
+            return false;
+        }
+
         void spawnMobs(ProcGenerate& proceduralGeneration, ChunkIndexer& world) {
             for(int i = 0; i < worldSize::world_sx - 1; i++) {
                 Biome &biome = proceduralGeneration.getBiomeAtPosition(i, world);
@@ -81,6 +90,17 @@ class MobManager {
         void render(sf::RenderTarget &target) {
             for(const auto &mob : mobs) {
                 mob->render(target);
+
+                if(debug_globals::inDebugDisplayState) {
+                    sf::RectangleShape rect;
+                    rect.setSize(sf::Vector2f(mob->getHitbox().width, mob->getHitbox().height));
+                    rect.setPosition(mob->getHitbox().left, mob->getHitbox().top);
+
+                    rect.setOutlineThickness(1.0f);
+                    rect.setOutlineColor(sf::Color::White);
+
+                    target.draw(rect);
+                }
             }
         }
 

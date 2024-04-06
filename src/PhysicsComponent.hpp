@@ -11,27 +11,28 @@ namespace PhysicsGlobals {
 
 struct IntPhysicsComponent {
     sf::Vector2i transform_origin = sf::Vector2i(0, 0);
-    sf::Vector2i velocity = sf::Vector2i(0, 0);
     sf::Vector2f transform_position = sf::Vector2f(0, 0);
 
     void update(float dt = 1) {
 
-        velocity_buffer += (PhysicsGlobals::gravity * dt);
+        velocity.y += (PhysicsGlobals::gravity * dt);
 
         
         transform_position += sf::Vector2f(velocity) * dt;
-        transform_position.y += velocity_buffer;
+        transform_position.y += velocity.y;
     
 
     }
 
     void setVelocity(const sf::Vector2f& v) {
-        velocity_buffer = v.y;
-        velocity.x = (int)v.x;
+        velocity = v;
     }
 
-    int timer = 0;
-    float velocity_buffer = 0.0;
+    void addToVelocity(const sf::Vector2f& v) {
+        velocity += v;
+    }
+
+    sf::Vector2f velocity {0, 0};
 
     float weight = 0.5f;
     float friction = 1.0f;

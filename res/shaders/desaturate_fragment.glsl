@@ -4,6 +4,7 @@ uniform float time; // Time variable for animation
 uniform float distortionAmount; // Adjust distortion effect
 
 uniform float desaturationAmount; // Adjustable amount
+uniform float temp;
 
 uniform int isDead;
 
@@ -13,11 +14,19 @@ float hash(float n) {
 
 void main()
 {
-	float darknessFactor = 0.2;
+	float darknessFactor = 0.5;
 
     vec2 texCoords = gl_TexCoord[0].xy;
 
     vec4 color = texture2D(texture, texCoords);
+
+	if(temp > 100.0) {
+		color.r += abs(temp - 100.0) / 10.0;
+	}
+
+	if(temp < -20.0) {
+		color.b += abs(temp + 20.0) / 10.0;
+	}
 
 	if (distortionAmount != 0.0) {
 		distortionAmount /= 500.0;

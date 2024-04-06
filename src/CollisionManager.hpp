@@ -16,7 +16,7 @@ class CollisionManager {
             sf::Vector2f ground = player_physicscomp.transform_position;
             std::pair<int, sf::Vector2f> groundCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x + hitBox.x / 2, player_physicscomp.transform_position.y + hitBox.y));
   
-            if(groundCollision.first == 5) {
+            if(groundCollision.first == ChunkIndexer::CollisionType::Fluid) {
                 result.isLiquidContact = true;
                 groundCollision.first = 0;
             }
@@ -28,11 +28,11 @@ class CollisionManager {
 
                     auto temp_groundCollision = main_world.getPixelCollision(temp_ground);
 
-                    if(temp_groundCollision.first == 5) {
+                    if(temp_groundCollision.first == ChunkIndexer::CollisionType::Fluid) {
                         result.isLiquidContact = true;
-                        temp_groundCollision.first = 0;
+                        temp_groundCollision.first = ChunkIndexer::CollisionType::No;
                     } else if(temp_groundCollision.first != 0) {
-                        temp_groundCollision.first = 1;
+                        temp_groundCollision.first = ChunkIndexer::CollisionType::Yes;
                     }
 
                     ground = temp_ground;
@@ -42,6 +42,8 @@ class CollisionManager {
                         break;
                 }
             }
+
+
 
             const std::pair<int, sf::Vector2f> headCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x,
                                                                 player_physicscomp.transform_position.y)); 
@@ -54,18 +56,20 @@ class CollisionManager {
 
             const bool sideCollision = rightCollision.first || leftCollision.first;
 
-            if(sideCollision && !result.isLiquidContact)
+            if(sideCollision && !result.isLiquidContact) {
                 player_physicscomp.transform_position.x -= player_physicscomp.velocity.x;
+                player_physicscomp.velocity.x = 0;
+            }
 
             if(groundCollision.first == 1) {
                 player_physicscomp.transform_position.y = ground.y - PlayerGlobal::characterHitBoxSize.y;
-                player_physicscomp.velocity_buffer = 0.f;
+                player_physicscomp.velocity.y = 0.f;
                 result.hasCollision = true;
             }
 
             if(headCollision.first == 1) {
                 player_physicscomp.velocity.y = 0;
-                player_physicscomp.velocity_buffer = -1.f;
+                player_physicscomp.velocity.y = -1.f;
                 player_physicscomp.transform_position.y += 1;
                 result.hasCollision = true;
             }
@@ -81,9 +85,9 @@ class CollisionManager {
 
             std::pair<int, sf::Vector2f> groundCollision = main_world.getPixelCollision(sf::Vector2f(player_physicscomp.transform_position.x + hitBox.x / 2, player_physicscomp.transform_position.y + hitBox.y));
                 
-            if(groundCollision.first == 5) {
+            if(groundCollision.first == ChunkIndexer::CollisionType::Fluid) {
                 result.isLiquidContact = true;
-                groundCollision.first = 0;
+                groundCollision.first = ChunkIndexer::CollisionType::No;
             }
 
             for(int x = -10; x < 10; x++) {     
@@ -93,11 +97,11 @@ class CollisionManager {
 
                     auto temp_groundCollision = main_world.getPixelCollision(temp_ground);
 
-                    if(temp_groundCollision.first == 5) {
+                    if(temp_groundCollision.first == ChunkIndexer::CollisionType::Fluid) {
                         result.isLiquidContact = true;
-                        temp_groundCollision.first = 0;
+                        temp_groundCollision.first = ChunkIndexer::CollisionType::No;
                     } else if(temp_groundCollision.first != 0) {
-                        temp_groundCollision.first = 1;
+                        temp_groundCollision.first = ChunkIndexer::CollisionType::Yes;
                     }
 
                     ground = temp_ground;

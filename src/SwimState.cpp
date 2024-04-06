@@ -13,7 +13,7 @@ void SwimState::update(IntPhysicsComponent &physComp, float) {
     if(Controls::moveRight())
         physComp.velocity.x = speed;
 
-    physComp.velocity_buffer -= physComp.velocity_buffer / water_slowdown_y;
+    physComp.velocity.y -= physComp.velocity.y / water_slowdown_y;
 }
 
 void SwimState::draw(sf::RenderTarget &window, sf::Sprite &sprite) {

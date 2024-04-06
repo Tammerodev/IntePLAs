@@ -36,10 +36,7 @@ class Frog : public Mob {
 
         unsigned int maxHealth = 0;
         PhysicsComponent physicsComponent;
-
-        sf::Sprite sprite;
-        sf::Texture texture;   
-
+        
         MobInvoke mobInvoke;
 
         DefaultBehaviour default_behaviour;

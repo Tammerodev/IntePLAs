@@ -16,6 +16,12 @@ public:
         this->mode = mode;
     }
 
+    void shake(const float intensity) {
+        shakeTimer = 0;
+        shakeTime = intensity / 10.f;
+        shakeIntensity = intensity / 100.f;
+    }
+
     void setLeapTarget(const sf::Vector2f& target) {
         this->target = target;
     }
@@ -43,6 +49,16 @@ public:
             view.move(movement / 10.0f * dt);
         }
         
+        if(shakeIntensity != 0.f) {
+            if(shakeTimer <= shakeTime) {
+                view.move(math::randFloat() * shakeIntensity, math::randFloat() * shakeIntensity);
+                shakeTimer++;
+            } else {
+                shakeIntensity = 0.f;
+                shakeTime = 0.f;
+                shakeTimer = 0.f;
+            }
+        }
     }
 
     void setSize(sf::Vector2u size) {
@@ -80,6 +96,9 @@ private:
     float zoomMin = 1.05;
     bool limitZoom = false;
 
+    float shakeTime = 0;
+    float shakeTimer = 0;
+    float shakeIntensity = 0;
 
     sf::View view;
     CameraMode mode = CameraMode::Static;

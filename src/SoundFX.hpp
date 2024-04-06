@@ -41,7 +41,11 @@ namespace SFX {
 
 namespace SFX {
     inline sf::SoundBuffer strong_explosion_buffer;
-    inline sf::SoundBuffer rocket_launcher_fire_buffer;
+
+    inline sf::SoundBuffer rocket_launcher_fire_buffer0;
+    inline sf::SoundBuffer rocket_launcher_fire_buffer1;
+    inline sf::SoundBuffer rocket_launcher_fire_buffer2;
+
     inline sf::SoundBuffer fire_buffer;
     inline sf::SoundBuffer geigerCounter_buffer;
     inline sf::SoundBuffer rocket_buffer;
@@ -51,7 +55,11 @@ namespace SFX {
 
 
     inline sf::Sound strong_explosion;
-    inline sf::Sound rocket_launcher_fire;
+    inline sf::Sound rocket_launcher_fire0;
+    inline sf::Sound rocket_launcher_fire1;
+    inline sf::Sound rocket_launcher_fire2;
+
+
     inline sf::Sound fire;
     inline sf::Sound geigerCounter;
     inline sf::Sound rocket;
@@ -63,7 +71,10 @@ namespace SFX {
     inline int load() {
         int res = 1;
         // Load buffers
-        if(!rocket_launcher_fire_buffer.loadFromFile("res/sound/rocket_launcher_fire.wav")) res = 0;
+        if(!rocket_launcher_fire_buffer0.loadFromFile("res/sound/rocket_launcher_fire0.wav")) res = 0;
+        if(!rocket_launcher_fire_buffer1.loadFromFile("res/sound/rocket_launcher_fire1.wav")) res = 0;
+        if(!rocket_launcher_fire_buffer2.loadFromFile("res/sound/rocket_launcher_fire2.wav")) res = 0;
+
         if(!strong_explosion_buffer.loadFromFile("res/sound/strong_explosion.wav")) res = 0;
         if(!fire_buffer.loadFromFile("res/sound/fire.wav")) res = 0;
         if(!geigerCounter_buffer.loadFromFile("res/sound/geiger_counter.wav")) res = 0;
@@ -75,7 +86,12 @@ namespace SFX {
 
         // Set buffers
         strong_explosion.setBuffer(strong_explosion_buffer);
-        rocket_launcher_fire.setBuffer(rocket_launcher_fire_buffer);
+        rocket_launcher_fire0.setBuffer(rocket_launcher_fire_buffer0);
+        rocket_launcher_fire1.setBuffer(rocket_launcher_fire_buffer1);
+        rocket_launcher_fire2.setBuffer(rocket_launcher_fire_buffer2);
+
+
+
         fire.setBuffer(fire_buffer);
         geigerCounter.setBuffer(geigerCounter_buffer);
         rocket.setBuffer(rocket_buffer);

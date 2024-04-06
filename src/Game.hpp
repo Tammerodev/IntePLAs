@@ -31,7 +31,6 @@
 #include "ShaderEffects.hpp"
 
 #include "WeatherManager.hpp"
-#include "MobManager.hpp"
 #include "SimulationManager.hpp"
 
 #include "DebugDisplay.hpp"
@@ -125,8 +124,6 @@ class Game {
         sf::Clock shader_time;
 
         PlayerUI playerUI;
-
-        MobManager mobManager;
 
         DebugDisplay debugDisplay;
 

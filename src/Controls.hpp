@@ -6,6 +6,8 @@
 
 namespace Controls {
 
+    static unsigned int ji = 0; // Controller id
+
     static sf::Keyboard::Key keybind_right0 = sf::Keyboard::D;
     static sf::Keyboard::Key keybind_right1 = sf::Keyboard::Right;
 
@@ -92,7 +94,8 @@ namespace Controls {
                 windowCursorPos.y = 0;
             }
 
-            sf::Mouse::setPosition(sf::Vector2i(windowCursorPos));
+            if(!isPressed(sf::Keyboard::Key::LAlt))
+                sf::Mouse::setPosition(sf::Vector2i(windowCursorPos));
         }
         
         worldCursorPos = target.mapPixelToCoords(sf::Vector2i(windowCursorPos), target.getView());
@@ -126,7 +129,7 @@ namespace Controls {
         if(currentController == ControllerType::Keyboard) 
             return isPressed(keybind_down0) || isPressed(keybind_down1) || isPressed(keybind_down2);
         else if(currentController == ControllerType::Joystick)
-            return sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::PovY) <= -1;
+            return sf::Joystick::getAxisPosition(ji, sf::Joystick::Axis::PovY) <= -1;
 
         return false;
     }
@@ -143,7 +146,7 @@ namespace Controls {
         if(currentController == ControllerType::Keyboard) 
             return sf::Mouse::isButtonPressed(mousebind_useitem);
         else if(currentController == ControllerType::Joystick)
-            return false; // TODO FIX                               <---------TODO--------------TODO---------TODO-------------------!"¤%¤#&!!!!!!!!!!!!"
+            return sf::Joystick::getAxisPosition(ji, sf::Joystick::R) > joystick_treshold;
         return false;
     }
 
@@ -171,11 +174,11 @@ namespace Controls {
         return false;
     }
 
-    static bool pause(sf::Event &event) {
-        if(currentController == ControllerType::Keyboard && event.type == sf::Event::KeyReleased) 
-            return event.key.code == keybind_pause;
+    static bool pause(sf::Event &ev) {
+        if(currentController == ControllerType::Keyboard && ev.type == sf::Event::KeyReleased) 
+            return ev.key.code == keybind_pause;
         else if(currentController == ControllerType::Joystick)
-            return sf::Joystick::isButtonPressed(0, joystick_bind_openItemCreator);         ///////// <------------- TODO !!!! TODO!!!! TODO!!!
+            return ev.type == sf::Event::JoystickButtonPressed && ev.joystickButton.button == joystick_bind_openItemCreator;         ///////// <------------- TODO !!!! TODO!!!! TODO!!!
         return false;
     }
 

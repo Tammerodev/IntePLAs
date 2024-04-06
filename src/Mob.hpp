@@ -23,13 +23,18 @@ class DefaultBehaviour {
             mobInfoBar.render(target);
         }
 
-        void update(const sf::Vector2f& pos, const std::string& name, int health) {
+        void update(const sf::Vector2f& pos, const std::string& name, int health, VoxelManager& vx) {
             mobInfoBar.setPosition(pos + sf::Vector2f(0, -12));
             mobInfoBar.update(name, health);
+
+            if(health <= 0) {
+                default_death(pos.x, pos.y, vx);
+            }
         }
 
         void default_death(int x, int y, VoxelManager& voxelManager) {
             splashBlood(x, y, voxelManager);
+            remove_mob = true;
         }
 
         bool generalDamageBehaviour(int &health, int damage) {
@@ -37,7 +42,10 @@ class DefaultBehaviour {
 
             return health <= 0;
         }
+    public:
 
+        bool remove_mob = false;
+        
     private:
 
         void splashBlood(int x, int y, VoxelManager& voxelManager, int amount = 50) {
@@ -56,6 +64,7 @@ class DefaultBehaviour {
                 voxelManager.addElement(pos.x, pos.y, std::make_shared<Blood>(pos.x, pos.y, vel));
             }
         }
+
         MobInfoBar mobInfoBar;
 };
 
@@ -68,6 +77,9 @@ class Mob : public Entity {
 
         virtual void invoke(const MobInvoke&) = 0;
         virtual bool remove(VoxelManager&) = 0;
+        virtual const sf::FloatRect getHitbox() const {
+            return sprite.getGlobalBounds();
+        }
 
         virtual PhysicsComponent& getPhysicsComponent() = 0;
 

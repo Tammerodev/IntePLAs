@@ -27,6 +27,7 @@ public:
         desaturate_shader.o_setUniform("isDead", (int)(PlayerGlobal::health <= 0));
 
         desaturate_shader.o_setUniform("desaturationAmount", (float)GameStatus::brightness);
+        desaturate_shader.o_setUniform("temp", (float)PlayerGlobal::bodyTemparature);
 
     }
 

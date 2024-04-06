@@ -15,10 +15,10 @@ public:
         sprite.setTexture(texture);
 	}
 
-    void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse, World &world) {
+    void use(Player& player, const sf::Vector2f& mouse, World &world) {
 
         for(int i = 0; i < 10; i++) {
-            sf::Vector2i pos = sf::Vector2i(playerpos);
+            sf::Vector2i pos = sf::Vector2i(player.getPhysicsComponent().transform_position);
             pos.x += math::randIntInRange(-5, 5);
             pos.y += math::randIntInRange(-5, 5);
 

@@ -69,6 +69,10 @@ Panel {
 	BackgroundColor = #2e6492;
 }
 
+DarkPanel {
+	BackgroundColor = #17161455;
+}
+
 Invisible {
 	BackgroundColor = #000000;
 }

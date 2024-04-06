@@ -2,6 +2,9 @@
 
 void RespawnState::enter() {
     firstTime = true;
+
+    PlayerGlobal::temparature = 0;
+    PlayerGlobal::bodyTemparature = 0;
 }
 
 void RespawnState::update(IntPhysicsComponent& physComp, float dt) {
@@ -9,7 +12,7 @@ void RespawnState::update(IntPhysicsComponent& physComp, float dt) {
         physComp.transform_position = sf::Vector2f(1000, -300);
     }
 
-    physComp.velocity_buffer /= 1.2;
+    physComp.velocity.y /= 1.2;
 
     firstTime = false;
     timer++;

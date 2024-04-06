@@ -25,7 +25,8 @@ public:
 
 	}
 
-    void use(const sf::Vector2f& playerpos,const sf::Vector2f& mouse, World &world) {
+    void use(Player& player, const sf::Vector2f& mouse, World &world) {
+
 
     }
 
