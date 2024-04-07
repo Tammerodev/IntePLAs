@@ -20,8 +20,6 @@ class GravityElement : public Element {
         void setVelocity(const sf::Vector2i& vel) {
             velocity = vel;
             *this += velocity;
-
-            do_update = true;
         }
 
         bool clear() {
@@ -30,9 +28,7 @@ class GravityElement : public Element {
         
     protected:
         sf::Vector2i velocity {0, 0};
-        int terminal_velocity = 4;
-
-        bool do_update = false;
+        uint8_t terminal_velocity = 4;
 
         void setVoxelInWorld(ChunkIndexer& world);
         void clearLastPos(ChunkIndexer& world);

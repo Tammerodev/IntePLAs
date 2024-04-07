@@ -32,10 +32,7 @@ public:
     }
 
     Chunk& getChunkAt(const int x, const int y) {
-        if(x >= 0) {
-           return gridPos.at(abs(y)).at(x);         
-        }
-        return gridNeg.at(abs(y)).at(x);
+        return gridPos.at(y).at(x);         
     }
 
     Chunk& boundGetChunkAt(int x, int y) {
@@ -44,10 +41,7 @@ public:
         if(x >= chunks_x - 1) x = chunks_x - 1;
         if(y >= chunks_y - 1) y = chunks_y - 1;
 
-        if(x >= 0) {
-           return gridPos.at(abs(y)).at(x);         
-        }
-        return gridNeg.at(abs(y)).at(x);
+        return gridPos.at(y).at(x);         
     }
 
     Chunk& getChunkAt(sf::Vector2i pos) {
@@ -57,7 +51,7 @@ public:
         if(pos.y < 0) pos.y = 0;
 
 
-        return gridPos.at(abs(pos.y)).at(pos.x);         
+        return gridPos.at(pos.y).at(pos.x);         
 
     }
 
@@ -360,6 +354,4 @@ public:
 
 private:
     std::vector<std::vector<Chunk>> gridPos;
-    std::array<std::array<Chunk, chunks_negx + 1>, chunks_negy + 1> gridNeg;
-
 };

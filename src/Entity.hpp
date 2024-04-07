@@ -15,7 +15,6 @@ class Entity {
 class EntityComponents {
     public:
         
-    protected:
         sf::Sprite sprite;
         sf::Texture texture;
 };

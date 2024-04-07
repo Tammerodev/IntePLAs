@@ -37,13 +37,11 @@ void GravityElement::update(ChunkIndexer &world) {
     world.boundVector(nextPos);
 
     clearLastPos(world);
-    setPosition(nextPos);
     run_rules(world, nextPos);
     setPosition(nextPos);
 
     world.boundVector(nextPos);
     const sf::Vector2i& chunk_pos = world.getChunkFromPos(nextPos.x, nextPos.y);
-
 
     if (nextPos == lastPos) {   // If we havent moved, updating is unnecessary
         world.boundGetChunkAt(chunk_pos.x, chunk_pos.y).needs_update = false;
@@ -81,7 +79,7 @@ void GravityElement::setVoxelInWorld(ChunkIndexer &world)
 
 void GravityElement::clearLastPos(ChunkIndexer &world)
 {
-    world.boundClearVoxelAt(x, y);
+    world.clearVoxelAt(x, y);
 }
 
 void GravityElement::setPosition(sf::Vector2i& nextWaterPos) {
@@ -91,10 +89,8 @@ void GravityElement::setPosition(sf::Vector2i& nextWaterPos) {
 
 
 bool GravityElement::checkExisting(ChunkIndexer &world) {
-    sf::Vector2i v = world.getBoundedVector(sf::Vector2i(x, y));
-
-    if(world.getVoxelAt(v.x, v.y).value == 0) {
-        world.clearVoxelAt(v.x, v.y);
+    if(world.getVoxelAt(x, y).value == 0) {
+        world.clearVoxelAt(x, y);
         remove = true;
     }
 

@@ -23,6 +23,9 @@ if(JSONCPP_FOUND)
     include_directories(${JSONCPP_INCLUDE_DIRS})
 endif()
 
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
 # Find all C++ source files in the src directory
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 

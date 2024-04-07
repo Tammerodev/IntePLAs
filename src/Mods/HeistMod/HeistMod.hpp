@@ -3,6 +3,8 @@
 #include "Helicopter.hpp"
 #include "HelicopterTurret.hpp"
 #include "../../Sound/Sound.hpp"
+#include "HeistInfoGui.hpp"
+#include "CollectableBox.hpp"
 
 class HeistMod : public CustomGameMod {
     public:
@@ -28,10 +30,30 @@ class HeistMod : public CustomGameMod {
             helicopter.load();
             turret.load();
             machineGun.load();
+            infoGui.load(gui);
 
             helicopter_sound.load("res/mod/sound/helicopter.wav");
             helicopter_sound.setLooping(true);
             helicopter_sound.play();
+
+            collectBox.load();
+
+            for(int i = 0; i < 10; i++)  {
+                sf::Vector2i position;
+                position.x = math::randIntInRange(0, worldSize::world_sx - 1);
+                position.y = 2048 - game.world.main_world.procGen.getHeightOnMap(position.x);
+
+                if(game.world.main_world.procGen.getBiomeAtPosition(position.x, game.world.main_world.getChunkIndexer()).getName() == "Forest") {
+                    sf::Image image;
+                    image.loadFromFile("res/mod/img/house.png");
+
+                    sf::Vector2u size = image.getSize();
+                    positions.push_back(position);
+                    game.world.main_world.build_image(position - sf::Vector2i(0, 32), image, nullptr);
+                }
+            }
+
+           chooseNewPos();
         }
 
         void update(Game& game) {
@@ -39,6 +61,12 @@ class HeistMod : public CustomGameMod {
 
             turret.update(1.0f, game.world);
             machineGun.update(1.0f, game.world);
+
+            infoGui.update(collected);
+
+            if(collectBox.update(game.player.getHeadPosition())) {
+                chooseNewPos();
+            }
 
             helicopter_sound.setVolume(std::clamp(500.f - math::distance(helicopter.getPosition(), game.player.getHeadPosition()),  5.f, 100.f));
 
@@ -69,6 +97,8 @@ class HeistMod : public CustomGameMod {
             helicopter.render(target);
             turret.render(target);
             machineGun.render(target);
+
+            collectBox.render(target);
         }
 
         void input(sf::Event &ev) {
@@ -76,7 +106,19 @@ class HeistMod : public CustomGameMod {
         }
 
     private:
+        void chooseNewPos() {
+            if(positions.size() > 0) {
+                collectBox.sprite.setPosition(sf::Vector2f(positions.at(math::randIntInRange(0, positions.size() - 1))));
+                collected++;
+            }
+        }
+
+    private:
+        std::vector<sf::Vector2i> positions;
+        CollectableBox collectBox;
+
         Sound helicopter_sound;
+        int collected = 0;
 
         int timer = 0;
         int timer2 = 0;
@@ -84,4 +126,5 @@ class HeistMod : public CustomGameMod {
         HelicopterTurret turret;
         HelicopterMachineGun machineGun;
         Helicopter helicopter;
+        HeistInfoGui infoGui;
 };

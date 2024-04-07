@@ -26,8 +26,9 @@ namespace Controls {
     static sf::Keyboard::Key keybind_zoomin = sf::Keyboard::I;
     static sf::Keyboard::Key keybind_zoomout = sf::Keyboard::O;
 
-    static sf::Keyboard::Key keybind_openItemCreator0 = sf::Keyboard::E;
+    static sf::Keyboard::Key keybind_openItemCreator0 = sf::Keyboard::T;
     static sf::Keyboard::Key keybind_openItemCreator1 = sf::Keyboard::T;
+    static sf::Keyboard::Key keybind_collect = sf::Keyboard::E;
 
     static sf::Keyboard::Key keybind_pause = sf::Keyboard::Escape;
 
@@ -42,6 +43,7 @@ namespace Controls {
     static uint16_t joystick_bind_openItemCreator = 2;
     static uint16_t joystick_bind_inventory_switch_left = 4;
     static uint16_t joystick_bind_inventory_switch_right = 5;
+    static uint16_t joystick_bind_collect = 6;
 
     static bool isPressed(sf::Keyboard::Key key) {
         return sf::Keyboard::isKeyPressed(key);
@@ -163,6 +165,14 @@ namespace Controls {
             return isPressed(keybind_openItemCreator0) || isPressed(keybind_openItemCreator1);
         else if(currentController == ControllerType::Joystick)
             return sf::Joystick::isButtonPressed(0, joystick_bind_openItemCreator);
+        return false;
+    }
+
+    static bool collect() {
+        if(currentController == ControllerType::Keyboard) 
+            return isPressed(keybind_collect);
+        else if(currentController == ControllerType::Joystick)
+            return sf::Joystick::isButtonPressed(0, joystick_bind_collect);
         return false;
     }
 

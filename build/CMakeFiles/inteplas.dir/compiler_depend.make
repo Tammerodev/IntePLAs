@@ -3700,6 +3700,8 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: /home/lauri/Documents/Games/intepla
   /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/Helicopter.hpp \
   /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HelicopterTurret.hpp \
   /home/lauri/Documents/Games/inteplas/src/Sound/Sound.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HeistInfoGui.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/CollectableBox.hpp \
   /home/lauri/Documents/Games/inteplas/src/LoadingScreen.hpp \
   /home/lauri/Documents/Games/inteplas/src/MenuBackground.hpp \
   /home/lauri/Documents/Games/inteplas/src/SavingScreen.hpp
@@ -12957,6 +12959,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/Helicopter.hpp \
   /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HelicopterTurret.hpp \
   /home/lauri/Documents/Games/inteplas/src/Sound/Sound.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HeistInfoGui.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/CollectableBox.hpp \
   /home/lauri/Documents/Games/inteplas/src/SettingsState.hpp \
   /home/lauri/Documents/Games/inteplas/src/LoadingState.hpp
 
@@ -12982,6 +12986,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
 /home/lauri/Documents/Games/inteplas/src/MenuBackground.hpp:
 
 /home/lauri/Documents/Games/inteplas/src/LoadingScreen.hpp:
+
+/home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/CollectableBox.hpp:
 
 /home/lauri/Documents/Games/inteplas/src/Sound/Sound.hpp:
 
@@ -13298,6 +13304,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
 
 /usr/include/SFML/System/String.inl:
+
+/home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HeistInfoGui.hpp:
 
 /usr/include/c++/11/bits/basic_ios.tcc:
 

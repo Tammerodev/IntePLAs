@@ -58,7 +58,7 @@ public:
 
         generateCaves(grid, world_sx, world_sy);
 
-        for(int i = 0; i < 100; i++) {
+        for(int i = 0; i < 5; i++) {
             spawnHouse(grid, world_sx, world_sy);
         }
 
@@ -139,6 +139,25 @@ public:
 
     Biome &getBiomeAtPosition(int x, ChunkIndexer& grid) {
         return *biomes.at(std::clamp(grid.getChunkFromPos(x, 0).x, 0, (int)biomes.size() - 1));
+    }
+
+public:
+    bool isAreaOccupied(ChunkIndexer& grid, sf::Vector2u size, sf::Vector2i position) {
+        for(uint16_t y = 0; y < size.y - 1; y++) {
+            for(uint16_t x = 0; x < size.x - 1; x++) {
+                
+                sf::Vector2i pos = position + sf::Vector2i(x, y);
+                grid.boundVector(pos);
+
+                if(grid.getVoxelAt(pos.x, pos.y).value == VoxelValues::WATER ||
+                  grid.getImagePixelAt(pos.x, pos.y) == elm::getInfoFromType(VoxelValues::WOOD).color) {
+                    return true;
+                }
+
+            }
+        }
+
+        return false;
     }
 
 private:
@@ -304,23 +323,6 @@ private:
         }
     }
 
-    bool isAreaOccupied(ChunkIndexer& grid, sf::Vector2u size, sf::Vector2i position) {
-        for(uint16_t y = 0; y < size.y - 1; y++) {
-            for(uint16_t x = 0; x < size.x - 1; x++) {
-                
-                sf::Vector2i pos = position + sf::Vector2i(x, y);
-                grid.boundVector(pos);
-
-                if(grid.getVoxelAt(pos.x, pos.y).value == VoxelValues::WATER ||
-                  grid.getImagePixelAt(pos.x, pos.y) == elm::getInfoFromType(VoxelValues::WOOD).color) {
-                    return true;
-                }
-
-            }
-        }
-
-        return false;
-    }
 
 private:
 

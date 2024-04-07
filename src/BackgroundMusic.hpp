@@ -61,6 +61,7 @@ namespace BGMusic {
 	static void stop() {
 		song_list[current_song]->stop();
 	}
+	
 	static void update() {
 		if(song_list[current_song]->getStatus() != sf::Music::Playing) {
 			current_song = getRandomSong();
