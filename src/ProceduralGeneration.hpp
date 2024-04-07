@@ -14,10 +14,10 @@
 
 #include "WorldJsonReader.hpp"
 
-#include "Desert.hpp"
-#include "Forest.hpp"
-#include "Ocean.hpp"
-#include "Mountains.hpp"
+#include "Biome/Desert.hpp"
+#include "Biome/Forest.hpp"
+#include "Biome/Ocean.hpp"
+#include "Biome/Mountains.hpp"
 #include <stdint.h>
 #include "Settings.hpp"
 

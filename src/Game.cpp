@@ -89,7 +89,6 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
 }
 
 void Game::update() {
-
     if(goingToSave) exit();
 
     // Update game status and delta time 
@@ -171,7 +170,7 @@ void Game::update() {
     }
 }
 
-void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
+void Game::renderFirst(sf::RenderWindow &window, tgui::BackendGui &gui) {
     GameStatus::updateBrightness();
     
 
@@ -198,9 +197,14 @@ void Game::render(sf::RenderWindow &window, tgui::BackendGui &gui) {
         player.draw(renderTexture);
         inv.render(renderTexture);
     }
-    
+       
     world.render(renderTexture, game_camera.getCenterPosition());
 
+}
+
+
+void Game::renderLast(sf::RenderWindow &window, tgui::BackendGui &gui) {
+    
     ui_camera.setViewTo(renderTexture);
     gameEventManager.render(renderTexture);
     game_camera.setViewTo(renderTexture);

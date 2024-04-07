@@ -9,6 +9,10 @@
 
 #if DEBUG
     #define prndd(x) std::cout << "[OUTPUT]:" << x <<  "   [TIME]: "<<time(0) << std::endl;
+    #define prnmod(x) std::cout << "[MOD]:" << x <<  "   [TIME]: "<<time(0) << std::endl;
+    #define logmod(x, y, z) std::cout << "[MOD]" << x << y << z <<'\n'
+
+
     #define prnerr(x, y) std::cout << x << y << '\n'
     #define loginf(x, y, z) std::cout << x << y << z <<'\n'
 

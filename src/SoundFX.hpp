@@ -52,6 +52,7 @@ namespace SFX {
     inline sf::SoundBuffer pickaxe_swing_buffer;
     inline sf::SoundBuffer collect_buffer;
     inline sf::SoundBuffer nuclear_explosion_buffer;
+    inline sf::SoundBuffer gun_shot_buffer;
 
 
     inline sf::Sound strong_explosion;
@@ -66,6 +67,8 @@ namespace SFX {
     inline sf::Sound pickaxe_swing;
     inline sf::Sound collect;
     inline sf::Sound nuclear_explosion;
+    inline sf::Sound gun_shot;
+
 
     
     inline int load() {
@@ -82,6 +85,7 @@ namespace SFX {
         if(!pickaxe_swing_buffer.loadFromFile("res/sound/pickaxe_swing.wav")) res = 0;
         if(!collect_buffer.loadFromFile("res/sound/collect.wav")) res = 0;
         if(!nuclear_explosion_buffer.loadFromFile("res/sound/nuclear_explosion.wav")) res = 0;
+        if(!gun_shot_buffer.loadFromFile("res/sound/gun_fire.wav")) res = 0;
         
 
         // Set buffers
@@ -90,7 +94,7 @@ namespace SFX {
         rocket_launcher_fire1.setBuffer(rocket_launcher_fire_buffer1);
         rocket_launcher_fire2.setBuffer(rocket_launcher_fire_buffer2);
 
-
+        gun_shot.setBuffer(gun_shot_buffer);
 
         fire.setBuffer(fire_buffer);
         geigerCounter.setBuffer(geigerCounter_buffer);

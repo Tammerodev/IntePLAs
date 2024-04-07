@@ -120,9 +120,6 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
             if(chunk.modified) {
                 chunk.update();
-   
-                if(Session::session == Session::Join)
-                    voxelSpy.alertOfChunkModification(sf::Vector2i(x, y), chIndexer);
             }
 
 
@@ -144,8 +141,6 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
 
 void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
 {   
-
-    clientManager.update(chIndexer);
     chIndexer.update();
     simulationManager.updateAll(chIndexer);
 

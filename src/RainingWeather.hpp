@@ -1,7 +1,7 @@
 #pragma once
 #include "WeatherState.hpp"
 #include "VoxelManager.hpp"
-#include "Snow.hpp"
+#include "Elements/Snow.hpp"
 #include "RainParticle.hpp"
 #include "BackgroundMusic.hpp"
 

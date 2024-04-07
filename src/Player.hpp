@@ -37,6 +37,10 @@ public:
         return spr.getGlobalBounds();
     }
 
+    const sf::Vector2f getHeadPosition() {
+        return physComp.transform_position + sf::Vector2f(8, 3);
+    }
+
     void ground() {
         physComp.velocity.y = 0;
         physComp.velocity.x /= 1.5;

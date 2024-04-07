@@ -38,17 +38,25 @@
 #include "Globals.hpp"
 
 class Game {
+    friend class CustomGameMod;
+
     public:
         const std::string load(const std::string s, tgui::BackendGui& gui, const int width, const int height);
         void update();
 
-        void render(sf::RenderWindow& window, tgui::BackendGui& gui);
+        void renderFirst(sf::RenderWindow& window, tgui::BackendGui& gui);
+        void renderLast(sf::RenderWindow& window, tgui::BackendGui& gui);
+
         void renderUI(sf::RenderWindow& window, tgui::BackendGui& gui);
 
         void input(sf::Event &ev);
 
         void saveWorld() {
             world.save();
+        }
+
+        sf::RenderTexture& getRenderTexture() {
+            return renderTexture;
         }
 
         void exit() {
@@ -89,7 +97,7 @@ class Game {
     private:
         tgui::BackendGui* local_gui = nullptr;
 
-    private:
+    public:
         bool GUIfocusedOnObject = false;
 
         bool goingToSave = false;

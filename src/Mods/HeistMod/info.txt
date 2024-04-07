@@ -1,0 +1,2 @@
+This is the official example mod for inteplas.
+This file, info.txt contains all of the info about the mod.

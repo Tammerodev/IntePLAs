@@ -112,6 +112,18 @@ public:
         return false;
     }
 
+    bool damageEntityWithCollision(const sf::Vector2f &point, int damage) {
+        if(mobManager.damageMobsIfCollision(point, damage))
+            return true;
+
+        if(player_loc_ != nullptr) {
+            if(player_loc_->getHitbox().contains(point))
+                player_loc_->getHealthManager().damageHit(damage);
+        }
+
+        return false;
+    }
+
     void mobInvoke(Player& player, std::vector<ExplosionInfo> &points) {
         mobManager.invokeMobs(player, points);
     }

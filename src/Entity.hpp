@@ -11,3 +11,11 @@ class Entity {
         sf::Sprite sprite;
         sf::Texture texture;
 };
+
+class EntityComponents {
+    public:
+        
+    protected:
+        sf::Sprite sprite;
+        sf::Texture texture;
+};

@@ -1,6 +1,6 @@
 #pragma once
-#include "Frog.hpp"
-#include "Fish.hpp"
+#include "Mob/Frog/Frog.hpp"
+#include "Mob/Fish/Fish.hpp"
 #include <list>
 #include "MobInfoBar.hpp"
 #include "ProceduralGeneration.hpp"
@@ -25,6 +25,18 @@ class MobManager {
             for(const auto &mob : mobs) {
                 if(mob->getHitbox().contains(pos))
                     return true;
+            }
+
+            return false;
+        }
+
+        bool damageMobsIfCollision(const sf::Vector2f& pos, int damage) {
+            for(const auto &mob : mobs) {
+                if(mob->getHitbox().contains(pos)) {
+                    MobInvoke invoke {};
+                    invoke.damage = damage;
+                    mob->invoke(invoke);
+                }
             }
 
             return false;

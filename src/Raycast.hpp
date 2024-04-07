@@ -5,7 +5,7 @@
 #include <list>
 #include "ParticleSimulation.hpp"
 #include "PickableDebris.hpp"
-#include "BurnedMaterial.hpp"
+#include "Elements/BurnedMaterial.hpp"
 
 namespace Raycast {
 

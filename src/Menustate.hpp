@@ -28,8 +28,6 @@ public:
 
 		if(destination == 1)
 			MainState::currentState = MainState::settingsState;	
-		else if(destination == 2) 
-			MainState::currentState = MainState::serverHostState;
 		else if(destination == 3)
 			MainState::currentState = MainState::worldSelectionState;
 

@@ -1,0 +1,5 @@
+/home/lauri/Documents/Games/inteplas/build/CMakeFiles/inteplas.dir
+/home/lauri/Documents/Games/inteplas/build/CMakeFiles/package.dir
+/home/lauri/Documents/Games/inteplas/build/CMakeFiles/package_source.dir
+/home/lauri/Documents/Games/inteplas/build/CMakeFiles/edit_cache.dir
+/home/lauri/Documents/Games/inteplas/build/CMakeFiles/rebuild_cache.dir

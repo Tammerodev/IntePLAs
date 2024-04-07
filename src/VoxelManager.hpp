@@ -21,18 +21,23 @@
 #include "VoxelGroup.hpp"
 #include "ProceduralGeneration.hpp"
 #include "Controls.hpp"
-#include "Element.hpp"
-#include "Acid.hpp"
-#include "Water.hpp"
-#include "Blood.hpp"
-#include "Nitroglycerin.hpp"
-#include "Chlorine.hpp"
+
+#include "Elements/Element.hpp"
+#include "Elements/Acid.hpp"
+#include "Elements/Water.hpp"
+#include "Elements/Blood.hpp"
+#include "Elements/Nitroglycerin.hpp"
+#include "Elements/Chlorine.hpp"
+#include "Elements/Sand.hpp"
+#include "Elements/Wood.hpp"
+#include "Elements/ManganeseHeptoxide.hpp"
+#include "Elements/Butane.hpp"
+#include "Elements/Snow.hpp"
+#include "Elements/Flammable.hpp"
+
+#include "Raycast.hpp"
 #include "Shader.hpp"
 #include "Settings.hpp"
-#include "Sand.hpp"
-#include "Raycast.hpp"
-#include "Wood.hpp"
-#include "ManganeseHeptoxide.hpp"
 
 #include "Uranium-235.hpp"
 #include "Radium-226.hpp"
@@ -40,27 +45,21 @@
 #include "Player.hpp"
 
 #include "ParticleSimulation.hpp"
-#include "VoxelSpy.hpp"
-#include "ClientManager.hpp"
 #include "Session.hpp"
 
 #include <list>
 #include <future>
 #include "SimulationManager.hpp"
 
-#include "Flammable.hpp"
 #include "SaveUtils.hpp"
 #include "FireEffectManager.hpp"
 
-#include "Snow.hpp"
 #include "GameEventEnum.hpp"
 #include "EventGlobals.hpp"
 
 #include "Oscillator.hpp"
 #include "Transistor.hpp"
 #include "Switch.hpp"
-
-#include "Butane.hpp"
 
 class VoxelManager {
 public:
@@ -468,8 +467,6 @@ private:
 
     sf::FloatRect update_area;
 
-    ClientManager clientManager;
-    VoxelSpy voxelSpy;
     ChunkIndexer chIndexer;
 
     std::vector<sf::Vector2i> mergeChunks;
