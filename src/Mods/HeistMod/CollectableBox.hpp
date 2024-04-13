@@ -14,7 +14,6 @@ class CollectableBox : public EntityComponents {
             const float distance = math::distance(sprite.getPosition(), playerPosition);
 
             if(distance < 25 && Controls::collect()) {
-                prndd("a");
                 return true;
             }
 

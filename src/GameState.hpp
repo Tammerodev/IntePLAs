@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Mods/HeistMod/HeistMod.hpp"
+#include "Mods/Mods.hpp"
 
 class GameState : public MainState {
 public:
@@ -47,8 +47,6 @@ public:
 
 	void draw(sf::RenderWindow& window, tgui::BackendGui&);
 private:
-	std::vector<std::shared_ptr<CustomGameMod>> modsInUse;
-
 	sf::RenderWindow *window_ptr = nullptr;
 	tgui::BackendGui *gui_ptr 	 = nullptr;
 

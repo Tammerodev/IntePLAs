@@ -2,6 +2,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/GameState.cpp \
  /usr/include/stdc-predef.h \
  /home/lauri/Documents/Games/inteplas/src/GameState.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/Mods.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HeistMod.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../CustomGameMod.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Game.hpp \
@@ -664,6 +665,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Sound/Sound.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HeistInfoGui.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/CollectableBox.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../UI/PointIndicator.hpp \
  /home/lauri/Documents/Games/inteplas/src/LoadingScreen.hpp \
  /home/lauri/Documents/Games/inteplas/src/MenuBackground.hpp \
  /home/lauri/Documents/Games/inteplas/src/SavingScreen.hpp

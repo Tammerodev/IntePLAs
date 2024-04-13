@@ -58,7 +58,10 @@ int VoxelGroup::load(const sf::Image &copy_img)
         }
     }
 
-    physicsComponent.transform_origin = sf::Vector2f(tex.getSize().x / 2, tex.getSize().y / 2);
+    tex.update(img);
+    spr.setTexture(tex);
+
+    rigidBody.loadFromRectangle(spr.getGlobalBounds());
     return true;
 }
 
@@ -114,57 +117,13 @@ void VoxelGroup::update(ChunkIndexer& world, const float dt)
     tex.update(img);
     spr.setTexture(tex);
 
-    spr.setPosition(physicsComponent.transform_position);
-    spr.setRotation(physicsComponent.transform_rotation);
-    spr.setOrigin(physicsComponent.transform_origin);
-    physicsComponent.update(dt);
+    rigidBody.setRect(spr.getGlobalBounds());
     rigidBody.calculatePoints(world);
+
+    rigidBody.setSpritePoints(spr);
 
     world_sx = img.getSize().x;
     world_sy = img.getSize().y;
-
-    if(std::abs((int)(Globals::frame - frameCreated)) < 5) {
-        rigidBody.loadFromRectangle(spr.getGlobalBounds());
-    }
-
-    merge();
-}
-
-void VoxelGroup::merge()
-{
-    if(getDestroyed()) return;
-
-    collisionTestPoints.clear();
-
-    const std::array<const sf::Vector2i, 4> relativeTestPoints {
-        sf::Vector2i(0, 0),
-        sf::Vector2i(img.getSize().x, 0),
-        sf::Vector2i(0, img.getSize().y),
-        sf::Vector2i(img.getSize().x, img.getSize().y),
-
-    };
-
-
-    for(auto &relativeTestPosition : relativeTestPoints) {
-
-        sf::Vector2i finalTestPoint {0,0};
-        
-        float sine = sin(math::degreesToRadians(physicsComponent.transform_rotation));
-        float cosine = cos(math::degreesToRadians(physicsComponent.transform_rotation));
-
-        // Translate back to origin ( We dont have to do this becouse voxel index x and y are already at origin)
-        float xx = relativeTestPosition.x - physicsComponent.transform_origin.x;
-        float yy = relativeTestPosition.y - physicsComponent.transform_origin.y;
-
-        finalTestPoint = sf::Vector2i(xx * cosine - yy * sine, xx * sine + yy * cosine);
-
-        // Translate to world position
-        finalTestPoint.x += physicsComponent.transform_position.x;
-        finalTestPoint.y += physicsComponent.transform_position.y;
-
-        collisionTestPoints.push_back(finalTestPoint);
-    }
-
 }
 
 void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool force, const int64_t heat)
@@ -179,7 +138,7 @@ void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool f
     }
 
 
-    sf::Vector2i p = pos - sf::Vector2i(physicsComponent.transform_position);
+    sf::Vector2i p = pos - sf::Vector2i(spr.getPosition());
     if(p.x <= 0) p.x = 0;
     if(p.y <= 0) p.y = 0;
     if(p.x >= (int)world_sx) p.x = (int)world_sx;
@@ -213,7 +172,7 @@ void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool f
     info.world_sx = world_sx;
     info.world_sy = world_sy;
 
-    info.velocity = &physicsComponent.velocity;
+    //TODO: info.velocity = &.velocity;
 
 
     for(;endX < pos.x + (int)intensity; endX++) {

@@ -144,6 +144,8 @@ void Game::update() {
     world.update(dt, player, gameEventManager.getEvent());
     world.mobInvoke(player, world.main_world.explosion_points);
 
+    world.setAddWorldsPointImpact(world.main_world.explosion_points);
+
     // Handle explosion player damage
     for(const auto point : world.main_world.explosion_points) {
         const sf::Vector2f player_position = sf::Vector2f(player.getPhysicsComponent().transform_position);

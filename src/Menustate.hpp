@@ -28,6 +28,8 @@ public:
 
 		if(destination == 1)
 			MainState::currentState = MainState::settingsState;	
+		else if(destination == 2)
+			MainState::currentState = MainState::modMenu;
 		else if(destination == 3)
 			MainState::currentState = MainState::worldSelectionState;
 
@@ -77,8 +79,8 @@ public:
 				buttonCallBack("", 1, *backend_gui);
 			}
 
-			auto HostButton = backend_gui->get("Host");
-			if(HostButton != nullptr && HostButton->isMouseOnWidget(sf::Vector2f(e.mouseButton.x, e.mouseButton.y))) {
+			auto ModsButton = backend_gui->get("Mods");
+			if(ModsButton != nullptr && ModsButton->isMouseOnWidget(sf::Vector2f(e.mouseButton.x, e.mouseButton.y))) {
 				buttonCallBack("", 2, *backend_gui);
 			}
 		}

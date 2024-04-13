@@ -44,8 +44,16 @@ public:
         return grid[y][x];
     }
 
-    PhysicsComponent &getPhysicsComponent() {
-        return physicsComponent;
+    void setPosition(const sf::Vector2f& pos) {
+        spr.setPosition(pos);
+    }
+
+    const sf::Vector2f& getPosition() const {
+        return spr.getPosition();
+    }
+
+    void setVelocity(const sf::Vector2f& vel) {
+        rigidBody.setVelocityInAllPoints(vel);
     }
 
     sf::FloatRect getCollider() {
@@ -67,15 +75,10 @@ public:
         }
     }
 
-    std::vector<sf::Vector2i> &getCollisionTestPoints() {
-        return collisionTestPoints;
-    }
-
     void heatVoxelAt(const int64_t x, const int64_t y, int64_t temp);
     void render(sf::RenderTarget&, const sf::Vector2f &center);
     void resetUsedFlag();
     void update(ChunkIndexer &vx, const float);
-    void merge();
     void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const int64_t heat);
 
     sf::Color getImagePixelAt(const uint64_t x, const uint64_t y) {
@@ -95,7 +98,7 @@ public:
             for (uint64_t x = 0; x < world_sx;x++) {
                 if(getVoxelAt(x,y).value == VoxelValues::LITHIUM) {
                     main_world.holeRayCast(
-                        sf::Vector2i(physicsComponent.transform_position + sf::Vector2f(x,y)), elm::lithiumExplosion, true, 100);
+                        sf::Vector2i(spr.getPosition() + sf::Vector2f(x,y)), elm::lithiumExplosion, true, 100);
                 }
                 damageVoxelAt(x,y);
             }
@@ -113,12 +116,11 @@ public:
 private:
 
     void destroy() {
-        grid.clear();
+        /*grid.clear();
         rects.clear();
-        setDestroyed(true);
+        setDestroyed(true);*/
     }
 
-    PhysicsComponent physicsComponent;
     RectangleRigidbody rigidBody;
 
     std::vector<std::vector<Voxel>> grid;
@@ -128,8 +130,4 @@ private:
 
     uint64_t world_sx;
     uint64_t world_sy;
-
-    std::vector<sf::Vector2i> collisionTestPoints;
-
-
 };

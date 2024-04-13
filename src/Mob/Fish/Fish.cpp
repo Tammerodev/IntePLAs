@@ -97,10 +97,6 @@ void Fish::invoke(const MobInvoke &inv) {
         currentState = FishStateType::FishDamage;
         if(states.at(currentState) != nullptr)
             states.at(currentState)->enter();
-
-        loginf("Settading state of", getEntityID(), "...");
-        
-        
     }
 }
 

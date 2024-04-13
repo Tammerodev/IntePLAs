@@ -268,7 +268,7 @@ public:
             vox.strenght = 3;
         } else if(px == elm::getInfoFromType(VoxelValues::WATER).color) {
             vox.value = VoxelValues::WATER;
-            vox.strenght = 20;
+            vox.strenght = 10;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Water>(p.x, p.y));
         } else if(px == elm::getInfoFromType(VoxelValues::BLOOD).color) {
@@ -316,7 +316,7 @@ public:
 
         else if(px == elm::getInfoFromType(VoxelValues::SAND).color) {
             vox.value = VoxelValues::SAND;
-            vox.strenght = 250;
+            vox.strenght = 2;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Sand>(p.x, p.y));
         }

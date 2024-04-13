@@ -55,7 +55,7 @@ class HelicopterTurret {
                     // TODO other worlds...
                     sf::FloatRect bullet_physComp = bullet->getCollider();
                     if(wr.getCollider().intersects(bullet_physComp)) {
-                        wr.hole(sf::Vector2i(wr.getPhysicsComponent().transform_position - sf::Vector2f(bullet_physComp.left, bullet_physComp.top)), explosion_strength, true, temp);
+                        wr.hole(sf::Vector2i(wr.getPosition() - sf::Vector2f(bullet_physComp.left, bullet_physComp.top)), explosion_strength, true, temp);
                     }
                 }
 
@@ -130,7 +130,7 @@ class HelicopterMachineGun {
                     // TODO other worlds...
                     sf::FloatRect bullet_physComp = bullet->getCollider();
                     if(wr.getCollider().intersects(bullet_physComp)) {
-                        wr.hole(sf::Vector2i(wr.getPhysicsComponent().transform_position - sf::Vector2f(bullet_physComp.left, bullet_physComp.top)), explosion_strength, true, temp);
+                        wr.hole(sf::Vector2i(wr.getPosition() - sf::Vector2f(bullet_physComp.left, bullet_physComp.top)), explosion_strength, true, temp);
                     }
                 }
 
@@ -146,7 +146,7 @@ class HelicopterMachineGun {
 
     private:
     	std::list<std::unique_ptr<ExplosiveBullet>> bullets;
-        int explosion_strength = 10;
+        int explosion_strength = 1;
         int temp = 0;
 
         sf::Texture bullet_tx;

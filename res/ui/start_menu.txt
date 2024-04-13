@@ -34,10 +34,10 @@ Button.Play {
     }
 }
 
-Button.Join {
+Button.Mods {
     Position = (10, 370);
     Size = (169, 60.1525);
-    Text = Join;
+    Text = Mods;
     TextSize = 13;
 
     Renderer {

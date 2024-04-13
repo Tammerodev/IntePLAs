@@ -2931,6 +2931,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: /home/lauri/Documents/Games/inteplas/src
 CMakeFiles/inteplas.dir/src/GameState.cpp.o: /home/lauri/Documents/Games/inteplas/src/GameState.cpp \
   /usr/include/stdc-predef.h \
   /home/lauri/Documents/Games/inteplas/src/GameState.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Mods/Mods.hpp \
   /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HeistMod.hpp \
   /home/lauri/Documents/Games/inteplas/src/Mods/CustomGameMod.hpp \
   /home/lauri/Documents/Games/inteplas/src/Game.hpp \
@@ -3702,6 +3703,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: /home/lauri/Documents/Games/intepla
   /home/lauri/Documents/Games/inteplas/src/Sound/Sound.hpp \
   /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HeistInfoGui.hpp \
   /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/CollectableBox.hpp \
+  /home/lauri/Documents/Games/inteplas/src/UI/PointIndicator.hpp \
   /home/lauri/Documents/Games/inteplas/src/LoadingScreen.hpp \
   /home/lauri/Documents/Games/inteplas/src/MenuBackground.hpp \
   /home/lauri/Documents/Games/inteplas/src/SavingScreen.hpp
@@ -12769,6 +12771,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /home/lauri/Documents/Games/inteplas/src/WorldSelectionState.hpp \
   /home/lauri/Documents/Games/inteplas/src/MenuBackground.hpp \
   /home/lauri/Documents/Games/inteplas/src/GameState.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Mods/Mods.hpp \
   /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HeistMod.hpp \
   /home/lauri/Documents/Games/inteplas/src/Mods/CustomGameMod.hpp \
   /home/lauri/Documents/Games/inteplas/src/Game.hpp \
@@ -12961,9 +12964,13 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /home/lauri/Documents/Games/inteplas/src/Sound/Sound.hpp \
   /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HeistInfoGui.hpp \
   /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/CollectableBox.hpp \
+  /home/lauri/Documents/Games/inteplas/src/UI/PointIndicator.hpp \
   /home/lauri/Documents/Games/inteplas/src/SettingsState.hpp \
-  /home/lauri/Documents/Games/inteplas/src/LoadingState.hpp
+  /home/lauri/Documents/Games/inteplas/src/LoadingState.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ModMenu.hpp
 
+
+/home/lauri/Documents/Games/inteplas/src/ModMenu.hpp:
 
 /home/lauri/Documents/Games/inteplas/src/SettingsState.hpp:
 
@@ -12996,6 +13003,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
 /home/lauri/Documents/Games/inteplas/src/Mods/CustomGameMod.hpp:
 
 /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/HeistMod.hpp:
+
+/home/lauri/Documents/Games/inteplas/src/Mods/Mods.hpp:
 
 /home/lauri/Documents/Games/inteplas/src/GameState.hpp:
 
@@ -13988,6 +13997,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
 /usr/include/SFML/Audio/Export.hpp:
 
 /home/lauri/Documents/Games/inteplas/src/Button.hpp:
+
+/home/lauri/Documents/Games/inteplas/src/UI/PointIndicator.hpp:
 
 /home/lauri/Documents/Games/inteplas/src/GameEvent.hpp:
 

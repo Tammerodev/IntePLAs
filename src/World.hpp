@@ -45,6 +45,20 @@ public:
         return res;
     }
 
+    void setAddWorldsPointImpact(std::vector<ExplosionInfo>& points) {
+        for(auto &world : add_worlds) {
+            for(auto &point : points) {
+                float distance = math::distance(point.position, world.getPosition());
+
+                if(distance < point.strength) {
+                    const sf::Vector2f velocity = -(point.position - world.getPosition()) / 10.f;
+
+                    world.setVelocity(velocity);
+                }
+            }
+        }
+    }
+
     void update(const float dt, Player &player, GameEventEnum::Event& gameEventManager) {
         main_world.update(player, gameEventManager);
         mobManager.update(dt, player, main_world);
@@ -52,9 +66,8 @@ public:
 
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
             world->update(main_world.getChunkIndexer(), dt);
-            const std::vector<sf::Vector2i> &collisionTestPoints = world->getCollisionTestPoints();
 
-            bool collision = false;
+            /*bool collision = false;
 
             for(auto &testPoint : collisionTestPoints) {
                 if(main_world.getChunkIndexer().getPixelCollision(sf::Vector2f(testPoint)).first) collision = true;
@@ -67,9 +80,9 @@ public:
                 world->destroyPart(main_world);
 
                 add_worlds.erase(world);
-    
+                TODO!!!
                 break;
-            }
+            }*/
         }
 
         weatherManager.update(main_world, player);

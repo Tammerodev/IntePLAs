@@ -165,7 +165,6 @@ public:
     }
 
     sf::Vector2i pointLineContainMaterial(sf::Vector2i start, sf::Vector2i end) {
-
         boundVector(start);
         boundVector(end);
 

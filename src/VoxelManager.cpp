@@ -162,13 +162,13 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
             p->collide();
 
             if(p->getType() == Particle::ParticleType::RainParticle) {
-                chIndexer.boundGetVoxelAt(position.x, position.y).value = VoxelValues::WATER;
-                addElement(position.x, position.y, std::make_shared<Water>(position.x, position.y - 1));
+                chIndexer.boundGetVoxelAt(position.x, position.y - 1).value = VoxelValues::WATER;
+                addElement(position.x, position.y - 1, std::make_shared<Water>(position.x, position.y - 1));
             } 
             
             if(p->getType() == Particle::ParticleType::SnowParticle) {
-                chIndexer.boundGetVoxelAt(position.x, position.y).value = VoxelValues::SNOW;
-                addElement(position.x, position.y, std::make_shared<Snow>(position.x, position.y - 1));
+                chIndexer.boundGetVoxelAt(position.x, position.y - 1).value = VoxelValues::SNOW;
+                addElement(position.x, position.y - 1, std::make_shared<Snow>(position.x, position.y - 1));
             }
         }
 
@@ -186,7 +186,7 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
         }
 
         // Fission 
-        if(p->getType() == Particle::ParticleType::Neutron && 
+        else if(p->getType() == Particle::ParticleType::Neutron && 
             elm::getInfoFromType(voxel.value).value == VoxelValues::URANIUM235) {
 
             heatVoxelAt(position.x, position.y, 100);
@@ -194,7 +194,7 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
             const sf::Vector2i contactPos = getPositionOnContacy(position, VoxelValues::URANIUM235);
 
             if(contactPos != sf::Vector2i(0, 0)) {
-                heatVoxelAt(contactPos.x, contactPos.y, 10);
+                chIndexer.boundHeatVoxelAt(contactPos.x, contactPos.y, 10);
 
                 if(chIndexer.boundGetVoxelAt(position.x, position.y).temp > elm::getInfoFromType(VoxelValues::URANIUM235).max_temp) {
                     gameEvent = GameEventEnum::Event::Nuclear_Explosion;
@@ -565,11 +565,10 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
 {
     if(grp != nullptr) {
         VoxelGroup object = VoxelGroup();
+
+        object.setPosition(sf::Vector2f(p));
+
         object.load(cimg);
-
-        object.getPhysicsComponent().transform_position = sf::Vector2f(p);
-
-        object.getPhysicsComponent().velocity = velocity;
 
         grp->emplace_back(object);
         return;

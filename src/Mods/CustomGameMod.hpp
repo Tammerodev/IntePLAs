@@ -10,4 +10,19 @@ class CustomGameMod {
         virtual void update(Game& game) = 0;
         virtual void render(sf::RenderTarget& target, Game& game, tgui::BackendGui& gui) = 0;
         virtual void input(sf::Event &ev) = 0;
+
+        void disable() {
+            isModEnabled = false;
+        }
+
+        void enable() {
+            isModEnabled = true;
+        }
+
+        bool isEnabled() {
+            return isModEnabled;
+        }
+
+    private:    
+        bool isModEnabled = false;
 };

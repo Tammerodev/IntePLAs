@@ -17,6 +17,7 @@ void GameState::update() {
     if(game.getLoaded()) {
         game.update();
         for(auto &mod : modsInUse) {
+            if(!mod->isEnabled()) continue;
             mod->update(game);
         }
     }
@@ -74,6 +75,7 @@ void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui) {
         game.renderFirst(window, gui);
 
         for(const auto &mod : modsInUse) {
+            if(!mod->isEnabled()) continue;
             mod->render(game.getRenderTexture(), game, gui);
         }
 
@@ -86,9 +88,6 @@ void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui) {
     else {
         const int width = sf::VideoMode::getDesktopMode().width;
         const int height = sf::VideoMode::getDesktopMode().height;
-
-        modsInUse.push_back(std::make_shared<HeistMod>());
-
 
         cursor.load(gui, window);
 
@@ -103,7 +102,10 @@ void GameState::draw(sf::RenderWindow &window, tgui::BackendGui& gui) {
         game.load(path, gui, width, height);
 
         for(const auto &mod : modsInUse) {
+            if(!mod->isEnabled()) continue;
+
             mod->load(game, gui);
+            prnmod("Loaded mod...");
         } 
 
         // Wait for load screen to stop

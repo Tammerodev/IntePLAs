@@ -11,10 +11,10 @@ class HeistInfoGui {
         }
 
         void update(const int collected) {
-            boxes_collected->setSize(150, 75);
-            boxes_collected->setPosition(Display::window_width - 160, Display::window_height - 85 );
+            boxes_collected->setSize(180, 75);
+            boxes_collected->setPosition(Display::window_width - 190, Display::window_height - 85 );
 
-            boxes_collected->setText("Boxes collected : " + collected);
+            boxes_collected->setText("Boxes collected : " + std::to_string(collected));
         }
     private:
         tgui::Label::Ptr boxes_collected = nullptr;

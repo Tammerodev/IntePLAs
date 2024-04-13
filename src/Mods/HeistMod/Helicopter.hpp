@@ -10,10 +10,22 @@ public:
         sprite.setPosition(-500, 0);
     }
     
-    void update(const float dt, const sf::Vector2f& playerPosition) {
+    void update(const float dt, Game& game, const sf::Vector2f& playerPosition) {
         sf::Vector2f target = playerPosition;
         sf::Vector2f movement = target - sprite.getPosition();
-        movement = math::normalize(movement) * 50.f;
+        movement = math::normalize(movement) * 150.f;
+
+        sf::Vector2i pos_i = sf::Vector2i(sprite.getPosition());
+
+        if(game.world.main_world.getChunkIndexer().doesLineContainMaterial(pos_i, pos_i + sf::Vector2i(40, 40))) {
+            movement.y = -0.5;
+            movement.x = -0.5;
+        }
+
+        if(game.world.main_world.getChunkIndexer().doesLineContainMaterial(pos_i, pos_i - sf::Vector2i(40, 40))) {
+            movement.y = 0.5;
+            movement.x = 0.5;
+        }
 
         if(sprite.getPosition().y > minAltitude) 
             movement.y = -0.5;

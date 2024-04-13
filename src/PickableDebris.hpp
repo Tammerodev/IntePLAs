@@ -51,6 +51,19 @@ class PickableDebris : public Particle {
             int a = rect.getFillColor().a - 1;
             if(a <= 0) a = 0;
 
+            physComponent.transform_position.y -= 10.f;
+
+            CollisionManager::CollisionState collision = CollisionManager::handleCollisionsWith(physComponent, *world, sf::Vector2u(rect.getSize()));
+
+            physComponent.transform_position.y += 10.f;
+
+            if(collision.hasCollision) {
+                physComponent.velocity.x /= 2.0;
+            }
+            
+            if(abs(pos.x - physComponent.transform_position.x) > 50) return;
+            if(abs(pos.y - physComponent.transform_position.y) > 50) return;
+
             float dist = math::distance(rect.getPosition(), pos);
             if(dist < 50.f && world != nullptr) {
                 if(dist < 10.f) {
@@ -71,17 +84,6 @@ class PickableDebris : public Particle {
             } else {
                 rect.setOutlineThickness(0.f);
             }
-
-            physComponent.transform_position.y -= 23.f;
-
-            CollisionManager::CollisionState collision = CollisionManager::handleCollisionsWith(physComponent, *world, sf::Vector2u(rect.getSize()));
-
-            physComponent.transform_position.y += 23.f;
-
-            if(collision.hasCollision) {
-                physComponent.velocity.x /= 2.0;
-            }
-            
 
         }
 
