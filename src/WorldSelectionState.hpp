@@ -83,7 +83,7 @@ private:
                 auto button = tgui::Button::create(entry.path().filename().c_str());
 				button->setSize(300, 80);
 
-				position.y = 100;
+				position.y = 100 + buttonIndex * 100;
                 position.x = (Display::window_width / 2) - button->getSize().x / 2;
 
 				button->setRenderer(theme.getRenderer("Button"));

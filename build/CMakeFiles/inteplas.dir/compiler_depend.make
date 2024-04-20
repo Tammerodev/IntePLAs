@@ -2623,6 +2623,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
@@ -3395,6 +3396,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: /home/lauri/Documents/Games/intepla
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
@@ -4560,6 +4562,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: /home/lauri/Documents/Games/inteplas/
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
@@ -5497,6 +5500,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: /home/lauri/Documents/Games/intep
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
@@ -6185,6 +6189,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: /home/lauri/Documents/Games/int
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
@@ -6711,6 +6716,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: /home/lauri/Documents/Games/int
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
@@ -7236,6 +7242,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: /home/lauri/Documents/Games/intepl
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
@@ -9357,6 +9364,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: /home/lauri/Documents/Games/in
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
@@ -10147,6 +10155,19 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: /home/lauri/Documents/Games/intepl
   /usr/include/c++/11/bits/stl_list.h \
   /usr/include/c++/11/bits/allocated_ptr.h \
   /usr/include/c++/11/bits/list.tcc \
+  /usr/include/c++/11/filesystem \
+  /usr/include/c++/11/bits/fs_fwd.h \
+  /usr/include/c++/11/bits/fs_path.h \
+  /usr/include/c++/11/iomanip \
+  /usr/include/c++/11/bits/quoted_string.h \
+  /usr/include/c++/11/sstream \
+  /usr/include/c++/11/bits/sstream.tcc \
+  /usr/include/c++/11/codecvt \
+  /usr/include/c++/11/ext/concurrence.h \
+  /usr/include/c++/11/bits/shared_ptr.h \
+  /usr/include/c++/11/bits/shared_ptr_base.h \
+  /usr/include/c++/11/bits/fs_dir.h \
+  /usr/include/c++/11/bits/fs_ops.h \
   /home/lauri/Documents/Games/inteplas/src/math.hpp \
   /usr/include/c++/11/random \
   /usr/include/c++/11/bits/random.h \
@@ -10171,9 +10192,6 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: /home/lauri/Documents/Games/intepl
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
   /usr/include/c++/11/bits/align.h \
-  /usr/include/c++/11/bits/shared_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr_base.h \
-  /usr/include/c++/11/ext/concurrence.h \
   /usr/include/c++/11/bits/shared_ptr_atomic.h \
   /usr/include/c++/11/bits/atomic_base.h \
   /usr/include/c++/11/bits/atomic_lockfree_defines.h \
@@ -10225,8 +10243,6 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: /home/lauri/Documents/Games/intepl
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  /usr/include/c++/11/sstream \
-  /usr/include/c++/11/bits/sstream.tcc \
   /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
@@ -10249,7 +10265,8 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: /home/lauri/Documents/Games/intepl
   /usr/include/c++/11/bits/fstream.tcc \
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp
 
 CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: /home/lauri/Documents/Games/inteplas/src/VoxelManager.cpp \
   /usr/include/stdc-predef.h \
@@ -10708,6 +10725,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: /home/lauri/Documents/Games/inte
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
@@ -11613,6 +11631,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: /home/lauri/Documents/Games/in
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
@@ -12135,6 +12154,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: /home/lauri/Documents/Games/inteplas/sr
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
@@ -12865,6 +12885,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -14538,6 +14559,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
 /usr/include/SFML/Audio/SoundRecorder.hpp:
 
 /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp:
+
+/home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp:
 
 /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/Helicopter.hpp:
 

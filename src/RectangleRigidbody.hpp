@@ -137,8 +137,6 @@ class RectangleRigidbody : public RigidBody {
 
                 reCalulatePoints(dipPoints);
 
-                loginf(point.transform_position.x, "<x-y>", point.transform_position.y);
-
                 ++index;
             }  
         }

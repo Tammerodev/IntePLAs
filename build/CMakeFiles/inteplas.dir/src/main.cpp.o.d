@@ -531,6 +531,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../RectangleRigidbody.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Rigidbody.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Controls.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../ProceduralGeneration.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../FastNoiseLite.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../WorldJsonReader.hpp \

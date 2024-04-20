@@ -369,6 +369,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/assert.h \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Utils/StringUtils.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../FastNoiseLite.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../ProceduralGeneration.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../WorldJsonReader.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Biome/Desert.hpp \

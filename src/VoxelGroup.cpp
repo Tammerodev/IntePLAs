@@ -36,6 +36,9 @@ int VoxelGroup::load(const sf::Image &copy_img)
 {
     img = copy_img;
 
+    voxelGroupID = VoxelGroupIDGenerator::getNextID();
+    prndd(voxelGroupID);
+
     world_sx = img.getSize().x;
     world_sy = img.getSize().y;
 
@@ -113,6 +116,8 @@ void VoxelGroup::resetUsedFlag()
 void VoxelGroup::update(ChunkIndexer& world, const float dt)
 {
     if(getDestroyed()) return;
+
+    VoxelGroupIDGenerator::checkID(voxelGroupID);
 
     if(Controls::isPressed(sf::Keyboard::H))
         setVelocity({0.f, -5.f});

@@ -6,6 +6,8 @@
 #include <thread>
 #include <optional>
 #include <list>
+#include <filesystem>
+#include <iostream>
 
 #include "math.hpp"
 #include "Voxel.hpp"
@@ -21,6 +23,7 @@
 #include "RectangleRigidbody.hpp"
 #include "Globals.hpp"
 #include "Controls.hpp"
+#include "VoxelGroupIDGenerator.hpp"
 
 #include <list>
 #include <memory>
@@ -34,6 +37,107 @@ public:
 
     VoxelGroup() : DispawnableVoxelObject() {
 
+    }
+
+    bool loadFromStorage(const std::string &path, const int id = 0) {
+        voxelGroupID = id;
+
+        std::ifstream infoFileStream;
+        infoFileStream.open(path + "/data.rdata", std::ifstream::in);
+
+        if(!infoFileStream.is_open()) {
+            prnerr("Could not open info file stream when loading from storage! Path is ", path + "/data.rdata");
+        }
+
+        float left   = 1.f;
+        float top    = 1.f;
+        float width  = 1.f;
+        float height = 1.f;
+
+        infoFileStream >> left >> top >> width >> height;
+
+        if (infoFileStream.fail()) {
+            prnerr("Error reading values from file", "!");
+        }
+
+        infoFileStream.close();
+
+        if(!img.loadFromFile(path + "/img.png")) {
+            prnerr("Could not load image from ", path);
+            img.create(16, 16, sf::Color::Magenta);
+        }
+
+        if(img.getSize().x != width || img.getSize().y != height) {
+            prnerr("Loaded image size does not match info.rdata size (lines 3-4)", "!");
+        }
+
+        spr.setPosition(left, top);
+
+        sf::FloatRect rect;
+
+        world_sx = img.getSize().x;
+        world_sy = img.getSize().y;
+
+        tex.create(world_sx,world_sy);
+
+        for(unsigned int i = 0; i < img.getSize().y; i++)
+        {
+            std::vector <Voxel> voxRow;
+            for(unsigned int j = 0; j < img.getSize().x; j++)
+            {
+                voxRow.push_back(Voxel());
+            }
+            grid.push_back(voxRow);
+        }
+
+        for (uint64_t y = 0; y < world_sy; y++) {
+            for (uint64_t x = 0; x < world_sx; x++) {
+                const sf::Color px = img.getPixel(x,y);
+                getVoxelAt(x,y) = getValueFromCol(px, sf::Vector2i(x,y));
+            }
+        }
+
+        tex.update(img);
+        spr.setTexture(tex);
+
+        rigidBody.loadFromRectangle(spr.getGlobalBounds());
+        return true;
+    }
+
+    void save() {
+        if(!VoxelGroupIDGenerator::checkID(voxelGroupID)) {
+            prnerr("Voxel group ID was set to 0 while trying to save", "!");         
+            return;
+        }
+
+        const std::string created_folder = StorageSettings::save_path + Globals::exitSaveName + "/voxelGroups/" + std::to_string(voxelGroupID);
+        const std::string infoFile = created_folder + "/data.rdata";
+
+        if (!std::filesystem::create_directories(created_folder)) {
+            prnerr("Could not create folder for voxel groups! Path is ", created_folder);
+            return;
+        }
+
+        loginf("Voxel group save folder created in ", created_folder, ".");
+
+        img.saveToFile(created_folder + "/img.png");
+
+        std::fstream infoFileStream;
+        infoFileStream.open(infoFile, std::fstream::out);
+
+        if(infoFileStream.bad()) {
+            prnerr("Could not create info file for voxel groups! Path is ", created_folder);
+            infoFileStream.close();
+            return;
+        }
+
+        infoFileStream << spr.getGlobalBounds().left   << '\n';
+        infoFileStream << spr.getGlobalBounds().top    << '\n';
+        infoFileStream << spr.getGlobalBounds().width  << '\n';
+        infoFileStream << spr.getGlobalBounds().height << '\n';
+
+        infoFileStream.close();
+        destroy();
     }
     
     std::pair<bool, sf::FloatRect> getOvelapWithRect(const sf::FloatRect &collider);
@@ -115,6 +219,8 @@ public:
     std::vector<sf::Vector2i> updateChunks;
     sf::Image img;
 private:
+
+    int voxelGroupID = 0;
 
     void destroy() {
         grid.clear();

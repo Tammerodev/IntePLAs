@@ -10,6 +10,8 @@
 #include "CollisionManager.hpp"
 #include "MobManager.hpp"
 
+namespace fs = std::filesystem;
+
 class World {
 public:
     bool init(const std::string path) {
@@ -33,6 +35,7 @@ public:
             if(!main_world.generateVegetation()) res = false;
         } else {
             main_world.loadProcGenData(path);
+            loadAddWorlds(StorageSettings::save_path + path + "/voxelGroups");
         }
 
         mobManager.load();
@@ -111,6 +114,10 @@ public:
 
     void save() {
         main_world.save();
+
+        for(auto &world : add_worlds) {
+            world.save();
+        }
     }   
 
     bool checkEntityCollisions(const sf::Vector2f &point) {
@@ -147,6 +154,19 @@ public:
 
         for(auto &world : add_worlds) {
             world.render(target, view_center);
+        }
+    }
+
+    void loadAddWorlds(const std::string &path) {
+        for (const auto& entry : fs::directory_iterator(path)) {
+            if (fs::is_directory(entry.path())) {
+                const std::string& completePath = entry.path();
+
+                VoxelGroup group;
+                group.loadFromStorage(completePath, std::stoi(entry.path().stem()));
+
+                add_worlds.emplace_back(group);
+            }
         }
     }
 
