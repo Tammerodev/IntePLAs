@@ -2593,9 +2593,9 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
-  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
@@ -2620,6 +2620,11 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
   /home/lauri/Documents/Games/inteplas/src/VegetationInfo.hpp \
@@ -2627,11 +2632,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
-  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
-  /usr/include/assert.h \
-  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -2888,6 +2888,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendTextureSFML.hpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendRenderTargetSFML.hpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
+  /usr/include/TGUI/Widgets/CanvasBase.hpp \
   /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
   /home/lauri/Documents/Games/inteplas/src/ItemCreateItem.hpp \
   /home/lauri/Documents/Games/inteplas/src/GeigerCounter.hpp \
@@ -3364,9 +3365,9 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: /home/lauri/Documents/Games/intepla
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
-  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
@@ -3391,6 +3392,11 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: /home/lauri/Documents/Games/intepla
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
   /home/lauri/Documents/Games/inteplas/src/VegetationInfo.hpp \
@@ -3398,11 +3404,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: /home/lauri/Documents/Games/intepla
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
-  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
-  /usr/include/assert.h \
-  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -3659,6 +3660,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: /home/lauri/Documents/Games/intepla
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendTextureSFML.hpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendRenderTargetSFML.hpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
+  /usr/include/TGUI/Widgets/CanvasBase.hpp \
   /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
   /home/lauri/Documents/Games/inteplas/src/ItemCreateItem.hpp \
   /home/lauri/Documents/Games/inteplas/src/GeigerCounter.hpp \
@@ -4528,9 +4530,9 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: /home/lauri/Documents/Games/inteplas/
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
-  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
@@ -4555,6 +4557,11 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: /home/lauri/Documents/Games/inteplas/
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
   /home/lauri/Documents/Games/inteplas/src/VegetationInfo.hpp \
@@ -4562,11 +4569,6 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: /home/lauri/Documents/Games/inteplas/
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
-  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
-  /usr/include/assert.h \
-  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -5465,9 +5467,9 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: /home/lauri/Documents/Games/intep
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
-  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
@@ -5492,6 +5494,11 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: /home/lauri/Documents/Games/intep
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
   /home/lauri/Documents/Games/inteplas/src/VegetationInfo.hpp \
@@ -5499,11 +5506,6 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: /home/lauri/Documents/Games/intep
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
-  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
-  /usr/include/assert.h \
-  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -5720,6 +5722,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: /home/lauri/Documents/Games/intep
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendTextureSFML.hpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendRenderTargetSFML.hpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
+  /usr/include/TGUI/Widgets/CanvasBase.hpp \
   /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp
 
 CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: /home/lauri/Documents/Games/inteplas/src/Mob/Fish/Fish.cpp \
@@ -6152,9 +6155,9 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: /home/lauri/Documents/Games/int
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
-  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
@@ -6179,6 +6182,11 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: /home/lauri/Documents/Games/int
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
   /home/lauri/Documents/Games/inteplas/src/VegetationInfo.hpp \
@@ -6186,11 +6194,6 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: /home/lauri/Documents/Games/int
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
-  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
-  /usr/include/assert.h \
-  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -6678,9 +6681,9 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: /home/lauri/Documents/Games/int
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
-  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
@@ -6705,6 +6708,11 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: /home/lauri/Documents/Games/int
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
   /home/lauri/Documents/Games/inteplas/src/VegetationInfo.hpp \
@@ -6712,11 +6720,6 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: /home/lauri/Documents/Games/int
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
-  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
-  /usr/include/assert.h \
-  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -7203,9 +7206,9 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: /home/lauri/Documents/Games/intepl
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
-  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
@@ -7230,6 +7233,11 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: /home/lauri/Documents/Games/intepl
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
   /home/lauri/Documents/Games/inteplas/src/VegetationInfo.hpp \
@@ -7237,11 +7245,6 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: /home/lauri/Documents/Games/intepl
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
-  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
-  /usr/include/assert.h \
-  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -9324,9 +9327,9 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: /home/lauri/Documents/Games/in
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
-  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
@@ -9351,6 +9354,11 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: /home/lauri/Documents/Games/in
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
   /home/lauri/Documents/Games/inteplas/src/VegetationInfo.hpp \
@@ -9358,11 +9366,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: /home/lauri/Documents/Games/in
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
-  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
-  /usr/include/assert.h \
-  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -9619,6 +9622,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: /home/lauri/Documents/Games/in
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendTextureSFML.hpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendRenderTargetSFML.hpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
+  /usr/include/TGUI/Widgets/CanvasBase.hpp \
   /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
   /home/lauri/Documents/Games/inteplas/src/ItemCreateItem.hpp \
   /home/lauri/Documents/Games/inteplas/src/GeigerCounter.hpp \
@@ -10213,7 +10217,39 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: /home/lauri/Documents/Games/intepl
   /home/lauri/Documents/Games/inteplas/src/Elements/BurnedMaterial.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp
+  /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
+  /usr/include/c++/11/cstddef \
+  /usr/include/c++/11/sstream \
+  /usr/include/c++/11/bits/sstream.tcc \
+  /usr/include/jsoncpp/json/allocator.h \
+  /usr/include/c++/11/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
+  /usr/include/c++/11/stack \
+  /usr/include/c++/11/bits/stl_stack.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/c++/11/fstream \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+  /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp
 
 CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: /home/lauri/Documents/Games/inteplas/src/VoxelManager.cpp \
   /usr/include/stdc-predef.h \
@@ -10642,9 +10678,9 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: /home/lauri/Documents/Games/inte
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
-  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
@@ -10669,6 +10705,11 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: /home/lauri/Documents/Games/inte
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
   /home/lauri/Documents/Games/inteplas/src/VegetationInfo.hpp \
@@ -10676,11 +10717,6 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: /home/lauri/Documents/Games/inte
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
-  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
-  /usr/include/assert.h \
-  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -11547,9 +11583,9 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: /home/lauri/Documents/Games/in
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
-  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
@@ -11574,6 +11610,11 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: /home/lauri/Documents/Games/in
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
   /home/lauri/Documents/Games/inteplas/src/VegetationInfo.hpp \
@@ -11581,11 +11622,6 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: /home/lauri/Documents/Games/in
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
-  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
-  /usr/include/assert.h \
-  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -12069,9 +12105,9 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: /home/lauri/Documents/Games/inteplas/sr
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
-  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
-  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
   /usr/include/jsoncpp/json/forwards.h \
   /usr/include/jsoncpp/json/config.h \
@@ -12096,6 +12132,11 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: /home/lauri/Documents/Games/inteplas/sr
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/assert.h \
+  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
   /home/lauri/Documents/Games/inteplas/src/VegetationInfo.hpp \
@@ -12103,11 +12144,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: /home/lauri/Documents/Games/inteplas/sr
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
-  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
-  /usr/include/assert.h \
-  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -12698,6 +12734,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendTextureSFML.hpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendRenderTargetSFML.hpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
+  /usr/include/TGUI/Widgets/CanvasBase.hpp \
   /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
   /home/lauri/Documents/Games/inteplas/src/State.hpp \
   /home/lauri/Documents/Games/inteplas/src/Menustate.hpp \
@@ -12827,6 +12864,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -12837,7 +12875,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /home/lauri/Documents/Games/inteplas/src/MobType.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
   /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
   /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \
@@ -13283,6 +13320,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
 /home/lauri/Documents/Games/inteplas/src/ThrowInteface.hpp:
 
 /home/lauri/Documents/Games/inteplas/src/DebugPlacer.hpp:
+
+/usr/include/TGUI/Widgets/CanvasBase.hpp:
 
 /home/lauri/Documents/Games/inteplas/src/Mob/Fish/FishSwimState.hpp:
 

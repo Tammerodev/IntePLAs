@@ -415,6 +415,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendTextureSFML.hpp \
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendRenderTargetSFML.hpp \
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
+ /usr/include/TGUI/Widgets/CanvasBase.hpp \
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
  /home/lauri/Documents/Games/inteplas/src/State.hpp \
  /home/lauri/Documents/Games/inteplas/src/Menustate.hpp \
@@ -529,6 +530,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Elements/Element.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../RectangleRigidbody.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Rigidbody.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Controls.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../ProceduralGeneration.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../FastNoiseLite.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../WorldJsonReader.hpp \
@@ -539,7 +541,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Biome/../MobType.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Biome/Ocean.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Biome/Mountains.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Controls.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Elements/Acid.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Elements/GravityFluid.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Elements/GravityElement.hpp \

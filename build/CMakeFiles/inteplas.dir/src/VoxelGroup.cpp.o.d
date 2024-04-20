@@ -335,4 +335,24 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
  /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
- /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp
+ /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+ /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
+ /usr/include/jsoncpp/json/value.h /usr/include/jsoncpp/json/forwards.h \
+ /usr/include/jsoncpp/json/config.h /usr/include/c++/11/cstddef \
+ /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc \
+ /usr/include/jsoncpp/json/allocator.h /usr/include/c++/11/cstring \
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/jsoncpp/json/version.h /usr/include/jsoncpp/json/json.h \
+ /usr/include/jsoncpp/json/json_features.h \
+ /usr/include/jsoncpp/json/reader.h /usr/include/jsoncpp/json/value.h \
+ /usr/include/c++/11/deque /usr/include/c++/11/bits/stl_deque.h \
+ /usr/include/c++/11/bits/deque.tcc /usr/include/c++/11/stack \
+ /usr/include/c++/11/bits/stl_stack.h /usr/include/jsoncpp/json/writer.h \
+ /usr/include/jsoncpp/json/writer.h /usr/include/c++/11/fstream \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc /usr/include/assert.h \
+ /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+ /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp

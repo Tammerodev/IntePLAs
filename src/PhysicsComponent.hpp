@@ -57,6 +57,19 @@ struct PhysicsComponent {
         return sf::Vector2f(cos(angle) * (p.x - cx) - sin(angle) * (p.y - cy) + cx,
                     sin(angle) * (p.x - cx) + cos(angle) * (p.y - cy) + cy);
     }
+
+    void applyGravity(float dt = 0.0) {
+        if(has_gravity)
+            velocity.y += (PhysicsGlobals::gravity * dt);
+    }
+
+    void applyTransforms() {             
+        transform_position += velocity;
+
+        float rotation = std::atan2(velocity.y, velocity.x) * (180.0 / math::PI);
+
+        transform_rotation = rotation;
+    }
     
     void update(float dt = 0.0) {
         if(has_gravity)

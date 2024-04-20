@@ -350,9 +350,9 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Elements/Element.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../RectangleRigidbody.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Rigidbody.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../ProceduralGeneration.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../FastNoiseLite.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../WorldJsonReader.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Controls.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Settings.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../JsonManager.hpp \
  /usr/include/jsoncpp/json/value.h /usr/include/jsoncpp/json/forwards.h \
  /usr/include/jsoncpp/json/config.h /usr/include/c++/11/cstddef \
  /usr/include/jsoncpp/json/allocator.h /usr/include/c++/11/cstring \
@@ -366,7 +366,11 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /usr/include/jsoncpp/json/writer.h /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc \
+ /usr/include/c++/11/bits/fstream.tcc /usr/include/assert.h \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Utils/StringUtils.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../FastNoiseLite.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../ProceduralGeneration.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../WorldJsonReader.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Biome/Desert.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Biome/Biome.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Biome/../VegetationInfo.hpp \
@@ -374,11 +378,6 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Biome/../MobType.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Biome/Ocean.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Biome/Mountains.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Settings.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../JsonManager.hpp \
- /usr/include/assert.h \
- /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Utils/StringUtils.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Controls.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Elements/Acid.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Elements/GravityFluid.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Elements/GravityElement.hpp \

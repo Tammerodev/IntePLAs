@@ -113,7 +113,12 @@ void VoxelGroup::resetUsedFlag()
 void VoxelGroup::update(ChunkIndexer& world, const float dt)
 {
     if(getDestroyed()) return;
-    
+
+    if(Controls::isPressed(sf::Keyboard::H))
+        setVelocity({0.f, -5.f});
+    if(Controls::isPressed(sf::Keyboard::G))
+        setVelocity({-5.f, 1.f});
+
     tex.update(img);
     spr.setTexture(tex);
 

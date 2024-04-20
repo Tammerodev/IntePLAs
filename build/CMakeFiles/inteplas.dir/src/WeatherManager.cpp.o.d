@@ -347,9 +347,9 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
  /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
  /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
- /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
- /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
- /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
+ /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
  /usr/include/jsoncpp/json/value.h /usr/include/jsoncpp/json/forwards.h \
  /usr/include/jsoncpp/json/config.h /usr/include/c++/11/cstddef \
  /usr/include/jsoncpp/json/allocator.h /usr/include/c++/11/cstring \
@@ -363,7 +363,11 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: \
  /usr/include/jsoncpp/json/writer.h /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc \
+ /usr/include/c++/11/bits/fstream.tcc /usr/include/assert.h \
+ /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
+ /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+ /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
+ /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
  /home/lauri/Documents/Games/inteplas/src/Biome/Desert.hpp \
  /home/lauri/Documents/Games/inteplas/src/Biome/Biome.hpp \
  /home/lauri/Documents/Games/inteplas/src/Biome/../VegetationInfo.hpp \
@@ -371,11 +375,6 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Biome/../MobType.hpp \
  /home/lauri/Documents/Games/inteplas/src/Biome/Ocean.hpp \
  /home/lauri/Documents/Games/inteplas/src/Biome/Mountains.hpp \
- /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
- /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
- /usr/include/assert.h \
- /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
- /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
  /home/lauri/Documents/Games/inteplas/src/Elements/Acid.hpp \
  /home/lauri/Documents/Games/inteplas/src/Elements/GravityFluid.hpp \
  /home/lauri/Documents/Games/inteplas/src/Elements/GravityElement.hpp \

@@ -20,6 +20,7 @@
 #include "Raycast.hpp"
 #include "RectangleRigidbody.hpp"
 #include "Globals.hpp"
+#include "Controls.hpp"
 
 #include <list>
 #include <memory>
@@ -116,9 +117,9 @@ public:
 private:
 
     void destroy() {
-        /*grid.clear();
+        grid.clear();
         rects.clear();
-        setDestroyed(true);*/
+        setDestroyed(true);
     }
 
     RectangleRigidbody rigidBody;

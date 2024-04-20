@@ -359,9 +359,9 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Elements/Element.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../RectangleRigidbody.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Rigidbody.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../ProceduralGeneration.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../FastNoiseLite.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../WorldJsonReader.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Controls.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Settings.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../JsonManager.hpp \
  /usr/include/jsoncpp/json/value.h /usr/include/jsoncpp/json/forwards.h \
  /usr/include/jsoncpp/json/config.h /usr/include/c++/11/cstddef \
  /usr/include/jsoncpp/json/allocator.h /usr/include/c++/11/cstring \
@@ -375,7 +375,11 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /usr/include/jsoncpp/json/writer.h /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc \
+ /usr/include/c++/11/bits/fstream.tcc /usr/include/assert.h \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Utils/StringUtils.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../FastNoiseLite.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../ProceduralGeneration.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../WorldJsonReader.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Biome/Desert.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Biome/Biome.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Biome/../VegetationInfo.hpp \
@@ -383,11 +387,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Biome/../MobType.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Biome/Ocean.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Biome/Mountains.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Settings.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../JsonManager.hpp \
- /usr/include/assert.h \
- /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Utils/StringUtils.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Controls.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Elements/Acid.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Elements/GravityFluid.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Elements/GravityElement.hpp \
@@ -621,6 +620,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendTextureSFML.hpp \
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendRenderTargetSFML.hpp \
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
+ /usr/include/TGUI/Widgets/CanvasBase.hpp \
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../ItemCreateItem.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../GeigerCounter.hpp \

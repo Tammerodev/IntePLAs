@@ -107,15 +107,33 @@ class RectangleRigidbody : public RigidBody {
 
             for(auto &point : points) {
                 const int collision = world.getPixelCollision(point.transform_position).first;
-                
-                if(collision) { 
-                    point.velocity.y--;
-                    point.velocity.y = 0.f;
 
-                    dipPoints.emplace_back(index);
-                } else {
-                    point.update(1.f);
+                point.applyGravity(1.f);
+                
+                if(collision) {
+                    if(point.velocity.y >= 0.0f) { 
+                        point.velocity.y -= point.velocity.y;
+
+                        dipPoints.emplace_back(index);
+                    } else if (point.velocity.y < -0.1f) {
+                        point.transform_position.y -= point.velocity.y;
+
+                        dipPoints.emplace_back(index);
+                    } else if (point.velocity.x > 0.1f) {
+                        point.transform_position.x -= 1;
+                        point.velocity.x = -1.f;
+
+                        dipPoints.emplace_back(index);
+                    } else if (point.velocity.x < -0.1f) {
+                        point.transform_position.x += 1;
+                        point.velocity.x = 1.f;
+
+                        dipPoints.emplace_back(index);
+                    }
                 }
+                
+                point.applyTransforms();
+                
 
                 reCalulatePoints(dipPoints);
 

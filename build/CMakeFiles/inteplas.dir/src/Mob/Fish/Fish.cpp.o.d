@@ -350,9 +350,9 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Elements/Element.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../RectangleRigidbody.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Rigidbody.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../ProceduralGeneration.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../FastNoiseLite.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../WorldJsonReader.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Controls.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Settings.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../JsonManager.hpp \
  /usr/include/jsoncpp/json/value.h /usr/include/jsoncpp/json/forwards.h \
  /usr/include/jsoncpp/json/config.h /usr/include/c++/11/cstddef \
  /usr/include/jsoncpp/json/allocator.h /usr/include/c++/11/cstring \
@@ -366,7 +366,11 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /usr/include/jsoncpp/json/writer.h /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc \
+ /usr/include/c++/11/bits/fstream.tcc /usr/include/assert.h \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Utils/StringUtils.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../FastNoiseLite.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../ProceduralGeneration.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../WorldJsonReader.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Biome/Desert.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Biome/Biome.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Biome/../VegetationInfo.hpp \
@@ -374,11 +378,6 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Biome/../MobType.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Biome/Ocean.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Biome/Mountains.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Settings.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../JsonManager.hpp \
- /usr/include/assert.h \
- /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Utils/StringUtils.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Controls.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Elements/Acid.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Elements/GravityFluid.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Elements/GravityElement.hpp \
