@@ -11,12 +11,22 @@ class RigidBody {
                 sf::CircleShape circle;
                 circle.setPosition(point.transform_position);
                 circle.setFillColor(sf::Color::Red);
-                circle.setRadius(2.0);
+                circle.setRadius(1.0);
                 
 
                 target.draw(circle);
             }
+            
+
+            sf::CircleShape circle;
+            circle.setPosition(cog.transform_position);
+            circle.setFillColor(sf::Color::Blue);
+            circle.setRadius(3.0);
+            
+
+            target.draw(circle);
         }
     protected:
+        PhysicsComponent cog;
         std::vector<PhysicsComponent> points;
 };

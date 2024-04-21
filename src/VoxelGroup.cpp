@@ -128,7 +128,7 @@ void VoxelGroup::update(ChunkIndexer& world, const float dt)
     spr.setTexture(tex);
 
     rigidBody.setRect(spr.getGlobalBounds());
-    rigidBody.calculatePoints(world);
+    rigidBody.update(dt, world);
 
     rigidBody.setSpritePoints(spr);
 
