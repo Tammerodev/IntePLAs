@@ -61,10 +61,8 @@ int VoxelGroup::load(const sf::Image &copy_img)
         }
     }
 
-    tex.update(img);
-    spr.setTexture(tex);
-
-    rigidBody.loadFromRectangle(spr.getGlobalBounds());
+    tex.loadFromImage(img);
+    vertSpr.load(tex);
     return true;
 }
 
@@ -98,9 +96,9 @@ void VoxelGroup::heatVoxelAt(int64_t x, int64_t y, int64_t temp)
 
 void VoxelGroup::render(sf::RenderTarget &target, const sf::Vector2f &center)
 {
-    if(destroyed) return;
+    //if(destroyed) return;
 
-    target.draw(spr);
+    vertSpr.render(target, tex);
     rigidBody.debugRender(target);
 }
 
@@ -125,12 +123,10 @@ void VoxelGroup::update(ChunkIndexer& world, const float dt)
         setVelocity({-5.f, 1.f});
 
     tex.update(img);
-    spr.setTexture(tex);
 
-    rigidBody.setRect(spr.getGlobalBounds());
     rigidBody.update(dt, world);
 
-    rigidBody.setSpritePoints(spr);
+    rigidBody.setVertexSpritePoints(vertSpr);
 
     world_sx = img.getSize().x;
     world_sy = img.getSize().y;
@@ -148,7 +144,7 @@ void VoxelGroup::hole(const sf::Vector2i &pos, const uint32_t& intensity, bool f
     }
 
 
-    sf::Vector2i p = pos - sf::Vector2i(spr.getPosition());
+    sf::Vector2i p = pos - sf::Vector2i(vertSpr.getVertex(0).position);         // TODO:
     if(p.x <= 0) p.x = 0;
     if(p.y <= 0) p.y = 0;
     if(p.x >= (int)world_sx) p.x = (int)world_sx;

@@ -350,7 +350,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Elements/Element.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../RectangleRigidbody.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Rigidbody.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Controls.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Graphics/VertexSprite.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Settings.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../JsonManager.hpp \
  /usr/include/jsoncpp/json/value.h /usr/include/jsoncpp/json/forwards.h \
@@ -369,6 +369,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/assert.h \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Utils/StringUtils.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../FastNoiseLite.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Controls.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../ProceduralGeneration.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../WorldJsonReader.hpp \

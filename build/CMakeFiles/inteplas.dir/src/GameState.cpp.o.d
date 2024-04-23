@@ -359,7 +359,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Elements/Element.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../RectangleRigidbody.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Rigidbody.hpp \
- /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Controls.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Graphics/VertexSprite.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Settings.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../JsonManager.hpp \
  /usr/include/jsoncpp/json/value.h /usr/include/jsoncpp/json/forwards.h \
@@ -378,6 +378,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/assert.h \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Utils/StringUtils.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../FastNoiseLite.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Controls.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../ProceduralGeneration.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../WorldJsonReader.hpp \

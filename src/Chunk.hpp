@@ -23,7 +23,7 @@ struct Chunk {
     static const int sizeX = 16; 
     static const int sizeY = 16;
 
-    std::array<std::array<Voxel, 16>, 16> arr;
+    Voxel arr[16][16];
 
     void create() {
         image = new sf::Image();
@@ -52,7 +52,7 @@ struct Chunk {
         }
 
         // Delete image
-        image->saveToFile(utils::path + utils::getPath(position.x, position.y));
+        image->saveToFile(utils::path + "cache/" + utils::getPath(position.x, position.y));
         delete image;
         image = nullptr;
 
@@ -61,14 +61,14 @@ struct Chunk {
 
     sf::Image &getImage() {
         if(image == nullptr) {
-            load((utils::path + utils::getPath(position.x, position.y)).c_str());
+            load((utils::path + "cache/" + utils::getPath(position.x, position.y)).c_str());
         }
         return *image;
     }
 
     void update() {
         if(image == nullptr) {
-            load((utils::path + utils::getPath(position.x, position.y)).c_str());
+            load((utils::path + "cache/" + utils::getPath(position.x, position.y)).c_str());
         }
         
         tx.update(*image);

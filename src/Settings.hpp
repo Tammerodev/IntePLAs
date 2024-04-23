@@ -38,6 +38,21 @@ namespace GraphicsSettings {
     }
 }
 
+namespace PhysicsSettings {
+    inline unsigned int substeps = 25;
+
+    inline bool loadPhysicsSettings() {
+        bool result = false;
+
+        JsonReader reader;
+        result = reader.open("json/physicssettings.json");
+        result = reader.init();
+
+        substeps = std::stoi(reader.readParameterAsString("substeps"));
+        return result;
+    }
+}
+
 namespace WorldSettings {
     inline unsigned int createSizeX = 0;
     inline unsigned int createSizeY = 0;
@@ -155,6 +170,12 @@ namespace SettingsLoader {
         if(!SoundSettings::loadSettings()) result = false;
 
         loginf("Loaded data from JSON : save path = ", SoundSettings::music_volume, ".");
+
+        if(!PhysicsSettings::loadPhysicsSettings()) result = false;
+
+        loginf("Loaded data from JSON : substeps = ", PhysicsSettings::substeps, ".");
+
+
 
         return result;
     }

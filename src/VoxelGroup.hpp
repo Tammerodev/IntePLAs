@@ -24,6 +24,7 @@
 #include "Globals.hpp"
 #include "Controls.hpp"
 #include "VoxelGroupIDGenerator.hpp"
+#include "Graphics/VertexSprite.hpp"
 
 #include <list>
 #include <memory>
@@ -71,8 +72,6 @@ public:
             prnerr("Loaded image size does not match info.rdata size (lines 3-4)", "!");
         }
 
-        spr.setPosition(left, top);
-
         sf::FloatRect rect;
 
         world_sx = img.getSize().x;
@@ -98,9 +97,9 @@ public:
         }
 
         tex.update(img);
-        spr.setTexture(tex);
+        vertSpr.load(tex);
 
-        rigidBody.loadFromRectangle(spr.getGlobalBounds());
+        setPosition(sf::Vector2f(left, top));
         return true;
     }
 
@@ -131,10 +130,10 @@ public:
             return;
         }
 
-        infoFileStream << spr.getGlobalBounds().left   << '\n';
-        infoFileStream << spr.getGlobalBounds().top    << '\n';
-        infoFileStream << spr.getGlobalBounds().width  << '\n';
-        infoFileStream << spr.getGlobalBounds().height << '\n';
+        infoFileStream << vertSpr.getVertex(0).position.x   << '\n';
+        infoFileStream << vertSpr.getVertex(0).position.y   << '\n';
+        infoFileStream << tex.getSize().x << '\n';
+        infoFileStream << tex.getSize().y << '\n';
 
         infoFileStream.close();
         destroy();
@@ -150,20 +149,24 @@ public:
     }
 
     void setPosition(const sf::Vector2f& pos) {
-        spr.setPosition(pos);
+        sf::Sprite boundSprite;
+        boundSprite.setPosition(pos.x, pos.y);
+        boundSprite.setTexture(tex);
+
+        rigidBody.loadFromRectangle(boundSprite.getGlobalBounds());
     }
 
-    const sf::Vector2f& getPosition() const {
-        return spr.getPosition();
+    const sf::Vector2f& getPosition() {
+        return vertSpr.getVertex(0).position;
     }
 
     void setVelocity(const sf::Vector2f& vel) {
-        rigidBody.setVelocityInAllPoints(vel);
+        rigidBody.setVelocity(vel);
     }
 
     sf::FloatRect getCollider() {
         if(destroyed) return sf::FloatRect(-1000,-1000,0,0);
-        return spr.getGlobalBounds();
+        return sf::FloatRect(vertSpr.getVertex(0).position, sf::Vector2f(tex.getSize()));
     }
 
     void clearVoxelAt(const uint64_t x, const uint64_t y) {
@@ -203,7 +206,7 @@ public:
             for (uint64_t x = 0; x < world_sx;x++) {
                 if(getVoxelAt(x,y).value == VoxelValues::LITHIUM) {
                     main_world.holeRayCast(
-                        sf::Vector2i(spr.getPosition() + sf::Vector2f(x,y)), elm::lithiumExplosion, true, 100);
+                        sf::Vector2i(vertSpr.getVertex(0).position + sf::Vector2f(x,y)), elm::lithiumExplosion, true, 100);
                 }
                 damageVoxelAt(x,y);
             }
@@ -233,7 +236,7 @@ private:
     std::vector<std::vector<Voxel>> grid;
     std::vector<Collider> rects;
     sf::Texture tex;
-    sf::Sprite spr;
+    VertexSprite vertSpr;
 
     uint64_t world_sx;
     uint64_t world_sy;

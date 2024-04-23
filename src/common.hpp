@@ -4,7 +4,7 @@
 #include <cstdio>
 
 #define DEBUG 1
-#define USE_MULTITHREADING 1
+#define USE_MULTITHREADING 0
 #define PREALLOCATE_EFFECTS_COUNT 10
 
 #if DEBUG

@@ -2593,7 +2593,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -2623,6 +2623,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -3366,7 +3367,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: /home/lauri/Documents/Games/intepla
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -3396,6 +3397,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: /home/lauri/Documents/Games/intepla
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -4532,7 +4534,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: /home/lauri/Documents/Games/inteplas/
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -4562,6 +4564,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: /home/lauri/Documents/Games/inteplas/
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -5470,7 +5473,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: /home/lauri/Documents/Games/intep
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -5500,6 +5503,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: /home/lauri/Documents/Games/intep
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -6159,7 +6163,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: /home/lauri/Documents/Games/int
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -6189,6 +6193,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: /home/lauri/Documents/Games/int
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -6686,7 +6691,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: /home/lauri/Documents/Games/int
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -6716,6 +6721,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: /home/lauri/Documents/Games/int
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -7212,7 +7218,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: /home/lauri/Documents/Games/intepl
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -7242,6 +7248,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: /home/lauri/Documents/Games/intepl
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -9334,7 +9341,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: /home/lauri/Documents/Games/in
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -9364,6 +9371,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: /home/lauri/Documents/Games/in
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -10236,7 +10244,7 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: /home/lauri/Documents/Games/intepl
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -10266,6 +10274,7 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: /home/lauri/Documents/Games/intepl
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp
 
 CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: /home/lauri/Documents/Games/inteplas/src/VoxelManager.cpp \
@@ -10695,7 +10704,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: /home/lauri/Documents/Games/inte
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -10725,6 +10734,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: /home/lauri/Documents/Games/inte
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -11601,7 +11611,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: /home/lauri/Documents/Games/in
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -11631,6 +11641,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: /home/lauri/Documents/Games/in
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -12124,7 +12135,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: /home/lauri/Documents/Games/inteplas/sr
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
-  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
   /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
   /usr/include/jsoncpp/json/value.h \
@@ -12154,6 +12165,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: /home/lauri/Documents/Games/inteplas/sr
   /usr/include/assert.h \
   /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
   /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
   /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \
@@ -12884,6 +12896,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
   /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
   /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
   /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
+  /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
   /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
   /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
   /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
@@ -13368,6 +13381,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
 
 /home/lauri/Documents/Games/inteplas/src/Mob/Frog/FrogDeadState.hpp:
 
+/home/lauri/Documents/Games/inteplas/src/FontManager.hpp:
+
 /usr/include/SFML/Window/Keyboard.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
@@ -13716,6 +13731,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
 
 /usr/include/SFML/Window/Context.hpp:
 
+/home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp:
+
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
 /home/lauri/Documents/Games/inteplas/src/Mob/Fish/FishState.hpp:
@@ -13995,8 +14012,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src
 /usr/include/c++/11/bits/cpp_type_traits.h:
 
 /usr/include/c++/11/bits/std_thread.h:
-
-/home/lauri/Documents/Games/inteplas/src/FontManager.hpp:
 
 /usr/include/c++/11/bits/regex_scanner.tcc:
 

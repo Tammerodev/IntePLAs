@@ -18,15 +18,18 @@ int VoxelManager::load(std::string file)
 
     sf::Clock timer;
 
-    const bool create_new_world = file == "Create new world";
+    const bool create_new_world = (file == "Create new world");
 
     const std::string path = StorageSettings::save_path + file;
 
     utils::path = path + "/";
 
+    std::filesystem::create_directories(utils::path + "voxel/");
+    std::filesystem::create_directories(utils::path + "cache/");
+
     for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
         for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
-            std::string finalPath = utils::path + utils::getPath(x, y);
+            std::string finalPath = utils::path + "voxel/" + utils::getPath(x, y);
 
             chIndexer.getChunkAt(x, y).setPosition(sf::Vector2i(x, y));
 
@@ -565,10 +568,9 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
 {
     if(grp != nullptr) {
         VoxelGroup object = VoxelGroup();
+        object.load(cimg);
 
         object.setPosition(sf::Vector2f(p));
-
-        object.load(cimg);
 
         grp->emplace_back(object);
         return;

@@ -71,9 +71,9 @@ struct PhysicsComponent {
         transform_rotation = rotation;
     }
     
-    void update(float dt = 0.0) {
+    void update(float dt = 0.0, float grav = PhysicsGlobals::gravity) {
         if(has_gravity)
-            velocity.y += (PhysicsGlobals::gravity * dt);
+            velocity.y += grav * dt;
             
         transform_position += velocity;
 

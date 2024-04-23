@@ -261,7 +261,6 @@ private:
     void generateHeightMap(ChunkIndexer& grid, const int world_sx, const int world_sy) {
         // Generate Simplex noise values
         std::shared_ptr<Biome>& biome = biomes.at(math::randIntInRange(0, biomes.size() - 1));
-
         
         float amplitude = 300.f;
         float freq = 5.0f;

@@ -354,7 +354,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Elements/Element.hpp \
  /home/lauri/Documents/Games/inteplas/src/RectangleRigidbody.hpp \
  /home/lauri/Documents/Games/inteplas/src/Rigidbody.hpp \
- /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Graphics/VertexSprite.hpp \
  /home/lauri/Documents/Games/inteplas/src/Settings.hpp \
  /home/lauri/Documents/Games/inteplas/src/JsonManager.hpp \
  /usr/include/jsoncpp/json/value.h /usr/include/jsoncpp/json/forwards.h \
@@ -373,6 +373,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/assert.h \
  /home/lauri/Documents/Games/inteplas/src/Utils/StringUtils.hpp \
  /home/lauri/Documents/Games/inteplas/src/FastNoiseLite.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Controls.hpp \
  /home/lauri/Documents/Games/inteplas/src/VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/Games/inteplas/src/ProceduralGeneration.hpp \
  /home/lauri/Documents/Games/inteplas/src/WorldJsonReader.hpp \

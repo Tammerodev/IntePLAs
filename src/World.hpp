@@ -26,7 +26,33 @@ public:
         }
 
         load_state::setState(load_state::Initializing_map);
-        main_world.initVoxelMap();
+
+
+#if USE_MULTITHREADING
+        const int threads = 10;
+        std::vector<std::future<void>> futures;
+
+
+        for(int i = 0; i < threads; i++) {
+            int step = worldSize::world_sx / threads;
+            
+            futures.emplace_back(std::async(std::launch::deferred,[this, i, step]() {
+                main_world.initVoxelMap(i * step, 1+i * (step));
+                return;
+            }));
+        }
+
+        prndd("Waiting for init threads to finnish...");
+
+        for (auto& future : futures) {
+            future.wait();
+            prndd("Thread finished!");
+        }
+
+    
+#else 
+    main_world.initVoxelMap(0, worldSize::world_sx);
+#endif
 
         weatherManager.load();
 

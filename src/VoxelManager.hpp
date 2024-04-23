@@ -70,11 +70,15 @@ public:
 
     int load(std::string);
 
-    void initVoxelMap() {
-        for (int y = 0;y < worldSize::world_sy;y++) {
-            for (int x = 0;x < worldSize::world_sx;x++) {
+    void initVoxelMap(int start, int end) {
+
+        if(start >= worldSize::world_sx) start = worldSize::world_sx;
+        if(end >= worldSize::world_sx) end = worldSize::world_sx;
+
+        for (int x = start; x < end; x++) {
+            for (int y = 0; y < worldSize::world_sy; y++) {
                 const sf::Color px = chIndexer.getImagePixelAt(x,y);
-                chIndexer.getVoxelAt(x,y) = getHandleVoxel(px, sf::Vector2i(x,y), true);
+                chIndexer.getVoxelAt(x, y) = getHandleVoxel(px, sf::Vector2i(x,y), true);
             }
         }
     }
@@ -132,6 +136,11 @@ public:
             return;
         }
 
+        if (!std::filesystem::create_directories(created_folder + "/voxel")) {
+            prnerr("Could not create folder for save voxel images! Path is ", created_folder);
+            return;
+        }
+
 
         loginf("Created save folder folder located in ", created_folder, ".");
 
@@ -140,7 +149,7 @@ public:
         for (int y = 0; y < chunks_y; y++) {
             for (int x = 0; x < chunks_x; x++) {
                 const std::string filename = std::to_string(x) + "_" + std::to_string(y);
-                const std::string fullpath = created_folder + "/" + filename;
+                const std::string fullpath = created_folder + "/voxel/" + filename;
 
                 futures.emplace_back(std::async(std::launch::deferred, [fullpath, filename, this, x, y]() {
                     this->getChunkIndexer().getChunkAt(x, y).getImage().saveToFile(fullpath + ".png");
