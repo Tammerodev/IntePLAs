@@ -420,9 +420,36 @@ public:
         return chIndexer;
     }
 
-    void unloadAll() {
-        ChunkBounds bounds = ChunkBounds(0, 0, chunks_x, chunks_y);
+    void unloadAll(int start = 0, int end = chunks_x) {
+        ChunkBounds bounds = ChunkBounds(start, 0, end, chunks_y);
         unloadArea(bounds);
+    }
+
+    void unloadAllMultithreaded() {
+#if USE_MULTITHREADING
+        const int threads = 10;
+        std::vector<std::future<void>> futures;
+
+
+        for(int i = 0; i < threads; i++) {
+            int step = worldSize::world_sx / threads;
+            
+            futures.emplace_back(std::async(std::launch::deferred,[this, i, step]() {
+                unloadAll(i * step, (i + 1) * step);
+            }));
+        }
+
+        prndd("Waiting for unload threads to finnish...");
+
+        for (auto& future : futures) {
+            future.wait();
+            prndd("Thread finished!");
+        }
+
+    
+#else 
+    main_world.initVoxelMap(0, worldSize::world_sx);
+#endif
     }
 
     void unloadArea(ChunkBounds bounds) {

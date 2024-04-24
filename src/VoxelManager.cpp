@@ -553,10 +553,7 @@ bool VoxelManager::generateVegetation()
             // Build with no collisions
             build_image(sf::Vector2i(i, (2048 - h) - sourceRect.height + info.vegetationInfo.offset_up), selectedImage, nullptr, sf::Vector2f(0.f, 0.f), false);
         }
-
     }
-
-    
 
     loginf("Creating vegetation took ", timer.restart().asSeconds(), " seconds.");
 
@@ -571,6 +568,7 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
         object.load(cimg);
 
         object.setPosition(sf::Vector2f(p));
+        object.setVelocity(velocity);
 
         grp->emplace_back(object);
         return;
@@ -585,6 +583,11 @@ void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std
             if(x < 0) break;
 
             if(cimg.getPixel(x-p.x,y-p.y).a != 0) {
+
+                x = chIndexer.getBoundedVector(sf::Vector2i(x, y)).x;
+                y = chIndexer.getBoundedVector(sf::Vector2i(x, y)).y;
+
+
                 // Use one materials
                 chIndexer.setImagePixelAt(x,y,cimg.getPixel(x - p.x, y - p.y));
                 chIndexer.getVoxelAt(x, y) = getHandleVoxel(chIndexer.getImagePixelAt(x,y), sf::Vector2i(x,y), true);

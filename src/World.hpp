@@ -37,7 +37,7 @@ public:
             int step = worldSize::world_sx / threads;
             
             futures.emplace_back(std::async(std::launch::deferred,[this, i, step]() {
-                main_world.initVoxelMap(i * step, 1+i * (step));
+                main_world.initVoxelMap(i * step, (1 + i) * step);
                 return;
             }));
         }
@@ -68,8 +68,8 @@ public:
         mobManager.spawnMobs(main_world.procGen, main_world.getChunkIndexer());
         
         load_state::setState(load_state::Unloding_chunks);
-        main_world.unloadAll();
 
+        main_world.unloadAllMultithreaded();
 
         return res;
     }
@@ -82,7 +82,7 @@ public:
                 if(distance < point.strength) {
                     const sf::Vector2f velocity = -(point.position - world.getPosition()) / 10.f;
 
-                    world.setVelocity(velocity);
+                    world.setVelocity(velocity / 1.5f);
                 }
             }
         }

@@ -43,7 +43,7 @@ class HeistMod : public CustomGameMod {
             for(int i = 0; i < 10; i++)  {
                 sf::Vector2i position;
                 position.x = math::randIntInRange(0, worldSize::world_sx - 1);
-                position.y = 2048 - game.world.main_world.procGen.getHeightOnMap(position.x);
+                position.y = worldSize::world_sx - game.world.main_world.procGen.getHeightOnMap(position.x);
 
                 if(game.world.main_world.procGen.getBiomeAtPosition(position.x, game.world.main_world.getChunkIndexer()).getName() != "Ocean") {
                     sf::Image image;

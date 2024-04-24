@@ -1,5 +1,5 @@
 {
-    "world-size-x" : "80",
+    "world-size-x" : "300",
     "world-size-y" : "480",
 
     "noise-type" : "perlin",

@@ -301,7 +301,7 @@ private:
         sf::Vector2i position;
 
         position.x = math::randIntInRange(0, world_sx - 1);
-        position.y = 2048 - getHeightOnMap(position.x);
+        position.y = worldSize::world_sx  - getHeightOnMap(position.x);
 
         if(getBiomeAtPosition(position.x, grid).getName() == "Forest") {
             sf::Image image;
