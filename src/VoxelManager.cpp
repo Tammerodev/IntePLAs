@@ -277,47 +277,6 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
     sf::Sprite spriteRend;
 
     PlayerGlobal::radiation_received = 0;
-    
-
-    for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
-        for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
-            Chunk& chunk = chIndexer.boundGetChunkAt(x, y);
-
-            if(chunk.elements.empty()) chunk.needs_update = false;
-            if(!chunk.needs_update) continue;
-
-
-            auto e = chunk.elements.begin();
-            while (e != chunk.elements.end())
-            {
-                if(e->get() == nullptr) continue;
-                e->get()->update(chIndexer);
-
-                const sf::Vector2i chunk_p = e->get()->move_this_to_chunk(chIndexer);
-                const auto turned_into = e->get()->turn_into();
-                
-                if(turned_into != nullptr) {
-                    addElement(e->get()->x, e->get()->y, turned_into);
-                }
-
-                if(chunk_p != sf::Vector2i(x, y)) {
-
-                    chIndexer.boundGetChunkAt(chunk_p.x, chunk_p.y).elements.push_back(*e);
-
-                    chunk.needs_update = false;
-                    e = chunk.elements.erase(e);  
-                    continue;
-                }
-
-                if(e->get()->clear()) {
-                    e = chunk.elements.erase(e);  
-                }
-                else {
-                    ++e;  
-                }
-            }
-        }
-    }
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
@@ -358,6 +317,81 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
             }
 
         }
+    }
+
+
+#if USE_MULTITHREADING
+    updateElementsMultithreaded(draw_area);
+#else
+    updateElementsNonMultithreaded(draw_area);
+#endif
+}
+
+void VoxelManager::updateChunkElements(int x, int y, Chunk& chunk) {
+    auto e = chunk.elements.begin();
+    while (e != chunk.elements.end())
+    {
+        if(e->get() == nullptr) continue;
+        e->get()->update(chIndexer);
+
+        const sf::Vector2i &chunk_p = e->get()->move_this_to_chunk(chIndexer);
+        const auto turned_into = e->get()->turn_into();
+        
+        if(turned_into != nullptr) {
+            addElement(e->get()->x, e->get()->y, turned_into);
+        }
+
+        if(chunk_p != sf::Vector2i(x, y)) {
+
+            chIndexer.boundGetChunkAt(chunk_p.x, chunk_p.y).elements.emplace_back(*e);
+
+            chunk.needs_update = false;
+            e = chunk.elements.erase(e);  
+            continue;
+        }
+
+        if(e->get()->clear()) {
+            e = chunk.elements.erase(e);  
+        }
+        else {
+            ++e;  
+        }
+    }
+}
+
+void VoxelManager::updateElementsNonMultithreaded(ChunkArea& draw_area) {
+    for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
+        for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
+            Chunk& chunk = chIndexer.boundGetChunkAt(x, y);
+
+            if(!chunk.needs_update) continue;
+            if(chunk.elements.empty()) chunk.needs_update = false;
+
+            updateChunkElements(x, y, chunk);
+        }
+    }
+}
+
+void VoxelManager::updateElementsMultithreaded(ChunkArea& draw_area) {
+    std::vector<std::future<void>> futures;
+
+    for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
+        // Creating async thread to loop x values
+        futures.emplace_back(std::async(std::launch::deferred, [y, &draw_area, this]() {
+            for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
+                Chunk& chunk = chIndexer.boundGetChunkAt(x, y);
+
+                if(!chunk.needs_update) continue;
+                if(chunk.elements.empty()) chunk.needs_update = false;
+
+                updateChunkElements(x, y, chunk);
+            }
+        }));
+
+    }
+
+    for(auto& future : futures) {
+        future.wait();
     }
 }
 

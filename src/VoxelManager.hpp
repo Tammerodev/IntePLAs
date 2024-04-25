@@ -501,6 +501,12 @@ public:
 
 private:
 
+    void updateChunkElements(int x, int y, Chunk& chunk);
+    void updateElementsMultithreaded(ChunkArea& draw_area);
+    void updateElementsNonMultithreaded(ChunkArea& draw_area);
+
+private:
+
     sf::FloatRect update_area;
 
     ChunkIndexer chIndexer;

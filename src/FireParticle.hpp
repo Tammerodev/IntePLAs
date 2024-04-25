@@ -9,6 +9,7 @@ class FireParticle : public Particle {
             physComponent.transform_position = pos;
             this->x = pos.x;
             this->y = pos.y;
+            prev_position = *this;
 
             
             if(gravity == false) {

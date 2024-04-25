@@ -19,7 +19,7 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     
     inv.load(world.main_world);
     matUI.load(gui);
-    game_camera.zoom(0.99f);
+    game_camera.zoom(0.60f);
     
 
     game_camera.setLeapSpeed(1.f);
