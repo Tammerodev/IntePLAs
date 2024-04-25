@@ -1,4 +1,8 @@
 {
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "/home/lauri/Documents/Games/inteplas/Toolchain-mingw.cmake"
+    },
+
     "files.associations": {
         "any": "cpp",
         "array": "cpp",

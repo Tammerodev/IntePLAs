@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Linux")
 set(CMAKE_HOST_SYSTEM_VERSION "5.15.0-105-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-
+include("/home/lauri/Documents/Games/inteplas/Toolchain-mingw.cmake")
 
 set(CMAKE_SYSTEM "Linux-5.15.0-105-generic")
 set(CMAKE_SYSTEM_NAME "Linux")
