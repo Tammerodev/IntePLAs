@@ -1,8 +1,12 @@
 cmake_minimum_required(VERSION 3.0)
 project(inteplas)
 
+
+
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 11)
+
+set(SFML_DIR dep/SFML-2.6.1)
 
 # Find SFML
 find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
