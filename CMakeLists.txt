@@ -1,3 +1,4 @@
+project(inteplas)
 set(CMAKE_CXX_STANDARD 11)
 
 find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
