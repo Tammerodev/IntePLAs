@@ -1,6 +1,7 @@
 #pragma once
 #include "ElectricComponent.hpp"
 #include "math.hpp"
+#include "Lighting/LightGlobal.hpp"
 
 class Led : public ElectricComponent {
     public:
@@ -17,11 +18,15 @@ class Led : public ElectricComponent {
             });
 
 
-
             sf::Color color = sf::Color(14, 15, 23);
 
             if(voltage > treshold) {
                 color = sf::Color::Red;
+                LightGlobal::add_source(*this, LightGlobal::LightElement(
+                    50, sf::Color(255, 100, 100, 200)
+                ));
+            } else {
+                LightGlobal::remove_source(*this);
             }
 
             world.boundSetImagePixelAt(x, y, color);

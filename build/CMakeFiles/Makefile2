@@ -81,12 +81,12 @@ clean: CMakeFiles/inteplas.dir/clean
 CMakeFiles/inteplas.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29 "Built target inteplas"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30 "Built target inteplas"
 .PHONY : CMakeFiles/inteplas.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/inteplas.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lauri/Documents/Games/inteplas/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lauri/Documents/Games/inteplas/build/CMakeFiles 30
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/inteplas.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lauri/Documents/Games/inteplas/build/CMakeFiles 0
 .PHONY : CMakeFiles/inteplas.dir/rule

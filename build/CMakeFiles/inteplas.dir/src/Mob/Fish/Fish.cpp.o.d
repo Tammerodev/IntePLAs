@@ -421,6 +421,8 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../ElectricitySimulation.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../ElectricComponent.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Led.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Lighting/LightGlobal.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Lighting/LightSimulation.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../GameEventEnum.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../EventGlobals.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Fish/../../Oscillator.hpp \

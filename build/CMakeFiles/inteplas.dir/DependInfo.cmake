@@ -20,6 +20,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/lauri/Documents/Games/inteplas/src/IdleState.cpp" "CMakeFiles/inteplas.dir/src/IdleState.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/IdleState.cpp.o.d"
   "/home/lauri/Documents/Games/inteplas/src/Jetpack.cpp" "CMakeFiles/inteplas.dir/src/Jetpack.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/Jetpack.cpp.o.d"
   "/home/lauri/Documents/Games/inteplas/src/JumpState.cpp" "CMakeFiles/inteplas.dir/src/JumpState.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/JumpState.cpp.o.d"
+  "/home/lauri/Documents/Games/inteplas/src/Lighting/LightSimulation.cpp" "CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o.d"
   "/home/lauri/Documents/Games/inteplas/src/MaterialsUI.cpp" "CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o.d"
   "/home/lauri/Documents/Games/inteplas/src/Mob/Fish/Fish.cpp" "CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o.d"
   "/home/lauri/Documents/Games/inteplas/src/Mob/Frog/Frog.cpp" "CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o.d"

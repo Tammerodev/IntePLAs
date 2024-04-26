@@ -23,6 +23,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/inteplas.dir/src/Jetpack.cpp.o.d"
   "CMakeFiles/inteplas.dir/src/JumpState.cpp.o"
   "CMakeFiles/inteplas.dir/src/JumpState.cpp.o.d"
+  "CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o"
+  "CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o.d"
   "CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o"
   "CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o.d"
   "CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o"

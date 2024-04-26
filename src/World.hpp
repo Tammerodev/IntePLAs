@@ -174,8 +174,8 @@ public:
         mobManager.invokeMobs(player, points);
     }
 
-    void render(sf::RenderTarget& target, const sf::Vector2f& view_center) {
-        main_world.render(target, view_center);
+    void render(sf::RenderTarget& target, sf::RenderTarget& rtx, const sf::Vector2f& view_center) {
+        main_world.render(target, rtx, view_center);
         mobManager.render(target);
 
         for(auto &world : add_worlds) {

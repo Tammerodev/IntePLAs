@@ -61,6 +61,11 @@
 },
 {
   "directory": "/home/lauri/Documents/Games/inteplas/build",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o -c /home/lauri/Documents/Games/inteplas/src/Lighting/LightSimulation.cpp",
+  "file": "/home/lauri/Documents/Games/inteplas/src/Lighting/LightSimulation.cpp"
+},
+{
+  "directory": "/home/lauri/Documents/Games/inteplas/build",
   "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o -c /home/lauri/Documents/Games/inteplas/src/MaterialsUI.cpp",
   "file": "/home/lauri/Documents/Games/inteplas/src/MaterialsUI.cpp"
 },

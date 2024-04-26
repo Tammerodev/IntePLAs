@@ -95,7 +95,7 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
     chIndexer.setImagePixelAt(x,y,currPixel);
 }
 
-void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
+void VoxelManager::render(sf::RenderTarget &target, sf::RenderTarget& rtx, const sf::Vector2f &center)
 {
     sf::FloatRect viewRect(target.getView().getCenter() - target.getView().getSize() / 2.f, target.getView().getSize());
     update_area = viewRect;
@@ -138,8 +138,6 @@ void VoxelManager::render(sf::RenderTarget &target, const sf::Vector2f &center)
     }
 
     particleSimulation.render(target);
-    simulationManager.drawAll(target);
-    
 }
 
 void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)

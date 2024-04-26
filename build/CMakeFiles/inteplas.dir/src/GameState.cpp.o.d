@@ -430,6 +430,8 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../ElectricitySimulation.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../ElectricComponent.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Led.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Lighting/LightGlobal.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Lighting/LightSimulation.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../GameEventEnum.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../EventGlobals.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mods/HeistMod/../../Oscillator.hpp \

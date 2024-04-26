@@ -421,6 +421,8 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../ElectricitySimulation.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../ElectricComponent.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Led.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Lighting/LightGlobal.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Lighting/LightSimulation.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../GameEventEnum.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../EventGlobals.hpp \
  /home/lauri/Documents/Games/inteplas/src/Mob/Frog/../../Oscillator.hpp \

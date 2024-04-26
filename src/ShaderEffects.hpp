@@ -31,9 +31,11 @@ public:
 
     }
 
-    void render(sf::RenderTarget& renderTarget, sf::Sprite& originalFrame) {
-        clearTextures();
+    sf::RenderTexture& getTresholdTexture() {
+        return treshold_texture;
+    }
 
+    void render(sf::RenderTarget& renderTarget, sf::Sprite& originalFrame) {
         // Apply desaturation shader to the original frame
         desaturate_shader.renderTo(originalFrame, desaturate_texture);
         desaturate_texture.display();
@@ -44,11 +46,16 @@ public:
 
         // Apply threshold shader to the desaturated frame
         treshold_shader.renderTo(desaturate_sprite, treshold_texture);
+
+    }
+
+    void finalRender(sf::RenderTarget& renderTarget) {
         treshold_texture.display();
 
         // Draw thresholded frame and apply blending
         treshold_sprite.setTexture(treshold_texture.getTexture());
         blur_shader.renderTo(treshold_sprite, treshold_texture_before_blend);
+
         treshold_texture_before_blend.display();
         treshold_sprite_before_blend.setTexture(treshold_texture_before_blend.getTexture());
         

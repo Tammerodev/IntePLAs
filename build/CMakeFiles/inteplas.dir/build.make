@@ -237,10 +237,24 @@ CMakeFiles/inteplas.dir/src/JumpState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inteplas.dir/src/JumpState.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lauri/Documents/Games/inteplas/src/JumpState.cpp -o CMakeFiles/inteplas.dir/src/JumpState.cpp.s
 
+CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o: CMakeFiles/inteplas.dir/flags.make
+CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o: /home/lauri/Documents/Games/inteplas/src/Lighting/LightSimulation.cpp
+CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o -MF CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o.d -o CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o -c /home/lauri/Documents/Games/inteplas/src/Lighting/LightSimulation.cpp
+
+CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lauri/Documents/Games/inteplas/src/Lighting/LightSimulation.cpp > CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.i
+
+CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lauri/Documents/Games/inteplas/src/Lighting/LightSimulation.cpp -o CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.s
+
 CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: /home/lauri/Documents/Games/inteplas/src/MaterialsUI.cpp
 CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o -MF CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o.d -o CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o -c /home/lauri/Documents/Games/inteplas/src/MaterialsUI.cpp
 
 CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: /home/lauri/Documents/Games/inteplas/src/Mob/Fish/Fish.cpp
 CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o -MF CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o.d -o CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o -c /home/lauri/Documents/Games/inteplas/src/Mob/Fish/Fish.cpp
 
 CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: /home/lauri/Documents/Games/inteplas/src/Mob/Frog/Frog.cpp
 CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o -MF CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o.d -o CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o -c /home/lauri/Documents/Games/inteplas/src/Mob/Frog/Frog.cpp
 
 CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/MobManager.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/MobManager.cpp.o: /home/lauri/Documents/Games/inteplas/src/MobManager.cpp
 CMakeFiles/inteplas.dir/src/MobManager.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/inteplas.dir/src/MobManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/inteplas.dir/src/MobManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/MobManager.cpp.o -MF CMakeFiles/inteplas.dir/src/MobManager.cpp.o.d -o CMakeFiles/inteplas.dir/src/MobManager.cpp.o -c /home/lauri/Documents/Games/inteplas/src/MobManager.cpp
 
 CMakeFiles/inteplas.dir/src/MobManager.cpp.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/Player.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/Player.cpp.o: /home/lauri/Documents/Games/inteplas/src/Player.cpp
 CMakeFiles/inteplas.dir/src/Player.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/inteplas.dir/src/Player.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/inteplas.dir/src/Player.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/Player.cpp.o -MF CMakeFiles/inteplas.dir/src/Player.cpp.o.d -o CMakeFiles/inteplas.dir/src/Player.cpp.o -c /home/lauri/Documents/Games/inteplas/src/Player.cpp
 
 CMakeFiles/inteplas.dir/src/Player.cpp.i: cmake_force
@@ -310,7 +324,7 @@ CMakeFiles/inteplas.dir/src/Player.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o: /home/lauri/Documents/Games/inteplas/src/PlayerHealthManager.cpp
 CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o -MF CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o.d -o CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o -c /home/lauri/Documents/Games/inteplas/src/PlayerHealthManager.cpp
 
 CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.i: cmake_force
@@ -324,7 +338,7 @@ CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/RespawnState.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/RespawnState.cpp.o: /home/lauri/Documents/Games/inteplas/src/RespawnState.cpp
 CMakeFiles/inteplas.dir/src/RespawnState.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/inteplas.dir/src/RespawnState.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/inteplas.dir/src/RespawnState.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/RespawnState.cpp.o -MF CMakeFiles/inteplas.dir/src/RespawnState.cpp.o.d -o CMakeFiles/inteplas.dir/src/RespawnState.cpp.o -c /home/lauri/Documents/Games/inteplas/src/RespawnState.cpp
 
 CMakeFiles/inteplas.dir/src/RespawnState.cpp.i: cmake_force
@@ -338,7 +352,7 @@ CMakeFiles/inteplas.dir/src/RespawnState.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/SwimState.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/SwimState.cpp.o: /home/lauri/Documents/Games/inteplas/src/SwimState.cpp
 CMakeFiles/inteplas.dir/src/SwimState.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/inteplas.dir/src/SwimState.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/inteplas.dir/src/SwimState.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/SwimState.cpp.o -MF CMakeFiles/inteplas.dir/src/SwimState.cpp.o.d -o CMakeFiles/inteplas.dir/src/SwimState.cpp.o -c /home/lauri/Documents/Games/inteplas/src/SwimState.cpp
 
 CMakeFiles/inteplas.dir/src/SwimState.cpp.i: cmake_force
@@ -352,7 +366,7 @@ CMakeFiles/inteplas.dir/src/SwimState.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: /home/lauri/Documents/Games/inteplas/src/UIStateManager.cpp
 CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o -MF CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o.d -o CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o -c /home/lauri/Documents/Games/inteplas/src/UIStateManager.cpp
 
 CMakeFiles/inteplas.dir/src/UIStateManager.cpp.i: cmake_force
@@ -366,7 +380,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/Voxel.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/Voxel.cpp.o: /home/lauri/Documents/Games/inteplas/src/Voxel.cpp
 CMakeFiles/inteplas.dir/src/Voxel.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/inteplas.dir/src/Voxel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/inteplas.dir/src/Voxel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/Voxel.cpp.o -MF CMakeFiles/inteplas.dir/src/Voxel.cpp.o.d -o CMakeFiles/inteplas.dir/src/Voxel.cpp.o -c /home/lauri/Documents/Games/inteplas/src/Voxel.cpp
 
 CMakeFiles/inteplas.dir/src/Voxel.cpp.i: cmake_force
@@ -380,7 +394,7 @@ CMakeFiles/inteplas.dir/src/Voxel.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: /home/lauri/Documents/Games/inteplas/src/VoxelGroup.cpp
 CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o -MF CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o.d -o CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o -c /home/lauri/Documents/Games/inteplas/src/VoxelGroup.cpp
 
 CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.i: cmake_force
@@ -394,7 +408,7 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: /home/lauri/Documents/Games/inteplas/src/VoxelManager.cpp
 CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o -MF CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o.d -o CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o -c /home/lauri/Documents/Games/inteplas/src/VoxelManager.cpp
 
 CMakeFiles/inteplas.dir/src/VoxelManager.cpp.i: cmake_force
@@ -408,7 +422,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/WalkState.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/WalkState.cpp.o: /home/lauri/Documents/Games/inteplas/src/WalkState.cpp
 CMakeFiles/inteplas.dir/src/WalkState.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/inteplas.dir/src/WalkState.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/inteplas.dir/src/WalkState.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/WalkState.cpp.o -MF CMakeFiles/inteplas.dir/src/WalkState.cpp.o.d -o CMakeFiles/inteplas.dir/src/WalkState.cpp.o -c /home/lauri/Documents/Games/inteplas/src/WalkState.cpp
 
 CMakeFiles/inteplas.dir/src/WalkState.cpp.i: cmake_force
@@ -422,7 +436,7 @@ CMakeFiles/inteplas.dir/src/WalkState.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: /home/lauri/Documents/Games/inteplas/src/WeatherManager.cpp
 CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o -MF CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o.d -o CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o -c /home/lauri/Documents/Games/inteplas/src/WeatherManager.cpp
 
 CMakeFiles/inteplas.dir/src/WeatherManager.cpp.i: cmake_force
@@ -436,7 +450,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/World.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/World.cpp.o: /home/lauri/Documents/Games/inteplas/src/World.cpp
 CMakeFiles/inteplas.dir/src/World.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/inteplas.dir/src/World.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/inteplas.dir/src/World.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/World.cpp.o -MF CMakeFiles/inteplas.dir/src/World.cpp.o.d -o CMakeFiles/inteplas.dir/src/World.cpp.o -c /home/lauri/Documents/Games/inteplas/src/World.cpp
 
 CMakeFiles/inteplas.dir/src/World.cpp.i: cmake_force
@@ -450,7 +464,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.s: cmake_force
 CMakeFiles/inteplas.dir/src/main.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/main.cpp.o: /home/lauri/Documents/Games/inteplas/src/main.cpp
 CMakeFiles/inteplas.dir/src/main.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/inteplas.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/inteplas.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/main.cpp.o -MF CMakeFiles/inteplas.dir/src/main.cpp.o.d -o CMakeFiles/inteplas.dir/src/main.cpp.o -c /home/lauri/Documents/Games/inteplas/src/main.cpp
 
 CMakeFiles/inteplas.dir/src/main.cpp.i: cmake_force
@@ -475,6 +489,7 @@ inteplas_OBJECTS = \
 "CMakeFiles/inteplas.dir/src/IdleState.cpp.o" \
 "CMakeFiles/inteplas.dir/src/Jetpack.cpp.o" \
 "CMakeFiles/inteplas.dir/src/JumpState.cpp.o" \
+"CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o" \
 "CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o" \
 "CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o" \
 "CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o" \
@@ -507,6 +522,7 @@ inteplas: CMakeFiles/inteplas.dir/src/GameState.cpp.o
 inteplas: CMakeFiles/inteplas.dir/src/IdleState.cpp.o
 inteplas: CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
 inteplas: CMakeFiles/inteplas.dir/src/JumpState.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o
 inteplas: CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
 inteplas: CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
 inteplas: CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
@@ -533,7 +549,7 @@ inteplas: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 inteplas: /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
 inteplas: /usr/lib/x86_64-linux-gnu/libSDL2.so
 inteplas: CMakeFiles/inteplas.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Linking CXX executable inteplas"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lauri/Documents/Games/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Linking CXX executable inteplas"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/inteplas.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

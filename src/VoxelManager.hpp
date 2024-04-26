@@ -84,7 +84,7 @@ public:
     }
 
     void heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp);
-    void render(sf::RenderTarget&, const sf::Vector2f &center);
+    void render(sf::RenderTarget&, sf::RenderTarget&, const sf::Vector2f &center);
     void update(Player&, GameEventEnum::Event&);
     void hole(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent = 10);
     void holeRayCast(const sf::Vector2i& pos, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent = 10, bool turnToAsh = false);
@@ -126,6 +126,10 @@ public:
     void loadProcGenData(const std::string& path) {
         procGen.loadHeightMap(path);
         procGen.loadBiomeData(path);
+    }
+
+    void renderSimulationManager(sf::RenderTarget& target, sf::RenderTarget& rtx) {
+        simulationManager.drawAll(target, rtx);
     }
 
     void save() {

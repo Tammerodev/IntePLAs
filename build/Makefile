@@ -417,6 +417,30 @@ src/JumpState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/JumpState.cpp.s
 .PHONY : src/JumpState.cpp.s
 
+src/Lighting/LightSimulation.o: src/Lighting/LightSimulation.cpp.o
+.PHONY : src/Lighting/LightSimulation.o
+
+# target to build an object file
+src/Lighting/LightSimulation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o
+.PHONY : src/Lighting/LightSimulation.cpp.o
+
+src/Lighting/LightSimulation.i: src/Lighting/LightSimulation.cpp.i
+.PHONY : src/Lighting/LightSimulation.i
+
+# target to preprocess a source file
+src/Lighting/LightSimulation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.i
+.PHONY : src/Lighting/LightSimulation.cpp.i
+
+src/Lighting/LightSimulation.s: src/Lighting/LightSimulation.cpp.s
+.PHONY : src/Lighting/LightSimulation.s
+
+# target to generate assembly for a file
+src/Lighting/LightSimulation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.s
+.PHONY : src/Lighting/LightSimulation.cpp.s
+
 src/MaterialsUI.o: src/MaterialsUI.cpp.o
 .PHONY : src/MaterialsUI.o
 
@@ -846,6 +870,9 @@ help:
 	@echo "... src/JumpState.o"
 	@echo "... src/JumpState.i"
 	@echo "... src/JumpState.s"
+	@echo "... src/Lighting/LightSimulation.o"
+	@echo "... src/Lighting/LightSimulation.i"
+	@echo "... src/Lighting/LightSimulation.s"
 	@echo "... src/MaterialsUI.o"
 	@echo "... src/MaterialsUI.i"
 	@echo "... src/MaterialsUI.s"

@@ -425,6 +425,8 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /home/lauri/Documents/Games/inteplas/src/ElectricitySimulation.hpp \
  /home/lauri/Documents/Games/inteplas/src/ElectricComponent.hpp \
  /home/lauri/Documents/Games/inteplas/src/Led.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Lighting/LightGlobal.hpp \
+ /home/lauri/Documents/Games/inteplas/src/Lighting/LightSimulation.hpp \
  /home/lauri/Documents/Games/inteplas/src/GameEventEnum.hpp \
  /home/lauri/Documents/Games/inteplas/src/EventGlobals.hpp \
  /home/lauri/Documents/Games/inteplas/src/Oscillator.hpp \

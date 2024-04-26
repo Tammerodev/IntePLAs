@@ -181,7 +181,7 @@ void Game::renderFirst(sf::RenderWindow &window, tgui::BackendGui &gui) {
 
     // Clear renderTexture
     renderTexture.clear(sf::Color(GameStatus::brightness * 100, GameStatus::brightness * 100, GameStatus::brightness * 100, 255));
-
+    shaderEffect.clearTextures();
 
     game_camera.setViewTo(renderTexture);
 
@@ -200,8 +200,7 @@ void Game::renderFirst(sf::RenderWindow &window, tgui::BackendGui &gui) {
         inv.render(renderTexture);
     }
        
-    world.render(renderTexture, game_camera.getCenterPosition());
-
+    world.render(renderTexture, shaderEffect.getTresholdTexture(), game_camera.getCenterPosition());
 }
 
 
@@ -209,17 +208,20 @@ void Game::renderLast(sf::RenderWindow &window, tgui::BackendGui &gui) {
     
     ui_camera.setViewTo(renderTexture);
     gameEventManager.render(renderTexture);
-    game_camera.setViewTo(renderTexture);
 
+    game_camera.setViewTo(renderTexture); 
     effOverlay.render(renderTexture);
-    
-    // Display, draw and set shader
-    
+
     renderTexture.display();
     renderSprite.setTexture(renderTexture.getTexture());
 
+    shaderEffect.render(window, renderSprite);      // Shader first render
 
-    shaderEffect.render(window, renderSprite);
+    game_camera.setViewTo(shaderEffect.getTresholdTexture());
+        world.main_world.renderSimulationManager(renderTexture, shaderEffect.getTresholdTexture()); // Simulation manager (lights)
+    ui_camera.setViewTo(shaderEffect.getTresholdTexture());
+
+    shaderEffect.finalRender(window);               // Shader second render
 
     Globals::renderSprite = &renderSprite;
     if(!debug_globals::photoMode) renderUI(window, gui);
