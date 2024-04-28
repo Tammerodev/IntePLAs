@@ -464,7 +464,9 @@ public:
         }
 
         // Note: Only on linux
+    #if CLINUX
         malloc_trim(0);
+    #endif
     }
 
     void updateAll() {

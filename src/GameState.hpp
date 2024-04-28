@@ -1,5 +1,5 @@
 #pragma once
-
+#include <thread>
 #include "Mods/Mods.hpp"
 
 class GameState : public MainState {

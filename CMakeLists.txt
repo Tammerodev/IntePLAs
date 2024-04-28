@@ -1,20 +1,24 @@
+cmake_minimum_required(VERSION 3.22)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_C_STANDARD 17)
+
 project(inteplas)
-set(CMAKE_CXX_STANDARD 11)
 
-find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
-if(SFML_FOUND)
-    include_directories(${SFML_INCLUDE_DIR})
-endif()
+if(UNIX)
+    if(SFML_FOUND)
+        include_directories(${SFML_INCLUDE_DIR})
+    endif()
 
-find_package(TGUI REQUIRED)
-if(TGUI_FOUND)
-    include_directories(${TGUI_INCLUDE_DIR})
-endif()
+    find_package(TGUI REQUIRED)
+    if(TGUI_FOUND)
+        include_directories(${TGUI_INCLUDE_DIR})
+    endif()
 
-find_package(PkgConfig REQUIRED)
-pkg_search_module(JSONCPP REQUIRED jsoncpp)
-if(JSONCPP_FOUND)
-    include_directories(${JSONCPP_INCLUDE_DIRS})
+    find_package(PkgConfig REQUIRED)
+    pkg_search_module(JSONCPP REQUIRED jsoncpp)
+    if(JSONCPP_FOUND)
+        include_directories(${JSONCPP_INCLUDE_DIRS})
+    endif()
 endif()
 
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
@@ -24,6 +28,12 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-target_link_libraries(${PROJECT_NAME} sfml-system sfml-window sfml-graphics sfml-audio)
-target_link_libraries(${PROJECT_NAME} tgui)
-target_link_libraries(${PROJECT_NAME} ${JSONCPP_LIBRARIES})
+# Link libraries
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    sfml-system 
+    sfml-window 
+    sfml-graphics 
+    sfml-audio
+    tgui
+    jsoncpp
+)

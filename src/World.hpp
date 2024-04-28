@@ -186,10 +186,10 @@ public:
     void loadAddWorlds(const std::string &path) {
         for (const auto& entry : fs::directory_iterator(path)) {
             if (fs::is_directory(entry.path())) {
-                const std::string& completePath = entry.path();
+                const std::string& completePath = entry.path().string();
 
                 VoxelGroup group;
-                group.loadFromStorage(completePath, std::stoi(entry.path().stem()));
+                group.loadFromStorage(completePath, std::stoi(entry.path().stem().string()));
 
                 add_worlds.emplace_back(group);
             }

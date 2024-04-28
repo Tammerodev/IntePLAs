@@ -7,6 +7,9 @@
 #define USE_MULTITHREADING 1
 #define PREALLOCATE_EFFECTS_COUNT 10
 
+#define CWINDOWS true
+#define CLINUX   false
+
 #if DEBUG
     #define prndd(x) std::cout << "[OUTPUT]:" << x <<  "   [TIME]: "<<time(0) << std::endl;
     #define prnmod(x) std::cout << "[MOD]:" << x <<  "   [TIME]: "<<time(0) << std::endl;
