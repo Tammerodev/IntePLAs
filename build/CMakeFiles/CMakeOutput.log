@@ -447,3 +447,87 @@ Parsed CXX implicit link information from above output:
   implicit fwks: []
 
 
+Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c8a24/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c8a24.dir/build.make CMakeFiles/cmTC_c8a24.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c8a24.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay -o CMakeFiles/cmTC_c8a24.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c8a24
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c8a24.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay CMakeFiles/cmTC_c8a24.dir/CheckFunctionExists.c.o -o cmTC_c8a24  /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_635e9/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_635e9.dir/build.make CMakeFiles/cmTC_635e9.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_635e9.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=gethostbyname -o CMakeFiles/cmTC_635e9.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_635e9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_635e9.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=gethostbyname CMakeFiles/cmTC_635e9.dir/CheckFunctionExists.c.o -o cmTC_635e9 
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_a756a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_a756a.dir/build.make CMakeFiles/cmTC_a756a.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a756a.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=connect -o CMakeFiles/cmTC_a756a.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a756a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a756a.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_a756a.dir/CheckFunctionExists.c.o -o cmTC_a756a 
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2f393/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2f393.dir/build.make CMakeFiles/cmTC_2f393.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2f393.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=remove -o CMakeFiles/cmTC_2f393.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2f393
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2f393.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=remove CMakeFiles/cmTC_2f393.dir/CheckFunctionExists.c.o -o cmTC_2f393 
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_929e5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_929e5.dir/build.make CMakeFiles/cmTC_929e5.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_929e5.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=shmat -o CMakeFiles/cmTC_929e5.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_929e5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_929e5.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=shmat CMakeFiles/cmTC_929e5.dir/CheckFunctionExists.c.o -o cmTC_929e5 
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_9eb5f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_9eb5f.dir/build.make CMakeFiles/cmTC_9eb5f.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9eb5f.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -o CMakeFiles/cmTC_9eb5f.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9eb5f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9eb5f.dir/link.txt --verbose=1
+/usr/bin/gcc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber CMakeFiles/cmTC_9eb5f.dir/CheckFunctionExists.c.o -o cmTC_9eb5f  -lICE 
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+
+
+

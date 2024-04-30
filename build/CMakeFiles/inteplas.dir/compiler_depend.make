@@ -2874,26 +2874,26 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -3693,26 +3693,26 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -4950,26 +4950,26 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: ../src/Jetpack.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -6386,26 +6386,26 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: ../src/MaterialsUI.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -7121,26 +7121,26 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: ../src/Mob/Fish/Fish.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -7694,26 +7694,26 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: ../src/Mob/Frog/Frog.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -8266,26 +8266,26 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: ../src/MobManager.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -8683,9 +8683,9 @@ CMakeFiles/inteplas.dir/src/Player.cpp.o: ../src/Player.cpp \
   /usr/include/c++/11/bits/istream.tcc \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
@@ -8729,22 +8729,22 @@ CMakeFiles/inteplas.dir/src/Player.cpp.o: ../src/Player.cpp \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/sstream \
   /usr/include/c++/11/bits/sstream.tcc \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -9658,9 +9658,9 @@ CMakeFiles/inteplas.dir/src/RespawnState.cpp.o: ../src/RespawnState.cpp \
   ../src/Controls.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
@@ -9676,22 +9676,22 @@ CMakeFiles/inteplas.dir/src/RespawnState.cpp.o: ../src/RespawnState.cpp \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/sstream \
   /usr/include/c++/11/bits/sstream.tcc \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -10094,9 +10094,9 @@ CMakeFiles/inteplas.dir/src/SwimState.cpp.o: ../src/SwimState.cpp \
   ../src/Controls.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
@@ -10112,22 +10112,22 @@ CMakeFiles/inteplas.dir/src/SwimState.cpp.o: ../src/SwimState.cpp \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/sstream \
   /usr/include/c++/11/bits/sstream.tcc \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -10614,26 +10614,26 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -11576,26 +11576,26 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: ../src/VoxelGroup.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -12079,26 +12079,26 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: ../src/VoxelManager.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -12559,9 +12559,9 @@ CMakeFiles/inteplas.dir/src/WalkState.cpp.o: ../src/WalkState.cpp \
   ../src/Controls.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
@@ -12577,22 +12577,22 @@ CMakeFiles/inteplas.dir/src/WalkState.cpp.o: ../src/WalkState.cpp \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/sstream \
   /usr/include/c++/11/bits/sstream.tcc \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -13076,26 +13076,26 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: ../src/WeatherManager.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -13645,26 +13645,26 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
   /usr/include/c++/11/cstddef \
-  ../dep/jsoncpp-master/include/json/allocator.h \
+  /usr/include/jsoncpp/json/allocator.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/stack \
   /usr/include/c++/11/bits/stl_stack.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -14349,17 +14349,17 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/SFML/Audio/SoundFileWriter.hpp \
   ../src/Settings.hpp \
   ../src/JsonManager.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/forwards.h \
-  ../dep/jsoncpp-master/include/json/config.h \
-  ../dep/jsoncpp-master/include/json/allocator.h \
-  ../dep/jsoncpp-master/include/json/version.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/json_features.h \
-  ../dep/jsoncpp-master/include/json/reader.h \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/config.h \
+  /usr/include/jsoncpp/json/allocator.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/writer.h \
   /usr/include/c++/11/fstream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
@@ -14454,9 +14454,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/ProceduralGeneration.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/WorldJsonReader.hpp \
-  ../dep/jsoncpp-master/include/json/value.h \
-  ../dep/jsoncpp-master/include/json/json.h \
-  ../dep/jsoncpp-master/include/json/writer.h \
   ../src/Biome/Desert.hpp \
   ../src/Biome/Biome.hpp \
   ../src/VegetationInfo.hpp \
@@ -14629,6 +14626,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/Mods/HeistMod/HeistInfoGui.hpp:
 
 ../src/Sound/Sound.hpp:
+
+../src/Mods/CustomGameMod.hpp:
 
 ../src/Mods/HeistMod/HeistMod.hpp:
 
@@ -14998,20 +14997,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/Elements/Flammable.hpp:
 
-../src/Elements/MoltenGlass.hpp:
-
-../src/Elements/Sand.hpp:
-
-../src/Elements/Gas.hpp:
-
-../src/Elements/Chlorine.hpp:
-
-../src/Elements/Nitroglycerin.hpp:
-
-../src/Elements/Blood.hpp:
-
-../src/Elements/Water.hpp:
-
 /usr/include/c++/11/bits/regex_compiler.h:
 
 /usr/include/SFML/System/Vector3.hpp:
@@ -15053,6 +15038,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/TGUI/SvgImage.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
+
+../src/World.hpp:
 
 /usr/include/c++/11/bits/fs_fwd.h:
 
@@ -15149,10 +15136,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/pstl/glue_algorithm_defs.h:
 
 /usr/include/c++/11/utility:
-
-../src/Elements/Wood.hpp:
-
-/usr/include/c++/11/ios:
 
 /usr/include/c++/11/bits/unordered_set.h:
 
@@ -15296,6 +15279,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/SFML/System/Thread.inl:
 
+/usr/include/SFML/System/Vector2.inl:
+
 /usr/include/TGUI/Signal.hpp:
 
 /usr/include/c++/11/streambuf:
@@ -15386,6 +15371,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/math.hpp:
 
+../src/Elements/Sand.hpp:
+
 /usr/include/c++/11/ctime:
 
 ../src/Biome/Ocean.hpp:
@@ -15459,8 +15446,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/bits/memoryfwd.h:
 
 /usr/include/c++/11/compare:
-
-../dep/jsoncpp-master/include/json/forwards.h:
 
 ../src/Button.cpp:
 
@@ -15742,6 +15727,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/ext/atomicity.h:
 
+../src/Elements/Gas.hpp:
+
 /usr/include/c++/11/bits/std_function.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
@@ -15767,8 +15754,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/bits/char_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
-
-../dep/jsoncpp-master/include/json/allocator.h:
 
 /usr/include/c++/11/bits/ranges_uninitialized.h:
 
@@ -15799,6 +15784,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/SFML/Window/Window.hpp:
 
 /usr/include/c++/11/bits/stl_set.h:
+
+/usr/include/jsoncpp/json/reader.h:
 
 /usr/include/SFML/Window/WindowStyle.hpp:
 
@@ -15900,10 +15887,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/PlayerState.hpp:
 
-/usr/include/jsoncpp/json/reader.h:
-
-../dep/jsoncpp-master/include/json/writer.h:
-
 /usr/include/TGUI/Backend/Window/BackendGui.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
@@ -15930,6 +15913,10 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+../src/PickableDebris.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
@@ -15953,10 +15940,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/SaveUtils.hpp:
 
 /usr/include/c++/11/bits/stl_list.h:
-
-../src/World.hpp:
-
-../dep/jsoncpp-master/include/json/json.h:
 
 /usr/include/c++/11/bits/specfun.h:
 
@@ -16035,6 +16018,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/TGUI/Widgets/TreeView.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+../src/Elements/Water.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
@@ -16130,6 +16115,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/pstl/glue_memory_defs.h:
 
+/usr/include/jsoncpp/json/allocator.h:
+
 /usr/include/jsoncpp/json/version.h:
 
 ../src/MobType.hpp:
@@ -16160,10 +16147,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/Utils/StringUtils.hpp:
 
-../src/Mods/CustomGameMod.hpp:
-
-../dep/jsoncpp-master/include/json/reader.h:
-
 /usr/include/TGUI/Widgets/ChildWindow.hpp:
 
 ../src/Mob/Fish/Fish.hpp:
@@ -16171,10 +16154,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/Mob/Frog/FrogDamageState.hpp:
 
 ../src/ElectricitySimulation.cpp:
-
-/usr/include/jsoncpp/json/allocator.h:
-
-../dep/jsoncpp-master/include/json/version.h:
 
 ../src/ChunkIndexerVoxelContainer.hpp:
 
@@ -16231,6 +16210,10 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/DebrisParticle.hpp:
 
 ../src/PlayerGlobal.hpp:
+
+/usr/include/TGUI/Widgets/ButtonBase.hpp:
+
+../src/Game.hpp:
 
 ../src/UIState.hpp:
 
@@ -16298,22 +16281,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/RectangleRigidbody.hpp:
 
-/usr/include/SFML/System/Vector2.inl:
-
-../dep/jsoncpp-master/include/json/value.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
-
-../src/PickableDebris.hpp:
-
-../dep/jsoncpp-master/include/json/config.h:
-
-/usr/include/TGUI/Widgets/ButtonBase.hpp:
-
-../src/Game.hpp:
-
-../dep/jsoncpp-master/include/json/json_features.h:
-
 /usr/include/SFML/Window/Mouse.hpp:
 
 ../src/ProceduralGeneration.hpp:
@@ -16335,3 +16302,15 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/SFML/Graphics/Image.hpp:
 
 ../src/Elements/GravityFluid.hpp:
+
+../src/Elements/Blood.hpp:
+
+../src/Elements/Nitroglycerin.hpp:
+
+../src/Elements/Chlorine.hpp:
+
+../src/Elements/MoltenGlass.hpp:
+
+/usr/include/c++/11/ios:
+
+../src/Elements/Wood.hpp:

@@ -2882,26 +2882,26 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -3702,26 +3702,26 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -4961,26 +4961,26 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -6400,26 +6400,26 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -7136,26 +7136,26 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -7710,26 +7710,26 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -8283,26 +8283,26 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -8701,9 +8701,9 @@ CMakeFiles/inteplas.dir/src/Player.cpp.o
  /usr/include/c++/11/bits/istream.tcc
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
  /usr/include/c++/11/memory
  /usr/include/c++/11/bits/stl_raw_storage_iter.h
@@ -8747,22 +8747,22 @@ CMakeFiles/inteplas.dir/src/Player.cpp.o
  /usr/include/c++/11/pstl/glue_memory_defs.h
  /usr/include/c++/11/sstream
  /usr/include/c++/11/bits/sstream.tcc
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -9678,9 +9678,9 @@ CMakeFiles/inteplas.dir/src/RespawnState.cpp.o
  /home/lauri/Documents/inteplas/src/Controls.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
  /usr/include/c++/11/memory
  /usr/include/c++/11/bits/stl_raw_storage_iter.h
@@ -9696,22 +9696,22 @@ CMakeFiles/inteplas.dir/src/RespawnState.cpp.o
  /usr/include/c++/11/pstl/glue_memory_defs.h
  /usr/include/c++/11/sstream
  /usr/include/c++/11/bits/sstream.tcc
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -10115,9 +10115,9 @@ CMakeFiles/inteplas.dir/src/SwimState.cpp.o
  /home/lauri/Documents/inteplas/src/Controls.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
  /usr/include/c++/11/memory
  /usr/include/c++/11/bits/stl_raw_storage_iter.h
@@ -10133,22 +10133,22 @@ CMakeFiles/inteplas.dir/src/SwimState.cpp.o
  /usr/include/c++/11/pstl/glue_memory_defs.h
  /usr/include/c++/11/sstream
  /usr/include/c++/11/bits/sstream.tcc
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -10636,26 +10636,26 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -11600,26 +11600,26 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -12104,26 +12104,26 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -12585,9 +12585,9 @@ CMakeFiles/inteplas.dir/src/WalkState.cpp.o
  /home/lauri/Documents/inteplas/src/Controls.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
  /usr/include/c++/11/memory
  /usr/include/c++/11/bits/stl_raw_storage_iter.h
@@ -12603,22 +12603,22 @@ CMakeFiles/inteplas.dir/src/WalkState.cpp.o
  /usr/include/c++/11/pstl/glue_memory_defs.h
  /usr/include/c++/11/sstream
  /usr/include/c++/11/bits/sstream.tcc
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -13103,26 +13103,26 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -13673,26 +13673,26 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/Graphics/VertexSprite.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
  /usr/include/c++/11/cstddef
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
+ /usr/include/jsoncpp/json/allocator.h
  /usr/include/c++/11/cstring
  /usr/include/string.h
  /usr/include/strings.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
  /usr/include/c++/11/stack
  /usr/include/c++/11/bits/stl_stack.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -14378,17 +14378,17 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /usr/include/SFML/Audio/SoundFileWriter.hpp
  /home/lauri/Documents/inteplas/src/Settings.hpp
  /home/lauri/Documents/inteplas/src/JsonManager.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/forwards.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/config.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/allocator.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/version.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json_features.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/reader.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/forwards.h
+ /usr/include/jsoncpp/json/config.h
+ /usr/include/jsoncpp/json/allocator.h
+ /usr/include/jsoncpp/json/version.h
+ /usr/include/jsoncpp/json/json.h
+ /usr/include/jsoncpp/json/json_features.h
+ /usr/include/jsoncpp/json/reader.h
+ /usr/include/jsoncpp/json/value.h
+ /usr/include/jsoncpp/json/writer.h
+ /usr/include/jsoncpp/json/writer.h
  /usr/include/c++/11/fstream
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
@@ -14483,9 +14483,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/ProceduralGeneration.hpp
  /home/lauri/Documents/inteplas/src/FastNoiseLite.hpp
  /home/lauri/Documents/inteplas/src/WorldJsonReader.hpp
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/value.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/json.h
- /home/lauri/Documents/inteplas/dep/jsoncpp-master/include/json/writer.h
  /home/lauri/Documents/inteplas/src/Biome/Desert.hpp
  /home/lauri/Documents/inteplas/src/Biome/Biome.hpp
  /home/lauri/Documents/inteplas/src/VegetationInfo.hpp
