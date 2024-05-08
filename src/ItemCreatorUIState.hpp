@@ -29,7 +29,7 @@ public:
                 rect.setSize(sf::Vector2f(scaling, scaling));
                 rect.setPosition(x * scaling,y * scaling);
                 rect.setFillColor(sf::Color(0,0,0,0));
-                rect.setOutlineColor(sf::Color::Black);
+                rect.setOutlineColor(sf::Color::White);
                 rect.setOutlineThickness(-1);
                 rects.push_back(rect);
             }
@@ -115,7 +115,22 @@ public:
             canvasSFML = tgui::CanvasSFML::create(tgui::Layout2d(size.x * scaling, size.y * scaling));
             canvasSFML->setPosition(325, 360);
 
+            auto sizeIndicatorX = tgui::TextArea::create();
+            auto sizeIndicatorY = tgui::TextArea::create();
+            sizeIndicatorX->setText("16");
+            sizeIndicatorY->setText("16");
+
+            sizeIndicatorX->setPosition(editSpr.getPosition().x + editSpr.getGlobalBounds().width / 2, editSpr.getPosition().y - 16);
+            sizeIndicatorY->setPosition(editSpr.getPosition().x - 16, editSpr.getPosition().y + editSpr.getGlobalBounds().width / 2);
+
+            sizeIndicatorX->setSize(tgui::Layout2d(32, 16));
+            sizeIndicatorY->setSize(tgui::Layout2d(32, 16));
+
             gui.add(panel);
+
+            gui.add(sizeIndicatorX);
+            gui.add(sizeIndicatorY);
+
             gui.add(button_exit);
             gui.add(button_save);
             gui.add(label_title);
@@ -305,7 +320,7 @@ private:
                 rect.setSize(sf::Vector2f(scaling, scaling));
                 rect.setPosition(x * scaling,y * scaling);
                 rect.setFillColor(sf::Color(0,0,0,0));
-                rect.setOutlineColor(sf::Color::Black);
+                rect.setOutlineColor(sf::Color::White);
                 rect.setOutlineThickness(-1);
                 rects.push_back(rect);
             }

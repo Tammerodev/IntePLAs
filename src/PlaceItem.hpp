@@ -51,8 +51,8 @@ class PlaceItem : public Item {
 
     void update(World &world, const sf::Vector2f &pos, const sf::Vector2f& mspos, const float dt, Player& player) {
 		mospos = sf::Vector2i(pos);
-		mospos /= 16;
-		mospos *= 16;
+		//mospos /= 16;
+		//mospos *= 16;
 
 		// Set position and rotation
 		gun_spr.setPosition(mospos.x + gun_spr.getGlobalBounds().width / 2, mospos.y + gun_spr.getGlobalBounds().height / 2);
