@@ -434,9 +434,6 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: \
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp \
  /home/lauri/Documents/inteplas/src/Shader.hpp \
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp \
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp \
- /home/lauri/Documents/inteplas/src/Radium-226.hpp \
  /home/lauri/Documents/inteplas/src/Player.hpp \
  /home/lauri/Documents/inteplas/src/IdleState.hpp \
  /home/lauri/Documents/inteplas/src/WalkState.hpp \
@@ -455,6 +452,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: \
  /home/lauri/Documents/inteplas/src/Led.hpp \
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp \
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp \
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp \
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp \
  /home/lauri/Documents/inteplas/src/Oscillator.hpp \

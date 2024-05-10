@@ -2,12 +2,15 @@
 #include "ElectricitySimulation.hpp"
 #include "Led.hpp"
 #include "Lighting/LightSimulation.hpp"
+#include "RadiationSearch.hpp"
 
 class SimulationManager {
     public: 
-        void load() {
+        void load(ChunkIndexer &world, sf::Vector2f *pos) {
             es.load();
             ls.load();
+
+            RadiationSearch::launch(world, pos);
         }
 
         void addElementToES(std::shared_ptr<ElectricComponent> component) {
@@ -17,6 +20,8 @@ class SimulationManager {
         void updateAll(ChunkIndexer& world) {
             es.update(world);
             ls.update(world);
+
+            RadiationSearch::update();
             // TODO es.remove
         }
 

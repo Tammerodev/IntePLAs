@@ -94,7 +94,7 @@ public:
         bd_file.close();
     }
 
-    void loadHeightMap(const std::string path) {
+    void loadHeightMap(ChunkIndexer& grid, const std::string path) {
         if(!heightMap1D.empty()) {
             prnerr("Height map not empty!", "");
             return;
@@ -102,6 +102,15 @@ public:
 
         std::fstream hm_file;
         hm_file.open(StorageSettings::save_path + path + "/data/heightMap.dat");
+
+        if(!hm_file.is_open()) {
+            prnerr("World save does not contain height data", "!");
+            initBiomes(chunks_x);
+            generateHeightMap(grid, 0, worldSize::world_sx);
+
+            hm_file.close();
+            return;
+        }
 
         std::string line = "";
 
@@ -132,8 +141,10 @@ public:
         biomes.clear();
     }
 
-    const float getHeightOnMap(const int index) {
+    const float getHeightOnMap(int index) {
         if(heightMap1D.empty()) prnerr("Height map is empty!", "");
+        if(index >= heightMap1D.size() - 1) index = heightMap1D.size() - 1;
+
         return heightMap1D.at(index);
     }
 

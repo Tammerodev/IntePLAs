@@ -438,9 +438,6 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/FlammableGas.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/Snow.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Shader.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../Uranium-235.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../RadioactiveElement.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../Radium-226.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../IdleState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../WalkState.hpp \
@@ -459,6 +456,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Led.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Lighting/LightGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Lighting/LightSimulation.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../RadiationSearch.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../GameEventEnum.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../EventGlobals.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Oscillator.hpp \

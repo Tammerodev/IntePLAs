@@ -3,6 +3,7 @@
 #include "common.hpp"
 #include "JsonManager.hpp"
 #include "Settings.hpp"
+#include "SettingsStateTestWorld.hpp"
 
 #include <TGUI/AllWidgets.hpp>
 #include "Palettes/PaletteUI.hpp"
@@ -75,21 +76,26 @@ public:
 			prnerr("Failed loading settings gui with code : ", ex.what());
 			return false;
 		}
+		
+		world.load(gui, gui.getView().getSize().x, gui.getView().getSize().y);
+
 		return true;
 	}
 
     void update() {
-		printf("update settings state\n");
+		world.update();
 	}
 
-	void input(sf::Event &) {
-
+	void input(sf::Event &ev) {
+		world.input(ev);
 	}
 
 	void draw(sf::RenderWindow& window, tgui::BackendGui& gui) {
 		window.clear(Palette::PaletteUI::Black);
-    	gui.draw();
 
+		world.render(window, gui);
+
+    	gui.draw();
 	}
 
 	void statexit() {
@@ -100,6 +106,7 @@ public:
 	}
 private:
 	Writers writers;
+	SettingsTestWorld world;
 
 private:
 

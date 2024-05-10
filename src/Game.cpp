@@ -31,7 +31,7 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     Controls::searchForDevices();
 
     load_state::setState(load_state::Initializing_map);
-    if(!world.init(s))
+    if(!world.init(s, &player.getPhysicsComponent().transform_position))
         perror("VoxelManager failed to load world");
 
        

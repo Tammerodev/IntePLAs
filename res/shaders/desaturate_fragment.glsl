@@ -15,13 +15,13 @@ float hash(float n) {
 void main()
 {
 	//float darknessFactor = clamp(desaturationAmount, 0.0, 1.0);
-    float darknessFactor = 1.0; 
+    float darknessFactor = +.0; 
 
     vec2 texCoords = gl_TexCoord[0].xy;
 
     vec4 color = texture2D(texture, texCoords);
    
-	color -= vec4(darknessFactor, darknessFactor, darknessFactor, 1.0) / 2.0;
+	color -= vec4(darknessFactor, darknessFactor, darknessFactor, 0.0) / 2.0;
 
 	if(temp > 100.0) {
 		color.r += abs(temp - 100.0) / 10.0;

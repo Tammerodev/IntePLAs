@@ -14,11 +14,11 @@ namespace fs = std::filesystem;
 
 class World {
 public:
-    bool init(const std::string path) {
+    bool init(const std::string path, sf::Vector2f* player_pos) {
         bool res = true;
         
         load_state::setState(load_state::Loading_map);
-        if(!main_world.load(path)) res = false;
+        if(!main_world.load(path, player_pos)) res = false;
 
         if(path == "Create new world") {
             load_state::setState(load_state::Creating_map);
@@ -61,6 +61,7 @@ public:
             if(!main_world.generateVegetation()) res = false;
         } else {
             main_world.loadProcGenData(path);
+            
             loadAddWorlds(StorageSettings::save_path + path + "/voxelGroups");
         }
 
@@ -184,6 +185,8 @@ public:
     }
 
     void loadAddWorlds(const std::string &path) {
+        if(!fs::exists(path)) return;
+
         for (const auto& entry : fs::directory_iterator(path)) {
             if (fs::is_directory(entry.path())) {
                 const std::string& completePath = entry.path().string();

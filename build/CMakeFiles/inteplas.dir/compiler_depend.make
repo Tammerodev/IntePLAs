@@ -2934,9 +2934,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
   ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -2955,6 +2952,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -3208,8 +3206,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/GameEventManager.hpp \
   ../src/GameEvent.hpp \
   ../src/DefaultGameEvent.hpp \
-  ../src/NuclearExplosionGameEvent.hpp \
-  ../src/RadioactiveWaste.hpp
+  ../src/NuclearExplosionGameEvent.hpp
 
 CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   /usr/include/stdc-predef.h \
@@ -3753,9 +3750,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
   ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -3774,6 +3768,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -4028,7 +4023,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/GameEvent.hpp \
   ../src/DefaultGameEvent.hpp \
   ../src/NuclearExplosionGameEvent.hpp \
-  ../src/RadioactiveWaste.hpp \
   ../src/Mods/HeistMod/Helicopter.hpp \
   ../src/Mods/HeistMod/HelicopterTurret.hpp \
   ../src/Sound/Sound.hpp \
@@ -5010,9 +5004,6 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: ../src/Jetpack.cpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
   ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -5031,6 +5022,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: ../src/Jetpack.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -6446,9 +6438,6 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: ../src/MaterialsUI.cpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
   ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -6467,6 +6456,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: ../src/MaterialsUI.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -7181,9 +7171,6 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: ../src/Mob/Fish/Fish.cpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
   ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -7202,6 +7189,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: ../src/Mob/Fish/Fish.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -7754,9 +7742,6 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: ../src/Mob/Frog/Frog.cpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
   ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -7775,6 +7760,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: ../src/Mob/Frog/Frog.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -8326,9 +8312,6 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: ../src/MobManager.cpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
   ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -8347,6 +8330,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: ../src/MobManager.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -10674,9 +10658,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
   ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -10695,6 +10676,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -12139,9 +12121,6 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: ../src/VoxelManager.cpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
   ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -12160,6 +12139,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: ../src/VoxelManager.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -13136,9 +13116,6 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: ../src/WeatherManager.cpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
   ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -13157,6 +13134,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: ../src/WeatherManager.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -13705,9 +13683,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
   ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -13726,6 +13701,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -14393,6 +14369,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Palettes/PaletteUI.hpp \
   ../src/WorldSelectionState.hpp \
   ../src/MenuBackground.hpp \
+  ../src/Shader.hpp \
   ../src/GameState.hpp \
   ../src/Mods/Mods.hpp \
   ../src/Mods/HeistMod/HeistMod.hpp \
@@ -14482,10 +14459,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Elements/Butane.hpp \
   ../src/Elements/FlammableGas.hpp \
   ../src/Elements/Snow.hpp \
-  ../src/Shader.hpp \
-  ../src/Uranium-235.hpp \
-  ../src/RadioactiveElement.hpp \
-  ../src/Radium-226.hpp \
   ../src/Player.hpp \
   ../src/IdleState.hpp \
   ../src/WalkState.hpp \
@@ -14504,6 +14477,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Led.hpp \
   ../src/Lighting/LightGlobal.hpp \
   ../src/Lighting/LightSimulation.hpp \
+  ../src/RadiationSearch.hpp \
   ../src/GameEventEnum.hpp \
   ../src/EventGlobals.hpp \
   ../src/Oscillator.hpp \
@@ -14583,7 +14557,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/GameEvent.hpp \
   ../src/DefaultGameEvent.hpp \
   ../src/NuclearExplosionGameEvent.hpp \
-  ../src/RadioactiveWaste.hpp \
   ../src/Mods/HeistMod/Helicopter.hpp \
   ../src/Mods/HeistMod/HelicopterTurret.hpp \
   ../src/Sound/Sound.hpp \
@@ -14591,6 +14564,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Mods/HeistMod/CollectableBox.hpp \
   ../src/UI/PointIndicator.hpp \
   ../src/SettingsState.hpp \
+  ../src/SettingsStateTestWorld.hpp \
   ../src/LoadingState.hpp \
   ../src/ModMenu.hpp
 
@@ -14632,8 +14606,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/Mods/HeistMod/HeistMod.hpp:
 
 ../src/GameState.hpp:
-
-../src/RadioactiveWaste.hpp:
 
 ../src/DefaultGameEvent.hpp:
 
@@ -14768,6 +14740,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/TGUI/Renderers/EditBoxRenderer.hpp:
 
 /usr/include/TGUI/Widgets/EditBox.hpp:
+
+../src/SettingsStateTestWorld.hpp:
 
 /usr/include/TGUI/Renderers/ComboBoxRenderer.hpp:
 
@@ -14977,8 +14951,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/IdleState.hpp:
 
-../src/Radium-226.hpp:
-
 ../src/Mob/Frog/FrogState.hpp:
 
 ../src/Shader.hpp:
@@ -15030,6 +15002,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/bits/locale_facets_nonio.h:
 
 /usr/include/c++/11/bits/vector.tcc:
+
+../src/RadiationSearch.hpp:
 
 /usr/include/c++/11/bits/stl_bvector.h:
 
@@ -15256,8 +15230,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/TGUI/Widgets/ComboBox.hpp:
 
 /usr/include/c++/11/backward/binders.h:
-
-../src/RadioactiveElement.hpp:
 
 /usr/include/SFML/Graphics/RenderTexture.hpp:
 
@@ -16192,8 +16164,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/bits/alloc_traits.h:
 
 ../src/Elements/Snow.cpp:
-
-../src/Uranium-235.hpp:
 
 ../src/FireEffectManager.cpp:
 

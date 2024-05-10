@@ -39,9 +39,6 @@
 #include "Shader.hpp"
 #include "Settings.hpp"
 
-#include "Uranium-235.hpp"
-#include "Radium-226.hpp"
-
 #include "Player.hpp"
 
 #include "ParticleSimulation.hpp"
@@ -68,7 +65,7 @@ public:
 
     }
 
-    int load(std::string);
+    int load(std::string, sf::Vector2f* player_pos);
 
     void initVoxelMap(int start, int end) {
 
@@ -124,7 +121,7 @@ public:
     bool generateVegetation();
 
     void loadProcGenData(const std::string& path) {
-        procGen.loadHeightMap(path);
+        procGen.loadHeightMap(chIndexer, path);
         procGen.loadBiomeData(path);
     }
 
@@ -142,6 +139,11 @@ public:
 
         if (!std::filesystem::create_directories(created_folder + "/voxel")) {
             prnerr("Could not create folder for save voxel images! Path is ", created_folder);
+            return;
+        }
+
+        if (!std::filesystem::create_directories(created_folder + "/info")) {
+            prnerr("Could not create folder for save info! Path is ", created_folder);
             return;
         }
 
@@ -173,14 +175,12 @@ public:
         prndd("Preparing saving height map...");
 
         const std::string hm_path = created_folder + "/data/heightMap.dat";
-
         std::fstream heightMapFile;
         heightMapFile.open(created_folder + "/data/heightMap.dat", std::fstream::out);
 
         for(int i = 0; i < worldSize::world_sx - 1; i++) {
             heightMapFile << procGen.getHeightOnMap(i) << std::endl;
         }
-
         heightMapFile.close();
 
         std::fstream biomeDataFile;
@@ -190,8 +190,15 @@ public:
         for(const auto &biome : biomeData) {
             biomeDataFile << biome->getName() << std::endl;
         }
-
         biomeDataFile.close();
+
+        std::fstream sizeFile;
+        sizeFile.open(created_folder + "/info/size.txt", std::fstream::out);
+
+        sizeFile << chunks_x << '\n';
+        sizeFile << chunks_y << '\n';
+
+        sizeFile.close();
 
         prndd("All saving threads finished.");
     }
@@ -316,15 +323,11 @@ public:
         } else if(px == elm::getInfoFromType(VoxelValues::URANIUM235).color) {
             vox.value = VoxelValues::URANIUM235;
             vox.strenght = 2;
-
-            if(addVoxelsToArr) addRadioactiveElement(p.x, p.y, std::make_shared<Uranium235>(p.x, p.y));
         }
 
         else if(px == elm::getInfoFromType(VoxelValues::RADIUM226).color) {
             vox.value = VoxelValues::RADIUM226;
             vox.strenght = 2;
-
-            if(addVoxelsToArr) addRadioactiveElement(p.x, p.y, std::make_shared<Radium226>(p.x, p.y));
         }
 
         else if(px == elm::getInfoFromType(VoxelValues::SAND).color) {
@@ -410,10 +413,6 @@ public:
         chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(x,y).x, chIndexer.getChunkFromPos(x,y).y).needs_update = true;
 
         chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(x, y).x, chIndexer.getChunkFromPos(x, y).y).elements.push_back(element);
-    }
-
-    void addRadioactiveElement(int x, int y, const std::shared_ptr<RadioactiveElement> element) {
-        chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(x, y).x, chIndexer.getChunkFromPos(x, y).y).radioactive_elements.push_back(element);
     }
 
     void valueFromColor() {

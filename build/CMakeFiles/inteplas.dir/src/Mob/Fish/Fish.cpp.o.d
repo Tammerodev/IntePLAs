@@ -437,9 +437,6 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/FlammableGas.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Snow.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Shader.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../Uranium-235.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../RadioactiveElement.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../Radium-226.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../IdleState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../WalkState.hpp \
@@ -458,6 +455,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Led.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Lighting/LightGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Lighting/LightSimulation.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../RadiationSearch.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../GameEventEnum.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../EventGlobals.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Oscillator.hpp \

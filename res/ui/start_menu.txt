@@ -9,17 +9,72 @@ Picture.Picture1 {
 }
 
 Button.Play {
-    Position = (320, 530);
-    Size = (169, 60.1525);
-    Text = Start;
+    Position = (41.3%, 210);
+    Size = (299, 3.72%);
+    Text = "Create new world";
     TextSize = 13;
 
     Renderer {
-        BackgroundColor = #0A8754;
+        BackgroundColor = #6C6C6C;
         BackgroundColorDown = #086C43;
         BackgroundColorHover = rgba(190, 190, 190, 215);
         BorderColor = black;
         Borders = (3, 3, 3, 3);
+        RoundedBorderRadius = 5;
+        TextColor = rgba(255, 255, 255, 215);
+        TextColorDown = rgba(255, 255, 255, 235);
+        TextColorHover = rgba(255, 255, 255, 235);
+        TextOutlineThickness = 1;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+Button.Load {
+    Position = (41.3%, 285);
+    Size = (299, 3.72%);
+    Text = "Load world";
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #6C6C6C;
+        BackgroundColorDown = #086C43;
+        BackgroundColorHover = rgba(190, 190, 190, 215);
+        BorderColor = black;
+        Borders = (3, 3, 3, 3);
+        RoundedBorderRadius = 5;
+        TextColor = rgba(255, 255, 255, 215);
+        TextColorDown = rgba(255, 255, 255, 235);
+        TextColorHover = rgba(255, 255, 255, 235);
+        TextOutlineThickness = 1;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+Button.Settings {
+    Position = (41.3%, 360);
+    Size = (299, 3.72%);
+    Text = Settings;
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #6C6C6C;
+        BackgroundColorDown = #086C43;
+        BackgroundColorHover = rgba(190, 190, 190, 215);
+        BorderColor = black;
+        Borders = (3, 3, 3, 3);
+        RoundedBorderRadius = 5;
         TextColor = rgba(255, 255, 255, 215);
         TextColorDown = rgba(255, 255, 255, 235);
         TextColorHover = rgba(255, 255, 255, 235);
@@ -35,88 +90,22 @@ Button.Play {
 }
 
 Button.Mods {
-    Position = (10, 370);
-    Size = (169, 60.1525);
+    Position = (91.56%, 930);
+    Size = (149, 3.72%);
     Text = Mods;
     TextSize = 13;
 
     Renderer {
-        BackgroundColor = #508CA4;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorDown = #EBEBEB;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorDown = black;
-        BorderColorFocused = #1E1EB4;
-        BorderColorHover = black;
-        Borders = (1, 1, 1, 1);
-        TextColor = #3C3C3C;
-        TextColorDisabled = #7D7D7D;
-        TextColorDown = black;
-        TextColorHover = black;
-        Texture = None;
-        TextureDisabled = None;
-        TextureDown = None;
-        TextureDownFocused = None;
-        TextureDownHover = None;
-        TextureFocused = None;
-        TextureHover = None;
-    }
-}
-
-Button.Host {
-    Position = (10, 530);
-    Size = (169, 60.1525);
-    Text = Host;
-    TextSize = 13;
-
-    Renderer {
-        BackgroundColor = #508CA4;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorDown = #EBEBEB;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorDown = black;
-        BorderColorFocused = #1E1EB4;
-        BorderColorHover = black;
-        Borders = (1, 1, 1, 1);
-        TextColor = #3C3C3C;
-        TextColorDisabled = #7D7D7D;
-        TextColorDown = black;
-        TextColorHover = black;
-        Texture = None;
-        TextureDisabled = None;
-        TextureDown = None;
-        TextureDownFocused = None;
-        TextureDownHover = None;
-        TextureFocused = None;
-        TextureHover = None;
-    }
-}
-
-Button.Settings {
-    Position = (10, 450);
-    Size = (169, 60.1525);
-    Text = Settings;
-    TextSize = 13;
-
-    Renderer {
-        BackgroundColor = #508CA4;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorDown = #EBEBEB;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorDown = black;
-        BorderColorFocused = #1E1EB4;
-        BorderColorHover = black;
-        Borders = (1, 1, 1, 1);
-        TextColor = #3C3C3C;
-        TextColorDisabled = #7D7D7D;
-        TextColorDown = black;
-        TextColorHover = black;
+        BackgroundColor = #6C6C6C;
+        BackgroundColorDown = #086C43;
+        BackgroundColorHover = rgba(190, 190, 190, 215);
+        BorderColor = black;
+        Borders = (3, 3, 3, 3);
+        RoundedBorderRadius = 5;
+        TextColor = rgba(255, 255, 255, 215);
+        TextColorDown = rgba(255, 255, 255, 235);
+        TextColorHover = rgba(255, 255, 255, 235);
+        TextOutlineThickness = 1;
         Texture = None;
         TextureDisabled = None;
         TextureDown = None;

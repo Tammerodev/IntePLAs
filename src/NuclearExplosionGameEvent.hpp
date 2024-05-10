@@ -3,7 +3,6 @@
 #include "common.hpp"
 #include <iostream>
 #include "EventGlobals.hpp"
-#include "RadioactiveWaste.hpp"
 
 class NuclearExplosionGameEvent : public GameEvent {
     public:
@@ -53,7 +52,6 @@ class NuclearExplosionGameEvent : public GameEvent {
                 for(int i = 0; i < 200; i++) {
                     sf::Vector2i r_pos = pos + sf::Vector2i(math::randIntInRange(0, 2000), math::randIntInRange(0, 2000));
                     vx.getChunkIndexer().boundVector(r_pos);
-                    vx.addRadioactiveElement(r_pos.x, r_pos.y, std::make_shared<RadioactiveWaste>(r_pos.x, r_pos.y));
                 }
                 explosion_happened = true;
             }

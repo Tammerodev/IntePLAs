@@ -2942,9 +2942,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -2963,6 +2960,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -3217,7 +3215,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/GameEvent.hpp
  /home/lauri/Documents/inteplas/src/DefaultGameEvent.hpp
  /home/lauri/Documents/inteplas/src/NuclearExplosionGameEvent.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveWaste.hpp
 
 CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/GameState.cpp
@@ -3762,9 +3759,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -3783,6 +3777,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -4037,7 +4032,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/GameEvent.hpp
  /home/lauri/Documents/inteplas/src/DefaultGameEvent.hpp
  /home/lauri/Documents/inteplas/src/NuclearExplosionGameEvent.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveWaste.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/Helicopter.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/HelicopterTurret.hpp
  /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
@@ -5021,9 +5015,6 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -5042,6 +5033,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -6460,9 +6452,6 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -6481,6 +6470,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -7196,9 +7186,6 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -7217,6 +7204,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -7770,9 +7758,6 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -7791,6 +7776,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -8343,9 +8329,6 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -8364,6 +8347,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -10696,9 +10680,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -10717,6 +10698,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -12164,9 +12146,6 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -12185,6 +12164,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -13163,9 +13143,6 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -13184,6 +13161,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -13733,9 +13711,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -13754,6 +13729,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -14422,6 +14398,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/Palettes/PaletteUI.hpp
  /home/lauri/Documents/inteplas/src/WorldSelectionState.hpp
  /home/lauri/Documents/inteplas/src/MenuBackground.hpp
+ /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/GameState.hpp
  /home/lauri/Documents/inteplas/src/Mods/Mods.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/HeistMod.hpp
@@ -14511,10 +14488,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
- /home/lauri/Documents/inteplas/src/Shader.hpp
- /home/lauri/Documents/inteplas/src/Uranium-235.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveElement.hpp
- /home/lauri/Documents/inteplas/src/Radium-226.hpp
  /home/lauri/Documents/inteplas/src/Player.hpp
  /home/lauri/Documents/inteplas/src/IdleState.hpp
  /home/lauri/Documents/inteplas/src/WalkState.hpp
@@ -14533,6 +14506,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/Led.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp
+ /home/lauri/Documents/inteplas/src/RadiationSearch.hpp
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp
  /home/lauri/Documents/inteplas/src/Oscillator.hpp
@@ -14612,7 +14586,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/GameEvent.hpp
  /home/lauri/Documents/inteplas/src/DefaultGameEvent.hpp
  /home/lauri/Documents/inteplas/src/NuclearExplosionGameEvent.hpp
- /home/lauri/Documents/inteplas/src/RadioactiveWaste.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/Helicopter.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/HelicopterTurret.hpp
  /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
@@ -14620,6 +14593,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/CollectableBox.hpp
  /home/lauri/Documents/inteplas/src/UI/PointIndicator.hpp
  /home/lauri/Documents/inteplas/src/SettingsState.hpp
+ /home/lauri/Documents/inteplas/src/SettingsStateTestWorld.hpp
  /home/lauri/Documents/inteplas/src/LoadingState.hpp
  /home/lauri/Documents/inteplas/src/ModMenu.hpp
 

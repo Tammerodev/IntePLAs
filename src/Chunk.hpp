@@ -92,7 +92,6 @@ public:
     bool needs_update = false;
 
     std::list<std::shared_ptr<Element>> elements;
-    std::list<std::shared_ptr<RadioactiveElement>> radioactive_elements;
 };
 
 struct ChunkArea {

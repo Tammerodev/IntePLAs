@@ -1,8 +1,9 @@
 #include "VoxelManager.hpp"
 
-int VoxelManager::load(std::string file)
+int VoxelManager::load(std::string file, sf::Vector2f* player_pos)
 {
     bool res = true;
+    const bool create_new_world = (file == "Create new world");
 
     if(WorldSettings::worldConfigLoaded) {
         chunks_x = WorldSettings::createSizeX;
@@ -12,20 +13,33 @@ int VoxelManager::load(std::string file)
         res = false;
     }
 
-    chIndexer.init();
-
-    ChunkBounds bounds = ChunkBounds(-chunks_negx, 0, chunks_x, chunks_y);
+    const std::string path = StorageSettings::save_path + file;
+    utils::path = path + "/";
 
     sf::Clock timer;
 
-    const bool create_new_world = (file == "Create new world");
-
-    const std::string path = StorageSettings::save_path + file;
-
-    utils::path = path + "/";
-
     std::filesystem::create_directories(utils::path + "voxel/");
     std::filesystem::create_directories(utils::path + "cache/");
+
+    if(!create_new_world) {
+        std::fstream worldSizeChunks;
+        worldSizeChunks.open(utils::path + "info/size.txt");
+
+        if(worldSizeChunks.is_open()) {
+            worldSizeChunks >> chunks_x;
+            worldSizeChunks >> chunks_y; 
+        } else {
+            prnerr("Could not open world size data file", "!");
+        }
+    }
+
+    loginf("World size (chunks) x", worldSize::world_sx, ".");
+    loginf("World size (chunks) y", worldSize::world_sy, ".");
+
+
+    ChunkBounds bounds = ChunkBounds(-chunks_negx, 0, chunks_x, chunks_y);
+
+    chIndexer.init();
 
     for(int64_t y = bounds.getArea().startY; y < bounds.getArea().endY; y++) {
         for(int64_t x = bounds.getArea().startX; x < bounds.getArea().endX; x++) {
@@ -52,8 +66,7 @@ int VoxelManager::load(std::string file)
 
     loginf("Creating map took : ", timer.getElapsedTime().asSeconds(), ".");
     chIndexer.update();
-
-    timer.restart();
+    simulationManager.load(chIndexer, player_pos);
 
     return res;
 }
@@ -119,7 +132,7 @@ void VoxelManager::render(sf::RenderTarget &target, sf::RenderTarget& rtx, const
 
     for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
         for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
-            Chunk& chunk = chIndexer.getChunkAt(x, y);
+            Chunk& chunk = chIndexer.boundGetChunkAt(x, y);
 
             if(chunk.modified) {
                 chunk.update();
@@ -273,50 +286,6 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
     ChunkArea draw_area = draw_bounds.getArea();
 
     sf::Sprite spriteRend;
-
-    PlayerGlobal::radiation_received = 0;
-
-    for(int64_t y = draw_area.startY; y < draw_area.endY; y++) {
-        for(int64_t x = draw_area.startX; x < draw_area.endX; x++) {
-            Chunk& chunk = chIndexer.getChunkAt(x, y);
-
-            auto rad = chunk.radioactive_elements.begin();
-            while (rad != chunk.radioactive_elements.end())
-            {
-                rad->get()->update(chIndexer);
-
-                const float distance = math::distance(
-                    sf::Vector2f(*rad->get()), sf::Vector2f(player.getPhysicsComponent().transform_position)
-                    );
-
-                const float radiation_strength = rad->get()->getRadiationStrength();
-
-                if(distance < radiation_strength) {
-                    
-                    const int radiation = radiation_strength - (int)distance;
-
-                    const bool particle = math::randIntInRange(0, radiation_strength) > distance;
-
-                    if(particle) {
-                        PlayerGlobal::radiation_received = radiation;
-                        
-                        if(radiation > PlayerGlobal::still_radioation) 
-                            PlayerGlobal::still_radioation = radiation;
-
-                        if(math::randIntInRange(0, 10000) < 1) 
-                            player.getHealthManager().damageRadiation(1);
-                    }
-                }
-
-                if(rad->get()->clear())
-                    rad = chunk.radioactive_elements.erase(rad);
-                else 
-                    ++rad;  
-            }
-
-        }
-    }
-
 
 #if USE_MULTITHREADING
     updateElementsMultithreaded(draw_area);

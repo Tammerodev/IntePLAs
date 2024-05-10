@@ -32,6 +32,8 @@ public:
 			MainState::currentState = MainState::modMenu;
 		else if(destination == 3)
 			MainState::currentState = MainState::worldSelectionState;
+		else if(destination == 4)
+			MainState::currentState = MainState::gameState;
 
 		MainState::currentState->load(path.toStdString(), gui); 
 	}
@@ -70,7 +72,12 @@ public:
 		if(e.type == sf::Event::MouseButtonPressed && e.mouseButton.button == sf::Mouse::Button::Left) {
 
 			auto PlayButton = backend_gui->get("Play");
-			if(PlayButton->isMouseOnWidget(sf::Vector2f(e.mouseButton.x, e.mouseButton.y))) {
+			if(PlayButton != nullptr && PlayButton->isMouseOnWidget(sf::Vector2f(e.mouseButton.x, e.mouseButton.y))) {
+				buttonCallBack("Create new world", 4, *backend_gui);
+			}
+
+			auto LoadButton = backend_gui->get("Load");
+			if(LoadButton != nullptr && LoadButton->isMouseOnWidget(sf::Vector2f(e.mouseButton.x, e.mouseButton.y))) {
 				buttonCallBack("Create new world", 3, *backend_gui);
 			}
 

@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Settings.hpp"
 #include <filesystem>
+#include "Shader.hpp"
 
 namespace MenuMusic {
     inline sf::Music music;
@@ -32,6 +33,7 @@ namespace MenuBackground {
     inline sf::Sprite new_sprite;
 
     inline sf::Clock clock;
+    inline Shader shader;
     
     inline void load() {
         texture.loadFromFile(StorageSettings::screenshot_path + "start.png");
@@ -39,11 +41,14 @@ namespace MenuBackground {
         sprite.setTexture(texture);
         sprite.setPosition(0, 0);
         new_sprite.setPosition(0, 0);
+
+        shader.load("res/shaders/default_vertex.glsl", "res/shaders/imageBlur.glsl");
     }
 
     inline void render(sf::RenderTarget& target) {
         target.draw(sprite);
         target.draw(new_sprite);
+
     }
 
     inline void update() {

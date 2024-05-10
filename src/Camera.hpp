@@ -22,10 +22,6 @@ public:
         shakeIntensity = intensity / 100.f;
     }
 
-    void setLeapTarget(const sf::Vector2f& target) {
-        this->target = target;
-    }
-
     void zoom(const float zoom) {
         view.zoom(zoom);
         currZoom = zoom;
