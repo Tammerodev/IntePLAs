@@ -70,15 +70,15 @@ namespace elm {
     const VoxelInfo Default         {0, 1, sf::Color(0, 0, 0),             1000, 0,  ""                };
 
     const VoxelInfo Carbon          {VoxelValues::CARBON,       2,  sf::Color(74,74,74),           3550, 0.0f,   "Carbon"          };
-    const VoxelInfo Lithium         {VoxelValues::LITHIUM,      3,  sf::Color(119,120,115),        180,  0.02f,  "Lithium"         };
+    const VoxelInfo Lithium         {VoxelValues::LITHIUM,      3,  sf::Color(119,120,115),        180,  0.01f,  "Lithium"         };
     const VoxelInfo Magnesium       {VoxelValues::MAGNESIUM,    4,  sf::Color(186,186,166),        650,  0.01f,   "Magnesium"       };
-    const VoxelInfo Sodium          {VoxelValues::SODIUM,       1,  sf::Color(119,142,125),        98,   0.02f,   "Sodium"          };
+    const VoxelInfo Sodium          {VoxelValues::SODIUM,       1,  sf::Color(119,142,125),        98,   0.01f,   "Sodium"          };
     const VoxelInfo Aluminium       {VoxelValues::ALUMINIUM,    4,  sf::Color(209,213,216),        660,  0.0f,   "Aluminium"       };
     const VoxelInfo Silicon         {VoxelValues::SILICON,      1,  sf::Color(117,121,139),        1410, 0.0f,   "Silicon"         };
     const VoxelInfo Copper          {VoxelValues::COPPER,       4,  sf::Color(186,140,106),        1085, 0.01f,   "Copper"          };
-    const VoxelInfo Titanium        {VoxelValues::TITANIUM,     10, sf::Color(142,129,149),        1668, 0.02f,   "Titanium"        };
+    const VoxelInfo Titanium        {VoxelValues::TITANIUM,     10, sf::Color(142,129,149),        1668, 0.01f,   "Titanium"        };
     const VoxelInfo Lead            {VoxelValues::LEAD,         8,  sf::Color(104,102,107),        327,  0.02f,   "Lead"            };
-    const VoxelInfo Wood            {VoxelValues::WOOD,         1,  sf::Color(61, 36, 36),         327,  0.1f,   "Wood"            };
+    const VoxelInfo Wood            {VoxelValues::WOOD,         1,  sf::Color(61, 36, 36),         327,  0.03f,   "Wood"            };
     const VoxelInfo Mirror          {VoxelValues::MIRROR,       1,  sf::Color(61, 61, 61),         1000, 0.0f,   "Mirror"            };
     
     
@@ -92,7 +92,7 @@ namespace elm {
 
     const VoxelInfo Uranium235      {VoxelValues::URANIUM235,   10, sf::Color(71, 201, 75),        1132,   25.0f, "Uranium - 235"   };
     const VoxelInfo Radium226       {VoxelValues::RADIUM226,    1,  sf::Color(31, 71, 57),         1132,   125.f, "Radium - 226"    };
-    const VoxelInfo Sand            {VoxelValues::SAND,         14, sf::Color(168, 173, 26),       10000,  0.06f, "Sand"            };
+    const VoxelInfo Sand            {VoxelValues::SAND,         14, sf::Color(168, 173, 26),       10000,  0.01f, "Sand"            };
     const VoxelInfo Snow            {VoxelValues::SNOW,         1,  sf::Color(211, 235, 230),      10,     0.0f, "Snow"            };
     const VoxelInfo Glass           {VoxelValues::GLASS,        1,  sf::Color(125, 125, 100, 100), 1000,   0.01f, "Glass"           };
 

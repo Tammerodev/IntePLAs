@@ -23,11 +23,12 @@ public:
 			)
 		);
 
+
+
 	}
 
     void use(Player& player, const sf::Vector2f& mouse, World &world) {
-
-
+		
     }
 
     void render(sf::RenderTarget &target) {
@@ -65,6 +66,8 @@ public:
     void update(World &world, const sf::Vector2f& mousePos, const sf::Vector2f& pos, const float dt, Player& player) {
 		const float rotationAngle = atan2f(mousePos.y - gun_spr.getPosition().y, mousePos.x - gun_spr.getPosition().x) * 180 / math::PI;
 		const bool click = PlayerGlobal::radiation_received > 1;
+
+		prndd(PlayerGlobal::radiation_received);
 
 		gun_spr.setPosition(pos.x + 9, pos.y + 13);
 		gun_spr.setRotation(rotationAngle);

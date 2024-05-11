@@ -19,7 +19,7 @@ namespace RadiationSearch {
 
     static void s_search(ChunkIndexer& world, sf::Vector2f* p_pos) {
         while(true) {
-            const int search_radius = 100;
+            const int search_radius = 250;
             radiation = 0.f;
             
             for(int x = 0; x < search_radius; x++) {

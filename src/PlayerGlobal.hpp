@@ -4,7 +4,7 @@
 #include <algorithm>
 
 namespace PlayerGlobal {
-    inline int radiation_received = 0; 
+    inline float radiation_received = 0; 
     inline int still_radioation = 0;
 
     inline int max_health = 16;

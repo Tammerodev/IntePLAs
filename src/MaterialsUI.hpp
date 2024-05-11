@@ -26,7 +26,7 @@ class MaterialsUI {
         const float barHeight = 10;
         const float barDistance = 15;
 
-        std::array<MaterialBar, 14> barChart;
+        std::map<unsigned char, MaterialBar> barChart;
 
         bool modified = false;
 
@@ -34,17 +34,9 @@ class MaterialsUI {
 
     private:
 
-        void addBars(const char *name) {
-            int i = 2;
-            for(auto &bar : barChart) {
-                bar = MaterialBar();
-                bar.setFillColor(sf::Color());
-                bar.setPosition(i * barDistance, 0);
-                bar.setSize(sf::Vector2f(10, barHeight));
+        void addBar(int id) {
+            //barChart[id] = MaterialBar();
+            //barChart[id].();
 
-                bar.setFillColor(elm::getInfoFromType(i).color);
-
-                ++i;
-            }
         }
 };
