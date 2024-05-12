@@ -14,7 +14,6 @@
 
 #include "Settings.hpp"
 
-
 class MaterialsUI {
     public:
         void load(tgui::BackendGui& gui);
@@ -22,6 +21,7 @@ class MaterialsUI {
         void render(sf::RenderTarget& target);
 
         void update(VoxelManager &vx_manager);
+
     private:
         const float barHeight = 10;
         const float barDistance = 15;
@@ -34,9 +34,18 @@ class MaterialsUI {
 
     private:
 
-        void addBar(int id) {
-            //barChart[id] = MaterialBar();
-            //barChart[id].();
+        void addBar(int id, int addAmount) {
+             
+            barChart[id] = MaterialBar();
+            barChart[id].setPosition(id * barDistance, 0);
+            barChart[id].setAmount(barDistance, 5 + addAmount);
+        }
 
+
+        void updateBars(MaterialPack& pack) {
+            for(auto m : pack.materials) {
+                addBar(m.first, m.second.amount);
+                prndd(m.second.amount);
+            }
         }
 };

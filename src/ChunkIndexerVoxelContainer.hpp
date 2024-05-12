@@ -130,15 +130,7 @@ public:
             clearVoxelAt(pos.x, pos.y);
         }
 
-        if(getVoxelAt(pos.x, pos.y).value == VoxelValues::CARBON) materialpack.carbon += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::LITHIUM) materialpack.lithium += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::MAGNESIUM) materialpack.magnesium += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::SODIUM) materialpack.sodium += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::ALUMINIUM) materialpack.aluminium += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::SILICON) materialpack.silicon += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::COPPER) materialpack.copper += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::TITANIUM) materialpack.titanium += 1;
-        else if(getVoxelAt(pos.x, pos.y).value == VoxelValues::LEAD) materialpack.lead += 1;
+        materialpack.addElementOfType(getVoxelAt(pos.x, pos.y).value, 1); 
     }
 
     bool doesLineContainMaterial(sf::Vector2i start, sf::Vector2i end) {

@@ -9,8 +9,6 @@ void MaterialsUI::load(tgui::BackendGui &gui) {
     
     canvas->setWidgetName("DEL_");
 
-    addBars("inv");
-
     gui.add(canvas);
 
 }
@@ -19,7 +17,7 @@ void MaterialsUI::render(sf::RenderTarget &target) {
     canvas->clear(UISettings::getColorRGBA());
 
     for(auto &bar : barChart) {
-        canvas->draw(bar);
+        canvas->draw(bar.second);
     }
 
     canvas->display();
@@ -27,14 +25,5 @@ void MaterialsUI::render(sf::RenderTarget &target) {
 
 void MaterialsUI::update(VoxelManager &vx_manager)
 {
-
-    barChart.at(0).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.carbon);
-    barChart.at(1).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.lithium);
-    barChart.at(2).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.magnesium);
-    barChart.at(3).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.sodium);
-    barChart.at(4).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.aluminium);
-    barChart.at(5).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.silicon);
-    barChart.at(6).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.copper);
-    barChart.at(7).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.titanium);
-    barChart.at(8).setAmount(barHeight, vx_manager.getChunkIndexer().materialpack.lead);
+    updateBars(vx_manager.getChunkIndexer().materialpack);
 }
