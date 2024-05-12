@@ -487,7 +487,7 @@ public:
                 const sf::Color pixel = img.getPixel(x, y);
 
                 const int voxel_value = getHandleVoxel(pixel, sf::Vector2i(x, y)).value;
-                chIndexer.materialpack.addElementOfType(voxel_value, -1);
+                //chIndexer.materialpack.addElementOfType(voxel_value, -1);         TODO: uncomment
             }
         }
     }

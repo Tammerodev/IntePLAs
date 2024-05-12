@@ -3,18 +3,20 @@
 #include "PlayerState.hpp"
 #include "SoundFX.hpp"
 #include "PlayerDamageSoundType.hpp"
+#include "Camera.hpp"
 
 class PlayerHealthManager {
     public:
-        void calculateHeatDamage(const float temp) {
+        void calculateHeatDamage(const float temp, Camera &cam) {
             if(temp > 120.0) {
                 if(math::randProp(2))
-                    damagePlayer(std::clamp(temp / 150.f, 0.0f, 3.0f), PlayerDamageSoundType::Hot, false);
+                    damagePlayer(1, PlayerDamageSoundType::Hot, false);
             }
 
-            if(temp < -27.0) {
-                if(math::randProp(2))
-                    damagePlayer(std::clamp(temp / -10.f, 0.0f, 3.0f), PlayerDamageSoundType::Cold, false);
+            if(temp < -20.0) {
+                cam.shake(temp / -0.1);
+            } if(temp < -27.0) {
+                damagePlayer(1, PlayerDamageSoundType::Cold, false);
             }
         }
 

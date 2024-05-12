@@ -120,7 +120,7 @@ void Game::update() {
     BGMusic::update();
     effOverlay.update(game_camera.getCenterPosition());
     game_camera.update(dt);
-    player.update(world.main_world.getChunkIndexer(), dt);
+    player.update(world.main_world.getChunkIndexer(), dt, game_camera);
     matUI.update(world.main_world);
 
     // Update UI

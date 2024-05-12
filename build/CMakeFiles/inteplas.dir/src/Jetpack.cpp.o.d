@@ -444,6 +444,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: \
  /home/lauri/Documents/inteplas/src/SwimState.hpp \
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp \
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp \
+ /home/lauri/Documents/inteplas/src/Camera.hpp \
  /home/lauri/Documents/inteplas/src/Session.hpp \
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp \

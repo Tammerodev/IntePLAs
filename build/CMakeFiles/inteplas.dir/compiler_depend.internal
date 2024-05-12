@@ -2953,6 +2953,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -3207,7 +3208,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/ParallaxLayer.hpp
  /home/lauri/Documents/inteplas/src/EffectOverlay.hpp
  /home/lauri/Documents/inteplas/src/ExplosionEffect.hpp
- /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Cursor.hpp
  /home/lauri/Documents/inteplas/src/ShaderEffects.hpp
  /home/lauri/Documents/inteplas/src/DebugDisplay.hpp
@@ -3770,6 +3770,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -4024,7 +4025,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/ParallaxLayer.hpp
  /home/lauri/Documents/inteplas/src/EffectOverlay.hpp
  /home/lauri/Documents/inteplas/src/ExplosionEffect.hpp
- /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Cursor.hpp
  /home/lauri/Documents/inteplas/src/ShaderEffects.hpp
  /home/lauri/Documents/inteplas/src/DebugDisplay.hpp
@@ -5026,6 +5026,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -6463,6 +6464,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -7197,6 +7199,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -7769,6 +7772,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -8340,6 +8344,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -8852,6 +8857,7 @@ CMakeFiles/inteplas.dir/src/Player.cpp.o
  /home/lauri/Documents/inteplas/src/MaterialPack.hpp
  /usr/include/c++/11/math.h
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
 
 CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.cpp
@@ -9267,6 +9273,7 @@ CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o
  /usr/include/SFML/Audio/SoundFileReader.hpp
  /usr/include/SFML/Audio/SoundFileWriter.hpp
  /home/lauri/Documents/inteplas/src/PlayerDamageSoundType.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
 
 CMakeFiles/inteplas.dir/src/RespawnState.cpp.o
  /home/lauri/Documents/inteplas/src/RespawnState.cpp
@@ -10691,6 +10698,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -12157,6 +12165,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -13154,6 +13163,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -13722,6 +13732,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -14499,6 +14510,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/SwimState.hpp
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -14578,7 +14590,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/ParallaxLayer.hpp
  /home/lauri/Documents/inteplas/src/EffectOverlay.hpp
  /home/lauri/Documents/inteplas/src/ExplosionEffect.hpp
- /home/lauri/Documents/inteplas/src/Camera.hpp
  /home/lauri/Documents/inteplas/src/Cursor.hpp
  /home/lauri/Documents/inteplas/src/ShaderEffects.hpp
  /home/lauri/Documents/inteplas/src/DebugDisplay.hpp

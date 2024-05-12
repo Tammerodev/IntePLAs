@@ -19,12 +19,12 @@ int Player::load() {
     return 1;
 }
 
-void Player::update(ChunkIndexer& world, float dt) {
+void Player::update(ChunkIndexer& world, float dt, Camera &cam) {
     PlayerState::currentState->update(physComp, dt);
     PlayerState::currentState->input(grounded);
 
     PlayerGlobal::updateBodyTemparature();
-    healthManager.calculateHeatDamage(PlayerGlobal::bodyTemparature);
+    healthManager.calculateHeatDamage(PlayerGlobal::bodyTemparature, cam);
 
     if(!grounded) {
         physComp.update(dt);
@@ -49,6 +49,8 @@ void Player::update(ChunkIndexer& world, float dt) {
     }
 
     debug_globals::player_position = physComp.transform_position;
+
+    prevVelY = physComp.velocity.y;
 }
 
 void Player::draw(sf::RenderTarget & window) {

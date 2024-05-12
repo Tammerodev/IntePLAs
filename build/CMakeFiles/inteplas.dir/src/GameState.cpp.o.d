@@ -449,6 +449,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../SwimState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PlayerTemparatureManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PlayerHealthManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Camera.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Session.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ElectricitySimulation.hpp \
@@ -680,7 +681,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ParallaxLayer.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../EffectOverlay.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ExplosionEffect.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Camera.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Cursor.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ShaderEffects.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../DebugDisplay.hpp \

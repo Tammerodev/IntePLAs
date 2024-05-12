@@ -26,7 +26,7 @@ class Player {
 public:
 
     int load();
-    void update(ChunkIndexer& world, float);
+    void update(ChunkIndexer& world, float, Camera &cam);
     void draw(sf::RenderTarget&);
 
     IntPhysicsComponent &getPhysicsComponent() {
@@ -42,6 +42,10 @@ public:
     }
 
     void ground() {
+        if(prevVelY > 6.f) {
+            healthManager.damageHit(prevVelY);
+        }
+
         physComp.velocity.y = 0;
         physComp.velocity.x /= 1.5;
         
@@ -53,6 +57,8 @@ public:
     }
 
 private:
+    float prevVelY = 0.f;
+
     PlayerHealthManager healthManager;
     bool grounded = false;
 

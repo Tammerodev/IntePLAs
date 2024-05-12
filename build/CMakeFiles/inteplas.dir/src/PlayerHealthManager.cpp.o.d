@@ -333,4 +333,5 @@ CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/lauri/Documents/inteplas/src/PlayerDamageSoundType.hpp
+ /home/lauri/Documents/inteplas/src/PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Camera.hpp

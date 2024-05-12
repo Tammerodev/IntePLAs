@@ -384,4 +384,5 @@ CMakeFiles/inteplas.dir/src/Player.cpp.o: \
  /home/lauri/Documents/inteplas/src/VoxelContainer.hpp \
  /home/lauri/Documents/inteplas/src/MaterialPack.hpp \
  /usr/include/c++/11/math.h \
- /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp
+ /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp \
+ /home/lauri/Documents/inteplas/src/Camera.hpp

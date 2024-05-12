@@ -448,6 +448,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../SwimState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../PlayerTemparatureManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../PlayerHealthManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Camera.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Session.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../ElectricitySimulation.hpp \

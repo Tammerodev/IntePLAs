@@ -2945,6 +2945,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -3199,7 +3200,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/ParallaxLayer.hpp \
   ../src/EffectOverlay.hpp \
   ../src/ExplosionEffect.hpp \
-  ../src/Camera.hpp \
   ../src/Cursor.hpp \
   ../src/ShaderEffects.hpp \
   ../src/DebugDisplay.hpp \
@@ -3761,6 +3761,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -4015,7 +4016,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/ParallaxLayer.hpp \
   ../src/EffectOverlay.hpp \
   ../src/ExplosionEffect.hpp \
-  ../src/Camera.hpp \
   ../src/Cursor.hpp \
   ../src/ShaderEffects.hpp \
   ../src/DebugDisplay.hpp \
@@ -5015,6 +5015,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: ../src/Jetpack.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -6449,6 +6450,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: ../src/MaterialsUI.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -7182,6 +7184,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: ../src/Mob/Fish/Fish.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -7753,6 +7756,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: ../src/Mob/Frog/Frog.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -8323,6 +8327,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: ../src/MobManager.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -8833,7 +8838,8 @@ CMakeFiles/inteplas.dir/src/Player.cpp.o: ../src/Player.cpp \
   ../src/VoxelContainer.hpp \
   ../src/MaterialPack.hpp \
   /usr/include/c++/11/math.h \
-  ../src/PlayerHealthManager.hpp
+  ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp
 
 CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o: ../src/PlayerHealthManager.cpp \
   /usr/include/stdc-predef.h \
@@ -9247,7 +9253,8 @@ CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o: ../src/PlayerHealthManage
   /usr/include/SFML/Audio/SoundFileFactory.inl \
   /usr/include/SFML/Audio/SoundFileReader.hpp \
   /usr/include/SFML/Audio/SoundFileWriter.hpp \
-  ../src/PlayerDamageSoundType.hpp
+  ../src/PlayerDamageSoundType.hpp \
+  ../src/Camera.hpp
 
 CMakeFiles/inteplas.dir/src/RespawnState.cpp.o: ../src/RespawnState.cpp \
   /usr/include/stdc-predef.h \
@@ -10669,6 +10676,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -12132,6 +12140,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: ../src/VoxelManager.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -13127,6 +13136,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: ../src/WeatherManager.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -13694,6 +13704,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -14470,6 +14481,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/SwimState.hpp \
   ../src/PlayerTemparatureManager.hpp \
   ../src/PlayerHealthManager.hpp \
+  ../src/Camera.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -14549,7 +14561,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/ParallaxLayer.hpp \
   ../src/EffectOverlay.hpp \
   ../src/ExplosionEffect.hpp \
-  ../src/Camera.hpp \
   ../src/Cursor.hpp \
   ../src/ShaderEffects.hpp \
   ../src/DebugDisplay.hpp \
@@ -14614,8 +14625,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/DebugDisplay.hpp:
 
 ../src/ShaderEffects.hpp:
-
-../src/Camera.hpp:
 
 ../src/EffectOverlay.hpp:
 
@@ -14942,6 +14951,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/Led.hpp:
 
 ../src/SimulationManager.hpp:
+
+../src/Camera.hpp:
 
 ../src/PlayerTemparatureManager.hpp:
 

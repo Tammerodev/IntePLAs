@@ -27,25 +27,30 @@ class MaterialsUI {
         const float barDistance = 15;
 
         std::map<unsigned char, MaterialBar> barChart;
-
         bool modified = false;
 
         tgui::CanvasSFML::Ptr canvas = nullptr;
 
     private:
 
-        void addBar(int id, int addAmount) {
-             
-            barChart[id] = MaterialBar();
-            barChart[id].setPosition(id * barDistance, 0);
-            barChart[id].setAmount(barDistance, 5 + addAmount);
+        int id = 0;
+
+        void addBar(int c, int addAmount) {
+            if(barChart.count(c) == 0) {
+                id++;
+                barChart.insert({c, MaterialBar()});
+                barChart[c]._setPosition(id * barDistance, 0);
+            }
+
+            barChart[c].setFillColor(elm::getInfoFromType(c).color);
+            barChart[c].setAmount(barDistance, 5 + addAmount);
         }
 
 
         void updateBars(MaterialPack& pack) {
             for(auto m : pack.materials) {
-                addBar(m.first, m.second.amount);
-                prndd(m.second.amount);
+                if(m.second.amount != 0)
+                    addBar(m.first, m.second.amount);
             }
         }
 };

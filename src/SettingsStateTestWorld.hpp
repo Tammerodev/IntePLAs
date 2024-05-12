@@ -43,7 +43,7 @@ class SettingsTestWorld {
         }
 
         void update() {
-            player.update(world.main_world.getChunkIndexer(), 1.0f);
+            player.update(world.main_world.getChunkIndexer(), 1.0f, camera);
 
             world.update(1.0f, player, gameEvent);
             world.handleCollisionsWithPlayer(player);

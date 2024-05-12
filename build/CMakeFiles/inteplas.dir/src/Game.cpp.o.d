@@ -450,6 +450,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: \
  /home/lauri/Documents/inteplas/src/SwimState.hpp \
  /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp \
  /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp \
+ /home/lauri/Documents/inteplas/src/Camera.hpp \
  /home/lauri/Documents/inteplas/src/Session.hpp \
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp \
@@ -681,7 +682,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: \
  /home/lauri/Documents/inteplas/src/ParallaxLayer.hpp \
  /home/lauri/Documents/inteplas/src/EffectOverlay.hpp \
  /home/lauri/Documents/inteplas/src/ExplosionEffect.hpp \
- /home/lauri/Documents/inteplas/src/Camera.hpp \
  /home/lauri/Documents/inteplas/src/Cursor.hpp \
  /home/lauri/Documents/inteplas/src/ShaderEffects.hpp \
  /home/lauri/Documents/inteplas/src/DebugDisplay.hpp \
