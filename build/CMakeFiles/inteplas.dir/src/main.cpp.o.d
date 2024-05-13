@@ -553,15 +553,15 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Globals.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Raycast.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ParticleSimulation.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../FreeNeutron.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../DebrisParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/Particle.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/FreeNeutron.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/DebrisParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PlayerGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PlayerState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PickableDebris.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../CollisionManager.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../SoundFX.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/PickableDebris.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/../CollisionManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/../SoundFX.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/../PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/Element.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../RectangleRigidbody.hpp \
@@ -594,7 +594,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/Wood.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/Flammable.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/../FireEffectManager.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/../FireParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/../Particle/FireParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/ManganeseHeptoxide.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/FlammableFluid.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/Butane.hpp \
@@ -629,11 +629,11 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ClearWeather.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../WeatherState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../SnowingWeather.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../SnowParticle.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../WeatherParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/SnowParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/WeatherParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../BackgroundMusic.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../RainingWeather.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../RainParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/RainParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../MobManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/Frog.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../Mob.hpp \
@@ -654,29 +654,28 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Fish/FishDeadState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Fish/FishIdleState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Fish/FishSwimState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../RocketLauncher.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Gun.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ExplosiveBullet.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../DebugPlacer.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PlaceItem.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ThrowInteface.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/RocketLauncher.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Gun.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/../ExplosiveBullet.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Item.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../HeatGun.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../MaterialsUI.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../MaterialBar.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ItemCreateItem.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../GeigerCounter.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Jetpack.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../IronPickaxe.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Pickaxe.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Backpack.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Laser.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/ItemCreateItem.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/PlaceItem.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/../ThrowInteface.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/GeigerCounter.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Jetpack.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/IronPickaxe.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Pickaxe.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Backpack.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Laser.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../HealthBar.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../BarUI.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../UIElement.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../TemperatureBar.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../InventoryBar.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../NoneItem.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/NoneItem.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../InventoryToolBar.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../InventoryUserCreatedBar.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ItemCreatorUIState.hpp \

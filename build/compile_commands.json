@@ -51,8 +51,8 @@
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Jetpack.cpp.o -c /home/lauri/Documents/inteplas/src/Jetpack.cpp",
-  "file": "/home/lauri/Documents/inteplas/src/Jetpack.cpp"
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o -c /home/lauri/Documents/inteplas/src/Item/Jetpack.cpp",
+  "file": "/home/lauri/Documents/inteplas/src/Item/Jetpack.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",

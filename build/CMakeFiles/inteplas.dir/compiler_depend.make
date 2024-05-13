@@ -1988,7 +1988,7 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o: ../src/FireEffectManager.cp
   /usr/include/stdc-predef.h \
   ../src/FireEffectManager.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
+  ../src/Particle/Particle.hpp \
   /usr/include/SFML/Graphics.hpp \
   /usr/include/SFML/Window.hpp \
   /usr/include/SFML/System.hpp \
@@ -2294,7 +2294,7 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o: ../src/FireEffectManager.cp
   /usr/include/SFML/Graphics/Sprite.hpp \
   /usr/include/SFML/Graphics/Text.hpp \
   /usr/include/SFML/Graphics/VertexBuffer.hpp \
-  ../src/FreeNeutron.hpp \
+  ../src/Particle/FreeNeutron.hpp \
   ../src/math.hpp \
   /usr/include/c++/11/random \
   /usr/include/c++/11/cmath \
@@ -2329,7 +2329,7 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o: ../src/FireEffectManager.cp
   /usr/include/c++/11/bits/stl_numeric.h \
   /usr/include/c++/11/bit \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PhysicsComponent.hpp \
   /usr/include/SFML/Main.hpp \
   ../src/common.hpp \
@@ -2394,7 +2394,7 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o: ../src/FireEffectManager.cp
   /usr/include/c++/11/bits/ranges_uninitialized.h \
   /usr/include/c++/11/bits/uses_allocator_args.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
-  ../src/FireParticle.hpp
+  ../src/Particle/FireParticle.hpp
 
 CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   /usr/include/stdc-predef.h \
@@ -2838,12 +2838,12 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -2927,7 +2927,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -2963,11 +2963,11 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/ClearWeather.hpp \
   ../src/WeatherState.hpp \
   ../src/SnowingWeather.hpp \
-  ../src/SnowParticle.hpp \
-  ../src/WeatherParticle.hpp \
+  ../src/Particle/SnowParticle.hpp \
+  ../src/Particle/WeatherParticle.hpp \
   ../src/BackgroundMusic.hpp \
   ../src/RainingWeather.hpp \
-  ../src/RainParticle.hpp \
+  ../src/Particle/RainParticle.hpp \
   ../src/MobManager.hpp \
   ../src/Mob/Frog/Frog.hpp \
   ../src/Mob/Mob.hpp \
@@ -2988,14 +2988,11 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Mob/Fish/FishDeadState.hpp \
   ../src/Mob/Fish/FishIdleState.hpp \
   ../src/Mob/Fish/FishSwimState.hpp \
-  ../src/RocketLauncher.hpp \
-  ../src/Gun.hpp \
+  ../src/Item/RocketLauncher.hpp \
+  ../src/Item/Gun.hpp \
   ../src/ExplosiveBullet.hpp \
-  ../src/Item.hpp \
+  ../src/Item/Item.hpp \
   ../src/Palettes/PaletteUI.hpp \
-  ../src/DebugPlacer.hpp \
-  ../src/PlaceItem.hpp \
-  ../src/ThrowInteface.hpp \
   ../src/HeatGun.hpp \
   ../src/Panel.hpp \
   ../src/MaterialsUI.hpp \
@@ -3171,19 +3168,21 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
   /usr/include/TGUI/Widgets/CanvasBase.hpp \
   /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
-  ../src/ItemCreateItem.hpp \
-  ../src/GeigerCounter.hpp \
-  ../src/Jetpack.hpp \
-  ../src/IronPickaxe.hpp \
-  ../src/Pickaxe.hpp \
-  ../src/Backpack.hpp \
-  ../src/Laser.hpp \
+  ../src/Item/ItemCreateItem.hpp \
+  ../src/Item/PlaceItem.hpp \
+  ../src/ThrowInteface.hpp \
+  ../src/Item/GeigerCounter.hpp \
+  ../src/Item/Jetpack.hpp \
+  ../src/Item/IronPickaxe.hpp \
+  ../src/Item/Pickaxe.hpp \
+  ../src/Item/Backpack.hpp \
+  ../src/Item/Laser.hpp \
   ../src/HealthBar.hpp \
   ../src/BarUI.hpp \
   ../src/UIElement.hpp \
   ../src/TemperatureBar.hpp \
   ../src/InventoryBar.hpp \
-  ../src/NoneItem.hpp \
+  ../src/Item/NoneItem.hpp \
   ../src/InventoryToolBar.hpp \
   ../src/InventoryUserCreatedBar.hpp \
   ../src/ItemCreatorUIState.hpp \
@@ -3654,12 +3653,12 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -3743,7 +3742,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -3779,11 +3778,11 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/ClearWeather.hpp \
   ../src/WeatherState.hpp \
   ../src/SnowingWeather.hpp \
-  ../src/SnowParticle.hpp \
-  ../src/WeatherParticle.hpp \
+  ../src/Particle/SnowParticle.hpp \
+  ../src/Particle/WeatherParticle.hpp \
   ../src/BackgroundMusic.hpp \
   ../src/RainingWeather.hpp \
-  ../src/RainParticle.hpp \
+  ../src/Particle/RainParticle.hpp \
   ../src/MobManager.hpp \
   ../src/Mob/Frog/Frog.hpp \
   ../src/Mob/Mob.hpp \
@@ -3804,14 +3803,11 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Mob/Fish/FishDeadState.hpp \
   ../src/Mob/Fish/FishIdleState.hpp \
   ../src/Mob/Fish/FishSwimState.hpp \
-  ../src/RocketLauncher.hpp \
-  ../src/Gun.hpp \
+  ../src/Item/RocketLauncher.hpp \
+  ../src/Item/Gun.hpp \
   ../src/ExplosiveBullet.hpp \
-  ../src/Item.hpp \
+  ../src/Item/Item.hpp \
   ../src/Palettes/PaletteUI.hpp \
-  ../src/DebugPlacer.hpp \
-  ../src/PlaceItem.hpp \
-  ../src/ThrowInteface.hpp \
   ../src/HeatGun.hpp \
   ../src/Panel.hpp \
   ../src/MaterialsUI.hpp \
@@ -3987,19 +3983,21 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
   /usr/include/TGUI/Widgets/CanvasBase.hpp \
   /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
-  ../src/ItemCreateItem.hpp \
-  ../src/GeigerCounter.hpp \
-  ../src/Jetpack.hpp \
-  ../src/IronPickaxe.hpp \
-  ../src/Pickaxe.hpp \
-  ../src/Backpack.hpp \
-  ../src/Laser.hpp \
+  ../src/Item/ItemCreateItem.hpp \
+  ../src/Item/PlaceItem.hpp \
+  ../src/ThrowInteface.hpp \
+  ../src/Item/GeigerCounter.hpp \
+  ../src/Item/Jetpack.hpp \
+  ../src/Item/IronPickaxe.hpp \
+  ../src/Item/Pickaxe.hpp \
+  ../src/Item/Backpack.hpp \
+  ../src/Item/Laser.hpp \
   ../src/HealthBar.hpp \
   ../src/BarUI.hpp \
   ../src/UIElement.hpp \
   ../src/TemperatureBar.hpp \
   ../src/InventoryBar.hpp \
-  ../src/NoneItem.hpp \
+  ../src/Item/NoneItem.hpp \
   ../src/InventoryToolBar.hpp \
   ../src/InventoryUserCreatedBar.hpp \
   ../src/ItemCreatorUIState.hpp \
@@ -4469,9 +4467,9 @@ CMakeFiles/inteplas.dir/src/IdleState.cpp.o: ../src/IdleState.cpp \
   ../src/FastNoiseLite.hpp \
   ../src/PlayerGlobal.hpp
 
-CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: ../src/Jetpack.cpp \
+CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   /usr/include/stdc-predef.h \
-  ../src/Jetpack.hpp \
+  ../src/Item/Jetpack.hpp \
   ../src/World.hpp \
   /usr/include/c++/11/list \
   /usr/include/c++/11/bits/stl_algobase.h \
@@ -4908,12 +4906,12 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: ../src/Jetpack.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -4997,7 +4995,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: ../src/Jetpack.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -5033,11 +5031,11 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: ../src/Jetpack.cpp \
   ../src/ClearWeather.hpp \
   ../src/WeatherState.hpp \
   ../src/SnowingWeather.hpp \
-  ../src/SnowParticle.hpp \
-  ../src/WeatherParticle.hpp \
+  ../src/Particle/SnowParticle.hpp \
+  ../src/Particle/WeatherParticle.hpp \
   ../src/BackgroundMusic.hpp \
   ../src/RainingWeather.hpp \
-  ../src/RainParticle.hpp \
+  ../src/Particle/RainParticle.hpp \
   ../src/MobManager.hpp \
   ../src/Mob/Frog/Frog.hpp \
   ../src/Mob/Mob.hpp \
@@ -5059,7 +5057,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: ../src/Jetpack.cpp \
   ../src/Mob/Fish/FishIdleState.hpp \
   ../src/Mob/Fish/FishSwimState.hpp \
   ../src/ExplosiveBullet.hpp \
-  ../src/Item.hpp \
+  ../src/Item/Item.hpp \
   ../src/Palettes/PaletteUI.hpp
 
 CMakeFiles/inteplas.dir/src/JumpState.cpp.o: ../src/JumpState.cpp \
@@ -6343,12 +6341,12 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: ../src/MaterialsUI.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -6432,7 +6430,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: ../src/MaterialsUI.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -7077,12 +7075,12 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: ../src/Mob/Fish/Fish.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -7166,7 +7164,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: ../src/Mob/Fish/Fish.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -7649,12 +7647,12 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: ../src/Mob/Frog/Frog.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -7738,7 +7736,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: ../src/Mob/Frog/Frog.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -8220,12 +8218,12 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: ../src/MobManager.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -8309,7 +8307,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: ../src/MobManager.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -10569,12 +10567,12 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -10658,7 +10656,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -10694,11 +10692,11 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/ClearWeather.hpp \
   ../src/WeatherState.hpp \
   ../src/SnowingWeather.hpp \
-  ../src/SnowParticle.hpp \
-  ../src/WeatherParticle.hpp \
+  ../src/Particle/SnowParticle.hpp \
+  ../src/Particle/WeatherParticle.hpp \
   ../src/BackgroundMusic.hpp \
   ../src/RainingWeather.hpp \
-  ../src/RainParticle.hpp \
+  ../src/Particle/RainParticle.hpp \
   ../src/MobManager.hpp \
   ../src/Mob/Frog/Frog.hpp \
   ../src/Mob/Mob.hpp \
@@ -10719,14 +10717,11 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Mob/Fish/FishDeadState.hpp \
   ../src/Mob/Fish/FishIdleState.hpp \
   ../src/Mob/Fish/FishSwimState.hpp \
-  ../src/RocketLauncher.hpp \
-  ../src/Gun.hpp \
+  ../src/Item/RocketLauncher.hpp \
+  ../src/Item/Gun.hpp \
   ../src/ExplosiveBullet.hpp \
-  ../src/Item.hpp \
+  ../src/Item/Item.hpp \
   ../src/Palettes/PaletteUI.hpp \
-  ../src/DebugPlacer.hpp \
-  ../src/PlaceItem.hpp \
-  ../src/ThrowInteface.hpp \
   ../src/HeatGun.hpp \
   ../src/Panel.hpp \
   ../src/MaterialsUI.hpp \
@@ -10902,19 +10897,21 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
   /usr/include/TGUI/Widgets/CanvasBase.hpp \
   /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
-  ../src/ItemCreateItem.hpp \
-  ../src/GeigerCounter.hpp \
-  ../src/Jetpack.hpp \
-  ../src/IronPickaxe.hpp \
-  ../src/Pickaxe.hpp \
-  ../src/Backpack.hpp \
-  ../src/Laser.hpp \
+  ../src/Item/ItemCreateItem.hpp \
+  ../src/Item/PlaceItem.hpp \
+  ../src/ThrowInteface.hpp \
+  ../src/Item/GeigerCounter.hpp \
+  ../src/Item/Jetpack.hpp \
+  ../src/Item/IronPickaxe.hpp \
+  ../src/Item/Pickaxe.hpp \
+  ../src/Item/Backpack.hpp \
+  ../src/Item/Laser.hpp \
   ../src/HealthBar.hpp \
   ../src/BarUI.hpp \
   ../src/UIElement.hpp \
   ../src/TemperatureBar.hpp \
   ../src/InventoryBar.hpp \
-  ../src/NoneItem.hpp \
+  ../src/Item/NoneItem.hpp \
   ../src/InventoryToolBar.hpp \
   ../src/InventoryUserCreatedBar.hpp \
   ../src/ItemCreatorUIState.hpp \
@@ -11530,12 +11527,12 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: ../src/VoxelGroup.cpp \
   ../src/ChunkIndexerVoxelContainer.hpp \
   ../src/VoxelContainer.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -12033,12 +12030,12 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: ../src/VoxelManager.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -12122,7 +12119,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: ../src/VoxelManager.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -13029,12 +13026,12 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: ../src/WeatherManager.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -13118,7 +13115,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: ../src/WeatherManager.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -13153,11 +13150,11 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: ../src/WeatherManager.cpp \
   ../src/ClearWeather.hpp \
   ../src/WeatherState.hpp \
   ../src/SnowingWeather.hpp \
-  ../src/SnowParticle.hpp \
-  ../src/WeatherParticle.hpp \
+  ../src/Particle/SnowParticle.hpp \
+  ../src/Particle/WeatherParticle.hpp \
   ../src/BackgroundMusic.hpp \
   ../src/RainingWeather.hpp \
-  ../src/RainParticle.hpp
+  ../src/Particle/RainParticle.hpp
 
 CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   /usr/include/stdc-predef.h \
@@ -13597,12 +13594,12 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   /usr/include/SFML/Audio.hpp \
@@ -13686,7 +13683,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -13722,11 +13719,11 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/ClearWeather.hpp \
   ../src/WeatherState.hpp \
   ../src/SnowingWeather.hpp \
-  ../src/SnowParticle.hpp \
-  ../src/WeatherParticle.hpp \
+  ../src/Particle/SnowParticle.hpp \
+  ../src/Particle/WeatherParticle.hpp \
   ../src/BackgroundMusic.hpp \
   ../src/RainingWeather.hpp \
-  ../src/RainParticle.hpp \
+  ../src/Particle/RainParticle.hpp \
   ../src/MobManager.hpp \
   ../src/Mob/Frog/Frog.hpp \
   ../src/Mob/Mob.hpp \
@@ -14423,12 +14420,12 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Globals.hpp \
   ../src/Raycast.hpp \
   ../src/ParticleSimulation.hpp \
-  ../src/Particle.hpp \
-  ../src/FreeNeutron.hpp \
-  ../src/DebrisParticle.hpp \
+  ../src/Particle/Particle.hpp \
+  ../src/Particle/FreeNeutron.hpp \
+  ../src/Particle/DebrisParticle.hpp \
   ../src/PlayerGlobal.hpp \
   ../src/PlayerState.hpp \
-  ../src/PickableDebris.hpp \
+  ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
   ../src/PlayerDamageSoundType.hpp \
@@ -14464,7 +14461,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Elements/Wood.hpp \
   ../src/Elements/Flammable.hpp \
   ../src/FireEffectManager.hpp \
-  ../src/FireParticle.hpp \
+  ../src/Particle/FireParticle.hpp \
   ../src/Elements/ManganeseHeptoxide.hpp \
   ../src/Elements/FlammableFluid.hpp \
   ../src/Elements/Butane.hpp \
@@ -14499,11 +14496,11 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/ClearWeather.hpp \
   ../src/WeatherState.hpp \
   ../src/SnowingWeather.hpp \
-  ../src/SnowParticle.hpp \
-  ../src/WeatherParticle.hpp \
+  ../src/Particle/SnowParticle.hpp \
+  ../src/Particle/WeatherParticle.hpp \
   ../src/BackgroundMusic.hpp \
   ../src/RainingWeather.hpp \
-  ../src/RainParticle.hpp \
+  ../src/Particle/RainParticle.hpp \
   ../src/MobManager.hpp \
   ../src/Mob/Frog/Frog.hpp \
   ../src/Mob/Mob.hpp \
@@ -14524,29 +14521,28 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Mob/Fish/FishDeadState.hpp \
   ../src/Mob/Fish/FishIdleState.hpp \
   ../src/Mob/Fish/FishSwimState.hpp \
-  ../src/RocketLauncher.hpp \
-  ../src/Gun.hpp \
+  ../src/Item/RocketLauncher.hpp \
+  ../src/Item/Gun.hpp \
   ../src/ExplosiveBullet.hpp \
-  ../src/Item.hpp \
-  ../src/DebugPlacer.hpp \
-  ../src/PlaceItem.hpp \
-  ../src/ThrowInteface.hpp \
+  ../src/Item/Item.hpp \
   ../src/HeatGun.hpp \
   ../src/MaterialsUI.hpp \
   ../src/MaterialBar.hpp \
-  ../src/ItemCreateItem.hpp \
-  ../src/GeigerCounter.hpp \
-  ../src/Jetpack.hpp \
-  ../src/IronPickaxe.hpp \
-  ../src/Pickaxe.hpp \
-  ../src/Backpack.hpp \
-  ../src/Laser.hpp \
+  ../src/Item/ItemCreateItem.hpp \
+  ../src/Item/PlaceItem.hpp \
+  ../src/ThrowInteface.hpp \
+  ../src/Item/GeigerCounter.hpp \
+  ../src/Item/Jetpack.hpp \
+  ../src/Item/IronPickaxe.hpp \
+  ../src/Item/Pickaxe.hpp \
+  ../src/Item/Backpack.hpp \
+  ../src/Item/Laser.hpp \
   ../src/HealthBar.hpp \
   ../src/BarUI.hpp \
   ../src/UIElement.hpp \
   ../src/TemperatureBar.hpp \
   ../src/InventoryBar.hpp \
-  ../src/NoneItem.hpp \
+  ../src/Item/NoneItem.hpp \
   ../src/InventoryToolBar.hpp \
   ../src/InventoryUserCreatedBar.hpp \
   ../src/ItemCreatorUIState.hpp \
@@ -14602,7 +14598,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/JumpState.cpp:
 
-../src/Jetpack.cpp:
+../src/Item/Jetpack.cpp:
 
 ../src/LoadingScreen.hpp:
 
@@ -14644,19 +14640,25 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/InventoryToolBar.hpp:
 
-../src/NoneItem.hpp:
-
 ../src/InventoryBar.hpp:
 
 ../src/UIElement.hpp:
 
 ../src/BarUI.hpp:
 
-../src/IronPickaxe.hpp:
+../src/Item/Laser.hpp:
 
-../src/Jetpack.hpp:
+../src/Item/Backpack.hpp:
 
-../src/GeigerCounter.hpp:
+../src/Item/Pickaxe.hpp:
+
+../src/Item/IronPickaxe.hpp:
+
+../src/Item/GeigerCounter.hpp:
+
+../src/ThrowInteface.hpp:
+
+../src/Item/PlaceItem.hpp:
 
 /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp:
 
@@ -14671,8 +14673,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/TGUI/Backend/Window/SFML/BackendGuiSFML.hpp:
 
 /usr/include/TGUI/Backend/Window/SFML/BackendSFML.hpp:
-
-../src/ItemCreateItem.hpp:
 
 /usr/include/TGUI/Widgets/VerticalLayout.hpp:
 
@@ -14695,10 +14695,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/TGUI/Renderers/RangeSliderRenderer.hpp:
 
 /usr/include/TGUI/Renderers/ProgressBarRenderer.hpp:
-
-/usr/include/TGUI/Renderers/PanelListBoxRenderer.hpp:
-
-/usr/include/TGUI/Renderers/ScrollablePanelRenderer.hpp:
 
 /usr/include/TGUI/Renderers/MessageBoxRenderer.hpp:
 
@@ -14761,8 +14757,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/TGUI/Renderers/ColorPickerRenderer.hpp:
 
 /usr/include/TGUI/Renderers/SliderRenderer.hpp:
-
-/usr/include/TGUI/Widgets/ColorPicker.hpp:
 
 /usr/include/TGUI/Renderers/ChildWindowRenderer.hpp:
 
@@ -14890,19 +14884,19 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/HeatGun.hpp:
 
-../src/ThrowInteface.hpp:
-
 ../src/Palettes/PaletteUI.hpp:
 
-../src/Item.hpp:
+../src/Item/Item.hpp:
 
 ../src/ExplosiveBullet.hpp:
 
-../src/Gun.hpp:
+/usr/include/TGUI/Renderers/PanelListBoxRenderer.hpp:
 
-../src/RocketLauncher.hpp:
+../src/Item/RocketLauncher.hpp:
 
 ../src/Mob/Fish/FishIdleState.hpp:
+
+../src/Item/Gun.hpp:
 
 ../src/Mob/Fish/FishDeadState.hpp:
 
@@ -14922,11 +14916,11 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/MobManager.hpp:
 
-../src/RainParticle.hpp:
+../src/Particle/RainParticle.hpp:
 
 ../src/RainingWeather.hpp:
 
-../src/SnowParticle.hpp:
+../src/Particle/SnowParticle.hpp:
 
 ../src/SnowingWeather.hpp:
 
@@ -15040,6 +15034,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/stdint.h:
 
+../src/Particle/WeatherParticle.hpp:
+
 /usr/include/c++/11/bits/ptr_traits.h:
 
 /usr/include/c++/11/mutex:
@@ -15146,6 +15142,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h:
 
+../src/Item/NoneItem.hpp:
+
 /usr/include/wctype.h:
 
 /usr/include/sched.h:
@@ -15197,8 +15195,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/TGUI/Widgets/Picture.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
-
-../src/WeatherParticle.hpp:
 
 /usr/include/c++/11/initializer_list:
 
@@ -15326,8 +15322,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/string:
 
-../src/PlaceItem.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
@@ -15432,8 +15426,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/Button.cpp:
 
-../src/Pickaxe.hpp:
-
 /usr/include/TGUI/Widgets/BitmapButton.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
@@ -15475,6 +15467,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/CreativeState.cpp:
 
 /usr/include/c++/11/ext/numeric_traits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
 /usr/include/c++/11/bits/iterator_concepts.h:
 
@@ -15528,9 +15522,11 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/SFML/System/ThreadLocalPtr.inl:
 
-/usr/include/SFML/Audio.hpp:
+/usr/include/TGUI/Renderers/ScrollablePanelRenderer.hpp:
 
-/usr/include/c++/11/locale:
+../src/Particle/FreeNeutron.hpp:
+
+/usr/include/SFML/Audio.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
@@ -15608,6 +15604,12 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/new:
 
+/usr/include/TGUI/Container.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
+
+/usr/include/c++/11/bits/stl_construct.h:
+
 /usr/include/c++/11/bits/shared_ptr.h:
 
 ../src/Mods/HeistMod/HelicopterTurret.hpp:
@@ -15615,8 +15617,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/bits/predefined_ops.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
-
-../src/FireParticle.hpp:
 
 /usr/include/c++/11/bits/unordered_map.h:
 
@@ -15664,8 +15664,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/pstl/glue_numeric_defs.h:
 
-../src/FreeNeutron.hpp:
-
 /usr/include/c++/11/bits/basic_string.h:
 
 /usr/include/linux/limits.h:
@@ -15697,6 +15695,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+../src/Item/Jetpack.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
 
@@ -15747,8 +15747,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/SFML/System/Vector3.inl:
 
 /usr/include/SFML/Window/Clipboard.hpp:
-
-../src/Laser.hpp:
 
 ../src/Globals.hpp:
 
@@ -15896,10 +15894,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
-/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
-
-../src/PickableDebris.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
@@ -15935,8 +15929,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
 
 /usr/include/c++/11/tr1/ell_integral.tcc:
-
-../src/DebugPlacer.hpp:
 
 /usr/include/c++/11/tr1/exp_integral.tcc:
 
@@ -15984,8 +15976,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/bits/atomic_base.h:
 
-../src/Backpack.hpp:
-
 ../src/RespawnState.hpp:
 
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
@@ -16015,6 +16005,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/Mods/HeistMod/CollectableBox.hpp:
 
 /usr/include/c++/11/bits/functexcept.h:
+
+../src/Particle/PickableDebris.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
@@ -16140,6 +16132,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/ChunkIndexerVoxelContainer.hpp:
 
+../src/Item/ItemCreateItem.hpp:
+
 ../src/Voxel.hpp:
 
 /usr/include/TGUI/CopiedSharedPtr.hpp:
@@ -16180,17 +16174,15 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/FireEffectManager.hpp:
 
-/usr/include/TGUI/Container.hpp:
+/usr/include/c++/11/locale:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
-
-/usr/include/c++/11/bits/stl_construct.h:
-
-../src/Particle.hpp:
-
-../src/DebrisParticle.hpp:
+../src/Particle/Particle.hpp:
 
 ../src/PlayerGlobal.hpp:
+
+/usr/include/TGUI/Widgets/ColorPicker.hpp:
+
+../src/Particle/FireParticle.hpp:
 
 /usr/include/TGUI/Widgets/ButtonBase.hpp:
 
@@ -16211,6 +16203,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/Dispawner.hpp:
 
 /usr/include/SFML/System/NonCopyable.hpp:
+
+../src/Particle/DebrisParticle.hpp:
 
 ../src/CollisionManager.hpp:
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "ParticleSimulation.hpp"
-#include "FireParticle.hpp"
+#include "Particle/FireParticle.hpp"
 #include "math.hpp"
 
 namespace FireGlobal {

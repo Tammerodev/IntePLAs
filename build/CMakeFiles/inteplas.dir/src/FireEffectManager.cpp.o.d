@@ -3,7 +3,7 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o: \
  /usr/include/stdc-predef.h \
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp \
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp \
- /home/lauri/Documents/inteplas/src/Particle.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp \
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
  /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
@@ -251,9 +251,9 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o: \
  /usr/include/SFML/Graphics/Sprite.hpp \
  /usr/include/SFML/Graphics/Text.hpp \
  /usr/include/SFML/Graphics/VertexBuffer.hpp \
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp \
- /home/lauri/Documents/inteplas/src/math.hpp /usr/include/c++/11/random \
- /usr/include/c++/11/cmath /usr/include/math.h \
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/../math.hpp \
+ /usr/include/c++/11/random /usr/include/c++/11/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
@@ -281,9 +281,10 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o: \
  /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp \
- /home/lauri/Documents/inteplas/src/PhysicsComponent.hpp \
- /usr/include/SFML/Main.hpp /home/lauri/Documents/inteplas/src/common.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/../PhysicsComponent.hpp \
+ /usr/include/SFML/Main.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/../common.hpp \
  /usr/include/c++/11/iostream /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/thread \
  /usr/include/c++/11/stop_token /usr/include/c++/11/atomic \
@@ -331,4 +332,4 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o: \
  /usr/include/c++/11/bits/ranges_uninitialized.h \
  /usr/include/c++/11/bits/uses_allocator_args.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp

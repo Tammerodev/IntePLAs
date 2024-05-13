@@ -355,14 +355,14 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Globals.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Raycast.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../ParticleSimulation.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../FreeNeutron.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../DebrisParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/Particle.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/FreeNeutron.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/DebrisParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../PlayerGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../PlayerState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../PickableDebris.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../CollisionManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../SoundFX.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/PickableDebris.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/../CollisionManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/../SoundFX.hpp \
  /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
  /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
  /usr/include/SFML/Audio/Music.hpp \
@@ -380,7 +380,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/../PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/Element.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../RectangleRigidbody.hpp \
@@ -430,7 +430,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/Wood.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/Flammable.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/../FireEffectManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/../FireParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/../Particle/FireParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/ManganeseHeptoxide.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/FlammableFluid.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/Butane.hpp \

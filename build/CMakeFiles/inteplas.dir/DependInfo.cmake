@@ -18,7 +18,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/lauri/Documents/inteplas/src/Game.cpp" "CMakeFiles/inteplas.dir/src/Game.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/Game.cpp.o.d"
   "/home/lauri/Documents/inteplas/src/GameState.cpp" "CMakeFiles/inteplas.dir/src/GameState.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/GameState.cpp.o.d"
   "/home/lauri/Documents/inteplas/src/IdleState.cpp" "CMakeFiles/inteplas.dir/src/IdleState.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/IdleState.cpp.o.d"
-  "/home/lauri/Documents/inteplas/src/Jetpack.cpp" "CMakeFiles/inteplas.dir/src/Jetpack.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/Jetpack.cpp.o.d"
+  "/home/lauri/Documents/inteplas/src/Item/Jetpack.cpp" "CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o.d"
   "/home/lauri/Documents/inteplas/src/JumpState.cpp" "CMakeFiles/inteplas.dir/src/JumpState.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/JumpState.cpp.o.d"
   "/home/lauri/Documents/inteplas/src/Lighting/LightSimulation.cpp" "CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o.d"
   "/home/lauri/Documents/inteplas/src/MaterialsUI.cpp" "CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o" "gcc" "CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o.d"

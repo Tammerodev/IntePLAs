@@ -1995,7 +1995,7 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o
  /usr/include/stdc-predef.h
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
  /usr/include/SFML/Graphics.hpp
  /usr/include/SFML/Window.hpp
  /usr/include/SFML/System.hpp
@@ -2301,7 +2301,7 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o
  /usr/include/SFML/Graphics/Sprite.hpp
  /usr/include/SFML/Graphics/Text.hpp
  /usr/include/SFML/Graphics/VertexBuffer.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
  /home/lauri/Documents/inteplas/src/math.hpp
  /usr/include/c++/11/random
  /usr/include/c++/11/cmath
@@ -2336,7 +2336,7 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o
  /usr/include/c++/11/bits/stl_numeric.h
  /usr/include/c++/11/bit
  /usr/include/c++/11/pstl/glue_numeric_defs.h
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PhysicsComponent.hpp
  /usr/include/SFML/Main.hpp
  /home/lauri/Documents/inteplas/src/common.hpp
@@ -2401,7 +2401,7 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o
  /usr/include/c++/11/bits/ranges_uninitialized.h
  /usr/include/c++/11/bits/uses_allocator_args.h
  /usr/include/c++/11/pstl/glue_memory_defs.h
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
 
 CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/Game.cpp
@@ -2846,12 +2846,12 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -2935,7 +2935,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -2971,11 +2971,11 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/ClearWeather.hpp
  /home/lauri/Documents/inteplas/src/WeatherState.hpp
  /home/lauri/Documents/inteplas/src/SnowingWeather.hpp
- /home/lauri/Documents/inteplas/src/SnowParticle.hpp
- /home/lauri/Documents/inteplas/src/WeatherParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/SnowParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/WeatherParticle.hpp
  /home/lauri/Documents/inteplas/src/BackgroundMusic.hpp
  /home/lauri/Documents/inteplas/src/RainingWeather.hpp
- /home/lauri/Documents/inteplas/src/RainParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/RainParticle.hpp
  /home/lauri/Documents/inteplas/src/MobManager.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/Frog.hpp
  /home/lauri/Documents/inteplas/src/Mob/Mob.hpp
@@ -2996,14 +2996,11 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDeadState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishIdleState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishSwimState.hpp
- /home/lauri/Documents/inteplas/src/RocketLauncher.hpp
- /home/lauri/Documents/inteplas/src/Gun.hpp
+ /home/lauri/Documents/inteplas/src/Item/RocketLauncher.hpp
+ /home/lauri/Documents/inteplas/src/Item/Gun.hpp
  /home/lauri/Documents/inteplas/src/ExplosiveBullet.hpp
- /home/lauri/Documents/inteplas/src/Item.hpp
+ /home/lauri/Documents/inteplas/src/Item/Item.hpp
  /home/lauri/Documents/inteplas/src/Palettes/PaletteUI.hpp
- /home/lauri/Documents/inteplas/src/DebugPlacer.hpp
- /home/lauri/Documents/inteplas/src/PlaceItem.hpp
- /home/lauri/Documents/inteplas/src/ThrowInteface.hpp
  /home/lauri/Documents/inteplas/src/HeatGun.hpp
  /home/lauri/Documents/inteplas/src/Panel.hpp
  /home/lauri/Documents/inteplas/src/MaterialsUI.hpp
@@ -3179,19 +3176,21 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp
  /usr/include/TGUI/Widgets/CanvasBase.hpp
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp
- /home/lauri/Documents/inteplas/src/ItemCreateItem.hpp
- /home/lauri/Documents/inteplas/src/GeigerCounter.hpp
- /home/lauri/Documents/inteplas/src/Jetpack.hpp
- /home/lauri/Documents/inteplas/src/IronPickaxe.hpp
- /home/lauri/Documents/inteplas/src/Pickaxe.hpp
- /home/lauri/Documents/inteplas/src/Backpack.hpp
- /home/lauri/Documents/inteplas/src/Laser.hpp
+ /home/lauri/Documents/inteplas/src/Item/ItemCreateItem.hpp
+ /home/lauri/Documents/inteplas/src/Item/PlaceItem.hpp
+ /home/lauri/Documents/inteplas/src/ThrowInteface.hpp
+ /home/lauri/Documents/inteplas/src/Item/GeigerCounter.hpp
+ /home/lauri/Documents/inteplas/src/Item/Jetpack.hpp
+ /home/lauri/Documents/inteplas/src/Item/IronPickaxe.hpp
+ /home/lauri/Documents/inteplas/src/Item/Pickaxe.hpp
+ /home/lauri/Documents/inteplas/src/Item/Backpack.hpp
+ /home/lauri/Documents/inteplas/src/Item/Laser.hpp
  /home/lauri/Documents/inteplas/src/HealthBar.hpp
  /home/lauri/Documents/inteplas/src/BarUI.hpp
  /home/lauri/Documents/inteplas/src/UIElement.hpp
  /home/lauri/Documents/inteplas/src/TemperatureBar.hpp
  /home/lauri/Documents/inteplas/src/InventoryBar.hpp
- /home/lauri/Documents/inteplas/src/NoneItem.hpp
+ /home/lauri/Documents/inteplas/src/Item/NoneItem.hpp
  /home/lauri/Documents/inteplas/src/InventoryToolBar.hpp
  /home/lauri/Documents/inteplas/src/InventoryUserCreatedBar.hpp
  /home/lauri/Documents/inteplas/src/ItemCreatorUIState.hpp
@@ -3663,12 +3662,12 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -3752,7 +3751,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -3788,11 +3787,11 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/ClearWeather.hpp
  /home/lauri/Documents/inteplas/src/WeatherState.hpp
  /home/lauri/Documents/inteplas/src/SnowingWeather.hpp
- /home/lauri/Documents/inteplas/src/SnowParticle.hpp
- /home/lauri/Documents/inteplas/src/WeatherParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/SnowParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/WeatherParticle.hpp
  /home/lauri/Documents/inteplas/src/BackgroundMusic.hpp
  /home/lauri/Documents/inteplas/src/RainingWeather.hpp
- /home/lauri/Documents/inteplas/src/RainParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/RainParticle.hpp
  /home/lauri/Documents/inteplas/src/MobManager.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/Frog.hpp
  /home/lauri/Documents/inteplas/src/Mob/Mob.hpp
@@ -3813,14 +3812,11 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDeadState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishIdleState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishSwimState.hpp
- /home/lauri/Documents/inteplas/src/RocketLauncher.hpp
- /home/lauri/Documents/inteplas/src/Gun.hpp
+ /home/lauri/Documents/inteplas/src/Item/RocketLauncher.hpp
+ /home/lauri/Documents/inteplas/src/Item/Gun.hpp
  /home/lauri/Documents/inteplas/src/ExplosiveBullet.hpp
- /home/lauri/Documents/inteplas/src/Item.hpp
+ /home/lauri/Documents/inteplas/src/Item/Item.hpp
  /home/lauri/Documents/inteplas/src/Palettes/PaletteUI.hpp
- /home/lauri/Documents/inteplas/src/DebugPlacer.hpp
- /home/lauri/Documents/inteplas/src/PlaceItem.hpp
- /home/lauri/Documents/inteplas/src/ThrowInteface.hpp
  /home/lauri/Documents/inteplas/src/HeatGun.hpp
  /home/lauri/Documents/inteplas/src/Panel.hpp
  /home/lauri/Documents/inteplas/src/MaterialsUI.hpp
@@ -3996,19 +3992,21 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp
  /usr/include/TGUI/Widgets/CanvasBase.hpp
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp
- /home/lauri/Documents/inteplas/src/ItemCreateItem.hpp
- /home/lauri/Documents/inteplas/src/GeigerCounter.hpp
- /home/lauri/Documents/inteplas/src/Jetpack.hpp
- /home/lauri/Documents/inteplas/src/IronPickaxe.hpp
- /home/lauri/Documents/inteplas/src/Pickaxe.hpp
- /home/lauri/Documents/inteplas/src/Backpack.hpp
- /home/lauri/Documents/inteplas/src/Laser.hpp
+ /home/lauri/Documents/inteplas/src/Item/ItemCreateItem.hpp
+ /home/lauri/Documents/inteplas/src/Item/PlaceItem.hpp
+ /home/lauri/Documents/inteplas/src/ThrowInteface.hpp
+ /home/lauri/Documents/inteplas/src/Item/GeigerCounter.hpp
+ /home/lauri/Documents/inteplas/src/Item/Jetpack.hpp
+ /home/lauri/Documents/inteplas/src/Item/IronPickaxe.hpp
+ /home/lauri/Documents/inteplas/src/Item/Pickaxe.hpp
+ /home/lauri/Documents/inteplas/src/Item/Backpack.hpp
+ /home/lauri/Documents/inteplas/src/Item/Laser.hpp
  /home/lauri/Documents/inteplas/src/HealthBar.hpp
  /home/lauri/Documents/inteplas/src/BarUI.hpp
  /home/lauri/Documents/inteplas/src/UIElement.hpp
  /home/lauri/Documents/inteplas/src/TemperatureBar.hpp
  /home/lauri/Documents/inteplas/src/InventoryBar.hpp
- /home/lauri/Documents/inteplas/src/NoneItem.hpp
+ /home/lauri/Documents/inteplas/src/Item/NoneItem.hpp
  /home/lauri/Documents/inteplas/src/InventoryToolBar.hpp
  /home/lauri/Documents/inteplas/src/InventoryUserCreatedBar.hpp
  /home/lauri/Documents/inteplas/src/ItemCreatorUIState.hpp
@@ -4479,10 +4477,10 @@ CMakeFiles/inteplas.dir/src/IdleState.cpp.o
  /home/lauri/Documents/inteplas/src/FastNoiseLite.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
 
-CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
- /home/lauri/Documents/inteplas/src/Jetpack.cpp
+CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
+ /home/lauri/Documents/inteplas/src/Item/Jetpack.cpp
  /usr/include/stdc-predef.h
- /home/lauri/Documents/inteplas/src/Jetpack.hpp
+ /home/lauri/Documents/inteplas/src/Item/Jetpack.hpp
  /home/lauri/Documents/inteplas/src/World.hpp
  /usr/include/c++/11/list
  /usr/include/c++/11/bits/stl_algobase.h
@@ -4919,12 +4917,12 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -5008,7 +5006,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -5044,11 +5042,11 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/ClearWeather.hpp
  /home/lauri/Documents/inteplas/src/WeatherState.hpp
  /home/lauri/Documents/inteplas/src/SnowingWeather.hpp
- /home/lauri/Documents/inteplas/src/SnowParticle.hpp
- /home/lauri/Documents/inteplas/src/WeatherParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/SnowParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/WeatherParticle.hpp
  /home/lauri/Documents/inteplas/src/BackgroundMusic.hpp
  /home/lauri/Documents/inteplas/src/RainingWeather.hpp
- /home/lauri/Documents/inteplas/src/RainParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/RainParticle.hpp
  /home/lauri/Documents/inteplas/src/MobManager.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/Frog.hpp
  /home/lauri/Documents/inteplas/src/Mob/Mob.hpp
@@ -5070,7 +5068,7 @@ CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishIdleState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishSwimState.hpp
  /home/lauri/Documents/inteplas/src/ExplosiveBullet.hpp
- /home/lauri/Documents/inteplas/src/Item.hpp
+ /home/lauri/Documents/inteplas/src/Item/Item.hpp
  /home/lauri/Documents/inteplas/src/Palettes/PaletteUI.hpp
 
 CMakeFiles/inteplas.dir/src/JumpState.cpp.o
@@ -6357,12 +6355,12 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -6446,7 +6444,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -7092,12 +7090,12 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -7181,7 +7179,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -7665,12 +7663,12 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -7754,7 +7752,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -8237,12 +8235,12 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -8326,7 +8324,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -10591,12 +10589,12 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -10680,7 +10678,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -10716,11 +10714,11 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/ClearWeather.hpp
  /home/lauri/Documents/inteplas/src/WeatherState.hpp
  /home/lauri/Documents/inteplas/src/SnowingWeather.hpp
- /home/lauri/Documents/inteplas/src/SnowParticle.hpp
- /home/lauri/Documents/inteplas/src/WeatherParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/SnowParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/WeatherParticle.hpp
  /home/lauri/Documents/inteplas/src/BackgroundMusic.hpp
  /home/lauri/Documents/inteplas/src/RainingWeather.hpp
- /home/lauri/Documents/inteplas/src/RainParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/RainParticle.hpp
  /home/lauri/Documents/inteplas/src/MobManager.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/Frog.hpp
  /home/lauri/Documents/inteplas/src/Mob/Mob.hpp
@@ -10741,14 +10739,11 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDeadState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishIdleState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishSwimState.hpp
- /home/lauri/Documents/inteplas/src/RocketLauncher.hpp
- /home/lauri/Documents/inteplas/src/Gun.hpp
+ /home/lauri/Documents/inteplas/src/Item/RocketLauncher.hpp
+ /home/lauri/Documents/inteplas/src/Item/Gun.hpp
  /home/lauri/Documents/inteplas/src/ExplosiveBullet.hpp
- /home/lauri/Documents/inteplas/src/Item.hpp
+ /home/lauri/Documents/inteplas/src/Item/Item.hpp
  /home/lauri/Documents/inteplas/src/Palettes/PaletteUI.hpp
- /home/lauri/Documents/inteplas/src/DebugPlacer.hpp
- /home/lauri/Documents/inteplas/src/PlaceItem.hpp
- /home/lauri/Documents/inteplas/src/ThrowInteface.hpp
  /home/lauri/Documents/inteplas/src/HeatGun.hpp
  /home/lauri/Documents/inteplas/src/Panel.hpp
  /home/lauri/Documents/inteplas/src/MaterialsUI.hpp
@@ -10924,19 +10919,21 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp
  /usr/include/TGUI/Widgets/CanvasBase.hpp
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp
- /home/lauri/Documents/inteplas/src/ItemCreateItem.hpp
- /home/lauri/Documents/inteplas/src/GeigerCounter.hpp
- /home/lauri/Documents/inteplas/src/Jetpack.hpp
- /home/lauri/Documents/inteplas/src/IronPickaxe.hpp
- /home/lauri/Documents/inteplas/src/Pickaxe.hpp
- /home/lauri/Documents/inteplas/src/Backpack.hpp
- /home/lauri/Documents/inteplas/src/Laser.hpp
+ /home/lauri/Documents/inteplas/src/Item/ItemCreateItem.hpp
+ /home/lauri/Documents/inteplas/src/Item/PlaceItem.hpp
+ /home/lauri/Documents/inteplas/src/ThrowInteface.hpp
+ /home/lauri/Documents/inteplas/src/Item/GeigerCounter.hpp
+ /home/lauri/Documents/inteplas/src/Item/Jetpack.hpp
+ /home/lauri/Documents/inteplas/src/Item/IronPickaxe.hpp
+ /home/lauri/Documents/inteplas/src/Item/Pickaxe.hpp
+ /home/lauri/Documents/inteplas/src/Item/Backpack.hpp
+ /home/lauri/Documents/inteplas/src/Item/Laser.hpp
  /home/lauri/Documents/inteplas/src/HealthBar.hpp
  /home/lauri/Documents/inteplas/src/BarUI.hpp
  /home/lauri/Documents/inteplas/src/UIElement.hpp
  /home/lauri/Documents/inteplas/src/TemperatureBar.hpp
  /home/lauri/Documents/inteplas/src/InventoryBar.hpp
- /home/lauri/Documents/inteplas/src/NoneItem.hpp
+ /home/lauri/Documents/inteplas/src/Item/NoneItem.hpp
  /home/lauri/Documents/inteplas/src/InventoryToolBar.hpp
  /home/lauri/Documents/inteplas/src/InventoryUserCreatedBar.hpp
  /home/lauri/Documents/inteplas/src/ItemCreatorUIState.hpp
@@ -11554,12 +11551,12 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o
  /home/lauri/Documents/inteplas/src/ChunkIndexerVoxelContainer.hpp
  /home/lauri/Documents/inteplas/src/VoxelContainer.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -12058,12 +12055,12 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -12147,7 +12144,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -13056,12 +13053,12 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -13145,7 +13142,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -13180,11 +13177,11 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
  /home/lauri/Documents/inteplas/src/ClearWeather.hpp
  /home/lauri/Documents/inteplas/src/WeatherState.hpp
  /home/lauri/Documents/inteplas/src/SnowingWeather.hpp
- /home/lauri/Documents/inteplas/src/SnowParticle.hpp
- /home/lauri/Documents/inteplas/src/WeatherParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/SnowParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/WeatherParticle.hpp
  /home/lauri/Documents/inteplas/src/BackgroundMusic.hpp
  /home/lauri/Documents/inteplas/src/RainingWeather.hpp
- /home/lauri/Documents/inteplas/src/RainParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/RainParticle.hpp
 
 CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/World.cpp
@@ -13625,12 +13622,12 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /usr/include/SFML/Audio.hpp
@@ -13714,7 +13711,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -13750,11 +13747,11 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/ClearWeather.hpp
  /home/lauri/Documents/inteplas/src/WeatherState.hpp
  /home/lauri/Documents/inteplas/src/SnowingWeather.hpp
- /home/lauri/Documents/inteplas/src/SnowParticle.hpp
- /home/lauri/Documents/inteplas/src/WeatherParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/SnowParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/WeatherParticle.hpp
  /home/lauri/Documents/inteplas/src/BackgroundMusic.hpp
  /home/lauri/Documents/inteplas/src/RainingWeather.hpp
- /home/lauri/Documents/inteplas/src/RainParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/RainParticle.hpp
  /home/lauri/Documents/inteplas/src/MobManager.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/Frog.hpp
  /home/lauri/Documents/inteplas/src/Mob/Mob.hpp
@@ -14452,12 +14449,12 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/Globals.hpp
  /home/lauri/Documents/inteplas/src/Raycast.hpp
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp
- /home/lauri/Documents/inteplas/src/Particle.hpp
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/PlayerState.hpp
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /home/lauri/Documents/inteplas/src/PlayerDamageSoundType.hpp
@@ -14493,7 +14490,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp
  /home/lauri/Documents/inteplas/src/FireEffectManager.hpp
- /home/lauri/Documents/inteplas/src/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
@@ -14528,11 +14525,11 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/ClearWeather.hpp
  /home/lauri/Documents/inteplas/src/WeatherState.hpp
  /home/lauri/Documents/inteplas/src/SnowingWeather.hpp
- /home/lauri/Documents/inteplas/src/SnowParticle.hpp
- /home/lauri/Documents/inteplas/src/WeatherParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/SnowParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/WeatherParticle.hpp
  /home/lauri/Documents/inteplas/src/BackgroundMusic.hpp
  /home/lauri/Documents/inteplas/src/RainingWeather.hpp
- /home/lauri/Documents/inteplas/src/RainParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/RainParticle.hpp
  /home/lauri/Documents/inteplas/src/MobManager.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/Frog.hpp
  /home/lauri/Documents/inteplas/src/Mob/Mob.hpp
@@ -14553,29 +14550,28 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDeadState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishIdleState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishSwimState.hpp
- /home/lauri/Documents/inteplas/src/RocketLauncher.hpp
- /home/lauri/Documents/inteplas/src/Gun.hpp
+ /home/lauri/Documents/inteplas/src/Item/RocketLauncher.hpp
+ /home/lauri/Documents/inteplas/src/Item/Gun.hpp
  /home/lauri/Documents/inteplas/src/ExplosiveBullet.hpp
- /home/lauri/Documents/inteplas/src/Item.hpp
- /home/lauri/Documents/inteplas/src/DebugPlacer.hpp
- /home/lauri/Documents/inteplas/src/PlaceItem.hpp
- /home/lauri/Documents/inteplas/src/ThrowInteface.hpp
+ /home/lauri/Documents/inteplas/src/Item/Item.hpp
  /home/lauri/Documents/inteplas/src/HeatGun.hpp
  /home/lauri/Documents/inteplas/src/MaterialsUI.hpp
  /home/lauri/Documents/inteplas/src/MaterialBar.hpp
- /home/lauri/Documents/inteplas/src/ItemCreateItem.hpp
- /home/lauri/Documents/inteplas/src/GeigerCounter.hpp
- /home/lauri/Documents/inteplas/src/Jetpack.hpp
- /home/lauri/Documents/inteplas/src/IronPickaxe.hpp
- /home/lauri/Documents/inteplas/src/Pickaxe.hpp
- /home/lauri/Documents/inteplas/src/Backpack.hpp
- /home/lauri/Documents/inteplas/src/Laser.hpp
+ /home/lauri/Documents/inteplas/src/Item/ItemCreateItem.hpp
+ /home/lauri/Documents/inteplas/src/Item/PlaceItem.hpp
+ /home/lauri/Documents/inteplas/src/ThrowInteface.hpp
+ /home/lauri/Documents/inteplas/src/Item/GeigerCounter.hpp
+ /home/lauri/Documents/inteplas/src/Item/Jetpack.hpp
+ /home/lauri/Documents/inteplas/src/Item/IronPickaxe.hpp
+ /home/lauri/Documents/inteplas/src/Item/Pickaxe.hpp
+ /home/lauri/Documents/inteplas/src/Item/Backpack.hpp
+ /home/lauri/Documents/inteplas/src/Item/Laser.hpp
  /home/lauri/Documents/inteplas/src/HealthBar.hpp
  /home/lauri/Documents/inteplas/src/BarUI.hpp
  /home/lauri/Documents/inteplas/src/UIElement.hpp
  /home/lauri/Documents/inteplas/src/TemperatureBar.hpp
  /home/lauri/Documents/inteplas/src/InventoryBar.hpp
- /home/lauri/Documents/inteplas/src/NoneItem.hpp
+ /home/lauri/Documents/inteplas/src/Item/NoneItem.hpp
  /home/lauri/Documents/inteplas/src/InventoryToolBar.hpp
  /home/lauri/Documents/inteplas/src/InventoryUserCreatedBar.hpp
  /home/lauri/Documents/inteplas/src/ItemCreatorUIState.hpp

@@ -2,7 +2,7 @@
 #include "WeatherState.hpp"
 #include "VoxelManager.hpp"
 #include "Elements/Acid.hpp"
-#include "SnowParticle.hpp"
+#include "Particle/SnowParticle.hpp"
 #include "BackgroundMusic.hpp"
 
 class SnowingWeather : public WeatherState {

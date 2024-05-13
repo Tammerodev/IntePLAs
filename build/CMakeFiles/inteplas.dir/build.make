@@ -209,19 +209,19 @@ CMakeFiles/inteplas.dir/src/IdleState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inteplas.dir/src/IdleState.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lauri/Documents/inteplas/src/IdleState.cpp -o CMakeFiles/inteplas.dir/src/IdleState.cpp.s
 
-CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: CMakeFiles/inteplas.dir/flags.make
-CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: ../src/Jetpack.cpp
-CMakeFiles/inteplas.dir/src/Jetpack.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/inteplas.dir/src/Jetpack.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/Jetpack.cpp.o -MF CMakeFiles/inteplas.dir/src/Jetpack.cpp.o.d -o CMakeFiles/inteplas.dir/src/Jetpack.cpp.o -c /home/lauri/Documents/inteplas/src/Jetpack.cpp
+CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: CMakeFiles/inteplas.dir/flags.make
+CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp
+CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: CMakeFiles/inteplas.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lauri/Documents/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o -MF CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o.d -o CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o -c /home/lauri/Documents/inteplas/src/Item/Jetpack.cpp
 
-CMakeFiles/inteplas.dir/src/Jetpack.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inteplas.dir/src/Jetpack.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lauri/Documents/inteplas/src/Jetpack.cpp > CMakeFiles/inteplas.dir/src/Jetpack.cpp.i
+CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lauri/Documents/inteplas/src/Item/Jetpack.cpp > CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.i
 
-CMakeFiles/inteplas.dir/src/Jetpack.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inteplas.dir/src/Jetpack.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lauri/Documents/inteplas/src/Jetpack.cpp -o CMakeFiles/inteplas.dir/src/Jetpack.cpp.s
+CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lauri/Documents/inteplas/src/Item/Jetpack.cpp -o CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.s
 
 CMakeFiles/inteplas.dir/src/JumpState.cpp.o: CMakeFiles/inteplas.dir/flags.make
 CMakeFiles/inteplas.dir/src/JumpState.cpp.o: ../src/JumpState.cpp
@@ -487,7 +487,7 @@ inteplas_OBJECTS = \
 "CMakeFiles/inteplas.dir/src/Game.cpp.o" \
 "CMakeFiles/inteplas.dir/src/GameState.cpp.o" \
 "CMakeFiles/inteplas.dir/src/IdleState.cpp.o" \
-"CMakeFiles/inteplas.dir/src/Jetpack.cpp.o" \
+"CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o" \
 "CMakeFiles/inteplas.dir/src/JumpState.cpp.o" \
 "CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o" \
 "CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o" \
@@ -520,7 +520,7 @@ bin/inteplas: CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o
 bin/inteplas: CMakeFiles/inteplas.dir/src/Game.cpp.o
 bin/inteplas: CMakeFiles/inteplas.dir/src/GameState.cpp.o
 bin/inteplas: CMakeFiles/inteplas.dir/src/IdleState.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
+bin/inteplas: CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
 bin/inteplas: CMakeFiles/inteplas.dir/src/JumpState.cpp.o
 bin/inteplas: CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o
 bin/inteplas: CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o

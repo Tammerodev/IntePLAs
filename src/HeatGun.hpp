@@ -1,6 +1,6 @@
 #pragma once 
-#include "Gun.hpp"
-#include "FireParticle.hpp"
+#include "Item/Gun.hpp"
+#include "Particle/FireParticle.hpp"
 
 class HeatGun : public Item {
 public:

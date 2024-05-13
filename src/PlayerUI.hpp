@@ -2,18 +2,17 @@
 #include "World.hpp"
 #include <iostream>
 #include <vector>
-#include "RocketLauncher.hpp"
-#include "DebugPlacer.hpp"
+#include "Item/RocketLauncher.hpp"
 #include "HeatGun.hpp"
 #include "MaterialPack.hpp"
 #include "Panel.hpp"
 #include "MaterialsUI.hpp"
-#include "ItemCreateItem.hpp"
-#include "GeigerCounter.hpp"
-#include "Jetpack.hpp"
-#include "IronPickaxe.hpp"
-#include "Backpack.hpp"
-#include "Laser.hpp"
+#include "Item/ItemCreateItem.hpp"
+#include "Item/GeigerCounter.hpp"
+#include "Item/Jetpack.hpp"
+#include "Item/IronPickaxe.hpp"
+#include "Item/Backpack.hpp"
+#include "Item/Laser.hpp"
 
 #include "HealthBar.hpp"
 #include "TemperatureBar.hpp"
@@ -55,7 +54,6 @@ public:
         inventorybars.insert({"usercreated", std::make_shared<InventoryUserCreatedBar>()});
 
         addItem(vx, std::make_shared<RocketLauncher>(vx));
-        addItem(vx, std::make_shared<DebugPlacer>(vx));
         addItem(vx, std::make_shared<HeatGun>(vx));
         addItem(vx, std::make_shared<GeigerCounter>(vx));
         addItem(vx, std::make_shared<Jetpack>(vx));

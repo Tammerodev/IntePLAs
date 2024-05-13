@@ -1,7 +1,7 @@
 #pragma once
-#include "Item.hpp"
+#include "Item/Item.hpp"
 #include "Palettes/PaletteUI.hpp"
-#include "NoneItem.hpp"
+#include "Item/NoneItem.hpp"
 
 class InventoryBar {
     public:

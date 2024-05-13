@@ -4,7 +4,7 @@
 #include "ChunkIndexerVoxelContainer.hpp"
 #include <list>
 #include "ParticleSimulation.hpp"
-#include "PickableDebris.hpp"
+#include "Particle/PickableDebris.hpp"
 #include "Elements/BurnedMaterial.hpp"
 
 namespace Raycast {

@@ -414,29 +414,29 @@ src/IdleState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/IdleState.cpp.s
 .PHONY : src/IdleState.cpp.s
 
-src/Jetpack.o: src/Jetpack.cpp.o
-.PHONY : src/Jetpack.o
+src/Item/Jetpack.o: src/Item/Jetpack.cpp.o
+.PHONY : src/Item/Jetpack.o
 
 # target to build an object file
-src/Jetpack.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Jetpack.cpp.o
-.PHONY : src/Jetpack.cpp.o
+src/Item/Jetpack.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
+.PHONY : src/Item/Jetpack.cpp.o
 
-src/Jetpack.i: src/Jetpack.cpp.i
-.PHONY : src/Jetpack.i
+src/Item/Jetpack.i: src/Item/Jetpack.cpp.i
+.PHONY : src/Item/Jetpack.i
 
 # target to preprocess a source file
-src/Jetpack.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Jetpack.cpp.i
-.PHONY : src/Jetpack.cpp.i
+src/Item/Jetpack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.i
+.PHONY : src/Item/Jetpack.cpp.i
 
-src/Jetpack.s: src/Jetpack.cpp.s
-.PHONY : src/Jetpack.s
+src/Item/Jetpack.s: src/Item/Jetpack.cpp.s
+.PHONY : src/Item/Jetpack.s
 
 # target to generate assembly for a file
-src/Jetpack.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Jetpack.cpp.s
-.PHONY : src/Jetpack.cpp.s
+src/Item/Jetpack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.s
+.PHONY : src/Item/Jetpack.cpp.s
 
 src/JumpState.o: src/JumpState.cpp.o
 .PHONY : src/JumpState.o
@@ -913,9 +913,9 @@ help:
 	@echo "... src/IdleState.o"
 	@echo "... src/IdleState.i"
 	@echo "... src/IdleState.s"
-	@echo "... src/Jetpack.o"
-	@echo "... src/Jetpack.i"
-	@echo "... src/Jetpack.s"
+	@echo "... src/Item/Jetpack.o"
+	@echo "... src/Item/Jetpack.i"
+	@echo "... src/Item/Jetpack.s"
 	@echo "... src/JumpState.o"
 	@echo "... src/JumpState.i"
 	@echo "... src/JumpState.s"

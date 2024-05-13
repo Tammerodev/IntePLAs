@@ -355,14 +355,14 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Globals.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Raycast.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../ParticleSimulation.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../FreeNeutron.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../DebrisParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/Particle.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/FreeNeutron.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/DebrisParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../PlayerGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../PlayerState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../PickableDebris.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../CollisionManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../SoundFX.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/PickableDebris.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/../CollisionManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/../SoundFX.hpp \
  /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
  /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
  /usr/include/SFML/Audio/Music.hpp \
@@ -380,7 +380,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/../PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Element.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../RectangleRigidbody.hpp \
@@ -430,7 +430,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Wood.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Flammable.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/../FireEffectManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/../FireParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/../Particle/FireParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/ManganeseHeptoxide.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/FlammableFluid.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Butane.hpp \

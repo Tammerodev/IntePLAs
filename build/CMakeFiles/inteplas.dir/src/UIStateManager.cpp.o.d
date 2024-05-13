@@ -357,14 +357,14 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Globals.hpp \
  /home/lauri/Documents/inteplas/src/Raycast.hpp \
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp \
- /home/lauri/Documents/inteplas/src/Particle.hpp \
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp \
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp \
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp \
  /home/lauri/Documents/inteplas/src/PlayerState.hpp \
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp \
- /home/lauri/Documents/inteplas/src/CollisionManager.hpp \
- /home/lauri/Documents/inteplas/src/SoundFX.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/../CollisionManager.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/../SoundFX.hpp \
  /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
  /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
  /usr/include/SFML/Audio/Music.hpp \
@@ -382,7 +382,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/lauri/Documents/inteplas/src/PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/../PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Element.hpp \
  /home/lauri/Documents/inteplas/src/RectangleRigidbody.hpp \
@@ -432,7 +432,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp \
  /home/lauri/Documents/inteplas/src/Elements/../FireEffectManager.hpp \
- /home/lauri/Documents/inteplas/src/Elements/../FireParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Elements/../Particle/FireParticle.hpp \
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp \
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp \
@@ -468,11 +468,11 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/ClearWeather.hpp \
  /home/lauri/Documents/inteplas/src/WeatherState.hpp \
  /home/lauri/Documents/inteplas/src/SnowingWeather.hpp \
- /home/lauri/Documents/inteplas/src/SnowParticle.hpp \
- /home/lauri/Documents/inteplas/src/WeatherParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/SnowParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/WeatherParticle.hpp \
  /home/lauri/Documents/inteplas/src/BackgroundMusic.hpp \
  /home/lauri/Documents/inteplas/src/RainingWeather.hpp \
- /home/lauri/Documents/inteplas/src/RainParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/RainParticle.hpp \
  /home/lauri/Documents/inteplas/src/MobManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/Frog.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../Mob.hpp \
@@ -493,14 +493,11 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDeadState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishIdleState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishSwimState.hpp \
- /home/lauri/Documents/inteplas/src/RocketLauncher.hpp \
- /home/lauri/Documents/inteplas/src/Gun.hpp \
- /home/lauri/Documents/inteplas/src/ExplosiveBullet.hpp \
- /home/lauri/Documents/inteplas/src/Item.hpp \
- /home/lauri/Documents/inteplas/src/Palettes/PaletteUI.hpp \
- /home/lauri/Documents/inteplas/src/DebugPlacer.hpp \
- /home/lauri/Documents/inteplas/src/PlaceItem.hpp \
- /home/lauri/Documents/inteplas/src/ThrowInteface.hpp \
+ /home/lauri/Documents/inteplas/src/Item/RocketLauncher.hpp \
+ /home/lauri/Documents/inteplas/src/Item/Gun.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../ExplosiveBullet.hpp \
+ /home/lauri/Documents/inteplas/src/Item/Item.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../Palettes/PaletteUI.hpp \
  /home/lauri/Documents/inteplas/src/HeatGun.hpp \
  /home/lauri/Documents/inteplas/src/Panel.hpp \
  /home/lauri/Documents/inteplas/src/MaterialsUI.hpp \
@@ -653,19 +650,21 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
  /usr/include/TGUI/Widgets/CanvasBase.hpp \
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
- /home/lauri/Documents/inteplas/src/ItemCreateItem.hpp \
- /home/lauri/Documents/inteplas/src/GeigerCounter.hpp \
- /home/lauri/Documents/inteplas/src/Jetpack.hpp \
- /home/lauri/Documents/inteplas/src/IronPickaxe.hpp \
- /home/lauri/Documents/inteplas/src/Pickaxe.hpp \
- /home/lauri/Documents/inteplas/src/Backpack.hpp \
- /home/lauri/Documents/inteplas/src/Laser.hpp \
+ /home/lauri/Documents/inteplas/src/Item/ItemCreateItem.hpp \
+ /home/lauri/Documents/inteplas/src/Item/PlaceItem.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../ThrowInteface.hpp \
+ /home/lauri/Documents/inteplas/src/Item/GeigerCounter.hpp \
+ /home/lauri/Documents/inteplas/src/Item/Jetpack.hpp \
+ /home/lauri/Documents/inteplas/src/Item/IronPickaxe.hpp \
+ /home/lauri/Documents/inteplas/src/Item/Pickaxe.hpp \
+ /home/lauri/Documents/inteplas/src/Item/Backpack.hpp \
+ /home/lauri/Documents/inteplas/src/Item/Laser.hpp \
  /home/lauri/Documents/inteplas/src/HealthBar.hpp \
  /home/lauri/Documents/inteplas/src/BarUI.hpp \
  /home/lauri/Documents/inteplas/src/UIElement.hpp \
  /home/lauri/Documents/inteplas/src/TemperatureBar.hpp \
  /home/lauri/Documents/inteplas/src/InventoryBar.hpp \
- /home/lauri/Documents/inteplas/src/NoneItem.hpp \
+ /home/lauri/Documents/inteplas/src/Item/NoneItem.hpp \
  /home/lauri/Documents/inteplas/src/InventoryToolBar.hpp \
  /home/lauri/Documents/inteplas/src/InventoryUserCreatedBar.hpp \
  /home/lauri/Documents/inteplas/src/ItemCreatorUIState.hpp \

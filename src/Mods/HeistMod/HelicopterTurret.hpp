@@ -1,5 +1,5 @@
 #pragma once
-#include "../../Gun.hpp"
+#include "../../Item/Gun.hpp"
 
 class HelicopterTurret {
     public:

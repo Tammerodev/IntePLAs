@@ -1,7 +1,7 @@
 #pragma once
-#include "Particle.hpp"
-#include "FreeNeutron.hpp"
-#include "DebrisParticle.hpp"
+#include "Particle/Particle.hpp"
+#include "Particle/FreeNeutron.hpp"
+#include "Particle/DebrisParticle.hpp"
 #include "PlayerGlobal.hpp"
 
 #include <list>

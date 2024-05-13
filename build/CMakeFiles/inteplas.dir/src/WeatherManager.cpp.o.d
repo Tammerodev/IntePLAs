@@ -351,14 +351,14 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Globals.hpp \
  /home/lauri/Documents/inteplas/src/Raycast.hpp \
  /home/lauri/Documents/inteplas/src/ParticleSimulation.hpp \
- /home/lauri/Documents/inteplas/src/Particle.hpp \
- /home/lauri/Documents/inteplas/src/FreeNeutron.hpp \
- /home/lauri/Documents/inteplas/src/DebrisParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/Particle.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp \
  /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp \
  /home/lauri/Documents/inteplas/src/PlayerState.hpp \
- /home/lauri/Documents/inteplas/src/PickableDebris.hpp \
- /home/lauri/Documents/inteplas/src/CollisionManager.hpp \
- /home/lauri/Documents/inteplas/src/SoundFX.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/../CollisionManager.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/../SoundFX.hpp \
  /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
  /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
  /usr/include/SFML/Audio/Music.hpp \
@@ -376,7 +376,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/lauri/Documents/inteplas/src/PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/../PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Element.hpp \
  /home/lauri/Documents/inteplas/src/RectangleRigidbody.hpp \
@@ -426,7 +426,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp \
  /home/lauri/Documents/inteplas/src/Elements/../FireEffectManager.hpp \
- /home/lauri/Documents/inteplas/src/Elements/../FireParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Elements/../Particle/FireParticle.hpp \
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp \
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp \
@@ -461,8 +461,8 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/ClearWeather.hpp \
  /home/lauri/Documents/inteplas/src/WeatherState.hpp \
  /home/lauri/Documents/inteplas/src/SnowingWeather.hpp \
- /home/lauri/Documents/inteplas/src/SnowParticle.hpp \
- /home/lauri/Documents/inteplas/src/WeatherParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/SnowParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/WeatherParticle.hpp \
  /home/lauri/Documents/inteplas/src/BackgroundMusic.hpp \
  /home/lauri/Documents/inteplas/src/RainingWeather.hpp \
- /home/lauri/Documents/inteplas/src/RainParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/RainParticle.hpp
