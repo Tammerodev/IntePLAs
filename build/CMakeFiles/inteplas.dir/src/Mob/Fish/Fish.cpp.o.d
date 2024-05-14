@@ -465,6 +465,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../MobInfoBar.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../FontManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../AddVoxelGroups.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../MobGlobals.hpp \

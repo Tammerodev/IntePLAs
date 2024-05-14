@@ -562,14 +562,14 @@ bool VoxelManager::generateVegetation()
 }
 
 
-void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std::list<VoxelGroup>* grp, const sf::Vector2f velocity, bool hasCollisions)
+void VoxelManager::build_image(const sf::Vector2i &p, const sf::Image &cimg, std::list<std::shared_ptr<VoxelGroup>>* grp, const sf::Vector2f velocity, bool hasCollisions)
 {
     if(grp != nullptr) {
-        VoxelGroup object = VoxelGroup();
-        object.load(cimg);
+        auto object = std::make_shared<VoxelGroup>();
+        object->load(cimg);
 
-        object.setPosition(sf::Vector2f(p));
-        object.setVelocity(velocity);
+        object->setPosition(sf::Vector2f(p));
+        object->setVelocity(velocity);
 
         grp->emplace_back(object);
         return;

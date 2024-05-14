@@ -5,7 +5,7 @@ class VertexSprite {
     public:
         void load(sf::Texture& tx) {
             vert.clear();
-            vert.setPrimitiveType(sf::PrimitiveType::TriangleFan);
+            vert.setPrimitiveType(sf::PrimitiveType::Quads);
 
             addVertex(sf::Vertex());
             addVertex(sf::Vertex());
@@ -21,8 +21,8 @@ class VertexSprite {
 
             getVertex(0).texCoords = {0, 0};
             getVertex(1).texCoords = {0, h};
-            getVertex(2).texCoords = {w, 0};
-            getVertex(3).texCoords = {w, h};
+            getVertex(2).texCoords = {w, h};
+            getVertex(3).texCoords = {w, 0};
         }
 
         sf::Vertex &getVertex(int index) {

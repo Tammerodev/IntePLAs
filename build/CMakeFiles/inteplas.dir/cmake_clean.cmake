@@ -31,6 +31,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o.d"
   "CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o"
   "CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o.d"
+  "CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o"
+  "CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o.d"
   "CMakeFiles/inteplas.dir/src/MobManager.cpp.o"
   "CMakeFiles/inteplas.dir/src/MobManager.cpp.o.d"
   "CMakeFiles/inteplas.dir/src/Player.cpp.o"

@@ -13,6 +13,8 @@ struct Constraint {
 class RigidBody {
     public:
         void debugRender(sf::RenderTarget& target) {
+            if(!debug_globals::inDebugDisplayState) return;
+            
             for(const auto &point : points) {
                 sf::CircleShape circle;
                 circle.setPosition(point.transform_position);

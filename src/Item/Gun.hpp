@@ -118,8 +118,8 @@ public:
 			for(auto &wr : world.add_worlds) {
 				// TODO other worlds...
 				sf::FloatRect bullet_physComp = bullet->getCollider();
-				if(wr.getCollider().intersects(bullet_physComp)) {
-					wr.hole(sf::Vector2i(wr.getPosition() - sf::Vector2f(bullet_physComp.left, bullet_physComp.top)), explosion_stength, true, temp);
+				if(wr->getCollider().intersects(bullet_physComp)) {
+					wr->hole(sf::Vector2i(wr->getPosition() - sf::Vector2f(bullet_physComp.left, bullet_physComp.top)), explosion_stength, true, temp);
 				}
 			}
 

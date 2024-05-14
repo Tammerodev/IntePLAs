@@ -476,6 +476,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../MobInfoBar.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../FontManager.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../AddVoxelGroups.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/FrogDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/FrogState.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/FrogDeadState.hpp \

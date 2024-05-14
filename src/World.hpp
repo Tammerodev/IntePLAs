@@ -10,6 +10,8 @@
 #include "CollisionManager.hpp"
 #include "MobManager.hpp"
 
+#include "AddVoxelGroups.hpp"
+
 namespace fs = std::filesystem;
 
 class World {
@@ -78,12 +80,12 @@ public:
     void setAddWorldsPointImpact(std::vector<ExplosionInfo>& points) {
         for(auto &world : add_worlds) {
             for(auto &point : points) {
-                float distance = math::distance(point.position, world.getPosition());
+                float distance = math::distance(point.position, world->getPosition());
 
                 if(distance < point.strength) {
-                    const sf::Vector2f velocity = -(point.position - world.getPosition()) / 10.f;
+                    const sf::Vector2f velocity = -(point.position - world->getPosition()) / 10.f;
 
-                    world.setVelocity(velocity / 1.5f);
+                    world->setVelocity(velocity / 1.5f);
                 }
             }
         }
@@ -93,9 +95,22 @@ public:
         main_world.update(player, gameEventManager);
         mobManager.update(dt, player, main_world);
         mobManager.checkCollisions(main_world);
+        
+        // Temporary container to hold the elements to be removed
+        std::list<std::shared_ptr<VoxelGroup>> to_be_removed;
+
+        for (const auto &v : AddVoxelGroups::add_more_worlds) {
+            add_worlds.emplace_back(v);
+            to_be_removed.push_back(v);
+        }
+
+        // Remove the elements from add_more_worlds
+        for (const auto &v : to_be_removed) {
+            AddVoxelGroups::add_more_worlds.remove(v);
+        }
 
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
-            world->update(main_world.getChunkIndexer(), dt);
+            (*world)->update(main_world.getChunkIndexer(), dt);
 
             /*bool collision = false;
 
@@ -143,7 +158,7 @@ public:
         main_world.save();
 
         for(auto &world : add_worlds) {
-            world.save();
+            world->save();
         }
     }   
 
@@ -180,7 +195,7 @@ public:
         mobManager.render(target);
 
         for(auto &world : add_worlds) {
-            world.render(target, view_center);
+            world->render(target, view_center);
         }
     }
 
@@ -191,8 +206,8 @@ public:
             if (fs::is_directory(entry.path())) {
                 const std::string& completePath = entry.path().string();
 
-                VoxelGroup group;
-                group.loadFromStorage(completePath, std::stoi(entry.path().stem().string()));
+                auto group = std::make_shared<VoxelGroup>();
+                group->loadFromStorage(completePath, std::stoi(entry.path().stem().string()));
 
                 add_worlds.emplace_back(group);
             }
@@ -200,7 +215,7 @@ public:
     }
 
 	VoxelManager main_world {};
-    std::list<VoxelGroup> add_worlds {};
+    std::list<std::shared_ptr<VoxelGroup>> add_worlds {};
 private:
     Player* player_loc_ = nullptr;
 

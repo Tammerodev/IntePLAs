@@ -81,6 +81,11 @@
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o -c /home/lauri/Documents/inteplas/src/Mob/Mob.cpp",
+  "file": "/home/lauri/Documents/inteplas/src/Mob/Mob.cpp"
+},
+{
+  "directory": "/home/lauri/Documents/inteplas/build",
   "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/MobManager.cpp.o -c /home/lauri/Documents/inteplas/src/MobManager.cpp",
   "file": "/home/lauri/Documents/inteplas/src/MobManager.cpp"
 },

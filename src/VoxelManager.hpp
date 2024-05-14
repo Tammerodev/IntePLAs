@@ -492,7 +492,7 @@ public:
         }
     }
 
-    void build_image(const sf::Vector2i&, const sf::Image&, std::list<VoxelGroup>*, const sf::Vector2f velocity = sf::Vector2f(0.f, 0.f), bool hasCollisions = true);
+    void build_image(const sf::Vector2i&, const sf::Image&, std::list<std::shared_ptr<VoxelGroup>>* grp, const sf::Vector2f velocity = sf::Vector2f(0.f, 0.f), bool hasCollisions = true);
 
     const sf::FloatRect &getUpdateArea() {
         return update_area;

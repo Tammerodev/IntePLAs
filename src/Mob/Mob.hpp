@@ -4,6 +4,7 @@
 #include "../MobInfoBar.hpp"
 #include "../Elements/Blood.hpp"
 #include "../MobType.hpp"
+#include "../AddVoxelGroups.hpp"
 
 struct MobInvoke {
     float damage = 0.f;
@@ -34,6 +35,17 @@ class DefaultBehaviour {
 
         void default_death(int x, int y, VoxelManager& voxelManager) {
             splashBlood(x, y, voxelManager);
+
+            sf::Texture itemTex;
+            itemTex.loadFromFile("res/img/Item/meats.png", sf::IntRect(sf::Vector2i(meatTextureIndex * 16, 0), sf::Vector2i(16, 16)));
+
+            auto item = std::make_shared<VoxelGroup>();
+            item->load(itemTex.copyToImage());
+            item->setPosition(sf::Vector2f(x, y));
+            item->setVelocity(sf::Vector2f(abs(math::randFloat()) / 5.f, math::randFloat() / 5.f));
+
+            AddVoxelGroups::add_more_worlds.emplace_back(item);
+
             remove_mob = true;
         }
 
@@ -44,6 +56,7 @@ class DefaultBehaviour {
         }
     public:
 
+        int meatTextureIndex = 0;
         bool remove_mob = false;
         
     private:

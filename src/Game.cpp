@@ -107,9 +107,9 @@ void Game::update() {
     if(PlayerGlobal::health <= 0) return;                 
 
     for (auto &wrl : world.add_worlds) {
-        if (!wrl.explosion_points.empty()) {
-            effOverlay.effect_explosion(wrl.explosion_points.back());
-            wrl.explosion_points.pop_back();
+        if (!wrl->explosion_points.empty()) {
+            effOverlay.effect_explosion(wrl->explosion_points.back());
+            wrl->explosion_points.pop_back();
         }
     }
 

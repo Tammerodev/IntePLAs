@@ -479,6 +479,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../MobInfoBar.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../FontManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../AddVoxelGroups.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/FrogDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/FrogState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/FrogDeadState.hpp \

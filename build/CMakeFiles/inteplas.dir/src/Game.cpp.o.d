@@ -480,6 +480,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../MobInfoBar.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../FontManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../AddVoxelGroups.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDeadState.hpp \

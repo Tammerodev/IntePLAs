@@ -558,6 +558,30 @@ src/Mob/Frog/Frog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.s
 .PHONY : src/Mob/Frog/Frog.cpp.s
 
+src/Mob/Mob.o: src/Mob/Mob.cpp.o
+.PHONY : src/Mob/Mob.o
+
+# target to build an object file
+src/Mob/Mob.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o
+.PHONY : src/Mob/Mob.cpp.o
+
+src/Mob/Mob.i: src/Mob/Mob.cpp.i
+.PHONY : src/Mob/Mob.i
+
+# target to preprocess a source file
+src/Mob/Mob.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.i
+.PHONY : src/Mob/Mob.cpp.i
+
+src/Mob/Mob.s: src/Mob/Mob.cpp.s
+.PHONY : src/Mob/Mob.s
+
+# target to generate assembly for a file
+src/Mob/Mob.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.s
+.PHONY : src/Mob/Mob.cpp.s
+
 src/MobManager.o: src/MobManager.cpp.o
 .PHONY : src/MobManager.o
 
@@ -931,6 +955,9 @@ help:
 	@echo "... src/Mob/Frog/Frog.o"
 	@echo "... src/Mob/Frog/Frog.i"
 	@echo "... src/Mob/Frog/Frog.s"
+	@echo "... src/Mob/Mob.o"
+	@echo "... src/Mob/Mob.i"
+	@echo "... src/Mob/Mob.s"
 	@echo "... src/MobManager.o"
 	@echo "... src/MobManager.i"
 	@echo "... src/MobManager.s"
