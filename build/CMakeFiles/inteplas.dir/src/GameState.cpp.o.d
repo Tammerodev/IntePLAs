@@ -359,8 +359,8 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/Particle.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/FreeNeutron.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/DebrisParticle.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PlayerGlobal.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PlayerState.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/PlayerGlobal.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/PlayerState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/PickableDebris.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/../CollisionManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/../SoundFX.hpp \
@@ -381,7 +381,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/../PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/../Player/PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/Element.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../RectangleRigidbody.hpp \
@@ -438,18 +438,18 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/FlammableGas.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/Snow.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Shader.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../IdleState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../WalkState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../JumpState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../DeadState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../CreativeState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../DamageState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../RespawnState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../SwimState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PlayerTemparatureManager.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PlayerHealthManager.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Camera.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/Player.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/IdleState.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/WalkState.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/JumpState.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/DeadState.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/CreativeState.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/DamageState.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/RespawnState.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/SwimState.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/PlayerTemparatureManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/PlayerHealthManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/../Camera.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Session.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ElectricitySimulation.hpp \

@@ -198,30 +198,6 @@ src/Button.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Button.cpp.s
 .PHONY : src/Button.cpp.s
 
-src/CreativeState.o: src/CreativeState.cpp.o
-.PHONY : src/CreativeState.o
-
-# target to build an object file
-src/CreativeState.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/CreativeState.cpp.o
-.PHONY : src/CreativeState.cpp.o
-
-src/CreativeState.i: src/CreativeState.cpp.i
-.PHONY : src/CreativeState.i
-
-# target to preprocess a source file
-src/CreativeState.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/CreativeState.cpp.i
-.PHONY : src/CreativeState.cpp.i
-
-src/CreativeState.s: src/CreativeState.cpp.s
-.PHONY : src/CreativeState.s
-
-# target to generate assembly for a file
-src/CreativeState.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/CreativeState.cpp.s
-.PHONY : src/CreativeState.cpp.s
-
 src/ElectricitySimulation.o: src/ElectricitySimulation.cpp.o
 .PHONY : src/ElectricitySimulation.o
 
@@ -390,30 +366,6 @@ src/GameState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/GameState.cpp.s
 .PHONY : src/GameState.cpp.s
 
-src/IdleState.o: src/IdleState.cpp.o
-.PHONY : src/IdleState.o
-
-# target to build an object file
-src/IdleState.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/IdleState.cpp.o
-.PHONY : src/IdleState.cpp.o
-
-src/IdleState.i: src/IdleState.cpp.i
-.PHONY : src/IdleState.i
-
-# target to preprocess a source file
-src/IdleState.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/IdleState.cpp.i
-.PHONY : src/IdleState.cpp.i
-
-src/IdleState.s: src/IdleState.cpp.s
-.PHONY : src/IdleState.s
-
-# target to generate assembly for a file
-src/IdleState.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/IdleState.cpp.s
-.PHONY : src/IdleState.cpp.s
-
 src/Item/Jetpack.o: src/Item/Jetpack.cpp.o
 .PHONY : src/Item/Jetpack.o
 
@@ -437,30 +389,6 @@ src/Item/Jetpack.s: src/Item/Jetpack.cpp.s
 src/Item/Jetpack.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.s
 .PHONY : src/Item/Jetpack.cpp.s
-
-src/JumpState.o: src/JumpState.cpp.o
-.PHONY : src/JumpState.o
-
-# target to build an object file
-src/JumpState.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/JumpState.cpp.o
-.PHONY : src/JumpState.cpp.o
-
-src/JumpState.i: src/JumpState.cpp.i
-.PHONY : src/JumpState.i
-
-# target to preprocess a source file
-src/JumpState.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/JumpState.cpp.i
-.PHONY : src/JumpState.cpp.i
-
-src/JumpState.s: src/JumpState.cpp.s
-.PHONY : src/JumpState.s
-
-# target to generate assembly for a file
-src/JumpState.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/JumpState.cpp.s
-.PHONY : src/JumpState.cpp.s
 
 src/Lighting/LightSimulation.o: src/Lighting/LightSimulation.cpp.o
 .PHONY : src/Lighting/LightSimulation.o
@@ -606,101 +534,197 @@ src/MobManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/MobManager.cpp.s
 .PHONY : src/MobManager.cpp.s
 
-src/Player.o: src/Player.cpp.o
-.PHONY : src/Player.o
+src/Player/CreativeState.o: src/Player/CreativeState.cpp.o
+.PHONY : src/Player/CreativeState.o
 
 # target to build an object file
-src/Player.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player.cpp.o
-.PHONY : src/Player.cpp.o
+src/Player/CreativeState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/CreativeState.cpp.o
+.PHONY : src/Player/CreativeState.cpp.o
 
-src/Player.i: src/Player.cpp.i
-.PHONY : src/Player.i
+src/Player/CreativeState.i: src/Player/CreativeState.cpp.i
+.PHONY : src/Player/CreativeState.i
 
 # target to preprocess a source file
-src/Player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player.cpp.i
-.PHONY : src/Player.cpp.i
+src/Player/CreativeState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/CreativeState.cpp.i
+.PHONY : src/Player/CreativeState.cpp.i
 
-src/Player.s: src/Player.cpp.s
-.PHONY : src/Player.s
+src/Player/CreativeState.s: src/Player/CreativeState.cpp.s
+.PHONY : src/Player/CreativeState.s
 
 # target to generate assembly for a file
-src/Player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player.cpp.s
-.PHONY : src/Player.cpp.s
+src/Player/CreativeState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/CreativeState.cpp.s
+.PHONY : src/Player/CreativeState.cpp.s
 
-src/PlayerHealthManager.o: src/PlayerHealthManager.cpp.o
-.PHONY : src/PlayerHealthManager.o
+src/Player/IdleState.o: src/Player/IdleState.cpp.o
+.PHONY : src/Player/IdleState.o
 
 # target to build an object file
-src/PlayerHealthManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o
-.PHONY : src/PlayerHealthManager.cpp.o
+src/Player/IdleState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/IdleState.cpp.o
+.PHONY : src/Player/IdleState.cpp.o
 
-src/PlayerHealthManager.i: src/PlayerHealthManager.cpp.i
-.PHONY : src/PlayerHealthManager.i
+src/Player/IdleState.i: src/Player/IdleState.cpp.i
+.PHONY : src/Player/IdleState.i
 
 # target to preprocess a source file
-src/PlayerHealthManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.i
-.PHONY : src/PlayerHealthManager.cpp.i
+src/Player/IdleState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/IdleState.cpp.i
+.PHONY : src/Player/IdleState.cpp.i
 
-src/PlayerHealthManager.s: src/PlayerHealthManager.cpp.s
-.PHONY : src/PlayerHealthManager.s
+src/Player/IdleState.s: src/Player/IdleState.cpp.s
+.PHONY : src/Player/IdleState.s
 
 # target to generate assembly for a file
-src/PlayerHealthManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.s
-.PHONY : src/PlayerHealthManager.cpp.s
+src/Player/IdleState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/IdleState.cpp.s
+.PHONY : src/Player/IdleState.cpp.s
 
-src/RespawnState.o: src/RespawnState.cpp.o
-.PHONY : src/RespawnState.o
+src/Player/JumpState.o: src/Player/JumpState.cpp.o
+.PHONY : src/Player/JumpState.o
 
 # target to build an object file
-src/RespawnState.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/RespawnState.cpp.o
-.PHONY : src/RespawnState.cpp.o
+src/Player/JumpState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/JumpState.cpp.o
+.PHONY : src/Player/JumpState.cpp.o
 
-src/RespawnState.i: src/RespawnState.cpp.i
-.PHONY : src/RespawnState.i
+src/Player/JumpState.i: src/Player/JumpState.cpp.i
+.PHONY : src/Player/JumpState.i
 
 # target to preprocess a source file
-src/RespawnState.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/RespawnState.cpp.i
-.PHONY : src/RespawnState.cpp.i
+src/Player/JumpState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/JumpState.cpp.i
+.PHONY : src/Player/JumpState.cpp.i
 
-src/RespawnState.s: src/RespawnState.cpp.s
-.PHONY : src/RespawnState.s
+src/Player/JumpState.s: src/Player/JumpState.cpp.s
+.PHONY : src/Player/JumpState.s
 
 # target to generate assembly for a file
-src/RespawnState.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/RespawnState.cpp.s
-.PHONY : src/RespawnState.cpp.s
+src/Player/JumpState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/JumpState.cpp.s
+.PHONY : src/Player/JumpState.cpp.s
 
-src/SwimState.o: src/SwimState.cpp.o
-.PHONY : src/SwimState.o
+src/Player/Player.o: src/Player/Player.cpp.o
+.PHONY : src/Player/Player.o
 
 # target to build an object file
-src/SwimState.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/SwimState.cpp.o
-.PHONY : src/SwimState.cpp.o
+src/Player/Player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/Player.cpp.o
+.PHONY : src/Player/Player.cpp.o
 
-src/SwimState.i: src/SwimState.cpp.i
-.PHONY : src/SwimState.i
+src/Player/Player.i: src/Player/Player.cpp.i
+.PHONY : src/Player/Player.i
 
 # target to preprocess a source file
-src/SwimState.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/SwimState.cpp.i
-.PHONY : src/SwimState.cpp.i
+src/Player/Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/Player.cpp.i
+.PHONY : src/Player/Player.cpp.i
 
-src/SwimState.s: src/SwimState.cpp.s
-.PHONY : src/SwimState.s
+src/Player/Player.s: src/Player/Player.cpp.s
+.PHONY : src/Player/Player.s
 
 # target to generate assembly for a file
-src/SwimState.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/SwimState.cpp.s
-.PHONY : src/SwimState.cpp.s
+src/Player/Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/Player.cpp.s
+.PHONY : src/Player/Player.cpp.s
+
+src/Player/PlayerHealthManager.o: src/Player/PlayerHealthManager.cpp.o
+.PHONY : src/Player/PlayerHealthManager.o
+
+# target to build an object file
+src/Player/PlayerHealthManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/PlayerHealthManager.cpp.o
+.PHONY : src/Player/PlayerHealthManager.cpp.o
+
+src/Player/PlayerHealthManager.i: src/Player/PlayerHealthManager.cpp.i
+.PHONY : src/Player/PlayerHealthManager.i
+
+# target to preprocess a source file
+src/Player/PlayerHealthManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/PlayerHealthManager.cpp.i
+.PHONY : src/Player/PlayerHealthManager.cpp.i
+
+src/Player/PlayerHealthManager.s: src/Player/PlayerHealthManager.cpp.s
+.PHONY : src/Player/PlayerHealthManager.s
+
+# target to generate assembly for a file
+src/Player/PlayerHealthManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/PlayerHealthManager.cpp.s
+.PHONY : src/Player/PlayerHealthManager.cpp.s
+
+src/Player/RespawnState.o: src/Player/RespawnState.cpp.o
+.PHONY : src/Player/RespawnState.o
+
+# target to build an object file
+src/Player/RespawnState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/RespawnState.cpp.o
+.PHONY : src/Player/RespawnState.cpp.o
+
+src/Player/RespawnState.i: src/Player/RespawnState.cpp.i
+.PHONY : src/Player/RespawnState.i
+
+# target to preprocess a source file
+src/Player/RespawnState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/RespawnState.cpp.i
+.PHONY : src/Player/RespawnState.cpp.i
+
+src/Player/RespawnState.s: src/Player/RespawnState.cpp.s
+.PHONY : src/Player/RespawnState.s
+
+# target to generate assembly for a file
+src/Player/RespawnState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/RespawnState.cpp.s
+.PHONY : src/Player/RespawnState.cpp.s
+
+src/Player/SwimState.o: src/Player/SwimState.cpp.o
+.PHONY : src/Player/SwimState.o
+
+# target to build an object file
+src/Player/SwimState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/SwimState.cpp.o
+.PHONY : src/Player/SwimState.cpp.o
+
+src/Player/SwimState.i: src/Player/SwimState.cpp.i
+.PHONY : src/Player/SwimState.i
+
+# target to preprocess a source file
+src/Player/SwimState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/SwimState.cpp.i
+.PHONY : src/Player/SwimState.cpp.i
+
+src/Player/SwimState.s: src/Player/SwimState.cpp.s
+.PHONY : src/Player/SwimState.s
+
+# target to generate assembly for a file
+src/Player/SwimState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/SwimState.cpp.s
+.PHONY : src/Player/SwimState.cpp.s
+
+src/Player/WalkState.o: src/Player/WalkState.cpp.o
+.PHONY : src/Player/WalkState.o
+
+# target to build an object file
+src/Player/WalkState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.o
+.PHONY : src/Player/WalkState.cpp.o
+
+src/Player/WalkState.i: src/Player/WalkState.cpp.i
+.PHONY : src/Player/WalkState.i
+
+# target to preprocess a source file
+src/Player/WalkState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.i
+.PHONY : src/Player/WalkState.cpp.i
+
+src/Player/WalkState.s: src/Player/WalkState.cpp.s
+.PHONY : src/Player/WalkState.s
+
+# target to generate assembly for a file
+src/Player/WalkState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.s
+.PHONY : src/Player/WalkState.cpp.s
 
 src/UIStateManager.o: src/UIStateManager.cpp.o
 .PHONY : src/UIStateManager.o
@@ -798,30 +822,6 @@ src/VoxelManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/VoxelManager.cpp.s
 .PHONY : src/VoxelManager.cpp.s
 
-src/WalkState.o: src/WalkState.cpp.o
-.PHONY : src/WalkState.o
-
-# target to build an object file
-src/WalkState.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/WalkState.cpp.o
-.PHONY : src/WalkState.cpp.o
-
-src/WalkState.i: src/WalkState.cpp.i
-.PHONY : src/WalkState.i
-
-# target to preprocess a source file
-src/WalkState.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/WalkState.cpp.i
-.PHONY : src/WalkState.cpp.i
-
-src/WalkState.s: src/WalkState.cpp.s
-.PHONY : src/WalkState.s
-
-# target to generate assembly for a file
-src/WalkState.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/inteplas.dir/build.make CMakeFiles/inteplas.dir/src/WalkState.cpp.s
-.PHONY : src/WalkState.cpp.s
-
 src/WeatherManager.o: src/WeatherManager.cpp.o
 .PHONY : src/WeatherManager.o
 
@@ -910,9 +910,6 @@ help:
 	@echo "... src/Button.o"
 	@echo "... src/Button.i"
 	@echo "... src/Button.s"
-	@echo "... src/CreativeState.o"
-	@echo "... src/CreativeState.i"
-	@echo "... src/CreativeState.s"
 	@echo "... src/ElectricitySimulation.o"
 	@echo "... src/ElectricitySimulation.i"
 	@echo "... src/ElectricitySimulation.s"
@@ -934,15 +931,9 @@ help:
 	@echo "... src/GameState.o"
 	@echo "... src/GameState.i"
 	@echo "... src/GameState.s"
-	@echo "... src/IdleState.o"
-	@echo "... src/IdleState.i"
-	@echo "... src/IdleState.s"
 	@echo "... src/Item/Jetpack.o"
 	@echo "... src/Item/Jetpack.i"
 	@echo "... src/Item/Jetpack.s"
-	@echo "... src/JumpState.o"
-	@echo "... src/JumpState.i"
-	@echo "... src/JumpState.s"
 	@echo "... src/Lighting/LightSimulation.o"
 	@echo "... src/Lighting/LightSimulation.i"
 	@echo "... src/Lighting/LightSimulation.s"
@@ -961,18 +952,30 @@ help:
 	@echo "... src/MobManager.o"
 	@echo "... src/MobManager.i"
 	@echo "... src/MobManager.s"
-	@echo "... src/Player.o"
-	@echo "... src/Player.i"
-	@echo "... src/Player.s"
-	@echo "... src/PlayerHealthManager.o"
-	@echo "... src/PlayerHealthManager.i"
-	@echo "... src/PlayerHealthManager.s"
-	@echo "... src/RespawnState.o"
-	@echo "... src/RespawnState.i"
-	@echo "... src/RespawnState.s"
-	@echo "... src/SwimState.o"
-	@echo "... src/SwimState.i"
-	@echo "... src/SwimState.s"
+	@echo "... src/Player/CreativeState.o"
+	@echo "... src/Player/CreativeState.i"
+	@echo "... src/Player/CreativeState.s"
+	@echo "... src/Player/IdleState.o"
+	@echo "... src/Player/IdleState.i"
+	@echo "... src/Player/IdleState.s"
+	@echo "... src/Player/JumpState.o"
+	@echo "... src/Player/JumpState.i"
+	@echo "... src/Player/JumpState.s"
+	@echo "... src/Player/Player.o"
+	@echo "... src/Player/Player.i"
+	@echo "... src/Player/Player.s"
+	@echo "... src/Player/PlayerHealthManager.o"
+	@echo "... src/Player/PlayerHealthManager.i"
+	@echo "... src/Player/PlayerHealthManager.s"
+	@echo "... src/Player/RespawnState.o"
+	@echo "... src/Player/RespawnState.i"
+	@echo "... src/Player/RespawnState.s"
+	@echo "... src/Player/SwimState.o"
+	@echo "... src/Player/SwimState.i"
+	@echo "... src/Player/SwimState.s"
+	@echo "... src/Player/WalkState.o"
+	@echo "... src/Player/WalkState.i"
+	@echo "... src/Player/WalkState.s"
 	@echo "... src/UIStateManager.o"
 	@echo "... src/UIStateManager.i"
 	@echo "... src/UIStateManager.s"
@@ -985,9 +988,6 @@ help:
 	@echo "... src/VoxelManager.o"
 	@echo "... src/VoxelManager.i"
 	@echo "... src/VoxelManager.s"
-	@echo "... src/WalkState.o"
-	@echo "... src/WalkState.i"
-	@echo "... src/WalkState.s"
 	@echo "... src/WeatherManager.o"
 	@echo "... src/WeatherManager.i"
 	@echo "... src/WeatherManager.s"

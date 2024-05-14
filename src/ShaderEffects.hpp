@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Shader.hpp"
 
-#include "Player.hpp"
+#include "Player/Player.hpp"
 #include "GameStatus.hpp"
 
 class ShaderEffect {

@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Audio.hpp>
-#include "PlayerDamageSoundType.hpp"
+#include "Player/PlayerDamageSoundType.hpp"
 
 namespace SFX {
     namespace DamageSounds {

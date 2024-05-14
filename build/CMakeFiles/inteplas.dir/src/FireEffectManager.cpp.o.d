@@ -318,8 +318,8 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o: \
  /usr/include/c++/11/ratio /usr/include/c++/11/bits/parse_numbers.h \
  /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/semaphore.h \
  /usr/include/x86_64-linux-gnu/bits/semaphore.h \
- /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp \
- /home/lauri/Documents/inteplas/src/PlayerState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/PlayerGlobal.hpp \
+ /home/lauri/Documents/inteplas/src/Player/PlayerState.hpp \
  /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
  /usr/include/c++/11/bits/allocated_ptr.h \
  /usr/include/c++/11/bits/list.tcc /usr/include/c++/11/memory \

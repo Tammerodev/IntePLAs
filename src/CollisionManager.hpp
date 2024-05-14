@@ -1,7 +1,7 @@
 #pragma once
 #include "PhysicsComponent.hpp"
 #include "ChunkIndexerVoxelContainer.hpp"
-#include "PlayerGlobal.hpp"
+#include "Player/PlayerGlobal.hpp"
 
 class CollisionManager {
     public:

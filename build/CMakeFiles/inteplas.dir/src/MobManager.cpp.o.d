@@ -359,8 +359,8 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/Particle.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/FreeNeutron.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/DebrisParticle.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../PlayerGlobal.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../PlayerState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/PlayerGlobal.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/PlayerState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/PickableDebris.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/../CollisionManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/../SoundFX.hpp \
@@ -381,7 +381,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/../PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Particle/../Player/PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/Element.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../RectangleRigidbody.hpp \
@@ -438,18 +438,18 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/FlammableGas.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/Snow.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Shader.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../IdleState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../WalkState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../JumpState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../DeadState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../CreativeState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../DamageState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../RespawnState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../SwimState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../PlayerTemparatureManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../PlayerHealthManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../Camera.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/Player.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/IdleState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/WalkState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/JumpState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/DeadState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/CreativeState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/DamageState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/RespawnState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/SwimState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/PlayerTemparatureManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/PlayerHealthManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/../Camera.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Session.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../ElectricitySimulation.hpp \

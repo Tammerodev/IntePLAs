@@ -352,8 +352,8 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: \
  /home/lauri/Documents/inteplas/src/Particle/Particle.hpp \
  /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp \
  /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp \
- /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp \
- /home/lauri/Documents/inteplas/src/PlayerState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/PlayerGlobal.hpp \
+ /home/lauri/Documents/inteplas/src/Player/PlayerState.hpp \
  /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp \
  /home/lauri/Documents/inteplas/src/Particle/../CollisionManager.hpp \
  /home/lauri/Documents/inteplas/src/Particle/../SoundFX.hpp \
@@ -374,7 +374,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/lauri/Documents/inteplas/src/Particle/../PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/../Player/PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Element.hpp \
  /home/lauri/Documents/inteplas/src/RectangleRigidbody.hpp \
@@ -431,18 +431,18 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: \
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp \
  /home/lauri/Documents/inteplas/src/Shader.hpp \
- /home/lauri/Documents/inteplas/src/Player.hpp \
- /home/lauri/Documents/inteplas/src/IdleState.hpp \
- /home/lauri/Documents/inteplas/src/WalkState.hpp \
- /home/lauri/Documents/inteplas/src/JumpState.hpp \
- /home/lauri/Documents/inteplas/src/DeadState.hpp \
- /home/lauri/Documents/inteplas/src/CreativeState.hpp \
- /home/lauri/Documents/inteplas/src/DamageState.hpp \
- /home/lauri/Documents/inteplas/src/RespawnState.hpp \
- /home/lauri/Documents/inteplas/src/SwimState.hpp \
- /home/lauri/Documents/inteplas/src/PlayerTemparatureManager.hpp \
- /home/lauri/Documents/inteplas/src/PlayerHealthManager.hpp \
- /home/lauri/Documents/inteplas/src/Camera.hpp \
+ /home/lauri/Documents/inteplas/src/Player/Player.hpp \
+ /home/lauri/Documents/inteplas/src/Player/IdleState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/WalkState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/JumpState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/DeadState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/DamageState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/RespawnState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/SwimState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp \
+ /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp \
+ /home/lauri/Documents/inteplas/src/Player/../Camera.hpp \
  /home/lauri/Documents/inteplas/src/Session.hpp \
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp \

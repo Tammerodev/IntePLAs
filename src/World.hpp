@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <iostream>
 #include "VoxelManager.hpp"
-#include "Player.hpp"
+#include "Player/Player.hpp"
 #include "VoxelGroup.hpp"
 #include "WeatherManager.hpp"
 

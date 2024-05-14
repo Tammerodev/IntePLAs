@@ -348,8 +348,8 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: \
  /home/lauri/Documents/inteplas/src/Particle/Particle.hpp \
  /home/lauri/Documents/inteplas/src/Particle/FreeNeutron.hpp \
  /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp \
- /home/lauri/Documents/inteplas/src/PlayerGlobal.hpp \
- /home/lauri/Documents/inteplas/src/PlayerState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/PlayerGlobal.hpp \
+ /home/lauri/Documents/inteplas/src/Player/PlayerState.hpp \
  /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp \
  /home/lauri/Documents/inteplas/src/Particle/../CollisionManager.hpp \
  /home/lauri/Documents/inteplas/src/Particle/../SoundFX.hpp \
@@ -370,7 +370,7 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/lauri/Documents/inteplas/src/Particle/../PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Particle/../Player/PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Element.hpp \
  /home/lauri/Documents/inteplas/src/RectangleRigidbody.hpp \

@@ -6,11 +6,6 @@
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/CreativeState.cpp.o -c /home/lauri/Documents/inteplas/src/CreativeState.cpp",
-  "file": "/home/lauri/Documents/inteplas/src/CreativeState.cpp"
-},
-{
-  "directory": "/home/lauri/Documents/inteplas/build",
   "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/ElectricitySimulation.cpp.o -c /home/lauri/Documents/inteplas/src/ElectricitySimulation.cpp",
   "file": "/home/lauri/Documents/inteplas/src/ElectricitySimulation.cpp"
 },
@@ -46,18 +41,8 @@
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/IdleState.cpp.o -c /home/lauri/Documents/inteplas/src/IdleState.cpp",
-  "file": "/home/lauri/Documents/inteplas/src/IdleState.cpp"
-},
-{
-  "directory": "/home/lauri/Documents/inteplas/build",
   "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o -c /home/lauri/Documents/inteplas/src/Item/Jetpack.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Item/Jetpack.cpp"
-},
-{
-  "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/JumpState.cpp.o -c /home/lauri/Documents/inteplas/src/JumpState.cpp",
-  "file": "/home/lauri/Documents/inteplas/src/JumpState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
@@ -91,23 +76,43 @@
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Player.cpp.o -c /home/lauri/Documents/inteplas/src/Player.cpp",
-  "file": "/home/lauri/Documents/inteplas/src/Player.cpp"
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Player/CreativeState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/CreativeState.cpp",
+  "file": "/home/lauri/Documents/inteplas/src/Player/CreativeState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/PlayerHealthManager.cpp.o -c /home/lauri/Documents/inteplas/src/PlayerHealthManager.cpp",
-  "file": "/home/lauri/Documents/inteplas/src/PlayerHealthManager.cpp"
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Player/IdleState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/IdleState.cpp",
+  "file": "/home/lauri/Documents/inteplas/src/Player/IdleState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/RespawnState.cpp.o -c /home/lauri/Documents/inteplas/src/RespawnState.cpp",
-  "file": "/home/lauri/Documents/inteplas/src/RespawnState.cpp"
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Player/JumpState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/JumpState.cpp",
+  "file": "/home/lauri/Documents/inteplas/src/Player/JumpState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/SwimState.cpp.o -c /home/lauri/Documents/inteplas/src/SwimState.cpp",
-  "file": "/home/lauri/Documents/inteplas/src/SwimState.cpp"
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Player/Player.cpp.o -c /home/lauri/Documents/inteplas/src/Player/Player.cpp",
+  "file": "/home/lauri/Documents/inteplas/src/Player/Player.cpp"
+},
+{
+  "directory": "/home/lauri/Documents/inteplas/build",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Player/PlayerHealthManager.cpp.o -c /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.cpp",
+  "file": "/home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.cpp"
+},
+{
+  "directory": "/home/lauri/Documents/inteplas/build",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Player/RespawnState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/RespawnState.cpp",
+  "file": "/home/lauri/Documents/inteplas/src/Player/RespawnState.cpp"
+},
+{
+  "directory": "/home/lauri/Documents/inteplas/build",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Player/SwimState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/SwimState.cpp",
+  "file": "/home/lauri/Documents/inteplas/src/Player/SwimState.cpp"
+},
+{
+  "directory": "/home/lauri/Documents/inteplas/build",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/WalkState.cpp",
+  "file": "/home/lauri/Documents/inteplas/src/Player/WalkState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
@@ -128,11 +133,6 @@
   "directory": "/home/lauri/Documents/inteplas/build",
   "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o -c /home/lauri/Documents/inteplas/src/VoxelManager.cpp",
   "file": "/home/lauri/Documents/inteplas/src/VoxelManager.cpp"
-},
-{
-  "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/usr/include/jsoncpp -isystem /usr/include/SDL2 -g -std=gnu++20 -o CMakeFiles/inteplas.dir/src/WalkState.cpp.o -c /home/lauri/Documents/inteplas/src/WalkState.cpp",
-  "file": "/home/lauri/Documents/inteplas/src/WalkState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",

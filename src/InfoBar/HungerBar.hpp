@@ -1,6 +1,6 @@
 #pragma once
 #include "../BarUI.hpp"
-#include "../Player.hpp"
+#include "../Player/Player.hpp"
 #include <SFML/Graphics.hpp>
 
 #include "../Palettes/PaletteUI.hpp"

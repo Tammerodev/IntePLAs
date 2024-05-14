@@ -2,7 +2,7 @@
 #include "Particle/Particle.hpp"
 #include "Particle/FreeNeutron.hpp"
 #include "Particle/DebrisParticle.hpp"
-#include "PlayerGlobal.hpp"
+#include "Player/PlayerGlobal.hpp"
 
 #include <list>
 #include <memory>

@@ -1,6 +1,6 @@
 #pragma once
 #include "UIElement.hpp"
-#include "Player.hpp"
+#include "Player/Player.hpp"
 #include <SFML/Graphics.hpp>
 
 class BarUI : public UIElement {

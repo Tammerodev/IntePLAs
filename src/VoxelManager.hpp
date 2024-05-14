@@ -39,7 +39,7 @@
 #include "Shader.hpp"
 #include "Settings.hpp"
 
-#include "Player.hpp"
+#include "Player/Player.hpp"
 
 #include "ParticleSimulation.hpp"
 #include "Session.hpp"

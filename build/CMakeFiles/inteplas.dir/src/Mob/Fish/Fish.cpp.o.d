@@ -358,8 +358,8 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/Particle.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/FreeNeutron.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/DebrisParticle.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../PlayerGlobal.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../PlayerState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/PlayerGlobal.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/PlayerState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/PickableDebris.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/../CollisionManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/../SoundFX.hpp \
@@ -380,7 +380,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/../PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Particle/../Player/PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Element.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../RectangleRigidbody.hpp \
@@ -437,18 +437,18 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/FlammableGas.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Snow.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Shader.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../IdleState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../WalkState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../JumpState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../DeadState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../CreativeState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../DamageState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../RespawnState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../SwimState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../PlayerTemparatureManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../PlayerHealthManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../Camera.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/Player.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/IdleState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/WalkState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/JumpState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/DeadState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/CreativeState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/DamageState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/RespawnState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/SwimState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/PlayerTemparatureManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/PlayerHealthManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/../Camera.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Session.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../ElectricitySimulation.hpp \
