@@ -671,10 +671,10 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Pickaxe.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Backpack.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Laser.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../HealthBar.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../BarUI.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../UIElement.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../TemperatureBar.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../InfoBar/HealthBar.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../InfoBar/../BarUI.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../InfoBar/../UIElement.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../InfoBar/HungerBar.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../InventoryBar.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/NoneItem.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../InventoryToolBar.hpp \

@@ -14,8 +14,8 @@
 #include "Item/Backpack.hpp"
 #include "Item/Laser.hpp"
 
-#include "HealthBar.hpp"
-#include "TemperatureBar.hpp"
+#include "InfoBar/HealthBar.hpp"
+#include "InfoBar/HungerBar.hpp"
 
 #include "InventoryBar.hpp"
 #include "InventoryToolBar.hpp"
@@ -26,22 +26,22 @@ class PlayerUI {
     public:
         void load(const int sizeX, const int sizeY) {
             healthBar.load(sizeX, sizeY);
-            tempBar.load(sizeX, sizeY);
+            hungerBar.load(sizeX, sizeY);
         }
 
         void render(sf::RenderTarget& targ) {
             healthBar.render(targ);
-            tempBar.render(targ);
+            hungerBar.render(targ);
         }
         
         void update(Player &player) {
             healthBar.update();
-            tempBar.update();
+            hungerBar.update();
         }
 
     private:
         HealthBar healthBar;
-        TemperatureBar tempBar;
+        HungerBar hungerBar;
 };
 
 class Inventory {

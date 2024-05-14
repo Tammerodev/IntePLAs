@@ -3178,10 +3178,10 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Item/Pickaxe.hpp \
   ../src/Item/Backpack.hpp \
   ../src/Item/Laser.hpp \
-  ../src/HealthBar.hpp \
+  ../src/InfoBar/HealthBar.hpp \
   ../src/BarUI.hpp \
   ../src/UIElement.hpp \
-  ../src/TemperatureBar.hpp \
+  ../src/InfoBar/HungerBar.hpp \
   ../src/InventoryBar.hpp \
   ../src/Item/NoneItem.hpp \
   ../src/InventoryToolBar.hpp \
@@ -3994,10 +3994,10 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Item/Pickaxe.hpp \
   ../src/Item/Backpack.hpp \
   ../src/Item/Laser.hpp \
-  ../src/HealthBar.hpp \
+  ../src/InfoBar/HealthBar.hpp \
   ../src/BarUI.hpp \
   ../src/UIElement.hpp \
-  ../src/TemperatureBar.hpp \
+  ../src/InfoBar/HungerBar.hpp \
   ../src/InventoryBar.hpp \
   ../src/Item/NoneItem.hpp \
   ../src/InventoryToolBar.hpp \
@@ -11478,10 +11478,10 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Item/Pickaxe.hpp \
   ../src/Item/Backpack.hpp \
   ../src/Item/Laser.hpp \
-  ../src/HealthBar.hpp \
+  ../src/InfoBar/HealthBar.hpp \
   ../src/BarUI.hpp \
   ../src/UIElement.hpp \
-  ../src/TemperatureBar.hpp \
+  ../src/InfoBar/HungerBar.hpp \
   ../src/InventoryBar.hpp \
   ../src/Item/NoneItem.hpp \
   ../src/InventoryToolBar.hpp \
@@ -15111,10 +15111,10 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Item/Pickaxe.hpp \
   ../src/Item/Backpack.hpp \
   ../src/Item/Laser.hpp \
-  ../src/HealthBar.hpp \
+  ../src/InfoBar/HealthBar.hpp \
   ../src/BarUI.hpp \
   ../src/UIElement.hpp \
-  ../src/TemperatureBar.hpp \
+  ../src/InfoBar/HungerBar.hpp \
   ../src/InventoryBar.hpp \
   ../src/Item/NoneItem.hpp \
   ../src/InventoryToolBar.hpp \
@@ -15391,6 +15391,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/TGUI/Loading/DataIO.hpp:
 
 /usr/include/TGUI/Loading/Theme.hpp:
+
+../src/InfoBar/HungerBar.hpp:
 
 /usr/include/TGUI/Outline.hpp:
 
@@ -15938,8 +15940,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/bits/stl_tempbuf.h:
 
-../src/TemperatureBar.hpp:
-
 /usr/include/c++/11/bits/atomic_futex.h:
 
 /usr/include/c++/11/cstring:
@@ -15987,6 +15987,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/GameStatus.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+../src/InfoBar/HealthBar.hpp:
 
 /usr/include/c++/11/tr1/legendre_function.tcc:
 
@@ -16373,8 +16375,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/SFML/Graphics/Shape.hpp:
 
 /usr/include/SFML/Graphics/Drawable.hpp:
-
-../src/HealthBar.hpp:
 
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 

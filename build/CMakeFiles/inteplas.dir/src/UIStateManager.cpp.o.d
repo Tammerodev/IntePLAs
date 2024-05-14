@@ -660,10 +660,10 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Item/Pickaxe.hpp \
  /home/lauri/Documents/inteplas/src/Item/Backpack.hpp \
  /home/lauri/Documents/inteplas/src/Item/Laser.hpp \
- /home/lauri/Documents/inteplas/src/HealthBar.hpp \
- /home/lauri/Documents/inteplas/src/BarUI.hpp \
- /home/lauri/Documents/inteplas/src/UIElement.hpp \
- /home/lauri/Documents/inteplas/src/TemperatureBar.hpp \
+ /home/lauri/Documents/inteplas/src/InfoBar/HealthBar.hpp \
+ /home/lauri/Documents/inteplas/src/InfoBar/../BarUI.hpp \
+ /home/lauri/Documents/inteplas/src/InfoBar/../UIElement.hpp \
+ /home/lauri/Documents/inteplas/src/InfoBar/HungerBar.hpp \
  /home/lauri/Documents/inteplas/src/InventoryBar.hpp \
  /home/lauri/Documents/inteplas/src/Item/NoneItem.hpp \
  /home/lauri/Documents/inteplas/src/InventoryToolBar.hpp \

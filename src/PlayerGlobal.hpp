@@ -10,6 +10,9 @@ namespace PlayerGlobal {
     inline int max_health = 16;
     inline int health = max_health;
 
+    inline int max_hunger = 16;
+    inline int hunger = max_hunger;
+
     inline float temparature = 0;
     inline float bodyTemparature = 0;
 
