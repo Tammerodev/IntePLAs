@@ -449,6 +449,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/PlayerTemparatureManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/PlayerHealthManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/../Camera.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/PlayerHungerManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Session.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../ElectricitySimulation.hpp \

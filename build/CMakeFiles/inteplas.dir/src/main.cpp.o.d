@@ -612,6 +612,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/PlayerTemparatureManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/PlayerHealthManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/../Camera.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Player/PlayerHungerManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Session.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ElectricitySimulation.hpp \

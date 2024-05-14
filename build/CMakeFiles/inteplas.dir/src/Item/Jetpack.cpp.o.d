@@ -447,6 +447,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: \
  /home/lauri/Documents/inteplas/src/Item/../Player/PlayerTemparatureManager.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Player/PlayerHealthManager.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Player/../Camera.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../Player/PlayerHungerManager.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Session.hpp \
  /home/lauri/Documents/inteplas/src/Item/../SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/Item/../ElectricitySimulation.hpp \

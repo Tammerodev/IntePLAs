@@ -25,6 +25,7 @@ void Player::update(ChunkIndexer& world, float dt, Camera &cam) {
 
     PlayerGlobal::updateBodyTemparature();
     healthManager.calculateHeatDamage(PlayerGlobal::bodyTemparature, cam);
+    hungerManager.update();
 
     if(!grounded) {
         physComp.update(dt);

@@ -451,6 +451,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: \
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp \
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp \
  /home/lauri/Documents/inteplas/src/Player/../Camera.hpp \
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp \
  /home/lauri/Documents/inteplas/src/Session.hpp \
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp \

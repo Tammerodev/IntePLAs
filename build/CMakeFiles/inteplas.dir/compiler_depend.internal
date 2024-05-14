@@ -2518,6 +2518,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -3335,6 +3336,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -4154,6 +4156,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -5156,6 +5159,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -5891,6 +5895,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -6465,6 +6470,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -7036,6 +7042,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -7604,6 +7611,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -9427,6 +9435,7 @@ CMakeFiles/inteplas.dir/src/Player/Player.cpp.o
  /usr/include/c++/11/math.h
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
 
 CMakeFiles/inteplas.dir/src/Player/PlayerHealthManager.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.cpp
@@ -11705,6 +11714,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -13172,6 +13182,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -13733,6 +13744,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -14302,6 +14314,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp
@@ -15081,6 +15094,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/Player/PlayerTemparatureManager.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp
  /home/lauri/Documents/inteplas/src/Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
  /home/lauri/Documents/inteplas/src/Session.hpp
  /home/lauri/Documents/inteplas/src/SimulationManager.hpp
  /home/lauri/Documents/inteplas/src/ElectricitySimulation.hpp

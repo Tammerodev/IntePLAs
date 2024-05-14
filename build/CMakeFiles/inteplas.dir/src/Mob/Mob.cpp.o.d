@@ -448,6 +448,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/../Player/PlayerTemparatureManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Player/PlayerHealthManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Player/../Camera.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/../Player/PlayerHungerManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Session.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../SimulationManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../ElectricitySimulation.hpp \

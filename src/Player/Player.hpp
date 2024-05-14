@@ -20,6 +20,7 @@
 #include "PlayerTemparatureManager.hpp"
 
 #include "PlayerHealthManager.hpp"
+#include "PlayerHungerManager.hpp"
 
 class Player {
 public:
@@ -59,6 +60,8 @@ private:
     float prevVelY = 0.f;
 
     PlayerHealthManager healthManager;
+    PlayerHungerManager hungerManager;
+
     bool grounded = false;
 
     sf::Sprite spr;

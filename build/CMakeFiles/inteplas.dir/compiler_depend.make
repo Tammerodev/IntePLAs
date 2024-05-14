@@ -2511,6 +2511,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -3327,6 +3328,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -4145,6 +4147,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -5145,6 +5148,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: ../src/MaterialsUI.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -5879,6 +5883,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: ../src/Mob/Fish/Fish.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -6452,6 +6457,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: ../src/Mob/Frog/Frog.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -7022,6 +7028,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: ../src/Mob/Mob.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -7589,6 +7596,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: ../src/MobManager.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -9407,7 +9415,8 @@ CMakeFiles/inteplas.dir/src/Player/Player.cpp.o: ../src/Player/Player.cpp \
   ../src/MaterialPack.hpp \
   /usr/include/c++/11/math.h \
   ../src/Player/PlayerHealthManager.hpp \
-  ../src/Camera.hpp
+  ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp
 
 CMakeFiles/inteplas.dir/src/Player/PlayerHealthManager.cpp.o: ../src/Player/PlayerHealthManager.cpp \
   /usr/include/stdc-predef.h \
@@ -11681,6 +11690,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -13145,6 +13155,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: ../src/VoxelManager.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -13705,6 +13716,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: ../src/WeatherManager.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -14273,6 +14285,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -15051,6 +15064,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Player/PlayerTemparatureManager.hpp \
   ../src/Player/PlayerHealthManager.hpp \
   ../src/Camera.hpp \
+  ../src/Player/PlayerHungerManager.hpp \
   ../src/Session.hpp \
   ../src/SimulationManager.hpp \
   ../src/ElectricitySimulation.hpp \
@@ -16416,6 +16430,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/bits/stl_tree.h:
 
 /usr/include/syscall.h:
+
+../src/Player/PlayerHungerManager.hpp:
 
 /usr/include/c++/11/bits/stl_map.h:
 

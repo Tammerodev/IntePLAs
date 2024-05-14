@@ -388,4 +388,5 @@ CMakeFiles/inteplas.dir/src/Player/Player.cpp.o: \
  /home/lauri/Documents/inteplas/src/Player/../MaterialPack.hpp \
  /usr/include/c++/11/math.h \
  /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.hpp \
- /home/lauri/Documents/inteplas/src/Player/../Camera.hpp
+ /home/lauri/Documents/inteplas/src/Player/../Camera.hpp \
+ /home/lauri/Documents/inteplas/src/Player/PlayerHungerManager.hpp
