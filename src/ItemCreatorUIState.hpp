@@ -99,6 +99,7 @@ public:
             element_buttons.push_back(tgui::Button::create("Ra226"));
             element_buttons.push_back(tgui::Button::create("Sand"));
             element_buttons.push_back(tgui::Button::create("Acid"));
+            element_buttons.push_back(tgui::Button::create("Wood"));
             element_buttons.push_back(tgui::Button::create("Oscillator"));
             element_buttons.push_back(tgui::Button::create("TransistorDON"));
             element_buttons.push_back(tgui::Button::create("TransistorDOFF"));
@@ -261,8 +262,7 @@ private:
     }
 
     static void savebuttonCallback(tgui::BackendGui& gui, sf::Image edImg, Inventory &inv, VoxelManager&vx) {
-        // TODO better name
-        std::string saveName = StorageSettings::save_path + "inv" + std::to_string(time(0)) + ".png";
+        std::string saveName = StorageSettings::save_path + Globals::exitSaveName + "inv" + std::to_string(time(0)) + ".png";
         edImg.saveToFile(saveName);
         inv.addItem(vx, std::make_shared<PlaceItem>(vx, saveName, saveName));
         removeWidgets(gui);
@@ -291,6 +291,7 @@ private:
         else if(name == "Ra226") selColor = elm::getInfoFromType(VoxelValues::RADIUM226).color;
         else if(name == "Sand") selColor = elm::getInfoFromType(VoxelValues::SAND).color;
         else if(name == "Acid") selColor = elm::getInfoFromType(VoxelValues::ACID).color;
+        else if(name == "Wood") selColor = elm::getInfoFromType(VoxelValues::WOOD).color;
         else if(name == "Oscillator") selColor = elm::getInfoFromType(VoxelValues::OSCILLATOR).color;
         else if(name == "TransistorDON") selColor = elm::getInfoFromType(VoxelValues::TRANSISTORDON).color;
         else if(name == "TransistorDOFF") selColor = elm::getInfoFromType(VoxelValues::TRANSISTORDOFF).color;

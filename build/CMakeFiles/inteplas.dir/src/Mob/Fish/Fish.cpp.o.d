@@ -405,6 +405,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Controls.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../WorldJsonReader.hpp \
@@ -430,7 +431,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Wood.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Flammable.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/../FireEffectManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/../Particle/FireParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/../Particle/FireEffectParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/ManganeseHeptoxide.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/FlammableFluid.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Butane.hpp \
@@ -457,6 +458,8 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Led.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Lighting/LightGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Lighting/LightSimulation.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Lighting/../ShaderEffects.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Lighting/../GameStatus.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../RadiationSearch.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../GameEventEnum.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../EventGlobals.hpp \
@@ -467,6 +470,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../FontManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../AddVoxelGroups.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../MeatPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../MobGlobals.hpp \

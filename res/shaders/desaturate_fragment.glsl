@@ -6,6 +6,8 @@ uniform float distortionAmount; // Adjust distortion effect
 uniform float desaturationAmount; // Adjustable amount
 uniform float temp;
 
+uniform vec4 lights[50];
+
 uniform int isDead;
 
 float hash(float n) {
@@ -47,8 +49,9 @@ void main()
 
 
 		color.a -= (hash(uv.x) * distortionAmount);
-
 	}
+
+
 
 	if(isDead == 1) {
 		int kernelSize = 100;  // Adjust this for different levels of blur
@@ -71,6 +74,24 @@ void main()
 			vec2 offset = vec2(0.0, float(i)) * texelSize;
 			float weight = 1.0 / float(2 * kernelSize + 1);
 			color += texture2D(texture, texCoords + offset) * weight;
+		}
+	}
+	
+	for(int i = 0; i < 50; ++i) {
+		//if(lights[i].x == 0.0) break;
+
+		vec2 position = texCoords.xy + lights[i].xy;
+
+		float pixelate = 160.0;
+		vec2 exp_pos = lights[i].xy;
+
+		float dist = floor(
+			distance(position, lights[i].xy)
+		);
+
+		if(dist < 0.2) {
+			color.r = 1.0;
+			color.g = color.r;
 		}
 	}
 

@@ -51,6 +51,11 @@ public:
         this->setUniform(name, vector);
     }
 
+    void o_setUniform(const std::string &name, const sf::Glsl::Vec4 &vector) {
+        if(!shaders_available) return;
+        this->setUniform(name, vector);
+    }
+
 private:
 
     void checkShaderAvailability() {

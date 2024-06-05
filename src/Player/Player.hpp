@@ -55,6 +55,10 @@ public:
     PlayerHealthManager& getHealthManager() {
         return healthManager;
     }
+    
+    PlayerHungerManager& getHungerManager() {
+        return hungerManager;
+    }
 
 private:
     float prevVelY = 0.f;

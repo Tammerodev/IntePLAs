@@ -2,21 +2,18 @@
 
 void FireEffectManager::update(ParticleSimulation &particleSimulation){
     for(auto it = FireGlobal::sources.begin(); it != FireGlobal::sources.end();) {
-        it->second--;
-
-        const auto particle = std::make_shared<FireParticle>(
+        const auto particle = std::make_shared<FireEffectParticle>(
             sf::Vector2f(it->first),
-            sf::Vector2f(math::randFloat(), math::randFloat()),
-            sf::Color::Red,
-            math::randFloat() + 1.0f
+            sf::Vector2f(math::randFloat() - 0.5f, -(0.3f + math::randFloat() / 10.f)),
+            sf::Color(255, 255, 255),
+            math::randFloat() + 1.0f,
+            it->second
         );
 
         particleSimulation.addParticle(particle);
-
-        if(it->second < 0) {
-            it = FireGlobal::sources.erase(it);
-        } else {
-            ++it;
-        }
+        ++it;
     }
+
+    FireGlobal::sources.clear();
+
 }

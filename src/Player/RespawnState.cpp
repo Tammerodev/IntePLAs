@@ -5,6 +5,7 @@ void RespawnState::enter() {
 
     PlayerGlobal::temparature = 0;
     PlayerGlobal::bodyTemparature = 0;
+    PlayerGlobal::hunger = PlayerGlobal::max_hunger;
 }
 
 void RespawnState::update(IntPhysicsComponent& physComp, float dt) {

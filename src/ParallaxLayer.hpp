@@ -24,11 +24,10 @@ public:
         tx.loadFromFile(path);
         tx.setRepeated(true);
 
-        spr.setPosition(0, 0);
+        spr.setPosition(0, -1000);
         spr.setColor(sf::Color(255, 255, 255, 200));
 
         spr.setTexture(tx);
-        spr.setScale(1.f, 1.f);
     }
 
     void update(sf::View &view) {

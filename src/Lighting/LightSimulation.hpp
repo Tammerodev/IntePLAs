@@ -3,12 +3,13 @@
 #include "../common.hpp"
 #include "../ChunkIndexerVoxelContainer.hpp"
 #include "LightGlobal.hpp"
+#include "../ShaderEffects.hpp"
 
 class LightSimulation {
     public:
         void load();
 
-        void update(ChunkIndexer&);
+        void update(ChunkIndexer&, ShaderEffect&);
 
         void render(sf::RenderTarget&);
 };

@@ -73,7 +73,6 @@ int VoxelManager::load(std::string file, sf::Vector2f* player_pos)
 
 void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
 {
-
     Voxel &vox = chIndexer.getVoxelAt(x,y);
 
     vox.temp += temp;
@@ -88,10 +87,6 @@ void VoxelManager::heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp)
             holeRayCast(sf::Vector2i(x,y), elm::nitroglycerinExplosion, true, elm::nitroglycerinExplosionTemp);
         }
     }
-
-    /*if(vox.value == VoxelValues::MAGNESIUM) {
-        addElement(x, y, std::make_shared<Flammable>(x,y));
-    }*/
 
     if(vox.temp <= 0) vox.temp = 0;
 
@@ -153,10 +148,10 @@ void VoxelManager::render(sf::RenderTarget &target, sf::RenderTarget& rtx, const
     particleSimulation.render(target);
 }
 
-void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
+void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent, ShaderEffect& eff)
 {   
     chIndexer.update();
-    simulationManager.updateAll(chIndexer);
+    simulationManager.updateAll(chIndexer, eff);
 
     fireEffectManager.update(particleSimulation);
 
@@ -197,6 +192,23 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
                 holeRayCast(v, 10, false, 20);
                 p->energy = 0;
             }
+        } else if(p->getType() == Particle::ParticleType::FireEffectParticle) {
+            sf::Vector2i v = sf::Vector2i(*p);
+            chIndexer.boundVector(v);
+
+            sf::Vector2i vp = sf::Vector2i(p->prev_position);
+            chIndexer.boundVector(vp);
+
+            if(chIndexer.doesLineContainMaterial(vp, v)) {
+                const int energy = p->getEnergy();
+
+                if(energy < 30) {
+                    heatVoxelAt(v.x, v.y, energy);
+                } else {
+                    holeRayCast(v, 10, false, energy);
+                }
+                p->energy = 0;
+            }
         }
 
         // Fission 
@@ -205,10 +217,10 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
 
             heatVoxelAt(position.x, position.y, 100);
 
-            const sf::Vector2i contactPos = getPositionOnContacy(position, VoxelValues::URANIUM235);
+            const sf::Vector2i contactPos = chIndexer.getBoundedVector(getPositionOnContacy(position, VoxelValues::URANIUM235));
 
             if(contactPos != sf::Vector2i(0, 0)) {
-                chIndexer.boundHeatVoxelAt(contactPos.x, contactPos.y, 10);
+                chIndexer.heatVoxelAt(contactPos.x, contactPos.y, 10);
 
                 if(chIndexer.boundGetVoxelAt(position.x, position.y).temp > elm::getInfoFromType(VoxelValues::URANIUM235).max_temp) {
                     gameEvent = GameEventEnum::Event::Nuclear_Explosion;
@@ -226,8 +238,8 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
 
     particleSimulation.update(1.0f, player.getPhysicsComponent().transform_position);
 
-    auto i = voxelsInNeedOfUpdate.begin();
-    while (i != voxelsInNeedOfUpdate.end())
+    auto i = chIndexer.voxelsInNeedOfUpdate.begin();
+    while (i != chIndexer.voxelsInNeedOfUpdate.end())
     {
         Voxel& voxel = chIndexer.getVoxelAt(i->x, i->y);
 
@@ -236,7 +248,7 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
             heatVoxelAt(i->x, i->y, -1);
 
         if(voxel.temp <= 0 || voxel.value == 0) {
-            i = voxelsInNeedOfUpdate.erase(i); 
+            i = chIndexer.voxelsInNeedOfUpdate.erase(i); 
             i++;
         }
         else { 
@@ -246,8 +258,8 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent)
     }
 
 
-    auto r = reactiveVoxels.begin();
-    while (r != reactiveVoxels.end())
+    auto r = chIndexer.reactiveVoxels.begin();
+    while (r != chIndexer.reactiveVoxels.end())
     {
         if(chIndexer.getVoxelAt(r->x, r->y).value == VoxelValues::SODIUM) {
             // Sodium - Water reaction (heat produced)
@@ -390,7 +402,7 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
             const float distance = std::sqrt((p.x - x)*(p.x- x) + ((p.y - y)*(p.y - y)));
 
             if(distance < intensity) {
-                voxelsInNeedOfUpdate.push_back(v);
+                chIndexer.voxelsInNeedOfUpdate.push_back(v);
                 if(force) chIndexer.damageVoxelAt(v.x, v.y);
                 heatVoxelAt(v.x, v.y, (intensity - distance)*heat);
 
@@ -398,7 +410,7 @@ void VoxelManager::hole(sf::Vector2i p, const uint32_t intensity, bool force, co
 
 
                 if(math::randIntInRange(0, 100) < 5) {
-                    launchDebrisParticle(p, chIndexer.getImagePixelAt(v.x, v.y));
+                    //launchDebrisParticle(p, chIndexer.getImagePixelAt(v.x, v.y));
                 }
             }
         }
@@ -418,7 +430,7 @@ void VoxelManager::holeRayCast(const sf::Vector2i& p, const uint32_t intensity, 
 
     Raycast::RaycastInfo info(&chIndexer);
     info.start = p;
-    info.voxelsInNeedOfUpdate = &voxelsInNeedOfUpdate;
+    info.voxelsInNeedOfUpdate = &chIndexer.voxelsInNeedOfUpdate;
     info.intensity = intensity;
     info.propability_of_material = collect_percent;
     info.particle_simulation = &particleSimulation;
@@ -453,7 +465,7 @@ void VoxelManager::singleRayCast(const sf::Vector2i &start, const sf::Vector2i &
     info.start = start;
     info.end = end;
 
-    info.voxelsInNeedOfUpdate = &voxelsInNeedOfUpdate;
+    info.voxelsInNeedOfUpdate = &chIndexer.voxelsInNeedOfUpdate;
     info.intensity = intensity;
     info.propability_of_material = collect_percent;
     info.particle_simulation = &particleSimulation;
@@ -495,7 +507,7 @@ void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity, int percent_ga
 
                 chIndexer.boundGetChunkAt(chIndexer.getChunkFromPos(v.x, v.y).x, chIndexer.getChunkFromPos(v.x, v.y).y).needs_update = true;
 
-                if(math::randIntInRange(0, 100) < percent_gain) {
+                /*if(math::randIntInRange(0, 100) < percent_gain) {
                     if(chIndexer.getVoxelAt(v.x, v.y).value != 0) {
                             particleSimulation.addParticle(
                                 std::make_shared<PickableDebris>(
@@ -505,7 +517,7 @@ void VoxelManager::mine(sf::Vector2i p, const uint32_t intensity, int percent_ga
                                     &chIndexer
                                     ));
                         }
-                }
+                }*/
             }
         }
     }

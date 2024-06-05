@@ -20,12 +20,12 @@ namespace RadiationSearch {
 
     static void searchVoxel(int x, int y, int search_radius, ChunkIndexer& world) {
         const float voxel_rad = elm::getInfoFromType(world.boundGetVoxelAt(x, y).value).radiation;
-        radiation += voxel_rad / 35.f;
+        radiation += voxel_rad / 135.f;
     }
 
     static void s_search(ChunkIndexer& world, sf::Vector2f* p_pos) {
         while(true) {
-            const int search_radius = 50;
+            const int search_radius = 70;
             radiation = 0.f;
 
             /* We need to perform a rectangled "spiral search" from the start points

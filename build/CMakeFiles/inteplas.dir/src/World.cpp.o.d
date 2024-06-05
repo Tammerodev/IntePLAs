@@ -399,6 +399,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: \
  /home/lauri/Documents/inteplas/src/Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Controls.hpp \
+ /home/lauri/Documents/inteplas/src/VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/WorldJsonReader.hpp \
@@ -424,7 +425,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: \
  /home/lauri/Documents/inteplas/src/Elements/Wood.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Flammable.hpp \
  /home/lauri/Documents/inteplas/src/Elements/../FireEffectManager.hpp \
- /home/lauri/Documents/inteplas/src/Elements/../Particle/FireParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Elements/../Particle/FireEffectParticle.hpp \
  /home/lauri/Documents/inteplas/src/Elements/ManganeseHeptoxide.hpp \
  /home/lauri/Documents/inteplas/src/Elements/FlammableFluid.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp \
@@ -451,6 +452,8 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: \
  /home/lauri/Documents/inteplas/src/Led.hpp \
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../ShaderEffects.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../GameStatus.hpp \
  /home/lauri/Documents/inteplas/src/RadiationSearch.hpp \
  /home/lauri/Documents/inteplas/src/GameEventEnum.hpp \
  /home/lauri/Documents/inteplas/src/EventGlobals.hpp \
@@ -474,6 +477,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../FontManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../AddVoxelGroups.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../MeatPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDeadState.hpp \
@@ -486,4 +490,5 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../MobIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDeadState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishIdleState.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/FishSwimState.hpp
+ /home/lauri/Documents/inteplas/src/Mob/Fish/FishSwimState.hpp \
+ /home/lauri/Documents/inteplas/src/VoxelGroupPropetiesHandler.hpp

@@ -23,6 +23,7 @@
 #include "RectangleRigidbody.hpp"
 #include "Globals.hpp"
 #include "Controls.hpp"
+#include "VoxelGroupPropeties.hpp"
 #include "VoxelGroupIDGenerator.hpp"
 #include "Graphics/VertexSprite.hpp"
 
@@ -33,7 +34,6 @@
 class VoxelManager;
 
 class VoxelGroup : public DispawnableVoxelObject {
-
 public:
 
     VoxelGroup() : DispawnableVoxelObject() {
@@ -214,6 +214,14 @@ public:
         destroy();
     }
 
+    void setPropeties(const VoxelGroupPropeties& props) {
+        propeties = props;
+    }
+
+    VoxelGroupPropeties& getPropeties() {
+        return propeties;
+    }
+
     void dispawn() {
         destroy();
     }
@@ -232,6 +240,7 @@ private:
     }
 
     RectangleRigidbody rigidBody;
+    VoxelGroupPropeties propeties {};
 
     std::vector<std::vector<Voxel>> grid;
     std::vector<Collider> rects;

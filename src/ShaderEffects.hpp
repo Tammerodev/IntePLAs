@@ -79,6 +79,8 @@ private:
 
     Shader blur_shader;
     Shader treshold_shader;
+
+public:
     Shader desaturate_shader;
 
     sf::Clock clock;

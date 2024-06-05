@@ -403,6 +403,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: \
  /home/lauri/Documents/inteplas/src/Item/../Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/Item/../FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Controls.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Item/../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/Item/../ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/Item/../WorldJsonReader.hpp \
@@ -428,7 +429,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: \
  /home/lauri/Documents/inteplas/src/Item/../Elements/Wood.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Elements/Flammable.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Elements/../FireEffectManager.hpp \
- /home/lauri/Documents/inteplas/src/Item/../Elements/../Particle/FireParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../Elements/../Particle/FireEffectParticle.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Elements/ManganeseHeptoxide.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Elements/FlammableFluid.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Elements/Butane.hpp \
@@ -455,6 +456,8 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: \
  /home/lauri/Documents/inteplas/src/Item/../Led.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Lighting/LightGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Lighting/LightSimulation.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../Lighting/../ShaderEffects.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../Lighting/../GameStatus.hpp \
  /home/lauri/Documents/inteplas/src/Item/../RadiationSearch.hpp \
  /home/lauri/Documents/inteplas/src/Item/../GameEventEnum.hpp \
  /home/lauri/Documents/inteplas/src/Item/../EventGlobals.hpp \
@@ -478,6 +481,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../FontManager.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../AddVoxelGroups.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../MeatPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/FrogDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/FrogState.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/FrogDeadState.hpp \
@@ -491,6 +495,8 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Fish/FishDeadState.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Fish/FishIdleState.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Fish/FishSwimState.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../VoxelGroupPropetiesHandler.hpp \
  /home/lauri/Documents/inteplas/src/Item/../ExplosiveBullet.hpp \
  /home/lauri/Documents/inteplas/src/Item/Item.hpp \
- /home/lauri/Documents/inteplas/src/Item/../Palettes/PaletteUI.hpp
+ /home/lauri/Documents/inteplas/src/Item/../Palettes/PaletteUI.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../Particle/FireParticle.hpp

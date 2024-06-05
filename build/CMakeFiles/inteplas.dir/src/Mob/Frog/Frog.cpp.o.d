@@ -405,6 +405,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Controls.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../WorldJsonReader.hpp \
@@ -430,7 +431,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/Wood.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/Flammable.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/../FireEffectManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/../Particle/FireParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/../Particle/FireEffectParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/ManganeseHeptoxide.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/FlammableFluid.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Elements/Butane.hpp \
@@ -457,6 +458,8 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Led.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Lighting/LightGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Lighting/LightSimulation.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Lighting/../ShaderEffects.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Lighting/../GameStatus.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../RadiationSearch.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../GameEventEnum.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../EventGlobals.hpp \
@@ -467,6 +470,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../FontManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../AddVoxelGroups.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../MeatPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDeadState.hpp \

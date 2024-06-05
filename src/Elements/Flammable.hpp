@@ -10,6 +10,9 @@ class Flammable : public Element {
             x = xpos;
             y = ypos;
         }
+        
+
+        int energy = 10;
 
         void update(ChunkIndexer& world) {
             world_local = &world;
@@ -20,32 +23,36 @@ class Flammable : public Element {
 
                 sf::Vector2i boundPos = *this;
                 world.boundVector(boundPos);
+
                 sf::Vector2i chunk_pos = world.getChunkFromPos(boundPos.x, boundPos.y);
                 world.boundGetChunkAt(chunk_pos.x, chunk_pos.y).needs_update = true;
-                
 
-                const int energy = 10;
-
+                world.boundHeatVoxelAt(x,     y, energy);
                 world.boundHeatVoxelAt(x + 1, y, energy);
                 world.boundHeatVoxelAt(x - 1, y, energy);
                 world.boundHeatVoxelAt(x, y + 1, energy);
                 world.boundHeatVoxelAt(x, y - 1, energy);
+                
+                FireGlobal::add_source(*this, burning_energy);
 
-                //if(math::randIntInRange(1, 25) == 1) FireGlobal::add_source(sf::Vector2i(x, y));
+                if(energy < 250) {
+                    energy += 1;
+                } else {
+                    temp += 100;
+                }
 
-                if(temp > breakdown_temp) {
+                if(temp > breakdown_temp || world.getVoxelAt(boundPos.x, boundPos.y).value == 0) {
                     remove = true;
-                    world.boundGetVoxelAt(x, y).temp = 0;
-                    world.boundGetVoxelAt(x, y).value = VoxelValues::SAND;
+                    world.clearVoxelAt(boundPos.x, boundPos.y);
                 }
             }
         }   
 
         std::shared_ptr<Element> turn_into() {
-            if(remove ) {
-                if(world_local != nullptr && world_local->boundGetVoxelAt(x + 1, y).value != VoxelValues::SAND) 
+            /*if(remove ) {
+                if(world_local != nullptr) 
                     return std::make_shared<BurnedMaterial>(x + 1, y);
-            }
+            }*/
             return nullptr;
         }
 
@@ -58,12 +65,11 @@ class Flammable : public Element {
         }
 
 protected:
-
     bool remove = false;
 
-    int value = VoxelValues::MAGNESIUM;
     int ignition_temp = 300;
     int breakdown_temp = 10000;
+    int burning_energy = 5;
 
     int temp = 0;
 

@@ -17,9 +17,9 @@ class SimulationManager {
             es.addElement(component);
         }
 
-        void updateAll(ChunkIndexer& world) {
+        void updateAll(ChunkIndexer& world, ShaderEffect& eff) {
             es.update(world);
-            ls.update(world);
+            ls.update(world, eff);
 
             RadiationSearch::update();
             // TODO es.remove

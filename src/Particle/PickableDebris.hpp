@@ -67,7 +67,7 @@ class PickableDebris : public Particle {
             float dist = math::distance(rect.getPosition(), pos);
             if(dist < 50.f && world != nullptr) {
                 if(dist < 10.f) {
-                    world->materialpack.addElementOfType(value, 1);
+                    //world->materialpack.addElementOfType(value, 1);
                     remove_ = true;
 
                     SFX::collect.play();

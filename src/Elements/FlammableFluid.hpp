@@ -4,6 +4,7 @@
 #include "BurnedMaterial.hpp"
 #include "../FireEffectManager.hpp"
 #include "GravityFluid.hpp"
+#include "../FireEffectManager.hpp"
 
 class FlammableFluid : public GravityFluid {
     public:
@@ -25,22 +26,18 @@ class FlammableFluid : public GravityFluid {
                 world.boundGetChunkAt(chunk_pos.x, chunk_pos.y).needs_update = true;
                 
 
-                const int energy = ignition_temp + 10;
+                const int energy = ignition_temp + 50;
                 
-                world.boundHeatVoxelAt(x, y, energy);
-                world.boundHeatVoxelAt(x + 1, y, energy);
-                world.boundHeatVoxelAt(x - 1, y, energy);
-                world.boundHeatVoxelAt(x, y + 1, energy);
-                world.boundHeatVoxelAt(x, y - 1, energy);
+                world.boundHeatVoxelAtAndAdd(x, y, energy);
+                world.boundHeatVoxelAtAndAdd(x + 1, y, energy);
+                world.boundHeatVoxelAtAndAdd(x - 1, y, energy);
+                world.boundHeatVoxelAtAndAdd(x, y + 1, energy);
+                world.boundHeatVoxelAtAndAdd(x, y - 1, energy);
 
-                prndd("Flame!!");
+                FireGlobal::add_source(*this, burning_energy);
 
-                //if(math::randIntInRange(1, 25) == 1) FireGlobal::add_source(sf::Vector2i(x, y));
-
-                if(temp > ignition_temp) {
-                    world.clearVoxelAt(x, y);
-                    remove = true;
-                }
+                world.clearVoxelAt(x, y);
+                remove = true;
             }
 
             world.boundVector(*this);
@@ -58,6 +55,7 @@ class FlammableFluid : public GravityFluid {
 
 protected:
     int ignition_temp = 300;
+    int burning_energy = 100;
 
     ChunkIndexer* world_local;
 };

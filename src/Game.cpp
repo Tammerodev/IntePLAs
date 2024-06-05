@@ -65,12 +65,7 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     load_state::setState(load_state::Compiling_shaders);
     if(!shaderEffect.load(window_width, window_height)) 
         perror("Failed to load bloom effect");
-
-    load_state::setState(load_state::Loading_mobs);
-    // TODO
-    load_state::setState(load_state::Spawning_mobs);
-    // TODO
-
+        
     load_state::setState(load_state::Finishing);
 
     gameEventManager.load();
@@ -141,7 +136,7 @@ void Game::update() {
     }
 
 
-    world.update(dt, player, gameEventManager.getEvent());
+    world.update(dt, player, gameEventManager.getEvent(), shaderEffect);
     world.mobInvoke(player, world.main_world.explosion_points);
 
     world.setAddWorldsPointImpact(world.main_world.explosion_points);

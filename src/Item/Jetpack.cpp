@@ -17,7 +17,7 @@ void Jetpack::update(World &world, const sf::Vector2f &mousePos, const sf::Vecto
         }
 
         if(player.getPhysicsComponent().velocity.y < -5.5) {
-            player.getPhysicsComponent().velocity.y = -5.5;
+            player.getPhysicsComponent().velocity.y -= .01;
         }
 
         if(SFX::rocket.getStatus() != sf::SoundSource::Status::Playing) {

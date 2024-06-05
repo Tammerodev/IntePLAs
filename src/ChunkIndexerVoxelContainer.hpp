@@ -108,9 +108,10 @@ public:
     }
 
     void clearVoxelAt(const int x, const int y) {
-        getVoxelAt(x,y).value = 0; 
-        getVoxelAt(x,y).temp = 0; 
-        setImagePixelAt(x,y,sf::Color(0,0,0,0));
+        Voxel& vox = getVoxelAt(x,y);
+        vox.value = 0; 
+        vox.temp = 0; 
+        setImagePixelAt(x, y, sf::Color(0,0,0,0));
     }
 
     void boundClearVoxelAt(const int x, const int y) {
@@ -127,10 +128,9 @@ public:
         uint8_t &strenght = getVoxelAt(pos.x, pos.y).strenght;
         --strenght;
         if(getVoxelAt(pos.x, pos.y).strenght <= 0) { 
+            materialpack.addElementOfType(getVoxelAt(pos.x, pos.y).value, 1); 
             clearVoxelAt(pos.x, pos.y);
         }
-
-        materialpack.addElementOfType(getVoxelAt(pos.x, pos.y).value, 1); 
     }
 
     bool doesLineContainMaterial(sf::Vector2i start, sf::Vector2i end) {
@@ -192,7 +192,8 @@ public:
         uint8_t &strenght = getVoxelAt(x,y).strenght;
         --strenght;
         if(getVoxelAt(x,y).strenght <= 0) { 
-            clearVoxelAt(x,y);
+            materialpack.addElementOfType(getVoxelAt(x, y).value, 1); 
+            clearVoxelAt(x, y);
         }
     }
     
@@ -274,19 +275,13 @@ public:
 
     void heatVoxelAt(const int x, const int y, const int temp)
     {
-        Voxel &vox = getVoxelAt(x, y);
-        getChunkAt(getChunkFromPos(x, y).x, getChunkFromPos(x, y).y).modified = true;
-        if(vox.value == 0) return;
-
-        if(vox.temp >= elm::getInfoFromType(vox.value).max_temp) {
-            uint8_t &strenght = vox.strenght;
-            --strenght;
-            if(vox.strenght <= 0) { 
-                clearVoxelAt(x, y);
-            }
-        }
+        Voxel &vox = getVoxelAt(x,y);
 
         vox.temp += temp;
+        if(vox.temp >= elm::getInfoFromType(vox.value).max_temp) {
+            int val = vox.value;
+            damageVoxelAt(x,y);
+        }
 
         if(vox.temp <= 0) vox.temp = 0;
 
@@ -338,10 +333,50 @@ public:
         setImagePixelAt(position.x, position.y,currPixel);
     }
 
+    void boundHeatVoxelAtAndAdd(const int xx, const int yy, const int temp)
+    {
+        sf::Vector2i position = sf::Vector2i(xx,yy);
+        boundVector(position);
+
+        Voxel &vox = getVoxelAt(position.x, position.y);
+        if(vox.value == 0) return;
+
+        getChunkAt(getChunkFromPos(position.x, position.y).x, getChunkFromPos(position.x, position.y).y).modified = true;
+
+        if(vox.temp >= elm::getInfoFromType(vox.value).max_temp) {
+            uint8_t &strenght = vox.strenght;
+            --strenght;
+            
+            if(vox.strenght <= 0) { 
+                clearVoxelAt(position.x, position.y);
+            }
+        }
+
+        vox.temp += temp;
+
+        if(vox.temp <= 0) vox.temp = 0;
+        //else voxelsInNeedOfUpdate.emplace_back(position);
+
+        sf::Color currPixel = getImagePixelAt(position.x, position.y);
+
+        uint64_t valR = vox.temp * 1; 
+        if(valR >= 255) valR = 255;
+        currPixel.r = valR;
+        if(valR > 300) {
+            currPixel.g = 255;
+            currPixel.b = 255;
+        }
+
+        setImagePixelAt(position.x, position.y,currPixel);
+    }
+
     int64_t world_snegx;
     int64_t world_snegy;
 
     MaterialPack materialpack {};
+
+    std::list<sf::Vector2i> voxelsInNeedOfUpdate;
+    std::list<sf::Vector2i> reactiveVoxels;
 
 private:
     std::vector<std::vector<Chunk>> gridPos;

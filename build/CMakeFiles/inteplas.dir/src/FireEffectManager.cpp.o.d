@@ -332,4 +332,4 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o: \
  /usr/include/c++/11/bits/ranges_uninitialized.h \
  /usr/include/c++/11/bits/uses_allocator_args.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
- /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
+ /home/lauri/Documents/inteplas/src/Particle/FireEffectParticle.hpp

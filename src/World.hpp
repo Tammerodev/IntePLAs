@@ -6,9 +6,9 @@
 #include "Player/Player.hpp"
 #include "VoxelGroup.hpp"
 #include "WeatherManager.hpp"
-
 #include "CollisionManager.hpp"
 #include "MobManager.hpp"
+#include "VoxelGroupPropetiesHandler.hpp"
 
 #include "AddVoxelGroups.hpp"
 
@@ -91,8 +91,8 @@ public:
         }
     }
 
-    void update(const float dt, Player &player, GameEventEnum::Event& gameEventManager) {
-        main_world.update(player, gameEventManager);
+    void update(const float dt, Player &player, GameEventEnum::Event& gameEventManager, ShaderEffect& eff) {
+        main_world.update(player, gameEventManager, eff);
         mobManager.update(dt, player, main_world);
         mobManager.checkCollisions(main_world);
         
@@ -111,6 +111,10 @@ public:
 
         for (auto world = add_worlds.begin(); world != add_worlds.end(); ++world) {
             (*world)->update(main_world.getChunkIndexer(), dt);
+            if(VoxelGroupPropetiesHandler::handle((*world), player)) {
+                add_worlds.erase(world);
+                break;
+            }
 
             /*bool collision = false;
 

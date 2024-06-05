@@ -7,15 +7,19 @@
 
 class PlayerHungerManager {
     public:
-        void update() {
+        void update(PlayerHealthManager &phm) {
             if(hungerClock.getElapsedTime().asSeconds() > 10.0) {
                 PlayerGlobal::hunger--; 
                 hungerClock.restart();
             } 
 
             if(PlayerGlobal::hunger < 0) {
-                PlayerGlobal::hunger = PlayerGlobal::max_hunger;
+                phm.damageHit(1);
             }
+        }
+
+        void eat(const unsigned int nutrition) {
+            PlayerGlobal::hunger += nutrition;
         }
     private:
         sf::Clock hungerClock;

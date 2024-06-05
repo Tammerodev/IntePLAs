@@ -406,6 +406,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Controls.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../WorldJsonReader.hpp \
@@ -431,7 +432,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/Wood.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/Flammable.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/../FireEffectManager.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/../Particle/FireParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/../Particle/FireEffectParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/ManganeseHeptoxide.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/FlammableFluid.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/Butane.hpp \
@@ -458,6 +459,8 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Led.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Lighting/LightGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Lighting/LightSimulation.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Lighting/../ShaderEffects.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Lighting/../GameStatus.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../RadiationSearch.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../GameEventEnum.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../EventGlobals.hpp \
@@ -481,6 +484,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../FontManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../AddVoxelGroups.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../MeatPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/FrogDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/FrogState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/FrogDeadState.hpp \
@@ -494,12 +498,14 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Fish/FishDeadState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Fish/FishIdleState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Fish/FishSwimState.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../VoxelGroupPropetiesHandler.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/RocketLauncher.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Gun.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/../ExplosiveBullet.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Item.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/../Palettes/PaletteUI.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../HeatGun.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/FireParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Panel.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../MaterialsUI.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../MaterialBar.hpp \
@@ -672,7 +678,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Button.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../WidgetManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../NoUIState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../GameStatus.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PhotoModeUIState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../DeadUIState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PauseUIState.hpp \
@@ -683,7 +688,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../EffectOverlay.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ExplosionEffect.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Cursor.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ShaderEffects.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../DebugDisplay.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../GameEventManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../GameEvent.hpp \

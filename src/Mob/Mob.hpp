@@ -5,6 +5,7 @@
 #include "../Elements/Blood.hpp"
 #include "../MobType.hpp"
 #include "../AddVoxelGroups.hpp"
+#include "../MeatPropeties.hpp"
 
 struct MobInvoke {
     float damage = 0.f;
@@ -24,16 +25,17 @@ class DefaultBehaviour {
             mobInfoBar.render(target);
         }
 
-        void update(const sf::Vector2f& pos, const std::string& name, int health, VoxelManager& vx) {
+        void update(const sf::Vector2f& pos, const std::string& name, int health, VoxelManager& vx, VoxelGroupPropeties& propeties) {
             mobInfoBar.setPosition(pos + sf::Vector2f(0, -12));
             mobInfoBar.update(name, health);
 
             if(health <= 0) {
-                default_death(pos.x, pos.y, vx);
+                default_death(pos.x, pos.y, vx, propeties);
             }
+            
         }
 
-        void default_death(int x, int y, VoxelManager& voxelManager) {
+        void default_death(int x, int y, VoxelManager& voxelManager, VoxelGroupPropeties& propeties) {
             splashBlood(x, y, voxelManager);
 
             sf::Texture itemTex;
@@ -43,6 +45,7 @@ class DefaultBehaviour {
             item->load(itemTex.copyToImage());
             item->setPosition(sf::Vector2f(x, y));
             item->setVelocity(sf::Vector2f(abs(math::randFloat()) / 5.f, math::randFloat() / 5.f));
+            item->setPropeties(propeties);
 
             AddVoxelGroups::add_more_worlds.emplace_back(item);
 

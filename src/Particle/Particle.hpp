@@ -6,7 +6,7 @@
 class Particle : public sf::Vector2f {
     public:
         enum ParticleType {
-            Neutron, Debris, PickableDebris, FireParticle, RainParticle, SnowParticle
+            Default, Neutron, Debris, PickableDebris, FireParticle, FireEffectParticle, RainParticle, SnowParticle
         };
 
         Particle() = default;
@@ -17,6 +17,8 @@ class Particle : public sf::Vector2f {
         virtual bool remove() = 0;
 
         virtual void collide() = 0;
+
+        virtual int getEnergy() { return energy; }
 
         virtual ParticleType getType() = 0;
 

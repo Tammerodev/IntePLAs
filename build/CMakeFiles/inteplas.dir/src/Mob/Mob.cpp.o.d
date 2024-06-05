@@ -404,6 +404,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/../Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Controls.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/../VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../WorldJsonReader.hpp \
@@ -429,7 +430,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/Wood.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/Flammable.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/../FireEffectManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/../Elements/../Particle/FireParticle.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/../Elements/../Particle/FireEffectParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/ManganeseHeptoxide.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/FlammableFluid.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/Butane.hpp \
@@ -456,6 +457,8 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/../Led.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Lighting/LightGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Lighting/LightSimulation.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/../Lighting/../ShaderEffects.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/../Lighting/../GameStatus.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../RadiationSearch.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../GameEventEnum.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../EventGlobals.hpp \
@@ -465,4 +468,5 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/../MobInfoBar.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../FontManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/../AddVoxelGroups.hpp
+ /home/lauri/Documents/inteplas/src/Mob/../AddVoxelGroups.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/../MeatPropeties.hpp

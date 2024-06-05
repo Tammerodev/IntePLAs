@@ -9,7 +9,7 @@ class Background {
 public:
     int load() {
         createBackgrounds();
-        changeBackgrounds("city");
+        changeBackgrounds("Desert");
 		return 1;
     }
 

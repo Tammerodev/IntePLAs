@@ -25,14 +25,15 @@ class FlammableGas : public Gas {
                 sf::Vector2i chunk_pos = world.getChunkFromPos(boundPos.x, boundPos.y);
                 world.boundGetChunkAt(chunk_pos.x, chunk_pos.y).needs_update = true;
                 
+                FireGlobal::add_source(*this, burning_energy);
 
                 const int energy = ignition_temp + 10;
                 
-                world.boundHeatVoxelAt(x, y, energy);
-                world.boundHeatVoxelAt(x + 1, y, energy);
-                world.boundHeatVoxelAt(x - 1, y, energy);
-                world.boundHeatVoxelAt(x, y + 1, energy);
-                world.boundHeatVoxelAt(x, y - 1, energy);
+                world.boundHeatVoxelAtAndAdd(x, y, energy);
+                world.boundHeatVoxelAtAndAdd(x + 1, y, energy);
+                world.boundHeatVoxelAtAndAdd(x - 1, y, energy);
+                world.boundHeatVoxelAtAndAdd(x, y + 1, energy);
+                world.boundHeatVoxelAtAndAdd(x, y - 1, energy);
 
                 //if(math::randIntInRange(1, 25) == 1) FireGlobal::add_source(sf::Vector2i(x, y));
 
@@ -57,6 +58,7 @@ class FlammableGas : public Gas {
 
 protected:
     int ignition_temp = 300;
+    int burning_energy = 1;
 
     ChunkIndexer* world_local;
 };

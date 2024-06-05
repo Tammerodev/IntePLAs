@@ -326,4 +326,69 @@ CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o: \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
  /usr/include/c++/11/tr1/riemann_zeta.tcc \
  /home/lauri/Documents/inteplas/src/Lighting/LightGlobal.hpp \
- /home/lauri/Documents/inteplas/src/Lighting/../ElectricityGlobal.hpp
+ /home/lauri/Documents/inteplas/src/Lighting/../ElectricityGlobal.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../ShaderEffects.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Shader.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/Player.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../Controls.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../Settings.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../JsonManager.hpp \
+ /usr/include/jsoncpp/json/value.h /usr/include/jsoncpp/json/forwards.h \
+ /usr/include/jsoncpp/json/config.h /usr/include/c++/11/cstddef \
+ /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc \
+ /usr/include/jsoncpp/json/allocator.h /usr/include/c++/11/cstring \
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/jsoncpp/json/version.h /usr/include/jsoncpp/json/json.h \
+ /usr/include/jsoncpp/json/json_features.h \
+ /usr/include/jsoncpp/json/reader.h /usr/include/jsoncpp/json/value.h \
+ /usr/include/c++/11/deque /usr/include/c++/11/bits/stl_deque.h \
+ /usr/include/c++/11/bits/deque.tcc /usr/include/c++/11/stack \
+ /usr/include/c++/11/bits/stl_stack.h /usr/include/jsoncpp/json/writer.h \
+ /usr/include/jsoncpp/json/writer.h /usr/include/c++/11/fstream \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc /usr/include/assert.h \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../Utils/StringUtils.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../FastNoiseLite.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/PlayerState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../PhysicsComponent.hpp \
+ /usr/include/SFML/Main.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../math.hpp \
+ /usr/include/c++/11/random /usr/include/c++/11/bits/random.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
+ /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
+ /usr/include/c++/11/bits/stl_numeric.h \
+ /usr/include/c++/11/pstl/glue_numeric_defs.h \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/IdleState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/PlayerGlobal.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/WalkState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/JumpState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/DeadState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/CreativeState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/DamageState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../SoundFX.hpp \
+ /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
+ /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
+ /usr/include/SFML/Audio/Music.hpp \
+ /usr/include/SFML/Audio/SoundStream.hpp \
+ /usr/include/SFML/Audio/SoundSource.hpp \
+ /usr/include/SFML/Audio/AlResource.hpp \
+ /usr/include/SFML/Audio/OutputSoundFile.hpp \
+ /usr/include/SFML/Audio/Sound.hpp \
+ /usr/include/SFML/Audio/SoundBuffer.hpp /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h \
+ /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+ /usr/include/SFML/Audio/SoundRecorder.hpp \
+ /usr/include/SFML/Audio/SoundFileFactory.hpp \
+ /usr/include/SFML/Audio/SoundFileFactory.inl \
+ /usr/include/SFML/Audio/SoundFileReader.hpp \
+ /usr/include/SFML/Audio/SoundFileWriter.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../Player/PlayerDamageSoundType.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/RespawnState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/SwimState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/PlayerTemparatureManager.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/PlayerHealthManager.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../Camera.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/PlayerHungerManager.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../GameStatus.hpp

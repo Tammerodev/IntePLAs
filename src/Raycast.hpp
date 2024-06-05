@@ -84,7 +84,7 @@ namespace Raycast {
                         *info.velocity += (sf::Vector2f(delta.x, delta.y) * t) / 100.0f; 
                     }
                     
-                    info.world->boundHeatVoxelAt(pixelPosition.x, pixelPosition.y, info.temp);
+                    info.world->heatVoxelAt(pixelPosition.x, pixelPosition.y, info.temp);
 
                     if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
                         if(info.turnToAsh && math::randProp(10) && math::distance(sf::Vector2f(pixelPosition), sf::Vector2f(info.start)) > info.intensity - 10) {
@@ -100,13 +100,13 @@ namespace Raycast {
                         if(power <= 0) break;
                     }  else if(originalColor.a != 0) {
                         if(math::randIntInRange(0, 100) < info.propability_of_material) {
-                            info.particle_simulation->addParticle(
+                            /*info.particle_simulation->addParticle(
                                 std::make_shared<PickableDebris>(
                                     sf::Vector2f(pixelPosition), math::subVector(sf::Vector2f(pixelPosition), sf::Vector2f(info.start)) / 10.f,
                                     originalColor,
                                     info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value,
                                     info.world
-                                    ));
+                                    ));*/
                         }
                     }
                 }

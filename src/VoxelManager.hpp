@@ -82,7 +82,7 @@ public:
 
     void heatVoxelAt(const uint64_t x, const uint64_t y, int64_t temp);
     void render(sf::RenderTarget&, sf::RenderTarget&, const sf::Vector2f &center);
-    void update(Player&, GameEventEnum::Event&);
+    void update(Player&, GameEventEnum::Event&, ShaderEffect& eff);
     void hole(sf::Vector2i pos, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent = 10);
     void holeRayCast(const sf::Vector2i& pos, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent = 10, bool turnToAsh = false);
     void singleRayCast(const sf::Vector2i& start, const sf::Vector2i& end, const uint32_t intensity, bool force, const int64_t heat, const unsigned char collect_percent = 10, bool turnToAsh = false);
@@ -253,7 +253,7 @@ public:
             vox.value = 3;
             vox.strenght = 2;
             
-            if(addVoxelsToArr) reactiveVoxels.push_back(p);
+            if(addVoxelsToArr) chIndexer.reactiveVoxels.push_back(p);
         } else if(px == elm::getInfoFromType(VoxelValues::MAGNESIUM).color) {
             vox.value = 4;
             vox.strenght = 10;
@@ -270,7 +270,7 @@ public:
             vox.value = 5;
             vox.strenght = 1;
 
-            if(addVoxelsToArr) reactiveVoxels.push_back(p);
+            if(addVoxelsToArr) chIndexer.reactiveVoxels.push_back(p);
         } else if(px == elm::getInfoFromType(VoxelValues::ALUMINIUM).color) {
             vox.value = 6;
             vox.strenght = 5;
@@ -301,7 +301,11 @@ public:
             vox.strenght = 2;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Acid>(p.x, p.y));
-        }else if(px == elm::getInfoFromType(VoxelValues::NITROGLYCERIN).color) {
+        } else if(px == elm::getInfoFromType(VoxelValues::MANGANESEHEPTOXIDE).color) {
+            vox.value = VoxelValues::MANGANESEHEPTOXIDE;
+            vox.strenght = 2;
+            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<ManganeseHeptoxide>(p.x, p.y));
+        } else if(px == elm::getInfoFromType(VoxelValues::NITROGLYCERIN).color) {
             vox.value = VoxelValues::NITROGLYCERIN;
             vox.strenght = 2;
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Nitroglycerin>(p.x, p.y));
@@ -397,13 +401,6 @@ public:
             vox.strenght = 2;
 
             if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<Butane>(p.x, p.y));
-        }
-
-        else if(px == elm::getInfoFromType(VoxelValues::MANGANESEHEPTOXIDE).color) {
-            vox.value = VoxelValues::MANGANESEHEPTOXIDE;
-            vox.strenght = 2;
-
-            if(addVoxelsToArr) addElement(p.x, p.y, std::make_shared<ManganeseHeptoxide>(p.x, p.y));
         }
 
         return vox;
@@ -517,9 +514,6 @@ private:
     ChunkIndexer chIndexer;
 
     std::vector<sf::Vector2i> mergeChunks;
-
-    std::list<sf::Vector2i> voxelsInNeedOfUpdate;
-    std::list<sf::Vector2i> reactiveVoxels;
 
     ParticleSimulation particleSimulation;
     SimulationManager simulationManager;

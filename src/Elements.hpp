@@ -87,7 +87,7 @@ namespace elm {
     const VoxelInfo Chlorine        {VoxelValues::CHLORINE,     99, sf::Color(239, 255, 61, 60),   10000,0.0f,   "Chlorine"        };
     const VoxelInfo Acid            {VoxelValues::ACID,         14, sf::Color(68, 255, 0),         100,  0.0f,   "Acid"            };
     const VoxelInfo Blood           {VoxelValues::BLOOD,        14, sf::Color(255, 49, 20, 200),   100,  0.0f,   "Blood"           };
-  const VoxelInfo ManganeseHeptoxide{VoxelValues::MANGANESEHEPTOXIDE, 14, sf::Color(255, 49, 20, 200),   100, 0.0f,   "Manganese Heptoxide"           };
+  const VoxelInfo ManganeseHeptoxide{VoxelValues::MANGANESEHEPTOXIDE, 14, sf::Color(30, 25, 19, 200),   100, 0.0f,   "Manganese Heptoxide"           };
 
 
     const VoxelInfo Uranium235      {VoxelValues::URANIUM235,   10, sf::Color(71, 201, 75),        1132,   25.0f, "Uranium - 235"   };

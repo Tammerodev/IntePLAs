@@ -53,7 +53,7 @@ void Fish::update(const float dt) {
 }
 
 void Fish::collisionCheck(VoxelManager &voxelManager) {
-    default_behaviour.update(physicsComponent.transform_position, "Fish", health, voxelManager);
+    default_behaviour.update(physicsComponent.transform_position, "Fish", health, voxelManager, MeatPropeties::fish);
     remove_mob = default_behaviour.remove_mob;
 
     CollisionManager::CollisionState res = CollisionManager::handleCollisionsWith(physicsComponent, voxelManager.getChunkIndexer(), sf::Vector2u(16, 16));

@@ -58,7 +58,7 @@ void Frog::update(const float dt) {
 
 void Frog::collisionCheck(VoxelManager &voxelManager) {
 
-    default_behaviour.update(physicsComponent.transform_position, "Frog", health, voxelManager);
+    default_behaviour.update(physicsComponent.transform_position, "Frog", health, voxelManager, MeatPropeties::frog);
     remove_mob = default_behaviour.remove_mob;
 
     CollisionManager::CollisionState res = CollisionManager::handleCollisionsWith(physicsComponent, voxelManager.getChunkIndexer(), sf::Vector2u(16, 16));
@@ -103,7 +103,7 @@ bool Frog::remove(VoxelManager& vx) {
 
         vx.getChunkIndexer().boundVector(pos);
 
-        default_behaviour.default_death(pos.x, pos.y, vx);
+        default_behaviour.default_death(pos.x, pos.y, vx, MeatPropeties::frog);
     }
 
     return remove_mob;
