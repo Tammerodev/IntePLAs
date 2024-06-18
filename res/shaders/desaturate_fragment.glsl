@@ -1,4 +1,5 @@
 // Fragment shader
+
 uniform sampler2D texture;
 uniform float time; // Time variable for animation
 uniform float distortionAmount; // Adjust distortion effect
@@ -10,6 +11,10 @@ uniform vec4 lights[50];
 
 uniform int isDead;
 
+varying vec2 TexCoord;
+varying vec2 WorldPos; // World position of the current fragment
+
+
 float hash(float n) {
     return fract(sin(n) * 43758.5453);
 }
@@ -17,7 +22,7 @@ float hash(float n) {
 void main()
 {
 	//float darknessFactor = clamp(desaturationAmount, 0.0, 1.0);
-    float darknessFactor = +.0; 
+    float darknessFactor = 0.0; 
 
     vec2 texCoords = gl_TexCoord[0].xy;
 
@@ -76,24 +81,20 @@ void main()
 			color += texture2D(texture, texCoords + offset) * weight;
 		}
 	}
-	
-	for(int i = 0; i < 50; ++i) {
-		//if(lights[i].x == 0.0) break;
 
-		vec2 position = texCoords.xy + lights[i].xy;
+    for (int i = 0; i < 50; ++i) {
+		if (lights[i].x == 0.0 && lights[i].y == 0.0) break;
 
-		float pixelate = 160.0;
-		vec2 exp_pos = lights[i].xy;
+		vec2 lightPosition = lights[i].xy;
 
-		float dist = floor(
-			distance(position, lights[i].xy)
-		);
+		float dist = distance(lightPosition, gl_FragCoord.xy);
 
-		if(dist < 0.2) {
-			color.r = 1.0;
-			color.g = color.r;
+		if (dist < 105.2) { // If within the circle radius
+			color = vec4(1.0, 1.0, 0.0, 1.0); // Yellow color
 		}
 	}
+
+
 
 	gl_FragColor = color;
 }

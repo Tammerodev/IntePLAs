@@ -395,6 +395,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/regex.h /usr/include/c++/11/bits/regex.tcc \
  /usr/include/c++/11/bits/regex_executor.h \
  /usr/include/c++/11/bits/regex_executor.tcc \
+ /usr/include/TGUI/Widgets/EditBoxSlider.hpp \
  /usr/include/TGUI/Widgets/FileDialog.hpp \
  /usr/include/TGUI/Widgets/Label.hpp \
  /usr/include/TGUI/Renderers/LabelRenderer.hpp \
@@ -688,6 +689,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../InventoryUserCreatedBar.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ItemCreatorUIState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../WidgetManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../SelectMould.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../FinalImage.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../NoUIState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PhotoModeUIState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../DeadUIState.hpp \

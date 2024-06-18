@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-subbuild/CMakeFiles/openal-populate"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-subbuild/CMakeFiles/openal-populate.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-subbuild/CMakeFiles/openal-populate-complete.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-subbuild/openal-populate-prefix/src/openal-populate-stamp/openal-populate-build.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-subbuild/openal-populate-prefix/src/openal-populate-stamp/openal-populate-configure.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-subbuild/openal-populate-prefix/src/openal-populate-stamp/openal-populate-download.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-subbuild/openal-populate-prefix/src/openal-populate-stamp/openal-populate-install.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-subbuild/openal-populate-prefix/src/openal-populate-stamp/openal-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-subbuild/openal-populate-prefix/src/openal-populate-stamp/openal-populate-patch.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-subbuild/openal-populate-prefix/src/openal-populate-stamp/openal-populate-test.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-subbuild/openal-populate-prefix/src/openal-populate-stamp/openal-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"openal-populate"
+		],
+		"name" : "openal-populate"
+	}
+}

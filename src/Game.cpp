@@ -196,6 +196,8 @@ void Game::renderFirst(sf::RenderWindow &window, tgui::BackendGui &gui) {
     }
        
     world.render(renderTexture, shaderEffect.getTresholdTexture(), game_camera.getCenterPosition());
+    world.main_world.renderSimulationManager(renderTexture, shaderEffect.getTresholdTexture()); // Simulation manager (lights)
+    
 }
 
 
@@ -211,11 +213,6 @@ void Game::renderLast(sf::RenderWindow &window, tgui::BackendGui &gui) {
     renderSprite.setTexture(renderTexture.getTexture());
 
     shaderEffect.render(window, renderSprite);      // Shader first render
-
-    game_camera.setViewTo(shaderEffect.getTresholdTexture());
-        world.main_world.renderSimulationManager(renderTexture, shaderEffect.getTresholdTexture()); // Simulation manager (lights)
-    ui_camera.setViewTo(shaderEffect.getTresholdTexture());
-
     shaderEffect.finalRender(window);               // Shader second render
 
     Globals::renderSprite = &renderSprite;

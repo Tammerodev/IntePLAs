@@ -18,6 +18,17 @@ void MaterialsUI::render(sf::RenderTarget &target) {
 
     for(auto &bar : barChart) {
         canvas->draw(bar.second);
+
+        bar.second.move(canvas->getPosition());
+
+        if(bar.second.getGlobalBounds().contains(Controls::windowCursorPos)) {
+            MaterialsUIGlobal::focusedOnBar = bar.first;
+
+            prndd("click!");
+        }
+
+        bar.second.move(-canvas->getPosition());
+
     }
 
     canvas->display();

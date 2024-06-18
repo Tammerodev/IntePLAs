@@ -605,6 +605,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /usr/include/c++/11/bits/regex.h /usr/include/c++/11/bits/regex.tcc \
  /usr/include/c++/11/bits/regex_executor.h \
  /usr/include/c++/11/bits/regex_executor.tcc \
+ /usr/include/TGUI/Widgets/EditBoxSlider.hpp \
  /usr/include/TGUI/Widgets/FileDialog.hpp \
  /usr/include/TGUI/Widgets/Label.hpp \
  /usr/include/TGUI/Renderers/LabelRenderer.hpp \
@@ -678,6 +679,8 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/ItemCreatorUIState.hpp \
  /home/lauri/Documents/inteplas/src/Button.hpp \
  /home/lauri/Documents/inteplas/src/WidgetManager.hpp \
+ /home/lauri/Documents/inteplas/src/SelectMould.hpp \
+ /home/lauri/Documents/inteplas/src/FinalImage.hpp \
  /home/lauri/Documents/inteplas/src/NoUIState.hpp \
  /home/lauri/Documents/inteplas/src/PhotoModeUIState.hpp \
  /home/lauri/Documents/inteplas/src/DeadUIState.hpp \

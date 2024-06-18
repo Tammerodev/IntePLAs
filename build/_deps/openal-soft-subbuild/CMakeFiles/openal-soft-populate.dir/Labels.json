@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/CMakeFiles/openal-soft-populate"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/CMakeFiles/openal-soft-populate.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/CMakeFiles/openal-soft-populate-complete.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/openal-soft-populate-prefix/src/openal-soft-populate-stamp/openal-soft-populate-build.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/openal-soft-populate-prefix/src/openal-soft-populate-stamp/openal-soft-populate-configure.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/openal-soft-populate-prefix/src/openal-soft-populate-stamp/openal-soft-populate-download.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/openal-soft-populate-prefix/src/openal-soft-populate-stamp/openal-soft-populate-install.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/openal-soft-populate-prefix/src/openal-soft-populate-stamp/openal-soft-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/openal-soft-populate-prefix/src/openal-soft-populate-stamp/openal-soft-populate-patch.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/openal-soft-populate-prefix/src/openal-soft-populate-stamp/openal-soft-populate-test.rule"
+		},
+		{
+			"file" : "/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/openal-soft-populate-prefix/src/openal-soft-populate-stamp/openal-soft-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"openal-soft-populate"
+		],
+		"name" : "openal-soft-populate"
+	}
+}

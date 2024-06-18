@@ -559,6 +559,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: \
  /usr/include/c++/11/bits/regex.h /usr/include/c++/11/bits/regex.tcc \
  /usr/include/c++/11/bits/regex_executor.h \
  /usr/include/c++/11/bits/regex_executor.tcc \
+ /usr/include/TGUI/Widgets/EditBoxSlider.hpp \
  /usr/include/TGUI/Widgets/FileDialog.hpp \
  /usr/include/TGUI/Widgets/Label.hpp \
  /usr/include/TGUI/Renderers/LabelRenderer.hpp \

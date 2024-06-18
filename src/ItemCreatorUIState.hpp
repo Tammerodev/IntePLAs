@@ -7,6 +7,8 @@
 #include "Elements.hpp"
 #include "PlayerUI.hpp"
 #include "WidgetManager.hpp"
+#include "SelectMould.hpp"
+#include "FinalImage.hpp"
 
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
@@ -20,34 +22,45 @@ class ItemCreator : public UIState {
 public:
 
     ItemCreator() {
-        editImg.create(size.x, size.y, sf::Color(0, 0, 0, 0));
-        editTex.create(size.x, size.y);
 
-        for(int y = 0; y < size.y; y++) {
-            for(int x = 0; x < size.x; x++) {   
-                sf::RectangleShape rect;
-                rect.setSize(sf::Vector2f(scaling, scaling));
-                rect.setPosition(x * scaling,y * scaling);
-                rect.setFillColor(sf::Color(0,0,0,0));
-                rect.setOutlineColor(sf::Color::White);
-                rect.setOutlineThickness(-1);
-                rects.push_back(rect);
-            }
+    }
+
+    void loadImages() {
+        if(p_gui != nullptr) {
+            p_gui->remove(finalPicture);
+            p_gui->remove(mouldPicture);
         }
 
-        preview.setFillColor(sf::Color(50,20,30,120));
-        preview.setOutlineColor(sf::Color(100,100,100,50));
-        preview.setOutlineThickness(-1.5);
-        preview.setSize(sf::Vector2f(scaling, scaling));
+        finalPicture = tgui::Picture::create();
+        mouldPicture = tgui::Picture::create(mouldTx, true);
+
+        mouldPicture->setSize(100, 100);
+        mouldPicture->setPosition(tgui::Layout2d("65%", "60%"));
+
+        finalPicture->setSize(100, 100);
+        finalPicture->setPosition(tgui::Layout2d("25%", "45%"));
+
+        if(p_gui != nullptr) {
+            p_gui->add(finalPicture);
+            p_gui->add(mouldPicture);
+        }
     }
 
     bool load(tgui::BackendGui& gui, Inventory& inv, VoxelManager& vx) {
+        p_gui = &gui;
+
         try{
 			tgui::Theme theme = tgui::Theme("res/themes/nanogui.style");
+            
+            tgui::Texture::setDefaultSmooth(false);
+            mouldTx.load("res/img/UI/selectMould.png");
+            editImg.create(16, 16);
+
+            loadImages();
 
             auto panel = tgui::Panel::create();
-            panel->setSize(tgui::Layout2d(1500, 600));
-            panel->setPosition(tgui::Layout2d(150, 160));
+            panel->setSize(tgui::Layout2d("80%","75%"));
+            panel->setPosition(tgui::Layout2d("10%", "12.5%"));
             panel->setRenderer(theme.getRenderer("Panel"));
 
             auto label_title = tgui::Label::create("New blueprint"); 
@@ -64,97 +77,21 @@ public:
             button_save->setSize(tgui::Layout2d(48 * 4,16 * 4));
             button_save->setPosition(tgui::Layout2d(200,270));
 
-            sizeXinc = tgui::Button::create("x+");
-            sizeXdec = tgui::Button::create("x-");
-            sizeYinc = tgui::Button::create("y+");
-            sizeYdec = tgui::Button::create("y-");
-
-            sizeXinc->setPosition(tgui::Layout2d(200, 350));
-            sizeXdec->setPosition(tgui::Layout2d(230, 350));
-            sizeYinc->setPosition(tgui::Layout2d(200, 380));
-            sizeYdec->setPosition(tgui::Layout2d(230, 380));
-
-            sizeXinc->onClick(resize, std::ref(sizeXinc->getText()), std::ref(size), std::ref(scaling), std::ref(rects), std::ref(editImg), std::ref(editTex));
-            sizeXdec->onClick(resize, std::ref(sizeXdec->getText()), std::ref(size), std::ref(scaling), std::ref(rects), std::ref(editImg), std::ref(editTex));
-
-            sizeYinc->onClick(resize, std::ref(sizeYinc->getText()), std::ref(size), std::ref(scaling), std::ref(rects), std::ref(editImg), std::ref(editTex));
-            sizeYdec->onClick(resize, std::ref(sizeYdec->getText()), std::ref(size), std::ref(scaling), std::ref(rects), std::ref(editImg), std::ref(editTex));
-
-
-            std::vector<tgui::Button::Ptr> element_buttons;
-            element_buttons.push_back(tgui::Button::create("  "));
-            element_buttons.push_back(tgui::Button::create("C "));
-            element_buttons.push_back(tgui::Button::create("Li"));
-            element_buttons.push_back(tgui::Button::create("Mg"));
-            element_buttons.push_back(tgui::Button::create("Na"));
-            element_buttons.push_back(tgui::Button::create("Al"));
-            element_buttons.push_back(tgui::Button::create("Si"));
-            element_buttons.push_back(tgui::Button::create("Cu"));
-            element_buttons.push_back(tgui::Button::create("Ti"));
-            element_buttons.push_back(tgui::Button::create("Pb"));
-            element_buttons.push_back(tgui::Button::create("H2O"));
-            element_buttons.push_back(tgui::Button::create("C3H5N3O9"));
-            element_buttons.push_back(tgui::Button::create("Cl"));
-            element_buttons.push_back(tgui::Button::create("U235"));
-            element_buttons.push_back(tgui::Button::create("Ra226"));
-            element_buttons.push_back(tgui::Button::create("Sand"));
-            element_buttons.push_back(tgui::Button::create("Acid"));
-            element_buttons.push_back(tgui::Button::create("Wood"));
-            element_buttons.push_back(tgui::Button::create("Oscillator"));
-            element_buttons.push_back(tgui::Button::create("TransistorDON"));
-            element_buttons.push_back(tgui::Button::create("TransistorDOFF"));
-            element_buttons.push_back(tgui::Button::create("Snow"));
-            element_buttons.push_back(tgui::Button::create("Manganese Heptoxide"));
-            element_buttons.push_back(tgui::Button::create("Mirror"));
-
-            element_buttons.push_back(tgui::Button::create("Switch"));
-
             // Configure button
             button_exit->setSize(tgui::Layout2d(48 * 4,16 * 4));
             button_exit->setPosition(tgui::Layout2d(200,200));
 
-            canvasSFML = tgui::CanvasSFML::create(tgui::Layout2d(size.x * scaling, size.y * scaling));
-            canvasSFML->setPosition(325, 360);
-
-            auto sizeIndicatorX = tgui::TextArea::create();
-            auto sizeIndicatorY = tgui::TextArea::create();
-            sizeIndicatorX->setText("16");
-            sizeIndicatorY->setText("16");
-
-            sizeIndicatorX->setPosition(editSpr.getPosition().x + editSpr.getGlobalBounds().width / 2, editSpr.getPosition().y - 16);
-            sizeIndicatorY->setPosition(editSpr.getPosition().x - 16, editSpr.getPosition().y + editSpr.getGlobalBounds().width / 2);
-
-            sizeIndicatorX->setSize(tgui::Layout2d(32, 16));
-            sizeIndicatorY->setSize(tgui::Layout2d(32, 16));
-
             gui.add(panel);
-
-            gui.add(sizeIndicatorX);
-            gui.add(sizeIndicatorY);
 
             gui.add(button_exit);
             gui.add(button_save);
             gui.add(label_title);
+            
+            gui.add(finalPicture);
+            gui.add(mouldPicture);
 
-            gui.add(sizeXinc);
-            gui.add(sizeXdec);
-
-            gui.add(sizeYinc);
-            gui.add(sizeYdec);
-
-            gui.add(canvasSFML);
-
-            int index = 0;
-
-            for(auto &el_button : element_buttons) {
-                index++;
-
-                el_button->setPosition(tgui::Layout2d((450 + 1500) / 2, 200 + index * 32));
-                el_button->onClick(element_buttonCallback, std::ref(el_button->getText()), std::ref(selectedColor));
-                el_button->setRenderer(theme.getRenderer("Button"));
-                gui.add(el_button);
-            }
-
+            mouldUI.load(gui);
+            imageUI.load(gui, finalPicture->getPosition());
 
         } catch(std::exception &ex) {
             prnerr("Error at ItemCreator UI state. Could not load gui", ex.what());
@@ -163,61 +100,30 @@ public:
     }
 
     void update(const sf::Vector2f &mousepos) {
-        sf::Vector2f spritePosition = canvasSFML->getPosition();
-        sf::Vector2f localMousePosition = mousepos;
-
-        relativeMousePosition = localMousePosition - spritePosition;
-
-
-        editTex.update(editImg);
-        editSpr.setTexture(editTex);
-
-        editSpr.setPosition(0,0);
-        editSpr.setScale(scaling, scaling);
-
-        isDrawing = math::distance(mousepos, canvasSFML->getPosition()) < ((size.x * scaling) + (size.y * scaling));
-
-        snapped_pixpos = sf::Vector2i(relativeMousePosition);
-        snapped_pixpos.x /= scaling;
-        snapped_pixpos.y /= scaling;
-
-        if(snapped_pixpos.x < 0) snapped_pixpos.x = 0;
-        if(snapped_pixpos.y < 0) snapped_pixpos.y = 0;
-
-        if(snapped_pixpos.x > size.x) snapped_pixpos.x = size.x;
-        if(snapped_pixpos.y > size.y) snapped_pixpos.y = size.y;
-
-        preview.setPosition(snapped_pixpos.x * scaling, snapped_pixpos.y * scaling);
-
-        if(Controls::useUI() && isDrawing) {
-            editImg.setPixel(snapped_pixpos.x, snapped_pixpos.y, selectedColor);
-        }
-
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::K) && isDrawing) {
-            for(int y = 0; y < size.y; y++) {
-                for(int x = 0; x < size.x; x++) {
-                    editImg.setPixel(x, y, selectedColor);
-                }
-            }
-        }
-
-        canvasSFML->setSize(size.x * scaling, size.y * scaling);
+        imageUI.update();
     }
 
     void input(sf::Event &e) {  
+
         
+        if(e.type == sf::Event::MouseButtonPressed) {
+            tgui::String s = mouldUI.update(*p_gui);
+
+            if(s != "") {
+                int left = std::stoi(s.toStdString());
+                prndd(left);
+                mouldTx.load("res/img/Item/moulds.png", tgui::UIntRect(left, 0, 16, 16));
+
+                loadImages();
+                mouldUI.hide();
+            }
+
+            if(mouldPicture->isMouseDown())
+                mouldUI.show(mouldPicture->getPosition());
+        }
     }
 
     void draw(sf::RenderTarget& target, tgui::BackendGui& gui) {        
-        canvasSFML->clear(sf::Color(0, 0, 0, 0));
-        canvasSFML->draw(editSpr);
-        canvasSFML->draw(preview);
-
-        for(const auto &rect : rects) {
-            canvasSFML->draw(rect);
-        }
-
-        canvasSFML->display();
 
     }
 
@@ -227,32 +133,16 @@ public:
     }
 
 private:
-
-    tgui::Button::Ptr sizeXinc = nullptr;
-    tgui::Button::Ptr sizeXdec = nullptr;
-    tgui::Button::Ptr sizeYinc = nullptr;
-    tgui::Button::Ptr sizeYdec = nullptr;
-
-    tgui::CanvasSFML::Ptr canvasSFML = nullptr;
-
-    bool isDrawing = true;
-
-    sf::Color selectedColor = elm::getInfoFromType(VoxelValues::CARBON).color;
-
-    sf::Vector2f position;
-    sf::Vector2f relativeMousePosition;
-    sf::Vector2i snapped_pixpos;
+    SelectMouldUI mouldUI;
+    FinalImageUI imageUI;
 
     sf::Image editImg;
-    sf::RectangleShape preview;
-    sf::Texture editTex;
-    sf::Sprite editSpr;
-    std::list<sf::RectangleShape> rects;
+    tgui::Picture::Ptr finalPicture = nullptr;
+    tgui::Picture::Ptr mouldPicture = nullptr;
 
-    sf::Vector2i size = sf::Vector2i(16, 16);
-    
+    tgui::Texture mouldTx;
 
-    int scaling = 20;
+    tgui::BackendGui *p_gui = nullptr;
 
     static void exitbuttonCallback(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
         removeWidgets(gui);
@@ -271,66 +161,5 @@ private:
 
         UIState::currentState = UIState::nostate;
         UIState::currentState->load(gui, inv, vx);
-    }
-
-    static void element_buttonCallback(const tgui::String& name, sf::Color &selColor) {
-        if(name == "  ") selColor = sf::Color(0, 0, 0, 0);
-        else if(name == "C ") selColor = elm::getInfoFromType(VoxelValues::CARBON).color;
-        else if(name == "Li") selColor = elm::getInfoFromType(VoxelValues::LITHIUM).color;
-        else if(name == "Mg") selColor =elm::getInfoFromType(VoxelValues::MAGNESIUM).color;
-        else if(name == "Na") selColor = elm::getInfoFromType(VoxelValues::SODIUM).color;
-        else if(name == "Al") selColor = elm::getInfoFromType(VoxelValues::ALUMINIUM).color;
-        else if(name == "Si") selColor = elm::getInfoFromType(VoxelValues::SILICON).color;
-        else if(name == "Cu") selColor = elm::getInfoFromType(VoxelValues::COPPER).color;
-        else if(name == "Ti") selColor = elm::getInfoFromType(VoxelValues::TITANIUM).color;
-        else if(name == "Pb") selColor = elm::getInfoFromType(VoxelValues::LEAD).color;
-        else if(name == "H2O") selColor = elm::getInfoFromType(VoxelValues::WATER).color;
-        else if(name == "C3H5N3O9") selColor = elm::getInfoFromType(VoxelValues::NITROGLYCERIN).color;
-        else if(name == "Cl") selColor = elm::getInfoFromType(VoxelValues::CHLORINE).color;
-        else if(name == "U235") selColor = elm::getInfoFromType(VoxelValues::URANIUM235).color;
-        else if(name == "Ra226") selColor = elm::getInfoFromType(VoxelValues::RADIUM226).color;
-        else if(name == "Sand") selColor = elm::getInfoFromType(VoxelValues::SAND).color;
-        else if(name == "Acid") selColor = elm::getInfoFromType(VoxelValues::ACID).color;
-        else if(name == "Wood") selColor = elm::getInfoFromType(VoxelValues::WOOD).color;
-        else if(name == "Oscillator") selColor = elm::getInfoFromType(VoxelValues::OSCILLATOR).color;
-        else if(name == "TransistorDON") selColor = elm::getInfoFromType(VoxelValues::TRANSISTORDON).color;
-        else if(name == "TransistorDOFF") selColor = elm::getInfoFromType(VoxelValues::TRANSISTORDOFF).color;
-        else if(name == "Snow") selColor = elm::getInfoFromType(VoxelValues::SNOW).color;
-        else if(name == "Mirror") selColor = elm::getInfoFromType(VoxelValues::MIRROR).color;
-
-        else if(name == "Switch") selColor = elm::getInfoFromType(VoxelValues::SWITCH).color;
-        else if(name == "Manganese Heptoxide") selColor = elm::getInfoFromType(VoxelValues::MANGANESEHEPTOXIDE).color;
-    
-    }
-
-    static void resize(const tgui::String& name, sf::Vector2i &currentSize, int &scaling, std::list<sf::RectangleShape> &rects, sf::Image &img, sf::Texture &tx) {
-        if(name == "x+") currentSize.x++;
-        if(name == "x-") currentSize.x--;
-        if(name == "y+") currentSize.y++;
-        if(name == "x-") currentSize.y--;
-
-        if(currentSize.x < 0) currentSize.x = 0;
-        if(currentSize.y < 0) currentSize.y = 0;
-
-
-        rects.clear();
-
-        for(int y = 0; y < currentSize.y; y++) {
-            for(int x = 0; x < currentSize.x; x++) {   
-                sf::RectangleShape rect;
-                rect.setSize(sf::Vector2f(scaling, scaling));
-                rect.setPosition(x * scaling,y * scaling);
-                rect.setFillColor(sf::Color(0,0,0,0));
-                rect.setOutlineColor(sf::Color::White);
-                rect.setOutlineThickness(-1);
-                rects.push_back(rect);
-            }
-        }
-
-        img.create(8, 8);
-        tx.loadFromImage(img);
-
-        //std::this_thread::sleep_for(std::chrono::seconds(5));
-        
     }
 };

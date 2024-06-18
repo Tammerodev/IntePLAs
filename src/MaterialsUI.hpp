@@ -14,6 +14,11 @@
 
 #include "Settings.hpp"
 
+namespace MaterialsUIGlobal {
+    inline int focusedOnBar = -1;
+
+}
+
 class MaterialsUI {
     public:
         void load(tgui::BackendGui& gui);

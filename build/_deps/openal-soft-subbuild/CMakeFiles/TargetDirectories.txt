@@ -1,0 +1,3 @@
+/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/CMakeFiles/openal-soft-populate.dir
+/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/CMakeFiles/edit_cache.dir
+/home/lauri/Documents/inteplas/build/_deps/openal-soft-subbuild/CMakeFiles/rebuild_cache.dir

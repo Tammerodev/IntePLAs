@@ -1,0 +1,169 @@
+Determining if the include file arm_neon.h exists failed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_48e75/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_48e75.dir/build.make CMakeFiles/cmTC_48e75.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_48e75.dir/CheckIncludeFile.c.o
+/usr/bin/gcc    -o CMakeFiles/cmTC_48e75.dir/CheckIncludeFile.c.o -c /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: arm_neon.h: No such file or directory
+    1 | #include <arm_neon.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_48e75.dir/build.make:78: CMakeFiles/cmTC_48e75.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_48e75/fast] Error 2
+
+
+
+Determining if the include file intrin.h exists failed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f4750/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f4750.dir/build.make CMakeFiles/cmTC_f4750.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f4750.dir/CheckIncludeFile.c.o
+/usr/bin/gcc    -o CMakeFiles/cmTC_f4750.dir/CheckIncludeFile.c.o -c /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: intrin.h: No such file or directory
+    1 | #include <intrin.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f4750.dir/build.make:78: CMakeFiles/cmTC_f4750.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_f4750/fast] Error 2
+
+
+
+Determining if the include file guiddef.h exists failed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f2377/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f2377.dir/build.make CMakeFiles/cmTC_f2377.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f2377.dir/CheckIncludeFile.c.o
+/usr/bin/gcc    -o CMakeFiles/cmTC_f2377.dir/CheckIncludeFile.c.o -c /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: guiddef.h: No such file or directory
+    1 | #include <guiddef.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_f2377.dir/build.make:78: CMakeFiles/cmTC_f2377.dir/CheckIncludeFile.c.o] Error 1
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_f2377/fast] Error 2
+
+
+
+Determining if the proc_pidpath exist failed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_45ac0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_45ac0.dir/build.make CMakeFiles/cmTC_45ac0.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_45ac0.dir/CheckSymbolExists.c.o
+/usr/bin/gcc    -o CMakeFiles/cmTC_45ac0.dir/CheckSymbolExists.c.o -c /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: libproc.h: No such file or directory
+    2 | #include <libproc.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_45ac0.dir/build.make:78: CMakeFiles/cmTC_45ac0.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_45ac0/fast] Error 2
+
+
+File /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <libproc.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef proc_pidpath
+  return ((int*)(&proc_pidpath))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if files pthread.h;pthread_np.h exist failed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c576b/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c576b.dir/build.make CMakeFiles/cmTC_c576b.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c576b.dir/HAVE_PTHREAD_NP_H.c.o
+/usr/bin/gcc   -pthread -o CMakeFiles/cmTC_c576b.dir/HAVE_PTHREAD_NP_H.c.o -c /home/lauri/Documents/inteplas/build/CMakeFiles/CheckIncludeFiles/HAVE_PTHREAD_NP_H.c
+/home/lauri/Documents/inteplas/build/CMakeFiles/CheckIncludeFiles/HAVE_PTHREAD_NP_H.c:3:10: fatal error: pthread_np.h: No such file or directory
+    3 | #include <pthread_np.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_c576b.dir/build.make:78: CMakeFiles/cmTC_c576b.dir/HAVE_PTHREAD_NP_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_c576b/fast] Error 2
+
+
+Source:
+/* */
+#include <pthread.h>
+#include <pthread_np.h>
+
+
+int main(void){return 0;}
+
+Determining if the pthread_setname_np exist failed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_35bd8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_35bd8.dir/build.make CMakeFiles/cmTC_35bd8.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_35bd8.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -pthread -o CMakeFiles/cmTC_35bd8.dir/CheckSymbolExists.c.o -c /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘pthread_setname_np’ undeclared (first use in this function); did you mean ‘pthread_setcanceltype’?
+    8 |   return ((int*)(&pthread_setname_np))[argc];
+      |                   ^~~~~~~~~~~~~~~~~~
+      |                   pthread_setcanceltype
+/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_35bd8.dir/build.make:78: CMakeFiles/cmTC_35bd8.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_35bd8/fast] Error 2
+
+
+File /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_setname_np
+  return ((int*)(&pthread_setname_np))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the pthread_set_name_np exist failed with the following output:
+Change Dir: /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d546d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d546d.dir/build.make CMakeFiles/cmTC_d546d.dir/build
+gmake[1]: Entering directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d546d.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -pthread -o CMakeFiles/cmTC_d546d.dir/CheckSymbolExists.c.o -c /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: ‘pthread_set_name_np’ undeclared (first use in this function); did you mean ‘pthread_setcanceltype’?
+    8 |   return ((int*)(&pthread_set_name_np))[argc];
+      |                   ^~~~~~~~~~~~~~~~~~~
+      |                   pthread_setcanceltype
+/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+gmake[1]: *** [CMakeFiles/cmTC_d546d.dir/build.make:78: CMakeFiles/cmTC_d546d.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_d546d/fast] Error 2
+
+
+File /home/lauri/Documents/inteplas/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_set_name_np
+  return ((int*)(&pthread_set_name_np))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

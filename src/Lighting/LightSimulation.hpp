@@ -12,4 +12,7 @@ class LightSimulation {
         void update(ChunkIndexer&, ShaderEffect&);
 
         void render(sf::RenderTarget&);
+
+    private:
+        sf::RenderTarget* targ = nullptr;
 };
