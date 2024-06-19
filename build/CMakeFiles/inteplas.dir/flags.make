@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DTGUI_DYNAMIC
 
-CXX_INCLUDES = -I/usr/include/jsoncpp -isystem /usr/include/SDL2
+CXX_INCLUDES = -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp
 
-CXX_FLAGS = -g -std=gnu++20
+CXX_FLAGS = -g -std=gnu++17
 

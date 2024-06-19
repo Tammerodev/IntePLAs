@@ -249,7 +249,7 @@ CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
-//Choose the type of build (Debug or Release)
+//No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:STRING=Debug
 
 //Enable/Disable color output during build.
@@ -429,6 +429,21 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=inteplas
 
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=1.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
+
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
 
@@ -573,6 +588,12 @@ JACK_INCLUDE_DIR:PATH=JACK_INCLUDE_DIR-NOTFOUND
 //The JACK library
 JACK_LIBRARY:FILEPATH=JACK_LIBRARY-NOTFOUND
 
+//The directory containing a CMake configuration file for JsonCp.
+JsonCp_DIR:PATH=JsonCp_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for JsonCpp.
+JsonCpp_DIR:PATH=JsonCpp_DIR-NOTFOUND
+
 //The MySOFA include directory
 MYSOFA_INCLUDE_DIR:PATH=MYSOFA_INCLUDE_DIR-NOTFOUND
 
@@ -581,6 +602,15 @@ MYSOFA_LIBRARY:FILEPATH=MYSOFA_LIBRARY-NOTFOUND
 
 //The math library for MySOFA
 MYSOFA_M_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libm.so
+
+//Value Computed by CMake
+MyProject_BINARY_DIR:STATIC=/home/lauri/Documents/inteplas/build
+
+//Value Computed by CMake
+MyProject_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+MyProject_SOURCE_DIR:STATIC=/home/lauri/Documents/inteplas
 
 //Path to a file.
 OGG_INCLUDE_DIR:PATH=/usr/include
@@ -1065,6 +1095,12 @@ inteplas_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 inteplas_SOURCE_DIR:STATIC=/home/lauri/Documents/inteplas
 
+//The directory containing a CMake configuration file for jsoncpp.
+jsoncpp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/jsoncpp
+
+//The directory containing a CMake configuration file for jsoncpp_lib.
+jsoncpp_lib_DIR:PATH=jsoncpp_lib_DIR-NOTFOUND
+
 //Path to a library.
 pkgcfg_lib_JSONCPP_jsoncpp:FILEPATH=/usr/lib/x86_64-linux-gnu/libjsoncpp.so
 
@@ -1270,7 +1306,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

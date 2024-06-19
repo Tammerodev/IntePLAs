@@ -525,51 +525,53 @@ inteplas_OBJECTS = \
 # External object files for target inteplas
 inteplas_EXTERNAL_OBJECTS =
 
-bin/inteplas: CMakeFiles/inteplas.dir/src/Button.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/ElectricitySimulation.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Elements/GravityElement.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Elements/SandMaterial.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Elements/Snow.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Game.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/GameState.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/MobManager.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Player/CreativeState.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Player/IdleState.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Player/JumpState.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Player/Player.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Player/PlayerHealthManager.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Player/RespawnState.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Player/SwimState.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/Voxel.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/World.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/src/main.cpp.o
-bin/inteplas: CMakeFiles/inteplas.dir/build.make
-bin/inteplas: /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1
-bin/inteplas: /usr/lib/x86_64-linux-gnu/libtgui.so.1.3.0
-bin/inteplas: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
-bin/inteplas: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
-bin/inteplas: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
-bin/inteplas: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
-bin/inteplas: /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
-bin/inteplas: /usr/lib/x86_64-linux-gnu/libSDL2.so
-bin/inteplas: CMakeFiles/inteplas.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lauri/Documents/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking CXX executable bin/inteplas"
+inteplas: CMakeFiles/inteplas.dir/src/Button.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/ElectricitySimulation.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Elements/GravityElement.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Elements/SandMaterial.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Elements/Snow.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Game.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/GameState.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/MobManager.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Player/CreativeState.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Player/IdleState.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Player/JumpState.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Player/Player.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Player/PlayerHealthManager.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Player/RespawnState.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Player/SwimState.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/Voxel.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/World.cpp.o
+inteplas: CMakeFiles/inteplas.dir/src/main.cpp.o
+inteplas: CMakeFiles/inteplas.dir/build.make
+inteplas: /usr/lib/x86_64-linux-gnu/libsfml-network.so.2.5.1
+inteplas: /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1
+inteplas: /usr/lib/x86_64-linux-gnu/libtgui.so.1.3.0
+inteplas: /usr/lib/x86_64-linux-gnu/libjsoncpp.so.1.9.5
+inteplas: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
+inteplas: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
+inteplas: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
+inteplas: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
+inteplas: /usr/lib/x86_64-linux-gnu/libSDL2_ttf.so
+inteplas: /usr/lib/x86_64-linux-gnu/libSDL2.so
+inteplas: CMakeFiles/inteplas.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lauri/Documents/inteplas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking CXX executable inteplas"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/inteplas.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/inteplas.dir/build: bin/inteplas
+CMakeFiles/inteplas.dir/build: inteplas
 .PHONY : CMakeFiles/inteplas.dir/build
 
 CMakeFiles/inteplas.dir/clean:

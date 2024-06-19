@@ -59,8 +59,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/inteplas.dir/src/World.cpp.o.d"
   "CMakeFiles/inteplas.dir/src/main.cpp.o"
   "CMakeFiles/inteplas.dir/src/main.cpp.o.d"
-  "bin/inteplas"
-  "bin/inteplas.pdb"
+  "inteplas"
+  "inteplas.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
