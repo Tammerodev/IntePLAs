@@ -124,7 +124,7 @@ class FinalImageUI {
             int index = 0;
 
             for(auto &s : selectColors) {
-                s.load(gui, pos + tgui::Layout2d(0, index * 35));
+                s.load(gui, pos + tgui::Layout2d("10%", index * 35));
                 s.toFront();
 
                 ++index;

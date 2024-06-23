@@ -83,17 +83,21 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     return "false";
 }
 
+int ___equipped = false;
+
 void Game::update() {
     if(goingToSave) exit();
 
-    if(PlayerState::currentState == PlayerState::creativeState) {
-        const int amount = 100;
+    if(PlayerState::currentState == PlayerState::creativeState && ___equipped < 200 ) {
+        const int amount = 1;
 
         for(int val = 0; val < 255; val++) {
             if(elm::getInfoFromType(val).value != 0) {
                 world.main_world.getChunkIndexer().materialpack.addElementOfType(val, amount);
             }
         }
+        
+        ___equipped++;
     }
 
     // Update game status and delta time 

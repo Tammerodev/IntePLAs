@@ -244,8 +244,8 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent, Shade
         Voxel& voxel = chIndexer.getVoxelAt(i->x, i->y);
 
         if(voxel.temp > 0)
-        // TODO Ambient Dissipation
-            heatVoxelAt(i->x, i->y, -1);
+
+        heatVoxelAt(i->x, i->y, -1);
 
         if(voxel.temp <= 0 || voxel.value == 0) {
             i = chIndexer.voxelsInNeedOfUpdate.erase(i); 

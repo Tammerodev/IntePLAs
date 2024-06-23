@@ -102,15 +102,6 @@ void VoxelGroup::render(sf::RenderTarget &target, const sf::Vector2f &center)
     rigidBody.debugRender(target);
 }
 
-void VoxelGroup::resetUsedFlag()
-{
-    for (uint64_t y = 0; y < world_sy; y++) {
-        for (uint64_t x = 0;x < world_sx;x++) {
-            //TODO !!!! TODO!!!! getVoxelAt(x,y).used = false;
-        }
-    }
-}
-
 void VoxelGroup::update(ChunkIndexer& world, const float dt)
 {
     if(getDestroyed()) return;

@@ -185,7 +185,6 @@ public:
 
     void heatVoxelAt(const int64_t x, const int64_t y, int64_t temp);
     void render(sf::RenderTarget&, const sf::Vector2f &center);
-    void resetUsedFlag();
     void update(ChunkIndexer &vx, const float);
     void hole(const sf::Vector2i &pos, const uint32_t &intensity, bool force, const int64_t heat);
 
