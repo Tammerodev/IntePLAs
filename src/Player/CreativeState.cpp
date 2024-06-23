@@ -1,7 +1,7 @@
 #include "CreativeState.hpp"
 
 void CreativeState::enter() {
-
+    
 }
  
 void CreativeState::update(IntPhysicsComponent& physComp,float dt) {

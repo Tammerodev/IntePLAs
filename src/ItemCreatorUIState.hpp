@@ -41,7 +41,7 @@ public:
         mouldPicture->setPosition(tgui::Layout2d("65%", "60%"));
 
         finalPicture->setSize(100, 100);
-        finalPicture->setPosition(tgui::Layout2d("25%", "45%"));
+        finalPicture->setPosition(tgui::Layout2d("15%", "45%"));
 
         if(p_gui != nullptr) {
             p_gui->add(finalPicture);

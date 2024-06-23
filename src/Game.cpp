@@ -86,6 +86,16 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
 void Game::update() {
     if(goingToSave) exit();
 
+    if(PlayerState::currentState == PlayerState::creativeState) {
+        const int amount = 100;
+
+        for(int val = 0; val < 255; val++) {
+            if(elm::getInfoFromType(val).value != 0) {
+                world.main_world.getChunkIndexer().materialpack.addElementOfType(val, amount);
+            }
+        }
+    }
+
     // Update game status and delta time 
     dt = (float)deltaClock.restart().asMilliseconds() / 13.f;
 
