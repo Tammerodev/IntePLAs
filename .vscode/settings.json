@@ -67,6 +67,9 @@
         "thread": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "cinttypes": "cpp",
+        "complex": "cpp",
+        "csignal": "cpp"
     }
 }

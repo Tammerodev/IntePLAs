@@ -16,19 +16,20 @@ void MaterialsUI::load(tgui::BackendGui &gui) {
 void MaterialsUI::render(sf::RenderTarget &target) {
     canvas->clear(UISettings::getColorRGBA());
 
+    int index = 0;
+
     for(auto &bar : barChart) {
         canvas->draw(bar.second);
 
         bar.second.move(canvas->getPosition());
 
-        if(bar.second.getGlobalBounds().contains(Controls::windowCursorPos)) {
+        if(bar.second.getGlobalBounds().contains(Controls::windowCursorPos) && Controls::windowCursorPos.y < canvas->getSize().y) {
             MaterialsUIGlobal::focusedOnBar = bar.first;
-
-            prndd("click!");
         }
 
         bar.second.move(-canvas->getPosition());
 
+        index++;
     }
 
     canvas->display();

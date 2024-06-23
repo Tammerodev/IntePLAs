@@ -17,6 +17,9 @@
 #include <TGUI/Widgets/CheckBox.hpp>
 #include <TGUI/Widgets/Panel.hpp>
 
+namespace FileGlobal {
+    inline int mouldIndex = 0;
+}
 
 class ItemCreator : public UIState {
 public:
@@ -31,7 +34,7 @@ public:
             p_gui->remove(mouldPicture);
         }
 
-        finalPicture = tgui::Picture::create();
+        finalPicture = tgui::Picture::create(finalTx);
         mouldPicture = tgui::Picture::create(mouldTx, true);
 
         mouldPicture->setSize(100, 100);
@@ -54,7 +57,6 @@ public:
             
             tgui::Texture::setDefaultSmooth(false);
             mouldTx.load("res/img/UI/selectMould.png");
-            editImg.create(16, 16);
 
             loadImages();
 
@@ -71,9 +73,14 @@ public:
             button_exit->setRenderer(theme.getRenderer("Button"));
             button_exit->onClick(exitbuttonCallback, std::ref(gui), std::ref(inv), std::ref(vx));
 
+            auto button_build = tgui::Button::create("Build");
+            button_build->setPosition(tgui::Layout2d("40%", "40%"));
+            button_build->setRenderer(theme.getRenderer("Button"));
+            button_build->onClick(buildCallback, std::ref(imageUI), std::ref(savedReturnPath));
+
             auto button_save = tgui::Button::create("save");
             button_save->setRenderer(theme.getRenderer("Button"));
-            button_save->onClick(savebuttonCallback, std::ref(gui), std::ref(editImg), std::ref(inv), std::ref(vx));
+            button_save->onClick(savebuttonCallback, std::ref(gui), std::ref(savedReturnPath), std::ref(inv), std::ref(vx));
             button_save->setSize(tgui::Layout2d(48 * 4,16 * 4));
             button_save->setPosition(tgui::Layout2d(200,270));
 
@@ -89,6 +96,7 @@ public:
             
             gui.add(finalPicture);
             gui.add(mouldPicture);
+            gui.add(button_build);
 
             mouldUI.load(gui);
             imageUI.load(gui, finalPicture->getPosition());
@@ -101,18 +109,23 @@ public:
 
     void update(const sf::Vector2f &mousepos) {
         imageUI.update();
+
+        if(!savedReturnPath.empty()) {
+            finalTx.load(savedReturnPath);
+
+            loadImages();
+        }
     }
 
     void input(sf::Event &e) {  
-
-        
         if(e.type == sf::Event::MouseButtonPressed) {
             tgui::String s = mouldUI.update(*p_gui);
 
             if(s != "") {
                 int left = std::stoi(s.toStdString());
-                prndd(left);
                 mouldTx.load("res/img/Item/moulds.png", tgui::UIntRect(left, 0, 16, 16));
+
+                FileGlobal::mouldIndex = left;
 
                 loadImages();
                 mouldUI.hide();
@@ -136,13 +149,15 @@ private:
     SelectMouldUI mouldUI;
     FinalImageUI imageUI;
 
-    sf::Image editImg;
     tgui::Picture::Ptr finalPicture = nullptr;
     tgui::Picture::Ptr mouldPicture = nullptr;
 
     tgui::Texture mouldTx;
+    tgui::Texture finalTx;
 
     tgui::BackendGui *p_gui = nullptr;
+
+    std::string savedReturnPath = "";
 
     static void exitbuttonCallback(tgui::BackendGui& gui, Inventory &inv, VoxelManager& vx) {
         removeWidgets(gui);
@@ -151,13 +166,20 @@ private:
         UIState::currentState->load(gui, inv, vx);
     }
 
-    static void savebuttonCallback(tgui::BackendGui& gui, sf::Image edImg, Inventory &inv, VoxelManager&vx) {
-        std::string saveName = StorageSettings::save_path + Globals::exitSaveName + "inv" + std::to_string(time(0)) + ".png";
-        edImg.saveToFile(saveName);
-        inv.addItem(vx, std::make_shared<PlaceItem>(vx, saveName, saveName));
+    static void buildCallback(FinalImageUI& imageUI, std::string& savedReturnPath) {
+        savedReturnPath = imageUI.createImageReturnPath(FileGlobal::mouldIndex);
+    }
+
+    static void savebuttonCallback(tgui::BackendGui& gui, std::string &path, Inventory &inv, VoxelManager&vx) {
+        if(path.empty()) return;
+
+        sf::Image img; 
+        img.loadFromFile(path);
+        
+        inv.addItem(vx, std::make_shared<PlaceItem>(vx, path, path));
         removeWidgets(gui);
 
-        vx.removeMaterialsOfImage(edImg);
+        vx.removeMaterialsOfImage(img);
 
         UIState::currentState = UIState::nostate;
         UIState::currentState->load(gui, inv, vx);

@@ -16,7 +16,6 @@
 
 namespace MaterialsUIGlobal {
     inline int focusedOnBar = -1;
-
 }
 
 class MaterialsUI {
@@ -26,6 +25,10 @@ class MaterialsUI {
         void render(sf::RenderTarget& target);
 
         void update(VoxelManager &vx_manager);
+
+        std::map<unsigned char, MaterialBar> getMap() {
+            return barChart;
+        }
 
     private:
         const float barHeight = 10;
@@ -59,3 +62,7 @@ class MaterialsUI {
             }
         }
 };
+
+namespace MaterialsUIGlobal {
+    inline MaterialsUI matUI;
+}

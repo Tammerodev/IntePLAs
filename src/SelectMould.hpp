@@ -61,8 +61,8 @@ class SelectMouldUI {
 
             return "";
         }
-    private:
 
+    private:
         tgui::Panel::Ptr panel = nullptr;
         tgui::Grid::Ptr grid = nullptr;
         tgui::Texture mouldTextures;

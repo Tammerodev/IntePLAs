@@ -18,7 +18,7 @@ const std::string Game::load(const std::string s, tgui::BackendGui &gui, const i
     ui_camera.setCenterPosition(sf::Vector2f(window_width / 2, window_height / 2));
     
     inv.load(world.main_world);
-    matUI.load(gui);
+    MaterialsUIGlobal::matUI.load(gui);
     game_camera.zoom(0.60f);
     
 
@@ -116,7 +116,7 @@ void Game::update() {
     effOverlay.update(game_camera.getCenterPosition());
     game_camera.update(dt);
     player.update(world.main_world.getChunkIndexer(), dt, game_camera);
-    matUI.update(world.main_world);
+    MaterialsUIGlobal::matUI.update(world.main_world);
 
     // Update UI
     playerUI.update(player);
@@ -227,7 +227,7 @@ void Game::renderLast(sf::RenderWindow &window, tgui::BackendGui &gui) {
 void Game::renderUI(sf::RenderWindow& window, tgui::BackendGui& gui) {
     ui_camera.setViewTo(window);
 
-    matUI.render(window);
+    MaterialsUIGlobal::matUI.render(window);
     inv.renderUI(window);
 
     playerUI.render(window);

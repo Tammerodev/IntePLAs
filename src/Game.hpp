@@ -110,7 +110,6 @@ class Game {
 
         Player player;
         Inventory inv;
-        MaterialsUI matUI;
         Background bg;
         EffectOverlay effOverlay;
         UIStateManager uiStateManager;
