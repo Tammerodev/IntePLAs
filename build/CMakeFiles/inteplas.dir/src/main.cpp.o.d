@@ -635,6 +635,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/FireParticle.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../MaterialsUI.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../MaterialBar.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../BitmapText/BitmapText.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/ItemCreateItem.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/PlaceItem.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/../ThrowInteface.hpp \

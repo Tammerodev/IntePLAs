@@ -624,6 +624,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: \
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
  /usr/include/TGUI/Widgets/CanvasBase.hpp \
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
+ /home/lauri/Documents/inteplas/src/BitmapText/BitmapText.hpp \
  /home/lauri/Documents/inteplas/src/Item/ItemCreateItem.hpp \
  /home/lauri/Documents/inteplas/src/Item/PlaceItem.hpp \
  /home/lauri/Documents/inteplas/src/Item/../ThrowInteface.hpp \

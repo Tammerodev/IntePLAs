@@ -18,18 +18,29 @@ void MaterialsUI::render(sf::RenderTarget &target) {
 
     int index = 0;
 
-    for(auto &bar : barChart) {
-        canvas->draw(bar.second);
+    BitmapText* displayText = nullptr;
+    BitmapText* displayTextNum = nullptr;
 
+    for(auto &bar : barChart) {
         bar.second.move(canvas->getPosition());
 
         if(bar.second.getGlobalBounds().contains(Controls::windowCursorPos) && Controls::windowCursorPos.y < canvas->getSize().y) {
             MaterialsUIGlobal::focusedOnBar = bar.first;
+            bar.second.showText();
+            displayText = &bar.second.bmp_text;
+            displayTextNum = &bar.second.bmp_text_count;
         }
 
         bar.second.move(-canvas->getPosition());
 
+        bar.second.render(canvas);
+
         index++;
+    }
+
+    if(displayText != nullptr && displayTextNum != nullptr) {
+        displayText->render(canvas);
+        displayTextNum->render(canvas);
     }
 
     canvas->display();

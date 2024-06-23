@@ -2516,6 +2516,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp
  /usr/include/TGUI/Widgets/CanvasBase.hpp
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp
+ /home/lauri/Documents/inteplas/src/BitmapText/BitmapText.hpp
  /home/lauri/Documents/inteplas/src/Item/ItemCreateItem.hpp
  /home/lauri/Documents/inteplas/src/Item/PlaceItem.hpp
  /home/lauri/Documents/inteplas/src/ThrowInteface.hpp
@@ -3298,6 +3299,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp
  /usr/include/TGUI/Widgets/CanvasBase.hpp
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp
+ /home/lauri/Documents/inteplas/src/BitmapText/BitmapText.hpp
  /home/lauri/Documents/inteplas/src/Item/ItemCreateItem.hpp
  /home/lauri/Documents/inteplas/src/Item/PlaceItem.hpp
  /home/lauri/Documents/inteplas/src/ThrowInteface.hpp
@@ -5044,6 +5046,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp
  /usr/include/TGUI/Widgets/CanvasBase.hpp
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp
+ /home/lauri/Documents/inteplas/src/BitmapText/BitmapText.hpp
 
 CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/Mob/Fish/Fish.cpp
@@ -11085,6 +11088,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp
  /usr/include/TGUI/Widgets/CanvasBase.hpp
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp
+ /home/lauri/Documents/inteplas/src/BitmapText/BitmapText.hpp
  /home/lauri/Documents/inteplas/src/Item/ItemCreateItem.hpp
  /home/lauri/Documents/inteplas/src/Item/PlaceItem.hpp
  /home/lauri/Documents/inteplas/src/ThrowInteface.hpp
@@ -14083,6 +14087,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/Particle/FireParticle.hpp
  /home/lauri/Documents/inteplas/src/MaterialsUI.hpp
  /home/lauri/Documents/inteplas/src/MaterialBar.hpp
+ /home/lauri/Documents/inteplas/src/BitmapText/BitmapText.hpp
  /home/lauri/Documents/inteplas/src/Item/ItemCreateItem.hpp
  /home/lauri/Documents/inteplas/src/Item/PlaceItem.hpp
  /home/lauri/Documents/inteplas/src/ThrowInteface.hpp

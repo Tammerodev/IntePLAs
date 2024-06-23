@@ -626,6 +626,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
  /usr/include/TGUI/Widgets/CanvasBase.hpp \
  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../BitmapText/BitmapText.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/ItemCreateItem.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/PlaceItem.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/../ThrowInteface.hpp \

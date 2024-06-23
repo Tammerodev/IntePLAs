@@ -51,7 +51,7 @@ class MaterialsUI {
             }
 
             barChart[c].setFillColor(elm::getInfoFromType(c).color);
-            barChart[c].setAmount(barDistance, 5 + addAmount);
+            barChart[c].setAmount(barDistance, 5 + addAmount, c);
         }
 
 

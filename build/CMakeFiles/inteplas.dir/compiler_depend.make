@@ -2509,6 +2509,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
   /usr/include/TGUI/Widgets/CanvasBase.hpp \
   /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
+  ../src/BitmapText/BitmapText.hpp \
   ../src/Item/ItemCreateItem.hpp \
   ../src/Item/PlaceItem.hpp \
   ../src/ThrowInteface.hpp \
@@ -3290,6 +3291,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
   /usr/include/TGUI/Widgets/CanvasBase.hpp \
   /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
+  ../src/BitmapText/BitmapText.hpp \
   ../src/Item/ItemCreateItem.hpp \
   ../src/Item/PlaceItem.hpp \
   ../src/ThrowInteface.hpp \
@@ -5032,7 +5034,8 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: ../src/MaterialsUI.cpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendRenderTargetSFML.hpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
   /usr/include/TGUI/Widgets/CanvasBase.hpp \
-  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp
+  /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
+  ../src/BitmapText/BitmapText.hpp
 
 CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: ../src/Mob/Fish/Fish.cpp \
   /usr/include/stdc-predef.h \
@@ -11061,6 +11064,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
   /usr/include/TGUI/Widgets/CanvasBase.hpp \
   /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
+  ../src/BitmapText/BitmapText.hpp \
   ../src/Item/ItemCreateItem.hpp \
   ../src/Item/PlaceItem.hpp \
   ../src/ThrowInteface.hpp \
@@ -14053,6 +14057,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Particle/FireParticle.hpp \
   ../src/MaterialsUI.hpp \
   ../src/MaterialBar.hpp \
+  ../src/BitmapText/BitmapText.hpp \
   ../src/Item/ItemCreateItem.hpp \
   ../src/Item/PlaceItem.hpp \
   ../src/ThrowInteface.hpp \
@@ -14190,6 +14195,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/ThrowInteface.hpp:
 
 ../src/Item/PlaceItem.hpp:
+
+../src/BitmapText/BitmapText.hpp:
 
 /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp:
 

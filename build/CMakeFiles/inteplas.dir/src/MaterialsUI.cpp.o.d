@@ -577,4 +577,5 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: \
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/BackendRenderTargetSFML.hpp \
  /usr/include/TGUI/Backend/Renderer/SFML-Graphics/CanvasSFML.hpp \
  /usr/include/TGUI/Widgets/CanvasBase.hpp \
- /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp
+ /usr/include/TGUI/Backend/Font/SFML-Graphics/BackendFontSFML.hpp \
+ /home/lauri/Documents/inteplas/src/BitmapText/BitmapText.hpp
