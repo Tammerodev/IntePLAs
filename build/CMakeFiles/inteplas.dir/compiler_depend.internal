@@ -2087,6 +2087,36 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /usr/include/c++/11/iostream
  /usr/include/c++/11/istream
  /usr/include/c++/11/bits/istream.tcc
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
+ /usr/include/SFML/Audio.hpp
+ /usr/include/SFML/Audio/InputSoundFile.hpp
+ /usr/include/SFML/Audio/Export.hpp
+ /usr/include/SFML/Audio/Listener.hpp
+ /usr/include/SFML/Audio/Music.hpp
+ /usr/include/SFML/Audio/SoundStream.hpp
+ /usr/include/SFML/Audio/SoundSource.hpp
+ /usr/include/SFML/Audio/AlResource.hpp
+ /usr/include/SFML/Audio/OutputSoundFile.hpp
+ /usr/include/SFML/Audio/Sound.hpp
+ /usr/include/SFML/Audio/SoundBuffer.hpp
+ /usr/include/c++/11/set
+ /usr/include/c++/11/bits/stl_set.h
+ /usr/include/c++/11/bits/stl_multiset.h
+ /usr/include/SFML/Audio/SoundBufferRecorder.hpp
+ /usr/include/SFML/Audio/SoundRecorder.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.inl
+ /usr/include/SFML/Audio/SoundFileReader.hpp
+ /usr/include/SFML/Audio/SoundFileWriter.hpp
+ /home/lauri/Documents/inteplas/src/common.hpp
+ /usr/include/c++/11/thread
+ /usr/include/c++/11/bits/std_thread.h
+ /usr/include/c++/11/bits/this_thread_sleep.h
+ /usr/include/c++/11/chrono
+ /usr/include/c++/11/ratio
+ /usr/include/c++/11/limits
+ /usr/include/c++/11/bits/parse_numbers.h
  /home/lauri/Documents/inteplas/src/VoxelManager.hpp
  /usr/include/c++/11/math.h
  /usr/include/c++/11/cmath
@@ -2101,7 +2131,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h
  /usr/include/c++/11/bits/specfun.h
- /usr/include/c++/11/limits
  /usr/include/c++/11/tr1/gamma.tcc
  /usr/include/c++/11/tr1/special_function_util.h
  /usr/include/c++/11/tr1/bessel_function.tcc
@@ -2114,12 +2143,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /usr/include/c++/11/tr1/poly_hermite.tcc
  /usr/include/c++/11/tr1/poly_laguerre.tcc
  /usr/include/c++/11/tr1/riemann_zeta.tcc
- /usr/include/c++/11/thread
- /usr/include/c++/11/bits/std_thread.h
- /usr/include/c++/11/bits/this_thread_sleep.h
- /usr/include/c++/11/chrono
- /usr/include/c++/11/ratio
- /usr/include/c++/11/bits/parse_numbers.h
  /usr/include/c++/11/optional
  /usr/include/c++/11/future
  /usr/include/c++/11/mutex
@@ -2155,7 +2178,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/Voxel.hpp
  /home/lauri/Documents/inteplas/src/Elements.hpp
  /home/lauri/Documents/inteplas/src/ExplosionInfo.hpp
- /home/lauri/Documents/inteplas/src/common.hpp
  /home/lauri/Documents/inteplas/src/Chunk.hpp
  /usr/include/c++/11/memory
  /usr/include/c++/11/bits/stl_raw_storage_iter.h
@@ -2185,26 +2207,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
- /usr/include/SFML/Audio.hpp
- /usr/include/SFML/Audio/InputSoundFile.hpp
- /usr/include/SFML/Audio/Export.hpp
- /usr/include/SFML/Audio/Listener.hpp
- /usr/include/SFML/Audio/Music.hpp
- /usr/include/SFML/Audio/SoundStream.hpp
- /usr/include/SFML/Audio/SoundSource.hpp
- /usr/include/SFML/Audio/AlResource.hpp
- /usr/include/SFML/Audio/OutputSoundFile.hpp
- /usr/include/SFML/Audio/Sound.hpp
- /usr/include/SFML/Audio/SoundBuffer.hpp
- /usr/include/c++/11/set
- /usr/include/c++/11/bits/stl_set.h
- /usr/include/c++/11/bits/stl_multiset.h
- /usr/include/SFML/Audio/SoundBufferRecorder.hpp
- /usr/include/SFML/Audio/SoundRecorder.hpp
- /usr/include/SFML/Audio/SoundFileFactory.hpp
- /usr/include/SFML/Audio/SoundFileFactory.inl
- /usr/include/SFML/Audio/SoundFileReader.hpp
- /usr/include/SFML/Audio/SoundFileWriter.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerDamageSoundType.hpp
  /home/lauri/Documents/inteplas/src/Elements/BurnedMaterial.hpp
  /home/lauri/Documents/inteplas/src/Elements/Element.hpp
@@ -2878,6 +2880,29 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /usr/include/c++/11/iostream
  /usr/include/c++/11/istream
  /usr/include/c++/11/bits/istream.tcc
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
+ /usr/include/SFML/Audio.hpp
+ /usr/include/SFML/Audio/InputSoundFile.hpp
+ /usr/include/SFML/Audio/Export.hpp
+ /usr/include/SFML/Audio/Listener.hpp
+ /usr/include/SFML/Audio/Music.hpp
+ /usr/include/SFML/Audio/SoundStream.hpp
+ /usr/include/SFML/Audio/SoundSource.hpp
+ /usr/include/SFML/Audio/AlResource.hpp
+ /usr/include/SFML/Audio/OutputSoundFile.hpp
+ /usr/include/SFML/Audio/Sound.hpp
+ /usr/include/SFML/Audio/SoundBuffer.hpp
+ /usr/include/c++/11/set
+ /usr/include/c++/11/bits/stl_set.h
+ /usr/include/c++/11/bits/stl_multiset.h
+ /usr/include/SFML/Audio/SoundBufferRecorder.hpp
+ /usr/include/SFML/Audio/SoundRecorder.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.inl
+ /usr/include/SFML/Audio/SoundFileReader.hpp
+ /usr/include/SFML/Audio/SoundFileWriter.hpp
+ /home/lauri/Documents/inteplas/src/common.hpp
  /home/lauri/Documents/inteplas/src/VoxelManager.hpp
  /usr/include/c++/11/math.h
  /usr/include/c++/11/cmath
@@ -2939,7 +2964,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/Voxel.hpp
  /home/lauri/Documents/inteplas/src/Elements.hpp
  /home/lauri/Documents/inteplas/src/ExplosionInfo.hpp
- /home/lauri/Documents/inteplas/src/common.hpp
  /home/lauri/Documents/inteplas/src/Chunk.hpp
  /usr/include/c++/11/memory
  /usr/include/c++/11/bits/stl_raw_storage_iter.h
@@ -2969,26 +2993,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
- /usr/include/SFML/Audio.hpp
- /usr/include/SFML/Audio/InputSoundFile.hpp
- /usr/include/SFML/Audio/Export.hpp
- /usr/include/SFML/Audio/Listener.hpp
- /usr/include/SFML/Audio/Music.hpp
- /usr/include/SFML/Audio/SoundStream.hpp
- /usr/include/SFML/Audio/SoundSource.hpp
- /usr/include/SFML/Audio/AlResource.hpp
- /usr/include/SFML/Audio/OutputSoundFile.hpp
- /usr/include/SFML/Audio/Sound.hpp
- /usr/include/SFML/Audio/SoundBuffer.hpp
- /usr/include/c++/11/set
- /usr/include/c++/11/bits/stl_set.h
- /usr/include/c++/11/bits/stl_multiset.h
- /usr/include/SFML/Audio/SoundBufferRecorder.hpp
- /usr/include/SFML/Audio/SoundRecorder.hpp
- /usr/include/SFML/Audio/SoundFileFactory.hpp
- /usr/include/SFML/Audio/SoundFileFactory.inl
- /usr/include/SFML/Audio/SoundFileReader.hpp
- /usr/include/SFML/Audio/SoundFileWriter.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerDamageSoundType.hpp
  /home/lauri/Documents/inteplas/src/Elements/BurnedMaterial.hpp
  /home/lauri/Documents/inteplas/src/Elements/Element.hpp
@@ -3342,7 +3346,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/NuclearExplosionGameEvent.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/Helicopter.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/HelicopterTurret.hpp
- /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/HeistInfoGui.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/CollectableBox.hpp
  /home/lauri/Documents/inteplas/src/UI/PointIndicator.hpp
@@ -3567,9 +3570,9 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
  /usr/include/c++/11/bits/ostream.tcc
  /usr/include/c++/11/istream
  /usr/include/c++/11/bits/istream.tcc
- /home/lauri/Documents/inteplas/src/VoxelManager.hpp
- /usr/include/SFML/Graphics.hpp
- /usr/include/SFML/Window.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
+ /usr/include/SFML/Audio.hpp
  /usr/include/SFML/System.hpp
  /usr/include/SFML/Config.hpp
  /usr/include/SFML/System/Clock.hpp
@@ -3608,6 +3611,37 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
  /usr/include/SFML/System/Vector2.inl
  /usr/include/SFML/System/Vector3.hpp
  /usr/include/SFML/System/Vector3.inl
+ /usr/include/SFML/Audio/InputSoundFile.hpp
+ /usr/include/SFML/Audio/Export.hpp
+ /usr/include/SFML/Audio/Listener.hpp
+ /usr/include/SFML/Audio/Music.hpp
+ /usr/include/SFML/Audio/SoundStream.hpp
+ /usr/include/SFML/Audio/SoundSource.hpp
+ /usr/include/SFML/Audio/AlResource.hpp
+ /usr/include/SFML/Audio/OutputSoundFile.hpp
+ /usr/include/SFML/Audio/Sound.hpp
+ /usr/include/SFML/Audio/SoundBuffer.hpp
+ /usr/include/c++/11/set
+ /usr/include/c++/11/bits/stl_tree.h
+ /usr/include/c++/11/bits/stl_set.h
+ /usr/include/c++/11/bits/stl_multiset.h
+ /usr/include/SFML/Audio/SoundBufferRecorder.hpp
+ /usr/include/SFML/Audio/SoundRecorder.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.inl
+ /usr/include/SFML/Audio/SoundFileReader.hpp
+ /usr/include/SFML/Audio/SoundFileWriter.hpp
+ /home/lauri/Documents/inteplas/src/common.hpp
+ /usr/include/c++/11/thread
+ /usr/include/c++/11/bits/std_thread.h
+ /usr/include/c++/11/bits/this_thread_sleep.h
+ /usr/include/c++/11/chrono
+ /usr/include/c++/11/ratio
+ /usr/include/c++/11/limits
+ /usr/include/c++/11/bits/parse_numbers.h
+ /home/lauri/Documents/inteplas/src/VoxelManager.hpp
+ /usr/include/SFML/Graphics.hpp
+ /usr/include/SFML/Window.hpp
  /usr/include/SFML/Window/Clipboard.hpp
  /usr/include/SFML/Window/Export.hpp
  /usr/include/SFML/Window/Context.hpp
@@ -3644,7 +3678,6 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
  /usr/include/SFML/Graphics/Texture.hpp
  /usr/include/SFML/Graphics/Image.hpp
  /usr/include/c++/11/map
- /usr/include/c++/11/bits/stl_tree.h
  /usr/include/c++/11/bits/stl_map.h
  /usr/include/c++/11/bits/stl_multimap.h
  /usr/include/SFML/Graphics/RectangleShape.hpp
@@ -3671,7 +3704,6 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h
  /usr/include/c++/11/bits/specfun.h
- /usr/include/c++/11/limits
  /usr/include/c++/11/tr1/gamma.tcc
  /usr/include/c++/11/tr1/special_function_util.h
  /usr/include/c++/11/tr1/bessel_function.tcc
@@ -3684,12 +3716,6 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
  /usr/include/c++/11/tr1/poly_hermite.tcc
  /usr/include/c++/11/tr1/poly_laguerre.tcc
  /usr/include/c++/11/tr1/riemann_zeta.tcc
- /usr/include/c++/11/thread
- /usr/include/c++/11/bits/std_thread.h
- /usr/include/c++/11/bits/this_thread_sleep.h
- /usr/include/c++/11/chrono
- /usr/include/c++/11/ratio
- /usr/include/c++/11/bits/parse_numbers.h
  /usr/include/c++/11/optional
  /usr/include/c++/11/future
  /usr/include/c++/11/mutex
@@ -3725,7 +3751,6 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/Voxel.hpp
  /home/lauri/Documents/inteplas/src/Elements.hpp
  /home/lauri/Documents/inteplas/src/ExplosionInfo.hpp
- /home/lauri/Documents/inteplas/src/common.hpp
  /home/lauri/Documents/inteplas/src/Chunk.hpp
  /usr/include/c++/11/memory
  /usr/include/c++/11/bits/stl_raw_storage_iter.h
@@ -3755,26 +3780,6 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
- /usr/include/SFML/Audio.hpp
- /usr/include/SFML/Audio/InputSoundFile.hpp
- /usr/include/SFML/Audio/Export.hpp
- /usr/include/SFML/Audio/Listener.hpp
- /usr/include/SFML/Audio/Music.hpp
- /usr/include/SFML/Audio/SoundStream.hpp
- /usr/include/SFML/Audio/SoundSource.hpp
- /usr/include/SFML/Audio/AlResource.hpp
- /usr/include/SFML/Audio/OutputSoundFile.hpp
- /usr/include/SFML/Audio/Sound.hpp
- /usr/include/SFML/Audio/SoundBuffer.hpp
- /usr/include/c++/11/set
- /usr/include/c++/11/bits/stl_set.h
- /usr/include/c++/11/bits/stl_multiset.h
- /usr/include/SFML/Audio/SoundBufferRecorder.hpp
- /usr/include/SFML/Audio/SoundRecorder.hpp
- /usr/include/SFML/Audio/SoundFileFactory.hpp
- /usr/include/SFML/Audio/SoundFileFactory.inl
- /usr/include/SFML/Audio/SoundFileReader.hpp
- /usr/include/SFML/Audio/SoundFileWriter.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerDamageSoundType.hpp
  /home/lauri/Documents/inteplas/src/Elements/BurnedMaterial.hpp
  /home/lauri/Documents/inteplas/src/Elements/Element.hpp
@@ -4321,11 +4326,8 @@ CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp
- /home/lauri/Documents/inteplas/src/Player/JumpState.hpp
- /home/lauri/Documents/inteplas/src/Player/DeadState.hpp
- /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp
- /home/lauri/Documents/inteplas/src/Player/DamageState.hpp
- /home/lauri/Documents/inteplas/src/SoundFX.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /usr/include/SFML/Audio.hpp
  /usr/include/SFML/Audio/InputSoundFile.hpp
  /usr/include/SFML/Audio/Export.hpp
@@ -4346,6 +4348,11 @@ CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o
  /usr/include/SFML/Audio/SoundFileFactory.inl
  /usr/include/SFML/Audio/SoundFileReader.hpp
  /usr/include/SFML/Audio/SoundFileWriter.hpp
+ /home/lauri/Documents/inteplas/src/Player/JumpState.hpp
+ /home/lauri/Documents/inteplas/src/Player/DeadState.hpp
+ /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp
+ /home/lauri/Documents/inteplas/src/Player/DamageState.hpp
+ /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerDamageSoundType.hpp
  /home/lauri/Documents/inteplas/src/Player/RespawnState.hpp
  /home/lauri/Documents/inteplas/src/Player/SwimState.hpp
@@ -4851,6 +4858,8 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /home/lauri/Documents/inteplas/src/Player/JumpState.hpp
  /home/lauri/Documents/inteplas/src/Player/DeadState.hpp
  /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp
@@ -5549,6 +5558,8 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /home/lauri/Documents/inteplas/src/Player/JumpState.hpp
  /home/lauri/Documents/inteplas/src/Player/DeadState.hpp
  /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp
@@ -6085,6 +6096,8 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /home/lauri/Documents/inteplas/src/Player/JumpState.hpp
  /home/lauri/Documents/inteplas/src/Player/DeadState.hpp
  /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp
@@ -6618,6 +6631,8 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /home/lauri/Documents/inteplas/src/Player/JumpState.hpp
  /home/lauri/Documents/inteplas/src/Player/DeadState.hpp
  /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp
@@ -7148,6 +7163,8 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /home/lauri/Documents/inteplas/src/Player/JumpState.hpp
  /home/lauri/Documents/inteplas/src/Player/DeadState.hpp
  /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp
@@ -8760,11 +8777,8 @@ CMakeFiles/inteplas.dir/src/Player/Player.cpp.o
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp
- /home/lauri/Documents/inteplas/src/Player/JumpState.hpp
- /home/lauri/Documents/inteplas/src/Player/DeadState.hpp
- /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp
- /home/lauri/Documents/inteplas/src/Player/DamageState.hpp
- /home/lauri/Documents/inteplas/src/SoundFX.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /usr/include/SFML/Audio.hpp
  /usr/include/SFML/Audio/InputSoundFile.hpp
  /usr/include/SFML/Audio/Export.hpp
@@ -8785,6 +8799,11 @@ CMakeFiles/inteplas.dir/src/Player/Player.cpp.o
  /usr/include/SFML/Audio/SoundFileFactory.inl
  /usr/include/SFML/Audio/SoundFileReader.hpp
  /usr/include/SFML/Audio/SoundFileWriter.hpp
+ /home/lauri/Documents/inteplas/src/Player/JumpState.hpp
+ /home/lauri/Documents/inteplas/src/Player/DeadState.hpp
+ /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp
+ /home/lauri/Documents/inteplas/src/Player/DamageState.hpp
+ /home/lauri/Documents/inteplas/src/SoundFX.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerDamageSoundType.hpp
  /home/lauri/Documents/inteplas/src/Player/RespawnState.hpp
  /home/lauri/Documents/inteplas/src/Player/SwimState.hpp
@@ -9960,6 +9979,28 @@ CMakeFiles/inteplas.dir/src/Player/SwimState.cpp.o
  /home/lauri/Documents/inteplas/src/Utils/StringUtils.hpp
  /home/lauri/Documents/inteplas/src/FastNoiseLite.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerGlobal.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
+ /usr/include/SFML/Audio.hpp
+ /usr/include/SFML/Audio/InputSoundFile.hpp
+ /usr/include/SFML/Audio/Export.hpp
+ /usr/include/SFML/Audio/Listener.hpp
+ /usr/include/SFML/Audio/Music.hpp
+ /usr/include/SFML/Audio/SoundStream.hpp
+ /usr/include/SFML/Audio/SoundSource.hpp
+ /usr/include/SFML/Audio/AlResource.hpp
+ /usr/include/SFML/Audio/OutputSoundFile.hpp
+ /usr/include/SFML/Audio/Sound.hpp
+ /usr/include/SFML/Audio/SoundBuffer.hpp
+ /usr/include/c++/11/set
+ /usr/include/c++/11/bits/stl_set.h
+ /usr/include/c++/11/bits/stl_multiset.h
+ /usr/include/SFML/Audio/SoundBufferRecorder.hpp
+ /usr/include/SFML/Audio/SoundRecorder.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.inl
+ /usr/include/SFML/Audio/SoundFileReader.hpp
+ /usr/include/SFML/Audio/SoundFileWriter.hpp
 
 CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.o
  /home/lauri/Documents/inteplas/src/Player/WalkState.cpp
@@ -10352,6 +10393,28 @@ CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.o
  /home/lauri/Documents/inteplas/src/Utils/StringUtils.hpp
  /home/lauri/Documents/inteplas/src/FastNoiseLite.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerGlobal.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
+ /usr/include/SFML/Audio.hpp
+ /usr/include/SFML/Audio/InputSoundFile.hpp
+ /usr/include/SFML/Audio/Export.hpp
+ /usr/include/SFML/Audio/Listener.hpp
+ /usr/include/SFML/Audio/Music.hpp
+ /usr/include/SFML/Audio/SoundStream.hpp
+ /usr/include/SFML/Audio/SoundSource.hpp
+ /usr/include/SFML/Audio/AlResource.hpp
+ /usr/include/SFML/Audio/OutputSoundFile.hpp
+ /usr/include/SFML/Audio/Sound.hpp
+ /usr/include/SFML/Audio/SoundBuffer.hpp
+ /usr/include/c++/11/set
+ /usr/include/c++/11/bits/stl_set.h
+ /usr/include/c++/11/bits/stl_multiset.h
+ /usr/include/SFML/Audio/SoundBufferRecorder.hpp
+ /usr/include/SFML/Audio/SoundRecorder.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.inl
+ /usr/include/SFML/Audio/SoundFileReader.hpp
+ /usr/include/SFML/Audio/SoundFileWriter.hpp
 
 CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/UIStateManager.cpp
@@ -10662,6 +10725,36 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /usr/include/c++/11/iostream
  /usr/include/c++/11/istream
  /usr/include/c++/11/bits/istream.tcc
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
+ /usr/include/SFML/Audio.hpp
+ /usr/include/SFML/Audio/InputSoundFile.hpp
+ /usr/include/SFML/Audio/Export.hpp
+ /usr/include/SFML/Audio/Listener.hpp
+ /usr/include/SFML/Audio/Music.hpp
+ /usr/include/SFML/Audio/SoundStream.hpp
+ /usr/include/SFML/Audio/SoundSource.hpp
+ /usr/include/SFML/Audio/AlResource.hpp
+ /usr/include/SFML/Audio/OutputSoundFile.hpp
+ /usr/include/SFML/Audio/Sound.hpp
+ /usr/include/SFML/Audio/SoundBuffer.hpp
+ /usr/include/c++/11/set
+ /usr/include/c++/11/bits/stl_set.h
+ /usr/include/c++/11/bits/stl_multiset.h
+ /usr/include/SFML/Audio/SoundBufferRecorder.hpp
+ /usr/include/SFML/Audio/SoundRecorder.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.inl
+ /usr/include/SFML/Audio/SoundFileReader.hpp
+ /usr/include/SFML/Audio/SoundFileWriter.hpp
+ /home/lauri/Documents/inteplas/src/common.hpp
+ /usr/include/c++/11/thread
+ /usr/include/c++/11/bits/std_thread.h
+ /usr/include/c++/11/bits/this_thread_sleep.h
+ /usr/include/c++/11/chrono
+ /usr/include/c++/11/ratio
+ /usr/include/c++/11/limits
+ /usr/include/c++/11/bits/parse_numbers.h
  /home/lauri/Documents/inteplas/src/VoxelManager.hpp
  /usr/include/c++/11/math.h
  /usr/include/c++/11/cmath
@@ -10676,7 +10769,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h
  /usr/include/c++/11/bits/specfun.h
- /usr/include/c++/11/limits
  /usr/include/c++/11/tr1/gamma.tcc
  /usr/include/c++/11/tr1/special_function_util.h
  /usr/include/c++/11/tr1/bessel_function.tcc
@@ -10689,12 +10781,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /usr/include/c++/11/tr1/poly_hermite.tcc
  /usr/include/c++/11/tr1/poly_laguerre.tcc
  /usr/include/c++/11/tr1/riemann_zeta.tcc
- /usr/include/c++/11/thread
- /usr/include/c++/11/bits/std_thread.h
- /usr/include/c++/11/bits/this_thread_sleep.h
- /usr/include/c++/11/chrono
- /usr/include/c++/11/ratio
- /usr/include/c++/11/bits/parse_numbers.h
  /usr/include/c++/11/optional
  /usr/include/c++/11/future
  /usr/include/c++/11/mutex
@@ -10730,7 +10816,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/Voxel.hpp
  /home/lauri/Documents/inteplas/src/Elements.hpp
  /home/lauri/Documents/inteplas/src/ExplosionInfo.hpp
- /home/lauri/Documents/inteplas/src/common.hpp
  /home/lauri/Documents/inteplas/src/Chunk.hpp
  /usr/include/c++/11/memory
  /usr/include/c++/11/bits/stl_raw_storage_iter.h
@@ -10760,26 +10845,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
- /usr/include/SFML/Audio.hpp
- /usr/include/SFML/Audio/InputSoundFile.hpp
- /usr/include/SFML/Audio/Export.hpp
- /usr/include/SFML/Audio/Listener.hpp
- /usr/include/SFML/Audio/Music.hpp
- /usr/include/SFML/Audio/SoundStream.hpp
- /usr/include/SFML/Audio/SoundSource.hpp
- /usr/include/SFML/Audio/AlResource.hpp
- /usr/include/SFML/Audio/OutputSoundFile.hpp
- /usr/include/SFML/Audio/Sound.hpp
- /usr/include/SFML/Audio/SoundBuffer.hpp
- /usr/include/c++/11/set
- /usr/include/c++/11/bits/stl_set.h
- /usr/include/c++/11/bits/stl_multiset.h
- /usr/include/SFML/Audio/SoundBufferRecorder.hpp
- /usr/include/SFML/Audio/SoundRecorder.hpp
- /usr/include/SFML/Audio/SoundFileFactory.hpp
- /usr/include/SFML/Audio/SoundFileFactory.inl
- /usr/include/SFML/Audio/SoundFileReader.hpp
- /usr/include/SFML/Audio/SoundFileWriter.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerDamageSoundType.hpp
  /home/lauri/Documents/inteplas/src/Elements/BurnedMaterial.hpp
  /home/lauri/Documents/inteplas/src/Elements/Element.hpp
@@ -12231,6 +12296,8 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /home/lauri/Documents/inteplas/src/Player/JumpState.hpp
  /home/lauri/Documents/inteplas/src/Player/DeadState.hpp
  /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp
@@ -12753,6 +12820,8 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /home/lauri/Documents/inteplas/src/Player/JumpState.hpp
  /home/lauri/Documents/inteplas/src/Player/DeadState.hpp
  /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp
@@ -13003,9 +13072,9 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /usr/include/c++/11/bits/ostream.tcc
  /usr/include/c++/11/istream
  /usr/include/c++/11/bits/istream.tcc
- /home/lauri/Documents/inteplas/src/VoxelManager.hpp
- /usr/include/SFML/Graphics.hpp
- /usr/include/SFML/Window.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
+ /usr/include/SFML/Audio.hpp
  /usr/include/SFML/System.hpp
  /usr/include/SFML/Config.hpp
  /usr/include/SFML/System/Clock.hpp
@@ -13044,6 +13113,37 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /usr/include/SFML/System/Vector2.inl
  /usr/include/SFML/System/Vector3.hpp
  /usr/include/SFML/System/Vector3.inl
+ /usr/include/SFML/Audio/InputSoundFile.hpp
+ /usr/include/SFML/Audio/Export.hpp
+ /usr/include/SFML/Audio/Listener.hpp
+ /usr/include/SFML/Audio/Music.hpp
+ /usr/include/SFML/Audio/SoundStream.hpp
+ /usr/include/SFML/Audio/SoundSource.hpp
+ /usr/include/SFML/Audio/AlResource.hpp
+ /usr/include/SFML/Audio/OutputSoundFile.hpp
+ /usr/include/SFML/Audio/Sound.hpp
+ /usr/include/SFML/Audio/SoundBuffer.hpp
+ /usr/include/c++/11/set
+ /usr/include/c++/11/bits/stl_tree.h
+ /usr/include/c++/11/bits/stl_set.h
+ /usr/include/c++/11/bits/stl_multiset.h
+ /usr/include/SFML/Audio/SoundBufferRecorder.hpp
+ /usr/include/SFML/Audio/SoundRecorder.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.hpp
+ /usr/include/SFML/Audio/SoundFileFactory.inl
+ /usr/include/SFML/Audio/SoundFileReader.hpp
+ /usr/include/SFML/Audio/SoundFileWriter.hpp
+ /home/lauri/Documents/inteplas/src/common.hpp
+ /usr/include/c++/11/thread
+ /usr/include/c++/11/bits/std_thread.h
+ /usr/include/c++/11/bits/this_thread_sleep.h
+ /usr/include/c++/11/chrono
+ /usr/include/c++/11/ratio
+ /usr/include/c++/11/limits
+ /usr/include/c++/11/bits/parse_numbers.h
+ /home/lauri/Documents/inteplas/src/VoxelManager.hpp
+ /usr/include/SFML/Graphics.hpp
+ /usr/include/SFML/Window.hpp
  /usr/include/SFML/Window/Clipboard.hpp
  /usr/include/SFML/Window/Export.hpp
  /usr/include/SFML/Window/Context.hpp
@@ -13080,7 +13180,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /usr/include/SFML/Graphics/Texture.hpp
  /usr/include/SFML/Graphics/Image.hpp
  /usr/include/c++/11/map
- /usr/include/c++/11/bits/stl_tree.h
  /usr/include/c++/11/bits/stl_map.h
  /usr/include/c++/11/bits/stl_multimap.h
  /usr/include/SFML/Graphics/RectangleShape.hpp
@@ -13107,7 +13206,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h
  /usr/include/c++/11/bits/specfun.h
- /usr/include/c++/11/limits
  /usr/include/c++/11/tr1/gamma.tcc
  /usr/include/c++/11/tr1/special_function_util.h
  /usr/include/c++/11/tr1/bessel_function.tcc
@@ -13120,12 +13218,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /usr/include/c++/11/tr1/poly_hermite.tcc
  /usr/include/c++/11/tr1/poly_laguerre.tcc
  /usr/include/c++/11/tr1/riemann_zeta.tcc
- /usr/include/c++/11/thread
- /usr/include/c++/11/bits/std_thread.h
- /usr/include/c++/11/bits/this_thread_sleep.h
- /usr/include/c++/11/chrono
- /usr/include/c++/11/ratio
- /usr/include/c++/11/bits/parse_numbers.h
  /usr/include/c++/11/optional
  /usr/include/c++/11/future
  /usr/include/c++/11/mutex
@@ -13161,7 +13253,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/Voxel.hpp
  /home/lauri/Documents/inteplas/src/Elements.hpp
  /home/lauri/Documents/inteplas/src/ExplosionInfo.hpp
- /home/lauri/Documents/inteplas/src/common.hpp
  /home/lauri/Documents/inteplas/src/Chunk.hpp
  /usr/include/c++/11/memory
  /usr/include/c++/11/bits/stl_raw_storage_iter.h
@@ -13191,26 +13282,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/Particle/PickableDebris.hpp
  /home/lauri/Documents/inteplas/src/CollisionManager.hpp
  /home/lauri/Documents/inteplas/src/SoundFX.hpp
- /usr/include/SFML/Audio.hpp
- /usr/include/SFML/Audio/InputSoundFile.hpp
- /usr/include/SFML/Audio/Export.hpp
- /usr/include/SFML/Audio/Listener.hpp
- /usr/include/SFML/Audio/Music.hpp
- /usr/include/SFML/Audio/SoundStream.hpp
- /usr/include/SFML/Audio/SoundSource.hpp
- /usr/include/SFML/Audio/AlResource.hpp
- /usr/include/SFML/Audio/OutputSoundFile.hpp
- /usr/include/SFML/Audio/Sound.hpp
- /usr/include/SFML/Audio/SoundBuffer.hpp
- /usr/include/c++/11/set
- /usr/include/c++/11/bits/stl_set.h
- /usr/include/c++/11/bits/stl_multiset.h
- /usr/include/SFML/Audio/SoundBufferRecorder.hpp
- /usr/include/SFML/Audio/SoundRecorder.hpp
- /usr/include/SFML/Audio/SoundFileFactory.hpp
- /usr/include/SFML/Audio/SoundFileFactory.inl
- /usr/include/SFML/Audio/SoundFileReader.hpp
- /usr/include/SFML/Audio/SoundFileWriter.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerDamageSoundType.hpp
  /home/lauri/Documents/inteplas/src/Elements/BurnedMaterial.hpp
  /home/lauri/Documents/inteplas/src/Elements/Element.hpp
@@ -13941,6 +14012,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/UIState.hpp
  /home/lauri/Documents/inteplas/src/PlayerUI.hpp
  /home/lauri/Documents/inteplas/src/World.hpp
+ /home/lauri/Documents/inteplas/src/Sound/GameSoundManager.hpp
+ /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /home/lauri/Documents/inteplas/src/VoxelManager.hpp
  /usr/include/c++/11/math.h
  /usr/include/c++/11/future
@@ -14132,7 +14205,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/NuclearExplosionGameEvent.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/Helicopter.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/HelicopterTurret.hpp
- /home/lauri/Documents/inteplas/src/Sound/Sound.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/HeistInfoGui.hpp
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/CollectableBox.hpp
  /home/lauri/Documents/inteplas/src/UI/PointIndicator.hpp

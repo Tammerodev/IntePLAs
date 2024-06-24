@@ -2,6 +2,7 @@
 #include "PlayerState.hpp"
 #include "../Controls.hpp"
 #include "PlayerGlobal.hpp"
+#include "../Sound/GameSoundManager.hpp"
 
 class SwimState : public PlayerState {
 public:

@@ -2,6 +2,7 @@
 #include <list>
 #include <algorithm>
 #include <iostream>
+#include "Sound/GameSoundManager.hpp"
 #include "VoxelManager.hpp"
 #include "Player/Player.hpp"
 #include "VoxelGroup.hpp"
@@ -95,6 +96,48 @@ public:
         main_world.update(player, gameEventManager, eff);
         mobManager.update(dt, player, main_world);
         mobManager.checkCollisions(main_world);
+
+
+        sf::Vector2i collPos = sf::Vector2i(
+            player.getHeadPosition() + sf::Vector2f(0, PlayerGlobal::characterHitBoxSize.y)
+        );
+
+        Voxel& currentVoxel = main_world.getChunkIndexer().boundGetVoxelAt(collPos.x, collPos.y);
+
+        if(PlayerState::currentState == PlayerState::walkState && currentVoxel.value != 0) {
+            if(currentVoxel.strenght == 1) 
+                GameSoundManager::Organic::walk_dirt.play();
+
+        } else if(PlayerState::currentState == PlayerState::idleState && currentVoxel.value != 0) {
+            if(player.getPhysicsComponent().velocity.y > 3.0 && currentVoxel.strenght == 1) {
+                GameSoundManager::Organic::fall_soil_hard.play();
+                player.getPhysicsComponent().velocity.y = 2.9;
+            }
+        } else if(PlayerState::currentState == PlayerState::swimState && currentVoxel.value != 0) {
+            sf::Vector2i chunk_pos = main_world.getChunkIndexer().getChunkFromPos(collPos.x, collPos.y);
+
+            Chunk& chunk = main_world.getChunkIndexer().boundGetChunkAt(chunk_pos.x, chunk_pos.y);
+
+            for (int dx = -2; dx <= 2; ++dx) {
+                for (int dy = -2; dy <= 2; ++dy) {
+                    main_world.getChunkIndexer().boundGetChunkAt(chunk_pos.x + dx, chunk_pos.y + dy).needs_update = true;
+                }
+            }
+
+            for(auto &e : chunk.elements) {
+                if(math::distance(sf::Vector2f(*e), sf::Vector2f(player.getHeadPosition())) < 50) {
+                    e->setVelocity(sf::Vector2i(math::randIntInRange(-3, 3), -6));
+                    e->update(main_world.getChunkIndexer());
+                }
+            }
+
+            if(player.getPhysicsComponent().velocity.y > 3.0) {
+                GameSoundManager::Liquid::splash_water.play();
+                player.getPhysicsComponent().velocity.y = 2.9;
+            }
+        }
+
+
         
         // Temporary container to hold the elements to be removed
         std::list<std::shared_ptr<VoxelGroup>> to_be_removed;

@@ -313,11 +313,8 @@ CMakeFiles/inteplas.dir/src/Player/Player.cpp.o: \
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp \
  /home/lauri/Documents/inteplas/src/Player/PlayerGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp \
- /home/lauri/Documents/inteplas/src/Player/JumpState.hpp \
- /home/lauri/Documents/inteplas/src/Player/DeadState.hpp \
- /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp \
- /home/lauri/Documents/inteplas/src/Player/DamageState.hpp \
- /home/lauri/Documents/inteplas/src/Player/../SoundFX.hpp \
+ /home/lauri/Documents/inteplas/src/Player/../Sound/GameSoundManager.hpp \
+ /home/lauri/Documents/inteplas/src/Player/../Sound/Sound.hpp \
  /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
  /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
  /usr/include/SFML/Audio/Music.hpp \
@@ -335,6 +332,11 @@ CMakeFiles/inteplas.dir/src/Player/Player.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
+ /home/lauri/Documents/inteplas/src/Player/JumpState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/DeadState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/DamageState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/../SoundFX.hpp \
  /home/lauri/Documents/inteplas/src/Player/../Player/PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Player/RespawnState.hpp \
  /home/lauri/Documents/inteplas/src/Player/SwimState.hpp \

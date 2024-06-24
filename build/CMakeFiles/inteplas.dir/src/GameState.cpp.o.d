@@ -255,6 +255,26 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /usr/include/c++/11/bits/allocated_ptr.h \
  /usr/include/c++/11/bits/list.tcc /usr/include/c++/11/iostream \
  /usr/include/c++/11/istream /usr/include/c++/11/bits/istream.tcc \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Sound/GameSoundManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Sound/Sound.hpp \
+ /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
+ /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
+ /usr/include/SFML/Audio/Music.hpp \
+ /usr/include/SFML/Audio/SoundStream.hpp \
+ /usr/include/SFML/Audio/SoundSource.hpp \
+ /usr/include/SFML/Audio/AlResource.hpp \
+ /usr/include/SFML/Audio/OutputSoundFile.hpp \
+ /usr/include/SFML/Audio/Sound.hpp \
+ /usr/include/SFML/Audio/SoundBuffer.hpp /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h \
+ /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+ /usr/include/SFML/Audio/SoundRecorder.hpp \
+ /usr/include/SFML/Audio/SoundFileFactory.hpp \
+ /usr/include/SFML/Audio/SoundFileFactory.inl \
+ /usr/include/SFML/Audio/SoundFileReader.hpp \
+ /usr/include/SFML/Audio/SoundFileWriter.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Sound/../common.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../VoxelManager.hpp \
  /usr/include/c++/11/math.h /usr/include/c++/11/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -302,7 +322,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Voxel.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ExplosionInfo.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../common.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Chunk.hpp \
  /usr/include/c++/11/memory \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
@@ -332,23 +351,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/PickableDebris.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/../CollisionManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/../SoundFX.hpp \
- /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
- /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
- /usr/include/SFML/Audio/Music.hpp \
- /usr/include/SFML/Audio/SoundStream.hpp \
- /usr/include/SFML/Audio/SoundSource.hpp \
- /usr/include/SFML/Audio/AlResource.hpp \
- /usr/include/SFML/Audio/OutputSoundFile.hpp \
- /usr/include/SFML/Audio/Sound.hpp \
- /usr/include/SFML/Audio/SoundBuffer.hpp /usr/include/c++/11/set \
- /usr/include/c++/11/bits/stl_set.h \
- /usr/include/c++/11/bits/stl_multiset.h \
- /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
- /usr/include/SFML/Audio/SoundRecorder.hpp \
- /usr/include/SFML/Audio/SoundFileFactory.hpp \
- /usr/include/SFML/Audio/SoundFileFactory.inl \
- /usr/include/SFML/Audio/SoundFileReader.hpp \
- /usr/include/SFML/Audio/SoundFileWriter.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Particle/../Player/PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/BurnedMaterial.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Elements/Element.hpp \
@@ -668,7 +670,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../NuclearExplosionGameEvent.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/Helicopter.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/HelicopterTurret.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Sound/Sound.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/HeistInfoGui.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/CollectableBox.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../UI/PointIndicator.hpp \

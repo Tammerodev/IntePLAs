@@ -489,6 +489,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../UIState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../PlayerUI.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../World.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Sound/GameSoundManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Sound/Sound.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../VoxelManager.hpp \
  /usr/include/c++/11/math.h /usr/include/c++/11/future \
  /usr/include/c++/11/mutex /usr/include/c++/11/bits/std_mutex.h \
@@ -675,7 +677,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../NuclearExplosionGameEvent.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/Helicopter.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/HelicopterTurret.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Sound/Sound.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/HeistInfoGui.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/CollectableBox.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../UI/PointIndicator.hpp \

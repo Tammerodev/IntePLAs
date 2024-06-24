@@ -1,152 +1,152 @@
 [
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Button.cpp.o -c /home/lauri/Documents/inteplas/src/Button.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Button.cpp.o -c /home/lauri/Documents/inteplas/src/Button.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Button.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/ElectricitySimulation.cpp.o -c /home/lauri/Documents/inteplas/src/ElectricitySimulation.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/ElectricitySimulation.cpp.o -c /home/lauri/Documents/inteplas/src/ElectricitySimulation.cpp",
   "file": "/home/lauri/Documents/inteplas/src/ElectricitySimulation.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Elements/GravityElement.cpp.o -c /home/lauri/Documents/inteplas/src/Elements/GravityElement.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Elements/GravityElement.cpp.o -c /home/lauri/Documents/inteplas/src/Elements/GravityElement.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Elements/GravityElement.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Elements/SandMaterial.cpp.o -c /home/lauri/Documents/inteplas/src/Elements/SandMaterial.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Elements/SandMaterial.cpp.o -c /home/lauri/Documents/inteplas/src/Elements/SandMaterial.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Elements/SandMaterial.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Elements/Snow.cpp.o -c /home/lauri/Documents/inteplas/src/Elements/Snow.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Elements/Snow.cpp.o -c /home/lauri/Documents/inteplas/src/Elements/Snow.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Elements/Snow.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o -c /home/lauri/Documents/inteplas/src/FireEffectManager.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o -c /home/lauri/Documents/inteplas/src/FireEffectManager.cpp",
   "file": "/home/lauri/Documents/inteplas/src/FireEffectManager.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Game.cpp.o -c /home/lauri/Documents/inteplas/src/Game.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Game.cpp.o -c /home/lauri/Documents/inteplas/src/Game.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Game.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/GameState.cpp.o -c /home/lauri/Documents/inteplas/src/GameState.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/GameState.cpp.o -c /home/lauri/Documents/inteplas/src/GameState.cpp",
   "file": "/home/lauri/Documents/inteplas/src/GameState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o -c /home/lauri/Documents/inteplas/src/Item/Jetpack.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o -c /home/lauri/Documents/inteplas/src/Item/Jetpack.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Item/Jetpack.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o -c /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o -c /home/lauri/Documents/inteplas/src/Lighting/LightSimulation.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Lighting/LightSimulation.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o -c /home/lauri/Documents/inteplas/src/MaterialsUI.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o -c /home/lauri/Documents/inteplas/src/MaterialsUI.cpp",
   "file": "/home/lauri/Documents/inteplas/src/MaterialsUI.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o -c /home/lauri/Documents/inteplas/src/Mob/Fish/Fish.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o -c /home/lauri/Documents/inteplas/src/Mob/Fish/Fish.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Mob/Fish/Fish.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o -c /home/lauri/Documents/inteplas/src/Mob/Frog/Frog.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o -c /home/lauri/Documents/inteplas/src/Mob/Frog/Frog.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Mob/Frog/Frog.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o -c /home/lauri/Documents/inteplas/src/Mob/Mob.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o -c /home/lauri/Documents/inteplas/src/Mob/Mob.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Mob/Mob.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/MobManager.cpp.o -c /home/lauri/Documents/inteplas/src/MobManager.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/MobManager.cpp.o -c /home/lauri/Documents/inteplas/src/MobManager.cpp",
   "file": "/home/lauri/Documents/inteplas/src/MobManager.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/CreativeState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/CreativeState.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/CreativeState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/CreativeState.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Player/CreativeState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/IdleState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/IdleState.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/IdleState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/IdleState.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Player/IdleState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/JumpState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/JumpState.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/JumpState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/JumpState.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Player/JumpState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/Player.cpp.o -c /home/lauri/Documents/inteplas/src/Player/Player.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/Player.cpp.o -c /home/lauri/Documents/inteplas/src/Player/Player.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Player/Player.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/PlayerHealthManager.cpp.o -c /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/PlayerHealthManager.cpp.o -c /home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Player/PlayerHealthManager.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/RespawnState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/RespawnState.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/RespawnState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/RespawnState.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Player/RespawnState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/SwimState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/SwimState.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/SwimState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/SwimState.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Player/SwimState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/WalkState.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.o -c /home/lauri/Documents/inteplas/src/Player/WalkState.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Player/WalkState.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o -c /home/lauri/Documents/inteplas/src/UIStateManager.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o -c /home/lauri/Documents/inteplas/src/UIStateManager.cpp",
   "file": "/home/lauri/Documents/inteplas/src/UIStateManager.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Voxel.cpp.o -c /home/lauri/Documents/inteplas/src/Voxel.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/Voxel.cpp.o -c /home/lauri/Documents/inteplas/src/Voxel.cpp",
   "file": "/home/lauri/Documents/inteplas/src/Voxel.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o -c /home/lauri/Documents/inteplas/src/VoxelGroup.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o -c /home/lauri/Documents/inteplas/src/VoxelGroup.cpp",
   "file": "/home/lauri/Documents/inteplas/src/VoxelGroup.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o -c /home/lauri/Documents/inteplas/src/VoxelManager.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o -c /home/lauri/Documents/inteplas/src/VoxelManager.cpp",
   "file": "/home/lauri/Documents/inteplas/src/VoxelManager.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o -c /home/lauri/Documents/inteplas/src/WeatherManager.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o -c /home/lauri/Documents/inteplas/src/WeatherManager.cpp",
   "file": "/home/lauri/Documents/inteplas/src/WeatherManager.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/World.cpp.o -c /home/lauri/Documents/inteplas/src/World.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/World.cpp.o -c /home/lauri/Documents/inteplas/src/World.cpp",
   "file": "/home/lauri/Documents/inteplas/src/World.cpp"
 },
 {
   "directory": "/home/lauri/Documents/inteplas/build",
-  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -Wall -Wextra -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/main.cpp.o -c /home/lauri/Documents/inteplas/src/main.cpp",
+  "command": "/usr/bin/c++ -DTGUI_DYNAMIC -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp -g -std=gnu++17 -o CMakeFiles/inteplas.dir/src/main.cpp.o -c /home/lauri/Documents/inteplas/src/main.cpp",
   "file": "/home/lauri/Documents/inteplas/src/main.cpp"
 }
 ]

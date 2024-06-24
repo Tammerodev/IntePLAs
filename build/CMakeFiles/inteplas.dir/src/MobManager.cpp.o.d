@@ -407,6 +407,8 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/Player.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/IdleState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/WalkState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/../Sound/GameSoundManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/../Sound/Sound.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/JumpState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/DeadState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Player/CreativeState.hpp \

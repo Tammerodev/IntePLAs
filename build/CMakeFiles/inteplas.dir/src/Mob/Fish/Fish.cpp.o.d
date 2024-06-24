@@ -406,6 +406,8 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/Player.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/IdleState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/WalkState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/../Sound/GameSoundManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/../Sound/Sound.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/JumpState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/DeadState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/CreativeState.hpp \

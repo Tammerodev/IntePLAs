@@ -2080,6 +2080,36 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
+  /usr/include/SFML/Audio.hpp \
+  /usr/include/SFML/Audio/InputSoundFile.hpp \
+  /usr/include/SFML/Audio/Export.hpp \
+  /usr/include/SFML/Audio/Listener.hpp \
+  /usr/include/SFML/Audio/Music.hpp \
+  /usr/include/SFML/Audio/SoundStream.hpp \
+  /usr/include/SFML/Audio/SoundSource.hpp \
+  /usr/include/SFML/Audio/AlResource.hpp \
+  /usr/include/SFML/Audio/OutputSoundFile.hpp \
+  /usr/include/SFML/Audio/Sound.hpp \
+  /usr/include/SFML/Audio/SoundBuffer.hpp \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
+  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+  /usr/include/SFML/Audio/SoundRecorder.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.inl \
+  /usr/include/SFML/Audio/SoundFileReader.hpp \
+  /usr/include/SFML/Audio/SoundFileWriter.hpp \
+  ../src/common.hpp \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/bits/parse_numbers.h \
   ../src/VoxelManager.hpp \
   /usr/include/c++/11/math.h \
   /usr/include/c++/11/cmath \
@@ -2094,7 +2124,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/c++/11/bits/specfun.h \
-  /usr/include/c++/11/limits \
   /usr/include/c++/11/tr1/gamma.tcc \
   /usr/include/c++/11/tr1/special_function_util.h \
   /usr/include/c++/11/tr1/bessel_function.tcc \
@@ -2107,12 +2136,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   /usr/include/c++/11/tr1/poly_hermite.tcc \
   /usr/include/c++/11/tr1/poly_laguerre.tcc \
   /usr/include/c++/11/tr1/riemann_zeta.tcc \
-  /usr/include/c++/11/thread \
-  /usr/include/c++/11/bits/std_thread.h \
-  /usr/include/c++/11/bits/this_thread_sleep.h \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/optional \
   /usr/include/c++/11/future \
   /usr/include/c++/11/mutex \
@@ -2148,7 +2171,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Voxel.hpp \
   ../src/Elements.hpp \
   ../src/ExplosionInfo.hpp \
-  ../src/common.hpp \
   ../src/Chunk.hpp \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
@@ -2178,26 +2200,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
-  /usr/include/SFML/Audio.hpp \
-  /usr/include/SFML/Audio/InputSoundFile.hpp \
-  /usr/include/SFML/Audio/Export.hpp \
-  /usr/include/SFML/Audio/Listener.hpp \
-  /usr/include/SFML/Audio/Music.hpp \
-  /usr/include/SFML/Audio/SoundStream.hpp \
-  /usr/include/SFML/Audio/SoundSource.hpp \
-  /usr/include/SFML/Audio/AlResource.hpp \
-  /usr/include/SFML/Audio/OutputSoundFile.hpp \
-  /usr/include/SFML/Audio/Sound.hpp \
-  /usr/include/SFML/Audio/SoundBuffer.hpp \
-  /usr/include/c++/11/set \
-  /usr/include/c++/11/bits/stl_set.h \
-  /usr/include/c++/11/bits/stl_multiset.h \
-  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
-  /usr/include/SFML/Audio/SoundRecorder.hpp \
-  /usr/include/SFML/Audio/SoundFileFactory.hpp \
-  /usr/include/SFML/Audio/SoundFileFactory.inl \
-  /usr/include/SFML/Audio/SoundFileReader.hpp \
-  /usr/include/SFML/Audio/SoundFileWriter.hpp \
   ../src/Player/PlayerDamageSoundType.hpp \
   ../src/Elements/BurnedMaterial.hpp \
   ../src/Elements/Element.hpp \
@@ -2870,6 +2872,29 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
+  /usr/include/SFML/Audio.hpp \
+  /usr/include/SFML/Audio/InputSoundFile.hpp \
+  /usr/include/SFML/Audio/Export.hpp \
+  /usr/include/SFML/Audio/Listener.hpp \
+  /usr/include/SFML/Audio/Music.hpp \
+  /usr/include/SFML/Audio/SoundStream.hpp \
+  /usr/include/SFML/Audio/SoundSource.hpp \
+  /usr/include/SFML/Audio/AlResource.hpp \
+  /usr/include/SFML/Audio/OutputSoundFile.hpp \
+  /usr/include/SFML/Audio/Sound.hpp \
+  /usr/include/SFML/Audio/SoundBuffer.hpp \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
+  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+  /usr/include/SFML/Audio/SoundRecorder.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.inl \
+  /usr/include/SFML/Audio/SoundFileReader.hpp \
+  /usr/include/SFML/Audio/SoundFileWriter.hpp \
+  ../src/common.hpp \
   ../src/VoxelManager.hpp \
   /usr/include/c++/11/math.h \
   /usr/include/c++/11/cmath \
@@ -2931,7 +2956,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Voxel.hpp \
   ../src/Elements.hpp \
   ../src/ExplosionInfo.hpp \
-  ../src/common.hpp \
   ../src/Chunk.hpp \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
@@ -2961,26 +2985,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
-  /usr/include/SFML/Audio.hpp \
-  /usr/include/SFML/Audio/InputSoundFile.hpp \
-  /usr/include/SFML/Audio/Export.hpp \
-  /usr/include/SFML/Audio/Listener.hpp \
-  /usr/include/SFML/Audio/Music.hpp \
-  /usr/include/SFML/Audio/SoundStream.hpp \
-  /usr/include/SFML/Audio/SoundSource.hpp \
-  /usr/include/SFML/Audio/AlResource.hpp \
-  /usr/include/SFML/Audio/OutputSoundFile.hpp \
-  /usr/include/SFML/Audio/Sound.hpp \
-  /usr/include/SFML/Audio/SoundBuffer.hpp \
-  /usr/include/c++/11/set \
-  /usr/include/c++/11/bits/stl_set.h \
-  /usr/include/c++/11/bits/stl_multiset.h \
-  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
-  /usr/include/SFML/Audio/SoundRecorder.hpp \
-  /usr/include/SFML/Audio/SoundFileFactory.hpp \
-  /usr/include/SFML/Audio/SoundFileFactory.inl \
-  /usr/include/SFML/Audio/SoundFileReader.hpp \
-  /usr/include/SFML/Audio/SoundFileWriter.hpp \
   ../src/Player/PlayerDamageSoundType.hpp \
   ../src/Elements/BurnedMaterial.hpp \
   ../src/Elements/Element.hpp \
@@ -3334,7 +3338,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/NuclearExplosionGameEvent.hpp \
   ../src/Mods/HeistMod/Helicopter.hpp \
   ../src/Mods/HeistMod/HelicopterTurret.hpp \
-  ../src/Sound/Sound.hpp \
   ../src/Mods/HeistMod/HeistInfoGui.hpp \
   ../src/Mods/HeistMod/CollectableBox.hpp \
   ../src/UI/PointIndicator.hpp \
@@ -3558,9 +3561,9 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
-  ../src/VoxelManager.hpp \
-  /usr/include/SFML/Graphics.hpp \
-  /usr/include/SFML/Window.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
+  /usr/include/SFML/Audio.hpp \
   /usr/include/SFML/System.hpp \
   /usr/include/SFML/Config.hpp \
   /usr/include/SFML/System/Clock.hpp \
@@ -3599,6 +3602,37 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   /usr/include/SFML/System/Vector2.inl \
   /usr/include/SFML/System/Vector3.hpp \
   /usr/include/SFML/System/Vector3.inl \
+  /usr/include/SFML/Audio/InputSoundFile.hpp \
+  /usr/include/SFML/Audio/Export.hpp \
+  /usr/include/SFML/Audio/Listener.hpp \
+  /usr/include/SFML/Audio/Music.hpp \
+  /usr/include/SFML/Audio/SoundStream.hpp \
+  /usr/include/SFML/Audio/SoundSource.hpp \
+  /usr/include/SFML/Audio/AlResource.hpp \
+  /usr/include/SFML/Audio/OutputSoundFile.hpp \
+  /usr/include/SFML/Audio/Sound.hpp \
+  /usr/include/SFML/Audio/SoundBuffer.hpp \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_tree.h \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
+  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+  /usr/include/SFML/Audio/SoundRecorder.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.inl \
+  /usr/include/SFML/Audio/SoundFileReader.hpp \
+  /usr/include/SFML/Audio/SoundFileWriter.hpp \
+  ../src/common.hpp \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  ../src/VoxelManager.hpp \
+  /usr/include/SFML/Graphics.hpp \
+  /usr/include/SFML/Window.hpp \
   /usr/include/SFML/Window/Clipboard.hpp \
   /usr/include/SFML/Window/Export.hpp \
   /usr/include/SFML/Window/Context.hpp \
@@ -3635,7 +3669,6 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   /usr/include/SFML/Graphics/Texture.hpp \
   /usr/include/SFML/Graphics/Image.hpp \
   /usr/include/c++/11/map \
-  /usr/include/c++/11/bits/stl_tree.h \
   /usr/include/c++/11/bits/stl_map.h \
   /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/SFML/Graphics/RectangleShape.hpp \
@@ -3662,7 +3695,6 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/c++/11/bits/specfun.h \
-  /usr/include/c++/11/limits \
   /usr/include/c++/11/tr1/gamma.tcc \
   /usr/include/c++/11/tr1/special_function_util.h \
   /usr/include/c++/11/tr1/bessel_function.tcc \
@@ -3675,12 +3707,6 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   /usr/include/c++/11/tr1/poly_hermite.tcc \
   /usr/include/c++/11/tr1/poly_laguerre.tcc \
   /usr/include/c++/11/tr1/riemann_zeta.tcc \
-  /usr/include/c++/11/thread \
-  /usr/include/c++/11/bits/std_thread.h \
-  /usr/include/c++/11/bits/this_thread_sleep.h \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/optional \
   /usr/include/c++/11/future \
   /usr/include/c++/11/mutex \
@@ -3716,7 +3742,6 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   ../src/Voxel.hpp \
   ../src/Elements.hpp \
   ../src/ExplosionInfo.hpp \
-  ../src/common.hpp \
   ../src/Chunk.hpp \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
@@ -3746,26 +3771,6 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
-  /usr/include/SFML/Audio.hpp \
-  /usr/include/SFML/Audio/InputSoundFile.hpp \
-  /usr/include/SFML/Audio/Export.hpp \
-  /usr/include/SFML/Audio/Listener.hpp \
-  /usr/include/SFML/Audio/Music.hpp \
-  /usr/include/SFML/Audio/SoundStream.hpp \
-  /usr/include/SFML/Audio/SoundSource.hpp \
-  /usr/include/SFML/Audio/AlResource.hpp \
-  /usr/include/SFML/Audio/OutputSoundFile.hpp \
-  /usr/include/SFML/Audio/Sound.hpp \
-  /usr/include/SFML/Audio/SoundBuffer.hpp \
-  /usr/include/c++/11/set \
-  /usr/include/c++/11/bits/stl_set.h \
-  /usr/include/c++/11/bits/stl_multiset.h \
-  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
-  /usr/include/SFML/Audio/SoundRecorder.hpp \
-  /usr/include/SFML/Audio/SoundFileFactory.hpp \
-  /usr/include/SFML/Audio/SoundFileFactory.inl \
-  /usr/include/SFML/Audio/SoundFileReader.hpp \
-  /usr/include/SFML/Audio/SoundFileWriter.hpp \
   ../src/Player/PlayerDamageSoundType.hpp \
   ../src/Elements/BurnedMaterial.hpp \
   ../src/Elements/Element.hpp \
@@ -4311,11 +4316,8 @@ CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o: ../src/Lighting/Ligh
   ../src/Player/IdleState.hpp \
   ../src/Player/PlayerGlobal.hpp \
   ../src/Player/WalkState.hpp \
-  ../src/Player/JumpState.hpp \
-  ../src/Player/DeadState.hpp \
-  ../src/Player/CreativeState.hpp \
-  ../src/Player/DamageState.hpp \
-  ../src/SoundFX.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
   /usr/include/SFML/Audio.hpp \
   /usr/include/SFML/Audio/InputSoundFile.hpp \
   /usr/include/SFML/Audio/Export.hpp \
@@ -4336,6 +4338,11 @@ CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o: ../src/Lighting/Ligh
   /usr/include/SFML/Audio/SoundFileFactory.inl \
   /usr/include/SFML/Audio/SoundFileReader.hpp \
   /usr/include/SFML/Audio/SoundFileWriter.hpp \
+  ../src/Player/JumpState.hpp \
+  ../src/Player/DeadState.hpp \
+  ../src/Player/CreativeState.hpp \
+  ../src/Player/DamageState.hpp \
+  ../src/SoundFX.hpp \
   ../src/Player/PlayerDamageSoundType.hpp \
   ../src/Player/RespawnState.hpp \
   ../src/Player/SwimState.hpp \
@@ -4840,6 +4847,8 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: ../src/MaterialsUI.cpp \
   ../src/Player/Player.hpp \
   ../src/Player/IdleState.hpp \
   ../src/Player/WalkState.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
   ../src/Player/JumpState.hpp \
   ../src/Player/DeadState.hpp \
   ../src/Player/CreativeState.hpp \
@@ -5537,6 +5546,8 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: ../src/Mob/Fish/Fish.cpp \
   ../src/Player/Player.hpp \
   ../src/Player/IdleState.hpp \
   ../src/Player/WalkState.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
   ../src/Player/JumpState.hpp \
   ../src/Player/DeadState.hpp \
   ../src/Player/CreativeState.hpp \
@@ -6072,6 +6083,8 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: ../src/Mob/Frog/Frog.cpp \
   ../src/Player/Player.hpp \
   ../src/Player/IdleState.hpp \
   ../src/Player/WalkState.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
   ../src/Player/JumpState.hpp \
   ../src/Player/DeadState.hpp \
   ../src/Player/CreativeState.hpp \
@@ -6604,6 +6617,8 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: ../src/Mob/Mob.cpp \
   ../src/Player/Player.hpp \
   ../src/Player/IdleState.hpp \
   ../src/Player/WalkState.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
   ../src/Player/JumpState.hpp \
   ../src/Player/DeadState.hpp \
   ../src/Player/CreativeState.hpp \
@@ -7133,6 +7148,8 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: ../src/MobManager.cpp \
   ../src/Player/Player.hpp \
   ../src/Player/IdleState.hpp \
   ../src/Player/WalkState.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
   ../src/Player/JumpState.hpp \
   ../src/Player/DeadState.hpp \
   ../src/Player/CreativeState.hpp \
@@ -8741,11 +8758,8 @@ CMakeFiles/inteplas.dir/src/Player/Player.cpp.o: ../src/Player/Player.cpp \
   ../src/Player/IdleState.hpp \
   ../src/Player/PlayerGlobal.hpp \
   ../src/Player/WalkState.hpp \
-  ../src/Player/JumpState.hpp \
-  ../src/Player/DeadState.hpp \
-  ../src/Player/CreativeState.hpp \
-  ../src/Player/DamageState.hpp \
-  ../src/SoundFX.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
   /usr/include/SFML/Audio.hpp \
   /usr/include/SFML/Audio/InputSoundFile.hpp \
   /usr/include/SFML/Audio/Export.hpp \
@@ -8766,6 +8780,11 @@ CMakeFiles/inteplas.dir/src/Player/Player.cpp.o: ../src/Player/Player.cpp \
   /usr/include/SFML/Audio/SoundFileFactory.inl \
   /usr/include/SFML/Audio/SoundFileReader.hpp \
   /usr/include/SFML/Audio/SoundFileWriter.hpp \
+  ../src/Player/JumpState.hpp \
+  ../src/Player/DeadState.hpp \
+  ../src/Player/CreativeState.hpp \
+  ../src/Player/DamageState.hpp \
+  ../src/SoundFX.hpp \
   ../src/Player/PlayerDamageSoundType.hpp \
   ../src/Player/RespawnState.hpp \
   ../src/Player/SwimState.hpp \
@@ -9937,7 +9956,29 @@ CMakeFiles/inteplas.dir/src/Player/SwimState.cpp.o: ../src/Player/SwimState.cpp 
   /usr/include/assert.h \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
-  ../src/Player/PlayerGlobal.hpp
+  ../src/Player/PlayerGlobal.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
+  /usr/include/SFML/Audio.hpp \
+  /usr/include/SFML/Audio/InputSoundFile.hpp \
+  /usr/include/SFML/Audio/Export.hpp \
+  /usr/include/SFML/Audio/Listener.hpp \
+  /usr/include/SFML/Audio/Music.hpp \
+  /usr/include/SFML/Audio/SoundStream.hpp \
+  /usr/include/SFML/Audio/SoundSource.hpp \
+  /usr/include/SFML/Audio/AlResource.hpp \
+  /usr/include/SFML/Audio/OutputSoundFile.hpp \
+  /usr/include/SFML/Audio/Sound.hpp \
+  /usr/include/SFML/Audio/SoundBuffer.hpp \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
+  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+  /usr/include/SFML/Audio/SoundRecorder.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.inl \
+  /usr/include/SFML/Audio/SoundFileReader.hpp \
+  /usr/include/SFML/Audio/SoundFileWriter.hpp
 
 CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.o: ../src/Player/WalkState.cpp \
   /usr/include/stdc-predef.h \
@@ -10328,7 +10369,29 @@ CMakeFiles/inteplas.dir/src/Player/WalkState.cpp.o: ../src/Player/WalkState.cpp 
   /usr/include/assert.h \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
-  ../src/Player/PlayerGlobal.hpp
+  ../src/Player/PlayerGlobal.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
+  /usr/include/SFML/Audio.hpp \
+  /usr/include/SFML/Audio/InputSoundFile.hpp \
+  /usr/include/SFML/Audio/Export.hpp \
+  /usr/include/SFML/Audio/Listener.hpp \
+  /usr/include/SFML/Audio/Music.hpp \
+  /usr/include/SFML/Audio/SoundStream.hpp \
+  /usr/include/SFML/Audio/SoundSource.hpp \
+  /usr/include/SFML/Audio/AlResource.hpp \
+  /usr/include/SFML/Audio/OutputSoundFile.hpp \
+  /usr/include/SFML/Audio/Sound.hpp \
+  /usr/include/SFML/Audio/SoundBuffer.hpp \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
+  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+  /usr/include/SFML/Audio/SoundRecorder.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.inl \
+  /usr/include/SFML/Audio/SoundFileReader.hpp \
+  /usr/include/SFML/Audio/SoundFileWriter.hpp
 
 CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   /usr/include/stdc-predef.h \
@@ -10638,6 +10701,36 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
+  /usr/include/SFML/Audio.hpp \
+  /usr/include/SFML/Audio/InputSoundFile.hpp \
+  /usr/include/SFML/Audio/Export.hpp \
+  /usr/include/SFML/Audio/Listener.hpp \
+  /usr/include/SFML/Audio/Music.hpp \
+  /usr/include/SFML/Audio/SoundStream.hpp \
+  /usr/include/SFML/Audio/SoundSource.hpp \
+  /usr/include/SFML/Audio/AlResource.hpp \
+  /usr/include/SFML/Audio/OutputSoundFile.hpp \
+  /usr/include/SFML/Audio/Sound.hpp \
+  /usr/include/SFML/Audio/SoundBuffer.hpp \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
+  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+  /usr/include/SFML/Audio/SoundRecorder.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.inl \
+  /usr/include/SFML/Audio/SoundFileReader.hpp \
+  /usr/include/SFML/Audio/SoundFileWriter.hpp \
+  ../src/common.hpp \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/bits/parse_numbers.h \
   ../src/VoxelManager.hpp \
   /usr/include/c++/11/math.h \
   /usr/include/c++/11/cmath \
@@ -10652,7 +10745,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/c++/11/bits/specfun.h \
-  /usr/include/c++/11/limits \
   /usr/include/c++/11/tr1/gamma.tcc \
   /usr/include/c++/11/tr1/special_function_util.h \
   /usr/include/c++/11/tr1/bessel_function.tcc \
@@ -10665,12 +10757,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   /usr/include/c++/11/tr1/poly_hermite.tcc \
   /usr/include/c++/11/tr1/poly_laguerre.tcc \
   /usr/include/c++/11/tr1/riemann_zeta.tcc \
-  /usr/include/c++/11/thread \
-  /usr/include/c++/11/bits/std_thread.h \
-  /usr/include/c++/11/bits/this_thread_sleep.h \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/optional \
   /usr/include/c++/11/future \
   /usr/include/c++/11/mutex \
@@ -10706,7 +10792,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Voxel.hpp \
   ../src/Elements.hpp \
   ../src/ExplosionInfo.hpp \
-  ../src/common.hpp \
   ../src/Chunk.hpp \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
@@ -10736,26 +10821,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
-  /usr/include/SFML/Audio.hpp \
-  /usr/include/SFML/Audio/InputSoundFile.hpp \
-  /usr/include/SFML/Audio/Export.hpp \
-  /usr/include/SFML/Audio/Listener.hpp \
-  /usr/include/SFML/Audio/Music.hpp \
-  /usr/include/SFML/Audio/SoundStream.hpp \
-  /usr/include/SFML/Audio/SoundSource.hpp \
-  /usr/include/SFML/Audio/AlResource.hpp \
-  /usr/include/SFML/Audio/OutputSoundFile.hpp \
-  /usr/include/SFML/Audio/Sound.hpp \
-  /usr/include/SFML/Audio/SoundBuffer.hpp \
-  /usr/include/c++/11/set \
-  /usr/include/c++/11/bits/stl_set.h \
-  /usr/include/c++/11/bits/stl_multiset.h \
-  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
-  /usr/include/SFML/Audio/SoundRecorder.hpp \
-  /usr/include/SFML/Audio/SoundFileFactory.hpp \
-  /usr/include/SFML/Audio/SoundFileFactory.inl \
-  /usr/include/SFML/Audio/SoundFileReader.hpp \
-  /usr/include/SFML/Audio/SoundFileWriter.hpp \
   ../src/Player/PlayerDamageSoundType.hpp \
   ../src/Elements/BurnedMaterial.hpp \
   ../src/Elements/Element.hpp \
@@ -12204,6 +12269,8 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: ../src/VoxelManager.cpp \
   ../src/Player/Player.hpp \
   ../src/Player/IdleState.hpp \
   ../src/Player/WalkState.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
   ../src/Player/JumpState.hpp \
   ../src/Player/DeadState.hpp \
   ../src/Player/CreativeState.hpp \
@@ -12725,6 +12792,8 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: ../src/WeatherManager.cpp \
   ../src/Player/Player.hpp \
   ../src/Player/IdleState.hpp \
   ../src/Player/WalkState.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
   ../src/Player/JumpState.hpp \
   ../src/Player/DeadState.hpp \
   ../src/Player/CreativeState.hpp \
@@ -12974,9 +13043,9 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
-  ../src/VoxelManager.hpp \
-  /usr/include/SFML/Graphics.hpp \
-  /usr/include/SFML/Window.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
+  /usr/include/SFML/Audio.hpp \
   /usr/include/SFML/System.hpp \
   /usr/include/SFML/Config.hpp \
   /usr/include/SFML/System/Clock.hpp \
@@ -13015,6 +13084,37 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   /usr/include/SFML/System/Vector2.inl \
   /usr/include/SFML/System/Vector3.hpp \
   /usr/include/SFML/System/Vector3.inl \
+  /usr/include/SFML/Audio/InputSoundFile.hpp \
+  /usr/include/SFML/Audio/Export.hpp \
+  /usr/include/SFML/Audio/Listener.hpp \
+  /usr/include/SFML/Audio/Music.hpp \
+  /usr/include/SFML/Audio/SoundStream.hpp \
+  /usr/include/SFML/Audio/SoundSource.hpp \
+  /usr/include/SFML/Audio/AlResource.hpp \
+  /usr/include/SFML/Audio/OutputSoundFile.hpp \
+  /usr/include/SFML/Audio/Sound.hpp \
+  /usr/include/SFML/Audio/SoundBuffer.hpp \
+  /usr/include/c++/11/set \
+  /usr/include/c++/11/bits/stl_tree.h \
+  /usr/include/c++/11/bits/stl_set.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
+  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+  /usr/include/SFML/Audio/SoundRecorder.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.inl \
+  /usr/include/SFML/Audio/SoundFileReader.hpp \
+  /usr/include/SFML/Audio/SoundFileWriter.hpp \
+  ../src/common.hpp \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  ../src/VoxelManager.hpp \
+  /usr/include/SFML/Graphics.hpp \
+  /usr/include/SFML/Window.hpp \
   /usr/include/SFML/Window/Clipboard.hpp \
   /usr/include/SFML/Window/Export.hpp \
   /usr/include/SFML/Window/Context.hpp \
@@ -13051,7 +13151,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   /usr/include/SFML/Graphics/Texture.hpp \
   /usr/include/SFML/Graphics/Image.hpp \
   /usr/include/c++/11/map \
-  /usr/include/c++/11/bits/stl_tree.h \
   /usr/include/c++/11/bits/stl_map.h \
   /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/SFML/Graphics/RectangleShape.hpp \
@@ -13078,7 +13177,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/c++/11/bits/specfun.h \
-  /usr/include/c++/11/limits \
   /usr/include/c++/11/tr1/gamma.tcc \
   /usr/include/c++/11/tr1/special_function_util.h \
   /usr/include/c++/11/tr1/bessel_function.tcc \
@@ -13091,12 +13189,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   /usr/include/c++/11/tr1/poly_hermite.tcc \
   /usr/include/c++/11/tr1/poly_laguerre.tcc \
   /usr/include/c++/11/tr1/riemann_zeta.tcc \
-  /usr/include/c++/11/thread \
-  /usr/include/c++/11/bits/std_thread.h \
-  /usr/include/c++/11/bits/this_thread_sleep.h \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/optional \
   /usr/include/c++/11/future \
   /usr/include/c++/11/mutex \
@@ -13132,7 +13224,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/Voxel.hpp \
   ../src/Elements.hpp \
   ../src/ExplosionInfo.hpp \
-  ../src/common.hpp \
   ../src/Chunk.hpp \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
@@ -13162,26 +13253,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/Particle/PickableDebris.hpp \
   ../src/CollisionManager.hpp \
   ../src/SoundFX.hpp \
-  /usr/include/SFML/Audio.hpp \
-  /usr/include/SFML/Audio/InputSoundFile.hpp \
-  /usr/include/SFML/Audio/Export.hpp \
-  /usr/include/SFML/Audio/Listener.hpp \
-  /usr/include/SFML/Audio/Music.hpp \
-  /usr/include/SFML/Audio/SoundStream.hpp \
-  /usr/include/SFML/Audio/SoundSource.hpp \
-  /usr/include/SFML/Audio/AlResource.hpp \
-  /usr/include/SFML/Audio/OutputSoundFile.hpp \
-  /usr/include/SFML/Audio/Sound.hpp \
-  /usr/include/SFML/Audio/SoundBuffer.hpp \
-  /usr/include/c++/11/set \
-  /usr/include/c++/11/bits/stl_set.h \
-  /usr/include/c++/11/bits/stl_multiset.h \
-  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
-  /usr/include/SFML/Audio/SoundRecorder.hpp \
-  /usr/include/SFML/Audio/SoundFileFactory.hpp \
-  /usr/include/SFML/Audio/SoundFileFactory.inl \
-  /usr/include/SFML/Audio/SoundFileReader.hpp \
-  /usr/include/SFML/Audio/SoundFileWriter.hpp \
   ../src/Player/PlayerDamageSoundType.hpp \
   ../src/Elements/BurnedMaterial.hpp \
   ../src/Elements/Element.hpp \
@@ -13911,6 +13982,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/UIState.hpp \
   ../src/PlayerUI.hpp \
   ../src/World.hpp \
+  ../src/Sound/GameSoundManager.hpp \
+  ../src/Sound/Sound.hpp \
   ../src/VoxelManager.hpp \
   /usr/include/c++/11/math.h \
   /usr/include/c++/11/future \
@@ -14102,7 +14175,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/NuclearExplosionGameEvent.hpp \
   ../src/Mods/HeistMod/Helicopter.hpp \
   ../src/Mods/HeistMod/HelicopterTurret.hpp \
-  ../src/Sound/Sound.hpp \
   ../src/Mods/HeistMod/HeistInfoGui.hpp \
   ../src/Mods/HeistMod/CollectableBox.hpp \
   ../src/UI/PointIndicator.hpp \
@@ -14141,8 +14213,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/UI/PointIndicator.hpp:
 
 ../src/Mods/HeistMod/HeistInfoGui.hpp:
-
-../src/Sound/Sound.hpp:
 
 ../src/Mods/CustomGameMod.hpp:
 
@@ -14468,6 +14538,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/Mob/Mob.hpp:
 
+../src/MobManager.hpp:
+
 /usr/include/SFML/Window/Keyboard.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
@@ -14645,6 +14717,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
 /usr/include/SFML/Graphics/VertexArray.hpp:
+
+../src/Sound/Sound.hpp:
 
 /usr/include/stdio.h:
 
@@ -14928,6 +15002,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/ext/numeric_traits.h:
 
+../src/Sound/GameSoundManager.hpp:
+
 /usr/include/c++/11/bits/node_handle.h:
 
 /usr/include/SFML/Graphics/Glyph.hpp:
@@ -15085,6 +15161,10 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/cctype:
 
 /usr/include/c++/11/iomanip:
+
+../src/Mob/Frog/Frog.hpp:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/SFML/Audio/Export.hpp:
 
@@ -15526,34 +15606,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/UIState.hpp:
 
-/usr/include/c++/11/bits/regex_error.h:
-
-/usr/include/c++/11/atomic:
-
-/usr/include/c++/11/filesystem:
-
-/usr/include/c++/11/bits/quoted_string.h:
-
-/usr/include/c++/11/bits/random.h:
-
-../src/Player/PlayerDamageSoundType.hpp:
-
-/usr/include/c++/11/bits/fs_dir.h:
-
-/usr/include/c++/11/bits/fs_ops.h:
-
-../src/Collider.hpp:
-
-../src/Dispawner.hpp:
-
-/usr/include/SFML/System/NonCopyable.hpp:
-
-../src/Particle/DebrisParticle.hpp:
-
-../src/CollisionManager.hpp:
-
-../src/SoundFX.hpp:
-
 /usr/include/SFML/Audio/Listener.hpp:
 
 /usr/include/SFML/Audio/Music.hpp:
@@ -15595,6 +15647,34 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/SFML/Audio/SoundBufferRecorder.hpp:
 
 /usr/include/SFML/Audio/SoundRecorder.hpp:
+
+/usr/include/c++/11/bits/regex_error.h:
+
+/usr/include/c++/11/atomic:
+
+/usr/include/c++/11/filesystem:
+
+/usr/include/c++/11/bits/quoted_string.h:
+
+/usr/include/c++/11/bits/random.h:
+
+../src/Player/PlayerDamageSoundType.hpp:
+
+/usr/include/c++/11/bits/fs_dir.h:
+
+/usr/include/c++/11/bits/fs_ops.h:
+
+../src/Collider.hpp:
+
+../src/Dispawner.hpp:
+
+/usr/include/SFML/System/NonCopyable.hpp:
+
+../src/Particle/DebrisParticle.hpp:
+
+../src/CollisionManager.hpp:
+
+../src/SoundFX.hpp:
 
 ../src/Elements/BurnedMaterial.hpp:
 
@@ -15757,9 +15837,3 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/BackgroundMusic.hpp:
 
 ../src/Particle/RainParticle.hpp:
-
-../src/MobManager.hpp:
-
-/usr/include/x86_64-linux-gnu/sys/select.h:
-
-../src/Mob/Frog/Frog.hpp:

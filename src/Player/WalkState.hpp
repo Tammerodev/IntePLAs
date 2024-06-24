@@ -2,6 +2,7 @@
 #include "PlayerState.hpp"
 #include "../Controls.hpp"
 #include "PlayerGlobal.hpp"
+#include "../Sound/GameSoundManager.hpp"
 
 class WalkState : public PlayerState {
 public:
@@ -17,5 +18,5 @@ private:
     sf::Vector2i voxelpos;
     sf::Clock timer;
 
-    sf::Vector2i last_pos;
+    sf::Vector2f last_pos;
 };

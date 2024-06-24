@@ -326,11 +326,8 @@ CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o: \
  /home/lauri/Documents/inteplas/src/Lighting/../Player/IdleState.hpp \
  /home/lauri/Documents/inteplas/src/Lighting/../Player/PlayerGlobal.hpp \
  /home/lauri/Documents/inteplas/src/Lighting/../Player/WalkState.hpp \
- /home/lauri/Documents/inteplas/src/Lighting/../Player/JumpState.hpp \
- /home/lauri/Documents/inteplas/src/Lighting/../Player/DeadState.hpp \
- /home/lauri/Documents/inteplas/src/Lighting/../Player/CreativeState.hpp \
- /home/lauri/Documents/inteplas/src/Lighting/../Player/DamageState.hpp \
- /home/lauri/Documents/inteplas/src/Lighting/../Player/../SoundFX.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../Sound/GameSoundManager.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../Sound/Sound.hpp \
  /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
  /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
  /usr/include/SFML/Audio/Music.hpp \
@@ -348,6 +345,11 @@ CMakeFiles/inteplas.dir/src/Lighting/LightSimulation.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
  /usr/include/SFML/Audio/SoundFileWriter.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/JumpState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/DeadState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/CreativeState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/DamageState.hpp \
+ /home/lauri/Documents/inteplas/src/Lighting/../Player/../SoundFX.hpp \
  /home/lauri/Documents/inteplas/src/Lighting/../Player/../Player/PlayerDamageSoundType.hpp \
  /home/lauri/Documents/inteplas/src/Lighting/../Player/RespawnState.hpp \
  /home/lauri/Documents/inteplas/src/Lighting/../Player/SwimState.hpp \

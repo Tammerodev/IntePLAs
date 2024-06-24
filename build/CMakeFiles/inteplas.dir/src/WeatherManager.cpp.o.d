@@ -402,6 +402,8 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: \
  /home/lauri/Documents/inteplas/src/Player/Player.hpp \
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp \
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp \
+ /home/lauri/Documents/inteplas/src/Player/../Sound/GameSoundManager.hpp \
+ /home/lauri/Documents/inteplas/src/Player/../Sound/Sound.hpp \
  /home/lauri/Documents/inteplas/src/Player/JumpState.hpp \
  /home/lauri/Documents/inteplas/src/Player/DeadState.hpp \
  /home/lauri/Documents/inteplas/src/Player/CreativeState.hpp \

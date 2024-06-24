@@ -5,7 +5,6 @@ void IdleState::enter() {
 }
 
 void IdleState::update(IntPhysicsComponent& physComp, float dt) {
-
     physComp.velocity.x -= physComp.velocity.x / 10;
 }
 

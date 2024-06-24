@@ -405,6 +405,8 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/../Player/Player.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Player/IdleState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Player/WalkState.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/../Player/../Sound/GameSoundManager.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/../Player/../Sound/Sound.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Player/JumpState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Player/DeadState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Player/CreativeState.hpp \
