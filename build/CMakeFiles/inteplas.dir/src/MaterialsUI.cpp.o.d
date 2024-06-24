@@ -367,7 +367,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: \
  /home/lauri/Documents/inteplas/src/Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Controls.hpp \
- /home/lauri/Documents/inteplas/src/VoxelGroupPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/WorldJsonReader.hpp \

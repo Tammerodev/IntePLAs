@@ -23,15 +23,30 @@ bool UIStateManager::load(tgui::BackendGui& gui, Inventory &inv, VoxelManager &v
 void UIStateManager::update(const sf::Vector2f&pos) {
     UIState::currentState->update(pos);
 
+    if(gui == nullptr) return;
+    if(inv == nullptr) return;
+    if(vx  == nullptr) return;
+
     if(PlayerGlobal::health <= 0 && UIState::currentState != UIState::death) {
-        
-        if(gui == nullptr) return;
-        if(inv == nullptr) return;
-        if(vx  == nullptr) return;
         
         UIState::currentState->statexit();
         UIState::currentState = UIState::death;
         UIState::currentState->load(*gui, *inv, *vx);
+    }
+
+    if(!UIStateChangeRequest::newState.empty()) {
+        if(UIStateChangeRequest::newState == "i")
+            UIState::currentState = UIState::itemcreator;
+        if(UIStateChangeRequest::newState == "p")
+            UIState::currentState = UIState::pause;
+        if(UIStateChangeRequest::newState == "d")
+            UIState::currentState = UIState::death;
+        if(UIStateChangeRequest::newState == "n")
+            UIState::currentState = UIState::nostate;
+            
+        UIState::currentState->load(*gui, *inv, *vx);
+
+        UIStateChangeRequest::newState.clear();
     }
 }
 

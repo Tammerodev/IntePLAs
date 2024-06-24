@@ -8,7 +8,7 @@
 #include "WeatherManager.hpp"
 #include "CollisionManager.hpp"
 #include "MobManager.hpp"
-#include "VoxelGroupPropetiesHandler.hpp"
+#include "VoxelGroupPropeties/VoxelGroupPropetiesHandler.hpp"
 
 #include "AddVoxelGroups.hpp"
 

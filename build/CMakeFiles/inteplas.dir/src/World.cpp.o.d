@@ -362,7 +362,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: \
  /home/lauri/Documents/inteplas/src/Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Controls.hpp \
- /home/lauri/Documents/inteplas/src/VoxelGroupPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/WorldJsonReader.hpp \
@@ -440,7 +440,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../FontManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../AddVoxelGroups.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../MeatPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../VoxelGroupPropeties/MeatPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDeadState.hpp \
@@ -454,4 +454,5 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDeadState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishIdleState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishSwimState.hpp \
- /home/lauri/Documents/inteplas/src/VoxelGroupPropetiesHandler.hpp
+ /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/VoxelGroupPropetiesHandler.hpp \
+ /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/../UIStateChangeRequest.hpp

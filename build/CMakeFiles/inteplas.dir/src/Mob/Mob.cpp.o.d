@@ -369,7 +369,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/../Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Controls.hpp \
- /home/lauri/Documents/inteplas/src/Mob/../VoxelGroupPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/../VoxelGroupPropeties/VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../WorldJsonReader.hpp \
@@ -434,4 +434,4 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../FontManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../AddVoxelGroups.hpp \
- /home/lauri/Documents/inteplas/src/Mob/../MeatPropeties.hpp
+ /home/lauri/Documents/inteplas/src/Mob/../VoxelGroupPropeties/MeatPropeties.hpp

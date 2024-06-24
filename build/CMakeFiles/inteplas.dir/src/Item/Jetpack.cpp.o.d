@@ -366,7 +366,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: \
  /home/lauri/Documents/inteplas/src/Item/../Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/Item/../FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Controls.hpp \
- /home/lauri/Documents/inteplas/src/Item/../VoxelGroupPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../VoxelGroupPropeties/VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Item/../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/Item/../ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/Item/../WorldJsonReader.hpp \
@@ -444,7 +444,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../FontManager.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../AddVoxelGroups.hpp \
- /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../MeatPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/../../VoxelGroupPropeties/MeatPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/FrogDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/FrogState.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Frog/FrogDeadState.hpp \
@@ -458,7 +458,8 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Fish/FishDeadState.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Fish/FishIdleState.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Mob/Fish/FishSwimState.hpp \
- /home/lauri/Documents/inteplas/src/Item/../VoxelGroupPropetiesHandler.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../VoxelGroupPropeties/VoxelGroupPropetiesHandler.hpp \
+ /home/lauri/Documents/inteplas/src/Item/../VoxelGroupPropeties/../UIStateChangeRequest.hpp \
  /home/lauri/Documents/inteplas/src/Item/../ExplosiveBullet.hpp \
  /home/lauri/Documents/inteplas/src/Item/Item.hpp \
  /home/lauri/Documents/inteplas/src/Item/../Palettes/PaletteUI.hpp \

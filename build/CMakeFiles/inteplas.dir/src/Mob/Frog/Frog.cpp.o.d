@@ -370,7 +370,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../Controls.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../VoxelGroupPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../VoxelGroupPropeties/VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../WorldJsonReader.hpp \
@@ -435,7 +435,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../FontManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/../../AddVoxelGroups.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Frog/../../MeatPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Frog/../../VoxelGroupPropeties/MeatPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDeadState.hpp \

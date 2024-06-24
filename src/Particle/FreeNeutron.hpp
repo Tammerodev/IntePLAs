@@ -9,14 +9,13 @@ class FreeNeutron : public Particle {
             y = 0.f;
         }
 
-        FreeNeutron(const sf::Vector2f& pos, const sf::Vector2f &vel) : velocity(vel) {
+        FreeNeutron(const sf::Vector2f& pos, const sf::Vector2f &vel) : velocity(vel * 5.0f) {
             x = pos.x;
             y = pos.y;
 
             rect.setSize(sf::Vector2f(1.f, 1.f));
-            rect.setFillColor(sf::Color::Red);
-
-            rect.setRotation(math::randIntInRange(0, 360));
+            rect.setFillColor(sf::Color(255, 100, 100));
+            rect.setOrigin(0.5f, 0.5f);
         }
 
         void update(const float dt, const sf::Vector2f &pos) {
@@ -24,13 +23,10 @@ class FreeNeutron : public Particle {
 
             rect.setPosition(*this);
             
-            x += velocity.x;
-            y += velocity.y;
+            *this += velocity;
 
-            // Slow down
-            velocity /= 1.003f;
-
-            rect.rotate(velocity.x + velocity.y);
+            rect.rotate(math::randFloat());
+            rect.rotate(-math::randFloat());
         }
 
         void render(sf::RenderTarget& target) {
@@ -43,7 +39,7 @@ class FreeNeutron : public Particle {
 
         void collide() {
             velocity = -velocity;
-            velocity /= 1.5f;
+            *this += velocity;
 
             energy--;
         }

@@ -2234,7 +2234,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -2312,7 +2312,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/TextLabel.hpp \
   ../src/FontManager.hpp \
   ../src/AddVoxelGroups.hpp \
-  ../src/MeatPropeties.hpp \
+  ../src/VoxelGroupPropeties/MeatPropeties.hpp \
   ../src/Mob/Frog/FrogDamageState.hpp \
   ../src/Mob/Frog/FrogState.hpp \
   ../src/Mob/Frog/FrogDeadState.hpp \
@@ -2326,7 +2326,8 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o: ../src/Game.cpp \
   ../src/Mob/Fish/FishDeadState.hpp \
   ../src/Mob/Fish/FishIdleState.hpp \
   ../src/Mob/Fish/FishSwimState.hpp \
-  ../src/VoxelGroupPropetiesHandler.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropetiesHandler.hpp \
+  ../src/UIStateChangeRequest.hpp \
   ../src/Item/RocketLauncher.hpp \
   ../src/Item/Gun.hpp \
   ../src/ExplosiveBullet.hpp \
@@ -3016,7 +3017,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -3094,7 +3095,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/TextLabel.hpp \
   ../src/FontManager.hpp \
   ../src/AddVoxelGroups.hpp \
-  ../src/MeatPropeties.hpp \
+  ../src/VoxelGroupPropeties/MeatPropeties.hpp \
   ../src/Mob/Frog/FrogDamageState.hpp \
   ../src/Mob/Frog/FrogState.hpp \
   ../src/Mob/Frog/FrogDeadState.hpp \
@@ -3108,7 +3109,8 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o: ../src/GameState.cpp \
   ../src/Mob/Fish/FishDeadState.hpp \
   ../src/Mob/Fish/FishIdleState.hpp \
   ../src/Mob/Fish/FishSwimState.hpp \
-  ../src/VoxelGroupPropetiesHandler.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropetiesHandler.hpp \
+  ../src/UIStateChangeRequest.hpp \
   ../src/Item/RocketLauncher.hpp \
   ../src/Item/Gun.hpp \
   ../src/ExplosiveBullet.hpp \
@@ -3800,7 +3802,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -3878,7 +3880,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   ../src/TextLabel.hpp \
   ../src/FontManager.hpp \
   ../src/AddVoxelGroups.hpp \
-  ../src/MeatPropeties.hpp \
+  ../src/VoxelGroupPropeties/MeatPropeties.hpp \
   ../src/Mob/Frog/FrogDamageState.hpp \
   ../src/Mob/Frog/FrogState.hpp \
   ../src/Mob/Frog/FrogDeadState.hpp \
@@ -3892,7 +3894,8 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o: ../src/Item/Jetpack.cpp \
   ../src/Mob/Fish/FishDeadState.hpp \
   ../src/Mob/Fish/FishIdleState.hpp \
   ../src/Mob/Fish/FishSwimState.hpp \
-  ../src/VoxelGroupPropetiesHandler.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropetiesHandler.hpp \
+  ../src/UIStateChangeRequest.hpp \
   ../src/ExplosiveBullet.hpp \
   ../src/Item/Item.hpp \
   ../src/Palettes/PaletteUI.hpp \
@@ -4801,7 +4804,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: ../src/MaterialsUI.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -5498,7 +5501,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: ../src/Mob/Fish/Fish.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -5563,7 +5566,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: ../src/Mob/Fish/Fish.cpp \
   ../src/TextLabel.hpp \
   ../src/FontManager.hpp \
   ../src/AddVoxelGroups.hpp \
-  ../src/MeatPropeties.hpp \
+  ../src/VoxelGroupPropeties/MeatPropeties.hpp \
   ../src/Mob/Fish/FishDamageState.hpp \
   ../src/Mob/Fish/FishState.hpp \
   ../src/MobGlobals.hpp \
@@ -6033,7 +6036,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: ../src/Mob/Frog/Frog.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -6098,7 +6101,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o: ../src/Mob/Frog/Frog.cpp \
   ../src/TextLabel.hpp \
   ../src/FontManager.hpp \
   ../src/AddVoxelGroups.hpp \
-  ../src/MeatPropeties.hpp \
+  ../src/VoxelGroupPropeties/MeatPropeties.hpp \
   ../src/Mob/Frog/FrogDamageState.hpp \
   ../src/Mob/Frog/FrogState.hpp \
   ../src/Mob/Frog/FrogDeadState.hpp \
@@ -6565,7 +6568,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: ../src/Mob/Mob.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -6630,7 +6633,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: ../src/Mob/Mob.cpp \
   ../src/TextLabel.hpp \
   ../src/FontManager.hpp \
   ../src/AddVoxelGroups.hpp \
-  ../src/MeatPropeties.hpp
+  ../src/VoxelGroupPropeties/MeatPropeties.hpp
 
 CMakeFiles/inteplas.dir/src/MobManager.cpp.o: ../src/MobManager.cpp \
   /usr/include/stdc-predef.h \
@@ -7094,7 +7097,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: ../src/MobManager.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -7159,7 +7162,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o: ../src/MobManager.cpp \
   ../src/TextLabel.hpp \
   ../src/FontManager.hpp \
   ../src/AddVoxelGroups.hpp \
-  ../src/MeatPropeties.hpp \
+  ../src/VoxelGroupPropeties/MeatPropeties.hpp \
   ../src/Mob/Frog/FrogDamageState.hpp \
   ../src/Mob/Frog/FrogState.hpp \
   ../src/Mob/Frog/FrogDeadState.hpp \
@@ -10789,7 +10792,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -10867,7 +10870,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/TextLabel.hpp \
   ../src/FontManager.hpp \
   ../src/AddVoxelGroups.hpp \
-  ../src/MeatPropeties.hpp \
+  ../src/VoxelGroupPropeties/MeatPropeties.hpp \
   ../src/Mob/Frog/FrogDamageState.hpp \
   ../src/Mob/Frog/FrogState.hpp \
   ../src/Mob/Frog/FrogDeadState.hpp \
@@ -10881,7 +10884,8 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o: ../src/UIStateManager.cpp \
   ../src/Mob/Fish/FishDeadState.hpp \
   ../src/Mob/Fish/FishIdleState.hpp \
   ../src/Mob/Fish/FishSwimState.hpp \
-  ../src/VoxelGroupPropetiesHandler.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropetiesHandler.hpp \
+  ../src/UIStateChangeRequest.hpp \
   ../src/Item/RocketLauncher.hpp \
   ../src/Item/Gun.hpp \
   ../src/ExplosiveBullet.hpp \
@@ -11703,7 +11707,7 @@ CMakeFiles/inteplas.dir/src/VoxelGroup.cpp.o: ../src/VoxelGroup.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp
 
 CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: ../src/VoxelManager.cpp \
@@ -12164,7 +12168,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o: ../src/VoxelManager.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -12685,7 +12689,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o: ../src/WeatherManager.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -13214,7 +13218,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/Utils/StringUtils.hpp \
   ../src/FastNoiseLite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/WorldJsonReader.hpp \
@@ -13292,7 +13296,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/TextLabel.hpp \
   ../src/FontManager.hpp \
   ../src/AddVoxelGroups.hpp \
-  ../src/MeatPropeties.hpp \
+  ../src/VoxelGroupPropeties/MeatPropeties.hpp \
   ../src/Mob/Frog/FrogDamageState.hpp \
   ../src/Mob/Frog/FrogState.hpp \
   ../src/Mob/Frog/FrogDeadState.hpp \
@@ -13306,7 +13310,8 @@ CMakeFiles/inteplas.dir/src/World.cpp.o: ../src/World.cpp \
   ../src/Mob/Fish/FishDeadState.hpp \
   ../src/Mob/Fish/FishIdleState.hpp \
   ../src/Mob/Fish/FishSwimState.hpp \
-  ../src/VoxelGroupPropetiesHandler.hpp
+  ../src/VoxelGroupPropeties/VoxelGroupPropetiesHandler.hpp \
+  ../src/UIStateChangeRequest.hpp
 
 CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/stdc-predef.h \
@@ -13956,7 +13961,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Rigidbody.hpp \
   ../src/Graphics/VertexSprite.hpp \
   ../src/Controls.hpp \
-  ../src/VoxelGroupPropeties.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp \
   ../src/VoxelGroupIDGenerator.hpp \
   ../src/ProceduralGeneration.hpp \
   ../src/FastNoiseLite.hpp \
@@ -14034,7 +14039,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/TextLabel.hpp \
   ../src/FontManager.hpp \
   ../src/AddVoxelGroups.hpp \
-  ../src/MeatPropeties.hpp \
+  ../src/VoxelGroupPropeties/MeatPropeties.hpp \
   ../src/Mob/Frog/FrogDamageState.hpp \
   ../src/Mob/Frog/FrogState.hpp \
   ../src/Mob/Frog/FrogDeadState.hpp \
@@ -14048,7 +14053,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/Mob/Fish/FishDeadState.hpp \
   ../src/Mob/Fish/FishIdleState.hpp \
   ../src/Mob/Fish/FishSwimState.hpp \
-  ../src/VoxelGroupPropetiesHandler.hpp \
+  ../src/VoxelGroupPropeties/VoxelGroupPropetiesHandler.hpp \
+  ../src/UIStateChangeRequest.hpp \
   ../src/Item/RocketLauncher.hpp \
   ../src/Item/Gun.hpp \
   ../src/ExplosiveBullet.hpp \
@@ -14440,19 +14446,21 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/Item/RocketLauncher.hpp:
 
-../src/VoxelGroupPropetiesHandler.hpp:
-
 ../src/Mob/Fish/FishIdleState.hpp:
 
 ../src/Item/Gun.hpp:
 
 ../src/Mob/Fish/FishDeadState.hpp:
 
+/usr/include/TGUI/Renderers/ListViewRenderer.hpp:
+
+../src/MobGlobals.hpp:
+
 ../src/Mob/Fish/FishState.hpp:
 
 ../src/Mob/Frog/FrogIdleState.hpp:
 
-../src/MeatPropeties.hpp:
+../src/VoxelGroupPropeties/MeatPropeties.hpp:
 
 ../src/FontManager.hpp:
 
@@ -15208,6 +15216,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/SFML/Graphics/Drawable.hpp:
 
+../src/UIStateChangeRequest.hpp:
+
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
 /usr/include/SFML/Graphics/RenderStates.hpp:
@@ -15572,6 +15582,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/SFML/Audio/SoundBuffer.hpp:
 
+../src/VoxelGroupPropeties/VoxelGroupPropetiesHandler.hpp:
+
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
 ../src/MaterialPack.hpp:
@@ -15626,15 +15638,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 
 ../src/Controls.hpp:
 
-/usr/include/TGUI/Renderers/ListViewRenderer.hpp:
-
-../src/MobGlobals.hpp:
-
-../src/VoxelGroupPropeties.hpp:
-
-/usr/include/TGUI/extlibs/Aurora/SmartPtr/CopiedPtr.hpp:
-
-../src/ClearWeather.hpp:
+../src/VoxelGroupPropeties/VoxelGroupPropeties.hpp:
 
 ../src/VoxelGroupIDGenerator.hpp:
 
@@ -15737,6 +15741,10 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/Transistor.hpp:
 
 ../src/WeatherManager.hpp:
+
+/usr/include/TGUI/extlibs/Aurora/SmartPtr/CopiedPtr.hpp:
+
+../src/ClearWeather.hpp:
 
 ../src/Mob/Mob.cpp:
 

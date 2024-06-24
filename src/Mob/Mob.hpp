@@ -5,7 +5,7 @@
 #include "../Elements/Blood.hpp"
 #include "../MobType.hpp"
 #include "../AddVoxelGroups.hpp"
-#include "../MeatPropeties.hpp"
+#include "../VoxelGroupPropeties/MeatPropeties.hpp"
 
 struct MobInvoke {
     float damage = 0.f;

@@ -23,7 +23,7 @@
 #include "RectangleRigidbody.hpp"
 #include "Globals.hpp"
 #include "Controls.hpp"
-#include "VoxelGroupPropeties.hpp"
+#include "VoxelGroupPropeties/VoxelGroupPropeties.hpp"
 #include "VoxelGroupIDGenerator.hpp"
 #include "Graphics/VertexSprite.hpp"
 

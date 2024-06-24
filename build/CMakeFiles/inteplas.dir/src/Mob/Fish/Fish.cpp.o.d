@@ -370,7 +370,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Utils/StringUtils.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../FastNoiseLite.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Controls.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../VoxelGroupPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../VoxelGroupPropeties/VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../WorldJsonReader.hpp \
@@ -435,7 +435,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../FontManager.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../AddVoxelGroups.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../MeatPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../VoxelGroupPropeties/MeatPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../MobGlobals.hpp \

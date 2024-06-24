@@ -6,5 +6,5 @@ CXX_DEFINES = -DTGUI_DYNAMIC
 
 CXX_INCLUDES = -I/home/lauri/Documents/inteplas/include -isystem /usr/include/SDL2 -isystem /usr/include/jsoncpp
 
-CXX_FLAGS = -g -std=gnu++17
+CXX_FLAGS = -Wall -Wextra -g -std=gnu++17
 

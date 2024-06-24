@@ -7,12 +7,14 @@
 #include "DeadUIState.hpp"
 #include "PauseUIState.hpp"
 #include "SaveExitUIState.hpp"
+#include "UIStateChangeRequest.hpp"
 
 #include <TGUI/TGUI.hpp>
 #include <TGUI/Backend/SFML-Graphics.hpp>
 #include <TGUI/Core.hpp>
 #include <TGUI/Widgets/Button.hpp>
 #include <TGUI/Widgets/CheckBox.hpp>
+
 
 class UIStateManager {
 public:

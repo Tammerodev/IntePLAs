@@ -534,7 +534,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Rigidbody.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Graphics/VertexSprite.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Controls.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../VoxelGroupPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../VoxelGroupPropeties/VoxelGroupPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../VoxelGroupIDGenerator.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../ProceduralGeneration.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../FastNoiseLite.hpp \
@@ -612,7 +612,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../FontManager.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../AddVoxelGroups.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../MeatPropeties.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/../../VoxelGroupPropeties/MeatPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/FrogDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/FrogState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Frog/FrogDeadState.hpp \
@@ -626,7 +626,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Fish/FishDeadState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Fish/FishIdleState.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Mob/Fish/FishSwimState.hpp \
- /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../VoxelGroupPropetiesHandler.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../VoxelGroupPropeties/VoxelGroupPropetiesHandler.hpp \
+ /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../VoxelGroupPropeties/../UIStateChangeRequest.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/RocketLauncher.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/Gun.hpp \
  /home/lauri/Documents/inteplas/src/Mods/HeistMod/../../Item/../ExplosiveBullet.hpp \

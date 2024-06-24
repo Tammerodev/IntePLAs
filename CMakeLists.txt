@@ -4,6 +4,14 @@ project(inteplas VERSION 1.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
 find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 find_package(TGUI REQUIRED)
 find_package(jsoncpp REQUIRED)

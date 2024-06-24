@@ -212,14 +212,11 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent, Shade
         }
 
         // Fission 
-        else if(p->getType() == Particle::ParticleType::Neutron && 
-            elm::getInfoFromType(voxel.value).value == VoxelValues::URANIUM235) {
-
-            heatVoxelAt(position.x, position.y, 100);
-
+        else if(p->getType() == Particle::ParticleType::Neutron && elm::getInfoFromType(voxel.value).value == VoxelValues::URANIUM235) {
             const sf::Vector2i contactPos = chIndexer.getBoundedVector(getPositionOnContacy(position, VoxelValues::URANIUM235));
 
             if(contactPos != sf::Vector2i(0, 0)) {
+                chIndexer.voxelsInNeedOfUpdate.push_back(sf::Vector2i(contactPos.x, contactPos.y));
                 chIndexer.heatVoxelAt(contactPos.x, contactPos.y, 10);
 
                 if(chIndexer.boundGetVoxelAt(position.x, position.y).temp > elm::getInfoFromType(VoxelValues::URANIUM235).max_temp) {
@@ -276,7 +273,7 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent, Shade
             // Lithium - Radium226 reaction (free neutrons)
             if(chIndexer.isInContactWithVoxel(*r, VoxelValues::RADIUM226)) {
                 const sf::Vector2f position = sf::Vector2f(*r); 
-                const sf::Vector2f velocity = sf::Vector2f(math::randFloat() - 0.5f, math::randFloat() - 0.5f); 
+                const sf::Vector2f velocity = math::normalize(sf::Vector2f(math::randFloat() - 0.5f, math::randFloat() - 0.5f)); 
 
                 std::shared_ptr<FreeNeutron> particle = std::make_shared<FreeNeutron>(position, velocity);
 
@@ -299,11 +296,11 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent, Shade
 
     sf::Sprite spriteRend;
 
-#if USE_MULTITHREADING
+/*#if USE_MULTITHREADING
     updateElementsMultithreaded(draw_area);
-#else
+#else*/
     updateElementsNonMultithreaded(draw_area);
-#endif
+//#endif
 }
 
 void VoxelManager::updateChunkElements(int x, int y, Chunk& chunk) {
