@@ -82,7 +82,7 @@ class SelectColor {
             toFront();
 
             if(panel->isMouseDown() || connectLine.isConnected() == 0) {
-                if(MaterialsUIGlobal::focusedOnBar != -1 && connectLine.isConnected() == 0) {
+                if(Controls::useUI() && MaterialsUIGlobal::focusedOnBar != -1 && connectLine.isConnected() == 0) {
                     connectLine.setConnected(1);
                 } else {
                     connectLine.connect(panel->getPosition(), tgui::Layout2d(Controls::windowCursorPos));

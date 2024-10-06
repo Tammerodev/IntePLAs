@@ -114,26 +114,26 @@ public:
                 player.getPhysicsComponent().velocity.y = 2.9;
             }
         } else if(PlayerState::currentState == PlayerState::swimState && currentVoxel.value != 0) {
-            sf::Vector2i chunk_pos = main_world.getChunkIndexer().getChunkFromPos(collPos.x, collPos.y);
-
-            Chunk& chunk = main_world.getChunkIndexer().boundGetChunkAt(chunk_pos.x, chunk_pos.y);
-
-            for (int dx = -2; dx <= 2; ++dx) {
-                for (int dy = -2; dy <= 2; ++dy) {
-                    main_world.getChunkIndexer().boundGetChunkAt(chunk_pos.x + dx, chunk_pos.y + dy).needs_update = true;
-                }
-            }
-
-            for(auto &e : chunk.elements) {
-                if(math::distance(sf::Vector2f(*e), sf::Vector2f(player.getHeadPosition())) < 50) {
-                    e->setVelocity(sf::Vector2i(math::randIntInRange(-3, 3), -6));
-                    e->update(main_world.getChunkIndexer());
-                }
-            }
-
             if(player.getPhysicsComponent().velocity.y > 3.0) {
+                
                 GameSoundManager::Liquid::splash_water.play();
                 player.getPhysicsComponent().velocity.y = 2.9;
+                sf::Vector2i chunk_pos = main_world.getChunkIndexer().getChunkFromPos(collPos.x, collPos.y);
+
+                Chunk& chunk = main_world.getChunkIndexer().boundGetChunkAt(chunk_pos.x, chunk_pos.y);
+
+                for (int dx = -2; dx <= 2; ++dx) {
+                    for (int dy = -2; dy <= 2; ++dy) {
+                        main_world.getChunkIndexer().boundGetChunkAt(chunk_pos.x + dx, chunk_pos.y + dy).needs_update = true;
+                    }
+                }
+
+                for(auto &e : chunk.elements) {
+                    if(math::distance(sf::Vector2f(*e), sf::Vector2f(player.getHeadPosition())) < 10) {
+                        e->setVelocity(sf::Vector2i(math::randIntInRange(-3, 3), -4));
+                        e->update(main_world.getChunkIndexer());
+                    }
+                }
             }
         }
 
@@ -158,23 +158,6 @@ public:
                 add_worlds.erase(world);
                 break;
             }
-
-            /*bool collision = false;
-
-            for(auto &testPoint : collisionTestPoints) {
-                if(main_world.getChunkIndexer().getPixelCollision(sf::Vector2f(testPoint)).first) collision = true;
-            }
-            
-            if(collision) {    
-            
-                world->getPhysicsComponent().velocity = sf::Vector2f(0.0f, 0.0f);
-
-                world->destroyPart(main_world);
-
-                add_worlds.erase(world);
-                TODO!!!
-                break;
-            }*/
         }
 
         weatherManager.update(main_world, player);

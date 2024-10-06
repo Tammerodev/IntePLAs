@@ -20,6 +20,7 @@
 #include "Biome/Mountains.hpp"
 #include <stdint.h>
 #include "Settings.hpp"
+#include "AddVoxelGroups.hpp"
 
 namespace GenerationGlobals {
     inline int high_ = 0;
@@ -58,7 +59,7 @@ public:
 
         generateCaves(grid, world_sx, world_sy);
 
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 25; i++) {
             spawnHouse(grid, world_sx, world_sy);
         }
 
@@ -307,14 +308,14 @@ private:
         }
     }
   
-    void spawnHouse(ChunkIndexer& grid,  const int world_sx, const int world_sy) {
+    void spawnHouse(ChunkIndexer& grid, const int world_sx, const int world_sy) {
         
         sf::Vector2i position;
 
         position.x = math::randIntInRange(0, world_sx - 1);
-        position.y = worldSize::world_sx  - getHeightOnMap(position.x);
+        position.y = getHeightOnMap(position.x);
 
-        if(getBiomeAtPosition(position.x, grid).getName() == "Forest") {
+        if(getBiomeAtPosition(position.x, grid).getName() == "Forest" || getBiomeAtPosition(position.x, grid).getName() == "Desert" ) {
             sf::Image image;
             image.loadFromFile("res/img/Procedural/Buildings/Houses/forest_house.png");
 
@@ -330,6 +331,21 @@ private:
                     grid.boundSetImagePixelAt(pos.x, pos.y, image.getPixel(x, y));
                 }
             }
+
+            // Add itemcreator
+
+            VoxelGroupPropeties propeties;
+            propeties.info = "Um";  // (U)i, (m)oulding
+
+            sf::Texture tx;
+            tx.loadFromFile("res/img/Tool/moulder.png");
+
+            auto item = std::make_shared<VoxelGroup>();
+            item->load(tx.copyToImage());
+            item->setPosition(sf::Vector2f(position.x + 30, position.y - 10));
+            item->setPropeties(propeties);
+
+            AddVoxelGroups::add_more_worlds.emplace_back(item);
         }
     }
 

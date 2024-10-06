@@ -34,6 +34,7 @@
 #include "Elements/Butane.hpp"
 #include "Elements/Snow.hpp"
 #include "Elements/Flammable.hpp"
+#include "Elements/MoltenMetal.hpp"
 
 #include "Raycast.hpp"
 #include "Shader.hpp"

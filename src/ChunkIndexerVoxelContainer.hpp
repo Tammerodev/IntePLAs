@@ -191,6 +191,7 @@ public:
     void damageVoxelAt(const int x, const int y) {
         uint8_t &strenght = getVoxelAt(x,y).strenght;
         --strenght;
+        
         if(getVoxelAt(x,y).strenght <= 0) { 
             materialpack.addElementOfType(getVoxelAt(x, y).value, 1); 
             clearVoxelAt(x, y);
@@ -282,6 +283,8 @@ public:
             int val = vox.value;
             damageVoxelAt(x,y);
         }
+
+        voxelsInNeedOfUpdate.emplace_back(x,y);
 
         if(vox.temp <= 0) vox.temp = 0;
 

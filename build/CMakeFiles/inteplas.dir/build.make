@@ -558,7 +558,7 @@ inteplas: CMakeFiles/inteplas.dir/src/main.cpp.o
 inteplas: CMakeFiles/inteplas.dir/build.make
 inteplas: /usr/lib/x86_64-linux-gnu/libsfml-network.so.2.5.1
 inteplas: /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1
-inteplas: /usr/lib/x86_64-linux-gnu/libtgui.so.1.3.0
+inteplas: /usr/lib/x86_64-linux-gnu/libtgui.so.1.4.1
 inteplas: /usr/lib/x86_64-linux-gnu/libjsoncpp.so.1.9.5
 inteplas: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 inteplas: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1

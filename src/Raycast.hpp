@@ -62,18 +62,6 @@ namespace Raycast {
                     const sf::Color originalColor = info.world->getImagePixelAt(pixelPosition.x, pixelPosition.y);
 
                     info.world->boundVector(pixelPosition);
-
-                    if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value == VoxelValues::MIRROR) {
-                        const sf::Vector2i originalStart = info.start;
-                        info.end = pixelPosition;
-                        info.start = info.end;
-                        info.end.y = originalStart.y + 100;
-
-                        delta = info.end - info.start;
-                        length = static_cast<int>(std::sqrt(delta.x * delta.x + delta.y * delta.y));
-
-                    }
-
                     info.world->boundGetChunkAt(info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).x, info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y).y).needs_update = true;
 
                     if(force) { 
@@ -83,12 +71,15 @@ namespace Raycast {
                     if(info.velocity != nullptr) {
                         *info.velocity += (sf::Vector2f(delta.x, delta.y) * t) / 100.0f; 
                     }
+                    ///////////////////////////
                     
                     info.world->heatVoxelAt(pixelPosition.x, pixelPosition.y, info.temp);
 
                     if(info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value != 0) {
                         if(info.turnToAsh && math::randProp(10) && math::distance(sf::Vector2f(pixelPosition), sf::Vector2f(info.start)) > info.intensity - 10) {
+                            
                             info.world->clearVoxelAt(pixelPosition.x, pixelPosition.y);
+
                             info.world->getChunkAt(info.world->getChunkFromPos(pixelPosition.x, pixelPosition.y)).elements.emplace_back(
                                 std::make_shared<BurnedMaterial>(pixelPosition.x, pixelPosition.y)
                             );
@@ -98,18 +89,9 @@ namespace Raycast {
                             
                         power--;
                         if(power <= 0) break;
-                    }  else if(originalColor.a != 0) {
-                        if(math::randIntInRange(0, 100) < info.propability_of_material) {
-                            /*info.particle_simulation->addParticle(
-                                std::make_shared<PickableDebris>(
-                                    sf::Vector2f(pixelPosition), math::subVector(sf::Vector2f(pixelPosition), sf::Vector2f(info.start)) / 10.f,
-                                    originalColor,
-                                    info.world->getVoxelAt(pixelPosition.x, pixelPosition.y).value,
-                                    info.world
-                                    ));*/
-                        }
                     }
                 }
+                //////////////////////////////////////
             }
         }
 

@@ -381,6 +381,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Biome/../MobType.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Biome/Ocean.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Biome/Mountains.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../AddVoxelGroups.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Acid.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/GravityFluid.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/GravityElement.hpp \
@@ -402,6 +403,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Butane.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/FlammableGas.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/Snow.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/Fish/../../Elements/MoltenMetal.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Shader.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/Player.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../Player/IdleState.hpp \
@@ -436,7 +438,6 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../MobInfoBar.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../FontManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/Fish/../../AddVoxelGroups.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/../../VoxelGroupPropeties/MeatPropeties.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDamageState.hpp \
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishState.hpp \

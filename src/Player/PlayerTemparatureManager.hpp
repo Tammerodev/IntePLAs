@@ -5,8 +5,7 @@
 class PlayerTemparatureManager {
     public:
         void checkTemparature(ChunkIndexer& world, sf::Vector2i playerPosition) {
-            // TODO: Uncomment (Deleted for showcase)
-            /*PlayerGlobal::temparature = 0;
+            PlayerGlobal::temparature = 0;
 
             for(int x = 0; x < checkRange.x; x++) {
                 for(int y = 0; y < checkRange.y; y++) {
@@ -17,7 +16,7 @@ class PlayerTemparatureManager {
                 
                     PlayerGlobal::temparature += tempFinal;
                 }
-            }*/
+            }
         }
     private:
         sf::Vector2i checkRange {25,25};

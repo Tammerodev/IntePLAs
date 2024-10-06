@@ -47,10 +47,6 @@ public:
         if(inv == nullptr) return;
         if(vx == nullptr)  return;
 
-        if(Controls::openItemCreator()) {
-            exit_to_itemcreator(*gui, *inv, *vx);
-        }
-
         if(Controls::pause(e)) {
             exit_to_pause(*gui, *inv, *vx);
         }

@@ -380,6 +380,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/../Biome/../MobType.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Biome/Ocean.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Biome/Mountains.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/../AddVoxelGroups.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/Acid.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/GravityFluid.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/GravityElement.hpp \
@@ -401,6 +402,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/Butane.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/FlammableGas.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Elements/Snow.hpp \
+ /home/lauri/Documents/inteplas/src/Mob/../Elements/MoltenMetal.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Shader.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Player/Player.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../Player/IdleState.hpp \
@@ -435,5 +437,4 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o: \
  /home/lauri/Documents/inteplas/src/Mob/../MobInfoBar.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../TextLabel.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../FontManager.hpp \
- /home/lauri/Documents/inteplas/src/Mob/../AddVoxelGroups.hpp \
  /home/lauri/Documents/inteplas/src/Mob/../VoxelGroupPropeties/MeatPropeties.hpp

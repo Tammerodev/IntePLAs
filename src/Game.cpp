@@ -189,7 +189,7 @@ void Game::renderFirst(sf::RenderWindow &window, tgui::BackendGui &gui) {
     GUIfocusedOnObject = gui.getFocusedChild() != nullptr;
 
     // Clear renderTexture
-    renderTexture.clear(sf::Color(GameStatus::brightness * 100, GameStatus::brightness * 100, GameStatus::brightness * 100, 255));
+    renderTexture.clear(sf::Color(10, 10, 10, 255));
     shaderEffect.clearTextures();
 
     game_camera.setViewTo(renderTexture);

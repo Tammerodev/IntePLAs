@@ -86,7 +86,7 @@ public:
                     point.transform_position += point.velocity * dt;
                 }
             } else if(collision.first == ChunkIndexer::CollisionType::Fluid) {
-                point.velocity /= 15.f;
+                point.velocity /= 1.5f;
             }
             
         }

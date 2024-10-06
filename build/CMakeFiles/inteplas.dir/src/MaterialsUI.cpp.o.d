@@ -378,6 +378,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: \
  /home/lauri/Documents/inteplas/src/Biome/../MobType.hpp \
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp \
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp \
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp \
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp \
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp \
@@ -399,6 +400,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: \
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp \
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp \
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp \
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp \
  /home/lauri/Documents/inteplas/src/Shader.hpp \
  /home/lauri/Documents/inteplas/src/Player/Player.hpp \
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp \
@@ -562,6 +564,8 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o: \
  /usr/include/TGUI/Widgets/SpinButton.hpp \
  /usr/include/TGUI/Renderers/SpinButtonRenderer.hpp \
  /usr/include/TGUI/Widgets/SpinControl.hpp \
+ /usr/include/TGUI/Widgets/SplitContainer.hpp \
+ /usr/include/TGUI/Renderers/SplitContainerRenderer.hpp \
  /usr/include/TGUI/Widgets/Tabs.hpp \
  /usr/include/TGUI/Renderers/TabsRenderer.hpp \
  /usr/include/TGUI/Widgets/TabContainer.hpp \

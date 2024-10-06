@@ -17,7 +17,9 @@ class GravityFluid : public GravityElement {
                 res = -1;
             }
             if(world.boundGetVoxelAt(nextWaterPos.x - 1, nextWaterPos.y).value == 0 && world.boundGetVoxelAt(nextWaterPos.x + 1, nextWaterPos.y).value == 0) {
-                res = math::randIntInRange(-1, 1);
+                if(math::randProp(101 - viscosity)) {
+                    res = math::randIntInRange(-1, 1);
+                }
             }
 
             nextWaterPos.x += res;
@@ -30,5 +32,7 @@ class GravityFluid : public GravityElement {
         virtual void fluidUpdate(ChunkIndexer& world) {
 
         }
+    protected:
+        int viscosity = 1;
     private:
 };

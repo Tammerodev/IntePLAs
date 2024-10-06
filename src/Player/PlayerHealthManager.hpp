@@ -9,14 +9,14 @@ class PlayerHealthManager {
     public:
         void calculateHeatDamage(const float temp, Camera &cam) {
             if(temp > 120.0) {
-                if(math::randProp(2))
-                    damagePlayer(1, PlayerDamageSoundType::Hot, false);
+                
+                damagePlayerWithCooldown(1, PlayerDamageSoundType::Hot, false);
             }
 
             if(temp < -20.0) {
                 cam.shake(temp / -0.1);
             } if(temp < -27.0) {
-                damagePlayer(1, PlayerDamageSoundType::Cold, false);
+                damagePlayerWithCooldown(1, PlayerDamageSoundType::Cold, false);
             }
         }
 
@@ -35,6 +35,20 @@ class PlayerHealthManager {
             }
 
             checkPlayerHealth();
+        }
+
+        sf::Clock clock;
+
+        void damagePlayerWithCooldown(const int damage, const PlayerDamageSoundType soundType, bool goToDamageState = true) {
+            clock.restart();
+
+            const float cooldown = 0.8f;
+
+            if(clock.getElapsedTime().asSeconds() > cooldown) {
+                clock.restart();
+                damagePlayer(damage, soundType, goToDamageState);
+            }
+
         }
 
         void checkPlayerHealth() {

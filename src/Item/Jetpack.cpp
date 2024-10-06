@@ -7,8 +7,6 @@ void Jetpack::update(World &world, const sf::Vector2f &mousePos, const sf::Vecto
     gun_spr.setPosition(pos.x + 9, pos.y + 13);
 
     if(isEnabled) {
-        player.getPhysicsComponent().velocity.y -= (float)thrust * 0.5;
-
         if(thrust == 0) {
             if(player.getPhysicsComponent().velocity.y < 0.f)  
                 player.getPhysicsComponent().velocity.y += 0.1;
@@ -16,8 +14,8 @@ void Jetpack::update(World &world, const sf::Vector2f &mousePos, const sf::Vecto
                 player.getPhysicsComponent().velocity.y -= 0.1;
         }
 
-        if(player.getPhysicsComponent().velocity.y < -5.5) {
-            player.getPhysicsComponent().velocity.y -= .01;
+        if(player.getPhysicsComponent().velocity.y > -3.5) {
+            player.getPhysicsComponent().velocity.y -= .15 * dt;
         }
 
         if(SFX::rocket.getStatus() != sf::SoundSource::Status::Playing) {
@@ -32,7 +30,7 @@ void Jetpack::update(World &world, const sf::Vector2f &mousePos, const sf::Vecto
             particleColor.b += math::randIntInRange(0, 100);
 
             sf::Vector2f vel = sf::Vector2f(
-                math::randFloat() * player.getPhysicsComponent().velocity.y, math::randFloat() * 30.0
+                math::randFloat() * player.getPhysicsComponent().velocity.y, math::randFloat() * 10.0
             );
 
             if(math::randIntInRange(0, 1) == 0) {

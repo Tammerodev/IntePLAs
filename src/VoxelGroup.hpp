@@ -55,7 +55,13 @@ public:
         float width  = 1.f;
         float height = 1.f;
 
-        infoFileStream >> left >> top >> width >> height;
+        std::string extraPropeties = "";
+        int nutritionPropeties = 0;
+
+        infoFileStream >> left >> top >> width >> height >> extraPropeties >> nutritionPropeties;
+
+        propeties.info = extraPropeties;
+        propeties.nutrition = nutritionPropeties;
 
         if (infoFileStream.fail()) {
             prnerr("Error reading values from file", "!");
@@ -134,7 +140,10 @@ public:
         infoFileStream << vertSpr.getVertex(0).position.y   << '\n';
         infoFileStream << tex.getSize().x << '\n';
         infoFileStream << tex.getSize().y << '\n';
+        infoFileStream << propeties.info << '\n';
+        infoFileStream << propeties.nutrition << '\n';
 
+        infoFileStream.flush();
         infoFileStream.close();
         destroy();
     }

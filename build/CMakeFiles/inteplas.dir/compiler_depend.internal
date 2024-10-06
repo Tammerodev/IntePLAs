@@ -1745,9 +1745,6 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o
  /usr/include/c++/11/bits/stl_numeric.h
  /usr/include/c++/11/bit
  /usr/include/c++/11/pstl/glue_numeric_defs.h
- /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
- /home/lauri/Documents/inteplas/src/PhysicsComponent.hpp
- /usr/include/SFML/Main.hpp
  /home/lauri/Documents/inteplas/src/common.hpp
  /usr/include/c++/11/iostream
  /usr/include/c++/11/istream
@@ -1758,6 +1755,9 @@ CMakeFiles/inteplas.dir/src/FireEffectManager.cpp.o
  /usr/include/c++/11/chrono
  /usr/include/c++/11/ratio
  /usr/include/c++/11/bits/parse_numbers.h
+ /home/lauri/Documents/inteplas/src/Particle/DebrisParticle.hpp
+ /home/lauri/Documents/inteplas/src/PhysicsComponent.hpp
+ /usr/include/SFML/Main.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerGlobal.hpp
  /home/lauri/Documents/inteplas/src/Player/PlayerState.hpp
  /usr/include/c++/11/list
@@ -2254,6 +2254,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -2275,6 +2276,7 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -2320,7 +2322,6 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /home/lauri/Documents/inteplas/src/MobInfoBar.hpp
  /home/lauri/Documents/inteplas/src/TextLabel.hpp
  /home/lauri/Documents/inteplas/src/FontManager.hpp
- /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/MeatPropeties.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp
@@ -2501,6 +2502,8 @@ CMakeFiles/inteplas.dir/src/Game.cpp.o
  /usr/include/TGUI/Widgets/SpinButton.hpp
  /usr/include/TGUI/Renderers/SpinButtonRenderer.hpp
  /usr/include/TGUI/Widgets/SpinControl.hpp
+ /usr/include/TGUI/Widgets/SplitContainer.hpp
+ /usr/include/TGUI/Renderers/SplitContainerRenderer.hpp
  /usr/include/TGUI/Widgets/Tabs.hpp
  /usr/include/TGUI/Renderers/TabsRenderer.hpp
  /usr/include/TGUI/Widgets/TabContainer.hpp
@@ -3040,6 +3043,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -3061,6 +3065,7 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -3106,7 +3111,6 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /home/lauri/Documents/inteplas/src/MobInfoBar.hpp
  /home/lauri/Documents/inteplas/src/TextLabel.hpp
  /home/lauri/Documents/inteplas/src/FontManager.hpp
- /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/MeatPropeties.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp
@@ -3287,6 +3291,8 @@ CMakeFiles/inteplas.dir/src/GameState.cpp.o
  /usr/include/TGUI/Widgets/SpinButton.hpp
  /usr/include/TGUI/Renderers/SpinButtonRenderer.hpp
  /usr/include/TGUI/Widgets/SpinControl.hpp
+ /usr/include/TGUI/Widgets/SplitContainer.hpp
+ /usr/include/TGUI/Renderers/SplitContainerRenderer.hpp
  /usr/include/TGUI/Widgets/Tabs.hpp
  /usr/include/TGUI/Renderers/TabsRenderer.hpp
  /usr/include/TGUI/Widgets/TabContainer.hpp
@@ -3827,6 +3833,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -3848,6 +3855,7 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -3893,7 +3901,6 @@ CMakeFiles/inteplas.dir/src/Item/Jetpack.cpp.o
  /home/lauri/Documents/inteplas/src/MobInfoBar.hpp
  /home/lauri/Documents/inteplas/src/TextLabel.hpp
  /home/lauri/Documents/inteplas/src/FontManager.hpp
- /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/MeatPropeties.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp
@@ -4833,6 +4840,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -4854,6 +4862,7 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -5040,6 +5049,8 @@ CMakeFiles/inteplas.dir/src/MaterialsUI.cpp.o
  /usr/include/TGUI/Widgets/SpinButton.hpp
  /usr/include/TGUI/Renderers/SpinButtonRenderer.hpp
  /usr/include/TGUI/Widgets/SpinControl.hpp
+ /usr/include/TGUI/Widgets/SplitContainer.hpp
+ /usr/include/TGUI/Renderers/SplitContainerRenderer.hpp
  /usr/include/TGUI/Widgets/Tabs.hpp
  /usr/include/TGUI/Renderers/TabsRenderer.hpp
  /usr/include/TGUI/Widgets/TabContainer.hpp
@@ -5533,6 +5544,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -5554,6 +5566,7 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -5588,7 +5601,6 @@ CMakeFiles/inteplas.dir/src/Mob/Fish/Fish.cpp.o
  /home/lauri/Documents/inteplas/src/MobInfoBar.hpp
  /home/lauri/Documents/inteplas/src/TextLabel.hpp
  /home/lauri/Documents/inteplas/src/FontManager.hpp
- /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/MeatPropeties.hpp
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishDamageState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Fish/FishState.hpp
@@ -6071,6 +6083,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -6092,6 +6105,7 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -6126,7 +6140,6 @@ CMakeFiles/inteplas.dir/src/Mob/Frog/Frog.cpp.o
  /home/lauri/Documents/inteplas/src/MobInfoBar.hpp
  /home/lauri/Documents/inteplas/src/TextLabel.hpp
  /home/lauri/Documents/inteplas/src/FontManager.hpp
- /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/MeatPropeties.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp
@@ -6606,6 +6619,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -6627,6 +6641,7 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -6661,7 +6676,6 @@ CMakeFiles/inteplas.dir/src/Mob/Mob.cpp.o
  /home/lauri/Documents/inteplas/src/MobInfoBar.hpp
  /home/lauri/Documents/inteplas/src/TextLabel.hpp
  /home/lauri/Documents/inteplas/src/FontManager.hpp
- /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/MeatPropeties.hpp
 
 CMakeFiles/inteplas.dir/src/MobManager.cpp.o
@@ -7138,6 +7152,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -7159,6 +7174,7 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -7193,7 +7209,6 @@ CMakeFiles/inteplas.dir/src/MobManager.cpp.o
  /home/lauri/Documents/inteplas/src/MobInfoBar.hpp
  /home/lauri/Documents/inteplas/src/TextLabel.hpp
  /home/lauri/Documents/inteplas/src/FontManager.hpp
- /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/MeatPropeties.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp
@@ -10892,6 +10907,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -10913,6 +10929,7 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -10958,7 +10975,6 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /home/lauri/Documents/inteplas/src/MobInfoBar.hpp
  /home/lauri/Documents/inteplas/src/TextLabel.hpp
  /home/lauri/Documents/inteplas/src/FontManager.hpp
- /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/MeatPropeties.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp
@@ -11139,6 +11155,8 @@ CMakeFiles/inteplas.dir/src/UIStateManager.cpp.o
  /usr/include/TGUI/Widgets/SpinButton.hpp
  /usr/include/TGUI/Renderers/SpinButtonRenderer.hpp
  /usr/include/TGUI/Widgets/SpinControl.hpp
+ /usr/include/TGUI/Widgets/SplitContainer.hpp
+ /usr/include/TGUI/Renderers/SplitContainerRenderer.hpp
  /usr/include/TGUI/Widgets/Tabs.hpp
  /usr/include/TGUI/Renderers/TabsRenderer.hpp
  /usr/include/TGUI/Widgets/TabContainer.hpp
@@ -12271,6 +12289,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -12292,6 +12311,7 @@ CMakeFiles/inteplas.dir/src/VoxelManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -12795,6 +12815,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -12816,6 +12837,7 @@ CMakeFiles/inteplas.dir/src/WeatherManager.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -13329,6 +13351,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -13350,6 +13373,7 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Shader.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
@@ -13395,7 +13419,6 @@ CMakeFiles/inteplas.dir/src/World.cpp.o
  /home/lauri/Documents/inteplas/src/MobInfoBar.hpp
  /home/lauri/Documents/inteplas/src/TextLabel.hpp
  /home/lauri/Documents/inteplas/src/FontManager.hpp
- /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/MeatPropeties.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp
@@ -13913,6 +13936,8 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /usr/include/TGUI/Widgets/SpinButton.hpp
  /usr/include/TGUI/Renderers/SpinButtonRenderer.hpp
  /usr/include/TGUI/Widgets/SpinControl.hpp
+ /usr/include/TGUI/Widgets/SplitContainer.hpp
+ /usr/include/TGUI/Renderers/SplitContainerRenderer.hpp
  /usr/include/TGUI/Widgets/Tabs.hpp
  /usr/include/TGUI/Renderers/TabsRenderer.hpp
  /usr/include/TGUI/Widgets/TabContainer.hpp
@@ -14076,6 +14101,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/MobType.hpp
  /home/lauri/Documents/inteplas/src/Biome/Ocean.hpp
  /home/lauri/Documents/inteplas/src/Biome/Mountains.hpp
+ /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/Elements/Acid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityFluid.hpp
  /home/lauri/Documents/inteplas/src/Elements/GravityElement.hpp
@@ -14097,6 +14123,7 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/Elements/Butane.hpp
  /home/lauri/Documents/inteplas/src/Elements/FlammableGas.hpp
  /home/lauri/Documents/inteplas/src/Elements/Snow.hpp
+ /home/lauri/Documents/inteplas/src/Elements/MoltenMetal.hpp
  /home/lauri/Documents/inteplas/src/Player/Player.hpp
  /home/lauri/Documents/inteplas/src/Player/IdleState.hpp
  /home/lauri/Documents/inteplas/src/Player/WalkState.hpp
@@ -14141,7 +14168,6 @@ CMakeFiles/inteplas.dir/src/main.cpp.o
  /home/lauri/Documents/inteplas/src/MobInfoBar.hpp
  /home/lauri/Documents/inteplas/src/TextLabel.hpp
  /home/lauri/Documents/inteplas/src/FontManager.hpp
- /home/lauri/Documents/inteplas/src/AddVoxelGroups.hpp
  /home/lauri/Documents/inteplas/src/VoxelGroupPropeties/MeatPropeties.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogDamageState.hpp
  /home/lauri/Documents/inteplas/src/Mob/Frog/FrogState.hpp

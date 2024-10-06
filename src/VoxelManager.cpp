@@ -217,9 +217,10 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent, Shade
 
             if(contactPos != sf::Vector2i(0, 0)) {
                 chIndexer.voxelsInNeedOfUpdate.push_back(sf::Vector2i(contactPos.x, contactPos.y));
-                chIndexer.heatVoxelAt(contactPos.x, contactPos.y, 10);
+                hole(contactPos, 6, false, 10);
 
-                if(chIndexer.boundGetVoxelAt(position.x, position.y).temp > elm::getInfoFromType(VoxelValues::URANIUM235).max_temp) {
+                // An (nuclear) explosion should only occur when critical U235 is exploded
+                if(chIndexer.boundGetVoxelAt(position.x, position.y).temp > 2700) {
                     gameEvent = GameEventEnum::Event::Nuclear_Explosion;
                     EventGlobals::position = position;
                 }   
@@ -240,11 +241,27 @@ void VoxelManager::update(Player &player, GameEventEnum::Event& gameEvent, Shade
     {
         Voxel& voxel = chIndexer.getVoxelAt(i->x, i->y);
 
-        if(voxel.temp > 0)
+        if(voxel.temp > 0) {
+            heatVoxelAt(i->x, i->y, -1);
+        }
 
-        heatVoxelAt(i->x, i->y, -1);
+        // Make things melt
+
+        if(voxel.temp > elm::getInfoFromType(voxel.value).melt_temp && (
+            voxel.value == VoxelValues::ALUMINIUM ||
+            voxel.value == VoxelValues::LEAD ||
+            voxel.value == VoxelValues::COPPER ||
+            voxel.value == VoxelValues::TITANIUM ||
+            voxel.value == VoxelValues::URANIUM235 ||
+            voxel.value == VoxelValues::RADIUM226
+        )) {
+            addElement(i->x, i->y, std::make_shared<MoltenMetal>(i->x, i->y, voxel.value, voxel.temp));
+        }
 
         if(voxel.temp <= 0 || voxel.value == 0) {
+            // Reset temparature
+            voxel.temp = 0;
+
             i = chIndexer.voxelsInNeedOfUpdate.erase(i); 
             i++;
         }

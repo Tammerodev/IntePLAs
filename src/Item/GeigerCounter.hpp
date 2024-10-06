@@ -67,12 +67,10 @@ public:
 		const float rotationAngle = atan2f(mousePos.y - gun_spr.getPosition().y, mousePos.x - gun_spr.getPosition().x) * 180 / math::PI;
 		const bool click = PlayerGlobal::radiation_received > 1;
 
-		prndd(PlayerGlobal::radiation_received);
-
 		gun_spr.setPosition(pos.x + 9, pos.y + 13);
 		gun_spr.setRotation(rotationAngle);
 
-		if(click) {
+		if(math::randFloat() < PlayerGlobal::radiation_received) {
 			SFX::geigerCounter.play();
 		}
 
