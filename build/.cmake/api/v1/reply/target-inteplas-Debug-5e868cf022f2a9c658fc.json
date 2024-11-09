@@ -173,7 +173,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libtgui.so.1.4.1",
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libtgui.so.1.6.1",
 				"role" : "libraries"
 			},
 			{
